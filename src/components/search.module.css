@@ -2,7 +2,7 @@
 .root input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
 .clear { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border: 0; border-radius: 5px; padding: 0; color: var(--color-muted); background: transparent; }
 .clear:hover { color: var(--color-brand-dark); background: var(--color-brand-soft); }
-.menu { position: absolute; z-index: 60; inset-inline: -1px; top: calc(100% + 9px); padding: 0; border: 1px solid var(--color-line); border-radius: 12px; background: #fff; box-shadow: 0 14px 38px color-mix(in srgb,var(--color-ink) 12%,transparent),0 3px 8px color-mix(in srgb,var(--color-ink) 4%,transparent); overflow: hidden; }
+.menu { position: absolute; z-index: 60; inset-inline: -1px; top: calc(100% + 9px); padding: 0; border: 1px solid var(--color-line); border-radius: 12px; background: var(--search-menu-bg,#fff); box-shadow: 0 14px 38px #0000001f,0 3px 8px #0000000a; overflow: hidden; }
 .menuHeading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px 10px; color: var(--color-muted); font-size: 11px; line-height: 1.5; }
 .menuHeading>span:first-child { font-weight: 650; }
 .menuHeading>span:last-child { font-variant-numeric: tabular-nums; }
@@ -22,7 +22,7 @@
 .menuFooter button { display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; border: 0; background: none; font-size: 12px; font-weight: 600; line-height: 1.6; color: var(--color-brand-dark); white-space: nowrap; }
 .menuFooter button:hover { text-decoration: underline; text-underline-offset: 4px; }
 .keyHint { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted); font-size: 10px; white-space: nowrap; }
-.keyHint kbd { display: inline-grid; place-items: center; height: 19px; min-width: 17px; padding-inline: 3px; font: inherit; color: var(--color-text-secondary); background: white; border: 1px solid var(--color-line); border-radius: 3px; }
+.keyHint kbd { display: inline-grid; place-items: center; height: 19px; min-width: 17px; padding-inline: 3px; font: inherit; color: var(--color-text-secondary); background: var(--search-key-bg,#fff); border: 1px solid var(--color-line); border-radius: 3px; }
 .keyHint>span { margin-inline: 3px; }
 @media(max-width:600px) {
   .menu { border-radius: 9px; top: calc(100% + 7px); }

@@ -1,9 +1,9 @@
-import {Plus_Jakarta_Sans} from "next/font/google";
+import {Inter} from "next/font/google";
 
-// Self-host the requested Google Fonts family, including weights 300–800.
-export const jakarta = Plus_Jakarta_Sans({
+// Self-host the shared UI font; Inter is the provisional match for the Folio reference.
+export const siteFont = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jakarta",
+  variable: "--font-site",
   weight: "variable",
 });
