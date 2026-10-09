@@ -16,7 +16,6 @@
 .filters button:hover { color: var(--color-brand-dark); background: var(--color-surface); }
 .featuredLayout { display: grid; gap: 24px; }
 .featuredGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
-.featuredGrid>article { min-height: 216px; }
 .spotlight { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,.65fr); gap: 72px; align-items: center; position: relative; isolation: isolate; overflow: hidden; border-radius: 12px; color: #fff; padding: 32px 38px; background: linear-gradient(112deg,var(--color-brand-dark),#064b38); }
 .spotlightCopy { max-width: 490px; }
 .spotlightLabel { display: block; font-size: 10px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--color-on-brand-muted); }
@@ -76,7 +75,6 @@
 @media(max-width:1100px) {
   .confidenceInner,.faq { gap: 56px; }
   .featuredGrid { gap: 12px; }
-  .featuredGrid>article { min-height: 236px; }
   .category { padding-inline: 20px; }
   .spotlight { gap: 42px; }
 }
@@ -86,7 +84,6 @@
   .sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: 29px; }
   .sectionHeading p { font-size: 14px; }
   .featuredGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
-  .featuredGrid>article { min-height: 206px; }
   .spotlight { padding: 28px; gap: 28px; grid-template-columns: 1fr 1fr; }
   .spotlight h3 { font-size: 27px; }
   .categoryGrid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 32px; }
@@ -113,7 +110,6 @@
   .filters { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 0; margin-bottom: 18px; }
   .filters button,.filters button:first-child { font-size: 11px; padding: 8px 3px 11px; }
   .featuredGrid { gap: 12px; }
-  .featuredGrid>article { min-height: 230px; }
   .featuredLayout { gap: 20px; }
   .spotlight { display: block; padding: 26px; border-radius: 10px; }
   .spotlight h3 { font-size: 28px; }
@@ -143,5 +139,4 @@
 }
 @media(max-width:360px) {
   .featuredGrid { grid-template-columns: 1fr; }
-  .featuredGrid>article { min-height: 190px; }
 }
