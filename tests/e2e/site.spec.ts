@@ -1,8 +1,8 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-test('homepage links and search',async({page})=>{await page.goto('/');await expect(page.getByRole('heading',{level:1})).toHaveText('Find your answer.');await page.getByRole('searchbox',{name:'Search calculators'}).fill('mortgage');await page.getByRole('button',{name:'Search',exact:true}).click();await expect(page).toHaveURL(/search\?q=mortgage/);await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();await page.goto('/search?q=zzzz-no-match');await expect(page.getByRole('heading',{name:'No matching calculators'})).toBeVisible();});
+test('homepage links and search',async({page})=>{await page.goto('/');await expect(page.getByRole('heading',{level:1})).toHaveText('Find your answer.');await page.getByRole('combobox',{name:'Search calculators'}).fill('mortgage');await page.getByRole('button',{name:'Search',exact:true}).click();await expect(page).toHaveURL(/search\?q=mortgage/);await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();await page.goto('/search?q=zzzz-no-match');await expect(page.getByRole('heading',{name:'No matching calculators'})).toBeVisible();});
 test('homepage category filters and keyboard search',async({page})=>{
-  await page.goto('/');const input=page.getByRole('searchbox',{name:'Search calculators'});
+  await page.goto('/');const input=page.getByRole('combobox',{name:'Search calculators'});
   await page.keyboard.press('/');await expect(input).toBeFocused();await input.fill('bmi');await page.keyboard.press('/');await expect(input).toHaveValue('bmi/');
   const filters=page.getByRole('group',{name:'Filter featured calculators'});
   for(const [label,category] of [['Finance','finance'],['Health','health'],['Math','math'],['Everyday','everyday']]){
