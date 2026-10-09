@@ -8,55 +8,6 @@
 .sectionLink:hover { text-decoration: underline; }
 .sectionHeading>.sectionLink { white-space: nowrap; padding-block: 7px; }
 
-/* Folio's measured hero typography, with Finflo's green accent. */
-.intro {
-  --color-ink: #fff;
-  --color-muted: #bcbcbc;
-  --color-text-secondary: #d1d1d1;
-  --color-line: #393939;
-  --color-line-strong: #525252;
-  --color-surface: #242424;
-  --color-brand: #0f9b70;
-  --color-brand-dark: #15ab7e;
-  --color-brand-soft: #203b30;
-  --color-focus: #0f9b70;
-  --color-selected: #255f47;
-  --search-menu-bg: #242424;
-  --search-key-bg: #303030;
-  color-scheme: dark;
-  color: var(--color-ink);
-  background: #191919;
-  border-bottom: 1px solid var(--color-line);
-  min-height: clamp(459px,calc(361px + 12.3vw),530px);
-  display: flex;
-  align-items: center;
-  padding-block: 64px 32px;
-  text-align: center;
-}
-.introInner { max-width: 760px; padding: 0; }
-.heroEyebrow { display: block; color: var(--color-brand); font-size: 13px; line-height: 1.6; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
-.intro h1 { max-width: 720px; font-size: clamp(46px,5.8vw,78px); font-weight: 800; line-height: 1.06; letter-spacing: -.065em; color: var(--color-ink); margin: 0 auto 22px; text-wrap: balance; }
-.intro h1 span { color: var(--color-brand); }
-.heroDescription { max-width: 580px; color: var(--color-muted); font-size: clamp(15px,1.4vw,17px); font-weight: 400; line-height: 1.8; margin: 0 auto 30px; text-wrap: balance; }
-.searchWrap { width: 100%; max-width: 680px; margin-inline: auto; }
-.searchWrap :global(.search) { background: var(--color-surface); border: 1px solid var(--color-line-strong); border-radius: 9px; padding: 5px 5px 5px 18px; gap: 12px; box-shadow: 0 4px 14px #00000014; }
-.searchWrap :global(.search:focus-within) { border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
-.searchWrap :global(.search input) { height: 42px; font-size: 14px; }
-.searchWrap :global(.search .button) { color: #fff; background: #087f5b; border-radius: 6px; min-height: 44px; padding-inline: 24px; }
-.searchWrap :global(.search .button:hover) { background: #056345; }
-.heroFooter { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 680px; margin: 20px auto 0; font-size: 14px; line-height: 1.6; }
-.searchUnder { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 16px 24px; }
-.quickSearches { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; color: var(--color-muted); }
-.quickSearches a { color: var(--color-text-secondary); text-decoration: underline; text-decoration-color: var(--color-line-strong); text-underline-offset: 4px; }
-.quickSearches a:hover { color: var(--color-brand); text-decoration-color: currentColor; }
-.searchHint { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-size: 10px; color: var(--color-muted); }
-.searchHint kbd { display: inline-grid; place-items: center; width: 19px; height: 21px; font-family: inherit; border: 1px solid var(--color-line-strong); border-radius: 4px; background: var(--search-key-bg); }
-.searchScope { color: var(--color-muted); font-size: 12px; line-height: 1.65; margin-top: 16px; }
-.searchScope button { border: 0; padding: 0; background: none; text-decoration: underline; color: var(--color-brand-dark); }
-.promises { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 22px; }
-.promises span { display: inline-flex; align-items: center; gap: 8px; color: var(--color-muted); }
-.promises svg { color: var(--color-brand); }
-
 /* A consistent row of useful tools, with one separate topical feature. */
 .filters { display: flex; align-items: center; gap: 5px; margin-bottom: 22px; border-bottom: 1px solid var(--color-line); }
 .filters button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; color: var(--color-muted); background: transparent; padding: 9px 18px 12px; margin-bottom: -1px; font-size: 13px; line-height: 1.5; font-weight: 550; }
@@ -123,7 +74,6 @@
 .closing>a { white-space: nowrap; }
 
 @media(max-width:1100px) {
-  .searchHint { display: none; }
   .confidenceInner,.faq { gap: 56px; }
   .featuredGrid { gap: 12px; }
   .featuredGrid>article { min-height: 236px; }
@@ -153,21 +103,7 @@
   .closing h2 { font-size: 21px; }
   .closing>a { font-size: 13px; padding-inline: 18px; }
 }
-@media(max-width:700px) {
-  .intro { min-height: 530px; padding-block: 42px 28px; }
-  .intro h1 { font-size: clamp(37px,8vw,54px); letter-spacing: -.055em; }
-  .heroDescription { font-size: 15px; }
-  .heroFooter { gap: 16px; font-size: 13px; }
-}
-@media(max-width:480px) { .intro { min-height: 593px; } }
 @media(max-width:600px) {
-  .searchWrap :global(.search) { gap: 8px; padding-left: 12px; }
-  .searchWrap :global(.search input) { font-size: 16px; }
-  .searchWrap :global(.search .button) { padding-inline: 15px; font-size: 13px; }
-  .quickSearches { gap: 12px; }
-  .searchHint { display: none; }
-  .promises { gap: 10px 16px; }
-  .promises span { gap: 6px; }
   .section { padding-block: 40px; }
   .sectionHeading { display: block; margin-bottom: 22px; }
   .sectionHeading>.sectionLink { margin-top: 10px; padding: 0; }
@@ -206,8 +142,6 @@
   .closing h2 { font-size: 23px; }
 }
 @media(max-width:360px) {
-  .intro { min-height: 659px; }
-  .promises { gap: 8px; }
   .featuredGrid { grid-template-columns: 1fr; }
   .featuredGrid>article { min-height: 190px; }
 }
