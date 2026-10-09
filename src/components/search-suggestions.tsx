@@ -1,6 +1,6 @@
 import {useEffect,useRef} from "react";
 import {ChevronRight,SearchX} from "lucide-react";
-import {Icon,toolIconName} from "@/components/ui/icon";
+import {ToolIcon} from "@/components/ui/tool-icon";
 import {categoryLabels,type CategoryId} from "@/lib/site";
 import type {CatalogEntry} from "@/lib/calculators/types";
 import styles from "./search.module.css";
@@ -33,7 +33,7 @@ export function SearchSuggestions({id,matches,total,activeIndex,category,onActiv
     <ul ref={listRef} id={id} role="listbox" aria-labelledby={`${id}-label`} className={styles.list}>
       {matches.map((tool,index)=><li key={tool.slug} id={`${id}-${index}`} role="option" aria-selected={activeIndex===index} tabIndex={-1} className={styles.option}
         onMouseDown={event=>event.preventDefault()} onPointerMove={event=>{if(event.pointerType==="mouse")onActive(index);}} onClick={()=>onSelect(tool.slug)}>
-        <span className={styles.optionIcon}><Icon name={toolIconName(tool.slug,tool.category)} size={21}/></span>
+        <span className={styles.optionIcon}><ToolIcon slug={tool.slug} size={21}/></span>
         <span className={styles.optionCopy}><span className={styles.optionTitle}>{tool.title}</span><span className={styles.optionCategory}>{categoryLabels[tool.category]}<span aria-hidden="true"> · </span>{tool.subcategory}</span></span>
         <ChevronRight className={styles.chevron} size={16} aria-hidden="true"/>
       </li>)}

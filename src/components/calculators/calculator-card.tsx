@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {ChevronRight} from "lucide-react";
-import {Icon,toolIconName} from "@/components/ui/icon";
+import {ToolIcon} from "@/components/ui/tool-icon";
 import {categoryLabels,type CategoryId} from "@/lib/site";
 import styles from "./calculator-card.module.css";
 
@@ -20,7 +20,7 @@ export function CalculatorCard({tool,size="regular",headingLevel=3}:CalculatorCa
   return <article className={`${styles.card} ${size==="compact"?styles.compact:""}`} data-calculator-card={tool.slug} data-category={tool.category} data-status={tool.status||"available"}>
     <Link className={styles.link} href={`/${tool.slug}`} aria-label={tool.title} prefetch={false}>
       <div className={styles.header}>
-        <span className={styles.iconWrap}><Icon name={toolIconName(tool.slug,tool.category)} size={22}/></span>
+        <span className={styles.iconWrap}><ToolIcon slug={tool.slug} size={22}/></span>
         <Heading className={styles.title}>{tool.title}</Heading>
       </div>
       <p className={styles.description}>{tool.description}</p>

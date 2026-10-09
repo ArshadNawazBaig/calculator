@@ -4,7 +4,7 @@ import Link from "next/link";
 import {Button,Dialog,DialogTrigger,Heading,Modal,ModalOverlay} from "react-aria-components";
 import {ChevronRight,Search as SearchIcon,X} from "lucide-react";
 import {Search} from "@/components/search";
-import {Icon,toolIconName} from "@/components/ui/icon";
+import {ToolIcon} from "@/components/ui/tool-icon";
 import styles from "./header.module.css";
 
 const popular=[
@@ -28,7 +28,7 @@ export function HeaderSearch(){
           <div className={styles.searchHeading}><Heading slot="title">Find a calculator</Heading><Button slot="close" className={styles.closeSearch} aria-label="Close search"><X size={20} aria-hidden="true"/></Button></div>
           <Search autoFocus onNavigate={()=>setOpen(false)} placeholder="Search calculators…"/>
           <p className={styles.popularLabel}>Popular calculators</p>
-          <div className={styles.popularLinks}>{popular.map(tool=><Link key={tool.slug} href={`/${tool.slug}`} onClick={()=>setOpen(false)}><span className={styles.popularIcon}><Icon name={toolIconName(tool.slug,tool.category)} size={20}/></span><span><strong>{tool.label}</strong><small>{tool.description}</small></span><ChevronRight size={16} aria-hidden="true"/></Link>)}</div>
+          <div className={styles.popularLinks}>{popular.map(tool=><Link key={tool.slug} href={`/${tool.slug}`} onClick={()=>setOpen(false)}><span className={styles.popularIcon}><ToolIcon slug={tool.slug} size={20}/></span><span><strong>{tool.label}</strong><small>{tool.description}</small></span><ChevronRight size={16} aria-hidden="true"/></Link>)}</div>
           <div className={styles.searchFooter}><span>Free tools for everyday decisions.</span><span><kbd>Esc</kbd> to close</span></div>
         </Dialog>
       </Modal>
