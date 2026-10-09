@@ -1,12 +1,12 @@
 # Deployment
 
-The private preview deployed successfully on October 9, 2026: [Open Finflo](https://finflo-calculators.qasim174298.chatgpt.site). The native deployment records source commit `d8821c442b260a03015a4c9a6d4ec69d3a189047`; see [deployment evidence](validation/deployment.json). This post-deployment documentation update does not change the deployed application. The domain `finflo.org` is not attached, and public indexing remains disabled.
+Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`, but DNS and Railway custom-domain registration remain incomplete; the domain is not yet reachable.
 
 ## Railway
 
 The `finflo` service uses the existing `ArshadNawazBaig/calculator` repository and its `main` branch. Its Railway URL is https://finflo-production-16af.up.railway.app. Deployment settings are checked in as `.railway/railway.ts`: Railpack builds with Node.js 22 and `npm run build`, then runs `npm run start`. The server listens on `0.0.0.0` and Railway's `PORT`; `/api/health` must return a successful response before traffic is routed to a new deployment.
 
-The service has no database or volume. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=false`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. Keep the temporary Railway address out of search until `finflo.org` is connected and the public launch settings are ready. Change `NEXT_PUBLIC_` values before rebuilding.
+The service has no database or volume. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=true`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. The production build generates indexable metadata and the canonical sitemap; the request proxy applies `X-Robots-Tag: noindex, follow` on every noncanonical hostname, including the temporary Railway address. Change `NEXT_PUBLIC_` values before rebuilding. Dedicated preview builds should continue to set `NEXT_PUBLIC_INDEXABLE=false`.
 
 To link the Railway CLI to this service:
 
@@ -26,7 +26,7 @@ Domain setup is pending. Railway's CLI and public API rejected creation of both 
 
 Use the existing Vercel DNS account, as for `thebestfreepdf.com`: `finflo.org` is already listed under `arshadnawazbaigs-projects`, with no DNS records. Its current authoritative nameservers remain GoDaddy's `ns01.domaincontrol.com` and `ns02.domaincontrol.com`. Folio uses Vercel's `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, with a root ALIAS targeting its Railway hostname. Vercel DNS supports apex ALIAS records; see [Working with DNS](https://vercel.com/docs/domains/working-with-dns).
 
-To finish, add both custom domains to the Railway service's Public Networking settings on port `8080`. Use the exact records returned by Railway: an apex ALIAS and verification TXT for `finflo.org`, plus a CNAME and verification TXT for `www.finflo.org`. Do not reuse Folio's target or verification values. After preparing the Vercel DNS zone and preserving any existing mail/verification records at the registrar, switch the domain's nameservers to Vercel's. Verify Railway ownership, certificates, HTTPS responses, and the www redirect before enabling indexing and rebuilding.
+To finish, add both custom domains to the Railway service's Public Networking settings on port `8080`. Use the exact records returned by Railway: an apex ALIAS and verification TXT for `finflo.org`, plus a CNAME and verification TXT for `www.finflo.org`. Do not reuse Folio's target or verification values. After preparing the Vercel DNS zone and preserving any existing mail/verification records at the registrar, switch the domain's nameservers to Vercel's. Indexing configuration is already prepared; verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain before submitting it to Search Console.
 
 ## Portable native Next.js runtime
 

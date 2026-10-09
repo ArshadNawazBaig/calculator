@@ -1,6 +1,14 @@
 # Launch and search plan
 
-Finflo has server-rendered descriptions, methods, assumptions, worked examples, primary references, useful FAQs, canonical URLs, crawlable category links, breadcrumbs, social images and visible-content JSON-LD. Search/filter pages are noindex. Public previews remain noindex and their XML sitemap is empty. Unavailable tool pages are always noindex. No ratings, expert reviews, special AI schema or ranking guarantees are invented.
+Finflo has server-rendered descriptions, methods, assumptions, worked examples, primary references, useful FAQs, canonical URLs, crawlable category links, breadcrumbs, social images and visible-content JSON-LD. Search pages are noindex. Dedicated preview builds remain noindex with an empty XML sitemap. The production build uses indexable metadata, but all noncanonical hostnames retain an HTTP noindex header. Unavailable tool pages are always noindex. No ratings, expert reviews, special AI schema or ranking guarantees are invented.
+
+## Current indexing readiness
+
+The production build was checked with indexing enabled and the `finflo.org` Host header. All 242 sitemap URLs returned HTTP 200, had matching canonical URLs, titles, descriptions and one H1, and allowed indexing. All 245 distinct internal link paths resolved. Search, status and unavailable pages remained noindex and excluded from the sitemap; unknown pages returned a real 404. The www redirect preserves paths and query strings, and the temporary Railway hostname retains noindex. See [the indexing audit](validation/indexing-readiness.json). These checks establish application behavior, not live custom-domain connectivity or Google's indexing decision.
+
+**Remaining blocker:** `finflo.org` has no public A/AAAA record, and Railway rejected custom-domain creation. Follow [the domain setup](deployment.md#custom-domain), then verify HTTPS, redirects, headers, `/robots.txt`, and `/sitemap.xml` on the actual domain. Do not report the website as ready for Google to crawl until that succeeds.
+
+After the domain works, add a Domain property for `finflo.org` in Google Search Console and publish the exact verification TXT record Google provides at the active DNS provider. Once verified, submit `https://finflo.org/sitemap.xml`. Use URL Inspection's live test on the homepage and representative calculator pages, then request indexing. Verification and sitemap submission have not been performed; the user is handling Search Console registration. See [Google's sitemap submission guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 
 ## Release prerequisites
 
