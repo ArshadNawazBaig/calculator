@@ -1,22 +1,16 @@
 import Link from "next/link";
 import {categorySlug} from "@/lib/catalog-paths";
-import {Icon, toolIconName} from "@/components/ui/icon";
+import {CalculatorCard} from "@/components/calculators/calculator-card";
+import {calculatorCardData} from "@/lib/calculator-cards";
 import type {CatalogEntry} from "@/lib/calculators/types";
 
-const unavailable=new Set(["mileage-calculator","weight-watchers-points-calculator"]);
-
 export function ToolDirectory({tools,grouped=true}:{tools:CatalogEntry[];grouped?:boolean}) {
-  const groups=grouped?[...new Set(tools.map(t=>t.subcategory))]:[""];
-  return <div className="directory-groups">{groups.map(group => {
-    const category=tools.find(t=>t.subcategory===group)?.category;
+  const groups=grouped?[...new Set(tools.map(tool=>tool.subcategory))]:[""];
+  return <div className="directory-groups">{groups.map(group=>{
+    const category=tools.find(tool=>tool.subcategory===group)?.category;
     return <section key={group} id={group?`${category}-${categorySlug(group)}`:undefined}>
       {group&&<h2><Link href={`/calculators/${category}/${categorySlug(group)}`}>{group}</Link></h2>}
-      <div className="directory-grid">{tools.filter(t=>!group||t.subcategory===group).map(tool =>
-        <Link href={`/${tool.slug}`} key={tool.slug} className="directory-link">
-          <span className="directory-icon"><Icon name={toolIconName(tool.slug,tool.category)} size={21}/></span>
-          <span>{tool.title}{unavailable.has(tool.slug)&&tool.type!=="directory"&&<small>Availability information</small>}</span>
-        </Link>
-      )}</div>
+      <div className="directory-grid">{tools.filter(tool=>!group||tool.subcategory===group).map(tool=><CalculatorCard key={tool.slug} tool={calculatorCardData(tool)}/>)}</div>
     </section>;
   })}</div>;
 }

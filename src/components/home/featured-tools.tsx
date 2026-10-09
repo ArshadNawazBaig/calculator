@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {CalculatorCard} from "@/components/calculators/calculator-card";
 import {Icon} from "@/components/ui/icon";
 import {categoryLabels,type FeaturedTool,type Spotlight} from "@/lib/home-content";
 import styles from "./home.module.css";
@@ -23,10 +24,5 @@ export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
 }
 
 export function FeaturedToolCard({tool}:{tool:FeaturedTool}) {
-  return <article className={styles.featuredCard} data-category={tool.category}>
-    <Icon className={styles.featuredIcon} name={tool.icon} size={31}/>
-    <span className={styles.cardLabel}>{categoryLabels[tool.category]}</span>
-    <h3><Link href={`/${tool.slug}`}>{tool.title}</Link></h3><p>{tool.description}</p>
-    <Link href={`/${tool.slug}`} className={styles.openTool} aria-label={`Open ${tool.title.toLowerCase()} calculator`}>Open calculator</Link>
-  </article>;
+  return <CalculatorCard tool={tool} size="compact"/>;
 }

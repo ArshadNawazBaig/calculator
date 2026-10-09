@@ -1,9 +1,9 @@
-import type {CategoryId} from "@/lib/site";
+import {categoryLabels,type CategoryId} from "@/lib/site";
+export {categoryLabels} from "@/lib/site";
 
 export type HomeCategory = CategoryId | "all";
 export type FeaturedTool = {title:string; slug:string; category:CategoryId; description:string; icon:string};
 export type Spotlight = {category:CategoryId; title:string; description:string; links:{title:string;slug:string}[]};
-export const categoryLabels:Record<CategoryId,string>={finance:"Finance",health:"Health",math:"Math",everyday:"Everyday"};
 export const homeFilters:{id:HomeCategory;label:string}[]=[{id:"all",label:"All tools"},...Object.entries(categoryLabels).map(([id,label])=>({id:id as CategoryId,label}))];
 export const spotlights:Record<CategoryId,Spotlight>={
   finance:{category:"finance",title:"Plan your next move.",description:"Run the numbers. Explore your options. Make more confident decisions.",links:[{title:"Mortgage calculator",slug:"mortgage-calculator"},{title:"Loan calculator",slug:"loan-calculator"},{title:"Retirement calculator",slug:"retirement-calculator"}]},

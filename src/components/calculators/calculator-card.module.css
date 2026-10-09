@@ -1,0 +1,35 @@
+/* One card system for featured, directory, search, and related calculators. */
+.card { --card-accent: var(--color-brand); --card-tint: #f6faff; height: 100%; min-width: 0; border: 1px solid #dbe5ed; border-radius: 8px; background: #fff; transition: border-color .16s, box-shadow .16s, background-color .16s; }
+.card[data-category="health"],.card[data-category="everyday"] { --card-accent: var(--color-accent-dark); --card-tint: #f4fbf8; }
+.card:hover { border-color: color-mix(in srgb,var(--card-accent) 45%,#dbe5ed); background: var(--card-tint); box-shadow: 0 3px 12px #03234406; }
+.card:focus-within { border-color: var(--card-accent); }
+.link { display: flex; flex-direction: column; height: 100%; position: relative; border-radius: inherit; padding: 20px 21px 18px; }
+.link:focus-visible { outline: 3px solid var(--card-accent); outline-offset: 3px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 30px; margin-bottom: 8px; }
+.category { font-size: 12px; line-height: 1.4; font-weight: 600; letter-spacing: .035em; text-transform: uppercase; color: #586f86; }
+.icon { color: var(--card-accent); }
+.title { color: var(--color-ink); font-size: 18px; line-height: 1.4; font-weight: 700; letter-spacing: -.45px; margin: 0; text-wrap: initial; overflow-wrap: anywhere; }
+.description { color: var(--color-muted); font-size: 14px; line-height: 1.7; margin: 8px 0 17px; }
+.footer { margin-top: auto; display: flex; align-items: start; flex-direction: column; gap: 8px; }
+.action { color: var(--card-accent); font-size: 14px; font-weight: 600; line-height: 1.5; text-underline-offset: 4px; }
+.link:hover .action,.link:focus-visible .action { text-decoration: underline; }
+.availability { font-size: 12px; font-weight: 500; color: #785419; background: #fff4df; border-radius: 4px; padding: 3px 7px; line-height: 1.5; }
+.compact .link { padding: 14px 17px; }
+.compact .top { min-height: 0; margin-bottom: 4px; padding-right: 34px; }
+.compact .icon { position: absolute; top: 18px; right: 16px; width: 29px; height: 29px; }
+.compact .title { padding-right: 33px; font-size: 16px; line-height: 1.35; }
+.compact .description { font-size: 13px; line-height: 1.5; margin: 6px 0 11px; }
+.compact .action { font-size: 13px; font-weight: 550; }
+@media(max-width:900px) {
+  .compact .link { padding: 14px; }
+  .compact .title { padding-right: 0; }
+  .compact .icon { top: 12px; right: 13px; width: 23px; height: 23px; }
+}
+@media(max-width:540px) {
+  .link { padding: 18px; }
+  .title { font-size: 17px; }
+  .compact .link { padding: 15px 13px; }
+  .compact .top { margin-bottom: 7px; }
+  .compact .title { font-size: 16px; }
+}
+@media(prefers-reduced-motion:reduce) { .card { transition: none; } }

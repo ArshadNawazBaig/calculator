@@ -26,16 +26,6 @@
 .growthIllustration { position: absolute; width: 42%; max-width: 245px; right: 24px; bottom: 16px; z-index: -1; opacity: .95; }
 .spotlightIllustration { position: absolute; bottom: 20px; right: 27px; opacity: .24; z-index: -1; }
 .featuredGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
-.featuredCard { position: relative; border: 1px solid #dfe7ee; border-radius: 6px; padding: 13px 18px; display: flex; align-items: start; flex-direction: column; min-width: 0; background: #fff; }
-.featuredCard:hover { border-color: #adc9e5; background: #fcfdff; }
-.cardLabel { display: block; font-size: 12px; line-height: 1.25; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: #5e718b; }
-.featuredCard h3 { padding-right: 33px; margin-top: 4px; font-size: 16px; font-weight: 700; letter-spacing: -.45px; line-height: 1.35; text-wrap: initial; }
-.featuredCard h3 a:hover { color: var(--color-brand); }
-.featuredCard p { font-size: 13px; line-height: 1.5; color: var(--color-muted); margin: 5px 0 8px; max-width: 230px; }
-.featuredIcon { position: absolute; right: 17px; top: 20px; color: var(--color-brand); }
-.featuredCard[data-category="health"] .featuredIcon,.featuredCard[data-category="everyday"] .featuredIcon { color: var(--color-accent-dark); }
-.openTool { margin-top: auto; font-size: 13px; font-weight: 550; color: var(--color-brand); line-height: 1.5; text-underline-offset: 4px; }
-.openTool:hover { text-decoration: underline; }
 .browse { margin: 24px 0 28px; border-top: 1px solid var(--color-line); padding-top: 16px; }
 .browseHeading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
 .browseHeading h2 { font-size: 25px; letter-spacing: -.7px; font-weight: 700; line-height: 1.35; }
@@ -60,9 +50,6 @@
   .spotlight { padding: 24px; }
   .spotlight h2 { font-size: 31px; }
   .spotlight>p { max-width: 290px; font-size: 14px; }
-  .featuredCard { padding: 15px; }
-  .featuredIcon { right: 13px; width: 26px; height: 26px; }
-  .featuredCard h3 { font-size: 16px; padding-right: 26px; }
   .category { padding-left: 51px; padding-right: 15px; }
   .categoryIcon { left: 15px; width: 25px; }
   .category:first-child { padding-left: 36px; }
@@ -70,9 +57,6 @@
 @media(max-width:900px) {
   .spotlight h2 { font-size: 30px; }
   .featuredLayout { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); }
-  .featuredCard h3 { padding-right: 0; font-size: 15px; }
-  .featuredIcon { top: 13px; width: 22px; height: 22px; }
-  .featuredCard p { font-size: 12px; }
   .growthIllustration { width: 45%; right: 10px; opacity: .45; }
   .spotlightLinks { margin-top: 23px; }
   .categoryGrid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 28px; }
@@ -98,11 +82,6 @@
   .spotlightLinks { margin-top: 22px; gap: 10px; }
   .growthIllustration { opacity: .75; width: 40%; right: 16px; bottom: 18px; }
   .featuredGrid { gap: 10px; }
-  .featuredCard { min-height: 167px; padding: 15px 13px; }
-  .featuredCard h3 { font-size: 16px; padding-top: 6px; }
-  .featuredCard p { font-size: 13px; }
-  .featuredIcon { width: 24px; height: 24px; right: 12px; top: 12px; }
-  .openTool { font-size: 13px; }
   .browse { margin-top: 25px; padding-top: 17px; }
   .browseHeading h2 { font-size: 22px; }
   .browseHeading>a { font-size: 12px; white-space: nowrap; }

@@ -120,14 +120,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .section-heading h2 { font-size: 26px; font-weight: 700; line-height: 1.35; letter-spacing: -.8px; }
 .section-heading p { font-size: 14px; color: var(--color-muted); margin-top: 7px; }
 .section-heading .eyebrow { margin-bottom: 7px; }
-.popular-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 40px; }
-.popular-card { display: flex; align-items: center; gap: 17px; padding: 23px 4px; border-top: 1px solid var(--color-line); }
-.popular-card:hover { background: #f8fafd; }
-.tool-icon { width: 46px; height: 46px; display: grid; place-items: center; color: #355b9a; background: #f1f4f9; border-radius: 9px; flex-shrink: 0; }
-.popular-copy { min-width: 0; }
-.popular-card h3 { font-size: 16px; font-weight: 650; margin-bottom: 5px; letter-spacing: -.3px; }
-.popular-card p { font-size: 14px; color: var(--color-muted); line-height: 1.65; }
-.tool-category { margin-left: auto; padding-left: 12px; white-space: nowrap; color: #667287; font-size: 12px; }
+.popular-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
 .clarity-strip { display: flex; align-items: center; gap: 22px; padding: 28px 30px; margin-bottom: 48px; border-radius: 8px; background: #f4f6fa; }
 .clarity-strip>svg { color: #567198; }
 .clarity-strip h2 { font-size: 17px; font-weight: 650; letter-spacing: -.35px; }
@@ -219,9 +212,8 @@ th:first-child, td:first-child { text-align: left; }
 .example-answer strong { color: var(--color-brand); }
 .editorial-note { border-top: 1px solid var(--color-line); padding-top: 22px; font-size: 13px!important; }
 .related-tools { padding-top: 5px; }
+.related-card-grid { display: grid; gap: 12px; }
 .related-tools h2 { font-size: 19px; font-weight: 650; margin: 9px 0 20px; letter-spacing: -.5px; }
-.related-tools>a { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--color-line); font-size: 14px; color: #425674; }
-.related-tools>a:hover { color: var(--color-brand); text-decoration: underline; text-underline-offset: 4px; }
 .aside-note { padding: 24px; border-radius: 8px; background: #f4f6fa; margin-top: 28px; }
 .aside-note h3 { font-size: 17px; font-weight: 650; }
 .aside-note p { font-size: 14px; color: #5c6980; margin: 10px 0 16px; }
@@ -246,12 +238,7 @@ th:first-child, td:first-child { text-align: left; }
 .directory-groups { display: grid; gap: 34px; }
 .directory-groups section>h2 { font-size: 17px; font-weight: 650; margin-bottom: 14px; letter-spacing: -.3px; }
 .directory-groups section>h2 a:hover { color: var(--color-brand); }
-.directory-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); column-gap: 28px; }
-.directory-link { display: flex; align-items: center; gap: 13px; border-bottom: 1px solid #e8ebf0; padding: 15px 7px; font-size: 14px; line-height: 1.6; min-width: 0; }
-.directory-link:hover { background: #f4f7fc; color: var(--color-brand); }
-.directory-icon { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; color: #677e9f; }
-.directory-link:hover .directory-icon { color: var(--color-brand); }
-.directory-link small { display: block; font-size: 12px; color: #64748b; margin-top: 4px; }
+.directory-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
 .search-count { color: #637087; font-size: 14px; margin-bottom: 22px; }
 .availability-panel { padding: 30px; background: #f4f6fa; border-radius: 8px; max-width: 800px; }
 .availability-panel h2 { font-size: 23px; font-weight: 650; margin-bottom: 12px; }
@@ -287,7 +274,6 @@ th:first-child, td:first-child { text-align: left; }
   .category-card { padding-inline: 18px; }
   .category-top { gap: 9px; }
   .category-top h3 { font-size: 15px; }
-  .tool-category { display: none; }
   .tool-reading { gap: 38px; grid-template-columns: minmax(0,1fr) 240px; }
   .calculator-form, .results-region { padding: 25px; }
   .directory-grid { column-gap: 20px; }
@@ -346,8 +332,6 @@ th:first-child, td:first-child { text-align: left; }
   .category-card>p { font-size: 14px; max-width: none; }
   .category-links a { font-size: 14px; }
   .popular-grid { column-gap: 24px; }
-  .popular-card { align-items: start; gap: 13px; }
-  .popular-card h3 { font-size: 15px; }
   .clarity-strip { flex-wrap: wrap; }
   .clarity-strip>div { flex: 1; }
   .clarity-strip .text-link { margin-left: 48px; }
@@ -355,7 +339,7 @@ th:first-child, td:first-child { text-align: left; }
   .results-region { border-left: 0; border-top: 1px solid var(--color-line); }
   .tool-reading { grid-template-columns: minmax(0,1fr); gap: 24px; }
   .related-tools { padding-bottom: 20px; }
-  .related-tools>a, .related-tools .aside-note { max-width: 550px; }
+  .related-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .mode-picker { align-items: start; flex-direction: column; gap: 12px; padding: 20px 25px; }
   .mode-picker select { width: 100%; }
   .calculator-toolbar>span { display: none; }
@@ -405,9 +389,6 @@ th:first-child, td:first-child { text-align: left; }
   .section-heading p { font-size: 12px; }
   .section-heading>.text-link { max-width: 90px; font-size: 12px; text-align: right; line-height: 1.7; padding-top: 3px; }
   .popular-grid { grid-template-columns: minmax(0,1fr); }
-  .popular-card { padding: 20px 0; align-items: center; }
-  .popular-card h3 { font-size: 16px; }
-  .popular-card p { font-size: 14px; }
   .clarity-strip { display: grid; grid-template-columns: 25px minmax(0,1fr); align-items: start; padding: 22px; gap: 15px; margin-bottom: 32px; }
   .clarity-strip>svg { width: 25px; }
   .clarity-strip h2 { font-size: 16px; }
@@ -417,7 +398,7 @@ th:first-child, td:first-child { text-align: left; }
   .calculator-form, .results-region { padding: 24px 18px; }
   .mode-picker { padding: 18px; }
   .mode-picker select { min-width: 0; font-size: 14px; }
-  .directory-grid, .guide-grid { grid-template-columns: minmax(0,1fr); }
+  .directory-grid, .guide-grid, .related-card-grid { grid-template-columns: minmax(0,1fr); }
   .directory-grid { column-gap: 0; }
   .category-pills { gap: 15px 22px; }
   .category-pills a { font-size: 13px; }

@@ -11,3 +11,5 @@ export const categories = [
   { id:"everyday",name:"Everyday",label:"Everyday calculators",description:"Useful tools for life's little questions and big projects.",icon:"everyday",links:[{name:"Age Calculator",slug:"age-calculator"},{name:"Unit Converter",slug:"conversion-calculator"}]},
 ] as const;
 export type CategoryId = (typeof categories)[number]["id"];
+
+export const categoryLabels:Record<CategoryId,string>={finance:"Finance",health:"Health",math:"Math",everyday:"Everyday"};

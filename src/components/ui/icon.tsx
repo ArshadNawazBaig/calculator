@@ -3,12 +3,14 @@ import {Landmark, HeartPulse, Calculator, CalendarDays, ChartColumnIncreasing, W
 const icons={finance:Landmark,health:HeartPulse,math:Calculator,everyday:CalendarDays,investment:ChartColumnIncreasing,salary:Wallet,calorie:Apple,age:Clock3,mortgage:House,percentage:Percent,conversion:Ruler,education:GraduationCap,tax:Landmark,geometry:Ruler,statistics:Sigma,construction:Wrench,vehicle:CarFront,loan:Banknote,weight:Scale,fitness:Dumbbell,algebra:SquareRadical,code:Binary,time:Timer};
 
 export function toolIconName(slug:string,category:string) {
+  if(slug==="age-calculator")return "everyday";
+  if(slug==="bmi-calculator")return "health";
+  if(/tax|vat/.test(slug))return "tax";
   if(/mortgage|house|rent|estate|down-payment/.test(slug))return "mortgage";
   if(/(^|-)(auto|fuel|gas|tire|mileage)(-|$)/.test(slug))return "vehicle";
   if(/loan|debt|payoff|credit/.test(slug))return "loan";
   if(/interest|investment|retirement|savings|stock|annuity|401k|ira|pension|rmd/.test(slug))return "investment";
   if(/salary|pay|budget/.test(slug))return "salary";
-  if(/tax|vat/.test(slug))return "tax";
   if(/calorie|protein|macro|carb|fat-intake/.test(slug))return "calorie";
   if(/bmi|weight|body-fat|mass/.test(slug))return "weight";
   if(/pace|run|army|fitness/.test(slug))return "fitness";
