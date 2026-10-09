@@ -1,0 +1,20 @@
+.root {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,680px);
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--color-line);
+}
+.root h2 { font-size: 18px; font-weight: 650; line-height: 1.5; letter-spacing: -.35px; }
+.root :global(.search)>svg { flex-shrink: 0; }
+@media(max-width:900px) {
+  .root { grid-template-columns: minmax(0,1fr); gap: 14px; }
+}
+@media(max-width:600px) {
+  .root { padding-bottom: 24px; margin-bottom: 24px; }
+  .root h2 { font-size: 16px; }
+  .root :global(.search input) { font-size: 16px; }
+}
+@media print { .root { display: none; } }
