@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/i18n/link';
 import {PageHero} from './page-hero';
 
 export function SystemPage({code,title,description,children}:{code:string;title:string;description:string;children?:React.ReactNode}){

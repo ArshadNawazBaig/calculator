@@ -1,4 +1,4 @@
-import {Manrope} from "next/font/google";
+import {Manrope,Noto_Sans_Arabic} from "next/font/google";
 
 // Match the verified heading, navigation, and body font on thebestfreepdf.com.
 export const siteFont = Manrope({
@@ -7,3 +7,5 @@ export const siteFont = Manrope({
   variable: "--font-site",
   weight: "variable",
 });
+
+export const arabicFont = Noto_Sans_Arabic({subsets:["arabic"],display:"swap",variable:"--font-arabic",weight:"variable"});

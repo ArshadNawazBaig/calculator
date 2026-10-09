@@ -1,7 +1,7 @@
 "use client";
 import {Dropdown} from '@/components/ui/dropdown';
 import {useState} from "react";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {House, Info} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {calculateMortgage} from "@/lib/calculators/mortgage";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {ChevronRight} from "lucide-react";
 import {guides} from "@/data/guides";
 import {SectionHeading} from "./section-heading";

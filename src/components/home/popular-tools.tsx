@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {CalculatorCard} from "@/components/calculators/calculator-card";
 import {featuredTools} from "@/lib/home-content";
 import styles from "./popular-tools.module.css";

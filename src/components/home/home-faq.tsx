@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {Accordion,AccordionItem} from "@/components/ui/accordion";
 import styles from "./home.module.css";
 

@@ -1,7 +1,7 @@
 import {defaults,type Mode,type Result} from '@/lib/calculators/types';
 import {isFieldActive} from '@/lib/calculators/field-visibility';
 import {displayField} from '@/lib/calculators/input-display';
-import {formatMetric} from '@/components/calculators/result';
+import {formatMetric} from '@/lib/calculators/format-metric';
 
 export function WorkedExample({mode,result,currency}:{mode:Mode;result:Result;currency:string}){
  const values=defaults(mode);

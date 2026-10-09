@@ -1,4 +1,5 @@
 "use client";
+import {useI18n} from "@/components/i18n/provider";
 import {Search as SearchIcon,X} from "lucide-react";
 import {useRouter} from "next/navigation";
 import {useEffect,useId,useMemo,useRef,useState,type KeyboardEvent} from "react";
@@ -10,6 +11,8 @@ import styles from "./search.module.css";
 
 type SearchProps={compact?:boolean;initialQuery?:string;iconOnly?:boolean;keyboardShortcut?:boolean;category?:CategoryId;placeholder?:string;autoFocus?:boolean;onNavigate?:()=>void};
 export function Search({compact=false,initialQuery="",iconOnly=false,keyboardShortcut=false,category,placeholder="What would you like to calculate?",autoFocus=false,onNavigate}:SearchProps) {
+ const {t,messages,href}=useI18n();
+
   const [query,setQuery]=useState(initialQuery);
   const [open,setOpen]=useState(false);
   const [activeIndex,setActiveIndex]=useState(-1);
@@ -19,7 +22,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   const id=useId();
   const inputId=`calculator-search-${id}`;
   const listId=`calculator-suggestions-${id}`;
-  const matches=useMemo(()=>searchCalculators(query,category),[query,category]);
+  const matches=useMemo(()=>searchCalculators(query,category,messages),[query,category,messages]);
   const suggestions=useMemo(()=>matches.slice(0,5),[matches]);
   const isOpen=open&&query.trim().length>0;
   const activeItem=isOpen?suggestions[activeIndex]:undefined;
@@ -48,7 +51,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   },[isOpen]);
 
   function closeMenu(){setOpen(false);setActiveIndex(-1);}
-  function openCalculator(slug:string){closeMenu();onNavigate?.();router.push(`/${slug}`);}
+  function openCalculator(slug:string){closeMenu();onNavigate?.();router.push(href(`/${slug}`));}
   function searchHref(allCategories=false){
     if(!query.trim())return category&&!allCategories?`/calculators/${category}`:"/calculators";
     const params=new URLSearchParams({q:query.trim()});
@@ -72,18 +75,18 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
 
   return <form ref={formRef} className={`search ${styles.root} ${compact?"search-compact":""} ${iconOnly?"search-icon-submit":""}`} role="search"
     onBlur={event=>{if(!event.currentTarget.contains(event.relatedTarget))closeMenu();}}
-    onSubmit={event=>{event.preventDefault();closeMenu();onNavigate?.();router.push(searchHref());}}>
-    <SearchIcon aria-hidden="true" size={20}/><label className="sr-only" htmlFor={inputId}>Search calculators</label>
+    onSubmit={event=>{event.preventDefault();closeMenu();onNavigate?.();router.push(href(searchHref()));}}>
+    <SearchIcon aria-hidden="true" size={20}/><label className="sr-only" htmlFor={inputId}>{t("Search calculators")}</label>
     <input ref={inputRef} id={inputId} type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox"
       aria-expanded={isOpen} aria-controls={isOpen?listId:undefined} aria-activedescendant={activeItem?`${listId}-${activeIndex}`:undefined}
       aria-describedby={`${inputId}-help`} value={query} onChange={event=>{setQuery(event.target.value);setOpen(true);setActiveIndex(-1);}}
-      onFocus={()=>setOpen(true)} onKeyDown={handleKeys} placeholder={placeholder} autoComplete="off" spellCheck={false} autoFocus={autoFocus}
+      onFocus={()=>setOpen(true)} onKeyDown={handleKeys} placeholder={t(placeholder)} autoComplete="off" spellCheck={false} autoFocus={autoFocus}
       aria-keyshortcuts={keyboardShortcut?"/":undefined}/>
-    {query&&<button type="button" className={styles.clear} aria-label="Clear search" onMouseDown={event=>event.preventDefault()} onClick={()=>{setQuery("");closeMenu();inputRef.current?.focus();}}><X size={16} aria-hidden="true"/></button>}
-    <Button type="submit" aria-label="Search">{iconOnly?<SearchIcon size={21} aria-hidden="true"/>:"Search"}</Button>
-    <span id={`${inputId}-help`} className="sr-only">Type to find calculators. Use the up and down arrow keys to choose a suggestion, Enter to open it, and Escape to close the suggestions.</span>
-    <span className="sr-only" role="status" aria-atomic="true">{isOpen?(matches.length?`${matches.length} matching ${matches.length===1?"calculator":"calculators"}. ${suggestions.length} suggestions shown.`:"No matching calculators."):""}</span>
+    {query&&<button type="button" className={styles.clear} aria-label={t("Clear search")} onMouseDown={event=>event.preventDefault()} onClick={()=>{setQuery("");closeMenu();inputRef.current?.focus();}}><X size={16} aria-hidden="true"/></button>}
+    <Button type="submit" aria-label={t("Search")}>{iconOnly?<SearchIcon size={21} aria-hidden="true"/>:t("Search")}</Button>
+    <span id={`${inputId}-help`} className="sr-only">{t("Type to find calculators. Use the up and down arrow keys to choose a suggestion, Enter to open it, and Escape to close the suggestions.")}</span>
+    <span className="sr-only" role="status" aria-atomic="true">{isOpen?(matches.length?t("Results: {count}",{count:matches.length}):t("No matching calculators")):""}</span>
     {isOpen&&<SearchSuggestions id={listId} matches={suggestions} total={matches.length} activeIndex={activeIndex} category={category}
-      onActive={setActiveIndex} onSelect={openCalculator} onBrowse={()=>{closeMenu();onNavigate?.();router.push(category?searchHref(true):"/calculators");}}/>}
+      onActive={setActiveIndex} onSelect={openCalculator} onBrowse={()=>{closeMenu();onNavigate?.();router.push(href(category?searchHref(true):"/calculators"));}}/>}
   </form>;
 }

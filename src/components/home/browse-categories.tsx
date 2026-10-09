@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {Icon} from "@/components/ui/icon";
 import {browseCategories,categoryLabels} from "@/lib/home-content";
 import {categories} from "@/lib/site";

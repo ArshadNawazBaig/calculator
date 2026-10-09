@@ -1,3 +1,4 @@
+import type {Dictionary} from "@/lib/i18n/config";
 import data from "@/data/catalog.json";
 import type {CatalogEntry} from "@/lib/calculators/types";
 import type {CategoryId} from "@/lib/site";
@@ -13,11 +14,11 @@ const index=(data as CatalogEntry[]).map(tool=>({
 }));
 
 /** Shared by live suggestions and the full results page. No calculation engines are loaded. */
-export function searchCalculators(query:string,category?:CategoryId):CatalogEntry[] {
+export function searchCalculators(query:string,category?:CategoryId,messages:Dictionary={}):CatalogEntry[] {
   const phrase=normalize(query);
   if(!phrase)return [];
   const terms=phrase.split(/\s+/);
-  return index
+  return index.map(item=>{const title=messages[`tool.${item.tool.slug}`];return title?{...item,title:normalize(title),text:normalize(`${item.text} ${title} ${messages[item.tool.subcategory]||''}`)}:item;})
     .filter(item=>(!category||item.tool.category===category)&&terms.every(term=>item.text.includes(term)))
     .map(item=>{
       const name=item.title.replace(/\s+calculator$/,"");

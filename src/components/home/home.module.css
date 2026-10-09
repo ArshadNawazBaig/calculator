@@ -11,7 +11,7 @@
 /* A consistent row of useful tools, with one separate topical feature. */
 .filters { display: flex; align-items: center; gap: 5px; margin-bottom: 22px; border-bottom: 1px solid var(--color-line); }
 .filters button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; color: var(--color-muted); background: transparent; padding: 9px 18px 12px; margin-bottom: -1px; font-size: 13px; line-height: 1.5; font-weight: 550; }
-.filters button:first-child { padding-left: 0; padding-right: 22px; }
+.filters button:first-child { padding-inline-start: 0; padding-inline-end: 22px; }
 .filters button[aria-pressed="true"] { color: var(--color-brand-dark); border-bottom-color: var(--color-brand); font-weight: 700; }
 .filters button:hover { color: var(--color-brand-dark); background: var(--color-surface); }
 .featuredLayout { display: grid; gap: 24px; }
@@ -31,9 +31,9 @@
 /* Categories stay light and scannable instead of becoming another card wall. */
 .browse { padding-top: 0; }
 .categoryGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding-top: 8px; }
-.category { display: flex; flex-direction: column; align-items: start; border-left: 1px solid var(--color-line); padding: 0 28px; min-width: 0; }
-.category:first-child { border-left: 0; padding-left: 0; }
-.category:last-child { padding-right: 0; }
+.category { display: flex; flex-direction: column; align-items: start; border-inline-start: 1px solid var(--color-line); padding: 0 28px; min-width: 0; }
+.category:first-child { border-inline-start: 0; padding-inline-start: 0; }
+.category:last-child { padding-inline-end: 0; }
 .categoryIcon { display: grid; place-items: center; height: 44px; width: 44px; border-radius: 10px; background: var(--color-brand-soft); color: var(--color-brand); margin-bottom: 18px; }
 .category h3 { font-size: 18px; font-weight: 700; letter-spacing: -.4px; line-height: 1.4; }
 .category>p { font-size: 13px; line-height: 1.75; color: var(--color-muted); margin: 8px 0 18px; max-width: 230px; }
@@ -88,7 +88,7 @@
   .spotlight h3 { font-size: 27px; }
   .categoryGrid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 32px; }
   .category { padding-inline: 28px; }
-  .category:nth-child(3) { border-left: 0; padding-left: 0; }
+  .category:nth-child(3) { border-inline-start: 0; padding-inline-start: 0; }
   .category>p { max-width: 260px; }
   .browse,.faq { padding-top: 0; }
   .confidenceInner { gap: 36px; padding-block: 48px; }

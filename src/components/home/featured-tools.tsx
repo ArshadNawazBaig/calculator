@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {ChevronRight} from "lucide-react";
 import {CalculatorCard} from "@/components/calculators/calculator-card";
 import {Icon} from "@/components/ui/icon";

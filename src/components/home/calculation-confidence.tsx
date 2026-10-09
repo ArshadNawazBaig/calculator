@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import {BookOpen,SlidersHorizontal,UserRoundCheck,ChevronRight} from "lucide-react";
 import styles from "./home.module.css";
 

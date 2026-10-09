@@ -1,6 +1,6 @@
 # Deployment
 
-Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`. Both custom domains and their Vercel DNS records are configured; public nameserver delegation and Railway certificate verification are pending.
+Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`. Both custom domains and their Vercel DNS records are configured; the registry now delegates to Vercel, while recursive DNS propagation and Railway certificate verification are pending.
 
 ## Railway
 
@@ -26,7 +26,7 @@ Both `finflo.org` and `www.finflo.org` are registered on the Railway service at 
 
 The Vercel DNS zone is enabled under `arshadnawazbaigs-projects`, using the same DNS provider as `thebestfreepdf.com`. The apex ALIAS points to `0mimryym.up.railway.app`; the `www` CNAME points to `d78e491d.up.railway.app`. The exact Railway verification TXT records are installed at `_railway-verify` and `_railway-verify.www`. Both Vercel nameservers directly returned the correct records. Retrieve the full expected verification values with `railway domain status <hostname> --json`; do not reuse Folio's values.
 
-The user reported saving the nameserver change, but the latest direct `.org` registry query still delegated the domain to `ns01.domaincontrol.com` and `ns02.domaincontrol.com`. The required delegation is `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, set in GoDaddy's domain Nameservers settings. Adding NS records inside the old DNS zone does not change registry delegation. No A, AAAA, MX, TXT, CAA, or DS records were present in the public checks before this change. Once delegation updates, verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain before submitting it to Search Console. See [GoDaddy nameserver instructions](https://www.godaddy.com/help/change-my-domain-nameservers-664).
+The direct `.org` registry query now confirms `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. The nameserver change is published; no further registrar edit is needed. Vercel and some recursive resolvers return the Railway records, while other resolvers still have the old delegation cached. The latest local HTTPS request could not resolve `finflo.org`. Verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain once propagation finishes, before submitting it to Search Console. See [GoDaddy nameserver instructions](https://www.godaddy.com/help/change-my-domain-nameservers-664).
 
 ## Portable native Next.js runtime
 

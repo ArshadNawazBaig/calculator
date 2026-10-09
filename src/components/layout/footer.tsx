@@ -1,3 +1,7 @@
-import Link from "next/link";
+"use client";
+import {useI18n} from "@/components/i18n/provider";
+import Link from "@/components/i18n/link";
 import {Logo} from "@/components/ui/logo";
-export function Footer(){return <footer className="site-footer"><div className="container footer-top"><div><Logo onDark/><p>Clarity in every calculation.</p></div><nav aria-label="Footer navigation">{[["Guides","/guides"],["About","/about"],["Contact","/contact"],["Privacy","/privacy"],["Terms","/terms"],["Editorial policy","/editorial-policy"]].map(([name,href])=><Link key={href} href={href}>{name}</Link>)}</nav></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Finflo. All rights reserved.</span><div><Link href="/accessibility">Accessibility</Link><Link href="/sitemap">Sitemap</Link><Link href="/disclaimer">Disclaimer</Link><Link href="/cookies">Cookies</Link></div><span>Made for everyday decisions.</span></div></footer>;}
+export function Footer(){
+ const {t}=useI18n();
+return <footer className="site-footer"><div className="container footer-top"><div><Logo onDark/><p>{t("Clarity in every calculation.")}</p></div><nav aria-label={t("Footer navigation")}>{[[t("Guides"),"/guides"],[t("About"),"/about"],[t("Contact"),"/contact"],[t("Privacy"),"/privacy"],[t("Terms"),"/terms"],[t("Editorial policy"),"/editorial-policy"]].map(([name,href])=><Link key={href} href={href}>{t(name)}</Link>)}</nav></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Finflo. {t("All rights reserved.")}</span><div><Link href="/accessibility">{t("Accessibility")}</Link><Link href="/sitemap">{t("Sitemap")}</Link><Link href="/disclaimer">{t("Disclaimer")}</Link><Link href="/cookies">{t("Cookies")}</Link></div><span>{t("Made for everyday decisions.")}</span></div></footer>;}

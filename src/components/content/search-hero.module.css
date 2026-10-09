@@ -25,7 +25,7 @@
   padding-block: 64px 32px;
   text-align: center;
 }
-.heroBreadcrumbs { margin-bottom: 32px; text-align: left; }
+.heroBreadcrumbs { margin-bottom: 32px; text-align: start; }
 .introInner { max-width: 760px; padding: 0; }
 .heroEyebrow { display: block; color: var(--color-brand); font-size: 13px; line-height: 1.6; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
 .intro h1 { max-width: 720px; font-size: clamp(46px,5.8vw,78px); font-weight: 800; line-height: 1.06; letter-spacing: -.065em; color: var(--color-ink); margin: 0 auto 22px; text-wrap: balance; }
@@ -60,7 +60,7 @@
 }
 @media(max-width:480px) { .intro { min-height: 633px; } }
 @media(max-width:600px) {
-  .searchWrap :global(.search) { gap: 8px; padding-left: 12px; }
+  .searchWrap :global(.search) { gap: 8px; padding-inline-start: 12px; }
   .searchWrap :global(.search input) { font-size: 16px; }
   .searchWrap :global(.search .button) { padding-inline: 15px; font-size: 13px; }
   .quickSearches { gap: 12px; }
@@ -70,7 +70,7 @@
 }
 @media(max-width:360px) { .intro { min-height: 699px; } .promises { gap: 8px; } }
 @media print {
-  .intro { --color-ink: #000; --color-muted: #444; --color-brand: #000; min-height: 0; padding: 0 0 20px; color: #000; background: #fff; border: 0; text-align: left; }
+  .intro { --color-ink: #000; --color-muted: #444; --color-brand: #000; min-height: 0; padding: 0 0 20px; color: #000; background: #fff; border: 0; text-align: start; }
   .introInner { max-width: none; }
   .intro h1 { max-width: none; margin: 0 0 12px; font-size: 30px; letter-spacing: -.035em; }
   .heroDescription { max-width: none; margin: 0; }

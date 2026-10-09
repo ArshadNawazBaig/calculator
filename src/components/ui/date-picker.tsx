@@ -1,4 +1,6 @@
 "use client";
+import {languages} from '@/lib/i18n/config';
+import {useI18n} from "@/components/i18n/provider";
 import {useState} from "react";
 import {Button,Calendar,CalendarCell,CalendarGrid,CalendarGridBody,CalendarGridHeader,CalendarHeaderCell,CalendarHeading,CalendarMonthPicker,CalendarYearPicker,DateInput,DatePicker as AriaDatePicker,DateSegment,Dialog,FieldError,Group,I18nProvider,Label,Popover} from "react-aria-components";
 import {parseDate,today,getLocalTimeZone,type CalendarDate} from "@internationalized/date";
@@ -28,6 +30,8 @@ function dateValue(value?:string):CalendarDate|null {
 }
 
 export function DatePicker({id,name,label,value,onValueChange,disabled=false,required=false,min,max,size="default",...accessibility}:DatePickerProps) {
+ const {t,locale}=useI18n();
+
   const [open,setOpen]=useState(false);
   const minimum=dateValue(min),maximum=dateValue(max);
   function chooseToday(){
@@ -35,14 +39,14 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
     if((minimum&&date.compare(minimum)<0)||(maximum&&date.compare(maximum)>0))return;
     onValueChange(date.toString());setOpen(false);
   }
-  return <I18nProvider locale="en-US">
+  return <I18nProvider locale={`${languages[locale].tag}-u-ca-gregory`}>
     <AriaDatePicker {...accessibility} id={id} name={name} value={dateValue(value)} onChange={date=>onValueChange(date?.toString()??"")}
       minValue={minimum??undefined} maxValue={maximum??undefined} isDisabled={disabled} isRequired={required} validationBehavior="native"
       granularity="day" shouldForceLeadingZeros isOpen={open} onOpenChange={setOpen} className={`${styles.root} ${size==="compact"?styles.compact:""}`} data-ui-control="date-picker">
       {label&&<Label className={styles.label}>{label}</Label>}
       <Group className={`${styles.control} ${styles.dateControl}`}>
         <DateInput className={styles.dateInput}>{segment=><DateSegment segment={segment} className={styles.dateSegment}/>}</DateInput>
-        <Button className={styles.calendarTrigger} aria-label="Open calendar"><CalendarDays size={19} aria-hidden="true"/></Button>
+        <Button className={styles.calendarTrigger} aria-label={t("Open calendar")}><CalendarDays size={19} aria-hidden="true"/></Button>
       </Group>
       <Popover placement="bottom start" offset={7} className={styles.calendarPopover}>
         <Dialog className={styles.calendarDialog}>
@@ -59,7 +63,7 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
               <CalendarGridBody>{date=><CalendarCell date={date} className={styles.day}/>}</CalendarGridBody>
             </CalendarGrid>
           </Calendar>
-          <div className={styles.calendarFooter}><span>MM / DD / YYYY</span><div><Button slot={null} className={styles.calendarAction} onPress={chooseToday}>Today</Button><Button slot={null} className={styles.calendarAction} isDisabled={!value} onPress={()=>{onValueChange("");setOpen(false);}}>Clear</Button></div></div>
+          <div className={styles.calendarFooter}><span>{new Intl.DateTimeFormat(languages[locale].tag,{year:"numeric",month:"2-digit",day:"2-digit",calendar:"gregory"}).formatToParts(new Date(Date.UTC(2000,10,22))).filter(part=>["day","month","year","literal"].includes(part.type)).map(part=>part.type==='literal'?part.value:part.type==='day'?'DD':part.type==='month'?'MM':'YYYY').join('')}</span><div><Button slot={null} className={styles.calendarAction} onPress={chooseToday}>{t("Today")}</Button><Button slot={null} className={styles.calendarAction} isDisabled={!value} onPress={()=>{onValueChange("");setOpen(false);}}>{t("Clear")}</Button></div></div>
         </Dialog>
       </Popover>
       <FieldError className={styles.error}/>

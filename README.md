@@ -38,6 +38,7 @@ The browser suite requires Playwright Chromium (`npx playwright install chromium
 
 - [Coverage manifest](docs/audit/coverage-manifest.json) and [captured competitor controls](docs/audit/catalog.json)
 - [Architecture and design](docs/architecture.md)
+- [Languages and translation coverage](docs/internationalization.md)
 - [Costs and database decision](docs/costs.md)
 - [Verification evidence](docs/verification.md)
 - [Launch and search plan](docs/launch.md)

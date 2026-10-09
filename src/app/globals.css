@@ -439,3 +439,14 @@ th:first-child, td:first-child { text-align: left; }
 .geographic-picker{display:grid;gap:.65rem;margin:1rem 0 1.25rem}.map-controls{display:flex;align-items:center;gap:.5rem;font-size:.8rem}.map-controls .button{padding:.4rem .8rem}.coordinate-map{width:100%;height:auto;border:1px solid var(--color-line);border-radius:.7rem;touch-action:pan-y;cursor:crosshair}.map-nudges{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem}.map-nudges label{display:flex;align-items:center;gap:8px;font-size:.75rem}.map-nudges [data-ui-control]{width:86px}.map-nudges .button{padding:.4rem .65rem;font-size:.75rem}.geographic-picker .field-help a{color:var(--color-brand);text-decoration:underline}
 
 .file-codec{padding:1.5rem;border-top:1px solid var(--color-border)}.file-codec>p{color:var(--color-muted);margin:.5rem 0 1.2rem}.file-codec .field{max-width:40rem;margin-bottom:1rem}.file-codec .field>label{display:block;font-size:14px;font-weight:550;margin-bottom:8px}.file-codec-checkbox{display:flex;align-items:center;gap:.6rem;margin:1rem 0}.file-codec-checkbox input{width:1rem;height:1rem}.file-codec-preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:16rem;overflow:auto;padding:1rem;background:var(--color-surface);font-size:.8rem}.file-codec a{text-decoration:underline;color:var(--color-primary)}
+
+/* Language-aware shared layouts and explicit original-language references. */
+html[dir="rtl"] { --font-sans: var(--font-arabic), "Tahoma", sans-serif; }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .eyebrow { letter-spacing: normal; }
+html[dir="rtl"] .lucide-chevron-right, html[dir="rtl"] .lucide-chevron-left { transform: scaleX(-1); }
+html[dir="rtl"] .formula-block, html[dir="rtl"] input[type="number"], html[dir="rtl"] input[type="time"] { direction: ltr; text-align: start; }
+.translation-notice { border: 1px solid var(--color-line); border-inline-start: 3px solid var(--color-brand); border-radius: 6px; padding: 16px 20px; margin-bottom: 28px; background: var(--color-surface); font-size: 13px; line-height: 1.7; }
+.translation-notice p { margin-block: 4px 6px; color: var(--color-muted); }
+.translation-notice a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px; }
+html:not([lang="en"]) .site-header nav a { font-size: 13px; }
+@media (min-width:1001px) and (max-width:1250px) { html:not([lang="en"]) .site-header .container { width: calc(100% - 48px); } }
