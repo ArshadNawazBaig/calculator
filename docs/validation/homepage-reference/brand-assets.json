@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-09",
+  "scope": "Compact homepage and supplied-logo brand refresh",
+  "palette": {
+    "blue": "#0063da",
+    "teal": "#00a078",
+    "navy": "#032344",
+    "accessibleTeal": "#007c62"
+  },
+  "suppliedAssets": [
+    "public/finflo-logo-transparent.png",
+    "public/finflo-favicon-white.png",
+    "public/finflo-favicon-white.ico"
+  ],
+  "exports": [
+    "public/finflo-logo.webp",
+    "public/favicon.ico",
+    "public/favicon-16x16.png",
+    "public/favicon-32x32.png",
+    "public/apple-touch-icon.png",
+    "public/icon-192.png",
+    "public/icon-512.png",
+    "public/site.webmanifest",
+    "public/og.png"
+  ],
+  "exportScript": "scripts/prepare-brand-assets.mjs",
+  "imageGeneration": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: ads-marketing. Asset type: Finflo website Open Graph social sharing card, landscape 1200 × 630 pixels (1.9048:1). The supplied transparent logo is a supporting insert: preserve its exact F calculator symbol, blue and teal colors, finflo wordmark, and small CALCULATE • PLAN • GROW tagline. Do not redesign or reinterpret the logo. Create one polished restrained professional graphic on a clean white background. Place the supplied logo near top left with generous whitespace, sized about 340px wide. Below, very large crisp deep navy (#032344) Plus Jakarta Sans style type with exact text 'Find your answer.' and smaller supporting copy 'Free calculators for life’s big and small decisions.' At bottom left exact domain 'finflo.org'. On the right a restrained cluster of three rounded square outlines with tasteful simple calculator, percentage, and calendar symbols in blue (#0063DA) and teal (#00A078), never diagonal northeast-arrow shapes. Small blue and teal brand accents only; no stock photos, dashboards, charts, fake UI, extra slogans, borders, watermarks, or decorative gradients except the original logo. Keep all content safely inset at least 60px. The only logo is the exact supplied logo; keep the brand identity faithful. Return a finished landscape bitmap ready for social sharing.",
+    "correctionPrompt": "Correct the social sharing graphic in image 1. Image 2 is the original logo to preserve. CRITICAL: the entire finished canvas MUST be solid opaque pure white (#FFFFFF), with alpha 255 everywhere. This is not a transparent asset. Flatten every transparent area onto solid white. Preserve the exact original supplied logo from image 2 without redesign. Keep the exact headline 'Find your answer.', supporting copy 'Free calculators for life’s big and small decisions.', and 'finflo.org'. Keep the navy, blue, and teal palette and spacious professional landscape composition. Make the three supporting calculator, percent, and calendar symbols clean flat outline icons, no 3D boxes or texture. Maintain large legible Plus Jakarta Sans style typography. Canvas is 1200 by 630 pixels if possible. Do not leave ANY transparent background.",
+    "selectedOutput": "public/og.png",
+    "dimensions": {
+      "width": 1730,
+      "height": 909
+    },
+    "opaqueBackground": true
+  },
+  "font": "Self-hosted Plus Jakarta Sans"
+}

@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand: #195be4;
-  --color-brand-dark: #1248bb;
-  --color-ink: #17243b;
-  --color-muted: #5c687a;
-  --color-line: #e2e6ec;
+  --color-brand: #0063da;
+  --color-accent: #00a078;
+  --color-accent-dark: #007c62;
+  --color-brand-soft: #eaf3ff;
+  --color-brand-dark: #004fad;
+  --color-ink: #032344;
+  --color-muted: #536780;
+  --color-line: #e0e8ee;
   --color-soft: #f5f7fa;
   --font-sans: var(--font-jakarta), "Segoe UI", Arial, sans-serif;
 }
@@ -33,7 +36,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .site-header { height: 84px; border-bottom: 1px solid var(--color-line); background: #fff; }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 33px; font-weight: 800; letter-spacing: -1.7px; line-height: 1; }
-.logo svg { width: 30px; height: 30px; }
+.logo img { display: block; width: 170px; height: auto; }
 .desktop-nav { align-self: stretch; display: flex; gap: 30px; align-items: stretch; margin-left: auto; margin-right: 36px; }
 .desktop-nav a { display: flex; align-items: center; font-size: 14px; font-weight: 600; color: #4c586b; position: relative; }
 .desktop-nav a:hover, .desktop-nav a[aria-current="page"] { color: var(--color-brand); }
@@ -54,7 +57,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .text-link:hover { text-decoration: underline; }
 .eyebrow { display: block; font-size: 12px; font-weight: 650; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; color: #586a85; }
 .search { display: flex; align-items: center; gap: 13px; background: white; padding: 6px 6px 6px 17px; border: 1px solid #c4ccd9; border-radius: 8px; max-width: 100%; color: #64748b; }
-.search:focus-within { border-color: var(--color-brand); box-shadow: 0 0 0 3px #195be410; }
+.search:focus-within { border-color: var(--color-brand); box-shadow: 0 0 0 3px #0063da10; }
 .search input { min-width: 0; width: 100%; flex: 1; background: none; border: 0; color: var(--color-ink); font-size: 15px; height: 42px; outline-offset: 0; }
 .search input::placeholder { color: #657185; opacity: 1; }
 .search .button { min-height: 44px; }
@@ -173,7 +176,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .metric dt { font-size: 13px; color: #5c6980; }
 .metric dd { font-size: 19px; font-weight: 650; margin: 6px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; font-variant-numeric: tabular-nums; }
 .metric.primary-metric { grid-column: 1/-1; border-bottom: 1px solid #d9e0ec; padding: 3px 0 25px; }
-.primary-metric dd { font-size: clamp(26px,2.8vw,36px); letter-spacing: -.04em; line-height: 1.3; color: #15355f; }
+.primary-metric dd { font-size: clamp(26px,2.8vw,36px); letter-spacing: -.04em; line-height: 1.3; color: var(--color-ink); }
 .result-chart { display: grid; gap: 15px; border-top: 1px solid #d9e0ec; margin-top: 26px; padding-top: 24px; }
 .chart-row { display: grid; grid-template-columns: 75px minmax(0,1fr) auto; align-items: center; gap: 12px; font-size: 12px; color: #52637c; }
 .chart-row>div { background: #e1e7f1; border-radius: 3px; height: 8px; overflow: hidden; }
@@ -264,7 +267,7 @@ th:first-child, td:first-child { text-align: left; }
 .site-footer { border-top: 1px solid var(--color-line); background: #fafbfc; padding: 36px 0 22px; }
 .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-bottom: 30px; }
 .footer-top .logo { font-size: 28px; }
-.footer-top .logo svg { width: 25px; height: 25px; }
+.footer-top .logo img { width: 154px; height: auto; }
 .footer-top p { font-size: 12px; color: #657186; margin-top: 13px; }
 .footer-top nav { display: flex; flex-wrap: wrap; gap: 16px 25px; font-size: 13px; color: #4d5b70; }
 .footer-bottom { border-top: 1px solid var(--color-line); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 11px; color: #657186; }
@@ -316,7 +319,7 @@ th:first-child, td:first-child { text-align: left; }
   .locale { margin-left: auto; }
   .mobile-toggle { display: grid; place-items: center; }
   .logo { font-size: 30px; }
-  .logo svg { width: 27px; height: 27px; }
+  .logo img { width: 145px; height: auto; }
   .mobile-nav { display: grid; background: white; border-bottom: 1px solid var(--color-line); padding: 16px 20px; gap: 4px; position: absolute; left: 0; right: 0; top: 74px; z-index: 50; box-shadow: 0 12px 20px #17243b10; }
   .mobile-nav a { padding: 11px 8px; font-size: 15px; }
   .mobile-nav a:hover { background: var(--color-soft); color: var(--color-brand); }
