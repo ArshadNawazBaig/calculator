@@ -1,6 +1,6 @@
 # Deployment
 
-Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`, but DNS and Railway custom-domain registration remain incomplete; the domain is not yet reachable.
+Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`. Both custom domains and their Vercel DNS records are configured; public nameserver delegation and Railway certificate verification are pending.
 
 ## Railway
 
@@ -22,11 +22,11 @@ Pushes to `main` trigger application deployments. Changes to the infrastructure 
 
 The intended primary address is `https://finflo.org`. Next.js permanently redirects requests for `www.finflo.org` to the root domain and preserves the path and query string. Canonical URLs already use the root domain.
 
-Domain setup is pending. Railway's CLI and public API rejected creation of both `finflo.org` and `www.finflo.org` with `Failed to create custom domain, please try again`; no custom domains were attached. The running Railway service is unaffected. Custom-domain registration cannot be created through the infrastructure file either; Railway requires registration before importing domain configuration.
+Both `finflo.org` and `www.finflo.org` are registered on the Railway service at port `8080`. The user added the apex domain through the dashboard, and the CLI subsequently added `www`. Domain IDs are `ca513288-de34-4235-9247-8094b9461efb` (apex) and `d0fbe1b6-36b6-4799-bdc0-ba949b7659dd` (www). Railway is waiting for public DNS verification before issuing certificates.
 
-Use the existing Vercel DNS account, as for `thebestfreepdf.com`: `finflo.org` is already listed under `arshadnawazbaigs-projects`, with no DNS records. Its current authoritative nameservers remain GoDaddy's `ns01.domaincontrol.com` and `ns02.domaincontrol.com`. Folio uses Vercel's `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, with a root ALIAS targeting its Railway hostname. Vercel DNS supports apex ALIAS records; see [Working with DNS](https://vercel.com/docs/domains/working-with-dns).
+The Vercel DNS zone is enabled under `arshadnawazbaigs-projects`, using the same DNS provider as `thebestfreepdf.com`. The apex ALIAS points to `0mimryym.up.railway.app`; the `www` CNAME points to `d78e491d.up.railway.app`. The exact Railway verification TXT records are installed at `_railway-verify` and `_railway-verify.www`. Both Vercel nameservers directly returned the correct records. Retrieve the full expected verification values with `railway domain status <hostname> --json`; do not reuse Folio's values.
 
-To finish, add both custom domains to the Railway service's Public Networking settings on port `8080`. Use the exact records returned by Railway: an apex ALIAS and verification TXT for `finflo.org`, plus a CNAME and verification TXT for `www.finflo.org`. Do not reuse Folio's target or verification values. After preparing the Vercel DNS zone and preserving any existing mail/verification records at the registrar, switch the domain's nameservers to Vercel's. Indexing configuration is already prepared; verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain before submitting it to Search Console.
+The user reported saving the nameserver change, but the latest direct `.org` registry query still delegated the domain to `ns01.domaincontrol.com` and `ns02.domaincontrol.com`. The required delegation is `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, set in GoDaddy's domain Nameservers settings. Adding NS records inside the old DNS zone does not change registry delegation. No A, AAAA, MX, TXT, CAA, or DS records were present in the public checks before this change. Once delegation updates, verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain before submitting it to Search Console. See [GoDaddy nameserver instructions](https://www.godaddy.com/help/change-my-domain-nameservers-664).
 
 ## Portable native Next.js runtime
 
