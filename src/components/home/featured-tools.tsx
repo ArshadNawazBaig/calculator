@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {ChevronRight} from "lucide-react";
 import {CalculatorCard} from "@/components/calculators/calculator-card";
 import {Icon} from "@/components/ui/icon";
 import {categoryLabels,type FeaturedTool,type Spotlight} from "@/lib/home-content";
@@ -16,13 +17,13 @@ function GrowthIllustration() {
 
 export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
   return <article className={styles.spotlight} data-category={spotlight.category}>
-    <span className={styles.spotlightLabel}>{categoryLabels[spotlight.category]}</span>
-    <h2>{spotlight.title}</h2><p>{spotlight.description}</p>
-    <div className={styles.spotlightLinks}>{spotlight.links.map(link=><Link key={link.slug} href={`/${link.slug}`}>{link.title}</Link>)}</div>
+    <div className={styles.spotlightCopy}><span className={styles.spotlightLabel}>{categoryLabels[spotlight.category]} in focus</span>
+      <h3>{spotlight.title}</h3><p>{spotlight.description}</p></div>
+    <div className={styles.spotlightLinks}>{spotlight.links.map(link=><Link key={link.slug} href={`/${link.slug}`}>{link.title}<ChevronRight size={18} aria-hidden="true"/></Link>)}</div>
     {spotlight.category==="finance"?<GrowthIllustration/>:<Icon className={styles.spotlightIllustration} name={spotlight.category} size={125} strokeWidth={1}/>}
   </article>;
 }
 
 export function FeaturedToolCard({tool}:{tool:FeaturedTool}) {
-  return <CalculatorCard tool={tool} size="compact"/>;
+  return <CalculatorCard tool={tool}/>;
 }
