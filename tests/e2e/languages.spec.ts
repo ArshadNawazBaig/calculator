@@ -1,6 +1,20 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('language selection waits for its handlers on a slow connection',async({page})=>{
+  let release!:()=>void;
+  const scriptsReady=new Promise<void>(resolve=>{release=resolve;});
+  await page.route('**/_next/static/**/*.js',async route=>{await scriptsReady;await route.continue();});
+  try{
+    await page.goto('/es',{waitUntil:'domcontentloaded'});
+    const trigger=page.getByRole('button',{name:'Idioma: Español'});
+    await expect(trigger).toBeDisabled();
+    release();
+    await trigger.click();
+    await expect(page.getByRole('dialog',{name:'Idioma del sitio'}).getByRole('link',{name:'English',exact:true})).toBeVisible();
+  }finally{release();}
+});
+
 test('language menu keeps the current calculator and changes the document language',async({page})=>{
   await page.goto('/mortgage-calculator');
   await page.getByRole('button',{name:'Language: English'}).click();

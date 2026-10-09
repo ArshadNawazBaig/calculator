@@ -32,7 +32,7 @@ Mixed-language tool, guide and policy pages are self-canonical but **noindex**. 
 
 - Production build succeeds with indexing enabled: 411 prerendered routes plus on-demand localized routes.
 - Full calculator/unit suite: 2,852 passing tests, including translation coverage, route/search behavior, and preservation of textual calculator outputs.
-- Language browser checks cover switching, translated suggestions and category filters, query preservation, Arabic calculation/RTL, French date picker, localized metadata, 404s, accessibility and layouts from 360px to 1440px.
+- Language browser checks cover waiting for interactive handlers on slow connections, switching, translated suggestions and category filters, query preservation, Arabic calculation/RTL, French date picker, localized metadata, 404s, accessibility and layouts from 360px to 1440px.
 - Existing English site and search browser checks were run; a category-message regression was corrected and the search suite passed.
 - Local production crawl: all 377 sitemap pages and 1,450 internal paths resolve, with correct canonical/indexing behavior. See [the report](validation/multilingual-indexing.json). This does not establish custom-domain DNS/TLS or Google indexing.
 

@@ -3,6 +3,7 @@ import {useState} from "react";
 import {usePathname} from 'next/navigation';
 import {languages, locales, localizedPath} from '@/lib/i18n/config';
 import {useI18n} from '@/components/i18n/provider';
+import {useHydrated} from '@/lib/use-hydrated';
 import {Button,Dialog,DialogTrigger,Popover} from "react-aria-components";
 import {Check,ChevronDown,Languages} from "lucide-react";
 import styles from "./header.module.css";
@@ -10,9 +11,10 @@ import styles from "./header.module.css";
 export function HeaderLanguage(){
   const [open,setOpen]=useState(false);
   const {locale,t}=useI18n();
+  const hydrated=useHydrated();
   const pathname=usePathname();
   return <DialogTrigger isOpen={open} onOpenChange={setOpen}>
-    <Button className={styles.languageTrigger} aria-label={t('Language: {name}',{name:languages[locale].name})}>
+    <Button isDisabled={!hydrated} className={styles.languageTrigger} aria-label={t('Language: {name}',{name:languages[locale].name})}>
       <Languages size={17} aria-hidden="true"/><span>{locale.toUpperCase()}</span><ChevronDown size={12} aria-hidden="true"/>
     </Button>
     <Popover placement="bottom end" offset={10} className={styles.languagePopover}>
