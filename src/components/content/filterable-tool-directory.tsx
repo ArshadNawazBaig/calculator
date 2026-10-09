@@ -1,6 +1,7 @@
 "use client";
 import {useId,useMemo,useState} from 'react';
 import type {CatalogEntry} from '@/lib/calculators/types';
+import {categoryLabels,type CategoryId} from '@/lib/site';
 import {CategorySearch} from './category-search';
 import {ToolDirectory} from './tool-directory';
 
@@ -8,7 +9,7 @@ function normalize(value:string){
   return value.normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 }
 
-export function FilterableToolDirectory({tools,grouped=true}:{tools:CatalogEntry[];grouped?:boolean}){
+export function FilterableToolDirectory({tools,category,grouped=true}:{tools:CatalogEntry[];category:CategoryId;grouped?:boolean}){
   const [query,setQuery]=useState('');
   const resultsId=useId();
   const filteredTools=useMemo(()=>{
@@ -21,12 +22,15 @@ export function FilterableToolDirectory({tools,grouped=true}:{tools:CatalogEntry
   },[query,tools]);
 
   return <>
-    <div className="mb-6 flex flex-wrap items-center gap-3 print:hidden">
+    <section aria-labelledby={`${resultsId}-title`} className="mb-8 flex flex-col gap-4 border-b border-line pb-6 md:flex-row md:items-center md:justify-between print:hidden">
+      <div>
+        <h2 id={`${resultsId}-title`} className="text-base font-semibold tracking-tight">Search {categoryLabels[category].toLowerCase()} calculators</h2>
+        <p className="mt-1 text-xs text-muted" role="status" aria-atomic="true">
+          {query.trim()?`${filteredTools.length} of ${tools.length}`:tools.length} {tools.length===1?'calculator':'calculators'}
+        </p>
+      </div>
       <CategorySearch query={query} onQueryChange={setQuery} resultsId={resultsId}/>
-      <p className="text-xs text-muted" role="status" aria-atomic="true">
-        {query.trim()?`${filteredTools.length} of ${tools.length}`:tools.length} {tools.length===1?'calculator':'calculators'}
-      </p>
-    </div>
+    </section>
     <div id={resultsId}>
       {filteredTools.length?<ToolDirectory tools={filteredTools} grouped={grouped}/>:<div className="rounded-lg border border-line bg-surface px-5 py-8">
         <h2 className="text-base font-semibold">No matching calculators</h2>
