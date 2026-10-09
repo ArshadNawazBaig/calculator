@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {Plus} from "lucide-react";
+import {Accordion,AccordionItem} from "@/components/ui/accordion";
 import styles from "./home.module.css";
 
 const questions=[
@@ -12,6 +12,6 @@ const questions=[
 export function HomeFaq() {
   return <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title">
     <div className={styles.faqIntro}><span className={styles.eyebrow}>A few helpful answers</span><h2 id="faq-title">Good to know.</h2><p>Have something else in mind?<br/><Link href="/contact">Get in touch with Finflo.</Link></p></div>
-    <div className={styles.questions}>{questions.map(({question,answer})=><details key={question}><summary>{question}<Plus size={19} aria-hidden="true"/></summary><p>{answer}</p></details>)}</div>
+    <Accordion>{questions.map(({question,answer})=><AccordionItem key={question} title={question}><p>{answer}</p></AccordionItem>)}</Accordion>
   </section>;
 }

@@ -194,8 +194,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .chart-row strong { font-weight: 550; }
 .calculator-results>p { margin-top: 20px; font-size: 14px; color: var(--color-muted); }
 .result-footnote { font-size: 13px; color: var(--color-muted); line-height: 1.7; margin-top: 20px; }
-.result-details { margin-top: 25px; font-size: 14px; border-top: 1px solid var(--color-line); padding-top: 17px; }
-.result-details summary { color: var(--color-brand); font-weight: 600; cursor: pointer; min-height: 32px; }
+.result-details { margin-top: 25px; }
 .table-scroll { overflow: auto; max-height: 480px; max-width: 100%; margin-top: 14px; }
 table { border-collapse: collapse; font-size: 12px; width: 100%; text-align: right; font-variant-numeric: tabular-nums; }
 th, td { padding: 12px; border-bottom: 1px solid var(--color-line); white-space: nowrap; }
@@ -209,9 +208,7 @@ th:first-child, td:first-child { text-align: left; }
 .calculator-toolbar .button { font-size: 12px; min-height: 38px; padding: 8px 11px; }
 .toolbar-notice { padding: 0 30px 15px; color: var(--color-brand); font-size: 13px; }
 .stale-note { background: #fff7e5; border: 1px solid #ead8a9; padding: 10px 12px; border-radius: 6px; font-size: 13px; color: #795519; margin-bottom: 18px; }
-.advanced-fields { border-top: 1px solid var(--color-line); padding-top: 18px; margin-top: 24px; }
-.advanced-fields summary { color: var(--color-brand); font-size: 14px; font-weight: 600; cursor: pointer; min-height: 32px; }
-.advanced-fields .calculator-fields { margin-top: 18px; }
+.advanced-fields { margin-top: 24px; }
 
 /* Explanations and editorial pages */
 .tool-reading { display: grid; grid-template-columns: minmax(0,1fr) 270px; gap: 72px; margin-top: 52px; }
@@ -235,8 +232,6 @@ th:first-child, td:first-child { text-align: left; }
 .aside-note h3 { font-size: 17px; font-weight: 650; }
 .aside-note p { font-size: 14px; color: var(--color-muted); margin: 10px 0 16px; }
 .aside-note a { font-size: 13px; color: var(--color-brand); font-weight: 600; }
-.faq { border-bottom: 1px solid var(--color-line); padding: 17px 0; }
-.faq summary { font-size: 15px; font-weight: 600; cursor: pointer; }
 .document-page .page-heading, .document-page .document-body { max-width: 800px; }
 .guide-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
 .guide-card { padding: 28px; border: 1px solid var(--color-line); border-radius: 8px; background: #fff; }
@@ -449,6 +444,7 @@ th:first-child, td:first-child { text-align: left; }
   .results-region { background: white; border: 0; padding: 0; }
   .table-scroll { max-height: none; overflow: visible; }
   .result-details, .result-details>div { display: block; }
+  .result-details::details-content { content-visibility: visible; }
   .document-body { max-width: none; }
   .page-heading { padding: 0 0 20px; }
   .tool-page { padding-bottom: 0; }

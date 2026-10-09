@@ -1,5 +1,6 @@
 'use client';
 import {Dropdown} from '@/components/ui/dropdown';
+import {AccordionItem} from '@/components/ui/accordion';
 import {useEffect, useRef, useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {MAX_BINARY_BYTES, MAX_BASE64_CHARACTERS, bytesToBase64, base64ToBytes} from '@/lib/calculators/base64-codec';
@@ -45,6 +46,6 @@ export function Base64Files() {
     {direction === 'decode' && <label className="file-codec-checkbox"><input type="checkbox" checked={whitespace} onChange={e => {clear(); setWhitespace(e.target.checked);}}/>Remove ASCII whitespace before decoding</label>}
     <div className="form-actions"><Button type="button" disabled={busy} onClick={convert}>{busy ? 'Converting…' : 'Convert file'}</Button><Button type="button" variant="ghost" onClick={clear}>Clear result</Button></div>
     {error && <p role="alert" className="form-error">{error}</p>}
-    {output && <div role="status"><p>{output.bytes.toLocaleString()} output bytes. <a href={output.url} download={output.name}>Download {output.name}</a></p>{direction === 'encode' && <details><summary>Base64 preview (first 8,000 characters)</summary><pre className="file-codec-preview">{output.preview || '(empty file)'}</pre></details>}</div>}
+    {output && <div role="status"><p>{output.bytes.toLocaleString()} output bytes. <a href={output.url} download={output.name}>Download {output.name}</a></p>{direction === 'encode' && <AccordionItem title="Base64 preview (first 8,000 characters)"><pre className="file-codec-preview">{output.preview || '(empty file)'}</pre></AccordionItem>}</div>}
   </section>;
 }
