@@ -16,10 +16,10 @@
   --color-line: #393939;
   --color-line-strong: #525252;
   --color-surface: #242424;
-  --color-brand: #6ee7b7;
-  --color-brand-dark: #9cf2ce;
+  --color-brand: #0f9b70;
+  --color-brand-dark: #15ab7e;
   --color-brand-soft: #203b30;
-  --color-focus: #6ee7b7;
+  --color-focus: #0f9b70;
   --color-selected: #255f47;
   --search-menu-bg: #242424;
   --search-key-bg: #303030;
@@ -42,7 +42,8 @@
 .searchWrap :global(.search) { background: var(--color-surface); border: 1px solid var(--color-line-strong); border-radius: 9px; padding: 5px 5px 5px 18px; gap: 12px; box-shadow: 0 4px 14px #00000014; }
 .searchWrap :global(.search:focus-within) { border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .searchWrap :global(.search input) { height: 42px; font-size: 14px; }
-.searchWrap :global(.search .button) { color: #072d20; border-radius: 6px; min-height: 44px; padding-inline: 24px; }
+.searchWrap :global(.search .button) { color: #fff; background: #087f5b; border-radius: 6px; min-height: 44px; padding-inline: 24px; }
+.searchWrap :global(.search .button:hover) { background: #056345; }
 .heroFooter { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 680px; margin: 20px auto 0; font-size: 14px; line-height: 1.6; }
 .searchUnder { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 16px 24px; }
 .quickSearches { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; color: var(--color-muted); }
