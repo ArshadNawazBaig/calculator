@@ -18,6 +18,16 @@ npx @railway/cli config apply
 
 Pushes to `main` trigger application deployments. Changes to the infrastructure file also need `config plan` and `config apply`. The `finflo` partial manages only this service and leaves environment variables under Railway's control.
 
+### Custom domain
+
+The intended primary address is `https://finflo.org`. Next.js permanently redirects requests for `www.finflo.org` to the root domain and preserves the path and query string. Canonical URLs already use the root domain.
+
+Domain setup is pending. Railway's CLI and public API rejected creation of both `finflo.org` and `www.finflo.org` with `Failed to create custom domain, please try again`; no custom domains were attached. The running Railway service is unaffected. Custom-domain registration cannot be created through the infrastructure file either; Railway requires registration before importing domain configuration.
+
+Use the existing Vercel DNS account, as for `thebestfreepdf.com`: `finflo.org` is already listed under `arshadnawazbaigs-projects`, with no DNS records. Its current authoritative nameservers remain GoDaddy's `ns01.domaincontrol.com` and `ns02.domaincontrol.com`. Folio uses Vercel's `ns1.vercel-dns.com` and `ns2.vercel-dns.com`, with a root ALIAS targeting its Railway hostname. Vercel DNS supports apex ALIAS records; see [Working with DNS](https://vercel.com/docs/domains/working-with-dns).
+
+To finish, add both custom domains to the Railway service's Public Networking settings on port `8080`. Use the exact records returned by Railway: an apex ALIAS and verification TXT for `finflo.org`, plus a CNAME and verification TXT for `www.finflo.org`. Do not reuse Folio's target or verification values. After preparing the Vercel DNS zone and preserving any existing mail/verification records at the registrar, switch the domain's nameservers to Vercel's. Verify Railway ownership, certificates, HTTPS responses, and the www redirect before enabling indexing and rebuilding.
+
 ## Portable native Next.js runtime
 
 The standard build is an actual Next.js Node application:
