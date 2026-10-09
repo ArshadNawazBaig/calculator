@@ -1,2 +1,10 @@
 import Link from 'next/link';
-export function SystemPage({code,title,description,children}:{code:string;title:string;description:string;children?:React.ReactNode}){return <div className="system-page"><div className="system-code" aria-hidden="true">{code}</div><h1>{title}</h1><p>{description}</p><div className="system-actions">{children}<Link className="button button-secondary" href="/calculators">Browse calculators</Link><Link className="button button-ghost" href="/">Go home</Link></div></div>;}
+import {PageHero} from './page-hero';
+
+export function SystemPage({code,title,description,children}:{code:string;title:string;description:string;children?:React.ReactNode}){
+  return <PageHero eyebrow={`FINFLO · ${code}`} title={title} description={description}>
+    {children}
+    <Link className="button button-secondary" href="/calculators">Browse calculators</Link>
+    <Link className="button button-ghost" href="/">Go home</Link>
+  </PageHero>;
+}
