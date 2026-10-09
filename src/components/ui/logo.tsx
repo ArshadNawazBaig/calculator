@@ -10,6 +10,7 @@ export function Logo({ onDark = false }: { onDark?: boolean }) {
       className={`logo cursor-pointer ${onDark ? styles.onDark : ''}`}
     >
       <Image
+        className={styles.image}
         src="/finflo-logo.webp"
         width={626}
         height={212}
