@@ -32,8 +32,9 @@ Mixed-language tool, guide and policy pages are self-canonical but **noindex**. 
 
 - Production build succeeds with indexing enabled: 411 prerendered routes plus on-demand localized routes.
 - Full calculator/unit suite: 2,852 passing tests, including translation coverage, route/search behavior, and preservation of textual calculator outputs.
-- Language browser checks cover waiting for interactive handlers on slow connections, switching, translated suggestions and category filters, query preservation, Arabic calculation/RTL, French date picker, localized metadata, 404s, accessibility and layouts from 360px to 1440px.
+- Seven language browser checks passed locally and on the deployed Railway origin. They cover waiting for interactive handlers on slow connections, switching, translated suggestions and category filters, query preservation, Arabic calculation/RTL, French date picker, localized metadata, 404s, accessibility and layouts from 360px to 1440px.
 - Existing English site and search browser checks were run; a category-message regression was corrected and the search suite passed.
 - Local production crawl: all 377 sitemap pages and 1,450 internal paths resolve, with correct canonical/indexing behavior. See [the report](validation/multilingual-indexing.json). This does not establish custom-domain DNS/TLS or Google indexing.
+- Live HTTPS audit: all 377 sitemap pages and 30 representative mixed-language calculator pages passed, using normal TLS verification against `https://finflo.org`. See [the live report](validation/live-indexing-readiness.json). Google Search Console ownership and indexing remain separate account actions.
 
 Run `npm test`, `npm run lint` and `npm run build`. Browser checks use `TEST_URL=<running-site> TEST_INDEXABLE=true npx playwright test tests/e2e/languages.spec.ts tests/e2e/search.spec.ts` against an indexable production build.

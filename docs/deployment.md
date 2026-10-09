@@ -1,6 +1,6 @@
 # Deployment
 
-Finflo currently runs on Railway. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. The production application is prepared for indexing on `https://finflo.org`. Both custom domains and their Vercel DNS records are configured; the registry now delegates to Vercel, while recursive DNS propagation and Railway certificate verification are pending.
+Finflo runs on Railway at `https://finflo.org`. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains are verified with valid Railway certificates. The registry delegates to Vercel DNS, and the live HTTPS indexing audit passed for all 377 sitemap URLs; see [the live report](validation/live-indexing-readiness.json).
 
 ## Railway
 
@@ -20,13 +20,13 @@ Pushes to `main` trigger application deployments. Changes to the infrastructure 
 
 ### Custom domain
 
-The intended primary address is `https://finflo.org`. Next.js permanently redirects requests for `www.finflo.org` to the root domain and preserves the path and query string. Canonical URLs already use the root domain.
+The primary address is `https://finflo.org`. Next.js permanently redirects requests for `www.finflo.org` to the root domain and preserves the path and query string. Canonical URLs use the root domain. Live HTTPS requests confirmed the apex returns HTTP 200 and www returns HTTP 308; HTTP requests redirect to HTTPS.
 
-Both `finflo.org` and `www.finflo.org` are registered on the Railway service at port `8080`. The user added the apex domain through the dashboard, and the CLI subsequently added `www`. Domain IDs are `ca513288-de34-4235-9247-8094b9461efb` (apex) and `d0fbe1b6-36b6-4799-bdc0-ba949b7659dd` (www). Railway is waiting for public DNS verification before issuing certificates.
+Both `finflo.org` and `www.finflo.org` are registered on the Railway service at port `8080`. The user added the apex domain through the dashboard, and the CLI subsequently added `www`. Domain IDs are `ca513288-de34-4235-9247-8094b9461efb` (apex) and `d0fbe1b6-36b6-4799-bdc0-ba949b7659dd` (www). Railway reports both domains verified with `CERTIFICATE_STATUS_TYPE_VALID`.
 
 The Vercel DNS zone is enabled under `arshadnawazbaigs-projects`, using the same DNS provider as `thebestfreepdf.com`. The apex ALIAS points to `0mimryym.up.railway.app`; the `www` CNAME points to `d78e491d.up.railway.app`. The exact Railway verification TXT records are installed at `_railway-verify` and `_railway-verify.www`. Both Vercel nameservers directly returned the correct records. Retrieve the full expected verification values with `railway domain status <hostname> --json`; do not reuse Folio's values.
 
-The direct `.org` registry query now confirms `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. The nameserver change is published; no further registrar edit is needed. Vercel and some recursive resolvers return the Railway records, while other resolvers still have the old delegation cached. The latest local HTTPS request could not resolve `finflo.org`. Verify Railway ownership, certificates, HTTPS responses, robots, sitemap, and the www redirect on the actual domain once propagation finishes, before submitting it to Search Console. See [GoDaddy nameserver instructions](https://www.godaddy.com/help/change-my-domain-nameservers-664).
+The direct `.org` registry query confirms `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. No further registrar edit is needed. Live requests now resolve the domain and pass normal TLS verification. The live audit checked canonical pages, robots/sitemap behavior, indexing headers and redirects. Publish any Google Search Console verification TXT record in Vercel DNS, the active DNS provider. Search Console ownership verification and sitemap submission are still handled by the user.
 
 ## Portable native Next.js runtime
 
