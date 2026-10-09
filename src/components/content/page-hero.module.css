@@ -6,8 +6,9 @@
   color: #fff;
   background: #191919;
   border-bottom: 1px solid #393939;
-  padding-block: 64px 48px;
+  padding-block: 64px;
 }
+.breadcrumbs { margin-bottom: 36px; }
 .eyebrow { display: block; margin-bottom: 16px; color: #0f9b70; font-size: 13px; font-weight: 800; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
 .title { max-width: 1050px; margin: 0; font-size: clamp(46px,5.8vw,78px); font-weight: 800; line-height: 1.06; letter-spacing: -.065em; text-wrap: balance; overflow-wrap: anywhere; }
 .title span { color: #0f9b70; }
@@ -16,7 +17,8 @@
 .actions :global(.button-secondary) { color: #fff; background: transparent; border-color: #525252; }
 .actions :global(.button-secondary:hover) { background: #242424; border-color: #777; }
 @media(max-width:700px) {
-  .hero { padding-block: 42px 36px; }
+  .hero { padding-block: 42px 48px; }
+  .breadcrumbs { margin-bottom: 28px; }
   .title { font-size: clamp(37px,8vw,54px); letter-spacing: -.055em; }
   .description { font-size: 15px; margin-top: 22px; }
   .actions { gap: 10px; margin-top: 24px; }

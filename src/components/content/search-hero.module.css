@@ -17,12 +17,15 @@
   color: var(--color-ink);
   background: #191919;
   border-bottom: 1px solid var(--color-line);
-  min-height: clamp(459px,calc(361px + 12.3vw),530px);
+  min-height: clamp(499px,calc(401px + 12.3vw),570px);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding-block: 64px 32px;
   text-align: center;
 }
+.heroBreadcrumbs { margin-bottom: 32px; text-align: left; }
 .introInner { max-width: 760px; padding: 0; }
 .heroEyebrow { display: block; color: var(--color-brand); font-size: 13px; line-height: 1.6; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
 .intro h1 { max-width: 720px; font-size: clamp(46px,5.8vw,78px); font-weight: 800; line-height: 1.06; letter-spacing: -.065em; color: var(--color-ink); margin: 0 auto 22px; text-wrap: balance; }
@@ -49,12 +52,13 @@
 
 @media(max-width:1100px) { .searchHint { display: none; } }
 @media(max-width:700px) {
-  .intro { min-height: 530px; padding-block: 42px 28px; }
+  .intro { min-height: 570px; padding-block: 42px 28px; }
+  .heroBreadcrumbs { margin-bottom: 28px; }
   .intro h1 { font-size: clamp(37px,8vw,54px); letter-spacing: -.055em; }
   .heroDescription { font-size: 15px; }
   .heroFooter { gap: 16px; font-size: 13px; }
 }
-@media(max-width:480px) { .intro { min-height: 593px; } }
+@media(max-width:480px) { .intro { min-height: 633px; } }
 @media(max-width:600px) {
   .searchWrap :global(.search) { gap: 8px; padding-left: 12px; }
   .searchWrap :global(.search input) { font-size: 16px; }
@@ -64,11 +68,11 @@
   .promises { gap: 10px 16px; }
   .promises span { gap: 6px; }
 }
-@media(max-width:360px) { .intro { min-height: 659px; } .promises { gap: 8px; } }
+@media(max-width:360px) { .intro { min-height: 699px; } .promises { gap: 8px; } }
 @media print {
   .intro { --color-ink: #000; --color-muted: #444; --color-brand: #000; min-height: 0; padding: 0 0 20px; color: #000; background: #fff; border: 0; text-align: left; }
   .introInner { max-width: none; }
   .intro h1 { max-width: none; margin: 0 0 12px; font-size: 30px; letter-spacing: -.035em; }
   .heroDescription { max-width: none; margin: 0; }
-  .heroFooter,.searchScope { display: none; }
+  .heroBreadcrumbs,.heroFooter,.searchScope { display: none; }
 }

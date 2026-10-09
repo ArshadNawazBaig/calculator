@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {Check,BookOpen,UserRoundCheck} from 'lucide-react';
 import {Search} from '@/components/search';
 import {categoryLabels,type CategoryId} from '@/lib/site';
+import {Breadcrumbs,type BreadcrumbItem} from './breadcrumbs';
 import styles from './search-hero.module.css';
 
 type SearchHeroProps={
@@ -11,13 +12,15 @@ type SearchHeroProps={
   title:string;
   highlight:string;
   description:string;
+  breadcrumbs?:BreadcrumbItem[];
   category?:CategoryId;
   onClearCategory?:()=>void;
 };
 
-export function SearchHero({id,eyebrow,title,highlight,description,category,onClearCategory}:SearchHeroProps){
+export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,category,onClearCategory}:SearchHeroProps){
   const index=title.lastIndexOf(highlight);
   return <section className={styles.intro} aria-labelledby={id} data-search-hero>
+    {breadcrumbs&&<div className={`container ${styles.heroBreadcrumbs}`}><Breadcrumbs items={breadcrumbs} tone="inverse"/></div>}
     <div className={`container ${styles.introInner}`}>
       <span className={styles.heroEyebrow}>{eyebrow}</span>
       <h1 id={id}>{index<0?title:<>{title.slice(0,index)}<span>{highlight}</span>{title.slice(index+highlight.length)}</>}</h1>
