@@ -1,18 +1,24 @@
-import {Search} from '@/components/search';
-import {categoryLabels,type CategoryId} from '@/lib/site';
+"use client";
+import {useId,useRef} from 'react';
+import {Search,X} from 'lucide-react';
 import styles from './category-search.module.css';
 
-const placeholders:Record<CategoryId,string>={
-  finance:'Try mortgage, interest, or loan',
-  health:'Try BMI, calories, or ideal weight',
-  math:'Try percentage, fraction, or ratio',
-  everyday:'Try age, date, or unit conversion',
+type CategorySearchProps={
+  query:string;
+  onQueryChange:(query:string)=>void;
+  resultsId:string;
 };
 
-export function CategorySearch({category}:{category:CategoryId}){
-  const titleId=`${category}-search-title`;
-  return <section className={styles.root} aria-labelledby={titleId}>
-    <h2 id={titleId}>Search {categoryLabels[category].toLowerCase()} calculators</h2>
-    <Search key={category} category={category} keyboardShortcut placeholder={placeholders[category]}/>
-  </section>;
+export function CategorySearch({query,onQueryChange,resultsId}:CategorySearchProps){
+  const id=useId();
+  const inputRef=useRef<HTMLInputElement>(null);
+  return <div className={styles.root}>
+    <Search size={17} aria-hidden="true"/>
+    <label className="sr-only" htmlFor={id}>Filter calculators</label>
+    <input ref={inputRef} id={id} type="search" placeholder="Search calculators…" value={query}
+      autoComplete="off" spellCheck={false} aria-controls={resultsId}
+      onChange={event=>onQueryChange(event.target.value)}
+      onKeyDown={event=>{if(event.key==='Escape'){event.preventDefault();onQueryChange('');}}}/>
+    {query&&<button type="button" aria-label="Clear filter" onClick={()=>{onQueryChange('');inputRef.current?.focus();}}><X size={16} aria-hidden="true"/></button>}
+  </div>;
 }
