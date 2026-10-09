@@ -1,5 +1,7 @@
 # Deployment
 
+The private preview deployed successfully on October 9, 2026: [Open Finflo](https://finflo-calculators.qasim174298.chatgpt.site). The native deployment records source commit `d8821c442b260a03015a4c9a6d4ec69d3a189047`; see [deployment evidence](validation/deployment.json). This post-deployment documentation update does not change the deployed application. The domain `finflo.org` is not attached, and public indexing remains disabled.
+
 ## Portable native Next.js runtime
 
 The standard build is an actual Next.js Node application:

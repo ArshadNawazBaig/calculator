@@ -148,8 +148,11 @@
     },
     {
       "id": "maintenance-api-wrapper-does-not-fetch-upstream",
-      "status": "fail",
-      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n500 !== 503\n\n    at /private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:19:165\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (/private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:3:69)\n    at async /private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:19:35"
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "outbound": 0
+      }
     }
   ],
   "outbound": [
@@ -210,12 +213,6 @@
     {
       "mode": "failure",
       "url": "https://api.frankfurter.dev/v2/rates?base=USD&expand=providers",
-      "method": "GET",
-      "body": ""
-    },
-    {
-      "mode": "maintenance",
-      "url": "http://localhost:59700/maintenance",
       "method": "GET",
       "body": ""
     }

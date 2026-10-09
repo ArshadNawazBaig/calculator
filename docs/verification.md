@@ -16,6 +16,8 @@ The committed browser suite covers calculation/reset/export, search/no-results, 
 
 Additional independent reports cover advanced currency, apparel/mixed units, map interaction, Base64 file/codecs, expression memory and server error recovery. The production fault harness verifies redacted route/global failures, `retry()` recovery, the global title, maintenance503, Retry-After, no-store/noindex and health/static bypass. Fault injection exists only in the isolated test harness; no error-trigger endpoint is shipped.
 
+The final packaged Worker currency checks pass all seven fixture scenarios; see [the report](validation/worker-rates.json). The initial maintenance fixture used a loopback hostname inconsistent with Next's normalized rewrite origin. Correcting the isolated harness to use `localhost` resolved that fixture without an application change. The final report replaces that earlier harness failure. Native private deployment also returned `succeeded`; this is distinct from a separate browser audit of the hosted URL.
+
 Automated axe results are not an accessibility certification or a complete manual assistive-technology audit.
 
 ## Performance and limitations
