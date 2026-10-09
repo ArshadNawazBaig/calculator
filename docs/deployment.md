@@ -4,7 +4,7 @@ The private preview deployed successfully on October 9, 2026: [Open Finflo](http
 
 ## Railway
 
-The `finflo` service uses the existing `ArshadNawazBaig/calculator` repository and its `main` branch. Its Railway URL is https://finflo-production-16af.up.railway.app. Deployment settings are checked in as `railway.json`: Railpack builds with Node.js 22 and `npm run build`, then runs `npm run start`. The server listens on `0.0.0.0` and Railway's `PORT`; `/api/health` must return a successful response before traffic is routed to a new deployment.
+The `finflo` service uses the existing `ArshadNawazBaig/calculator` repository and its `main` branch. Its Railway URL is https://finflo-production-16af.up.railway.app. Deployment settings are checked in as `.railway/railway.ts`: Railpack builds with Node.js 22 and `npm run build`, then runs `npm run start`. The server listens on `0.0.0.0` and Railway's `PORT`; `/api/health` must return a successful response before traffic is routed to a new deployment.
 
 The service has no database or volume. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=false`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. Keep the temporary Railway address out of search until `finflo.org` is connected and the public launch settings are ready. Change `NEXT_PUBLIC_` values before rebuilding.
 
@@ -12,7 +12,11 @@ To link the Railway CLI to this service:
 
 ```sh
 npx @railway/cli link --project d21adcb1-0b19-489d-8357-62edf17763f9 --environment production --service finflo
+npx @railway/cli config plan
+npx @railway/cli config apply
 ```
+
+Pushes to `main` trigger application deployments. Changes to the infrastructure file also need `config plan` and `config apply`. The `finflo` partial manages only this service and leaves environment variables under Railway's control.
 
 ## Portable native Next.js runtime
 
