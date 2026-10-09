@@ -1,0 +1,2473 @@
+[
+  {
+    "url": "https://www.calculator.net/concrete-calculator-for-your-site.html",
+    "final_url": "https://www.calculator.net/concrete-calculator-for-your-site.html",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:27:20.900696+00:00",
+    "sha256": "45842d55777bf0b3d105f92e5327c2c3f0a7912cfc2a63e1538ddba54e791dff",
+    "bytes": 29362,
+    "slug": "concrete-calculator-for-your-site",
+    "title": "Concrete Calculator for Your Site",
+    "kind": "embed",
+    "category": "embed",
+    "subcategory": null,
+    "breadcrumbs": [
+      {
+        "label": "home",
+        "url": "https://www.calculator.net/"
+      },
+      {
+        "label": "calculators for your site",
+        "url": "https://www.calculator.net/calculators-for-your-site.html"
+      },
+      {
+        "label": "concrete calculator for your site",
+        "url": "https://www.calculator.net/concrete-calculator-for-your-site.html"
+      }
+    ],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Concrete Calculator for Your Site",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Slabs, Square Footings, or Walls",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Hole, Column, or Round Footings",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Circular Slab or Tube",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation Instructions",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Slabs, Square Footings, or Walls",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Hole, Column, or Round Footings",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Circular Slab or Tube",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [
+      {
+        "index": 0,
+        "name": "calcf",
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "slablength",
+            "id": "slablength",
+            "type": "text",
+            "label": "length",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slablengthunit",
+            "id": "slablengthunit",
+            "type": "select",
+            "label": "length",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabwidth",
+            "id": "slabwidth",
+            "type": "text",
+            "label": "width",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabwidthunit",
+            "id": "slabwidthunit",
+            "type": "select",
+            "label": "width",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabthick",
+            "id": "slabthick",
+            "type": "text",
+            "label": "thickness or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabthickunit",
+            "id": "slabthickunit",
+            "type": "select",
+            "label": "thickness or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabquantity",
+            "id": "slabquantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameter",
+            "id": "holediameter",
+            "type": "text",
+            "label": "diameter",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameterunit",
+            "id": "holediameterunit",
+            "type": "select",
+            "label": "diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holedepth",
+            "id": "holedepth",
+            "type": "text",
+            "label": "depth or height",
+            "default": "6",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holedepthunit",
+            "id": "holedepthunit",
+            "type": "select",
+            "label": "depth or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holequantity",
+            "id": "holequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameter",
+            "id": "tubediameter",
+            "type": "text",
+            "label": "outer diameter",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameterunit",
+            "id": "tubediameterunit",
+            "type": "select",
+            "label": "outer diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubeindiameter",
+            "id": "tubeindiameter",
+            "type": "text",
+            "label": "inner diameter",
+            "default": "4",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubeindiameterunit",
+            "id": "tubeindiameterunit",
+            "type": "select",
+            "label": "inner diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubedepth",
+            "id": "tubedepth",
+            "type": "text",
+            "label": "length or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubedepthunit",
+            "id": "tubedepthunit",
+            "type": "select",
+            "label": "length or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubequantity",
+            "id": "tubequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": "outputhtml",
+            "type": "textarea",
+            "label": "",
+            "default": "Slabs, Square Footings, or Walls length foot inch yard meter centimeter width foot inch yard meter centimeter thickness or height foot inch yard meter centimeter quantity Hole, Column, or Round Footings diameter foot inch yard meter centimeter depth or height foot inch yard meter centimeter quantity Circular Slab or Tube outer diameter foot inch yard meter centimeter inner diameter foot inch yard meter centimeter length or height foot inch yard meter centimeter quantity powered by calculator.net",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slablength",
+            "id": "slablength",
+            "type": "text",
+            "label": "length",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slablengthunit",
+            "id": "slablengthunit",
+            "type": "select",
+            "label": "length",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabwidth",
+            "id": "slabwidth",
+            "type": "text",
+            "label": "width",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabwidthunit",
+            "id": "slabwidthunit",
+            "type": "select",
+            "label": "width",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabthick",
+            "id": "slabthick",
+            "type": "text",
+            "label": "thickness or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabthickunit",
+            "id": "slabthickunit",
+            "type": "select",
+            "label": "thickness or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabquantity",
+            "id": "slabquantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameter",
+            "id": "holediameter",
+            "type": "text",
+            "label": "diameter",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameterunit",
+            "id": "holediameterunit",
+            "type": "select",
+            "label": "diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holedepth",
+            "id": "holedepth",
+            "type": "text",
+            "label": "depth or height",
+            "default": "6",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holedepthunit",
+            "id": "holedepthunit",
+            "type": "select",
+            "label": "depth or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holequantity",
+            "id": "holequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameter",
+            "id": "tubediameter",
+            "type": "text",
+            "label": "outer diameter",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameterunit",
+            "id": "tubediameterunit",
+            "type": "select",
+            "label": "outer diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubeindiameter",
+            "id": "tubeindiameter",
+            "type": "text",
+            "label": "inner diameter",
+            "default": "4",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubeindiameterunit",
+            "id": "tubeindiameterunit",
+            "type": "select",
+            "label": "inner diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubedepth",
+            "id": "tubedepth",
+            "type": "text",
+            "label": "length or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubedepthunit",
+            "id": "tubedepthunit",
+            "type": "select",
+            "label": "length or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubequantity",
+            "id": "tubequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "name": "calcf",
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "slablength",
+            "id": "slablength",
+            "type": "text",
+            "label": "length",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slablengthunit",
+            "id": "slablengthunit",
+            "type": "select",
+            "label": "length",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabwidth",
+            "id": "slabwidth",
+            "type": "text",
+            "label": "width",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabwidthunit",
+            "id": "slabwidthunit",
+            "type": "select",
+            "label": "width",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabthick",
+            "id": "slabthick",
+            "type": "text",
+            "label": "thickness or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "slabthickunit",
+            "id": "slabthickunit",
+            "type": "select",
+            "label": "thickness or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "slabquantity",
+            "id": "slabquantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameter",
+            "id": "holediameter",
+            "type": "text",
+            "label": "diameter",
+            "default": "2.5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holediameterunit",
+            "id": "holediameterunit",
+            "type": "select",
+            "label": "diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holedepth",
+            "id": "holedepth",
+            "type": "text",
+            "label": "depth or height",
+            "default": "6",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "holedepthunit",
+            "id": "holedepthunit",
+            "type": "select",
+            "label": "depth or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "holequantity",
+            "id": "holequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameter",
+            "id": "tubediameter",
+            "type": "text",
+            "label": "outer diameter",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubediameterunit",
+            "id": "tubediameterunit",
+            "type": "select",
+            "label": "outer diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubeindiameter",
+            "id": "tubeindiameter",
+            "type": "text",
+            "label": "inner diameter",
+            "default": "4",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubeindiameterunit",
+            "id": "tubeindiameterunit",
+            "type": "select",
+            "label": "inner diameter",
+            "default": "foot",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": true
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": false
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubedepth",
+            "id": "tubedepth",
+            "type": "text",
+            "label": "length or height",
+            "default": "5",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "tubedepthunit",
+            "id": "tubedepthunit",
+            "type": "select",
+            "label": "length or height",
+            "default": "inch",
+            "checked": false,
+            "required": false,
+            "options": [
+              {
+                "value": "foot",
+                "label": "foot",
+                "selected": false
+              },
+              {
+                "value": "inch",
+                "label": "inch",
+                "selected": true
+              },
+              {
+                "value": "yard",
+                "label": "yard",
+                "selected": false
+              },
+              {
+                "value": "meter",
+                "label": "meter",
+                "selected": false
+              },
+              {
+                "value": "centimeter",
+                "label": "centimeter",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "name": "tubequantity",
+            "id": "tubequantity",
+            "type": "text",
+            "label": "quantity",
+            "default": "1",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      }
+    ],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/calculators-for-your-site.html",
+        "label": "calculators for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/concrete-calculator-for-your-site.html",
+        "label": "concrete calculator for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      }
+    ],
+    "external_references": [],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/concrete-calculator-for-your-site.html",
+      "https://www.calculator.net/sitemap.html",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/love-calculator-for-your-site.html",
+    "final_url": "https://www.calculator.net/love-calculator-for-your-site.html",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:27:51.187003+00:00",
+    "sha256": "5baf3c096c26b10066b1369d851f00d862be57ec652368084855ef16fc4c3813",
+    "bytes": 9650,
+    "slug": "love-calculator-for-your-site",
+    "title": "Love Calculator for Your Site",
+    "kind": "embed",
+    "category": "embed",
+    "subcategory": null,
+    "breadcrumbs": [
+      {
+        "label": "home",
+        "url": "https://www.calculator.net/"
+      },
+      {
+        "label": "calculators for your site",
+        "url": "https://www.calculator.net/calculators-for-your-site.html"
+      },
+      {
+        "label": "love calculator for your site",
+        "url": "https://www.calculator.net/love-calculator-for-your-site.html"
+      }
+    ],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Love Calculator for Your Site",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation Instructions",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [
+      {
+        "index": 0,
+        "name": null,
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "cnameone",
+            "id": "cnameone",
+            "type": "text",
+            "label": "Name of Person 1",
+            "default": "",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cnametwo",
+            "id": "cnametwo",
+            "type": "text",
+            "label": "Name of Person 2",
+            "default": "",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "name": null,
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "cnameone",
+            "id": "cnameone",
+            "type": "text",
+            "label": "Name of Person 1",
+            "default": "",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cnametwo",
+            "id": "cnametwo",
+            "type": "text",
+            "label": "Name of Person 2",
+            "default": "",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      }
+    ],
+    "unwrapped_fields": [
+      {
+        "name": null,
+        "id": "outputhtml",
+        "type": "textarea",
+        "label": "",
+        "default": "Name of Person 1 Name of Person 2 powered by calculator.net",
+        "checked": false,
+        "required": false
+      }
+    ],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/calculators-for-your-site.html",
+        "label": "calculators for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/love-calculator-for-your-site.html",
+        "label": "love calculator for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      }
+    ],
+    "external_references": [],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/love-calculator-for-your-site.html",
+      "https://www.calculator.net/sitemap.html",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/math-calculator-for-your-site.html",
+    "final_url": "https://www.calculator.net/math-calculator-for-your-site.html",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:27:55.752850+00:00",
+    "sha256": "c3c8f9fde51cf3e0ecd0e05db4b8ead5a0815b57178db45db1df68753eac9d6d",
+    "bytes": 25480,
+    "slug": "math-calculator-for-your-site",
+    "title": "Math Calculator for Your Site",
+    "kind": "embed",
+    "category": "embed",
+    "subcategory": null,
+    "breadcrumbs": [
+      {
+        "label": "home",
+        "url": "https://www.calculator.net/"
+      },
+      {
+        "label": "calculators for your site",
+        "url": "https://www.calculator.net/calculators-for-your-site.html"
+      },
+      {
+        "label": "math calculator for your site",
+        "url": "https://www.calculator.net/math-calculator-for-your-site.html"
+      }
+    ],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Math Calculator for Your Site",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation Instructions",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [
+      {
+        "name": null,
+        "id": "outputhtml",
+        "type": "textarea",
+        "label": "",
+        "default": "0 7 8 9 + MS 4 5 6 &ndash; M+ 1 2 3 &#215; M- 0 . EXP &#247; MR &#177; &#8730;x C = MC powered by calculator.net",
+        "checked": false,
+        "required": false
+      }
+    ],
+    "initial_results": [],
+    "tables": [
+      {
+        "id": null,
+        "classes": [],
+        "rows": 2,
+        "headers": [
+          "0 7 8 9 + MS 4 5 6 \u2013 M+ 1 2 3 \u00d7 M- 0 . EXP \u00f7 MR \u00b1 \u221ax C = MC"
+        ]
+      },
+      {
+        "id": null,
+        "classes": [],
+        "rows": 2,
+        "headers": [
+          "0 7 8 9 + MS 4 5 6 &ndash; M+ 1 2 3 &#215; M- 0 . EXP &#247; MR &#177; &#8730;x C = MC"
+        ]
+      }
+    ],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/calculators-for-your-site.html",
+        "label": "calculators for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/math-calculator-for-your-site.html",
+        "label": "math calculator for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      }
+    ],
+    "external_references": [],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/math-calculator-for-your-site.html",
+      "https://www.calculator.net/sitemap.html",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/mortgage-calculator-for-your-site.html",
+    "final_url": "https://www.calculator.net/mortgage-calculator-for-your-site.html",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:27:59.623528+00:00",
+    "sha256": "84d07bdbf3d0b19746c1a2754b53f5b1918d4ed1a0dce9bf7936ef8c71d59bf2",
+    "bytes": 16986,
+    "slug": "mortgage-calculator-for-your-site",
+    "title": "Mortgage Calculator for Your Site",
+    "kind": "embed",
+    "category": "embed",
+    "subcategory": null,
+    "breadcrumbs": [
+      {
+        "label": "home",
+        "url": "https://www.calculator.net/"
+      },
+      {
+        "label": "calculators for your site",
+        "url": "https://www.calculator.net/calculators-for-your-site.html"
+      },
+      {
+        "label": "mortgage calculator for your site",
+        "url": "https://www.calculator.net/mortgage-calculator-for-your-site.html"
+      }
+    ],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Mortgage Calculator for Your Site",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation Instructions",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [
+      {
+        "index": 0,
+        "name": null,
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "cloanamount",
+            "id": "cloanamount",
+            "type": "text",
+            "label": "Loan Amount",
+            "default": "300000",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cloanterm",
+            "id": "cloanterm",
+            "type": "text",
+            "label": "Loan Term",
+            "default": "30",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cinterestrate",
+            "id": "cinterestrate",
+            "type": "text",
+            "label": "Rate",
+            "default": "6",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cpropertytaxes",
+            "id": "cpropertytaxes",
+            "type": "text",
+            "label": "Property Tax",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cpmi",
+            "id": "cpmi",
+            "type": "text",
+            "label": "PMI Insurance",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "",
+            "id": "cothercost",
+            "type": "text",
+            "label": "Other Cost",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "name": null,
+        "id": null,
+        "action": null,
+        "method": "get",
+        "fields": [
+          {
+            "name": "cloanamount",
+            "id": "cloanamount",
+            "type": "text",
+            "label": "Loan Amount",
+            "default": "300000",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cloanterm",
+            "id": "cloanterm",
+            "type": "text",
+            "label": "Loan Term",
+            "default": "30",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cinterestrate",
+            "id": "cinterestrate",
+            "type": "text",
+            "label": "Rate",
+            "default": "6",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cpropertytaxes",
+            "id": "cpropertytaxes",
+            "type": "text",
+            "label": "Property Tax",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "cpmi",
+            "id": "cpmi",
+            "type": "text",
+            "label": "PMI Insurance",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": "",
+            "id": "cothercost",
+            "type": "text",
+            "label": "Other Cost",
+            "default": "0",
+            "checked": false,
+            "required": false
+          },
+          {
+            "name": null,
+            "id": null,
+            "type": "button",
+            "label": "",
+            "default": "Calculate",
+            "checked": false,
+            "required": false
+          }
+        ]
+      }
+    ],
+    "unwrapped_fields": [
+      {
+        "name": null,
+        "id": "outputhtml",
+        "type": "textarea",
+        "label": "",
+        "default": "Loan Amount $ Loan Term years Rate % Property Tax $/year PMI Insurance $/year Other Cost $/year powered by calculator.net",
+        "checked": false,
+        "required": false
+      }
+    ],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/calculators-for-your-site.html",
+        "label": "calculators for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/mortgage-calculator-for-your-site.html",
+        "label": "mortgage calculator for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      }
+    ],
+    "external_references": [],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/mortgage-calculator-for-your-site.html",
+      "https://www.calculator.net/sitemap.html",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/projects/",
+    "final_url": "https://www.calculator.net/projects/",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:13.460940+00:00",
+    "sha256": "114b1dc53f09efc445db0437169f7b8c7ef8b2d7d5ca7f30b3a0ee8a9dfc8517",
+    "bytes": 3260,
+    "slug": "projects",
+    "title": "Mobile Apps and Plugins",
+    "kind": "embed",
+    "category": null,
+    "subcategory": null,
+    "breadcrumbs": [],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Mobile Apps and Plugins",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Wordpress Plugins",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "Home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/",
+        "label": "plugins",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/bmi-calculator-widget.php",
+        "label": "BMI Calculator",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/love-calculator-widget.php",
+        "label": "Love Calculator",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/math-calculator-widget.php",
+        "label": "Math Calculator",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/mortgage-calculator-widget.php",
+        "label": "Mortgage Loan Calculator",
+        "fragment": ""
+      }
+    ],
+    "external_references": [
+      {
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "label": "GNU GPL license"
+      }
+    ],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/projects/",
+      "https://www.calculator.net/projects/bmi-calculator-widget.php",
+      "https://www.calculator.net/projects/love-calculator-widget.php",
+      "https://www.calculator.net/projects/math-calculator-widget.php",
+      "https://www.calculator.net/projects/mortgage-calculator-widget.php",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/projects/bmi-calculator-widget.php",
+    "final_url": "https://www.calculator.net/projects/bmi-calculator-widget.php",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:15.344381+00:00",
+    "sha256": "c0ec5202d1f98e029545ad688d2f090c6b29629fcb7d0e2db2762b85ca0cf8ea",
+    "bytes": 4623,
+    "slug": "projects/bmi-calculator-widget.php",
+    "title": "BMI Calculator Plugin for WordPress",
+    "kind": "embed",
+    "category": null,
+    "subcategory": null,
+    "breadcrumbs": [],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "BMI Calculator Plugin for WordPress",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Description",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Screenshot",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Faq",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "Home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/",
+        "label": "plugins, gadgets, and applications",
+        "fragment": ""
+      }
+    ],
+    "external_references": [
+      {
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "label": "GNU GPL license"
+      }
+    ],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/projects/",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/projects/love-calculator-widget.php",
+    "final_url": "https://www.calculator.net/projects/love-calculator-widget.php",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:15.605727+00:00",
+    "sha256": "98e94299aa3d3cad3cf0d498f9664c36fef11f023278bd47361187f12c922f10",
+    "bytes": 4649,
+    "slug": "projects/love-calculator-widget.php",
+    "title": "Love Calculator Plugin for WordPress",
+    "kind": "embed",
+    "category": null,
+    "subcategory": null,
+    "breadcrumbs": [],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Love Calculator Plugin for WordPress",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Description",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Screenshot",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Faq",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "Home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/",
+        "label": "plugins, gadgets, and applications",
+        "fragment": ""
+      }
+    ],
+    "external_references": [
+      {
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "label": "GNU GPL license"
+      }
+    ],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/projects/",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/projects/math-calculator-widget.php",
+    "final_url": "https://www.calculator.net/projects/math-calculator-widget.php",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:15.653583+00:00",
+    "sha256": "9b289f59331eeef0c470fd3e2e46bc3a5a40ae4234ce00329e2d1cbf6b15d7f2",
+    "bytes": 4005,
+    "slug": "projects/math-calculator-widget.php",
+    "title": "Math Calculator Plugin for WordPress",
+    "kind": "embed",
+    "category": null,
+    "subcategory": null,
+    "breadcrumbs": [],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Math Calculator Plugin for WordPress",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Description",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Screenshot",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Faq",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "Home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/",
+        "label": "plugins, gadgets, and applications",
+        "fragment": ""
+      }
+    ],
+    "external_references": [
+      {
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "label": "GNU GPL license"
+      }
+    ],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/projects/",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/projects/mortgage-calculator-widget.php",
+    "final_url": "https://www.calculator.net/projects/mortgage-calculator-widget.php",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:17.361032+00:00",
+    "sha256": "2a5575f72be974b806383ed844a26d7c8ffea1ad73428d6977f798e6585261e0",
+    "bytes": 4695,
+    "slug": "projects/mortgage-calculator-widget.php",
+    "title": "Mortgage Loan Calculator Plugin for WordPress",
+    "kind": "embed",
+    "category": null,
+    "subcategory": null,
+    "breadcrumbs": [],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Mortgage Loan Calculator Plugin for WordPress",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Description",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Screenshot",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Faq",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "Home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/projects/",
+        "label": "plugins, gadgets, and applications",
+        "fragment": ""
+      }
+    ],
+    "external_references": [
+      {
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "label": "GNU GPL license"
+      }
+    ],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/projects/",
+      "xml_sitemap"
+    ]
+  },
+  {
+    "url": "https://www.calculator.net/scientific-calculator-for-your-site.html",
+    "final_url": "https://www.calculator.net/scientific-calculator-for-your-site.html",
+    "status": 200,
+    "fetched_at": "2026-10-09T11:28:26.982312+00:00",
+    "sha256": "8edb9badf97f6265e81ee509cb2d28e5e8ae033df398f99337fc5fa8c8d2eb47",
+    "bytes": 29270,
+    "slug": "scientific-calculator-for-your-site",
+    "title": "Scientific Calculator for Your Site",
+    "kind": "embed",
+    "category": "embed",
+    "subcategory": null,
+    "breadcrumbs": [
+      {
+        "label": "home",
+        "url": "https://www.calculator.net/"
+      },
+      {
+        "label": "calculators for your site",
+        "url": "https://www.calculator.net/calculators-for-your-site.html"
+      },
+      {
+        "label": "scientific calculator for your site",
+        "url": "https://www.calculator.net/scientific-calculator-for-your-site.html"
+      }
+    ],
+    "headings": [
+      {
+        "level": "h1",
+        "text": "Scientific Calculator for Your Site",
+        "id": null
+      },
+      {
+        "level": "h2",
+        "text": "Installation Instructions",
+        "id": null
+      }
+    ],
+    "tabs": [],
+    "forms": [],
+    "unwrapped_fields": [
+      {
+        "name": "scirdsetting",
+        "id": "scirdsettingd",
+        "type": "radio",
+        "label": "Deg",
+        "default": "deg",
+        "checked": true,
+        "required": false
+      },
+      {
+        "name": "scirdsetting",
+        "id": "scirdsettingr",
+        "type": "radio",
+        "label": "Rad",
+        "default": "rad",
+        "checked": false,
+        "required": false
+      },
+      {
+        "name": null,
+        "id": "outputhtml",
+        "type": "textarea",
+        "label": "",
+        "default": "0 sin cos tan Deg Rad sin -1 cos -1 tan -1 &#960; e x y x 3 x 2 e x 10 x y &#8730;x 3 &#8730;x &#8730;x ln log ( ) 1/x % n! 7 8 9 + MS 4 5 6 &ndash; M+ 1 2 3 &#215; M- 0 . EXP &#247; MR &#177; RND C = MC powered by calculator.net",
+        "checked": false,
+        "required": false
+      },
+      {
+        "name": "scirdsetting",
+        "id": "scirdsettingd",
+        "type": "radio",
+        "label": "Deg",
+        "default": "deg",
+        "checked": true,
+        "required": false
+      },
+      {
+        "name": "scirdsetting",
+        "id": "scirdsettingr",
+        "type": "radio",
+        "label": "Rad",
+        "default": "rad",
+        "checked": false,
+        "required": false
+      }
+    ],
+    "initial_results": [],
+    "tables": [],
+    "chart_elements": [],
+    "chart_images": [],
+    "links": [
+      {
+        "url": "https://www.calculator.net/",
+        "label": "home",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/calculators-for-your-site.html",
+        "label": "calculators for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/scientific-calculator-for-your-site.html",
+        "label": "scientific calculator for your site",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      },
+      {
+        "url": "https://www.calculator.net/",
+        "label": "calculator.net",
+        "fragment": ""
+      }
+    ],
+    "external_references": [],
+    "audit_status": "structurally_audited",
+    "behavior_status": "not_interactively_verified",
+    "unresolved": [
+      "Dynamic behavior and each computation mode require interactive verification.",
+      "Calculation formulas require independent authoritative verification."
+    ],
+    "implementation_status": "not_started",
+    "testing_status": "not_started",
+    "content_status": "not_started",
+    "proposed_finflo_url": null,
+    "discovered_from": [
+      "https://www.calculator.net/calculators-for-your-site.html",
+      "https://www.calculator.net/scientific-calculator-for-your-site.html",
+      "https://www.calculator.net/sitemap.html",
+      "xml_sitemap"
+    ]
+  }
+]

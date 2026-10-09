@@ -1,0 +1,7358 @@
+{
+  "schemaVersion": 1,
+  "createdDate": "2026-10-09",
+  "scope": "All44 math tools and54 everyday tools. At least one fixture per tool;this is not exhaustive mode coverage.",
+  "independence": "Generated entirely outside the product checkout using mathematical identities,Python standard library and documented primary-source equations. Does not import,call,or inspect Finflo product implementations.",
+  "comparisonGuidance": [
+    "Numeric tolerances apply per numeric leaf:abs(actual-expected)<=max(absolute,relative*abs(expected)).",
+    "Exact integer/decimal strings require exact normalized numeric equivalence;do not coerce large integers to Number.",
+    "Solutions,roots,modes and factor lists marked unordered may be sorted before comparison.",
+    "Field names and mode identifiers are descriptive;adapt to product APIs without changing expected mathematical values.",
+    "Validation conditions describe required behavior;implementation error wording may differ.",
+    "Properties test genuinely nondeterministic outputs;do not require a fixed random sequence in production.",
+    "Some fixtures intentionally specify a convention such as civil calendar month-end constraining,grid tile counting,shoe measurement conversion,or a limited golf estimate;they do not establish complete parity for the tool.",
+    "Default tolerance1e-10;tiny-tail and numerically sensitive fixtures override it."
+  ],
+  "counts": {
+    "fixtures": 320,
+    "mathTools": 44,
+    "everydayTools": 54,
+    "tools": 98,
+    "numericOrExactCases": 255,
+    "validationCases": 61,
+    "propertyCases": 4
+  },
+  "fixtures": [
+    {
+      "id": "scientific-calculator:precedence",
+      "slug": "scientific-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "2 + 3 * 4"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 14
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "scientific-calculator:degrees",
+      "slug": "scientific-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "sin(30) + cos(60)",
+        "angleUnit": "degrees"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "scientific-calculator:factorial",
+      "slug": "scientific-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "7! / 5!"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 42
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "scientific-calculator:log-domain",
+      "slug": "scientific-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "ln(-1)",
+        "numberDomain": "real"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "logarithm_requires_positive_argument"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "scientific-calculator:unsafe-expression",
+      "slug": "scientific-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "globalThis.location.href"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "unsupported_expression_token"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "fraction-calculator:signed-addition",
+      "slug": "fraction-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "-7/12",
+        "b": "5/18",
+        "operator": "+"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "numerator": "-11",
+          "denominator": "36",
+          "fraction": "-11/36"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "fraction-calculator:mixed-product",
+      "slug": "fraction-calculator",
+      "mode": "mixed",
+      "inputs": {
+        "a": "-2 3/4",
+        "b": "1 1/2",
+        "operator": "*"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "numerator": "-33",
+          "denominator": "8",
+          "mixed": "-4 1/8"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "fraction-calculator:decimal-exact",
+      "slug": "fraction-calculator",
+      "mode": "decimal-to-fraction",
+      "inputs": {
+        "value": "0.0625"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "numerator": "1",
+          "denominator": "16"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "fraction-calculator:bigint",
+      "slug": "fraction-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "9007199254740993/7",
+        "b": "1/7",
+        "operator": "+"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "numerator": "9007199254740994",
+          "denominator": "7"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "fraction-calculator:zero-divisor",
+      "slug": "fraction-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "2/3",
+        "b": "0/5",
+        "operator": "/"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "division_by_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "percent-calculator:find-base",
+      "slug": "percent-calculator",
+      "mode": "percentage",
+      "inputs": {
+        "percent": 12.5,
+        "result": 45,
+        "solveFor": "base"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "base": 360
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-calculator:symmetric-difference",
+      "slug": "percent-calculator",
+      "mode": "difference",
+      "inputs": {
+        "a": 80,
+        "b": 100
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "differencePercent": 22.22222222222222
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-calculator:decrease",
+      "slug": "percent-calculator",
+      "mode": "change",
+      "inputs": {
+        "initial": 250,
+        "final": 190
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "changePercent": -24
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-calculator:zero-base-change",
+      "slug": "percent-calculator",
+      "mode": "change",
+      "inputs": {
+        "initial": 0,
+        "final": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "percentage_change_zero_baseline"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "triangle-calculator:sss",
+      "slug": "triangle-calculator",
+      "mode": "sss",
+      "inputs": {
+        "a": 13,
+        "b": 14,
+        "c": 15
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 84,
+          "perimeter": 42,
+          "inradius": 4,
+          "circumradius": 8.125,
+          "altitudes": [
+            12.923076923076923,
+            12,
+            11.2
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "triangle-calculator:ssa-two-solutions",
+      "slug": "triangle-calculator",
+      "mode": "ssa",
+      "inputs": {
+        "a": 5,
+        "b": 8,
+        "A": 30,
+        "angleUnit": "degrees"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "solutionCount": 2,
+          "solutions": [
+            {
+              "A": 30,
+              "B": 53.13010235415597,
+              "C": 96.86989764584403,
+              "a": 5,
+              "b": 8,
+              "c": 9.92820323027551,
+              "area": 19.856406460551018
+            },
+            {
+              "A": 30,
+              "B": 126.86989764584402,
+              "C": 23.130102354155994,
+              "a": 5,
+              "b": 8,
+              "c": 3.928203230275512,
+              "area": 7.856406460551023
+            }
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Compare solutions as an unordered set, not array order."
+    },
+    {
+      "id": "triangle-calculator:asa",
+      "slug": "triangle-calculator",
+      "mode": "asa",
+      "inputs": {
+        "A": 45,
+        "B": 45,
+        "c": 10,
+        "angleUnit": "degrees"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "C": 90,
+          "a": 7.0710678118654755,
+          "b": 7.0710678118654755,
+          "area": 25
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "triangle-calculator:degenerate",
+      "slug": "triangle-calculator",
+      "mode": "sss",
+      "inputs": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "triangle_inequality"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "triangle-calculator:ssa-impossible",
+      "slug": "triangle-calculator",
+      "mode": "ssa",
+      "inputs": {
+        "a": 3,
+        "b": 8,
+        "A": 30,
+        "angleUnit": "degrees"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "no_triangle_solution"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "triangle-calculator:angles-only",
+      "slug": "triangle-calculator",
+      "mode": "angles",
+      "inputs": {
+        "A": 40,
+        "B": 60,
+        "C": 80
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "insufficient_scale_information"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:sphere",
+      "slug": "volume-calculator",
+      "mode": "sphere",
+      "inputs": {
+        "radius": 2,
+        "unit": "m"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicMeters": 33.510321638291124
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:frustum",
+      "slug": "volume-calculator",
+      "mode": "conical-frustum",
+      "inputs": {
+        "topRadius": 2,
+        "bottomRadius": 5,
+        "height": 9,
+        "unit": "m"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volume": 367.5663404700058
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:cap-hemisphere",
+      "slug": "volume-calculator",
+      "mode": "spherical-cap",
+      "inputs": {
+        "sphereRadius": 3,
+        "capHeight": 3,
+        "unit": "m"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volume": 56.548667764616276
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:capsule",
+      "slug": "volume-calculator",
+      "mode": "capsule",
+      "inputs": {
+        "radius": 2,
+        "cylinderHeight": 5,
+        "unit": "m"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volume": 96.34217471008698
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:ellipsoid",
+      "slug": "volume-calculator",
+      "mode": "ellipsoid",
+      "inputs": {
+        "semiAxisA": 2,
+        "semiAxisB": 3,
+        "semiAxisC": 4,
+        "unit": "m"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volume": 100.53096491487338
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:tube",
+      "slug": "volume-calculator",
+      "mode": "tube",
+      "inputs": {
+        "outerDiameter": 6,
+        "innerDiameter": 4,
+        "height": 10,
+        "unit": "cm"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicCentimeters": 157.07963267948966
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:mixed-units",
+      "slug": "volume-calculator",
+      "mode": "rectangular-tank",
+      "inputs": {
+        "length": {
+          "value": 2,
+          "unit": "m"
+        },
+        "width": {
+          "value": 50,
+          "unit": "cm"
+        },
+        "height": {
+          "value": 1000,
+          "unit": "mm"
+        }
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicMeters": 1,
+          "liters": 1000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:tube-inverted",
+      "slug": "volume-calculator",
+      "mode": "tube",
+      "inputs": {
+        "outerDiameter": 4,
+        "innerDiameter": 6,
+        "height": 10
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "inner_dimension_exceeds_outer"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "volume-calculator:cap-over-sphere",
+      "slug": "volume-calculator",
+      "mode": "spherical-cap",
+      "inputs": {
+        "sphereRadius": 2,
+        "capHeight": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "cap_height_exceeds_diameter"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "standard-deviation-calculator:population",
+      "slug": "standard-deviation-calculator",
+      "mode": "population",
+      "inputs": {
+        "values": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "count": 4,
+          "mean": 3,
+          "variance": 2.5,
+          "standardDeviation": 1.5811388300841898
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "standard-deviation-calculator:sample",
+      "slug": "standard-deviation-calculator",
+      "mode": "sample",
+      "inputs": {
+        "values": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "count": 4,
+          "mean": 3,
+          "variance": 3.3333333333333335,
+          "standardDeviation": 1.8257418583505538
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "standard-deviation-calculator:stable-large-offset",
+      "slug": "standard-deviation-calculator",
+      "mode": "sample",
+      "inputs": {
+        "values": [
+          1000000000001,
+          1000000000002,
+          1000000000003
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mean": 1000000000002,
+          "variance": 1,
+          "standardDeviation": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Use field-specific tolerances: variance and SD must be within1e-10 despite large mean."
+    },
+    {
+      "id": "standard-deviation-calculator:constant",
+      "slug": "standard-deviation-calculator",
+      "mode": "sample",
+      "inputs": {
+        "values": [
+          7,
+          7,
+          7
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mean": 7,
+          "variance": 0,
+          "standardDeviation": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "standard-deviation-calculator:sample-singleton",
+      "slug": "standard-deviation-calculator",
+      "mode": "sample",
+      "inputs": {
+        "values": [
+          7
+        ]
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "sample_requires_at_least_two_observations"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "standard-deviation-calculator:empty",
+      "slug": "standard-deviation-calculator",
+      "mode": "population",
+      "inputs": {
+        "values": []
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "empty_dataset"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "random-number-generator:singleton-domain",
+      "slug": "random-number-generator",
+      "mode": "integer",
+      "inputs": {
+        "minimum": 42,
+        "maximum": 42,
+        "count": 3,
+        "allowDuplicates": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "values": [
+            42,
+            42,
+            42
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "random-number-generator:entire-unique-domain",
+      "slug": "random-number-generator",
+      "mode": "integer",
+      "inputs": {
+        "minimum": -2,
+        "maximum": 2,
+        "count": 5,
+        "allowDuplicates": false,
+        "sort": "ascending"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "values": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "random-number-generator:bounded-decimals",
+      "slug": "random-number-generator",
+      "mode": "decimal",
+      "inputs": {
+        "minimum": "0.1",
+        "maximum": "0.9",
+        "count": 20,
+        "decimalPlaces": 2
+      },
+      "expected": {
+        "kind": "properties",
+        "conditions": [
+          "exactly20 outputs",
+          "every output is on the0.01 grid",
+          "every output lies within[0.1,0.9]"
+        ]
+      },
+      "tolerance": null,
+      "provenance": "Mathematical invariants; independent of generator implementation",
+      "notes": ""
+    },
+    {
+      "id": "random-number-generator:too-many-unique",
+      "slug": "random-number-generator",
+      "mode": "integer",
+      "inputs": {
+        "minimum": 1,
+        "maximum": 3,
+        "count": 4,
+        "allowDuplicates": false
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "requested_unique_count_exceeds_domain"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "number-sequence-calculator:arithmetic",
+      "slug": "number-sequence-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "first": 7,
+        "difference": -2,
+        "n": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "nth": -7,
+          "sum": 0,
+          "terms": [
+            7,
+            5,
+            3,
+            1,
+            -1,
+            -3,
+            -5,
+            -7
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "number-sequence-calculator:geometric-negative",
+      "slug": "number-sequence-calculator",
+      "mode": "geometric",
+      "inputs": {
+        "first": 3,
+        "ratio": -2,
+        "n": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "nth": 48,
+          "sum": 33,
+          "terms": [
+            3,
+            -6,
+            12,
+            -24,
+            48
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "number-sequence-calculator:geometric-one",
+      "slug": "number-sequence-calculator",
+      "mode": "geometric",
+      "inputs": {
+        "first": 7,
+        "ratio": 1,
+        "n": 50
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "nth": 7,
+          "sum": 350
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "number-sequence-calculator:fibonacci-big",
+      "slug": "number-sequence-calculator",
+      "mode": "fibonacci",
+      "inputs": {
+        "n": 100,
+        "indexConvention": "F0=0,F1=1"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "nth": "354224848179261915075"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-error-calculator:signed",
+      "slug": "percent-error-calculator",
+      "mode": "relative-error",
+      "inputs": {
+        "observed": 46,
+        "reference": 50
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "absolutePercentError": 8,
+          "signedPercentError": -8
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-error-calculator:negative-reference",
+      "slug": "percent-error-calculator",
+      "mode": "relative-error",
+      "inputs": {
+        "observed": -9,
+        "reference": -10
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "absolutePercentError": 10,
+          "signedPercentError": -10
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "percent-error-calculator:zero-reference",
+      "slug": "percent-error-calculator",
+      "mode": "relative-error",
+      "inputs": {
+        "observed": 4,
+        "reference": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "reference_value_cannot_be_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "exponent-calculator:negative-integer",
+      "slug": "exponent-calculator",
+      "mode": "power",
+      "inputs": {
+        "base": -3,
+        "exponent": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": -243
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "exponent-calculator:negative-exponent",
+      "slug": "exponent-calculator",
+      "mode": "power",
+      "inputs": {
+        "base": 4,
+        "exponent": -3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 0.015625
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "exponent-calculator:zero-negative-power",
+      "slug": "exponent-calculator",
+      "mode": "power",
+      "inputs": {
+        "base": 0,
+        "exponent": -2
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "division_by_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "binary-calculator:addition",
+      "slug": "binary-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "11101",
+        "b": "1011",
+        "operator": "+"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "binary": "101000",
+          "decimal": "40"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "binary-calculator:division-remainder",
+      "slug": "binary-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "1101",
+        "b": "11",
+        "operator": "/"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "quotientBinary": "100",
+          "remainderBinary": "1"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "binary-calculator:large-integer",
+      "slug": "binary-calculator",
+      "mode": "decimal-to-binary",
+      "inputs": {
+        "decimal": "9007199254740993"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "binary": "100000000000000000000000000000000000000000000000000001"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "binary-calculator:invalid-digit",
+      "slug": "binary-calculator",
+      "mode": "binary-to-decimal",
+      "inputs": {
+        "binary": "10201"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_binary_digit"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "hex-calculator:addition",
+      "slug": "hex-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "FFFF",
+        "b": "AB",
+        "operator": "+"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hex": "100AA",
+          "decimal": "65706"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "hex-calculator:division",
+      "slug": "hex-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "a": "100",
+        "b": "3",
+        "operator": "/"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "quotientHex": "55",
+          "remainderHex": "1"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "hex-calculator:large-integer",
+      "slug": "hex-calculator",
+      "mode": "decimal-to-hex",
+      "inputs": {
+        "decimal": "9007199254740993"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hex": "20000000000001"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "half-life-calculator:remaining",
+      "slug": "half-life-calculator",
+      "mode": "decay",
+      "inputs": {
+        "initial": 640,
+        "halfLife": 12,
+        "time": 60
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "remaining": 20
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "half-life-calculator:solve-time",
+      "slug": "half-life-calculator",
+      "mode": "decay",
+      "inputs": {
+        "initial": 80,
+        "remaining": 10,
+        "halfLife": 3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "time": 9
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "half-life-calculator:constants",
+      "slug": "half-life-calculator",
+      "mode": "constant-conversion",
+      "inputs": {
+        "halfLife": 0.6931471805599453
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "decayConstant": 1,
+          "meanLifetime": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "half-life-calculator:growth-in-decay",
+      "slug": "half-life-calculator",
+      "mode": "decay",
+      "inputs": {
+        "initial": 10,
+        "remaining": 20,
+        "time": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "remaining_exceeds_initial_for_decay"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "quadratic-formula-calculator:real-roots",
+      "slug": "quadratic-formula-calculator",
+      "mode": "solve",
+      "inputs": {
+        "a": 2,
+        "b": -7,
+        "c": 3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roots": [
+            0.5,
+            3
+          ],
+          "discriminant": 25
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Roots are unordered."
+    },
+    {
+      "id": "quadratic-formula-calculator:complex",
+      "slug": "quadratic-formula-calculator",
+      "mode": "solve",
+      "inputs": {
+        "a": 1,
+        "b": 2,
+        "c": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roots": [
+            {
+              "real": -1,
+              "imaginary": 2
+            },
+            {
+              "real": -1,
+              "imaginary": -2
+            }
+          ],
+          "discriminant": -16
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "quadratic-formula-calculator:linear-fallback",
+      "slug": "quadratic-formula-calculator",
+      "mode": "solve",
+      "inputs": {
+        "a": 0,
+        "b": 3,
+        "c": -12
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roots": [
+            4
+          ],
+          "equationType": "linear"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "quadratic-formula-calculator:stable-small-root",
+      "slug": "quadratic-formula-calculator",
+      "mode": "solve",
+      "inputs": {
+        "a": 1,
+        "b": -100000000,
+        "c": 1
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roots": [
+            1e-08,
+            99999999.99999999
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-20,
+        "relative": 1e-14
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Relative tolerance per root; naive subtractive quadratic formula loses the small root."
+    },
+    {
+      "id": "slope-calculator:negative-slope",
+      "slug": "slope-calculator",
+      "mode": "two-points",
+      "inputs": {
+        "x1": -2,
+        "y1": 5,
+        "x2": 4,
+        "y2": -3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "slope": -1.3333333333333333,
+          "distance": 10,
+          "intercept": 2.3333333333333335
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "slope-calculator:vertical",
+      "slug": "slope-calculator",
+      "mode": "two-points",
+      "inputs": {
+        "x1": 3,
+        "y1": 1,
+        "x2": 3,
+        "y2": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "slope": null,
+          "vertical": true,
+          "distance": 7,
+          "lineX": 3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "slope-calculator:point-and-distance",
+      "slug": "slope-calculator",
+      "mode": "point-slope-distance",
+      "inputs": {
+        "x": 2,
+        "y": -1,
+        "slope": 0.75,
+        "distance": 10
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "possiblePoints": [
+            {
+              "x": 10,
+              "y": 5
+            },
+            {
+              "x": -6,
+              "y": -7
+            }
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Two directions unless the UI explicitly chooses one."
+    },
+    {
+      "id": "slope-calculator:same-point",
+      "slug": "slope-calculator",
+      "mode": "two-points",
+      "inputs": {
+        "x1": 2,
+        "y1": 2,
+        "x2": 2,
+        "y2": 2
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "coincident_points_do_not_define_line"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "log-calculator:base-two",
+      "slug": "log-calculator",
+      "mode": "logarithm",
+      "inputs": {
+        "base": 2,
+        "argument": 0.125
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": -3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "log-calculator:base-below-one",
+      "slug": "log-calculator",
+      "mode": "logarithm",
+      "inputs": {
+        "base": 0.5,
+        "argument": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": -3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "log-calculator:base-one",
+      "slug": "log-calculator",
+      "mode": "logarithm",
+      "inputs": {
+        "base": 1,
+        "argument": 8
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "logarithm_base_cannot_equal_one"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "area-calculator:triangle",
+      "slug": "area-calculator",
+      "mode": "triangle-sss",
+      "inputs": {
+        "a": 13,
+        "b": 14,
+        "c": 15
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 84
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "area-calculator:sector-radians",
+      "slug": "area-calculator",
+      "mode": "sector",
+      "inputs": {
+        "radius": 3,
+        "angle": 1.0471975511965976,
+        "angleUnit": "radians"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 4.71238898038469
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "area-calculator:ellipse",
+      "slug": "area-calculator",
+      "mode": "ellipse",
+      "inputs": {
+        "semiMajor": 5,
+        "semiMinor": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 31.41592653589793
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "area-calculator:trapezoid",
+      "slug": "area-calculator",
+      "mode": "trapezoid",
+      "inputs": {
+        "base1": 8,
+        "base2": 14,
+        "height": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 55
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "area-calculator:impossible-triangle",
+      "slug": "area-calculator",
+      "mode": "triangle-sss",
+      "inputs": {
+        "a": 2,
+        "b": 3,
+        "c": 8
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "triangle_inequality"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "sample-size-calculator:required-infinite",
+      "slug": "sample-size-calculator",
+      "mode": "required-sample",
+      "inputs": {
+        "confidence": 0.95,
+        "populationProportion": 0.5,
+        "margin": 0.04
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "sampleSize": 601
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "sample-size-calculator:finite-population",
+      "slug": "sample-size-calculator",
+      "mode": "required-sample",
+      "inputs": {
+        "confidence": 0.95,
+        "populationProportion": 0.5,
+        "margin": 0.05,
+        "population": 1000
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "sampleSize": 278
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "sample-size-calculator:margin-finite",
+      "slug": "sample-size-calculator",
+      "mode": "margin-of-error",
+      "inputs": {
+        "confidence": 0.95,
+        "populationProportion": 0.5,
+        "sampleSize": 100,
+        "population": 1000
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "margin": 0.09301577436565597
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "sample-size-calculator:census",
+      "slug": "sample-size-calculator",
+      "mode": "margin-of-error",
+      "inputs": {
+        "confidence": 0.95,
+        "populationProportion": 0.5,
+        "sampleSize": 500,
+        "population": 500
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "margin": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "sample-size-calculator:sample-too-large",
+      "slug": "sample-size-calculator",
+      "mode": "margin-of-error",
+      "inputs": {
+        "confidence": 0.95,
+        "populationProportion": 0.5,
+        "sampleSize": 600,
+        "population": 500
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "sample_exceeds_population"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:dependent",
+      "slug": "probability-calculator",
+      "mode": "two-events-general",
+      "inputs": {
+        "pA": 0.7,
+        "pB": 0.6,
+        "intersection": 0.4
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "union": 0.9,
+          "exclusiveOr": 0.5,
+          "neither": 0.1,
+          "notA": 0.3,
+          "notB": 0.4
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:independent",
+      "slug": "probability-calculator",
+      "mode": "two-events-independent",
+      "inputs": {
+        "pA": 0.3,
+        "pB": 0.8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "intersection": 0.24,
+          "union": 0.86,
+          "exclusiveOr": 0.62,
+          "neither": 0.14
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:repeated",
+      "slug": "probability-calculator",
+      "mode": "repeated-independent",
+      "inputs": {
+        "probability": 0.25,
+        "trials": 4
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "all": 0.00390625,
+          "none": 0.31640625,
+          "atLeastOne": 0.68359375
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:normal-interval",
+      "slug": "probability-calculator",
+      "mode": "normal",
+      "inputs": {
+        "mean": 100,
+        "sd": 15,
+        "lower": 85,
+        "upper": 130
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "between": 0.8185946141203637
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:impossible-intersection",
+      "slug": "probability-calculator",
+      "mode": "two-events-general",
+      "inputs": {
+        "pA": 0.9,
+        "pB": 0.8,
+        "intersection": 0.1
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "intersection_violates_frechet_bounds"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "probability-calculator:underdetermined",
+      "slug": "probability-calculator",
+      "mode": "two-events-general",
+      "inputs": {
+        "pA": 0.5,
+        "pB": 0.4
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "dependent_events_need_joint_information"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "statistics-calculator:all-statistics",
+      "slug": "statistics-calculator",
+      "mode": "dataset",
+      "inputs": {
+        "values": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "count": 4,
+          "sum": 12,
+          "sumSquares": 46,
+          "mean": 3,
+          "populationVariance": 2.5,
+          "sampleVariance": 3.3333333333333335,
+          "min": 1,
+          "max": 5,
+          "geometricMean": 2.514866859365871
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "statistics-calculator:geometric-negative",
+      "slug": "statistics-calculator",
+      "mode": "geometric-mean",
+      "inputs": {
+        "values": [
+          1,
+          -2,
+          4
+        ]
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "geometric_mean_requires_nonnegative_or_positive_data_under_documented_convention"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "mean-median-mode-range-calculator:bimodal",
+      "slug": "mean-median-mode-range-calculator",
+      "mode": "dataset",
+      "inputs": {
+        "values": [
+          -2,
+          0,
+          0,
+          5,
+          5,
+          10
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mean": 3,
+          "median": 2.5,
+          "modes": [
+            0,
+            5
+          ],
+          "range": 12
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "mean-median-mode-range-calculator:all-unique",
+      "slug": "mean-median-mode-range-calculator",
+      "mode": "dataset",
+      "inputs": {
+        "values": [
+          2,
+          4,
+          9
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mean": 5,
+          "median": 4,
+          "modes": [],
+          "range": 7
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Chosen convention: no mode for all unique values."
+    },
+    {
+      "id": "permutation-and-combination-calculator:selection",
+      "slug": "permutation-and-combination-calculator",
+      "mode": "without-replacement",
+      "inputs": {
+        "n": 12,
+        "r": 4
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "permutations": "11880",
+          "combinations": "495"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "permutation-and-combination-calculator:empty-selection",
+      "slug": "permutation-and-combination-calculator",
+      "mode": "without-replacement",
+      "inputs": {
+        "n": 0,
+        "r": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "permutations": "1",
+          "combinations": "1"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "permutation-and-combination-calculator:big-combination",
+      "slug": "permutation-and-combination-calculator",
+      "mode": "without-replacement",
+      "inputs": {
+        "n": 100,
+        "r": 50
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "combinations": "100891344545564193334812497256"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "permutation-and-combination-calculator:r-greater-n",
+      "slug": "permutation-and-combination-calculator",
+      "mode": "without-replacement",
+      "inputs": {
+        "n": 5,
+        "r": 6
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "selection_exceeds_population"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "z-score-calculator:negative-z",
+      "slug": "z-score-calculator",
+      "mode": "raw-score",
+      "inputs": {
+        "value": 64,
+        "mean": 80,
+        "sd": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "z": -2
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "z-score-calculator:probability-conversion",
+      "slug": "z-score-calculator",
+      "mode": "from-z",
+      "inputs": {
+        "z": -2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "left": 0.02275013194817922,
+          "right": 0.9772498680518208,
+          "center": 0.4772498680518208,
+          "central": 0.9544997361036416,
+          "twoTail": 0.04550026389635844
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "z-score-calculator:inverse-left",
+      "slug": "z-score-calculator",
+      "mode": "from-left-probability",
+      "inputs": {
+        "left": 0.9
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "z": 1.2815515655446008
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "z-score-calculator:zero-sd",
+      "slug": "z-score-calculator",
+      "mode": "raw-score",
+      "inputs": {
+        "value": 5,
+        "mean": 3,
+        "sd": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "standard_deviation_must_be_positive"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "confidence-interval-calculator:population-z",
+      "slug": "confidence-interval-calculator",
+      "mode": "z-interval",
+      "inputs": {
+        "sampleSize": 64,
+        "mean": 120,
+        "populationSD": 16,
+        "confidence": 0.95
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "standardError": 2,
+          "margin": 3.919927969080107,
+          "lower": 116.0800720309199,
+          "upper": 123.9199279690801
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "confidence-interval-calculator:sample-t",
+      "slug": "confidence-interval-calculator",
+      "mode": "t-interval",
+      "inputs": {
+        "sampleSize": 10,
+        "mean": 20,
+        "sampleSD": 2,
+        "confidence": 0.95
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "df": 9,
+          "criticalValue": 2.2621571627409915,
+          "margin": 1.4307138119051444,
+          "lower": 18.569286188094857,
+          "upper": 21.430713811905143
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "NIST Student-t confidence limits; independently tabulated t(9,.975)=2.2621571627409915",
+      "notes": ""
+    },
+    {
+      "id": "confidence-interval-calculator:zero-spread",
+      "slug": "confidence-interval-calculator",
+      "mode": "z-interval",
+      "inputs": {
+        "sampleSize": 12,
+        "mean": 8,
+        "populationSD": 0,
+        "confidence": 0.95
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "margin": 0,
+          "lower": 8,
+          "upper": 8
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "confidence-interval-calculator:invalid-confidence",
+      "slug": "confidence-interval-calculator",
+      "mode": "z-interval",
+      "inputs": {
+        "sampleSize": 10,
+        "mean": 20,
+        "populationSD": 2,
+        "confidence": 1
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "confidence_must_be_strictly_between_zero_and_one"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "ratio-calculator:solve-fourth",
+      "slug": "ratio-calculator",
+      "mode": "proportion",
+      "inputs": {
+        "a": 7,
+        "b": 12,
+        "c": 35,
+        "solveFor": "d"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "d": 60
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ratio-calculator:shrink",
+      "slug": "ratio-calculator",
+      "mode": "scale",
+      "inputs": {
+        "a": 1920,
+        "b": 1080,
+        "factor": 4,
+        "direction": "shrink"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "a": 480,
+          "b": 270,
+          "reduced": "16:9"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:2d",
+      "slug": "distance-calculator",
+      "mode": "cartesian-2d",
+      "inputs": {
+        "point1": [
+          -1,
+          2
+        ],
+        "point2": [
+          5,
+          10
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "distance": 10
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:3d",
+      "slug": "distance-calculator",
+      "mode": "cartesian-3d",
+      "inputs": {
+        "point1": [
+          1,
+          2,
+          3
+        ],
+        "point2": [
+          3,
+          5,
+          9
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "distance": 7
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:quarter-equator",
+      "slug": "distance-calculator",
+      "mode": "spherical",
+      "inputs": {
+        "latitude1": 0,
+        "longitude1": 0,
+        "latitude2": 0,
+        "longitude2": 90,
+        "radiusKm": 6371
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kilometers": 10007.543398010286
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:antimeridian",
+      "slug": "distance-calculator",
+      "mode": "spherical",
+      "inputs": {
+        "latitude1": 0,
+        "longitude1": 179,
+        "latitude2": 0,
+        "longitude2": -179,
+        "radiusKm": 6371
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kilometers": 222.38985328911747
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:same-coordinate",
+      "slug": "distance-calculator",
+      "mode": "spherical",
+      "inputs": {
+        "latitude1": 45,
+        "longitude1": 60,
+        "latitude2": 45,
+        "longitude2": 60,
+        "radiusKm": 6371
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kilometers": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "distance-calculator:invalid-latitude",
+      "slug": "distance-calculator",
+      "mode": "spherical",
+      "inputs": {
+        "latitude1": 91,
+        "longitude1": 0,
+        "latitude2": 0,
+        "longitude2": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "latitude_out_of_range"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "circle-calculator:from-area",
+      "slug": "circle-calculator",
+      "mode": "area",
+      "inputs": {
+        "area": 153.93804002589985
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "radius": 7,
+          "diameter": 14,
+          "circumference": 43.982297150257104
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "circle-calculator:from-circumference",
+      "slug": "circle-calculator",
+      "mode": "circumference",
+      "inputs": {
+        "circumference": 31.41592653589793
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "radius": 5,
+          "diameter": 10,
+          "area": 78.53981633974483
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "surface-area-calculator:cone",
+      "slug": "surface-area-calculator",
+      "mode": "cone",
+      "inputs": {
+        "radius": 3,
+        "height": 4
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "slantHeight": 5,
+          "lateralArea": 47.12388980384689,
+          "totalArea": 75.39822368615503
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "surface-area-calculator:closed-cylinder",
+      "slug": "surface-area-calculator",
+      "mode": "cylinder",
+      "inputs": {
+        "radius": 2,
+        "height": 7
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "lateralArea": 87.96459430051421,
+          "totalArea": 113.09733552923255
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "surface-area-calculator:spherical-cap",
+      "slug": "surface-area-calculator",
+      "mode": "spherical-cap",
+      "inputs": {
+        "sphereRadius": 5,
+        "capHeight": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "baseRadius": 4,
+          "curvedArea": 62.83185307179586,
+          "totalAreaWithBase": 113.09733552923255
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "surface-area-calculator:frustum",
+      "slug": "surface-area-calculator",
+      "mode": "conical-frustum",
+      "inputs": {
+        "topRadius": 2,
+        "bottomRadius": 5,
+        "height": 4
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "slantHeight": 5,
+          "lateralArea": 109.95574287564276,
+          "totalArea": 201.06192982974676
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "surface-area-calculator:ellipsoid-reduces-sphere",
+      "slug": "surface-area-calculator",
+      "mode": "ellipsoid-approximation",
+      "inputs": {
+        "semiAxisA": 3,
+        "semiAxisB": 3,
+        "semiAxisC": 3,
+        "p": 1.6075
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 113.09733552923255
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "pythagorean-theorem-calculator:missing-leg",
+      "slug": "pythagorean-theorem-calculator",
+      "mode": "leg",
+      "inputs": {
+        "hypotenuse": 25,
+        "leg": 7
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "missingLeg": 24
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "pythagorean-theorem-calculator:invalid-hypotenuse",
+      "slug": "pythagorean-theorem-calculator",
+      "mode": "leg",
+      "inputs": {
+        "hypotenuse": 4,
+        "leg": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "hypotenuse_must_exceed_positive_leg"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "right-triangle-calculator:legs",
+      "slug": "right-triangle-calculator",
+      "mode": "two-legs",
+      "inputs": {
+        "a": 5,
+        "b": 12
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "c": 13,
+          "area": 30,
+          "perimeter": 30,
+          "altitude": 4.615384615384615,
+          "angleOppositeA": 22.619864948040426
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "right-triangle-calculator:area-perimeter",
+      "slug": "right-triangle-calculator",
+      "mode": "area-perimeter",
+      "inputs": {
+        "area": 6,
+        "perimeter": 12
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "c": 5,
+          "legsUnordered": [
+            3,
+            4
+          ],
+          "altitude": 2.4
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "right-triangle-calculator:altitude-hypotenuse",
+      "slug": "right-triangle-calculator",
+      "mode": "altitude-hypotenuse",
+      "inputs": {
+        "altitude": 2.4,
+        "hypotenuse": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "area": 6,
+          "legsUnordered": [
+            3,
+            4
+          ],
+          "perimeter": 12
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "right-triangle-calculator:impossible-altitude",
+      "slug": "right-triangle-calculator",
+      "mode": "altitude-hypotenuse",
+      "inputs": {
+        "altitude": 3,
+        "hypotenuse": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "altitude_exceeds_half_hypotenuse"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "right-triangle-calculator:angles-no-scale",
+      "slug": "right-triangle-calculator",
+      "mode": "angles",
+      "inputs": {
+        "alpha": 30,
+        "beta": 60
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "insufficient_scale_information"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "root-calculator:odd-negative",
+      "slug": "root-calculator",
+      "mode": "nth-root",
+      "inputs": {
+        "radicand": -243,
+        "index": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": -3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "root-calculator:negative-index",
+      "slug": "root-calculator",
+      "mode": "nth-root",
+      "inputs": {
+        "radicand": 16,
+        "index": -2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 0.25
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "root-calculator:even-negative-real",
+      "slug": "root-calculator",
+      "mode": "nth-root",
+      "inputs": {
+        "radicand": -16,
+        "index": 4,
+        "numberDomain": "real"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "even_root_of_negative_not_real"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "root-calculator:zero-index",
+      "slug": "root-calculator",
+      "mode": "nth-root",
+      "inputs": {
+        "radicand": 16,
+        "index": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "root_index_cannot_be_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "lcm-calculator:multiple-signed",
+      "slug": "lcm-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          -12,
+          18,
+          30
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "lcm": "180"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "lcm-calculator:zero",
+      "slug": "lcm-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          0,
+          18
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "lcm": "0"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gcf-calculator:signed-zero",
+      "slug": "gcf-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          -48,
+          0,
+          18
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gcf": "6"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gcf-calculator:all-zero",
+      "slug": "gcf-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gcf": "0"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Conventional gcd(0,0)=0; common-factor listing is separately infinite."
+    },
+    {
+      "id": "factor-calculator:square",
+      "slug": "factor-calculator",
+      "mode": "integer",
+      "inputs": {
+        "value": "36"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "positiveFactors": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "9",
+            "12",
+            "18",
+            "36"
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "factor-calculator:zero-infinite",
+      "slug": "factor-calculator",
+      "mode": "integer",
+      "inputs": {
+        "value": "0"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "zero_has_infinitely_many_factors"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:half-even-even",
+      "slug": "rounding-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "value": "2.345",
+        "decimalPlaces": 2,
+        "rule": "half-even"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "2.34"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:half-even-odd",
+      "slug": "rounding-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "value": "2.355",
+        "decimalPlaces": 2,
+        "rule": "half-even"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "2.36"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:negative-half-away",
+      "slug": "rounding-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "value": "-2.5",
+        "decimalPlaces": 0,
+        "rule": "half-away-from-zero"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "-3"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:negative-ceiling",
+      "slug": "rounding-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "value": "-2.9",
+        "decimalPlaces": 0,
+        "rule": "ceiling"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "-2"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:negative-floor",
+      "slug": "rounding-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "value": "-2.1",
+        "decimalPlaces": 0,
+        "rule": "floor"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "-3"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "rounding-calculator:fraction-step",
+      "slug": "rounding-calculator",
+      "mode": "increment",
+      "inputs": {
+        "value": "1.13",
+        "increment": "0.25",
+        "rule": "nearest"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "1.25"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "matrix-calculator:rectangular-product",
+      "slug": "matrix-calculator",
+      "mode": "multiply",
+      "inputs": {
+        "A": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ]
+        ],
+        "B": [
+          [
+            7,
+            8
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "matrix": [
+            [
+              58,
+              64
+            ],
+            [
+              139,
+              154
+            ]
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "matrix-calculator:pivot-required",
+      "slug": "matrix-calculator",
+      "mode": "determinant-inverse",
+      "inputs": {
+        "A": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "determinant": -2,
+          "inverse": [
+            [
+              -1.5,
+              1
+            ],
+            [
+              0.5,
+              0
+            ]
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "matrix-calculator:cube",
+      "slug": "matrix-calculator",
+      "mode": "power",
+      "inputs": {
+        "A": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "exponent": 3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "matrix": [
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "matrix-calculator:singular",
+      "slug": "matrix-calculator",
+      "mode": "inverse",
+      "inputs": {
+        "A": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "singular_matrix"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "matrix-calculator:dimension-mismatch",
+      "slug": "matrix-calculator",
+      "mode": "multiply",
+      "inputs": {
+        "A": [
+          [
+            1,
+            2
+          ]
+        ],
+        "B": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "incompatible_matrix_dimensions"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "scientific-notation-calculator:negative-small",
+      "slug": "scientific-notation-calculator",
+      "mode": "convert",
+      "inputs": {
+        "value": "-0.0000567"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mantissa": "-5.67",
+          "exponent": -5,
+          "engineeringMantissa": "-56.7",
+          "engineeringExponent": -6
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "scientific-notation-calculator:addition",
+      "slug": "scientific-notation-calculator",
+      "mode": "arithmetic",
+      "inputs": {
+        "mantissaA": "7.5",
+        "exponentA": 5,
+        "mantissaB": "2.5",
+        "exponentB": 5,
+        "operator": "+"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mantissa": "1",
+          "exponent": 6,
+          "decimal": "1000000"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "big-number-calculator:beyond-safe-int",
+      "slug": "big-number-calculator",
+      "mode": "add",
+      "inputs": {
+        "a": "9007199254740993",
+        "b": "11"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "9007199254741004"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "big-number-calculator:decimal-exact",
+      "slug": "big-number-calculator",
+      "mode": "add",
+      "inputs": {
+        "a": "0.1",
+        "b": "0.2"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "0.3"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "big-number-calculator:factorial",
+      "slug": "big-number-calculator",
+      "mode": "factorial",
+      "inputs": {
+        "a": "30"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "265252859812191058636308480000000"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "big-number-calculator:precision",
+      "slug": "big-number-calculator",
+      "mode": "divide",
+      "inputs": {
+        "a": "1",
+        "b": "7",
+        "decimalPlaces": 30,
+        "rounding": "half-up"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": "0.142857142857142857142857142857"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "prime-factorization-calculator:factorization",
+      "slug": "prime-factorization-calculator",
+      "mode": "integer",
+      "inputs": {
+        "value": "7560"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "factors": [
+            {
+              "prime": "2",
+              "exponent": 3
+            },
+            {
+              "prime": "3",
+              "exponent": 3
+            },
+            {
+              "prime": "5",
+              "exponent": 1
+            },
+            {
+              "prime": "7",
+              "exponent": 1
+            }
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "prime-factorization-calculator:one",
+      "slug": "prime-factorization-calculator",
+      "mode": "integer",
+      "inputs": {
+        "value": "1"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "factors": []
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "prime-factorization-calculator:zero",
+      "slug": "prime-factorization-calculator",
+      "mode": "integer",
+      "inputs": {
+        "value": "0"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "zero_has_no_prime_factorization"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "common-factor-calculator:multiple",
+      "slug": "common-factor-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          24,
+          36,
+          60
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "commonFactors": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "12"
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "common-factor-calculator:zero-plus-nonzero",
+      "slug": "common-factor-calculator",
+      "mode": "integers",
+      "inputs": {
+        "values": [
+          0,
+          12
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "commonFactors": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "12"
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "basic-calculator:parentheses",
+      "slug": "basic-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "(18 - 6) / 4 + 2 * 5"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 13
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "basic-calculator:division-zero",
+      "slug": "basic-calculator",
+      "mode": "expression",
+      "inputs": {
+        "expression": "9/0"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "division_by_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "long-division-calculator:remainder",
+      "slug": "long-division-calculator",
+      "mode": "integer",
+      "inputs": {
+        "dividend": "1234",
+        "divisor": "17"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "quotient": "72",
+          "remainder": "10"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "long-division-calculator:recurring",
+      "slug": "long-division-calculator",
+      "mode": "decimal",
+      "inputs": {
+        "dividend": "22",
+        "divisor": "7"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "integerPart": "3",
+          "nonRepeatingDigits": "",
+          "repeatingDigits": "142857"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "average-calculator:signed",
+      "slug": "average-calculator",
+      "mode": "dataset",
+      "inputs": {
+        "values": [
+          -5,
+          3,
+          8,
+          10
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mean": 4,
+          "sum": 16,
+          "count": 4
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "average-calculator:malformed-input",
+      "slug": "average-calculator",
+      "mode": "dataset-text",
+      "inputs": {
+        "text": "1, two, 3"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_numeric_token"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "p-value-calculator:zero",
+      "slug": "p-value-calculator",
+      "mode": "from-z",
+      "inputs": {
+        "z": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "left": 0.5,
+          "right": 0.5,
+          "center": 0,
+          "central": 0,
+          "twoTail": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "p-value-calculator:negative",
+      "slug": "p-value-calculator",
+      "mode": "from-z",
+      "inputs": {
+        "z": -1.5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "left": 0.06680720126885809,
+          "right": 0.9331927987311419,
+          "twoTail": 0.13361440253771617
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "p-value-calculator:tiny-tail",
+      "slug": "p-value-calculator",
+      "mode": "from-z",
+      "inputs": {
+        "z": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "right": 6.220960574271784e-16,
+          "twoTail": 1.2441921148543568e-15
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-28,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Must not round raw computation to zero; display can use scientific notation."
+    },
+    {
+      "id": "p-value-calculator:inverse-two-tail",
+      "slug": "p-value-calculator",
+      "mode": "from-two-tail",
+      "inputs": {
+        "twoTail": 0.05
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "absoluteZ": 1.959963984540054,
+          "possibleSigns": [
+            -1,
+            1
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "p-value-calculator:invalid-center-probability",
+      "slug": "p-value-calculator",
+      "mode": "from-center",
+      "inputs": {
+        "center": 0.7
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "center_probability_must_not_exceed_half"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "age-calculator:leap-birthday",
+      "slug": "age-calculator",
+      "mode": "civil-age",
+      "inputs": {
+        "birthDate": "2000-02-29",
+        "asOfDate": "2024-02-29"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "years": 24,
+          "months": 0,
+          "days": 0,
+          "totalCivilDays": 8766
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "age-calculator:ordinary-date",
+      "slug": "age-calculator",
+      "mode": "civil-age",
+      "inputs": {
+        "birthDate": "1990-06-15",
+        "asOfDate": "2026-10-09"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "years": 36,
+          "months": 3,
+          "days": 24,
+          "totalCivilDays": 13265
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "age-calculator:future-birth",
+      "slug": "age-calculator",
+      "mode": "civil-age",
+      "inputs": {
+        "birthDate": "2030-01-01",
+        "asOfDate": "2026-10-09"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "birth_date_after_comparison_date"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "date-calculator:leap-day-add",
+      "slug": "date-calculator",
+      "mode": "add",
+      "inputs": {
+        "date": "2024-02-28",
+        "days": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2024-03-01"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "date-calculator:month-end-constrain",
+      "slug": "date-calculator",
+      "mode": "add",
+      "inputs": {
+        "date": "2024-01-31",
+        "months": 1,
+        "overflow": "constrain"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2024-02-29"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Explicit end-of-month convention; a rejecting implementation may expose a separate policy."
+    },
+    {
+      "id": "date-calculator:leap-year-constrain",
+      "slug": "date-calculator",
+      "mode": "add",
+      "inputs": {
+        "date": "2024-02-29",
+        "years": 1,
+        "overflow": "constrain"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2025-02-28"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "date-calculator:business-holiday",
+      "slug": "date-calculator",
+      "mode": "add-business-days",
+      "inputs": {
+        "date": "2026-07-02",
+        "days": 1,
+        "weekend": [
+          6,
+          7
+        ],
+        "holidayPreset": "US-federal-observed"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2026-07-06"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "OPM2026 holiday calendar: Independence Day observed FridayJuly3; weekendJuly4–5.",
+      "notes": ""
+    },
+    {
+      "id": "date-calculator:year-boundary-holiday",
+      "slug": "date-calculator",
+      "mode": "add-business-days",
+      "inputs": {
+        "date": "2021-12-30",
+        "days": 1,
+        "weekend": [
+          6,
+          7
+        ],
+        "holidayPreset": "US-federal-observed"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2022-01-03"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "OPM observed holiday convention:2022 New Year observed2021-12-31.",
+      "notes": ""
+    },
+    {
+      "id": "date-calculator:invalid-nonleap",
+      "slug": "date-calculator",
+      "mode": "date-difference",
+      "inputs": {
+        "start": "1900-02-29",
+        "end": "1900-03-01"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_calendar_date"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "time-calculator:signed-duration",
+      "slug": "time-calculator",
+      "mode": "duration-add",
+      "inputs": {
+        "a": {
+          "hours": 1,
+          "minutes": 15
+        },
+        "b": {
+          "hours": 2,
+          "minutes": 40
+        },
+        "operator": "-"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "totalSeconds": -5100,
+          "sign": -1,
+          "hours": 1,
+          "minutes": 25,
+          "seconds": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-calculator:expression",
+      "slug": "time-calculator",
+      "mode": "duration-expression",
+      "inputs": {
+        "expression": "2 hours + 45 minutes - 30 seconds"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "totalSeconds": 9870,
+          "hours": 2,
+          "minutes": 44,
+          "seconds": 30
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-calculator:date-rollover",
+      "slug": "time-calculator",
+      "mode": "date-add-duration",
+      "inputs": {
+        "dateTime": "2024-12-31T23:40:00",
+        "minutes": 50,
+        "semantics": "civil"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dateTime": "2025-01-01T00:30:00"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "hours-calculator:overnight",
+      "slug": "hours-calculator",
+      "mode": "clock-interval",
+      "inputs": {
+        "start": "22:15",
+        "end": "06:45",
+        "endNextDay": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hours": 8.5,
+          "minutes": 510
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "hours-calculator:noon-midnight",
+      "slug": "hours-calculator",
+      "mode": "clock-interval",
+      "inputs": {
+        "start": "12:00 AM",
+        "end": "12:00 PM",
+        "endNextDay": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hours": 12
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "hours-calculator:dst-spring",
+      "slug": "hours-calculator",
+      "mode": "zoned-interval",
+      "inputs": {
+        "start": "2026-03-08T00:00",
+        "end": "2026-03-09T00:00",
+        "timeZone": "America/New_York"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hours": 23,
+          "seconds": 82800
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Requires timezone-aware elapsed mode; a civil-only calculator must label24h as nominal."
+    },
+    {
+      "id": "hours-calculator:dst-fall",
+      "slug": "hours-calculator",
+      "mode": "zoned-interval",
+      "inputs": {
+        "start": "2026-11-01T00:00",
+        "end": "2026-11-02T00:00",
+        "timeZone": "America/New_York"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "hours": 25,
+          "seconds": 90000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gpa-calculator:weighted",
+      "slug": "gpa-calculator",
+      "mode": "gpa",
+      "inputs": {
+        "courses": [
+          {
+            "credits": 4,
+            "gradePoints": 4
+          },
+          {
+            "credits": 3,
+            "gradePoints": 3
+          },
+          {
+            "credits": 2,
+            "gradePoints": 2
+          }
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gpa": 3.2222222222222223,
+          "gradePoints": 29,
+          "credits": 9
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gpa-calculator:pass-excluded",
+      "slug": "gpa-calculator",
+      "mode": "gpa",
+      "inputs": {
+        "courses": [
+          {
+            "credits": 3,
+            "grade": "A",
+            "gradePoints": 4
+          },
+          {
+            "credits": 2,
+            "grade": "P",
+            "excludeFromGPA": true
+          }
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gpa": 4,
+          "gpaCredits": 3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gpa-calculator:target-planner",
+      "slug": "gpa-calculator",
+      "mode": "planning",
+      "inputs": {
+        "priorCredits": 40,
+        "priorGPA": 3.0,
+        "futureCredits": 20,
+        "targetGPA": 3.2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "requiredFutureGPA": 3.6
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gpa-calculator:no-graded-credits",
+      "slug": "gpa-calculator",
+      "mode": "gpa",
+      "inputs": {
+        "courses": [
+          {
+            "credits": 2,
+            "grade": "P",
+            "excludeFromGPA": true
+          }
+        ]
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "no_graded_credits"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "grade-calculator:weighted-grade",
+      "slug": "grade-calculator",
+      "mode": "weighted",
+      "inputs": {
+        "assignments": [
+          {
+            "score": 72,
+            "weight": 25
+          },
+          {
+            "score": 88,
+            "weight": 35
+          },
+          {
+            "score": 95,
+            "weight": 40
+          }
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gradePercent": 86.8
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "grade-calculator:final-required",
+      "slug": "grade-calculator",
+      "mode": "final-exam",
+      "inputs": {
+        "currentGrade": 82,
+        "finalWeightPercent": 30,
+        "targetGrade": 88
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "requiredFinalGrade": 102
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Show infeasible under a100-point ceiling; do not clamp the result to100."
+    },
+    {
+      "id": "height-calculator:midparent",
+      "slug": "height-calculator",
+      "mode": "parents-only",
+      "inputs": {
+        "motherCM": 160,
+        "fatherCM": 180
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "boyEstimateCM": 176.5,
+          "girlEstimateCM": 163.5
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Parents-only heuristic. This does not validate Khamis–Roche coefficients."
+    },
+    {
+      "id": "height-calculator:conversion",
+      "slug": "height-calculator",
+      "mode": "height-conversion",
+      "inputs": {
+        "feet": 6,
+        "inches": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "centimeters": 187.96
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "concrete-calculator:slab",
+      "slug": "concrete-calculator",
+      "mode": "slab",
+      "inputs": {
+        "lengthFeet": 12,
+        "widthFeet": 9,
+        "thicknessInches": 4,
+        "quantity": 1
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicFeet": 36,
+          "cubicYards": 1.3333333333333333
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "concrete-calculator:tube",
+      "slug": "concrete-calculator",
+      "mode": "annular-cylinder",
+      "inputs": {
+        "outerDiameterM": 1,
+        "innerDiameterM": 0.6,
+        "depthM": 2,
+        "quantity": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicMeters": 2.0106192982974678
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "concrete-calculator:solid-stairs",
+      "slug": "concrete-calculator",
+      "mode": "solid-stairs",
+      "inputs": {
+        "riserCount": 4,
+        "riseM": 0.2,
+        "runM": 0.3,
+        "widthM": 1,
+        "platformVolumeM3": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicMeters": 0.6
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv4-20",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv4",
+      "inputs": {
+        "address": "10.23.45.67",
+        "prefix": 20,
+        "pointToPoint": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "10.23.32.0",
+          "broadcast": "10.23.47.255",
+          "netmask": "255.255.240.0",
+          "totalAddresses": "4096",
+          "usableHosts": "4094",
+          "firstHost": "10.23.32.1",
+          "lastHost": "10.23.47.254"
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC3021 /31 point-to-point convention",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv4-31",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv4",
+      "inputs": {
+        "address": "192.0.2.6",
+        "prefix": 31,
+        "pointToPoint": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "192.0.2.6",
+          "broadcast": null,
+          "netmask": "255.255.255.254",
+          "totalAddresses": "2",
+          "usableHosts": "2",
+          "firstHost": "192.0.2.6",
+          "lastHost": "192.0.2.7"
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC3021 /31 point-to-point convention",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv4-32",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv4",
+      "inputs": {
+        "address": "192.0.2.7",
+        "prefix": 32,
+        "pointToPoint": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "192.0.2.7",
+          "broadcast": null,
+          "netmask": "255.255.255.255",
+          "totalAddresses": "1",
+          "usableHosts": "1",
+          "firstHost": "192.0.2.7",
+          "lastHost": "192.0.2.7"
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC3021 /31 point-to-point convention",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv4-0",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv4",
+      "inputs": {
+        "address": "1.2.3.4",
+        "prefix": 0,
+        "pointToPoint": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "0.0.0.0",
+          "broadcast": "255.255.255.255",
+          "netmask": "0.0.0.0",
+          "totalAddresses": "4294967296",
+          "usableHosts": "4294967294",
+          "firstHost": "0.0.0.1",
+          "lastHost": "255.255.255.254"
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC3021 /31 point-to-point convention",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv6-64",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv6",
+      "inputs": {
+        "address": "2001:db8:abcd:1234::99",
+        "prefix": 64
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "2001:db8:abcd:1234::",
+          "lastAddress": "2001:db8:abcd:1234:ffff:ffff:ffff:ffff",
+          "totalAddresses": "18446744073709551616",
+          "broadcast": null
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC4291 IPv6 has no broadcast",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv6-128",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv6",
+      "inputs": {
+        "address": "::1",
+        "prefix": 128
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "::1",
+          "lastAddress": "::1",
+          "totalAddresses": "1",
+          "broadcast": null
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC4291 IPv6 has no broadcast",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv6-0",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv6",
+      "inputs": {
+        "address": "2001:db8::1",
+        "prefix": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "network": "::",
+          "lastAddress": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+          "totalAddresses": "340282366920938463463374607431768211456",
+          "broadcast": null
+        }
+      },
+      "tolerance": {
+        "absolute": 0,
+        "relative": 0
+      },
+      "provenance": "Python ipaddress standard library;RFC4291 IPv6 has no broadcast",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:ipv6-compression",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv6-canonical",
+      "inputs": {
+        "address": "2001:0db8:0000:0000:0001:0000:0000:0001"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "canonical": "2001:db8::1:0:0:1"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "RFC5952:longest zero run,first run wins tie.",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:noncontiguous-mask",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv4",
+      "inputs": {
+        "address": "192.168.1.1",
+        "netmask": "255.0.255.0"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "subnet_mask_not_contiguous"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "ip-subnet-calculator:double-compression",
+      "slug": "ip-subnet-calculator",
+      "mode": "ipv6",
+      "inputs": {
+        "address": "2001::db8::1",
+        "prefix": 64
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_ipv6_address"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "bra-size-calculator:explicit-direct-inch",
+      "slug": "bra-size-calculator",
+      "mode": "measurement",
+      "inputs": {
+        "underbustInches": 34,
+        "bustInches": 38,
+        "convention": "direct-band-rounded-even",
+        "region": "US"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "band": 34,
+          "cup": "D",
+          "label": "34D"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Tests an explicit local convention,not a universal fit or a named manufacturer chart."
+    },
+    {
+      "id": "password-generator:constraints",
+      "slug": "password-generator",
+      "mode": "password",
+      "inputs": {
+        "length": 20,
+        "lowercase": true,
+        "uppercase": true,
+        "digits": true,
+        "symbols": false,
+        "requireEachSelectedGroup": true,
+        "uniqueCharacters": true
+      },
+      "expected": {
+        "kind": "properties",
+        "conditions": [
+          "length20",
+          "no duplicate characters",
+          "only[A-Za-z0-9]",
+          "at least one lowercase",
+          "at least one uppercase",
+          "at least one digit"
+        ]
+      },
+      "tolerance": null,
+      "provenance": "Mathematical invariants; independent of generator implementation",
+      "notes": ""
+    },
+    {
+      "id": "password-generator:empty-alphabet",
+      "slug": "password-generator",
+      "mode": "password",
+      "inputs": {
+        "length": 16,
+        "lowercase": false,
+        "uppercase": false,
+        "digits": false,
+        "symbols": false
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "empty_character_alphabet"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "password-generator:too-long-unique",
+      "slug": "password-generator",
+      "mode": "password",
+      "inputs": {
+        "length": 11,
+        "digits": true,
+        "lowercase": false,
+        "uppercase": false,
+        "symbols": false,
+        "uniqueCharacters": true
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "unique_length_exceeds_alphabet"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "dice-roller:custom-dice",
+      "slug": "dice-roller",
+      "mode": "dice",
+      "inputs": {
+        "count": 7,
+        "sides": 20
+      },
+      "expected": {
+        "kind": "properties",
+        "conditions": [
+          "exactly7 results",
+          "each integer1..20",
+          "sum between7 and140",
+          "reported sum equals sum of results"
+        ]
+      },
+      "tolerance": null,
+      "provenance": "Mathematical invariants; independent of generator implementation",
+      "notes": ""
+    },
+    {
+      "id": "dice-roller:injected-source",
+      "slug": "dice-roller",
+      "mode": "dice",
+      "inputs": {
+        "count": 3,
+        "sides": 6,
+        "testOnlyUniformVariates": [
+          0,
+          0.999999,
+          0.5
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "rolls": [
+            1,
+            6,
+            4
+          ],
+          "sum": 11
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Fixture only for an injectable uniform source; never override production cryptographic RNG with deterministic data."
+    },
+    {
+      "id": "conversion-calculator:fahrenheit-celsius",
+      "slug": "conversion-calculator",
+      "mode": "temperature",
+      "inputs": {
+        "value": 212,
+        "from": "degF",
+        "to": "degC"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 100
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "conversion-calculator:imperial-gallon",
+      "slug": "conversion-calculator",
+      "mode": "volume",
+      "inputs": {
+        "value": 2,
+        "from": "imperial-gallon",
+        "to": "liter"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 9.09218
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "conversion-calculator:square-unit-scaling",
+      "slug": "conversion-calculator",
+      "mode": "area",
+      "inputs": {
+        "value": 1,
+        "from": "square-meter",
+        "to": "square-centimeter"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 10000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "conversion-calculator:cubic-unit-scaling",
+      "slug": "conversion-calculator",
+      "mode": "volume",
+      "inputs": {
+        "value": 1,
+        "from": "cubic-meter",
+        "to": "cubic-centimeter"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 1000000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "conversion-calculator:below-absolute-zero",
+      "slug": "conversion-calculator",
+      "mode": "temperature",
+      "inputs": {
+        "value": -274,
+        "from": "degC",
+        "to": "kelvin"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "temperature_below_absolute_zero"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "fuel-cost-calculator:us-roadtrip",
+      "slug": "fuel-cost-calculator",
+      "mode": "cost",
+      "inputs": {
+        "distanceMiles": 450,
+        "mpgUS": 30,
+        "pricePerUSGallon": 3.6
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gallonsUS": 15,
+          "cost": 54
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "fuel-cost-calculator:metric-roadtrip",
+      "slug": "fuel-cost-calculator",
+      "mode": "cost",
+      "inputs": {
+        "distanceKM": 800,
+        "litersPer100KM": 6.5,
+        "pricePerLiter": 1.8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "liters": 52,
+          "cost": 93.6
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "voltage-drop-calculator:dc-custom",
+      "slug": "voltage-drop-calculator",
+      "mode": "custom-resistance",
+      "inputs": {
+        "phase": "dc",
+        "oneWayMeters": 30,
+        "amps": 12,
+        "ohmsPerMeter": 0.005,
+        "parallelConductors": 1,
+        "sourceVoltage": 120
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dropVolts": 3.6,
+          "dropPercent": 3,
+          "loadVoltage": 116.4
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "voltage-drop-calculator:dc-parallel",
+      "slug": "voltage-drop-calculator",
+      "mode": "custom-resistance",
+      "inputs": {
+        "phase": "dc",
+        "oneWayMeters": 30,
+        "amps": 12,
+        "ohmsPerMeter": 0.005,
+        "parallelConductors": 2,
+        "sourceVoltage": 120
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dropVolts": 1.8,
+          "dropPercent": 1.5,
+          "loadVoltage": 118.2
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "voltage-drop-calculator:three-phase-pf",
+      "slug": "voltage-drop-calculator",
+      "mode": "custom-impedance",
+      "inputs": {
+        "phase": "three-phase",
+        "oneWayMeters": 100,
+        "amps": 20,
+        "ohmsPerMeter": 0.001,
+        "reactanceOhmsPerMeter": 0.0005,
+        "powerFactor": 0.8,
+        "lagging": true,
+        "parallelConductors": 1,
+        "sourceVoltage": 400
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dropVolts": 3.81051177665153,
+          "dropPercent": 0.9526279441628825
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "btu-calculator:room-table",
+      "slug": "btu-calculator",
+      "mode": "energy-star-room",
+      "inputs": {
+        "areaSquareFeet": 200,
+        "sun": "average",
+        "occupants": 2,
+        "kitchen": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "btuPerHour": 6000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "ENERGY STAR room AC capacity table,150–250sqft band; not a full building load calculation.",
+      "notes": ""
+    },
+    {
+      "id": "btu-calculator:room-adjustments",
+      "slug": "btu-calculator",
+      "mode": "energy-star-room",
+      "inputs": {
+        "areaSquareFeet": 200,
+        "sun": "sunny",
+        "occupants": 3,
+        "kitchen": true,
+        "adjustmentOrder": "sun-first-then-occupancy-kitchen"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "btuPerHour": 11200
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "ENERGY STAR rules:6000*1.1+600+4000. Combined adjustment order is explicit product convention.",
+      "notes": ""
+    },
+    {
+      "id": "square-footage-calculator:border",
+      "slug": "square-footage-calculator",
+      "mode": "rectangle-border",
+      "inputs": {
+        "innerLengthFeet": 10,
+        "innerWidthFeet": 6,
+        "borderWidthFeet": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "areaSquareFeet": 80
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Outer14x10 minus inner10x6."
+    },
+    {
+      "id": "square-footage-calculator:ring",
+      "slug": "square-footage-calculator",
+      "mode": "ring",
+      "inputs": {
+        "outerRadiusFeet": 5,
+        "innerRadiusFeet": 3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "areaSquareFeet": 50.26548245743669
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-card-calculator:weekly-overtime",
+      "slug": "time-card-calculator",
+      "mode": "weekly",
+      "inputs": {
+        "dailyPaidMinutes": [
+          540,
+          540,
+          540,
+          540,
+          540
+        ],
+        "rate": 20,
+        "overtimeThresholdHours": 40,
+        "overtimeMultiplier": 1.5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "totalHours": 45,
+          "regularHours": 40,
+          "overtimeHours": 5,
+          "regularPay": 800,
+          "overtimePay": 150,
+          "totalPay": 950
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-card-calculator:shift-break",
+      "slug": "time-card-calculator",
+      "mode": "shift",
+      "inputs": {
+        "start": "21:00",
+        "end": "05:30",
+        "endNextDay": true,
+        "breakMinutes": 30,
+        "rounding": "none"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "paidMinutes": 480,
+          "paidHours": 8
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-card-calculator:break-longer-shift",
+      "slug": "time-card-calculator",
+      "mode": "shift",
+      "inputs": {
+        "start": "08:00",
+        "end": "09:00",
+        "breakMinutes": 90
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "break_exceeds_shift_duration"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:spring-mismatch",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-03-15T12:00",
+        "fromZone": "America/New_York",
+        "toZone": "Europe/London"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "localDateTime": "2026-03-15T16:00",
+          "utcOffsetSeconds": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent Python zoneinfo conversion with named IANA zones.",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:quarter-offset",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-01-15T12:00",
+        "fromZone": "UTC",
+        "toZone": "Asia/Kathmandu"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "localDateTime": "2026-01-15T17:45",
+          "utcOffsetSeconds": 20700
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent Python zoneinfo conversion with named IANA zones.",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:date-line",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-01-01T00:30",
+        "fromZone": "Pacific/Kiritimati",
+        "toZone": "Pacific/Honolulu"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "localDateTime": "2025-12-31T00:30",
+          "utcOffsetSeconds": -36000
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent Python zoneinfo conversion with named IANA zones.",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:dst-gap",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-03-08T02:30",
+        "fromZone": "America/New_York",
+        "toZone": "UTC",
+        "disambiguation": "reject"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "nonexistent_local_time"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:dst-fold-earlier",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-11-01T01:30",
+        "fromZone": "America/New_York",
+        "toZone": "UTC",
+        "disambiguation": "earlier"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "localDateTime": "2026-11-01T05:30",
+          "utcOffsetSeconds": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-zone-calculator:dst-fold-later",
+      "slug": "time-zone-calculator",
+      "mode": "convert",
+      "inputs": {
+        "localDateTime": "2026-11-01T01:30",
+        "fromZone": "America/New_York",
+        "toZone": "UTC",
+        "disambiguation": "later"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "localDateTime": "2026-11-01T06:30",
+          "utcOffsetSeconds": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "love-calculator:entertainment-invariants",
+      "slug": "love-calculator",
+      "mode": "names",
+      "inputs": {
+        "firstName": " Alex ",
+        "secondName": "JAMIE"
+      },
+      "expected": {
+        "kind": "properties",
+        "conditions": [
+          "integer score0..100",
+          "swapping names preserves score under declared symmetric algorithm",
+          "case/outer-whitespace normalization preserves score",
+          "visible entertainment-only label"
+        ]
+      },
+      "tolerance": null,
+      "provenance": "Mathematical invariants; independent of generator implementation",
+      "notes": "No numerical compatibility truth exists; expected score depends on original documented Finflo hash."
+    },
+    {
+      "id": "gdp-calculator:expenditure",
+      "slug": "gdp-calculator",
+      "mode": "expenditure",
+      "inputs": {
+        "consumption": 500,
+        "investment": 120,
+        "government": 180,
+        "exports": 90,
+        "imports": 140
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "gdp": 750
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gas-mileage-calculator:odometer",
+      "slug": "gas-mileage-calculator",
+      "mode": "fuel-economy",
+      "inputs": {
+        "startOdometerMiles": 12000,
+        "endOdometerMiles": 12360,
+        "gallonsUS": 12,
+        "cost": 42
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "distanceMiles": 360,
+          "mpgUS": 30,
+          "costPerMile": 0.11666666666666667,
+          "litersPer100KM": 7.840486111111111
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gas-mileage-calculator:reversed-odometer",
+      "slug": "gas-mileage-calculator",
+      "mode": "fuel-economy",
+      "inputs": {
+        "startOdometerMiles": 12000,
+        "endOdometerMiles": 11900,
+        "gallonsUS": 5
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "ending_odometer_before_start"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "horsepower-calculator:mechanical-definition",
+      "slug": "horsepower-calculator",
+      "mode": "force-distance-time",
+      "inputs": {
+        "forcePoundsForce": 550,
+        "distanceFeet": 3,
+        "timeSeconds": 3
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "mechanicalHorsepower": 1,
+          "watts": 745.6998715822702
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "horsepower-calculator:metric-hp",
+      "slug": "horsepower-calculator",
+      "mode": "power-conversion",
+      "inputs": {
+        "value": 100,
+        "from": "metric-horsepower",
+        "to": "watts"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 73549.875
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "engine-horsepower-calculator:et-heuristic",
+      "slug": "engine-horsepower-calculator",
+      "mode": "quarter-mile-et",
+      "inputs": {
+        "weightPounds": 3200,
+        "elapsedSeconds": 11.65,
+        "empiricalConstant": 5.825
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "estimatedHorsepower": 400
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Verifies explicitly declared empirical formula,not accuracy as a power measurement."
+    },
+    {
+      "id": "engine-horsepower-calculator:speed-heuristic",
+      "slug": "engine-horsepower-calculator",
+      "mode": "quarter-mile-trap-speed",
+      "inputs": {
+        "weightPounds": 3200,
+        "speedMPH": 117,
+        "empiricalConstant": 234
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "estimatedHorsepower": 400
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "stair-calculator:fixed-risers",
+      "slug": "stair-calculator",
+      "mode": "fixed-count",
+      "inputs": {
+        "totalRiseInches": 105,
+        "riserCount": 15,
+        "treadGoingInches": 10,
+        "topLandingReplacesTread": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "riserHeightInches": 7,
+          "treadCount": 14,
+          "totalRunInches": 140,
+          "pitchDegrees": 34.99202019855866
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Geometric count and pitch only; no structural/code compliance claim."
+    },
+    {
+      "id": "resistor-calculator:color",
+      "slug": "resistor-calculator",
+      "mode": "four-band",
+      "inputs": {
+        "bands": [
+          "yellow",
+          "violet",
+          "orange",
+          "gold"
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "ohms": 47000,
+          "tolerancePercent": 5,
+          "minimumOhms": 44650,
+          "maximumOhms": 49350
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "resistor-calculator:parallel",
+      "slug": "resistor-calculator",
+      "mode": "parallel",
+      "inputs": {
+        "ohms": [
+          100,
+          200,
+          300
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "ohms": 54.54545454545455
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "resistor-calculator:parallel-short",
+      "slug": "resistor-calculator",
+      "mode": "parallel",
+      "inputs": {
+        "ohms": [
+          0,
+          100
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "ohms": 0
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "resistor-calculator:conductor",
+      "slug": "resistor-calculator",
+      "mode": "conductor",
+      "inputs": {
+        "lengthMeters": 10,
+        "diameterMeters": 0.002,
+        "conductivitySiemensPerMeter": 58000000
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "ohms": 0.054881014859274255
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ohms-law-calculator:voltage-resistance",
+      "slug": "ohms-law-calculator",
+      "mode": "solve",
+      "inputs": {
+        "volts": 24,
+        "ohms": 8
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "amps": 3,
+          "watts": 72
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ohms-law-calculator:current-power",
+      "slug": "ohms-law-calculator",
+      "mode": "solve",
+      "inputs": {
+        "amps": 2,
+        "watts": 50
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volts": 25,
+          "ohms": 12.5
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ohms-law-calculator:power-resistance",
+      "slug": "ohms-law-calculator",
+      "mode": "solve",
+      "inputs": {
+        "watts": 45,
+        "ohms": 5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "volts": 15,
+          "amps": 3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "ohms-law-calculator:underdetermined-zero",
+      "slug": "ohms-law-calculator",
+      "mode": "solve",
+      "inputs": {
+        "volts": 0,
+        "amps": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "insufficient_independent_nonzero_values"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "electricity-calculator:monthly",
+      "slug": "electricity-calculator",
+      "mode": "energy-cost",
+      "inputs": {
+        "watts": 1500,
+        "hoursPerDay": 3,
+        "days": 30,
+        "pricePerKWh": 0.18
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kWh": 135,
+          "cost": 24.3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "shoe-size-conversion:mondopoint",
+      "slug": "shoe-size-conversion",
+      "mode": "foot-length-conversion",
+      "inputs": {
+        "footLength": 10,
+        "unit": "inch"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "millimeters": 254,
+          "centimeters": 25.4
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Exact measurement conversion only; regional shoe-size mappings require the chosen chart."
+    },
+    {
+      "id": "tip-calculator:split",
+      "slug": "tip-calculator",
+      "mode": "bill-split",
+      "inputs": {
+        "bill": 87.5,
+        "tipPercent": 20,
+        "people": 3,
+        "currencyMinorDigits": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "tip": 17.5,
+          "total": 105,
+          "shares": [
+            35,
+            35,
+            35
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "tip-calculator:cent-remainder",
+      "slug": "tip-calculator",
+      "mode": "bill-split",
+      "inputs": {
+        "bill": 100,
+        "tipPercent": 0,
+        "people": 3,
+        "currencyMinorDigits": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "total": 100,
+          "sharesSorted": [
+            33.33,
+            33.33,
+            33.34
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Shares must total exactly100; allocation of extra cent can be any documented order."
+    },
+    {
+      "id": "mileage-calculator:provider-unit-adapter",
+      "slug": "mileage-calculator",
+      "mode": "route-adapter",
+      "inputs": {
+        "providerDistanceMeters": 160934.4,
+        "providerDurationSeconds": 7260
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "miles": 100,
+          "kilometers": 160.9344,
+          "durationHours": 2,
+          "durationMinutesRemainder": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "Mock provider contract fixture; this does not verify geocoding or actual road routing."
+    },
+    {
+      "id": "mileage-calculator:provider-no-route",
+      "slug": "mileage-calculator",
+      "mode": "route-adapter",
+      "inputs": {
+        "providerStatus": "NoRoute"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "no_driving_route_available"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "density-calculator:mass-volume",
+      "slug": "density-calculator",
+      "mode": "density",
+      "inputs": {
+        "massKG": 2.7,
+        "volumeM3": 0.001
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kgPerM3": 2700,
+          "gPerCM3": 2.7
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "density-calculator:zero-volume",
+      "slug": "density-calculator",
+      "mode": "density",
+      "inputs": {
+        "massKG": 1,
+        "volumeM3": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "volume_must_be_positive"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "mass-calculator:density-volume",
+      "slug": "mass-calculator",
+      "mode": "mass",
+      "inputs": {
+        "densityKGPerM3": 7850,
+        "volumeM3": 0.02
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kilograms": 157
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "weight-calculator:stone-to-kg",
+      "slug": "weight-calculator",
+      "mode": "mass-unit-conversion",
+      "inputs": {
+        "value": 12,
+        "from": "stone-UK",
+        "to": "kg"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 76.20351816
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "speed-calculator:solve-speed",
+      "slug": "speed-calculator",
+      "mode": "distance-time",
+      "inputs": {
+        "distanceKM": 42,
+        "hours": 1,
+        "minutes": 45,
+        "seconds": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "kmPerHour": 24,
+          "metersPerSecond": 6.666666666666667
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "speed-calculator:solve-duration",
+      "slug": "speed-calculator",
+      "mode": "distance-speed",
+      "inputs": {
+        "distanceKM": 150,
+        "speedKMH": 80
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "seconds": 6750,
+          "hours": 1,
+          "minutes": 52,
+          "remainingSeconds": 30
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "speed-calculator:zero-time",
+      "slug": "speed-calculator",
+      "mode": "distance-time",
+      "inputs": {
+        "distanceMeters": 100,
+        "seconds": 0
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "time_must_be_positive"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "molarity-calculator:concentration",
+      "slug": "molarity-calculator",
+      "mode": "molarity",
+      "inputs": {
+        "massGrams": 29.22,
+        "molarMassGramsPerMol": 58.44,
+        "solutionVolumeLiters": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "molar": 0.25,
+          "millimolar": 250,
+          "gramsPerLiter": 14.61
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molarity-calculator:solve-mass",
+      "slug": "molarity-calculator",
+      "mode": "mass",
+      "inputs": {
+        "molar": 0.2,
+        "molarMassGramsPerMol": 180.156,
+        "solutionVolumeLiters": 0.5
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "grams": 18.0156
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:water",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "H2O",
+        "atomicWeights": {
+          "H": 1.008,
+          "O": 15.999
+        }
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "counts": {
+            "H": 2,
+            "O": 1
+          },
+          "molarMass": 18.015
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:nested-complex",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "[Co(NH3)6]Cl3",
+        "atomicWeights": {
+          "Co": 58.933,
+          "N": 14.007,
+          "H": 1.008,
+          "Cl": 35.45
+        }
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "counts": {
+            "Co": 1,
+            "N": 6,
+            "H": 18,
+            "Cl": 3
+          },
+          "molarMass": 267.469
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:hydrate",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "CuSO4·5H2O",
+        "atomicWeights": {
+          "Cu": 63.546,
+          "S": 32.06,
+          "O": 15.999,
+          "H": 1.008
+        }
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "counts": {
+            "Cu": 1,
+            "S": 1,
+            "O": 9,
+            "H": 10
+          },
+          "molarMass": 249.677
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:case-sensitive",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "Co",
+        "atomicWeights": {
+          "Co": 58.933,
+          "C": 12.011,
+          "O": 15.999
+        }
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "counts": {
+            "Co": 1
+          },
+          "molarMass": 58.933
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:unclosed-group",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "Ca(OH2"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "unbalanced_formula_delimiters"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "molecular-weight-calculator:unknown-element",
+      "slug": "molecular-weight-calculator",
+      "mode": "formula",
+      "inputs": {
+        "formula": "Xx2O"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "unknown_element_symbol"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "roman-numeral-converter:integer",
+      "slug": "roman-numeral-converter",
+      "mode": "integer-to-roman",
+      "inputs": {
+        "integer": 1987
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roman": "MCMLXXXVII"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "roman-numeral-converter:roman",
+      "slug": "roman-numeral-converter",
+      "mode": "roman-to-integer",
+      "inputs": {
+        "roman": "MMXXVI"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "integer": 2026
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "roman-numeral-converter:noncanonical",
+      "slug": "roman-numeral-converter",
+      "mode": "roman-to-integer",
+      "inputs": {
+        "roman": "IC"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_canonical_roman_numeral"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "golf-handicap-calculator:course",
+      "slug": "golf-handicap-calculator",
+      "mode": "course",
+      "inputs": {
+        "index": 10,
+        "slope": 129,
+        "rating": 71,
+        "par": 72
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "unroundedCourseHandicap": 10.415929203539823,
+          "roundedCourseHandicap": 10
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "golf-handicap-calculator:18-hole-differential",
+      "slug": "golf-handicap-calculator",
+      "mode": "differential-18",
+      "inputs": {
+        "adjustedGrossScore": 90,
+        "rating": 72,
+        "slope": 113,
+        "PCC": 1
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "differential": 17
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "golf-handicap-calculator:three-rounds",
+      "slug": "golf-handicap-calculator",
+      "mode": "index-limited",
+      "inputs": {
+        "scoreDifferentials": [
+          10,
+          12,
+          14
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "estimatedIndex": 8
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "USGA fewer-than20 differential table:lowest of3 minus2.",
+      "notes": ""
+    },
+    {
+      "id": "golf-handicap-calculator:six-rounds",
+      "slug": "golf-handicap-calculator",
+      "mode": "index-limited",
+      "inputs": {
+        "scoreDifferentials": [
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "estimatedIndex": 10
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "USGA table:average lowest2 minus1.",
+      "notes": ""
+    },
+    {
+      "id": "golf-handicap-calculator:twenty-rounds",
+      "slug": "golf-handicap-calculator",
+      "mode": "index-limited",
+      "inputs": {
+        "scoreDifferentials": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "estimatedIndex": 4.5
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "USGA table:average lowest8 of20;no caps/exceptional-score history in this fixture.",
+      "notes": ""
+    },
+    {
+      "id": "sleep-calculator:bedtime",
+      "slug": "sleep-calculator",
+      "mode": "cycle-schedule",
+      "inputs": {
+        "wakeTime": "07:00",
+        "cycles": 5,
+        "cycleMinutes": 90,
+        "latencyMinutes": 15
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "bedTime": "23:15",
+          "dayOffset": -1,
+          "sleepMinutes": 450
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "sleep-calculator:wake-time",
+      "slug": "sleep-calculator",
+      "mode": "fixed-duration",
+      "inputs": {
+        "bedTime": "22:45",
+        "sleepMinutes": 480,
+        "latencyMinutes": 15
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "wakeTime": "07:00",
+          "dayOffset": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "tire-size-calculator:nominal-dimensions",
+      "slug": "tire-size-calculator",
+      "mode": "size",
+      "inputs": {
+        "widthMM": 225,
+        "aspectRatioPercent": 45,
+        "rimDiameterInches": 17
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "sidewallMM": 101.25,
+          "diameterMM": 634.3,
+          "circumferenceMM": 1992.7122201720056
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "tire-size-calculator:speed-ratio",
+      "slug": "tire-size-calculator",
+      "mode": "compare-diameters",
+      "inputs": {
+        "oldDiameterMM": 600,
+        "newDiameterMM": 630,
+        "indicatedMPH": 60
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "diameterChangePercent": 5,
+          "actualMPH": 63
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "roofing-calculator:pitch",
+      "slug": "roofing-calculator",
+      "mode": "roof-area",
+      "inputs": {
+        "horizontalSquareFeet": 1200,
+        "pitchRise": 9,
+        "pitchRun": 12
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "roofSquareFeet": 1500
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "roofing-calculator:eaves-rectangle",
+      "slug": "roofing-calculator",
+      "mode": "roof-area",
+      "inputs": {
+        "lengthFeet": 20,
+        "widthFeet": 30,
+        "eavesFeet": 1,
+        "pitchRise": 0,
+        "pitchRun": 12
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "projectionSquareFeet": 704,
+          "roofSquareFeet": 704
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "tile-calculator:grid-no-gap",
+      "slug": "tile-calculator",
+      "mode": "grid",
+      "inputs": {
+        "roomLengthInches": 120,
+        "roomWidthInches": 144,
+        "tileLengthInches": 12,
+        "tileWidthInches": 12,
+        "gapInches": 0,
+        "tilesPerBox": 8,
+        "wastePercent": 0
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "rows": 10,
+          "columns": 12,
+          "tiles": 120,
+          "boxes": 15
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "tile-calculator:grid-ceiling",
+      "slug": "tile-calculator",
+      "mode": "grid",
+      "inputs": {
+        "roomLengthInches": 121,
+        "roomWidthInches": 121,
+        "tileLengthInches": 12,
+        "tileWidthInches": 12,
+        "gapInches": 0,
+        "tilesPerBox": 10,
+        "wastePercent": 0,
+        "cutReuse": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "rows": 11,
+          "columns": 11,
+          "tiles": 121,
+          "boxes": 13
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": "No reuse of cut pieces;area-only estimator would give a different answer."
+    },
+    {
+      "id": "mulch-calculator:volume-and-bags",
+      "slug": "mulch-calculator",
+      "mode": "area-depth",
+      "inputs": {
+        "areaSquareFeet": 180,
+        "depthInches": 3,
+        "bagCubicFeet": 2
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicFeet": 45,
+          "cubicYards": 1.6666666666666667,
+          "bags": 23
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "gravel-calculator:volume-mass",
+      "slug": "gravel-calculator",
+      "mode": "rectangle",
+      "inputs": {
+        "lengthMeters": 8,
+        "widthMeters": 3,
+        "depthMeters": 0.1,
+        "bulkDensityKGPerM3": 1600,
+        "bagKG": 20
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "cubicMeters": 2.4,
+          "kilograms": 3840,
+          "metricTonnes": 3.84,
+          "bags": 192
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "wind-chill-calculator:cold-wind",
+      "slug": "wind-chill-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 20,
+        "windMPH": 15
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "windChillF": 6.218885266083872
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "NOAA/NWS published wind-chill equation.",
+      "notes": ""
+    },
+    {
+      "id": "wind-chill-calculator:outside-model",
+      "slug": "wind-chill-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 70,
+        "windMPH": 10
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "outside_wind_chill_model_domain"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": "Showing actual temperature with an explicit non-applicable state is also acceptable; do not extrapolate."
+    },
+    {
+      "id": "heat-index-calculator:normal",
+      "slug": "heat-index-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 90,
+        "relativeHumidity": 70
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "heatIndexF": 105.92202060000027
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent evaluation of NOAA/NWS Rothfusz equation,adjustments,and preliminary branch.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-calculator:dry-adjustment",
+      "slug": "heat-index-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 100,
+        "relativeHumidity": 10
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "heatIndexF": 94.12248266218747
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent evaluation of NOAA/NWS Rothfusz equation,adjustments,and preliminary branch.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-calculator:humid-adjustment",
+      "slug": "heat-index-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 85,
+        "relativeHumidity": 90
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "heatIndexF": 101.78080360000024
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent evaluation of NOAA/NWS Rothfusz equation,adjustments,and preliminary branch.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-calculator:low-temperature-branch",
+      "slug": "heat-index-calculator",
+      "mode": "nws",
+      "inputs": {
+        "temperatureF": 80,
+        "relativeHumidity": 40
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "heatIndexF": 79.78999999999999
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent evaluation of NOAA/NWS Rothfusz equation,adjustments,and preliminary branch.",
+      "notes": ""
+    },
+    {
+      "id": "dew-point-calculator:half-humidity",
+      "slug": "dew-point-calculator",
+      "mode": "nws-vapor-formula",
+      "inputs": {
+        "temperatureC": 20,
+        "relativeHumidity": 50
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dewPointC": 9.269264346300414
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "NWS saturation-vapor formula:coefficients7.5 and237.3.",
+      "notes": ""
+    },
+    {
+      "id": "dew-point-calculator:saturated",
+      "slug": "dew-point-calculator",
+      "mode": "nws-vapor-formula",
+      "inputs": {
+        "temperatureC": 15,
+        "relativeHumidity": 100
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "dewPointC": 15
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "dew-point-calculator:above-100-humidity",
+      "slug": "dew-point-calculator",
+      "mode": "nws-vapor-formula",
+      "inputs": {
+        "temperatureC": 20,
+        "relativeHumidity": 101
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "relative_humidity_exceeds_100"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "bandwidth-calculator:transfer-time",
+      "slug": "bandwidth-calculator",
+      "mode": "download",
+      "inputs": {
+        "fileBytes": 250000000,
+        "bitsPerSecond": 100000000
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "idealSeconds": 20
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "bandwidth-calculator:monthly-average",
+      "slug": "bandwidth-calculator",
+      "mode": "monthly-transfer",
+      "inputs": {
+        "bytes": 1000000000000,
+        "periodDays": 30
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "averageBitsPerSecond": 3086419.75308642,
+          "averageMbps": 3.0864197530864197
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "bandwidth-calculator:iec-vs-si",
+      "slug": "bandwidth-calculator",
+      "mode": "data-conversion",
+      "inputs": {
+        "value": 1,
+        "from": "MiB",
+        "to": "byte"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "value": 1048576
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "base64-encode-decode:unicode-encode",
+      "slug": "base64-encode-decode",
+      "mode": "encode-text",
+      "inputs": {
+        "text": "✓",
+        "encoding": "utf-8"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "base64": "4pyT"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "base64-encode-decode:binary-roundtrip",
+      "slug": "base64-encode-decode",
+      "mode": "decode-bytes",
+      "inputs": {
+        "base64": "AP8Q"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "bytes": [
+            0,
+            255,
+            16
+          ]
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "base64-encode-decode:padding",
+      "slug": "base64-encode-decode",
+      "mode": "encode-text",
+      "inputs": {
+        "text": "f",
+        "encoding": "utf-8"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "base64": "Zg=="
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "base64-encode-decode:malformed",
+      "slug": "base64-encode-decode",
+      "mode": "decode-bytes",
+      "inputs": {
+        "base64": "a==="
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_base64_padding"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "url-encode-decode:component-encode",
+      "slug": "url-encode-decode",
+      "mode": "encode-component",
+      "inputs": {
+        "text": "a+b /✓?"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "encoded": "a%2Bb%20%2F%E2%9C%93%3F"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "url-encode-decode:literal-plus",
+      "slug": "url-encode-decode",
+      "mode": "decode-component",
+      "inputs": {
+        "text": "a+b%20c"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "decoded": "a+b c"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "RFC3986 component decoding;literal plus is not space.",
+      "notes": ""
+    },
+    {
+      "id": "url-encode-decode:form-plus",
+      "slug": "url-encode-decode",
+      "mode": "decode-form",
+      "inputs": {
+        "text": "a+b%2Bc"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "decoded": "a b+c"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Form-urlencoded convention differs from generic component decoding.",
+      "notes": ""
+    },
+    {
+      "id": "url-encode-decode:malformed-percent",
+      "slug": "url-encode-decode",
+      "mode": "decode-component",
+      "inputs": {
+        "text": "hello%2G"
+      },
+      "expected": {
+        "kind": "validation_error",
+        "condition": "invalid_percent_escape"
+      },
+      "tolerance": null,
+      "provenance": "Mathematical domain or explicitly documented input convention",
+      "notes": ""
+    },
+    {
+      "id": "time-duration-calculator:seconds-rollover",
+      "slug": "time-duration-calculator",
+      "mode": "clock-interval",
+      "inputs": {
+        "start": "23:59:30",
+        "end": "00:00:15",
+        "endNextDay": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "totalSeconds": 45,
+          "days": 0,
+          "hours": 0,
+          "minutes": 0,
+          "seconds": 45
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "time-duration-calculator:leap-crossing",
+      "slug": "time-duration-calculator",
+      "mode": "civil-interval",
+      "inputs": {
+        "start": "2024-02-28T12:00:00",
+        "end": "2024-03-01T15:30:00"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "days": 2,
+          "hours": 3,
+          "minutes": 30,
+          "seconds": 0,
+          "totalSeconds": 185400
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "day-counter:exclusive",
+      "slug": "day-counter",
+      "mode": "date-difference",
+      "inputs": {
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "includeEndDay": false
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "days": 2
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "day-counter:inclusive",
+      "slug": "day-counter",
+      "mode": "date-difference",
+      "inputs": {
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "includeEndDay": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "days": 3
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "day-counter:same-day-inclusive",
+      "slug": "day-counter",
+      "mode": "date-difference",
+      "inputs": {
+        "start": "2026-10-09",
+        "end": "2026-10-09",
+        "includeEndDay": true
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "days": 1
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "day-counter:business-backward",
+      "slug": "day-counter",
+      "mode": "add-business-days",
+      "inputs": {
+        "date": "2026-10-12",
+        "days": -1,
+        "weekend": [
+          6,
+          7
+        ],
+        "holidays": []
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "date": "2026-10-09"
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent arithmetic / Python standard library reference",
+      "notes": ""
+    },
+    {
+      "id": "day-of-the-week-calculator:2000-01-01",
+      "slug": "day-of-the-week-calculator",
+      "mode": "date",
+      "inputs": {
+        "date": "2000-01-01"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "weekday": "Saturday",
+          "isoWeekday": 6,
+          "isoWeekYear": 1999,
+          "isoWeek": 52
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent datetime Gregorian calendar and ISO week calculations.",
+      "notes": ""
+    },
+    {
+      "id": "day-of-the-week-calculator:2026-10-09",
+      "slug": "day-of-the-week-calculator",
+      "mode": "date",
+      "inputs": {
+        "date": "2026-10-09"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "weekday": "Friday",
+          "isoWeekday": 5,
+          "isoWeekYear": 2026,
+          "isoWeek": 41
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent datetime Gregorian calendar and ISO week calculations.",
+      "notes": ""
+    },
+    {
+      "id": "day-of-the-week-calculator:2021-01-01",
+      "slug": "day-of-the-week-calculator",
+      "mode": "date",
+      "inputs": {
+        "date": "2021-01-01"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "weekday": "Friday",
+          "isoWeekday": 5,
+          "isoWeekYear": 2020,
+          "isoWeek": 53
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent datetime Gregorian calendar and ISO week calculations.",
+      "notes": ""
+    },
+    {
+      "id": "day-of-the-week-calculator:2000-02-29",
+      "slug": "day-of-the-week-calculator",
+      "mode": "date",
+      "inputs": {
+        "date": "2000-02-29"
+      },
+      "expected": {
+        "kind": "result",
+        "values": {
+          "weekday": "Tuesday",
+          "isoWeekday": 2,
+          "isoWeekYear": 2000,
+          "isoWeek": 9
+        }
+      },
+      "tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-10
+      },
+      "provenance": "Independent datetime Gregorian calendar and ISO week calculations.",
+      "notes": ""
+    }
+  ]
+}

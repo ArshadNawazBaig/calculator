@@ -1,0 +1,193 @@
+{
+  "checkedAt": "2026-10-09",
+  "nextVersion": "16.4.0",
+  "typescript": "passed",
+  "eslint": "passed",
+  "productionBuild": "passed",
+  "unitTests": {
+    "numTotalTests": 2840,
+    "numPassedTests": 2840,
+    "numFailedTests": 0,
+    "numPendingTests": 0
+  },
+  "unitFiles": [
+    {
+      "file": "tests/advanced-reference.test.ts",
+      "passed": 257,
+      "failed": 0
+    },
+    {
+      "file": "tests/annual-pay.test.ts",
+      "passed": 38,
+      "failed": 0
+    },
+    {
+      "file": "tests/apparel-methods.test.ts",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "file": "tests/base64-regressions.test.ts",
+      "passed": 65,
+      "failed": 0
+    },
+    {
+      "file": "tests/catalog.test.ts",
+      "passed": 549,
+      "failed": 0
+    },
+    {
+      "file": "tests/completion-regressions.test.ts",
+      "passed": 204,
+      "failed": 0
+    },
+    {
+      "file": "tests/composition-ledgers.test.ts",
+      "passed": 152,
+      "failed": 0
+    },
+    {
+      "file": "tests/currency-global.test.ts",
+      "passed": 43,
+      "failed": 0
+    },
+    {
+      "file": "tests/everyday-new-reference.test.ts",
+      "passed": 57,
+      "failed": 0
+    },
+    {
+      "file": "tests/everyday-physical-reference.test.ts",
+      "passed": 74,
+      "failed": 0
+    },
+    {
+      "file": "tests/finance-audit-reference.test.ts",
+      "passed": 68,
+      "failed": 0
+    },
+    {
+      "file": "tests/finance-expansion-reference.test.ts",
+      "passed": 27,
+      "failed": 0
+    },
+    {
+      "file": "tests/finance-health-reference.test.ts",
+      "passed": 161,
+      "failed": 0
+    },
+    {
+      "file": "tests/finance-planning-reference.test.ts",
+      "passed": 36,
+      "failed": 0
+    },
+    {
+      "file": "tests/financial-root-regression.test.ts",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "file": "tests/geometry-reference.test.ts",
+      "passed": 32,
+      "failed": 0
+    },
+    {
+      "file": "tests/golf-rounds.test.ts",
+      "passed": 24,
+      "failed": 0
+    },
+    {
+      "file": "tests/health-data-reference.test.ts",
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "file": "tests/historical-fha.test.ts",
+      "passed": 52,
+      "failed": 0
+    },
+    {
+      "file": "tests/independent-expansions.test.ts",
+      "passed": 405,
+      "failed": 0
+    },
+    {
+      "file": "tests/math-modes-reference.test.ts",
+      "passed": 44,
+      "failed": 0
+    },
+    {
+      "file": "tests/numerical-regressions.test.ts",
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "file": "tests/reference-rates.test.ts",
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "file": "tests/snapshot-cache.test.ts",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "file": "tests/tax-additional.test.ts",
+      "passed": 224,
+      "failed": 0
+    },
+    {
+      "file": "tests/tax-years.test.ts",
+      "passed": 151,
+      "failed": 0
+    },
+    {
+      "file": "tests/vehicle-tax.test.ts",
+      "passed": 135,
+      "failed": 0
+    }
+  ],
+  "browserEvidence": "Committed Playwright suite, full execution summarized in browserTests; independent reports alongside this file",
+  "labPerformance": "lab-performance.json",
+  "dependencyAudit": {
+    "production": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "allIncludingDevelopment": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 5,
+      "critical": 0,
+      "total": 5
+    },
+    "developmentFinding": "GHSA-vfj7-8cjw-p6xm: braces through lint tools; no patched version available at check"
+  },
+  "scope": "Local production and independent bounded tests; not public-deployment verification, complete feature parity, professional review, accessibility certification or p75 field performance.",
+  "browserTests": {
+    "expected": 14,
+    "unexpected": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "durationMs": 17659.386
+  },
+  "seoCrawl": {
+    "pages": 249,
+    "activeCalculators": 201,
+    "internalAnchorInstances": 8261,
+    "brokenLinks": 0,
+    "JSONLDBlocks": 403,
+    "initialBuild": "fuW5GZ5UjYbMiOFSahANJ",
+    "finalMetadataRecheckBuild": "p7aNm6pzeCU4wnSSsexAO"
+  },
+  "postAdapterCacheRetest": {
+    "numTotalTests": 47,
+    "numPassedTests": 47,
+    "numFailedTests": 0
+  }
+}

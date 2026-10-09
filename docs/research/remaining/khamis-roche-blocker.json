@@ -1,0 +1,37 @@
+{
+  "auditDate": "2026-10-09",
+  "slug": "height-calculator",
+  "status": "corrected-dataset-not-verified",
+  "original": "https://publications.aap.org/pediatrics/article/94/4/504/59488/Predicting-Adult-Stature-Without-Using-Skeletal",
+  "erratum": "https://publications.aap.org/pediatrics/article/95/3/457/59792/ERRATUM",
+  "erratumPdf": "https://publications.aap.org/pediatrics/article-pdf/95/3/457/983170/457.pdf",
+  "institutionRecord": "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/",
+  "replicationWarning": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4456039/",
+  "preciseBlocker": "Publisher confirms original Tables 1 and 2 contain errors; replacements are PDF-only and marked available to purchase. Institution record has metadata but no corrected table. No corrected primary coefficient rows were obtained. No purchase or access-control bypass attempted.",
+  "notClaimed": "This is a missing verified dataset, not proof that the mathematical model needs a paid API or cannot be implemented. Access to a paper alone is not permission to copy its prose/table artwork.",
+  "model": "adultHeight = b0 + bHeight*currentHeight + bWeight*currentWeight + bParent*(motherHeight+fatherHeight)/2; age/sex select corrected coefficients. Do not use the sex-adjusted midparent heuristic inside this regression.",
+  "scope": "Original cohort: 223 white males and 210 white females in Southwest Ohio, disease-free growth applicability; not validated universally. Do not promise an exact final height or use a generic error margin.",
+  "neededBeforeNamedMode": [
+    "Corrected sex/age coefficient rows and their unit convention, verified against 1995 erratum",
+    "Age range, exact age-selection/interpolation rule, error-bound convention and out-of-range policy from primary method",
+    "Independent spot fixtures at earliest/latest supported ages and both sexes; tests cannot be sourced only from another calculator"
+  ],
+  "safeAlternative": {
+    "now": "Keep the separate, clearly named midparent estimate already implemented.",
+    "optional": "User-entered regression coefficients with explicit length/mass unit labels and coefficient source; call it a custom linear height model, not verified Khamis\u2013Roche. No built-in purported KR defaults.",
+    "syntheticFixture": {
+      "inputs": {
+        "b0": 5,
+        "bHeight": 1,
+        "bWeight": -0.01,
+        "bParent": 0.2,
+        "childHeight": 60,
+        "weight": 100,
+        "motherHeight": 64,
+        "fatherHeight": 70
+      },
+      "expected": 77.4,
+      "meaning": "Arithmetic-only invented coefficients, not a biological prediction fixture."
+    }
+  }
+}

@@ -1,0 +1,4396 @@
+{
+  "schemaVersion": 1,
+  "createdDate": "2026-10-09",
+  "scope": "Mapped independent fixtures for every registered everyday algorithm, emphasizing new extra modes. Uses current snapshot mode IDs/keys/metric labels. No checkout edits.",
+  "independence": "Expected values come from exact arithmetic, independent Python standard library calculations, stated model equations, or pre-existing independent research. Actual engine results are stored only in a separate run report.",
+  "snapshotHashes": {
+    "types.ts": "7e60485faffbff1ee959992767940a7d01b4e6420efcf43279b43def6cc3f4a0",
+    "engine.ts": "0ae9e61705ce2f81a636462d7c17ba776b7e570e17336788159b9124be1792bc",
+    "field-visibility.ts": "52a4312daf1dc3c686eac63030f4bdc26fa67c5c3fb7e4472895ed46fda5884f",
+    "helpers.ts": "8664c72c9a3f85024824fd57fc091e43015b252ce9e0f7d52cc32a6bb9479947",
+    "normal.ts": "eb7a984af922e37f5ee7229653b2d9771ef0d385b2c502f571d9c9a37b8d6ad2",
+    "geometry.ts": "7ded4452ccf9043d2c239b99da5224e707edb0f6494eb1f0ab1a68619c165d69",
+    "everyday-definitions.ts": "2f4093e216635320bcaaa63a3791a835f4a8f5b81f3c86fd23d81dbf7876b3ab",
+    "everyday-extra-definitions.ts": "0b3ee2c677822ad450e92db999bacc9bbe413b7f282bb8c67101d00d1e0f8427",
+    "everyday-engine.ts": "9ac07f32177f09afab72aa9e0382f02228c6a24b2976c90db7e813c8959d249a",
+    "everyday-extra-engine.ts": "f2483d8205ff2c48c13156c2d50c2e6e3f6e514fe8caaa397ff548cb6abcc6f2"
+  },
+  "comparison": "Numeric acceptance: abs(actual-expected)<=max(absoluteTolerance,relativeTolerance*abs(expected)); string equality exact. Random/amusement algorithms use contract properties.",
+  "counts": {
+    "fixtures": 175,
+    "numericOrExact": 135,
+    "validation": 37,
+    "algorithms": 95,
+    "algorithmsCoveredByNonerrorCases": 95,
+    "modes": 103
+  },
+  "referenceCases": [
+    {
+      "id": "power-work-nondefault",
+      "slug": "horsepower-calculator",
+      "category": "everyday",
+      "modeId": "work",
+      "algorithm": "power-work",
+      "inputs": {
+        "force": "2400",
+        "distance": "12.5",
+        "time": "8"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Power",
+          "expected": 3750,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Mechanical horsepower",
+          "expected": 5.028832835981355,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "gpa-plan-nondefault",
+      "slug": "gpa-calculator",
+      "category": "everyday",
+      "modeId": "target",
+      "algorithm": "gpa-target",
+      "inputs": {
+        "current": "2.8",
+        "credits": "60",
+        "target": "3",
+        "future": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Required future GPA",
+          "expected": 3.4,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "grade-points-nondefault",
+      "slug": "grade-calculator",
+      "category": "everyday",
+      "modeId": "points",
+      "algorithm": "grade-points",
+      "inputs": {
+        "scores": "18,20\n70,80"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Grade",
+          "expected": 88,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Earned points",
+          "expected": 88,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Possible points",
+          "expected": 100,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "grade-points-extra-credit",
+      "slug": "grade-calculator",
+      "category": "everyday",
+      "modeId": "points",
+      "algorithm": "grade-points",
+      "inputs": {
+        "scores": "22,20\n80,80"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Grade",
+          "expected": 102,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "density-inverse-volume",
+      "slug": "density-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "density-inverse",
+      "inputs": {
+        "solve": "volume",
+        "density": "1500",
+        "volume": "",
+        "mass": "750"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Volume",
+          "expected": 0.5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "density-inverse-mass",
+      "slug": "density-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "density-inverse",
+      "inputs": {
+        "solve": "mass",
+        "density": "800",
+        "volume": "2.5",
+        "mass": ""
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mass",
+          "expected": 2000,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "molarity-inverse-volume",
+      "slug": "molarity-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "molarity-inverse",
+      "inputs": {
+        "solve": "volume",
+        "mass": "2",
+        "concentration": "0.25",
+        "molarMass": "40",
+        "volume": ""
+      },
+      "expectations": [
+        {
+          "metricLabel": "Solution volume",
+          "expected": 0.2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "molarity-inverse-molar-mass",
+      "slug": "molarity-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "molarity-inverse",
+      "inputs": {
+        "solve": "molarMass",
+        "mass": "5",
+        "concentration": "0.5",
+        "molarMass": "",
+        "volume": "0.25"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Molar mass",
+          "expected": 40,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "dated-leap-hours-calculator",
+      "slug": "hours-calculator",
+      "category": "everyday",
+      "modeId": "dated",
+      "algorithm": "dated-duration",
+      "inputs": {
+        "start": "2024-02-28",
+        "startTime": "23:30",
+        "end": "2024-03-01",
+        "endTime": "00:15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Elapsed seconds",
+          "expected": 89100,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed minutes",
+          "expected": 1485,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed hours",
+          "expected": 24.75,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed days",
+          "expected": 1.03125,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "dated-leap-time-duration-calculator",
+      "slug": "time-duration-calculator",
+      "category": "everyday",
+      "modeId": "dated",
+      "algorithm": "dated-duration",
+      "inputs": {
+        "start": "2024-02-28",
+        "startTime": "23:30",
+        "end": "2024-03-01",
+        "endTime": "00:15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Elapsed seconds",
+          "expected": 89100,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed minutes",
+          "expected": 1485,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed hours",
+          "expected": 24.75,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Elapsed days",
+          "expected": 1.03125,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "dated-reversed-seconds",
+      "slug": "time-duration-calculator",
+      "category": "everyday",
+      "modeId": "dated",
+      "algorithm": "dated-duration",
+      "inputs": {
+        "start": "2024-03-01",
+        "startTime": "00:15:20",
+        "end": "2024-02-29",
+        "endTime": "23:15:10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Elapsed seconds",
+          "expected": -3610,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "datetime-add-leap-rollover",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "datetime",
+      "algorithm": "datetime-add",
+      "inputs": {
+        "date": "2024-02-28",
+        "time": "23:45",
+        "days": "1",
+        "hours": "2",
+        "minutes": "30",
+        "seconds": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Civil date and time",
+          "expected": "2024-03-01 02:15:00",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "datetime-add-negative-seconds",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "datetime",
+      "algorithm": "datetime-add",
+      "inputs": {
+        "date": "2025-01-01",
+        "time": "00:00",
+        "days": "0",
+        "hours": "0",
+        "minutes": "0",
+        "seconds": "-1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Civil date and time",
+          "expected": "2024-12-31 23:59:59",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "duration-expression-groups",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "expression",
+      "algorithm": "duration-expression",
+      "inputs": {
+        "expression": "2d 3h - 90m + 30s"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Total seconds",
+          "expected": 178230,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Decimal hours",
+          "expected": 49.50833333333333,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "duration-expression-negative-group",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "expression",
+      "algorithm": "duration-expression",
+      "inputs": {
+        "expression": "2h - 1h 30m"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Total seconds",
+          "expected": 1800,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "A sign applies to the following grouped units until the next sign."
+    },
+    {
+      "id": "business-forward-holiday-date-calculator",
+      "slug": "date-calculator",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "2026-07-02",
+        "days": "1",
+        "holidays": "2026-07-03"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result date",
+          "expected": "2026-07-06",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "business-forward-holiday-day-counter",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "2026-07-02",
+        "days": "1",
+        "holidays": "2026-07-03"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result date",
+          "expected": "2026-07-06",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "business-backward-holiday",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "2026-07-06",
+        "days": "-1",
+        "holidays": "2026-07-03"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result date",
+          "expected": "2026-07-02",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "business-zero-weekend",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "2026-07-04",
+        "days": "0",
+        "holidays": ""
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result date",
+          "expected": "2026-07-04",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-border",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "border",
+        "a": "10",
+        "b": "8",
+        "c": "1",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 64,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 5.94579456,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-ring",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "ring",
+        "a": "10",
+        "b": "1",
+        "c": "2",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 56.548667764616276,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 5.253543143282857,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-triangle",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "triangle",
+        "a": "13",
+        "b": "14",
+        "c": "15",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 168,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 15.607710720000002,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-base-height",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "base-height",
+        "a": "8",
+        "b": "3",
+        "c": "2",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 2.2296729600000003,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-trapezoid",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "trapezoid",
+        "a": "6",
+        "b": "10",
+        "c": "4",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 64,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 5.94579456,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-sector",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "sector",
+        "a": "6",
+        "b": "10",
+        "c": "2",
+        "angle": "120",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 75.39822368615503,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 7.004724191043809,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-shape-parallelogram",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "parallelogram",
+        "a": "9",
+        "b": "4",
+        "c": "2",
+        "angle": "90",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 72,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 6.689018880000001,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "concrete-tube-nondefault",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "tube",
+      "algorithm": "concrete-tube",
+      "inputs": {
+        "outer": "36",
+        "inner": "12",
+        "height": "9",
+        "quantity": "3",
+        "waste": "5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Net volume",
+          "expected": 6.283185307179586,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "With allowance",
+          "expected": 6.5973445725385655,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "concrete-stairs-nondefault",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "stairs",
+      "algorithm": "concrete-stairs",
+      "inputs": {
+        "risers": "5",
+        "riser": "6",
+        "run": "12",
+        "platform": "36",
+        "width": "36"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Concrete volume",
+          "expected": 1.3888888888888888,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "mulch-known-area",
+      "slug": "mulch-calculator",
+      "category": "everyday",
+      "modeId": "area",
+      "algorithm": "landscape-area",
+      "inputs": {
+        "area": "74",
+        "depth": "3",
+        "price": "60"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Volume",
+          "expected": 0.6851851851851852,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Material cost",
+          "expected": 41.111111111111114,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "gravel-circular-bags",
+      "slug": "gravel-calculator",
+      "category": "everyday",
+      "modeId": "circle",
+      "algorithm": "gravel-circle",
+      "inputs": {
+        "diameter": "12",
+        "depth": "4",
+        "density": "2700",
+        "bag": "40",
+        "price": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Volume",
+          "expected": 1.3962634015954636,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Bulk weight",
+          "expected": 3769.9111843077517,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Bags required",
+          "expected": 95,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Bag cost",
+          "expected": 570,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "stairs-fixed-count",
+      "slug": "stair-calculator",
+      "category": "everyday",
+      "modeId": "rise-run",
+      "algorithm": "stairs-rise-run",
+      "inputs": {
+        "rise": "105",
+        "run": "140",
+        "risers": "15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Riser height",
+          "expected": 7,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Tread run",
+          "expected": 10,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Tread count",
+          "expected": 14,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Step pitch",
+          "expected": 34.99202019855866,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "conductor-nondefault",
+      "slug": "resistor-calculator",
+      "category": "everyday",
+      "modeId": "conductor",
+      "algorithm": "conductor-resistance",
+      "inputs": {
+        "length": "10",
+        "diameter": "1",
+        "conductivity": "50000000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Resistance",
+          "expected": 0.25464790894703254,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "heat-from-dewpoint",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "dew",
+      "algorithm": "heat-dew",
+      "inputs": {
+        "temperature": "30",
+        "dew": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Heat index",
+          "expected": 89.42271145153168,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent Magnus inversion followed by NOAA/NWS published Rothfusz equation.",
+      "notes": "Magnus coefficients intentionally match the documented product model; not the different NWS vapor-pressure approximation used in some earlier research fixtures."
+    },
+    {
+      "id": "dew-inverse-humidity",
+      "slug": "dew-point-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "dew-inverse",
+      "inputs": {
+        "solve": "humidity",
+        "temperature": "30",
+        "dew": "20",
+        "humidity": ""
+      },
+      "expectations": [
+        {
+          "metricLabel": "Relative humidity",
+          "expected": 55.07749010874436,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "dew-inverse-temperature",
+      "slug": "dew-point-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "dew-inverse",
+      "inputs": {
+        "solve": "temperature",
+        "temperature": "",
+        "dew": "10",
+        "humidity": "100"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Air temperature",
+          "expected": 10,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "electricity-load-nondefault",
+      "slug": "electricity-calculator",
+      "category": "everyday",
+      "modeId": "load",
+      "algorithm": "electricity-load",
+      "inputs": {
+        "watts": "1500",
+        "load": "40",
+        "hours": "150",
+        "price": "0.2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Energy",
+          "expected": 90,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Energy charge",
+          "expected": 18,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "hosting-rate",
+      "slug": "bandwidth-calculator",
+      "category": "everyday",
+      "modeId": "hosting",
+      "algorithm": "bandwidth-hosting",
+      "inputs": {
+        "solve": "rate",
+        "transfer": "324",
+        "rate": "",
+        "days": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Average rate",
+          "expected": 1,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "hosting-transfer",
+      "slug": "bandwidth-calculator",
+      "category": "everyday",
+      "modeId": "hosting",
+      "algorithm": "bandwidth-hosting",
+      "inputs": {
+        "solve": "transfer",
+        "transfer": "",
+        "rate": "10",
+        "days": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Transfer",
+          "expected": 3240,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "odometer-cost",
+      "slug": "gas-mileage-calculator",
+      "category": "everyday",
+      "modeId": "odometer",
+      "algorithm": "fuel-odometer",
+      "inputs": {
+        "start": "12000",
+        "end": "12420",
+        "fuel": "14",
+        "price": "3.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Distance",
+          "expected": 420,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Fuel economy",
+          "expected": 30,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Fuel cost",
+          "expected": 49,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Cost per mile",
+          "expected": 0.11666666666666667,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "sleep-duration-bedtime",
+      "slug": "sleep-calculator",
+      "category": "everyday",
+      "modeId": "duration",
+      "algorithm": "sleep-duration",
+      "inputs": {
+        "time": "06:45",
+        "direction": "wake",
+        "hours": "7.5",
+        "latency": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Suggested bedtime",
+          "expected": "22:55",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Day relative to entered time",
+          "expected": "Previous day",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "sleep-duration-wake",
+      "slug": "sleep-calculator",
+      "category": "everyday",
+      "modeId": "duration",
+      "algorithm": "sleep-duration",
+      "inputs": {
+        "time": "22:30",
+        "direction": "bed",
+        "hours": "8",
+        "latency": "15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Wake-up time",
+          "expected": "06:45",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Day relative to entered time",
+          "expected": "Next day",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "roman-date-nondefault",
+      "slug": "roman-numeral-converter",
+      "category": "everyday",
+      "modeId": "date",
+      "algorithm": "roman-date",
+      "inputs": {
+        "date": "1999-12-31",
+        "order": "ymd"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Roman date",
+          "expected": "MCMXCIX / XII / XXXI",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "golf-score-differential",
+      "slug": "golf-handicap-calculator",
+      "category": "everyday",
+      "modeId": "differential",
+      "algorithm": "golf-differential",
+      "inputs": {
+        "score": "90",
+        "rating": "72",
+        "slope": "113",
+        "pcc": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Score differential",
+          "expected": 17,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "age-leap-anniversary",
+      "slug": "age-calculator",
+      "category": "everyday",
+      "modeId": "age",
+      "algorithm": "age",
+      "inputs": {
+        "birth": "2000-02-29",
+        "asof": "2025-03-01"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Calendar age",
+          "expected": "25 years, 0 months, 1 days",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total days",
+          "expected": 9132,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Current declared convention clamps month-end anniversaries."
+    },
+    {
+      "id": "date-difference-leap-inclusive",
+      "slug": "date-calculator",
+      "category": "everyday",
+      "modeId": "difference",
+      "algorithm": "date-difference",
+      "inputs": {
+        "start": "2024-02-28",
+        "end": "2024-03-01",
+        "inclusive": "yes"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Days",
+          "expected": 3,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Weeks",
+          "expected": 0.42857142857142855,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "date-add-month-end",
+      "slug": "date-calculator",
+      "category": "everyday",
+      "modeId": "add",
+      "algorithm": "date-add",
+      "inputs": {
+        "start": "2024-01-31",
+        "years": "0",
+        "months": "1",
+        "weeks": "1",
+        "days": "-1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result date",
+          "expected": "2024-03-06",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "business-days-duplicate-holiday",
+      "slug": "date-calculator",
+      "category": "everyday",
+      "modeId": "business",
+      "algorithm": "business-days",
+      "inputs": {
+        "start": "2026-07-02",
+        "end": "2026-07-07",
+        "inclusive": "yes",
+        "holidays": "2026-07-03\n2026-07-03\n2026-07-04"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Business days",
+          "expected": 3,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "weekday-iso-year",
+      "slug": "day-of-the-week-calculator",
+      "category": "everyday",
+      "modeId": "weekday",
+      "algorithm": "weekday",
+      "inputs": {
+        "date": "2021-01-01"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Weekday",
+          "expected": "Friday",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Day of year",
+          "expected": 1,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "ISO week",
+          "expected": "2020-W53",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "clock-overnight-hours-calculator",
+      "slug": "hours-calculator",
+      "category": "everyday",
+      "modeId": "duration",
+      "algorithm": "clock-duration",
+      "inputs": {
+        "start": "22:45",
+        "end": "06:15",
+        "break": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Elapsed time",
+          "expected": "07:00:00",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Decimal hours",
+          "expected": 7,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "clock-overnight-time-duration-calculator",
+      "slug": "time-duration-calculator",
+      "category": "everyday",
+      "modeId": "duration",
+      "algorithm": "clock-duration",
+      "inputs": {
+        "start": "22:45",
+        "end": "06:15",
+        "break": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Elapsed time",
+          "expected": "07:00:00",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Decimal hours",
+          "expected": 7,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "duration-over-24h",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "arithmetic",
+      "algorithm": "time-arithmetic",
+      "inputs": {
+        "a": "27:15:30",
+        "operation": "-",
+        "b": "2:45:50"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Duration",
+          "expected": "24:29:40",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Seconds",
+          "expected": 88180,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Decimal hours",
+          "expected": 24.494444444444444,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "time-card-overtime",
+      "slug": "time-card-calculator",
+      "category": "everyday",
+      "modeId": "timesheet",
+      "algorithm": "time-card",
+      "inputs": {
+        "shifts": "09:00,20:00,60\n09:00,20:00,60\n09:00,20:00,60\n09:00,20:00,60\n09:00,15:00,60",
+        "rate": "20",
+        "threshold": "40",
+        "multiplier": "1.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Total hours",
+          "expected": 45,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular hours",
+          "expected": 40,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Overtime hours",
+          "expected": 5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Estimated gross pay",
+          "expected": 950,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "timezone-fold-earlier",
+      "slug": "time-zone-calculator",
+      "category": "everyday",
+      "modeId": "zone",
+      "algorithm": "time-zone",
+      "inputs": {
+        "date": "2026-11-01",
+        "time": "01:30",
+        "from": "America/New_York",
+        "to": "UTC",
+        "ambiguity": "earlier"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Destination local time",
+          "expected": "2026-11-01 05:30:00",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "UTC instant",
+          "expected": "2026-11-01T05:30:00.000Z",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "timezone-fold-later",
+      "slug": "time-zone-calculator",
+      "category": "everyday",
+      "modeId": "zone",
+      "algorithm": "time-zone",
+      "inputs": {
+        "date": "2026-11-01",
+        "time": "01:30",
+        "from": "America/New_York",
+        "to": "UTC",
+        "ambiguity": "later"
+      },
+      "expectations": [
+        {
+          "metricLabel": "UTC instant",
+          "expected": "2026-11-01T06:30:00.000Z",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-length",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "length",
+      "algorithm": "convert-length",
+      "inputs": {
+        "value": "2.5",
+        "from": "mi",
+        "to": "m"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 4023.36,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-area",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "area",
+      "algorithm": "convert-area",
+      "inputs": {
+        "value": "2",
+        "from": "acre",
+        "to": "m\u00b2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 8093.7128448,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-volume",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "volume",
+      "algorithm": "convert-volume",
+      "inputs": {
+        "value": "2",
+        "from": "UK gal",
+        "to": "L"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 9.09218,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-mass",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "mass",
+      "algorithm": "convert-mass",
+      "inputs": {
+        "value": "250",
+        "from": "lb",
+        "to": "kg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 113.3980925,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-time",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "time",
+      "algorithm": "convert-time",
+      "inputs": {
+        "value": "1.5",
+        "from": "week",
+        "to": "h"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 252,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-speed",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "speed",
+      "algorithm": "convert-speed",
+      "inputs": {
+        "value": "60",
+        "from": "mph",
+        "to": "km/h"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 96.56064,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-pressure",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "pressure",
+      "algorithm": "convert-pressure",
+      "inputs": {
+        "value": "2",
+        "from": "atm",
+        "to": "kPa"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 202.65,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-energy",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "energy",
+      "algorithm": "convert-energy",
+      "inputs": {
+        "value": "0.5",
+        "from": "kWh",
+        "to": "kJ"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 1800,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-power",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "power",
+      "algorithm": "convert-power",
+      "inputs": {
+        "value": "2",
+        "from": "hp",
+        "to": "W"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 1491.399743164,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "conversion-data",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "data",
+      "algorithm": "convert-data",
+      "inputs": {
+        "value": "2",
+        "from": "GiB",
+        "to": "MB"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 2147.483648,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "NIST SI conversion definitions and decimal/binary unit definitions.",
+      "notes": ""
+    },
+    {
+      "id": "weight-route-mass-conversion",
+      "slug": "weight-calculator",
+      "category": "everyday",
+      "modeId": "mass",
+      "algorithm": "convert-mass",
+      "inputs": {
+        "value": "3",
+        "from": "stone",
+        "to": "lb"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Converted value",
+          "expected": 42,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "temperature-affine",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "temperature",
+      "algorithm": "temperature",
+      "inputs": {
+        "value": "-40",
+        "from": "\u00b0C",
+        "to": "\u00b0F"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Temperature",
+          "expected": -40,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "density-core",
+      "slug": "density-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "density",
+      "inputs": {
+        "mass": "750",
+        "volume": "0.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Density",
+          "expected": 1500,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "mass-core",
+      "slug": "mass-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "mass",
+      "inputs": {
+        "density": "800",
+        "volume": "2.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mass",
+          "expected": 2000,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "weight-force",
+      "slug": "weight-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "weight",
+      "inputs": {
+        "mass": "80",
+        "gravity": "1.62"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Weight force",
+          "expected": 129.6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "speed-speed",
+      "slug": "speed-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "speed",
+      "inputs": {
+        "solve": "speed",
+        "distance": "150",
+        "time": "2.5",
+        "speed": "50"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Speed",
+          "expected": 60,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "speed-distance",
+      "slug": "speed-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "speed",
+      "inputs": {
+        "solve": "distance",
+        "distance": "100",
+        "time": "1.25",
+        "speed": "72"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Distance",
+          "expected": 90,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "speed-time",
+      "slug": "speed-calculator",
+      "category": "everyday",
+      "modeId": "calculate",
+      "algorithm": "speed",
+      "inputs": {
+        "solve": "time",
+        "distance": "180",
+        "time": "2",
+        "speed": "60"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Travel time",
+          "expected": 3,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "molarity-core",
+      "slug": "molarity-calculator",
+      "category": "everyday",
+      "modeId": "molarity",
+      "algorithm": "molarity",
+      "inputs": {
+        "mass": "4",
+        "molarMass": "40",
+        "volume": "0.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Molarity",
+          "expected": 0.2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "molarity-mass-core",
+      "slug": "molarity-calculator",
+      "category": "everyday",
+      "modeId": "mass",
+      "algorithm": "molarity-mass",
+      "inputs": {
+        "molarity": "0.25",
+        "molarMass": "40",
+        "volume": "0.2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Solute mass",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "molecular-hydrate",
+      "slug": "molecular-weight-calculator",
+      "category": "everyday",
+      "modeId": "formula",
+      "algorithm": "molecular-weight",
+      "inputs": {
+        "formula": "CuSO4\u00b75H2O"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Molar mass",
+          "expected": 249.691,
+          "absoluteTolerance": 1e-06,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent atom count: Cu1 S1 O9 H10; declared PubChem weights Cu63.55,S32.07,O15.999,H1.008. Dataset convention checked, not product calculation output.",
+      "notes": ""
+    },
+    {
+      "id": "gdp-core",
+      "slug": "gdp-calculator",
+      "category": "everyday",
+      "modeId": "expenditure",
+      "algorithm": "gdp",
+      "inputs": {
+        "consumption": "100",
+        "investment": "30",
+        "government": "40",
+        "exports": "20",
+        "imports": "35"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Nominal GDP",
+          "expected": 155,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "gpa-weighted-prior",
+      "slug": "gpa-calculator",
+      "category": "everyday",
+      "modeId": "courses",
+      "algorithm": "gpa",
+      "inputs": {
+        "courses": "4,3\n3,1",
+        "previousGpa": "2.5",
+        "previousCredits": "12"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Course GPA",
+          "expected": 3.75,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Cumulative GPA",
+          "expected": 2.8125,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total credits",
+          "expected": 16,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "grade-weighted-partial",
+      "slug": "grade-calculator",
+      "category": "everyday",
+      "modeId": "weighted",
+      "algorithm": "grade",
+      "inputs": {
+        "grades": "90,20\n70,30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Weighted grade",
+          "expected": 78,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Weight represented",
+          "expected": 50,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "final-score-needed",
+      "slug": "grade-calculator",
+      "category": "everyday",
+      "modeId": "final",
+      "algorithm": "final-grade",
+      "inputs": {
+        "current": "80",
+        "target": "85",
+        "weight": "25"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Required final score",
+          "expected": 100,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "tip-bill-split",
+      "slug": "tip-calculator",
+      "category": "everyday",
+      "modeId": "tip",
+      "algorithm": "tip",
+      "inputs": {
+        "bill": "137.5",
+        "tip": "20",
+        "people": "3"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Tip",
+          "expected": 27.5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total bill",
+          "expected": 165,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Per person",
+          "expected": 55,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "fuel-metric-trip",
+      "slug": "fuel-cost-calculator",
+      "category": "everyday",
+      "modeId": "metric",
+      "algorithm": "fuel-metric",
+      "inputs": {
+        "distance": "240",
+        "economy": "8.5",
+        "price": "1.7"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Fuel needed",
+          "expected": 20.4,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Fuel cost",
+          "expected": 34.68,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "fuel-us-trip",
+      "slug": "fuel-cost-calculator",
+      "category": "everyday",
+      "modeId": "us",
+      "algorithm": "fuel-us",
+      "inputs": {
+        "distance": "420",
+        "economy": "30",
+        "price": "3.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Fuel needed",
+          "expected": 14,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Fuel cost",
+          "expected": 49,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "gas-us-observed",
+      "slug": "gas-mileage-calculator",
+      "category": "everyday",
+      "modeId": "us",
+      "algorithm": "mpg",
+      "inputs": {
+        "distance": "420",
+        "fuel": "14"
+      },
+      "expectations": [
+        {
+          "metricLabel": "US fuel economy",
+          "expected": 30,
+          "absoluteTolerance": 2e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Consumption",
+          "expected": 7.84048611111111,
+          "absoluteTolerance": 2e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "gas-metric-observed",
+      "slug": "gas-mileage-calculator",
+      "category": "everyday",
+      "modeId": "metric",
+      "algorithm": "consumption",
+      "inputs": {
+        "distance": "800",
+        "fuel": "64"
+      },
+      "expectations": [
+        {
+          "metricLabel": "US fuel economy",
+          "expected": 29.401822916666664,
+          "absoluteTolerance": 2e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Consumption",
+          "expected": 8,
+          "absoluteTolerance": 2e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "torque-power-horsepower-calculator",
+      "slug": "horsepower-calculator",
+      "category": "everyday",
+      "modeId": "torque",
+      "algorithm": "horsepower",
+      "inputs": {
+        "torque": "250",
+        "rpm": "4000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mechanical horsepower",
+          "expected": 190.39955476301776,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 3e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 141.98092353610377,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 3e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "torque-power-engine-horsepower-calculator",
+      "slug": "engine-horsepower-calculator",
+      "category": "everyday",
+      "modeId": "torque",
+      "algorithm": "horsepower",
+      "inputs": {
+        "torque": "250",
+        "rpm": "4000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mechanical horsepower",
+          "expected": 190.39955476301776,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 3e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 141.98092353610377,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 3e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "tire-size-comparison",
+      "slug": "tire-size-calculator",
+      "category": "everyday",
+      "modeId": "compare",
+      "algorithm": "tires",
+      "inputs": {
+        "a": "215/60R16",
+        "b": "235/45R18"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Current diameter",
+          "expected": 664.4,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "New diameter",
+          "expected": 668.7,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Diameter change",
+          "expected": 0.6472004816375776,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Actual speed at indicated 60 mph",
+          "expected": 60.38832028898254,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "New circumference",
+          "expected": 2100.783007455495,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-rectangle",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "rectangle",
+      "algorithm": "floor-area",
+      "inputs": {
+        "length": "9",
+        "width": "7.5",
+        "quantity": "3"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 202.5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Metric area",
+          "expected": 18.812865600000002,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "floor-circle",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "circle",
+      "algorithm": "floor-circle",
+      "inputs": {
+        "diameter": "6",
+        "quantity": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Area",
+          "expected": 56.548667764616276,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "concrete-slab-core",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "slab",
+      "algorithm": "concrete-slab",
+      "inputs": {
+        "length": "18",
+        "width": "9",
+        "depth": "6",
+        "waste": "5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Net concrete",
+          "expected": 3,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "With allowance",
+          "expected": 3.15,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "With allowance, metric",
+          "expected": 2.4083478026496,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "concrete-column-core",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "column",
+      "algorithm": "concrete-column",
+      "inputs": {
+        "diameter": "24",
+        "height": "9",
+        "quantity": "3",
+        "waste": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Net concrete",
+          "expected": 3.141592653589793,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "landscape-mulch-calculator",
+      "slug": "mulch-calculator",
+      "category": "everyday",
+      "modeId": "bed",
+      "algorithm": "landscape",
+      "inputs": {
+        "length": "18",
+        "width": "9",
+        "depth": "4",
+        "density": "1200",
+        "price": "75"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Volume",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Estimated weight",
+          "expected": 2400,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Material cost",
+          "expected": 150,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "landscape-gravel-calculator",
+      "slug": "gravel-calculator",
+      "category": "everyday",
+      "modeId": "bed",
+      "algorithm": "landscape",
+      "inputs": {
+        "length": "18",
+        "width": "9",
+        "depth": "4",
+        "density": "1200",
+        "price": "75"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Volume",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Estimated weight",
+          "expected": 2400,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Material cost",
+          "expected": 150,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "tile-area-waste",
+      "slug": "tile-calculator",
+      "category": "everyday",
+      "modeId": "tiles",
+      "algorithm": "tile",
+      "inputs": {
+        "length": "10",
+        "width": "7",
+        "tileLength": "12",
+        "tileWidth": "18",
+        "waste": "10",
+        "price": "2.5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Tiles required",
+          "expected": 52,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Material cost",
+          "expected": 130,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "roof-pythagorean-pitch",
+      "slug": "roofing-calculator",
+      "category": "everyday",
+      "modeId": "roof",
+      "algorithm": "roof",
+      "inputs": {
+        "length": "30",
+        "width": "20",
+        "pitch": "9",
+        "waste": "10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Roof surface",
+          "expected": 750,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "With allowance",
+          "expected": 825,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Roofing squares",
+          "expected": 8.25,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "stairs-auto-risers",
+      "slug": "stair-calculator",
+      "category": "everyday",
+      "modeId": "stairs",
+      "algorithm": "stairs",
+      "inputs": {
+        "rise": "100",
+        "maxRiser": "7",
+        "tread": "11"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Risers",
+          "expected": 15,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Actual riser height",
+          "expected": 6.666666666666667,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Treads",
+          "expected": 14,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total run",
+          "expected": 154,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "btu-adjustments",
+      "slug": "btu-calculator",
+      "category": "everyday",
+      "modeId": "room",
+      "algorithm": "btu",
+      "inputs": {
+        "area": "200",
+        "sun": "sunny",
+        "people": "3",
+        "kitchen": "yes"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Baseline capacity",
+          "expected": 6000,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Estimated cooling capacity",
+          "expected": 11200,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "ENERGY STAR table and adjustments: 6000*1.1+600+4000.",
+      "notes": ""
+    },
+    {
+      "id": "electricity-core",
+      "slug": "electricity-calculator",
+      "category": "everyday",
+      "modeId": "energy",
+      "algorithm": "electricity",
+      "inputs": {
+        "watts": "750",
+        "hours": "6",
+        "days": "28",
+        "price": "0.22"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Energy used",
+          "expected": 126,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Energy charge",
+          "expected": 27.72,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-vi",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "vi",
+        "a": "12",
+        "b": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-vr",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "vr",
+        "a": "12",
+        "b": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-ir",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "ir",
+        "a": "2",
+        "b": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-vp",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "vp",
+        "a": "12",
+        "b": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-ip",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "ip",
+        "a": "2",
+        "b": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ohms-rp",
+      "slug": "ohms-law-calculator",
+      "category": "everyday",
+      "modeId": "ohm",
+      "algorithm": "ohm",
+      "inputs": {
+        "pair": "rp",
+        "a": "6",
+        "b": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Voltage",
+          "expected": 12,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Current",
+          "expected": 2,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Resistance",
+          "expected": 6,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Power",
+          "expected": 24,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "resistors-series",
+      "slug": "resistor-calculator",
+      "category": "everyday",
+      "modeId": "network",
+      "algorithm": "resistors",
+      "inputs": {
+        "values": "120,180,300",
+        "kind": "series"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Equivalent resistance",
+          "expected": 600,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "resistors-parallel",
+      "slug": "resistor-calculator",
+      "category": "everyday",
+      "modeId": "network",
+      "algorithm": "resistors",
+      "inputs": {
+        "values": "120,180,360",
+        "kind": "parallel"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Equivalent resistance",
+          "expected": 60,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "resistor-colors",
+      "slug": "resistor-calculator",
+      "category": "everyday",
+      "modeId": "colors",
+      "algorithm": "resistor-colors",
+      "inputs": {
+        "a": "yellow",
+        "b": "violet",
+        "multiplier": "red",
+        "tolerance": "5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Resistance",
+          "expected": 4700,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Tolerance",
+          "expected": 5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Minimum",
+          "expected": 4465,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Maximum",
+          "expected": 4935,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "voltage-temperature-correction",
+      "slug": "voltage-drop-calculator",
+      "category": "everyday",
+      "modeId": "dc",
+      "algorithm": "voltage-drop",
+      "inputs": {
+        "voltage": "48",
+        "current": "8",
+        "length": "25",
+        "area": "4",
+        "material": "copper",
+        "temperature": "70"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loop resistance",
+          "expected": 0.25786070624999996,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Voltage drop",
+          "expected": 2.0628856499999997,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Load voltage",
+          "expected": 45.93711435,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Drop percentage",
+          "expected": 4.297678437499999,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent nominal resistivity model using documented rho20=.017241 ohm mm2/m and alpha=.00393/K.",
+      "notes": ""
+    },
+    {
+      "id": "wind-chill-core",
+      "slug": "wind-chill-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "wind-chill",
+      "inputs": {
+        "temperature": "20",
+        "wind": "15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Wind chill",
+          "expected": 6.218885266083872,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent NOAA/NWS published wind-chill equation.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-normal",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "heat-index",
+      "inputs": {
+        "temperature": "90",
+        "humidity": "70"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Heat index",
+          "expected": 105.92202060000027,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent NOAA/NWS formula evaluated in earlier expanded-fixtures.json.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-dry",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "heat-index",
+      "inputs": {
+        "temperature": "100",
+        "humidity": "10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Heat index",
+          "expected": 94.12248266218747,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent NOAA/NWS formula evaluated in earlier expanded-fixtures.json.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-humid",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "heat-index",
+      "inputs": {
+        "temperature": "85",
+        "humidity": "90"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Heat index",
+          "expected": 101.78080360000024,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent NOAA/NWS formula evaluated in earlier expanded-fixtures.json.",
+      "notes": ""
+    },
+    {
+      "id": "heat-index-low-branch",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "heat-index",
+      "inputs": {
+        "temperature": "80",
+        "humidity": "40"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Heat index",
+          "expected": 79.78999999999999,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent NOAA/NWS formula evaluated in earlier expanded-fixtures.json.",
+      "notes": ""
+    },
+    {
+      "id": "dew-magnus-half-rh",
+      "slug": "dew-point-calculator",
+      "category": "everyday",
+      "modeId": "magnus",
+      "algorithm": "dew-point",
+      "inputs": {
+        "temperature": "20",
+        "humidity": "50"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Dew point",
+          "expected": 9.261106630534236,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent Magnus formula with explicitly documented coefficients17.625 and243.04.",
+      "notes": ""
+    },
+    {
+      "id": "bandwidth-transfer",
+      "slug": "bandwidth-calculator",
+      "category": "everyday",
+      "modeId": "transfer",
+      "algorithm": "bandwidth",
+      "inputs": {
+        "size": "2.5",
+        "speed": "80"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Minimum transfer duration",
+          "expected": 250,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "website-bandwidth",
+      "slug": "bandwidth-calculator",
+      "category": "everyday",
+      "modeId": "website",
+      "algorithm": "website-bandwidth",
+      "inputs": {
+        "views": "30000",
+        "size": "250",
+        "overhead": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Monthly transfer",
+          "expected": 9,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ipv4-subnet",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv4",
+      "algorithm": "ipv4",
+      "inputs": {
+        "address": "10.3.14.201",
+        "prefix": "26"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Network",
+          "expected": "10.3.14.192/26",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Subnet mask",
+          "expected": "255.255.255.192",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Last address",
+          "expected": "10.3.14.255",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Usable range",
+          "expected": "10.3.14.193 \u2013 10.3.14.254",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total addresses",
+          "expected": "64",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Usable addresses",
+          "expected": "62",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ipv4-point-to-point",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv4",
+      "algorithm": "ipv4",
+      "inputs": {
+        "address": "192.0.2.3",
+        "prefix": "31"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Network",
+          "expected": "192.0.2.2/31",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total addresses",
+          "expected": "2",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Usable addresses",
+          "expected": "2",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ipv6-exact-size",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv6",
+      "algorithm": "ipv6",
+      "inputs": {
+        "address": "2001:db8:abcd:1234::55",
+        "prefix": "64"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Network",
+          "expected": "2001:db8:abcd:1234::/64",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Address count",
+          "expected": "18446744073709551616",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Last address",
+          "expected": "2001:db8:abcd:1234:ffff:ffff:ffff:ffff",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "ipv6-all",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv6",
+      "algorithm": "ipv6",
+      "inputs": {
+        "address": "::1",
+        "prefix": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Network",
+          "expected": "::/0",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Address count",
+          "expected": "340282366920938463463374607431768211456",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "base64-unicode-encode",
+      "slug": "base64-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "base64",
+      "inputs": {
+        "direction": "encode",
+        "text": "Caf\u00e9 \ud83c\udf0d"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result",
+          "expected": "Q2Fmw6kg8J+MjQ==",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "base64-unicode-decode",
+      "slug": "base64-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "base64",
+      "inputs": {
+        "direction": "decode",
+        "text": "Q2Fmw6kg8J+MjQ=="
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result",
+          "expected": "Caf\u00e9 \ud83c\udf0d",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "url-component-encode",
+      "slug": "url-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "url-codec",
+      "inputs": {
+        "direction": "encode",
+        "text": "a+b / caf\u00e9"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result",
+          "expected": "a%2Bb%20%2F%20caf%C3%A9",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "url-component-decode",
+      "slug": "url-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "url-codec",
+      "inputs": {
+        "direction": "decode",
+        "text": "a%2Bb%20%2F%20caf%C3%A9"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Result",
+          "expected": "a+b / caf\u00e9",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "password-properties",
+      "slug": "password-generator",
+      "category": "everyday",
+      "modeId": "password",
+      "algorithm": "password",
+      "inputs": {
+        "length": "31",
+        "count": "4",
+        "symbols": "yes",
+        "ambiguous": "exclude"
+      },
+      "expectations": [],
+      "source": "Security contract properties; deterministic expected passwords would be inappropriate for CSPRNG output.",
+      "notes": "",
+      "properties": [
+        {
+          "type": "passwords",
+          "count": 4,
+          "length": 31,
+          "requiredPatterns": [
+            "[a-z]",
+            "[A-Z]",
+            "[0-9]",
+            "[^A-Za-z0-9]"
+          ],
+          "forbiddenPattern": "[0O1Il]"
+        }
+      ]
+    },
+    {
+      "id": "dice-properties",
+      "slug": "dice-roller",
+      "category": "everyday",
+      "modeId": "dice",
+      "algorithm": "dice",
+      "inputs": {
+        "count": "17",
+        "sides": "13"
+      },
+      "expectations": [],
+      "source": "Discrete uniform output support and sum contract; this is not a statistical proof of uniformity.",
+      "notes": "",
+      "properties": [
+        {
+          "type": "dice",
+          "count": 17,
+          "minimum": 1,
+          "maximum": 13
+        }
+      ]
+    },
+    {
+      "id": "roman-encode",
+      "slug": "roman-numeral-converter",
+      "category": "everyday",
+      "modeId": "roman",
+      "algorithm": "roman",
+      "inputs": {
+        "value": "1987"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Roman numeral",
+          "expected": "MCMLXXXVII",
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "roman-decode",
+      "slug": "roman-numeral-converter",
+      "category": "everyday",
+      "modeId": "roman",
+      "algorithm": "roman",
+      "inputs": {
+        "value": "MCMXLIV"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Integer",
+          "expected": 1944,
+          "absoluteTolerance": 0,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "sleep-cycle-reference",
+      "slug": "sleep-calculator",
+      "category": "everyday",
+      "modeId": "cycles",
+      "algorithm": "sleep",
+      "inputs": {
+        "time": "06:45",
+        "direction": "wake",
+        "latency": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "6 cycles \u00b7 9 hours asleep",
+          "expected": "21:25",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "5 cycles \u00b7 7.5 hours asleep",
+          "expected": "22:55",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "4 cycles \u00b7 6 hours asleep",
+          "expected": "00:25",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "height-parental",
+      "slug": "height-calculator",
+      "category": "everyday",
+      "modeId": "parental",
+      "algorithm": "height",
+      "inputs": {
+        "mother": "160",
+        "father": "175",
+        "sex": "female"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mid-parental estimate",
+          "expected": 161,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "bra-starting-size",
+      "slug": "bra-size-calculator",
+      "category": "everyday",
+      "modeId": "us",
+      "algorithm": "bra",
+      "inputs": {
+        "under": "34",
+        "bust": "38"
+      },
+      "expectations": [
+        {
+          "metricLabel": "US starting size",
+          "expected": "34D",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Band",
+          "expected": 34,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Rounded cup difference",
+          "expected": 4,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Checks only the explicitly declared direct-underbust convention, not universal garment fit."
+    },
+    {
+      "id": "shoe-length",
+      "slug": "shoe-size-conversion",
+      "category": "everyday",
+      "modeId": "length",
+      "algorithm": "shoe",
+      "inputs": {
+        "length": "25.4",
+        "system": "men"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Mondopoint length",
+          "expected": 254,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Approximate US size",
+          "expected": 8,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "US result is a declared traditional-last approximation, not a universal fit reference."
+    },
+    {
+      "id": "golf-index-twenty",
+      "slug": "golf-handicap-calculator",
+      "category": "everyday",
+      "modeId": "index",
+      "algorithm": "golf-index",
+      "inputs": {
+        "differentials": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated handicap index",
+          "expected": 4.5,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Small-sample adjustment",
+          "expected": 0,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "golf-course-handicap",
+      "slug": "golf-handicap-calculator",
+      "category": "everyday",
+      "modeId": "course",
+      "algorithm": "course-handicap",
+      "inputs": {
+        "index": "10",
+        "slope": "129",
+        "rating": "71",
+        "par": "72"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Course handicap",
+          "expected": 10,
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": ""
+    },
+    {
+      "id": "love-contract",
+      "slug": "love-calculator",
+      "category": "everyday",
+      "modeId": "names",
+      "algorithm": "love",
+      "inputs": {
+        "a": "Jordan",
+        "b": "Taylor"
+      },
+      "expectations": [],
+      "source": "Original amusement contract only; no scientifically meaningful compatibility score exists.",
+      "notes": "",
+      "properties": [
+        {
+          "type": "metric-range",
+          "metricLabel": "Fictional match score",
+          "minimum": 0,
+          "maximum": 100,
+          "integer": true
+        },
+        {
+          "type": "same-metric",
+          "metricLabel": "Fictional match score",
+          "alternateInputs": {
+            "a": "Taylor",
+            "b": "Jordan"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zero-power-time",
+      "slug": "horsepower-calculator",
+      "category": "everyday",
+      "modeId": "work",
+      "algorithm": "power-work",
+      "inputs": {
+        "force": "1000",
+        "distance": "20",
+        "time": "0"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Division by zero is invalid.",
+      "expectedError": true
+    },
+    {
+      "id": "zero-future-credits",
+      "slug": "gpa-calculator",
+      "category": "everyday",
+      "modeId": "target",
+      "algorithm": "gpa-target",
+      "inputs": {
+        "current": "3.2",
+        "credits": "60",
+        "target": "3.5",
+        "future": "0"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "No future credits cannot solve a required future GPA.",
+      "expectedError": true
+    },
+    {
+      "id": "grade-zero-possible",
+      "slug": "grade-calculator",
+      "category": "everyday",
+      "modeId": "points",
+      "algorithm": "grade-points",
+      "inputs": {
+        "scores": "10,0"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Possible points must be positive.",
+      "expectedError": true
+    },
+    {
+      "id": "density-volume-zero-density",
+      "slug": "density-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "density-inverse",
+      "inputs": {
+        "solve": "volume",
+        "density": "0",
+        "volume": "2",
+        "mass": "2000"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Cannot infer volume from zero density.",
+      "expectedError": true
+    },
+    {
+      "id": "molarity-zero-concentration",
+      "slug": "molarity-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "molarity-inverse",
+      "inputs": {
+        "solve": "volume",
+        "mass": "5.844",
+        "concentration": "0",
+        "molarMass": "58.44",
+        "volume": "1"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Cannot infer finite positive volume with zero concentration.",
+      "expectedError": true
+    },
+    {
+      "id": "dated-invalid-leap-day",
+      "slug": "hours-calculator",
+      "category": "everyday",
+      "modeId": "dated",
+      "algorithm": "dated-duration",
+      "inputs": {
+        "start": "2025-02-29",
+        "startTime": "09:00",
+        "end": "2026-10-11",
+        "endTime": "10:30"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Gregorian invalid date.",
+      "expectedError": true
+    },
+    {
+      "id": "dated-invalid-seconds",
+      "slug": "time-duration-calculator",
+      "category": "everyday",
+      "modeId": "dated",
+      "algorithm": "dated-duration",
+      "inputs": {
+        "start": "2026-10-09",
+        "startTime": "12:00:60",
+        "end": "2026-10-11",
+        "endTime": "10:30"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Clock seconds must be below60; leap seconds are not modeled.",
+      "expectedError": true
+    },
+    {
+      "id": "datetime-above-range",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "datetime",
+      "algorithm": "datetime-add",
+      "inputs": {
+        "date": "9999-12-31",
+        "time": "23:59:59",
+        "days": "0",
+        "hours": "0",
+        "minutes": "0",
+        "seconds": "1"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Civil result cannot exceed supported four-digit year range.",
+      "expectedError": true
+    },
+    {
+      "id": "duration-malformed-expression",
+      "slug": "time-calculator",
+      "category": "everyday",
+      "modeId": "expression",
+      "algorithm": "duration-expression",
+      "inputs": {
+        "expression": "1h ++ 20m"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Strict duration grammar rejects repeated signs.",
+      "expectedError": true
+    },
+    {
+      "id": "business-fractional-day",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "2026-10-09",
+        "days": "1.5",
+        "holidays": ""
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Business-day count is integer.",
+      "expectedError": true
+    },
+    {
+      "id": "business-above-calendar-range",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "9999-12-31",
+        "days": "1",
+        "holidays": ""
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Result must remain a valid YYYY-MM-DD within years0001\u20139999; isoDate must not truncate an expanded ISO year.",
+      "expectedError": true
+    },
+    {
+      "id": "business-below-calendar-range",
+      "slug": "day-counter",
+      "category": "everyday",
+      "modeId": "business-add",
+      "algorithm": "business-add",
+      "inputs": {
+        "start": "0001-01-01",
+        "days": "-1",
+        "holidays": ""
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Year0000 is outside declared common calendar domain.",
+      "expectedError": true
+    },
+    {
+      "id": "floor-invalid-triangle",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "triangle",
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "angle": "90",
+        "quantity": "1"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Degenerate triangle must be rejected.",
+      "expectedError": true
+    },
+    {
+      "id": "floor-overwide-border",
+      "slug": "square-footage-calculator",
+      "category": "everyday",
+      "modeId": "shapes",
+      "algorithm": "floor-shapes",
+      "inputs": {
+        "shape": "border",
+        "a": "10",
+        "b": "8",
+        "c": "5",
+        "angle": "90",
+        "quantity": "1"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Inward border exceeds half smaller outer dimension.",
+      "expectedError": true
+    },
+    {
+      "id": "concrete-inner-larger",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "tube",
+      "algorithm": "concrete-tube",
+      "inputs": {
+        "outer": "30",
+        "inner": "40",
+        "height": "8",
+        "quantity": "2",
+        "waste": "10"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Negative annulus area is invalid.",
+      "expectedError": true
+    },
+    {
+      "id": "concrete-fractional-risers",
+      "slug": "concrete-calculator",
+      "category": "everyday",
+      "modeId": "stairs",
+      "algorithm": "concrete-stairs",
+      "inputs": {
+        "risers": "4.5",
+        "riser": "7",
+        "run": "11",
+        "platform": "36",
+        "width": "48"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Riser count is integral.",
+      "expectedError": true
+    },
+    {
+      "id": "gravel-zero-bag",
+      "slug": "gravel-calculator",
+      "category": "everyday",
+      "modeId": "circle",
+      "algorithm": "gravel-circle",
+      "inputs": {
+        "diameter": "10",
+        "depth": "3",
+        "density": "2800",
+        "bag": "0",
+        "price": "5"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Bag mass cannot be zero.",
+      "expectedError": true
+    },
+    {
+      "id": "stairs-zero-total-run",
+      "slug": "stair-calculator",
+      "category": "everyday",
+      "modeId": "rise-run",
+      "algorithm": "stairs-rise-run",
+      "inputs": {
+        "rise": "108",
+        "run": "0",
+        "risers": "14"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Finite positive tread run required.",
+      "expectedError": true
+    },
+    {
+      "id": "conductor-zero-diameter",
+      "slug": "resistor-calculator",
+      "category": "everyday",
+      "modeId": "conductor",
+      "algorithm": "conductor-resistance",
+      "inputs": {
+        "length": "10",
+        "diameter": "0",
+        "conductivity": "58000000"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Zero-area conductor cannot have finite resistance.",
+      "expectedError": true
+    },
+    {
+      "id": "heat-dew-above-temperature",
+      "slug": "heat-index-calculator",
+      "category": "everyday",
+      "modeId": "dew",
+      "algorithm": "heat-dew",
+      "inputs": {
+        "temperature": "20",
+        "dew": "25"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Dew point cannot exceed ambient under supported unsaturated mode.",
+      "expectedError": true
+    },
+    {
+      "id": "dew-inverse-zero-humidity",
+      "slug": "dew-point-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "dew-inverse",
+      "inputs": {
+        "solve": "temperature",
+        "temperature": "25",
+        "dew": "16.7",
+        "humidity": "0"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Log humidity cannot take zero.",
+      "expectedError": true
+    },
+    {
+      "id": "hosting-zero-days",
+      "slug": "bandwidth-calculator",
+      "category": "everyday",
+      "modeId": "hosting",
+      "algorithm": "bandwidth-hosting",
+      "inputs": {
+        "solve": "rate",
+        "transfer": "1000",
+        "rate": "10",
+        "days": "0"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Reporting duration must be positive.",
+      "expectedError": true
+    },
+    {
+      "id": "odometer-decreases",
+      "slug": "gas-mileage-calculator",
+      "category": "everyday",
+      "modeId": "odometer",
+      "algorithm": "fuel-odometer",
+      "inputs": {
+        "start": "200",
+        "end": "100",
+        "fuel": "10",
+        "price": "3.5"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "No odometer rollover mode is declared.",
+      "expectedError": true
+    },
+    {
+      "id": "roman-date-above-range",
+      "slug": "roman-numeral-converter",
+      "category": "everyday",
+      "modeId": "date",
+      "algorithm": "roman-date",
+      "inputs": {
+        "date": "4000-01-01",
+        "order": "mdy"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Standard Roman mode is limited to3999.",
+      "expectedError": true
+    },
+    {
+      "id": "timezone-dst-gap",
+      "slug": "time-zone-calculator",
+      "category": "everyday",
+      "modeId": "zone",
+      "algorithm": "time-zone",
+      "inputs": {
+        "date": "2026-03-08",
+        "time": "02:30",
+        "from": "America/New_York",
+        "to": "UTC",
+        "ambiguity": "earlier"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Nonexistent spring-forward local time is rejected.",
+      "expectedError": true
+    },
+    {
+      "id": "temperature-below-absolute-zero",
+      "slug": "conversion-calculator",
+      "category": "everyday",
+      "modeId": "temperature",
+      "algorithm": "temperature",
+      "inputs": {
+        "value": "-1",
+        "from": "K",
+        "to": "\u00b0C"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Temperature below absolute zero invalid.",
+      "expectedError": true
+    },
+    {
+      "id": "molecular-zero-coefficient",
+      "slug": "molecular-weight-calculator",
+      "category": "everyday",
+      "modeId": "formula",
+      "algorithm": "molecular-weight",
+      "inputs": {
+        "formula": "0H2O"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Stoichiometric leading coefficients must be positive integers; zero cannot describe a molecule.",
+      "expectedError": true
+    },
+    {
+      "id": "molecular-unsafe-coefficient",
+      "slug": "molecular-weight-calculator",
+      "category": "everyday",
+      "modeId": "formula",
+      "algorithm": "molecular-weight",
+      "inputs": {
+        "formula": "9007199254740993H"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Leading coefficient exceeds exact binary64 integer capacity and must not silently round. Use bounded exact integers or reject.",
+      "expectedError": true
+    },
+    {
+      "id": "molecular-empty-group",
+      "slug": "molecular-weight-calculator",
+      "category": "everyday",
+      "modeId": "formula",
+      "algorithm": "molecular-weight",
+      "inputs": {
+        "formula": "Na()Cl"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Empty chemical groups are malformed rather than meaningful zero-atom groups.",
+      "expectedError": true
+    },
+    {
+      "id": "molecular-zero-subscript",
+      "slug": "molecular-weight-calculator",
+      "category": "everyday",
+      "modeId": "formula",
+      "algorithm": "molecular-weight",
+      "inputs": {
+        "formula": "H0O"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Atom counts must be positive integers.",
+      "expectedError": true
+    },
+    {
+      "id": "wind-chill-outside-domain",
+      "slug": "wind-chill-calculator",
+      "category": "everyday",
+      "modeId": "nws",
+      "algorithm": "wind-chill",
+      "inputs": {
+        "temperature": "70",
+        "wind": "10"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "NWS wind-chill equation must not be extrapolated above50F.",
+      "expectedError": true
+    },
+    {
+      "id": "ipv4-bad-octet",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv4",
+      "algorithm": "ipv4",
+      "inputs": {
+        "address": "192.168.1.256",
+        "prefix": "24"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Octet>255 invalid.",
+      "expectedError": true
+    },
+    {
+      "id": "ipv6-two-compressions",
+      "slug": "ip-subnet-calculator",
+      "category": "everyday",
+      "modeId": "ipv6",
+      "algorithm": "ipv6",
+      "inputs": {
+        "address": "2001::db8::1",
+        "prefix": "64"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Only one :: compression allowed.",
+      "expectedError": true
+    },
+    {
+      "id": "base64-malformed",
+      "slug": "base64-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "base64",
+      "inputs": {
+        "direction": "decode",
+        "text": "***"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Invalid alphabet.",
+      "expectedError": true
+    },
+    {
+      "id": "url-malformed-utf8",
+      "slug": "url-encode-decode",
+      "category": "everyday",
+      "modeId": "text",
+      "algorithm": "url-codec",
+      "inputs": {
+        "direction": "decode",
+        "text": "%FF"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Invalid UTF-8 component encoding.",
+      "expectedError": true
+    },
+    {
+      "id": "roman-noncanonical",
+      "slug": "roman-numeral-converter",
+      "category": "everyday",
+      "modeId": "roman",
+      "algorithm": "roman",
+      "inputs": {
+        "value": "IIV"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Standard subtractive notation rejects IIV.",
+      "expectedError": true
+    },
+    {
+      "id": "select-invalid",
+      "slug": "density-calculator",
+      "category": "everyday",
+      "modeId": "inverse",
+      "algorithm": "density-inverse",
+      "inputs": {
+        "solve": "banana",
+        "density": "1000",
+        "volume": "2",
+        "mass": "2000"
+      },
+      "expectations": [],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Wrapper should reject values outside declared enum.",
+      "expectedError": true
+    },
+    {
+      "id": "golf-differential-decimal-tie",
+      "slug": "golf-handicap-calculator",
+      "category": "everyday",
+      "modeId": "differential",
+      "algorithm": "golf-differential",
+      "inputs": {
+        "score": "77",
+        "rating": "72",
+        "slope": "100",
+        "pcc": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Score differential",
+          "expected": 5.7,
+          "absoluteTolerance": 1e-12,
+          "relativeTolerance": 0
+        }
+      ],
+      "source": "Exact rational (113/100)*5=5.65; USGA positive half-up to nearest tenth.",
+      "notes": ""
+    },
+    {
+      "id": "golf-index-decimal-tie",
+      "slug": "golf-handicap-calculator",
+      "category": "everyday",
+      "modeId": "index",
+      "algorithm": "golf-index",
+      "inputs": {
+        "differentials": "10.1,10.2,12,13,14,15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated handicap index",
+          "expected": 9.2,
+          "absoluteTolerance": 1e-12,
+          "relativeTolerance": 0
+        }
+      ],
+      "source": "Exact decimal mean(10.1,10.2)-1=9.15; nearest tenth half-up=9.2.",
+      "notes": ""
+    },
+    {
+      "id": "sleep-multiple-day-offset",
+      "slug": "sleep-calculator",
+      "category": "everyday",
+      "modeId": "duration",
+      "algorithm": "sleep-duration",
+      "inputs": {
+        "time": "00:30",
+        "direction": "wake",
+        "hours": "24",
+        "latency": "120"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Suggested bedtime",
+          "expected": "22:30",
+          "absoluteTolerance": 1e-08,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "source": "Independent arithmetic from documented equations; no product result used.",
+      "notes": "Allowed input range produces a bedtime two civil dates earlier. A generic Previous day label is false; output should expose signed day offset or an equivalent explicit label.",
+      "properties": [
+        {
+          "type": "day-offset-label",
+          "metricLabel": "Day relative to entered time",
+          "expectedDayOffset": -2
+        }
+      ]
+    }
+  ]
+}

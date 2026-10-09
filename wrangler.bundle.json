@@ -1,0 +1,18 @@
+{
+  "name": "finflo-staged-private-preview",
+  "main": "sites-entry.js",
+  "compatibility_date": "2026-10-09",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    "run_worker_first": false
+  },
+  "vars": {
+    "MAINTENANCE_MODE": "false",
+    "NEXT_PUBLIC_INDEXABLE": "false"
+  }
+}

@@ -1,0 +1,1034 @@
+[
+  {
+    "code": "AED",
+    "label": "AED: United Arab Emirates Dirham",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AFN",
+    "label": "AFN: Afghan Afghani",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ALL",
+    "label": "ALL: Albanian Lek",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AMD",
+    "label": "AMD: Armenian Dram",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ANG",
+    "label": "ANG: Netherlands Antillean Guilder",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AOA",
+    "label": "AOA: Angolan Kwanza",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ARS",
+    "label": "ARS: Argentine Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AUD",
+    "label": "AUD: Australian Dollar",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AWG",
+    "label": "AWG: Aruban Florin",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "AZN",
+    "label": "AZN: Azerbaijani Manat",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BAM",
+    "label": "BAM: Bosnia-Herzegovina Con. Mark",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BBD",
+    "label": "BBD: Barbadian Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BDT",
+    "label": "BDT: Bangladeshi Taka",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BGN",
+    "label": "BGN: Bulgarian Lev",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  },
+  {
+    "code": "BHD",
+    "label": "BHD: Bahraini Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BIF",
+    "label": "BIF: Burundian Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BMD",
+    "label": "BMD: Bermudan Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BND",
+    "label": "BND: Brunei Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BOB",
+    "label": "BOB: Bolivian Boliviano",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BRL",
+    "label": "BRL: Brazilian Real",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BSD",
+    "label": "BSD: Bahamian Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BTC",
+    "label": "BTC: Bitcoin",
+    "popular": true,
+    "strategy": "Coinbase_public_spot_or_manual_rate"
+  },
+  {
+    "code": "BTN",
+    "label": "BTN: Bhutanese Ngultrum",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BWP",
+    "label": "BWP: Botswanan Pula",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BYN",
+    "label": "BYN: Belarusian Ruble",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "BZD",
+    "label": "BZD: Belize Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CAD",
+    "label": "CAD: Canadian Dollar",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CDF",
+    "label": "CDF: Congolese Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CHF",
+    "label": "CHF: Swiss Franc",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CLF",
+    "label": "CLF: Chilean Unit of Account (UF)",
+    "popular": false,
+    "strategy": "SII_daily_UF_to_CLP_then_dated_CLP_cross"
+  },
+  {
+    "code": "CLP",
+    "label": "CLP: Chilean Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CNH",
+    "label": "CNH: Chinese Yuan (Offshore)",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CNY",
+    "label": "CNY: Chinese Yuan",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "COP",
+    "label": "COP: Colombian Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CRC",
+    "label": "CRC: Costa Rican Col\u00f3n",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CUC",
+    "label": "CUC: Cuban Convertible Peso",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  },
+  {
+    "code": "CUP",
+    "label": "CUP: Cuban Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CVE",
+    "label": "CVE: Cape Verdean Escudo",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "CZK",
+    "label": "CZK: Czech Republic Koruna",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "DJF",
+    "label": "DJF: Djiboutian Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "DKK",
+    "label": "DKK: Danish Krone",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "DOP",
+    "label": "DOP: Dominican Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "DZD",
+    "label": "DZD: Algerian Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "EGP",
+    "label": "EGP: Egyptian Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ERN",
+    "label": "ERN: Eritrean Nakfa",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ETB",
+    "label": "ETB: Ethiopian Birr",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "EUR",
+    "label": "EUR: Euro",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "FJD",
+    "label": "FJD: Fijian Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "FKP",
+    "label": "FKP: Falkland Islands Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GBP",
+    "label": "GBP: British Pound Sterling",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GEL",
+    "label": "GEL: Georgian Lari",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GGP",
+    "label": "GGP: Guernsey Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GHS",
+    "label": "GHS: Ghanaian Cedi",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GIP",
+    "label": "GIP: Gibraltar Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GMD",
+    "label": "GMD: Gambian Dalasi",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GNF",
+    "label": "GNF: Guinean Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GTQ",
+    "label": "GTQ: Guatemalan Quetzal",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "GYD",
+    "label": "GYD: Guyanaese Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "HKD",
+    "label": "HKD: Hong Kong Dollar",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "HNL",
+    "label": "HNL: Honduran Lempira",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "HRK",
+    "label": "HRK: Croatian Kuna",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  },
+  {
+    "code": "HTG",
+    "label": "HTG: Haitian Gourde",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "HUF",
+    "label": "HUF: Hungarian Forint",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "IDR",
+    "label": "IDR: Indonesian Rupiah",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ILS",
+    "label": "ILS: Israeli New Sheqel",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "IMP",
+    "label": "IMP: Manx pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "INR",
+    "label": "INR: Indian Rupee",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "IQD",
+    "label": "IQD: Iraqi Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "IRR",
+    "label": "IRR: Iranian Rial",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ISK",
+    "label": "ISK: Icelandic Kr\u00f3na",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "JEP",
+    "label": "JEP: Jersey Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "JMD",
+    "label": "JMD: Jamaican Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "JOD",
+    "label": "JOD: Jordanian Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "JPY",
+    "label": "JPY: Japanese Yen",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KES",
+    "label": "KES: Kenyan Shilling",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KGS",
+    "label": "KGS: Kyrgystani Som",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KHR",
+    "label": "KHR: Cambodian Riel",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KMF",
+    "label": "KMF: Comorian Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KPW",
+    "label": "KPW: North Korean Won",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KRW",
+    "label": "KRW: South Korean Won",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KWD",
+    "label": "KWD: Kuwaiti Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KYD",
+    "label": "KYD: Cayman Islands Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "KZT",
+    "label": "KZT: Kazakhstani Tenge",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LAK",
+    "label": "LAK: Laotian Kip",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LBP",
+    "label": "LBP: Lebanese Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LKR",
+    "label": "LKR: Sri Lankan Rupee",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LRD",
+    "label": "LRD: Liberian Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LSL",
+    "label": "LSL: Lesotho Loti",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "LYD",
+    "label": "LYD: Libyan Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MAD",
+    "label": "MAD: Moroccan Dirham",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MDL",
+    "label": "MDL: Moldovan Leu",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MGA",
+    "label": "MGA: Malagasy Ariary",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MKD",
+    "label": "MKD: Macedonian Denar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MMK",
+    "label": "MMK: Myanma Kyat",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MNT",
+    "label": "MNT: Mongolian Tugrik",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MOP",
+    "label": "MOP: Macanese Pataca",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MRU",
+    "label": "MRU: Mauritanian Ouguiya",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MUR",
+    "label": "MUR: Mauritian Rupee",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MVR",
+    "label": "MVR: Maldivian Rufiyaa",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MWK",
+    "label": "MWK: Malawian Kwacha",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MXN",
+    "label": "MXN: Mexican Peso",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MYR",
+    "label": "MYR: Malaysian Ringgit",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "MZN",
+    "label": "MZN: Mozambican Metical",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NAD",
+    "label": "NAD: Namibian Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NGN",
+    "label": "NGN: Nigerian Naira",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NIO",
+    "label": "NIO: Nicaraguan C\u00f3rdoba",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NOK",
+    "label": "NOK: Norwegian Krone",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NPR",
+    "label": "NPR: Nepalese Rupee",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "NZD",
+    "label": "NZD: New Zealand Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "OMR",
+    "label": "OMR: Omani Rial",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PAB",
+    "label": "PAB: Panamanian Balboa",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PEN",
+    "label": "PEN: Peruvian Nuevo Sol",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PGK",
+    "label": "PGK: Papua New Guinean Kina",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PHP",
+    "label": "PHP: Philippine Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PKR",
+    "label": "PKR: Pakistani Rupee",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PLN",
+    "label": "PLN: Polish Zloty",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "PYG",
+    "label": "PYG: Paraguayan Guarani",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "QAR",
+    "label": "QAR: Qatari Rial",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "RON",
+    "label": "RON: Romanian Leu",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "RSD",
+    "label": "RSD: Serbian Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "RUB",
+    "label": "RUB: Russian Ruble",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "RWF",
+    "label": "RWF: Rwandan Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SAR",
+    "label": "SAR: Saudi Riyal",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SBD",
+    "label": "SBD: Solomon Islands Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SCR",
+    "label": "SCR: Seychellois Rupee",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SDG",
+    "label": "SDG: Sudanese Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SEK",
+    "label": "SEK: Swedish Krona",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SGD",
+    "label": "SGD: Singapore Dollar",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SHP",
+    "label": "SHP: Saint Helena Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SLE",
+    "label": "SLE: Sierra Leonean Leone",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SLL",
+    "label": "SLL: Sierra Leonean Leone (Old)",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  },
+  {
+    "code": "SOS",
+    "label": "SOS: Somali Shilling",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SRD",
+    "label": "SRD: Surinamese Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SSP",
+    "label": "SSP: South Sudanese Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "STD",
+    "label": "STD: S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra (pre-2018)",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  },
+  {
+    "code": "STN",
+    "label": "STN: S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SVC",
+    "label": "SVC: Salvadoran Col\u00f3n",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SYP",
+    "label": "SYP: Syrian Pound",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "SZL",
+    "label": "SZL: Swazi Lilangeni",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "THB",
+    "label": "THB: Thai Baht",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TJS",
+    "label": "TJS: Tajikistani Somoni",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TMT",
+    "label": "TMT: Turkmenistani Manat",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TND",
+    "label": "TND: Tunisian Dinar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TOP",
+    "label": "TOP: Tongan Pa anga",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TRY",
+    "label": "TRY: Turkish Lira",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TTD",
+    "label": "TTD: Trinidad and Tobago Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TWD",
+    "label": "TWD: New Taiwan Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "TZS",
+    "label": "TZS: Tanzanian Shilling",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "UAH",
+    "label": "UAH: Ukrainian Hryvnia",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "UGX",
+    "label": "UGX: Ugandan Shilling",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "USD",
+    "label": "USD: United States Dollar",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "UYU",
+    "label": "UYU: Uruguayan Peso",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "UZS",
+    "label": "UZS: Uzbekistan Som",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "VES",
+    "label": "VES: Venezuelan Bol\u00edvar Soberano",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "VND",
+    "label": "VND: Vietnamese Dong",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "VUV",
+    "label": "VUV: Vanuatu Vatu",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "WST",
+    "label": "WST: Samoan Tala",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XAF",
+    "label": "XAF: CFA Franc BEAC",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XAG",
+    "label": "XAG: Silver Ounce",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XAU",
+    "label": "XAU: Gold Ounce",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XCD",
+    "label": "XCD: East Caribbean Dollar",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XCG",
+    "label": "XCG: Caribbean Guilder",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XDR",
+    "label": "XDR: Special Drawing Rights",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XOF",
+    "label": "XOF: CFA Franc BCEAO",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XPD",
+    "label": "XPD: Palladium Ounce",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XPF",
+    "label": "XPF: CFP Franc",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "XPT",
+    "label": "XPT: Platinum Ounce",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "YER",
+    "label": "YER: Yemeni Rial",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ZAR",
+    "label": "ZAR: South African Rand",
+    "popular": true,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ZMW",
+    "label": "ZMW: Zambian Kwacha",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ZWG",
+    "label": "ZWG: Zimbabwean ZiG",
+    "popular": false,
+    "strategy": "daily_reference_quote"
+  },
+  {
+    "code": "ZWL",
+    "label": "ZWL: Zimbabwean Dollar",
+    "popular": false,
+    "strategy": "historical_only_or_explicit_manual_rate"
+  }
+]

@@ -1,0 +1,3987 @@
+{
+  "audit": {
+    "created_at": "2026-10-09T13:13:00.856251+00:00",
+    "scope": "Bounded read-only remaining math feature reconciliation; no product edits. Competitor structure and observed outputs only; independent formulas and fixtures.",
+    "product_root": "/Users/arshadnawaz/Desktop/calculator/finflo",
+    "snapshot": {
+      "at": "2026-10-09T13:05:17.899Z",
+      "hashes": {
+        "distributions.ts": "20a84b9453a6118f1cb368fb0cb843a0d37d72f95df2476b07d7faeeeb0e9c40",
+        "engine.ts": "0ae9e61705ce2f81a636462d7c17ba776b7e570e17336788159b9124be1792bc",
+        "everyday-definitions.ts": "2f4093e216635320bcaaa63a3791a835f4a8f5b81f3c86fd23d81dbf7876b3ab",
+        "everyday-engine.ts": "8fc4da0ac4029f719b5c86dccdeaace64ded8fbbc3b3eccfb5c94e8a5bd64e50",
+        "everyday-extra-definitions.ts": "0b3ee2c677822ad450e92db999bacc9bbe413b7f282bb8c67101d00d1e0f8427",
+        "everyday-extra-engine.ts": "44e453331c9b899982f794c33749d4e496e99163839443272a7f4b37d93217f9",
+        "field-visibility.ts": "52a4312daf1dc3c686eac63030f4bdc26fa67c5c3fb7e4472895ed46fda5884f",
+        "finance-advanced-definitions.ts": "74420ac15ebf5bc3bc52d4687b372d6f75641d1f6f93b8c3e78461b902e260c3",
+        "finance-advanced-engine.ts": "0c56e4e791a0c0e1a92fdcf2bbf707ce1860a9be4bd556ca5d13619e158d4f6f",
+        "finance-definitions.ts": "f4df8c918266da8f23cbbeaa9c1ff3faa40e0abd4dcc88fd3f4bb8410144a379",
+        "finance-engine.ts": "a99a240de8146585671f210eac4a545d173117db426268468c2294a41c564911",
+        "finance-extra-definitions.ts": "a3a80925a5f860007d07aa5329c5bc20ddd3684d33f79809e6ce74052a30e247",
+        "geometry.ts": "7ded4452ccf9043d2c239b99da5224e707edb0f6494eb1f0ab1a68619c165d69",
+        "health-definitions.ts": "07e8e1c949edc9c85213e9b41bf59b487b4293c9682d9d04bc8d5f5b8606e97a",
+        "health-engine.ts": "d4a5f221216948e70a7e928adc30d0c9f34701e5ea417dd43d98f1768e4740ca",
+        "health-extra-definitions.ts": "cacb607a94730209f6330d24ad077ca91c2780c2fdd7889ea7d254702ac0eda2",
+        "health-extra-engine.ts": "190c0e28f00d3036225505e6a4e6cf79e950eb7700483cc2f66448caa52c502f",
+        "helpers.ts": "fdc521231527f421a6f7e06318cc5ca31a333026ca88e57bb3097b8159a2ef7c",
+        "input-display.ts": "1a7a7ebab53b01bc488678d5dc06b0607981edc259c6095debe345ef4ab01cda",
+        "math-advanced-definitions.ts": "2a88e00de92d5a9f82a1ed67b5caa8e14c9369e52fbceb3e3362d4dd87d98940",
+        "math-advanced-engine.ts": "60e690a169b4ffe2cb9d5aa78bda6389752381338f6783b6da54f0feebf6ce1c",
+        "math-definitions.ts": "0a816148b2aaff9bb135d35482fa2895612c8d50e2f0e5cdd360f094b0dd541a",
+        "math-engine.ts": "313c0d1c3039ae716880cd0002680c90d193a7466543b55d75d7f3c2561bc2fc",
+        "math-extra-engine.ts": "148ca40390fafbf213e32ce976e88a630a766d1c591c82fe17e4570b1c0b9de0",
+        "mortgage.ts": "a34fecab70e42364953d65eb45b085d215cb5212e846a81a38ddedc3e5ae0498",
+        "normal.ts": "eb7a984af922e37f5ee7229653b2d9771ef0d385b2c502f571d9c9a37b8d6ad2",
+        "registry.ts": "40794a9473f95ebc0dd45fc11ef4599b9ece5ffe469315c65994e7730124d5ac",
+        "types.ts": "7e60485faffbff1ee959992767940a7d01b4e6420efcf43279b43def6cc3f4a0"
+      }
+    },
+    "source_artifacts": [
+      "/tmp/finflo-audit/math-parity-gaps.json",
+      "/tmp/finflo-audit/catalog.json",
+      "/tmp/finflo-math-remaining/results.json",
+      "/tmp/finflo-math-remaining/random-observations.json",
+      "/tmp/finflo-math-remaining/normal-observation.json"
+    ],
+    "limitations": [
+      "The product is being changed concurrently; hashes and timestamp define this snapshot.",
+      "Default success does not prove all numerical domains. Test inputs here target specific parity and regression risks.",
+      "No competitor JavaScript or calculation code copied. Observation strings remain private evidence outside the product."
+    ]
+  },
+  "summary": {
+    "math_definitions": 44,
+    "modes": 109,
+    "default_passes": 109,
+    "default_failures": [],
+    "prior_groups": 23,
+    "remaining_implementable_specs": 11,
+    "correction_tickets": 8,
+    "highest_priority": [
+      "P01/P02/P03 probability modes",
+      "R01 random BigInt/decimal grid modes",
+      "G01/U01 angle and dimension units",
+      "B05 unused intersection validation",
+      "B07 exact integer decimal display",
+      "B08 cap formula/explanation consistency"
+    ],
+    "open_implementable_specs": 10,
+    "resolved_spec_ids": [
+      "S01"
+    ],
+    "open_correction_tickets": 3,
+    "resolved_correction_tickets": 5
+  },
+  "prior_gap_reconciliation": [
+    {
+      "id": "PCT",
+      "slugs": [
+        "percent-calculator"
+      ],
+      "status": "complete",
+      "current": "base and reverse modes added; existing phrase modes cover forward variants."
+    },
+    {
+      "id": "RATIO",
+      "slugs": [
+        "ratio-calculator"
+      ],
+      "status": "complete_verified",
+      "current": "All-proportions and scale modes cover both audited forms; legacy denominator validation and scale overflow guard now pass rechecks."
+    },
+    {
+      "id": "LOG",
+      "slugs": [
+        "log-calculator"
+      ],
+      "status": "partial",
+      "current": "Missing argument/base modes exist. Literal e base or argument is still rejected by numeric fields."
+    },
+    {
+      "id": "HALF",
+      "slugs": [
+        "half-life-calculator"
+      ],
+      "status": "complete",
+      "current": "Initial/time inverses and half-life/mean-lifetime/decay-constant conversion now exist."
+    },
+    {
+      "id": "MATRIX",
+      "slugs": [
+        "matrix-calculator"
+      ],
+      "status": "complete_verified",
+      "current": "Scale and nonnegative integer power exist; hidden fields and representative validation passed."
+    },
+    {
+      "id": "BASE",
+      "slugs": [
+        "binary-calculator",
+        "hex-calculator"
+      ],
+      "status": "complete",
+      "current": "Direct decimal/binary/hex conversion modes added."
+    },
+    {
+      "id": "SEQ",
+      "slugs": [
+        "number-sequence-calculator"
+      ],
+      "status": "complete_verified",
+      "current": "Nth and generated Fibonacci now both use exact integers; count 80/100 and unused-field fixtures passed on recheck."
+    },
+    {
+      "id": "STATS",
+      "slugs": [
+        "statistics-calculator"
+      ],
+      "status": "complete",
+      "current": "Geometric mean and sum of squares added."
+    },
+    {
+      "id": "SAMPLE",
+      "slugs": [
+        "sample-size-calculator"
+      ],
+      "status": "complete_verified",
+      "current": "Margin mode supports 99.999% confidence and returns zero for the N=n=1 census; rechecked."
+    },
+    {
+      "id": "AREA",
+      "slugs": [
+        "area-calculator"
+      ],
+      "status": "complete",
+      "current": "Triangle SSS area mode added."
+    },
+    {
+      "id": "RIGHT",
+      "slugs": [
+        "right-triangle-calculator"
+      ],
+      "status": "partial",
+      "current": "All 27 sufficient pairs and altitude output exist. Angle quantities remain degrees-only; radian/pi inputs absent."
+    },
+    {
+      "id": "TRIANGLE",
+      "slugs": [
+        "triangle-calculator"
+      ],
+      "status": "partial",
+      "current": "SSA added with supported angle bounds; radians/pi input absent. Audited derived outputs remain absent."
+    },
+    {
+      "id": "SLOPE",
+      "slugs": [
+        "slope-calculator"
+      ],
+      "status": "input_modes_complete_outputs_partial",
+      "current": "Endpoint from point/distance/slope or directed angle exists. General line equation and inclination outputs are not shown for nonvertical two-point inputs."
+    },
+    {
+      "id": "ROUND",
+      "slugs": [
+        "rounding-calculator"
+      ],
+      "status": "complete",
+      "current": "Increment mode covers negative decimal precision, fractional increments, and all audited tie rules."
+    },
+    {
+      "id": "CAP",
+      "slugs": [
+        "volume-calculator",
+        "surface-area-calculator"
+      ],
+      "status": "complete_with_copy_issue",
+      "current": "Alternate dimension pairs and both caps exist. Legacy formula/explanation still says curved area while engine returns total area."
+    },
+    {
+      "id": "UNITS",
+      "slugs": [
+        "area-calculator",
+        "volume-calculator",
+        "surface-area-calculator"
+      ],
+      "status": "missing",
+      "current": "Per-dimension units and explicit area/volume output units absent; sector radians absent."
+    },
+    {
+      "id": "NORMAL",
+      "slugs": [
+        "z-score-calculator",
+        "p-value-calculator"
+      ],
+      "status": "complete_with_declared_boundary_limits",
+      "current": "Normal-tail inverse and between-z modes exist. Probabilities are explicitly restricted to open intervals; no extra distribution inverse is required for parity."
+    },
+    {
+      "id": "PROB",
+      "slugs": [
+        "probability-calculator"
+      ],
+      "status": "missing",
+      "current": "Independent inverse solver, repeated-trial series, and infinite normal bounds remain absent; normal central-coverage table also absent."
+    },
+    {
+      "id": "SCINOT",
+      "slugs": [
+        "scientific-notation-calculator"
+      ],
+      "status": "partial",
+      "current": "Arithmetic, engineering notation and significant digits added. Coefficient x 10^exponent input grammar absent."
+    },
+    {
+      "id": "BIG",
+      "slugs": [
+        "big-number-calculator"
+      ],
+      "status": "complete_with_declared_precision_limit",
+      "current": "GCD/LCM/mod/factorial and decimal arithmetic to 100 places added. Do not claim competitor maximum 999-place precision when product caps at 100."
+    },
+    {
+      "id": "GEO",
+      "slugs": [
+        "distance-calculator"
+      ],
+      "status": "partial",
+      "current": "Decimal latitude/longitude distance added. DMS inputs and map picking remain absent."
+    },
+    {
+      "id": "RNG",
+      "slugs": [
+        "random-number-generator"
+      ],
+      "status": "missing",
+      "current": "Large integer bounds, decimal places, unique decimals and sorting remain absent. Unique decimal/precision behavior verified now."
+    },
+    {
+      "id": "DIV",
+      "slugs": [
+        "long-division-calculator"
+      ],
+      "status": "complete",
+      "current": "Calculated integer division steps added."
+    }
+  ],
+  "remaining_specs": [
+    {
+      "id": "P01",
+      "priority": 1,
+      "slugs": [
+        "probability-calculator"
+      ],
+      "title": "Solve independent events from any sufficient pair",
+      "implementation": {
+        "proposed_mode": "independent-solver",
+        "fields": [
+          "known1 selector and probability value1",
+          "known2 selector and probability value2"
+        ],
+        "selection_options": [
+          "A",
+          "B",
+          "notA",
+          "notB",
+          "intersection",
+          "union",
+          "xor",
+          "neither"
+        ],
+        "contract": "Exactly two distinct constraints. Independence is explicit. Return all valid labeled solutions, an underdetermined state, or a clear inconsistent-input error.",
+        "forward_equations": [
+          "J=pq",
+          "U=p+q\u2212pq",
+          "X=p+q\u22122pq",
+          "N=(1\u2212p)(1\u2212q)",
+          "notA=1\u2212p; notB=1\u2212q"
+        ],
+        "normalize": "Turn notA into known p=1\u2212notA, and notB into known q=1\u2212notB. Swap A/B consistently when only q is known.",
+        "known_p_equations": {
+          "with q": "direct",
+          "with J": "q=J/p",
+          "with U": "q=(U\u2212p)/(1\u2212p)",
+          "with X": "q=(X\u2212p)/(1\u22122p)",
+          "with N": "q=1\u2212N/(1\u2212p)"
+        },
+        "aggregate_equations": {
+          "J,U": "S=J+U",
+          "J,X": "S=X+2J",
+          "J,N": "S=1+J\u2212N",
+          "U,X": "J=U\u2212X; S=2U\u2212X",
+          "X,N": "J=1\u2212X\u2212N; S=2\u2212X\u22122N",
+          "U,N": "U+N=1 is redundant; U=0 uniquely forces p=q=0, otherwise generally underdetermined"
+        },
+        "root_solver": "When S=p+q and J are known: discriminant=S\u00b2\u22124J. Stable large=(S+sqrt(discriminant))/2 and small=J/large (or both zero if large=0). Return both label assignments unless equal.",
+        "validation": [
+          "Inputs in [0,1]. Check every candidate against original constraints and all forward probabilities. Reject materially negative discriminants and probabilities outside [0,1]. Clamp only roundoff with a documented epsilon-scaled tolerance.",
+          "Zero divisor with zero residual means underdetermined; nonzero residual means inconsistent. Do not divide before this classification.",
+          "Use stable product-root recovery to retain tiny probabilities. Avoid setting all residuals below a broad absolute 1e\u22128 threshold to zero."
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "prob-pair-A-B",
+          "known": {
+            "A": "0.4",
+            "B": "0.3"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-A-notA",
+          "known": {
+            "A": "0.4",
+            "notA": "0.6"
+          },
+          "expected_state": "underdetermined",
+          "solutions": []
+        },
+        {
+          "id": "prob-pair-A-notB",
+          "known": {
+            "A": "0.4",
+            "notB": "0.7"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-A-intersection",
+          "known": {
+            "A": "0.4",
+            "intersection": "0.12"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-A-union",
+          "known": {
+            "A": "0.4",
+            "union": "0.58"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-A-xor",
+          "known": {
+            "A": "0.4",
+            "xor": "0.46"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-A-neither",
+          "known": {
+            "A": "0.4",
+            "neither": "0.42"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-B-notA",
+          "known": {
+            "B": "0.3",
+            "notA": "0.6"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-B-notB",
+          "known": {
+            "B": "0.3",
+            "notB": "0.7"
+          },
+          "expected_state": "underdetermined",
+          "solutions": []
+        },
+        {
+          "id": "prob-pair-B-intersection",
+          "known": {
+            "B": "0.3",
+            "intersection": "0.12"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-B-union",
+          "known": {
+            "B": "0.3",
+            "union": "0.58"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-B-xor",
+          "known": {
+            "B": "0.3",
+            "xor": "0.46"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-B-neither",
+          "known": {
+            "B": "0.3",
+            "neither": "0.42"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notA-notB",
+          "known": {
+            "notA": "0.6",
+            "notB": "0.7"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notA-intersection",
+          "known": {
+            "notA": "0.6",
+            "intersection": "0.12"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notA-union",
+          "known": {
+            "notA": "0.6",
+            "union": "0.58"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notA-xor",
+          "known": {
+            "notA": "0.6",
+            "xor": "0.46"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notA-neither",
+          "known": {
+            "notA": "0.6",
+            "neither": "0.42"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notB-intersection",
+          "known": {
+            "notB": "0.7",
+            "intersection": "0.12"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notB-union",
+          "known": {
+            "notB": "0.7",
+            "union": "0.58"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notB-xor",
+          "known": {
+            "notB": "0.7",
+            "xor": "0.46"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-notB-neither",
+          "known": {
+            "notB": "0.7",
+            "neither": "0.42"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-intersection-union",
+          "known": {
+            "intersection": "0.12",
+            "union": "0.58"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            },
+            {
+              "A": ".3",
+              "B": ".4"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-intersection-xor",
+          "known": {
+            "intersection": "0.12",
+            "xor": "0.46"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            },
+            {
+              "A": ".3",
+              "B": ".4"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-intersection-neither",
+          "known": {
+            "intersection": "0.12",
+            "neither": "0.42"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            },
+            {
+              "A": ".3",
+              "B": ".4"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-union-xor",
+          "known": {
+            "union": "0.58",
+            "xor": "0.46"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            },
+            {
+              "A": ".3",
+              "B": ".4"
+            }
+          ]
+        },
+        {
+          "id": "prob-pair-union-neither",
+          "known": {
+            "union": "0.58",
+            "neither": "0.42"
+          },
+          "expected_state": "underdetermined",
+          "solutions": []
+        },
+        {
+          "id": "prob-pair-xor-neither",
+          "known": {
+            "xor": "0.46",
+            "neither": "0.42"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": ".3"
+            },
+            {
+              "A": ".3",
+              "B": ".4"
+            }
+          ]
+        },
+        {
+          "id": "prob-singular-intersection",
+          "known": {
+            "A": "0",
+            "intersection": "0"
+          },
+          "expected_state": "underdetermined"
+        },
+        {
+          "id": "prob-impossible-intersection",
+          "known": {
+            "A": "0",
+            "intersection": ".1"
+          },
+          "expected_state": "inconsistent"
+        },
+        {
+          "id": "prob-singular-xor",
+          "known": {
+            "A": ".5",
+            "xor": ".5"
+          },
+          "expected_state": "underdetermined"
+        },
+        {
+          "id": "prob-inconsistent-xor",
+          "known": {
+            "A": ".5",
+            "xor": ".4"
+          },
+          "expected_state": "inconsistent"
+        },
+        {
+          "id": "prob-singular-union",
+          "known": {
+            "A": "1",
+            "union": "1"
+          },
+          "expected_state": "underdetermined"
+        },
+        {
+          "id": "prob-zero-union",
+          "known": {
+            "union": "0",
+            "neither": "1"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": "0",
+              "B": "0"
+            }
+          ]
+        },
+        {
+          "id": "prob-tangent",
+          "known": {
+            "intersection": ".25",
+            "union": ".75"
+          },
+          "expected_state": "unique",
+          "solutions": [
+            {
+              "A": ".5",
+              "B": ".5"
+            }
+          ]
+        },
+        {
+          "id": "prob-negative-discriminant",
+          "known": {
+            "intersection": ".4",
+            "union": ".5"
+          },
+          "expected_state": "inconsistent"
+        },
+        {
+          "id": "prob-tiny-root",
+          "known": {
+            "intersection": "1e-20",
+            "union": ".4"
+          },
+          "expected_state": "multiple",
+          "solutions": [
+            {
+              "A": ".4",
+              "B": "2.5e-20"
+            },
+            {
+              "A": "2.5e-20",
+              "B": ".4"
+            }
+          ],
+          "relative_tolerance": "1e-12"
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/probability-calculator.html#solver",
+        "form": "calform3",
+        "fields": [
+          "cal3pa",
+          "cal3pb",
+          "cal3na",
+          "cal3nb",
+          "cal3and",
+          "cal3or",
+          "cal3xor",
+          "cal3nab"
+        ]
+      },
+      "status": "open"
+    },
+    {
+      "id": "P02",
+      "priority": 1,
+      "slugs": [
+        "probability-calculator"
+      ],
+      "title": "Repeated independent trials and joint groups",
+      "implementation": {
+        "proposed_mode": "series",
+        "fields": [
+          "pA in [0,1]",
+          "nA positive integer",
+          "pB in [0,1]",
+          "nB positive integer"
+        ],
+        "formula": [
+          "all(p,n)=p^n",
+          "none(p,n)=(1\u2212p)^n",
+          "atLeastOne(p,n)=1\u2212(1\u2212p)^n",
+          "Cross-group events multiply the appropriate independent group probabilities."
+        ],
+        "stability": "Use exp(n*log1p(\u2212p)) for none and \u2212expm1(n*log1p(\u2212p)) for at least one. Handle p=0 and p=1 before logs. Repeat counts must be safe integers; do not loop per trial.",
+        "outputs": [
+          "allA",
+          "noA",
+          "atLeastOneA",
+          "allB",
+          "noB",
+          "atLeastOneB",
+          "allA_and_allB",
+          "noA_and_noB",
+          "atLeastOneA_and_atLeastOneB",
+          "allA_and_noB",
+          "allB_and_noA",
+          "atLeastOneA_and_noB",
+          "atLeastOneB_and_noA"
+        ],
+        "suggested_limit": "n <= Number.MAX_SAFE_INTEGER or a documented smaller bound; no need to generate simulated trials."
+      },
+      "fixtures": [
+        {
+          "id": "prob-series-observed",
+          "input": {
+            "pA": ".5",
+            "nA": 2,
+            "pB": ".2",
+            "nB": 3
+          },
+          "expected": {
+            "allA": "0.25",
+            "noA": "0.25",
+            "atLeastOneA": "0.75",
+            "allB": "0.008",
+            "noB": "0.512",
+            "atLeastOneB": "0.488",
+            "allA_and_allB": "0.002",
+            "noA_and_noB": "0.128",
+            "atLeastOneA_and_atLeastOneB": "0.366",
+            "allA_and_noB": "0.128",
+            "allB_and_noA": "0.002",
+            "atLeastOneA_and_noB": "0.384",
+            "atLeastOneB_and_noA": "0.122"
+          }
+        },
+        {
+          "id": "prob-series-endpoints",
+          "input": {
+            "pA": "0",
+            "nA": 3,
+            "pB": "1",
+            "nB": 2
+          },
+          "expected": {
+            "allA": "0",
+            "noA": "1",
+            "atLeastOneA": "0",
+            "allB": "1",
+            "noB": "0",
+            "atLeastOneB": "1",
+            "allA_and_allB": "0"
+          }
+        },
+        {
+          "id": "prob-series-small-p",
+          "input": {
+            "pA": "1e-20",
+            "nA": 1000000,
+            "pB": ".2",
+            "nB": 3
+          },
+          "expected": {
+            "atLeastOneA": "9.9999999999999500000500000001666662e-15"
+          },
+          "relative_tolerance": "1e-12"
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/probability-calculator.html#series",
+        "form": "calform4",
+        "runtime_observation": "/tmp/finflo-audit/math-parity-observations.json"
+      },
+      "status": "open"
+    },
+    {
+      "id": "P03",
+      "priority": 1,
+      "slugs": [
+        "probability-calculator"
+      ],
+      "title": "Infinite normal bounds and central-coverage table",
+      "implementation": {
+        "existing_mode": "normal",
+        "input_change": "Use explicit finite/negative-infinity/positive-infinity selectors, or a narrow bound parser accepting only finite numeric grammar, -inf, inf, +inf. Keep ordinary number fields finite.",
+        "formula": [
+          "For standardized bounds zl,zu: probability = \u03a6(zu)\u2212\u03a6(zl). Use SF(zl)\u2212SF(zu) on positive tails. \u03a6(\u2212\u221e)=0; \u03a6(+\u221e)=1.",
+          "Outside interval = probability below lower + probability above upper.",
+          "Central coverage C uses z=SF inverse((1\u2212C)/2); displayed interval is [mean\u2212z*sd, mean+z*sd]."
+        ],
+        "table": "Competitor shows central normal coverage intervals. Label them as central coverage/prediction bounds, not a confidence interval for an estimated mean: the input has no sample size.",
+        "coverage_levels": [
+          "one standard deviation (68.2689492137%)",
+          "80%",
+          "90%",
+          "95%",
+          "98%",
+          "99%",
+          "99.5%",
+          "99.8%",
+          "99.9%",
+          "99.99%",
+          "99.999%"
+        ],
+        "validation": [
+          "sd > 0; lower <= upper. Infinities only occur as intentional bounds and may be represented as strings in outputs.",
+          "Do not copy the competitor 68.28% label for exactly \u00b11 sd; correct normal coverage is approximately 68.2689492137%."
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "normal-left-half",
+          "input": {
+            "mean": 0,
+            "sd": 1,
+            "lower": "-inf",
+            "upper": 0
+          },
+          "expected": {
+            "between": ".5",
+            "outside": ".5",
+            "below": "0",
+            "above": ".5"
+          }
+        },
+        {
+          "id": "normal-whole-line",
+          "input": {
+            "mean": 0,
+            "sd": 1,
+            "lower": "-inf",
+            "upper": "inf"
+          },
+          "expected": {
+            "between": "1",
+            "outside": "0"
+          }
+        },
+        {
+          "id": "normal-extreme-right",
+          "input": {
+            "mean": 0,
+            "sd": 1,
+            "lower": 9,
+            "upper": "inf"
+          },
+          "expected": {
+            "between": "1.1285884059538406477355020759687473e-19"
+          },
+          "relative_tolerance": "1e-12"
+        },
+        {
+          "id": "normal-coverage95",
+          "input": {
+            "mean": 100,
+            "sd": 15,
+            "coverage": ".95"
+          },
+          "expected": {
+            "z": "1.9599639845400542355245944305205515",
+            "lower": "70.600540231899186467131083542191727",
+            "upper": "129.39945976810081353286891645780827"
+          }
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/probability-calculator.html#probofnd",
+        "runtime_observation": "/tmp/finflo-math-remaining/normal-observation.json"
+      },
+      "status": "open"
+    },
+    {
+      "id": "R01",
+      "priority": 1,
+      "slugs": [
+        "random-number-generator"
+      ],
+      "title": "Large integers, decimal places, unique decimals and sort",
+      "implementation": {
+        "proposed_mode": "Replace or extend the current random mode; do not keep Number parsing for exact bounds.",
+        "fields": [
+          "min text",
+          "max text",
+          "count integer",
+          "integer/decimal",
+          "decimalPlaces (decimals only)",
+          "allow duplicates yes/no",
+          "sort none/ascending/descending"
+        ],
+        "integer_algorithm": "R=max\u2212min+1 as BigInt. If R=1 return min. Otherwise k=bit length(R\u22121). Draw ceil(k/8) random bytes, mask unused high bits, interpret unsigned integer x, reject x>=R, return min+x. Never use Number conversion for bounds/range/results.",
+        "decimal_algorithm": "Choose a fixed grid of step 10^(\u2212d). Convert exact decimal lower/upper to grid indices L=ceil(lower*10^d), U=floor(upper*10^d). Sample integer j in [L,U], then format j/10^d with d decimal places. Reject an empty grid.",
+        "endpoint_contract": "Suggested new contract: inclusive bounds for both integer and grid modes. The existing decimal mode declares [min,max); if retaining that contract use U=ceil(max*10^d)\u22121 instead. Document the chosen policy; observations do not prove endpoint probabilities.",
+        "unique_algorithm": "Sample grid indices without replacement, using Floyd sampling or a sparse partial Fisher\u2013Yates map. Check count <= U\u2212L+1 first. Avoid rejection loops that become impractical near a full population.",
+        "sorting": "Compare exact BigInts/grid indices; never lexicographically sort numeric strings or convert huge values to Number.",
+        "limits": "Use explicit digit, decimal-place, count, and total rendered-character limits. Competitor advertises up to 999 decimal digits and a few thousand integer digits. Supporting a smaller bound is an intentional documented limitation, not full parity.",
+        "evidence_precision": "Five bounded requests confirm precision=2 means two decimal places for 10\u201320 and 1000\u20132000; precision=4 gives four. Decimal + no duplicates + ascending is accepted and returns sorted distinct values.",
+        "non_goal": "No claim that test fixtures predict real draws. Inject a byte source only in test harness; production uses crypto.getRandomValues."
+      },
+      "fixtures": [
+        {
+          "id": "rng-bigint-rejection",
+          "input": {
+            "min": "1000000000000000000000000000000",
+            "max": "1000000000000000000000000000002",
+            "count": 1,
+            "kind": "integer"
+          },
+          "injected_unsigned_bytes": [
+            3,
+            2
+          ],
+          "expected": {
+            "rejected_draws": 1,
+            "result": "1000000000000000000000000000002"
+          }
+        },
+        {
+          "id": "rng-negative-rejection",
+          "input": {
+            "min": "-2",
+            "max": "2",
+            "count": 1,
+            "kind": "integer"
+          },
+          "injected_unsigned_bytes": [
+            7,
+            4
+          ],
+          "expected": {
+            "rejected_draws": 1,
+            "result": "2"
+          }
+        },
+        {
+          "id": "rng-decimal-grid",
+          "input": {
+            "min": "0",
+            "max": "1",
+            "decimalPlaces": 2,
+            "endpoint_contract": "inclusive",
+            "count": 1
+          },
+          "injected_unsigned_bytes": [
+            127,
+            37
+          ],
+          "expected": {
+            "rejected_draws": 1,
+            "result": "0.37"
+          }
+        },
+        {
+          "id": "rng-unique-full-grid",
+          "input": {
+            "min": "-0.025",
+            "max": "0.025",
+            "decimalPlaces": 2,
+            "count": 5,
+            "duplicates": false,
+            "sort": "ascending"
+          },
+          "expected": {
+            "result": [
+              "-0.02",
+              "-0.01",
+              "0.00",
+              "0.01",
+              "0.02"
+            ]
+          }
+        },
+        {
+          "id": "rng-insufficient-grid",
+          "input": {
+            "min": "0",
+            "max": ".01",
+            "decimalPlaces": 2,
+            "count": 3,
+            "duplicates": false,
+            "endpoint_contract": "inclusive"
+          },
+          "expected_error": "Only two grid values are available."
+        },
+        {
+          "id": "rng-empty-grid",
+          "input": {
+            "min": ".001",
+            "max": ".009",
+            "decimalPlaces": 2
+          },
+          "expected_error": "The requested precision leaves no values inside the range."
+        },
+        {
+          "id": "rng-big-sort",
+          "input": {
+            "numbers": [
+              "100000000000000000002",
+              "9",
+              "100000000000000000001"
+            ],
+            "sort": "ascending"
+          },
+          "expected": {
+            "result": [
+              "9",
+              "100000000000000000001",
+              "100000000000000000002"
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/random-number-generator.html#comprehensive",
+        "forms": [
+          "calform",
+          "calform2"
+        ],
+        "runtime_observation": "/tmp/finflo-math-remaining/random-observations.json"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G01",
+      "priority": 2,
+      "slugs": [
+        "right-triangle-calculator",
+        "triangle-calculator",
+        "area-calculator"
+      ],
+      "title": "Radians and bounded pi input for angle fields",
+      "implementation": {
+        "input_change": "Add degree/radian selection only to angular fields or modes. For right-triangle pair mode, convert only first/second quantities whose selected key is A or B; lengths and areas stay unchanged.",
+        "parser": "A bounded numeric literal or a simple coefficient times pi divided by a nonzero numeric literal is sufficient (pi, -pi/6, 2*pi/3, 0.5*pi). No arbitrary JS evaluation, identifiers, nested calls or assignment.",
+        "conversion": "degrees = radians * 180 / pi. Reuse existing solver domain restrictions after conversion. Sector area K=r\u00b2*theta/2 in radians.",
+        "validation": "Respect the explicit supported SSA angular range; show those bounds consistently in degrees/radians."
+      },
+      "fixtures": [
+        {
+          "id": "angle-right-rad",
+          "mode": "right-triangle/pair",
+          "input": {
+            "pair": "a,A",
+            "first": 3,
+            "second": "pi/6",
+            "angleUnit": "rad"
+          },
+          "expected": {
+            "a": 3,
+            "b": "5.19615242270663188058233902452",
+            "c": 6,
+            "area": "7.79422863405994782087350853678"
+          }
+        },
+        {
+          "id": "angle-triangle-sas-rad",
+          "mode": "triangle/sas",
+          "input": {
+            "a": 5,
+            "b": 7,
+            "angle": "pi/3",
+            "angleUnit": "rad"
+          },
+          "expected": {
+            "c": "6.24499799839839820584689312094",
+            "area": "15.1554445662276763183651554882"
+          }
+        },
+        {
+          "id": "angle-sector-rad",
+          "mode": "area/sector",
+          "input": {
+            "r": 2,
+            "angle": "pi/2",
+            "angleUnit": "rad"
+          },
+          "expected": {
+            "area": "3.14159265358979323846264338328"
+          }
+        },
+        {
+          "id": "angle-parser-reject",
+          "input": {
+            "angle": "sin(pi/2); import(\"x\")"
+          },
+          "expected_error": "Invalid angle input."
+        }
+      ],
+      "evidence": {
+        "sources": [
+          "https://www.calculator.net/right-triangle-calculator.html",
+          "https://www.calculator.net/triangle-calculator.html",
+          "https://www.calculator.net/area-calculator.html"
+        ]
+      },
+      "status": "open"
+    },
+    {
+      "id": "U01",
+      "priority": 2,
+      "slugs": [
+        "area-calculator",
+        "volume-calculator",
+        "surface-area-calculator"
+      ],
+      "title": "Independent dimension units and dimensional output conversion",
+      "implementation": {
+        "fields": "Each length dimension has its own unit selector. Add an output area/volume unit selector. Convert all dimensions to one canonical unit before evaluating the existing shape formula.",
+        "exact_factors_in_meters": {
+          "mm": ".001",
+          "cm": ".01",
+          "m": "1",
+          "km": "1000",
+          "in": ".0254",
+          "ft": ".3048",
+          "yd": ".9144",
+          "mi": "1609.344"
+        },
+        "formula": "Area output = areaInM2/(outputLengthFactor\u00b2); volume output = volumeInM3/(outputLengthFactor\u00b3). If selecting litre/gallon, use a dedicated volume factor, not a length factor.",
+        "validation": [
+          "All lengths use length units, while computed area/volume has the appropriate power.",
+          "Normalize units in calculation inputs without changing user-entered displayed values."
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "units-rectangle",
+          "mode": "area/rectangle",
+          "input": {
+            "a": 2,
+            "aUnit": "m",
+            "b": 50,
+            "bUnit": "cm",
+            "outputUnit": "m2"
+          },
+          "expected": {
+            "area": "1"
+          }
+        },
+        {
+          "id": "units-cuboid",
+          "mode": "volume/cuboid",
+          "input": {
+            "a": 2,
+            "aUnit": "m",
+            "b": 50,
+            "bUnit": "cm",
+            "h": 1000,
+            "hUnit": "mm",
+            "outputUnit": "m3"
+          },
+          "expected": {
+            "volume": "1"
+          }
+        },
+        {
+          "id": "units-inch-cube",
+          "mode": "volume/cube",
+          "input": {
+            "a": 1,
+            "aUnit": "in",
+            "outputUnit": "cm3"
+          },
+          "expected": {
+            "volume": "16.387064"
+          }
+        },
+        {
+          "id": "units-foot-square",
+          "mode": "area/rectangle",
+          "input": {
+            "a": 1,
+            "aUnit": "ft",
+            "b": 1,
+            "bUnit": "ft",
+            "outputUnit": "m2"
+          },
+          "expected": {
+            "area": ".09290304"
+          }
+        }
+      ],
+      "evidence": {
+        "sources": [
+          "https://www.calculator.net/area-calculator.html",
+          "https://www.calculator.net/volume-calculator.html",
+          "https://www.calculator.net/surface-area-calculator.html"
+        ]
+      },
+      "status": "open"
+    },
+    {
+      "id": "I01",
+      "priority": 2,
+      "slugs": [
+        "log-calculator",
+        "scientific-notation-calculator"
+      ],
+      "title": "Two small input grammar gaps",
+      "implementation": {
+        "log": "Permit the single constant e wherever the log form accepts a base/argument; translate to Math.E or high-precision e as appropriate, with existing log domain validation.",
+        "scientific": "Permit a narrowly validated coefficient \u00d7 10^integerExponent form in both converter and arithmetic inputs, in addition to e notation. Normalize x, \u00d7 or * only in this exact pattern. Do not evaluate arbitrary expressions.",
+        "validation": "Bound length and exponent; preserve zero, negative coefficient and signed exponent. Reject trailing instructions or second expressions."
+      },
+      "fixtures": [
+        {
+          "id": "log-e",
+          "mode": "log/log",
+          "input": {
+            "base": "e",
+            "value": "7.38905609893065022723042746058"
+          },
+          "expected": {
+            "logarithm": "2"
+          }
+        },
+        {
+          "id": "log-e-inverse",
+          "mode": "log/inverse",
+          "input": {
+            "solve": "argument",
+            "base": "e",
+            "exponent": 2
+          },
+          "expected": {
+            "argument": "7.3890560989306502272304274605750078"
+          }
+        },
+        {
+          "id": "notation-times-ten",
+          "mode": "scientific-notation/notation",
+          "input": {
+            "value": "3.5x10^-12"
+          },
+          "expected": {
+            "decimal": "0.0000000000035"
+          }
+        },
+        {
+          "id": "notation-negative",
+          "mode": "scientific-notation/arithmetic",
+          "input": {
+            "a": "-2.5 \u00d7 10^3",
+            "operation": "*",
+            "b": "4e-2"
+          },
+          "expected": {
+            "decimal": "-100"
+          }
+        }
+      ],
+      "evidence": {
+        "sources": [
+          "https://www.calculator.net/log-calculator.html",
+          "https://www.calculator.net/scientific-notation-calculator.html"
+        ]
+      },
+      "status": "open"
+    },
+    {
+      "id": "S01",
+      "priority": 2,
+      "slugs": [
+        "sample-size-calculator"
+      ],
+      "title": "Bring margin inverse confidence range in line with audited form",
+      "implementation": {
+        "existing_mode": "margin",
+        "input_change": "Raise confidence maximum from 99.99 to 99.999, matching existing sample-size mode and audited form.",
+        "formula": "e = inverseNormalSf((1\u2212C)/2) * sqrt(p(1\u2212p)/n) * FPC; use direct upper tail to avoid cancellation.",
+        "census": "For finite N=n, return zero sampling margin; N=n=1 is a census and must not use FPC=1. Alternatively reject N=1 with a clear unsupported-population explanation, rather than return a wrong positive value."
+      },
+      "fixtures": [
+        {
+          "id": "margin-99999",
+          "input": {
+            "confidence": 99.999,
+            "proportion": 50,
+            "size": 400,
+            "population": 0
+          },
+          "expected": {
+            "marginPercentagePoints": "11.042933533672555266852331261401447"
+          }
+        },
+        {
+          "id": "margin-census",
+          "input": {
+            "confidence": 95,
+            "proportion": 50,
+            "size": 1,
+            "population": 1
+          },
+          "expected": {
+            "marginPercentagePoints": "0"
+          }
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/sample-size-calculator.html"
+      },
+      "status": "resolved_verified"
+    },
+    {
+      "id": "G02",
+      "priority": 2,
+      "slugs": [
+        "triangle-calculator"
+      ],
+      "title": "Material triangle measurements and centers",
+      "implementation": {
+        "extend_existing_modes": [
+          "sss",
+          "sas",
+          "asa",
+          "ssa (for each solution)"
+        ],
+        "outputs": [
+          "semiperimeter",
+          "altitudes a/b/c",
+          "medians a/b/c",
+          "inradius",
+          "circumradius",
+          "canonical vertex coordinates",
+          "centroid",
+          "incenter",
+          "circumcenter"
+        ],
+        "formulas": [
+          "s=(a+b+c)/2; h_a=2K/a; m_a=0.5*sqrt(2b\u00b2+2c\u00b2\u2212a\u00b2), cyclically.",
+          "inradius=K/s; circumradius=abc/(4K).",
+          "With opposite-side labels fixed: A=(0,0); B=(c,0); C=(x,y), x=(b\u00b2+c\u00b2\u2212a\u00b2)/(2c), y=2K/c.",
+          "centroid=(A+B+C)/3; incenter=(a*A+b*B+c*C)/(a+b+c); circumcenter=(c/2,(b\u00b2\u2212c*x)/(2*y))."
+        ],
+        "numeric_policy": "Use normalized dimensions to avoid intermediate overflow. For nearly degenerate triangles, disclose unsupported precision rather than emitting wildly large/infinite centers.",
+        "steps": "Show a short calculated substitution for the selected solution method; do not copy competitor prose."
+      },
+      "fixtures": [
+        {
+          "id": "triangle-derived-345",
+          "input": {
+            "a": 3,
+            "b": 4,
+            "c": 5
+          },
+          "expected": {
+            "K": 6,
+            "semiperimeter": 6,
+            "altitudes": [
+              4,
+              3,
+              2.4
+            ],
+            "medians": [
+              4.272001872658765,
+              3.605551275463989,
+              2.5
+            ],
+            "inradius": 1,
+            "circumradius": 2.5,
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              5,
+              0
+            ],
+            "C": [
+              3.2,
+              2.4
+            ],
+            "centroid": [
+              2.7333333333333334,
+              0.8
+            ],
+            "incenter": [
+              3,
+              1
+            ],
+            "circumcenter": [
+              2.5,
+              0
+            ]
+          }
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/triangle-calculator.html",
+        "runtime_observation": "/tmp/finflo-math-parity/triangle-output.txt"
+      },
+      "status": "open"
+    },
+    {
+      "id": "G03",
+      "priority": 3,
+      "slugs": [
+        "distance-calculator"
+      ],
+      "title": "DMS coordinate input",
+      "implementation": {
+        "existing_mode": "earth",
+        "input_change": "Offer DMS + hemisphere alongside decimal degree inputs; convert into the existing great-circle routine.",
+        "formula": "decimal = hemisphereSign * (degrees + minutes/60 + seconds/3600). N/E positive; S/W negative. Degrees are a nonnegative magnitude when a hemisphere is selected.",
+        "validation": [
+          "Minutes and seconds in [0,60). Latitude at most 90\u00b0, longitude at most 180\u00b0. If degree value is at its maximum, minutes and seconds must be zero.",
+          "Do not silently combine a negative degree sign with a conflicting hemisphere."
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "geo-dms-north",
+          "input": {
+            "degrees": 38,
+            "minutes": 53,
+            "seconds": 51.36,
+            "hemisphere": "N"
+          },
+          "expected": {
+            "decimalDegrees": "38.8976"
+          }
+        },
+        {
+          "id": "geo-dms-west",
+          "input": {
+            "degrees": 77,
+            "minutes": 2,
+            "seconds": 11.76,
+            "hemisphere": "W"
+          },
+          "expected": {
+            "decimalDegrees": "-77.0366"
+          }
+        },
+        {
+          "id": "geo-dms-pole-invalid",
+          "input": {
+            "degrees": 90,
+            "minutes": 1,
+            "seconds": 0,
+            "hemisphere": "N"
+          },
+          "expected_error": "Latitude exceeds 90 degrees."
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/distance-calculator.html"
+      },
+      "separate_interaction": "Map point selection remains an observed input capability, but selecting a map provider/attribution is separate from this mathematical spec.",
+      "status": "open"
+    },
+    {
+      "id": "G04",
+      "priority": 3,
+      "slugs": [
+        "slope-calculator"
+      ],
+      "title": "Display line equation and inclination",
+      "implementation": {
+        "existing_modes": [
+          "points",
+          "endpoint"
+        ],
+        "formula": "For finite slope m: intercept=y1\u2212m*x1, line y=m*x+intercept; inclination=atan(m) with a documented undirected [0,180\u00b0) or signed convention. Vertical line x=x1, inclination 90\u00b0.",
+        "current": "Two-point mode reports slope/intercept/distance; only the vertical case has an equation string. Endpoint mode returns points only."
+      },
+      "fixtures": [
+        {
+          "id": "slope-equation",
+          "input": {
+            "x1": 1,
+            "y1": 2,
+            "x2": 4,
+            "y2": 8
+          },
+          "expected": {
+            "slope": 2,
+            "intercept": 0,
+            "equation": "y = 2x",
+            "inclinationDegrees": 63.43494882292202
+          }
+        },
+        {
+          "id": "slope-vertical",
+          "input": {
+            "x1": 2,
+            "y1": 0,
+            "x2": 2,
+            "y2": 3
+          },
+          "expected": {
+            "equation": "x = 2",
+            "inclinationDegrees": 90
+          }
+        }
+      ],
+      "evidence": {
+        "source": "https://www.calculator.net/slope-calculator.html"
+      },
+      "status": "open"
+    }
+  ],
+  "correctness_and_consistency_fixes": [
+    {
+      "id": "B01",
+      "priority": 0,
+      "slug": "number-sequence-calculator",
+      "fixture": {
+        "mode": "sequence",
+        "kind": "fibonacci",
+        "count": 80
+      },
+      "current": "F79=14472334024676220; sum F0\u2026F79=37889062373143900",
+      "expected": "F79=14472334024676221; sum=37889062373143905",
+      "fix": "Use BigInt recurrence and string result/table cells in the list mode, as the nth mode already does. Hide first/step for both sequence algorithms when Fibonacci is selected. Keep explicit count versus index labels.",
+      "status": "resolved_verified",
+      "recheck_fixture_ids": [
+        "fib-generate-80",
+        "fib-generate-100",
+        "fib-unused-fields"
+      ]
+    },
+    {
+      "id": "B02",
+      "priority": 1,
+      "slug": "ratio-calculator",
+      "fixture": {
+        "mode": "solve",
+        "a": 2,
+        "b": 0,
+        "c": 8
+      },
+      "current": "D=0 makes 2/0=8/0 appear valid",
+      "expected": "Reject undefined ratio denominators",
+      "fix": "Remove the redundant legacy solve mode or route it through the all-proportions domain validation.",
+      "status": "resolved_verified",
+      "recheck_fixture_ids": [
+        "ratio-legacy-zero-denominator"
+      ]
+    },
+    {
+      "id": "B03",
+      "priority": 1,
+      "slug": "ratio-calculator",
+      "fixture": {
+        "mode": "scale",
+        "a": "1e308",
+        "b": "1e308",
+        "factor": "1e308"
+      },
+      "current": "String metric Infinity : Infinity bypasses finite-output guard",
+      "expected": "Finite result or explicit range error",
+      "fix": "Check computed numeric quantities before constructing strings, or use bounded exact decimals and validate exponent.",
+      "status": "resolved_verified",
+      "recheck_fixture_ids": [
+        "ratio-scale-overflow"
+      ]
+    },
+    {
+      "id": "B04",
+      "priority": 1,
+      "slug": "random-number-generator",
+      "fixture": {
+        "mode": "random",
+        "min": "-1e308",
+        "max": "1e308",
+        "kind": "decimal",
+        "count": 1
+      },
+      "current": "String metric Infinity bypasses finite-output guard",
+      "expected": "Finite bounded random sample or supported-range error",
+      "fix": "Use exact grid mode. For any retained Number mode, validate intermediate range and every output before joining to a string.",
+      "status": "resolved_verified",
+      "recheck_fixture_ids": [
+        "random-overflow"
+      ]
+    },
+    {
+      "id": "B05",
+      "priority": 1,
+      "slug": "probability-calculator",
+      "fixture": {
+        "mode": "events",
+        "a": ".4",
+        "b": ".3",
+        "relation": "independent",
+        "intersection": ""
+      },
+      "current": "Unused intersection is required",
+      "expected": "Calculate independent events without intersection",
+      "fix": "Use isFieldActive to hide/ignore intersection when relation is independent.",
+      "status": "open"
+    },
+    {
+      "id": "B06",
+      "priority": 2,
+      "slug": "sample-size-calculator",
+      "fixture": {
+        "mode": "margin",
+        "size": 1,
+        "population": 1,
+        "confidence": 95,
+        "proportion": 50
+      },
+      "current": "97.99819922700277% margin for a census",
+      "expected": "0% sampling margin, or explicit unsupported-domain rejection",
+      "fix": "Special-case census N=n before the FPC denominator N\u22121. See S01.",
+      "status": "resolved_verified",
+      "recheck_fixture_ids": [
+        "sample-census1",
+        "sample-99999"
+      ]
+    },
+    {
+      "id": "B07",
+      "priority": 3,
+      "slug": "fraction-calculator",
+      "fixture": {
+        "mode": "arithmetic",
+        "a": "9007199254740993/2",
+        "operation": "+",
+        "b": "1/2"
+      },
+      "current": "Exact fraction result is 4503599627370497 but the metric labeled Decimal is 4503599627370500",
+      "expected": "Show exact integer decimal when denominator=1; mark other rounded decimal displays as approximate",
+      "fix": "Do not round exact integer output to 15 significant digits. This is a display-accuracy issue, not a missing fraction mode.",
+      "status": "open"
+    },
+    {
+      "id": "B08",
+      "priority": 2,
+      "slug": "surface-area-calculator",
+      "fixture": {
+        "mode": "cap",
+        "r": 5,
+        "h": 2
+      },
+      "current": "Engine returns 36\u03c0 total; formula/explanation still says curved area only",
+      "expected": "Explain total=curved+base; 20\u03c0 curved, 16\u03c0 base, 36\u03c0 total",
+      "fix": "Update shared solids formula/explanation and optionally expose the already available breakdown consistently in cap modes.",
+      "status": "open"
+    }
+  ],
+  "verified_family_mappings": {
+    "matrix": {
+      "status": "No remaining observed mathematical mode gap",
+      "fixtures": [
+        {
+          "id": "matrix-scale",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "scale",
+            "a": "1,2\n3,4",
+            "b": "",
+            "scalar": "3",
+            "power": ""
+          },
+          "activeFields": [
+            "operation",
+            "a",
+            "scalar"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Result",
+                "value": "3  6\n9  12",
+                "format": "number"
+              }
+            ],
+            "table": {
+              "headers": [
+                "Column 1",
+                "Column 2"
+              ],
+              "rows": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  9,
+                  12
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "matrix-power2",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "a": "1,2\n3,4",
+            "b": "",
+            "scalar": "",
+            "power": "2"
+          },
+          "activeFields": [
+            "operation",
+            "a",
+            "power"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Result",
+                "value": "7  10\n15  22",
+                "format": "number"
+              }
+            ],
+            "table": {
+              "headers": [
+                "Column 1",
+                "Column 2"
+              ],
+              "rows": [
+                [
+                  7,
+                  10
+                ],
+                [
+                  15,
+                  22
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "matrix-power0",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "a": "1,2\n3,4",
+            "b": "",
+            "scalar": "",
+            "power": "0"
+          },
+          "activeFields": [
+            "operation",
+            "a",
+            "power"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Result",
+                "value": "1  0\n0  1",
+                "format": "number"
+              }
+            ],
+            "table": {
+              "headers": [
+                "Column 1",
+                "Column 2"
+              ],
+              "rows": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "matrix-rectangleScale",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "scale",
+            "a": "1,2,3\n4,5,6",
+            "b": "",
+            "scalar": "0.5"
+          },
+          "activeFields": [
+            "operation",
+            "a",
+            "scalar"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Result",
+                "value": "0.5  1  1.5\n2  2.5  3",
+                "format": "number"
+              }
+            ],
+            "table": {
+              "headers": [
+                "Column 1",
+                "Column 2",
+                "Column 3"
+              ],
+              "rows": [
+                [
+                  0.5,
+                  1,
+                  1.5
+                ],
+                [
+                  2,
+                  2.5,
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "id": "matrix-rectanglePower",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "a": "1,2,3\n4,5,6",
+            "b": "",
+            "power": "2"
+          },
+          "error": "For A^b, A must be square (size is 2x3)"
+        },
+        {
+          "id": "matrix-negativePower",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "power": "-1"
+          },
+          "error": "Integer power must be at least 0."
+        },
+        {
+          "id": "matrix-fractionalPower",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "power": "1.5"
+          },
+          "error": "Enter a whole number between 0 and 1000."
+        },
+        {
+          "id": "matrix-overflow",
+          "slug": "matrix-calculator",
+          "modeId": "matrix",
+          "input": {
+            "operation": "power",
+            "a": "1e200,0\n0,1e200",
+            "power": "2"
+          },
+          "error": "These inputs do not produce a finite result. Check the values and formula limits."
+        }
+      ],
+      "limits": "10\u00d710; powers 0\u20131000. Negative powers are not counted as confirmed missing scope."
+    },
+    "ratio": {
+      "status": "Both observed forms covered by all-proportions and scale",
+      "fixtures": [
+        {
+          "id": "ratio-solve-A",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "A",
+            "A": "",
+            "B": "3",
+            "C": "8",
+            "D": "12"
+          },
+          "activeFields": [
+            "solve",
+            "B",
+            "C",
+            "D"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Term A",
+                "value": 2,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-solve-B",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "B",
+            "A": "2",
+            "B": "",
+            "C": "8",
+            "D": "12"
+          },
+          "activeFields": [
+            "solve",
+            "A",
+            "C",
+            "D"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Term B",
+                "value": 3,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-solve-C",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "C",
+            "A": "2",
+            "B": "3",
+            "C": "",
+            "D": "12"
+          },
+          "activeFields": [
+            "solve",
+            "A",
+            "B",
+            "D"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Term C",
+                "value": 8,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-solve-D",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "D",
+            "A": "2",
+            "B": "3",
+            "C": "8",
+            "D": ""
+          },
+          "activeFields": [
+            "solve",
+            "A",
+            "B",
+            "C"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Term D",
+                "value": 12,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-scale-enlarge",
+          "slug": "ratio-calculator",
+          "modeId": "scale",
+          "input": {
+            "a": "3",
+            "b": "4",
+            "factor": "5",
+            "direction": "enlarge"
+          },
+          "activeFields": [
+            "a",
+            "b",
+            "factor",
+            "direction"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Scaled ratio",
+                "value": "15 : 20",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-scale-shrink",
+          "slug": "ratio-calculator",
+          "modeId": "scale",
+          "input": {
+            "a": "15",
+            "b": "20",
+            "factor": "5",
+            "direction": "shrink"
+          },
+          "activeFields": [
+            "a",
+            "b",
+            "factor",
+            "direction"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Scaled ratio",
+                "value": "3 : 4",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-scale-zero",
+          "slug": "ratio-calculator",
+          "modeId": "scale",
+          "input": {
+            "factor": "0"
+          },
+          "error": "Scale factor must be greater than zero."
+        },
+        {
+          "id": "ratio-scale-overflow",
+          "slug": "ratio-calculator",
+          "modeId": "scale",
+          "input": {
+            "a": "1e308",
+            "b": "1e308",
+            "factor": "1e308"
+          },
+          "activeFields": [
+            "a",
+            "b",
+            "factor",
+            "direction"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Scaled ratio",
+                "value": "Infinity : Infinity",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-legacy-zero-denominator",
+          "slug": "ratio-calculator",
+          "modeId": "solve",
+          "input": {
+            "a": "2",
+            "b": "0",
+            "c": "8"
+          },
+          "activeFields": [
+            "a",
+            "b",
+            "c"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "D",
+                "value": 0,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-domain-{\"solve\":\"A\",\"A\":\"\",\"B\":\"3\",\"C\":\"0\",\"D\":\"12\"}",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "A",
+            "A": "",
+            "B": "3",
+            "C": "0",
+            "D": "12"
+          },
+          "activeFields": [
+            "solve",
+            "B",
+            "C",
+            "D"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Term A",
+                "value": 0,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ratio-domain-{\"solve\":\"D\",\"A\":\"0\",\"B\":\"3\",\"C\":\"0\",\"D\":\"\"}",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "D",
+            "A": "0",
+            "B": "3",
+            "C": "0",
+            "D": ""
+          },
+          "error": "The supplied terms do not determine a unique valid proportion."
+        },
+        {
+          "id": "ratio-domain-{\"solve\":\"A\",\"A\":\"\",\"B\":\"0\",\"C\":\"8\",\"D\":\"12\"}",
+          "slug": "ratio-calculator",
+          "modeId": "all-proportions",
+          "input": {
+            "solve": "A",
+            "A": "",
+            "B": "0",
+            "C": "8",
+            "D": "12"
+          },
+          "error": "A ratio denominator cannot be zero."
+        }
+      ],
+      "remaining": "No mathematical mode gap; B02/B03 resolved and verified in recheck."
+    },
+    "fraction": {
+      "status": "All six observed forms map to arithmetic or simplify; compare is an extra useful mode. No new formula family needed.",
+      "form_mapping": {
+        "calform": "arithmetic (ordinary fractions)",
+        "calform5": "arithmetic (mixed numbers)",
+        "calform4": "simplify (mixed or ordinary fraction)",
+        "calform2": "simplify (decimal input)",
+        "calform3": "simplify (fraction input returns decimal)",
+        "calform6": "arithmetic (BigInt numerator/denominator)"
+      },
+      "fixtures": [
+        {
+          "id": "fraction-add",
+          "slug": "fraction-calculator",
+          "modeId": "arithmetic",
+          "input": {
+            "a": "1/2",
+            "operation": "+",
+            "b": "1/3"
+          },
+          "activeFields": [
+            "a",
+            "operation",
+            "b"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "5/6",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "0.833333333333333",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "5/6",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-mixed",
+          "slug": "fraction-calculator",
+          "modeId": "arithmetic",
+          "input": {
+            "a": "-2 3/4",
+            "operation": "+",
+            "b": "3 5/7"
+          },
+          "activeFields": [
+            "a",
+            "operation",
+            "b"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "27/28",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "0.964285714285714",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "27/28",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-simplify",
+          "slug": "fraction-calculator",
+          "modeId": "simplify",
+          "input": {
+            "a": "2 21/98"
+          },
+          "activeFields": [
+            "a"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "31/14",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "2.21428571428571",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "2 3/14",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-decimal",
+          "slug": "fraction-calculator",
+          "modeId": "simplify",
+          "input": {
+            "a": "1.375"
+          },
+          "activeFields": [
+            "a"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "11/8",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "1.375",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "1 3/8",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-to-decimal",
+          "slug": "fraction-calculator",
+          "modeId": "simplify",
+          "input": {
+            "a": "3/8"
+          },
+          "activeFields": [
+            "a"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "3/8",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "0.375",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "3/8",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-large",
+          "slug": "fraction-calculator",
+          "modeId": "arithmetic",
+          "input": {
+            "a": "9007199254740993/2",
+            "operation": "+",
+            "b": "1/2"
+          },
+          "activeFields": [
+            "a",
+            "operation",
+            "b"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "4503599627370497",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "4503599627370500",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "4503599627370497",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-negative-zero",
+          "slug": "fraction-calculator",
+          "modeId": "arithmetic",
+          "input": {
+            "a": "-0 1/2",
+            "operation": "+",
+            "b": "1/4"
+          },
+          "activeFields": [
+            "a",
+            "operation",
+            "b"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Simplified fraction",
+                "value": "-1/4",
+                "format": "number"
+              },
+              {
+                "label": "Decimal",
+                "value": "-0.25",
+                "format": "number"
+              },
+              {
+                "label": "Mixed number",
+                "value": "-1/4",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fraction-zero-divisor",
+          "slug": "fraction-calculator",
+          "modeId": "arithmetic",
+          "input": {
+            "a": "1/2",
+            "operation": "/",
+            "b": "0"
+          },
+          "error": "Cannot divide by zero."
+        }
+      ],
+      "remaining": "B07 decimal display label/exact integer issue only; repeating-decimal entry is not an observed requirement."
+    },
+    "circle": {
+      "status": "All four known measurements already covered",
+      "formula": "r from radius r, diameter d/2, circumference C/(2\u03c0), area sqrt(A/\u03c0); output r,2r,2\u03c0r,\u03c0r\u00b2.",
+      "fixtures": [
+        {
+          "id": "circle-radius",
+          "slug": "circle-calculator",
+          "modeId": "circle",
+          "input": {
+            "known": "radius",
+            "value": "2"
+          },
+          "activeFields": [
+            "known",
+            "value"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Area",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Circumference",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Radius",
+                "value": 2,
+                "format": "number"
+              },
+              {
+                "label": "Diameter",
+                "value": 4,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "circle-diameter",
+          "slug": "circle-calculator",
+          "modeId": "circle",
+          "input": {
+            "known": "diameter",
+            "value": "4"
+          },
+          "activeFields": [
+            "known",
+            "value"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Area",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Circumference",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Radius",
+                "value": 2,
+                "format": "number"
+              },
+              {
+                "label": "Diameter",
+                "value": 4,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "circle-circumference",
+          "slug": "circle-calculator",
+          "modeId": "circle",
+          "input": {
+            "known": "circumference",
+            "value": "12.566370614359172"
+          },
+          "activeFields": [
+            "known",
+            "value"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Area",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Circumference",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Radius",
+                "value": 2,
+                "format": "number"
+              },
+              {
+                "label": "Diameter",
+                "value": 4,
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "circle-area",
+          "slug": "circle-calculator",
+          "modeId": "circle",
+          "input": {
+            "known": "area",
+            "value": "12.566370614359172"
+          },
+          "activeFields": [
+            "known",
+            "value"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Area",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Circumference",
+                "value": 12.566370614359172,
+                "format": "number"
+              },
+              {
+                "label": "Radius",
+                "value": 2,
+                "format": "number"
+              },
+              {
+                "label": "Diameter",
+                "value": 4,
+                "format": "number"
+              }
+            ]
+          }
+        }
+      ],
+      "remaining": "None; sectors belong to area calculator, not an invented circle mode."
+    },
+    "fibonacci": {
+      "status": "Both nth and generated list exact after root fix, verified through count 100 and nth index 100.",
+      "fixtures": [
+        {
+          "id": "fib-nth-0",
+          "slug": "number-sequence-calculator",
+          "modeId": "nth",
+          "input": {
+            "kind": "fibonacci",
+            "index": "0",
+            "first": "",
+            "step": ""
+          },
+          "activeFields": [
+            "kind",
+            "index"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Fibonacci F0",
+                "value": "0",
+                "format": "number"
+              },
+              {
+                "label": "Sum F0 through F0",
+                "value": "0",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fib-nth-10",
+          "slug": "number-sequence-calculator",
+          "modeId": "nth",
+          "input": {
+            "kind": "fibonacci",
+            "index": "10",
+            "first": "",
+            "step": ""
+          },
+          "activeFields": [
+            "kind",
+            "index"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Fibonacci F10",
+                "value": "55",
+                "format": "number"
+              },
+              {
+                "label": "Sum F0 through F10",
+                "value": "143",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fib-nth-78",
+          "slug": "number-sequence-calculator",
+          "modeId": "nth",
+          "input": {
+            "kind": "fibonacci",
+            "index": "78",
+            "first": "",
+            "step": ""
+          },
+          "activeFields": [
+            "kind",
+            "index"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Fibonacci F78",
+                "value": "8944394323791464",
+                "format": "number"
+              },
+              {
+                "label": "Sum F0 through F78",
+                "value": "23416728348467684",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fib-nth-79",
+          "slug": "number-sequence-calculator",
+          "modeId": "nth",
+          "input": {
+            "kind": "fibonacci",
+            "index": "79",
+            "first": "",
+            "step": ""
+          },
+          "activeFields": [
+            "kind",
+            "index"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Fibonacci F79",
+                "value": "14472334024676221",
+                "format": "number"
+              },
+              {
+                "label": "Sum F0 through F79",
+                "value": "37889062373143905",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fib-nth-100",
+          "slug": "number-sequence-calculator",
+          "modeId": "nth",
+          "input": {
+            "kind": "fibonacci",
+            "index": "100",
+            "first": "",
+            "step": ""
+          },
+          "activeFields": [
+            "kind",
+            "index"
+          ],
+          "result": {
+            "metrics": [
+              {
+                "label": "Fibonacci F100",
+                "value": "354224848179261915075",
+                "format": "number"
+              },
+              {
+                "label": "Sum F0 through F100",
+                "value": "927372692193078999175",
+                "format": "number"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fib-unused-fields",
+          "slug": "number-sequence-calculator",
+          "modeId": "sequence",
+          "input": {
+            "kind": "fibonacci",
+            "count": "10",
+            "first": "",
+            "step": ""
+          },
+          "error": "First term is required."
+        }
+      ],
+      "exact_generated_expectations": {
+        "count80": {
+          "lastIndex": 79,
+          "last": "14472334024676221",
+          "sum": "37889062373143905"
+        },
+        "count100": {
+          "lastIndex": 99,
+          "last": "218922995834555169026",
+          "sum": "573147844013817084100"
+        }
+      },
+      "semantics": "Generator count N means F0\u2026F(N\u22121), sum F(N+1)\u22121. Nth index n means Fn, cumulative sum F(n+2)\u22121.",
+      "recheck_evidence": "/tmp/finflo-math-remaining/recheck/results.json"
+    }
+  },
+  "separate_interaction_gaps": [
+    {
+      "slugs": [
+        "basic-calculator",
+        "scientific-calculator"
+      ],
+      "features": [
+        "Memory add/subtract/recall",
+        "Previous answer reuse"
+      ],
+      "contract": "M+=successful result; M\u2212=successful result; MR returns memory; Ans stores last successful finite answer.",
+      "fixture": [
+        "2+3 \u2192 5",
+        "M+ \u2192 M=5",
+        "4 \u2192 4",
+        "M+ \u2192 M=9",
+        "MR \u2192 9"
+      ],
+      "status": "No memory or Ans state found in current components/math engine; do not treat keypad styling as a new numerical mode."
+    },
+    {
+      "slug": "distance-calculator",
+      "feature": "Map coordinate picking",
+      "status": "Observed competitor capability, still absent; numeric great-circle mode does not require a backend. Provider and attribution review are separate work."
+    },
+    {
+      "slug": "random-number-generator",
+      "feature": "Result sorting",
+      "status": "Confirmed runtime ascending sort with unique decimals; inexpensive to implement with exact numeric comparison in R01."
+    }
+  ],
+  "geometry_followup": {
+    "evidence": "/tmp/finflo-math-remaining/geometry-focused.json",
+    "result": "The latest stable SSA side formula, independent atan2 angles, and product-based small-leg recovery pass the three previously failing focused cases. Keep explicit angular support wording; notes should describe all resolved solutions within the supported range."
+  },
+  "do_not_expand_scope": [
+    "Do not create separate duplicated fraction modes only to match form count.",
+    "No missing circle inverse family.",
+    "No extra t/chi-square/F inverse modes required for this competitor parity task.",
+    "No fake random fixture predictions, no arbitrary expression evaluator for pi/scientific notation.",
+    "Do not promise full unrestricted numerical precision: current exact/domain limits must remain visible."
+  ],
+  "sources": [
+    {
+      "title": "Calculator.net probability form and observed modes",
+      "url": "https://www.calculator.net/probability-calculator.html"
+    },
+    {
+      "title": "Calculator.net random number form and observed precision",
+      "url": "https://www.calculator.net/random-number-generator.html"
+    },
+    {
+      "title": "Per-tool structural audit",
+      "path": "/tmp/finflo-audit/catalog.json"
+    },
+    {
+      "title": "Prior independent formulas and per-tool sources",
+      "path": "/tmp/finflo-audit/math-parity-gaps.json"
+    },
+    {
+      "title": "NIST standard normal distribution reference",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+    },
+    {
+      "title": "Decimal.js rounding and precision API",
+      "url": "https://mikemcl.github.io/decimal.js/"
+    }
+  ],
+  "latest_recheck": {
+    "at": "2026-10-09T13:14:09.823694+00:00",
+    "hashes": {
+      "at": "2026-10-09T13:13:34.981Z",
+      "hashes": {
+        "distributions.ts": "20a84b9453a6118f1cb368fb0cb843a0d37d72f95df2476b07d7faeeeb0e9c40",
+        "engine.ts": "0ae9e61705ce2f81a636462d7c17ba776b7e570e17336788159b9124be1792bc",
+        "everyday-definitions.ts": "2f4093e216635320bcaaa63a3791a835f4a8f5b81f3c86fd23d81dbf7876b3ab",
+        "everyday-engine.ts": "8fc4da0ac4029f719b5c86dccdeaace64ded8fbbc3b3eccfb5c94e8a5bd64e50",
+        "everyday-extra-definitions.ts": "0b3ee2c677822ad450e92db999bacc9bbe413b7f282bb8c67101d00d1e0f8427",
+        "everyday-extra-engine.ts": "44e453331c9b899982f794c33749d4e496e99163839443272a7f4b37d93217f9",
+        "field-visibility.ts": "115d3c9fe7c19368bcbfbc9c33099a0a373a153b4d78b9e6020f4f5452797fd1",
+        "finance-advanced-definitions.ts": "74420ac15ebf5bc3bc52d4687b372d6f75641d1f6f93b8c3e78461b902e260c3",
+        "finance-advanced-engine.ts": "0c56e4e791a0c0e1a92fdcf2bbf707ce1860a9be4bd556ca5d13619e158d4f6f",
+        "finance-definitions.ts": "f4df8c918266da8f23cbbeaa9c1ff3faa40e0abd4dcc88fd3f4bb8410144a379",
+        "finance-engine.ts": "fe6a7668798a9551b9e81b0e2d248964e0466177e22fd491da48cb9de44c6c0a",
+        "finance-extra-definitions.ts": "0a01547fd7c53d4e88bdc5c3fd40e6afbf0cffabe56505e1cc2d49806ba1223a",
+        "geometry.ts": "7ded4452ccf9043d2c239b99da5224e707edb0f6494eb1f0ab1a68619c165d69",
+        "health-definitions.ts": "e90d88837f12f73bd7d24e55d1272bf3b876937f6a01def0ffbb018b9475a26c",
+        "health-engine.ts": "39dae24222c142011e011f125e28349314e68e9cf5e7d394bc26fad27a68a896",
+        "health-extra-definitions.ts": "cacb607a94730209f6330d24ad077ca91c2780c2fdd7889ea7d254702ac0eda2",
+        "health-extra-engine.ts": "d09b531cdb4642f6a8fbde20125c5872cc58a3dda1ad141fac3564bab8329e04",
+        "helpers.ts": "fdc521231527f421a6f7e06318cc5ca31a333026ca88e57bb3097b8159a2ef7c",
+        "input-display.ts": "84e8414fde730318cd3d6051f5926ccd878ad38d6a54315fc81ebb74f857f422",
+        "math-advanced-definitions.ts": "2a88e00de92d5a9f82a1ed67b5caa8e14c9369e52fbceb3e3362d4dd87d98940",
+        "math-advanced-engine.ts": "46c67312ce9717d45eef135cb1c706a311d825345ee832c3319801309a501723",
+        "math-definitions.ts": "9372e595eb33a19841f1cd5f8e7bda3b7410f843b1df2b6b24e30dfed94ed721",
+        "math-engine.ts": "ac60db8cf2166b7330bc2c4abcf02ea169e3a16da35ad29dca2e597a7ea14fc5",
+        "math-extra-engine.ts": "e40ec0fe2528e181a9b9e2d1a239d070b7ca831250bd0ca70e62a1636691d9dd",
+        "mortgage.ts": "a34fecab70e42364953d65eb45b085d215cb5212e846a81a38ddedc3e5ae0498",
+        "normal.ts": "eb7a984af922e37f5ee7229653b2d9771ef0d385b2c502f571d9c9a37b8d6ad2",
+        "pediatric-bmi.ts": "f1ffef5c5a9d1b97b1dc3af985ab94097ae6affc375687452723cbf887f77773",
+        "registry.ts": "40794a9473f95ebc0dd45fc11ef4599b9ece5ffe469315c65994e7730124d5ac",
+        "types.ts": "7e60485faffbff1ee959992767940a7d01b4e6420efcf43279b43def6cc3f4a0"
+      }
+    },
+    "result_path": "/tmp/finflo-math-remaining/recheck/results.json",
+    "default_passes": 109,
+    "mode_count": 109,
+    "resolved_fixture_results": [
+      {
+        "id": "fib-generate-80",
+        "slug": "number-sequence-calculator",
+        "modeId": "sequence",
+        "input": {
+          "kind": "fibonacci",
+          "count": "80"
+        },
+        "activeFields": [
+          "kind",
+          "count"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Sequence",
+              "value": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141, 267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073, 4807526976, 7778742049, 12586269025, 20365011074, 32951280099, 53316291173, 86267571272, 139583862445, 225851433717, 365435296162, 591286729879, 956722026041, 1548008755920, 2504730781961, 4052739537881, 6557470319842, 10610209857723, 17167680177565, 27777890035288, 44945570212853, 72723460248141, 117669030460994, 190392490709135, 308061521170129, 498454011879264, 806515533049393, 1304969544928657, 2111485077978050, 3416454622906707, 5527939700884757, 8944394323791464, 14472334024676221",
+              "format": "number"
+            },
+            {
+              "label": "Sum",
+              "value": "37889062373143905",
+              "format": "number"
+            }
+          ],
+          "table": {
+            "headers": [
+              "Term",
+              "Value"
+            ],
+            "rows": [
+              [
+                1,
+                "0"
+              ],
+              [
+                2,
+                "1"
+              ],
+              [
+                3,
+                "1"
+              ],
+              [
+                4,
+                "2"
+              ],
+              [
+                5,
+                "3"
+              ],
+              [
+                6,
+                "5"
+              ],
+              [
+                7,
+                "8"
+              ],
+              [
+                8,
+                "13"
+              ],
+              [
+                9,
+                "21"
+              ],
+              [
+                10,
+                "34"
+              ],
+              [
+                11,
+                "55"
+              ],
+              [
+                12,
+                "89"
+              ],
+              [
+                13,
+                "144"
+              ],
+              [
+                14,
+                "233"
+              ],
+              [
+                15,
+                "377"
+              ],
+              [
+                16,
+                "610"
+              ],
+              [
+                17,
+                "987"
+              ],
+              [
+                18,
+                "1597"
+              ],
+              [
+                19,
+                "2584"
+              ],
+              [
+                20,
+                "4181"
+              ],
+              [
+                21,
+                "6765"
+              ],
+              [
+                22,
+                "10946"
+              ],
+              [
+                23,
+                "17711"
+              ],
+              [
+                24,
+                "28657"
+              ],
+              [
+                25,
+                "46368"
+              ],
+              [
+                26,
+                "75025"
+              ],
+              [
+                27,
+                "121393"
+              ],
+              [
+                28,
+                "196418"
+              ],
+              [
+                29,
+                "317811"
+              ],
+              [
+                30,
+                "514229"
+              ],
+              [
+                31,
+                "832040"
+              ],
+              [
+                32,
+                "1346269"
+              ],
+              [
+                33,
+                "2178309"
+              ],
+              [
+                34,
+                "3524578"
+              ],
+              [
+                35,
+                "5702887"
+              ],
+              [
+                36,
+                "9227465"
+              ],
+              [
+                37,
+                "14930352"
+              ],
+              [
+                38,
+                "24157817"
+              ],
+              [
+                39,
+                "39088169"
+              ],
+              [
+                40,
+                "63245986"
+              ],
+              [
+                41,
+                "102334155"
+              ],
+              [
+                42,
+                "165580141"
+              ],
+              [
+                43,
+                "267914296"
+              ],
+              [
+                44,
+                "433494437"
+              ],
+              [
+                45,
+                "701408733"
+              ],
+              [
+                46,
+                "1134903170"
+              ],
+              [
+                47,
+                "1836311903"
+              ],
+              [
+                48,
+                "2971215073"
+              ],
+              [
+                49,
+                "4807526976"
+              ],
+              [
+                50,
+                "7778742049"
+              ],
+              [
+                51,
+                "12586269025"
+              ],
+              [
+                52,
+                "20365011074"
+              ],
+              [
+                53,
+                "32951280099"
+              ],
+              [
+                54,
+                "53316291173"
+              ],
+              [
+                55,
+                "86267571272"
+              ],
+              [
+                56,
+                "139583862445"
+              ],
+              [
+                57,
+                "225851433717"
+              ],
+              [
+                58,
+                "365435296162"
+              ],
+              [
+                59,
+                "591286729879"
+              ],
+              [
+                60,
+                "956722026041"
+              ],
+              [
+                61,
+                "1548008755920"
+              ],
+              [
+                62,
+                "2504730781961"
+              ],
+              [
+                63,
+                "4052739537881"
+              ],
+              [
+                64,
+                "6557470319842"
+              ],
+              [
+                65,
+                "10610209857723"
+              ],
+              [
+                66,
+                "17167680177565"
+              ],
+              [
+                67,
+                "27777890035288"
+              ],
+              [
+                68,
+                "44945570212853"
+              ],
+              [
+                69,
+                "72723460248141"
+              ],
+              [
+                70,
+                "117669030460994"
+              ],
+              [
+                71,
+                "190392490709135"
+              ],
+              [
+                72,
+                "308061521170129"
+              ],
+              [
+                73,
+                "498454011879264"
+              ],
+              [
+                74,
+                "806515533049393"
+              ],
+              [
+                75,
+                "1304969544928657"
+              ],
+              [
+                76,
+                "2111485077978050"
+              ],
+              [
+                77,
+                "3416454622906707"
+              ],
+              [
+                78,
+                "5527939700884757"
+              ],
+              [
+                79,
+                "8944394323791464"
+              ],
+              [
+                80,
+                "14472334024676221"
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "id": "fib-generate-100",
+        "slug": "number-sequence-calculator",
+        "modeId": "sequence",
+        "input": {
+          "kind": "fibonacci",
+          "count": "100"
+        },
+        "activeFields": [
+          "kind",
+          "count"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Sequence",
+              "value": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141, 267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073, 4807526976, 7778742049, 12586269025, 20365011074, 32951280099, 53316291173, 86267571272, 139583862445, 225851433717, 365435296162, 591286729879, 956722026041, 1548008755920, 2504730781961, 4052739537881, 6557470319842, 10610209857723, 17167680177565, 27777890035288, 44945570212853, 72723460248141, 117669030460994, 190392490709135, 308061521170129, 498454011879264, 806515533049393, 1304969544928657, 2111485077978050, 3416454622906707, 5527939700884757, 8944394323791464, 14472334024676221, 23416728348467685, 37889062373143906, 61305790721611591, 99194853094755497, 160500643816367088, 259695496911122585, 420196140727489673, 679891637638612258, 1100087778366101931, 1779979416004714189, 2880067194370816120, 4660046610375530309, 7540113804746346429, 12200160415121876738, 19740274219868223167, 31940434634990099905, 51680708854858323072, 83621143489848422977, 135301852344706746049, 218922995834555169026",
+              "format": "number"
+            },
+            {
+              "label": "Sum",
+              "value": "573147844013817084100",
+              "format": "number"
+            }
+          ],
+          "table": {
+            "headers": [
+              "Term",
+              "Value"
+            ],
+            "rows": [
+              [
+                1,
+                "0"
+              ],
+              [
+                2,
+                "1"
+              ],
+              [
+                3,
+                "1"
+              ],
+              [
+                4,
+                "2"
+              ],
+              [
+                5,
+                "3"
+              ],
+              [
+                6,
+                "5"
+              ],
+              [
+                7,
+                "8"
+              ],
+              [
+                8,
+                "13"
+              ],
+              [
+                9,
+                "21"
+              ],
+              [
+                10,
+                "34"
+              ],
+              [
+                11,
+                "55"
+              ],
+              [
+                12,
+                "89"
+              ],
+              [
+                13,
+                "144"
+              ],
+              [
+                14,
+                "233"
+              ],
+              [
+                15,
+                "377"
+              ],
+              [
+                16,
+                "610"
+              ],
+              [
+                17,
+                "987"
+              ],
+              [
+                18,
+                "1597"
+              ],
+              [
+                19,
+                "2584"
+              ],
+              [
+                20,
+                "4181"
+              ],
+              [
+                21,
+                "6765"
+              ],
+              [
+                22,
+                "10946"
+              ],
+              [
+                23,
+                "17711"
+              ],
+              [
+                24,
+                "28657"
+              ],
+              [
+                25,
+                "46368"
+              ],
+              [
+                26,
+                "75025"
+              ],
+              [
+                27,
+                "121393"
+              ],
+              [
+                28,
+                "196418"
+              ],
+              [
+                29,
+                "317811"
+              ],
+              [
+                30,
+                "514229"
+              ],
+              [
+                31,
+                "832040"
+              ],
+              [
+                32,
+                "1346269"
+              ],
+              [
+                33,
+                "2178309"
+              ],
+              [
+                34,
+                "3524578"
+              ],
+              [
+                35,
+                "5702887"
+              ],
+              [
+                36,
+                "9227465"
+              ],
+              [
+                37,
+                "14930352"
+              ],
+              [
+                38,
+                "24157817"
+              ],
+              [
+                39,
+                "39088169"
+              ],
+              [
+                40,
+                "63245986"
+              ],
+              [
+                41,
+                "102334155"
+              ],
+              [
+                42,
+                "165580141"
+              ],
+              [
+                43,
+                "267914296"
+              ],
+              [
+                44,
+                "433494437"
+              ],
+              [
+                45,
+                "701408733"
+              ],
+              [
+                46,
+                "1134903170"
+              ],
+              [
+                47,
+                "1836311903"
+              ],
+              [
+                48,
+                "2971215073"
+              ],
+              [
+                49,
+                "4807526976"
+              ],
+              [
+                50,
+                "7778742049"
+              ],
+              [
+                51,
+                "12586269025"
+              ],
+              [
+                52,
+                "20365011074"
+              ],
+              [
+                53,
+                "32951280099"
+              ],
+              [
+                54,
+                "53316291173"
+              ],
+              [
+                55,
+                "86267571272"
+              ],
+              [
+                56,
+                "139583862445"
+              ],
+              [
+                57,
+                "225851433717"
+              ],
+              [
+                58,
+                "365435296162"
+              ],
+              [
+                59,
+                "591286729879"
+              ],
+              [
+                60,
+                "956722026041"
+              ],
+              [
+                61,
+                "1548008755920"
+              ],
+              [
+                62,
+                "2504730781961"
+              ],
+              [
+                63,
+                "4052739537881"
+              ],
+              [
+                64,
+                "6557470319842"
+              ],
+              [
+                65,
+                "10610209857723"
+              ],
+              [
+                66,
+                "17167680177565"
+              ],
+              [
+                67,
+                "27777890035288"
+              ],
+              [
+                68,
+                "44945570212853"
+              ],
+              [
+                69,
+                "72723460248141"
+              ],
+              [
+                70,
+                "117669030460994"
+              ],
+              [
+                71,
+                "190392490709135"
+              ],
+              [
+                72,
+                "308061521170129"
+              ],
+              [
+                73,
+                "498454011879264"
+              ],
+              [
+                74,
+                "806515533049393"
+              ],
+              [
+                75,
+                "1304969544928657"
+              ],
+              [
+                76,
+                "2111485077978050"
+              ],
+              [
+                77,
+                "3416454622906707"
+              ],
+              [
+                78,
+                "5527939700884757"
+              ],
+              [
+                79,
+                "8944394323791464"
+              ],
+              [
+                80,
+                "14472334024676221"
+              ],
+              [
+                81,
+                "23416728348467685"
+              ],
+              [
+                82,
+                "37889062373143906"
+              ],
+              [
+                83,
+                "61305790721611591"
+              ],
+              [
+                84,
+                "99194853094755497"
+              ],
+              [
+                85,
+                "160500643816367088"
+              ],
+              [
+                86,
+                "259695496911122585"
+              ],
+              [
+                87,
+                "420196140727489673"
+              ],
+              [
+                88,
+                "679891637638612258"
+              ],
+              [
+                89,
+                "1100087778366101931"
+              ],
+              [
+                90,
+                "1779979416004714189"
+              ],
+              [
+                91,
+                "2880067194370816120"
+              ],
+              [
+                92,
+                "4660046610375530309"
+              ],
+              [
+                93,
+                "7540113804746346429"
+              ],
+              [
+                94,
+                "12200160415121876738"
+              ],
+              [
+                95,
+                "19740274219868223167"
+              ],
+              [
+                96,
+                "31940434634990099905"
+              ],
+              [
+                97,
+                "51680708854858323072"
+              ],
+              [
+                98,
+                "83621143489848422977"
+              ],
+              [
+                99,
+                "135301852344706746049"
+              ],
+              [
+                100,
+                "218922995834555169026"
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "id": "fib-unused-fields",
+        "slug": "number-sequence-calculator",
+        "modeId": "sequence",
+        "input": {
+          "kind": "fibonacci",
+          "count": "10",
+          "first": "",
+          "step": ""
+        },
+        "activeFields": [
+          "kind",
+          "count"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Sequence",
+              "value": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34",
+              "format": "number"
+            },
+            {
+              "label": "Sum",
+              "value": "88",
+              "format": "number"
+            }
+          ],
+          "table": {
+            "headers": [
+              "Term",
+              "Value"
+            ],
+            "rows": [
+              [
+                1,
+                "0"
+              ],
+              [
+                2,
+                "1"
+              ],
+              [
+                3,
+                "1"
+              ],
+              [
+                4,
+                "2"
+              ],
+              [
+                5,
+                "3"
+              ],
+              [
+                6,
+                "5"
+              ],
+              [
+                7,
+                "8"
+              ],
+              [
+                8,
+                "13"
+              ],
+              [
+                9,
+                "21"
+              ],
+              [
+                10,
+                "34"
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "id": "ratio-legacy-zero-denominator",
+        "slug": "ratio-calculator",
+        "modeId": "solve",
+        "input": {
+          "a": "2",
+          "b": "0",
+          "c": "8"
+        },
+        "error": "The supplied terms must define a nonzero denominator and a unique proportion."
+      },
+      {
+        "id": "ratio-scale-overflow",
+        "slug": "ratio-calculator",
+        "modeId": "scale",
+        "input": {
+          "a": "1e308",
+          "b": "1e308",
+          "factor": "1e308"
+        },
+        "error": "Scaled ratio exceeds the supported numerical range."
+      },
+      {
+        "id": "random-overflow",
+        "slug": "random-number-generator",
+        "modeId": "random",
+        "input": {
+          "min": "-1e308",
+          "max": "1e308",
+          "count": "1",
+          "kind": "decimal"
+        },
+        "error": "This range exceeds finite decimal precision. Choose smaller endpoints."
+      },
+      {
+        "id": "sample-census1",
+        "slug": "sample-size-calculator",
+        "modeId": "margin",
+        "input": {
+          "size": "1",
+          "population": "1"
+        },
+        "activeFields": [
+          "confidence",
+          "size",
+          "proportion",
+          "population"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Margin of error",
+              "value": 0,
+              "format": "percent"
+            }
+          ]
+        }
+      },
+      {
+        "id": "sample-99999",
+        "slug": "sample-size-calculator",
+        "modeId": "margin",
+        "input": {
+          "confidence": "99.999"
+        },
+        "activeFields": [
+          "confidence",
+          "size",
+          "proportion",
+          "population"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Margin of error",
+              "value": 11.042933533669014,
+              "format": "percent"
+            }
+          ]
+        }
+      }
+    ],
+    "open_fixture_results": [
+      {
+        "id": "probability-independent-hidden",
+        "slug": "probability-calculator",
+        "modeId": "events",
+        "input": {
+          "a": ".4",
+          "b": ".3",
+          "relation": "independent",
+          "intersection": ""
+        },
+        "error": "P(A and B), if known is required."
+      },
+      {
+        "id": "fraction-large",
+        "slug": "fraction-calculator",
+        "modeId": "arithmetic",
+        "input": {
+          "a": "9007199254740993/2",
+          "operation": "+",
+          "b": "1/2"
+        },
+        "activeFields": [
+          "a",
+          "operation",
+          "b"
+        ],
+        "result": {
+          "metrics": [
+            {
+              "label": "Simplified fraction",
+              "value": "4503599627370497",
+              "format": "number"
+            },
+            {
+              "label": "Decimal",
+              "value": "4503599627370500",
+              "format": "number"
+            },
+            {
+              "label": "Mixed number",
+              "value": "4503599627370497",
+              "format": "number"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+import {describe,it,expect} from 'vitest';
+import {normalSf,normalCdf,inverseNormalCdf} from '@/lib/calculators/normal';
+import {distributionSf,studentCdf,inverseStudent,gammaRegularized,betaRegularized} from '@/lib/calculators/distributions';
+import {run as math} from '@/lib/calculators/math-engine';
+import {run as everyday} from '@/lib/calculators/everyday-engine';
+const near=(actual:number,expected:number,rel=1e-11)=>expect(Math.abs(actual-expected)).toBeLessThanOrEqual(Math.max(Math.abs(expected)*rel,Number.MIN_VALUE));
+describe('Independent numerical regression cases',()=>{
+ it('keeps very small normal tails',()=>{near(normalSf(10),7.619853024160526e-24);near(normalSf(8),6.220960574271784e-16);near(normalSf(20),2.7536241186062337e-89);near(normalCdf(-10),7.619853024160526e-24);});
+ it('inverts deep normal tails',()=>{near(inverseNormalCdf(1e-100),-21.273453560965322);});
+ it('preserves t central mass',()=>{near(studentCdf(1e-6,20000),.5000003989372938,1e-10);});
+ it('inverts heavy t tails outside the former bracket',()=>{near(inverseStudent(1e-10,1),-3183098861.837907,1e-9);});
+ it('computes direct chi-square and F survival',()=>{near(distributionSf('chi',100,2,1),Math.exp(-50));near(distributionSf('f',1e20,2,2),1/(1+1e20));});
+ it('rejects unverified large shapes',()=>{expect(()=>gammaRegularized(1e6,1e6)).toThrow();expect(()=>betaRegularized(.5,1e8,1e8)).toThrow();});
+ it('preserves a negative fractional mixed number with zero integer part',async()=>{const r=await math('fraction-simplify',{a:'-0 1/2'});expect(r.metrics[0].value).toBe('-1/2');});
+ it('rejects nonfinite arbitrary precision arithmetic',async()=>{await expect(math('big-expression',{expression:'1/0'})).rejects.toThrow();await expect(math('big-expression',{expression:'0/0'})).rejects.toThrow();});
+ it('parses chemical parentheses and hydrate coefficients',()=>{near(Number(everyday('molecular-weight',{formula:'Ca(OH)2'}).metrics[0].value),74.094);near(Number(everyday('molecular-weight',{formula:'CuSO4·5H2O'}).metrics[0].value),249.691);});
+ it('keeps IP subnet counts exact',()=>{expect(everyday('ipv6',{address:'2001:db8::1',prefix:'0'}).metrics[2].value).toBe('340282366920938463463374607431768211456');expect(everyday('ipv4',{address:'192.0.2.1',prefix:'31'}).metrics.at(-1)?.value).toBe('2');});
+ it('rejects DST gaps and resolves repeated clock times',()=>{expect(()=>everyday('time-zone',{date:'2026-03-08',time:'02:30',from:'America/New_York',to:'UTC',ambiguity:'earlier'})).toThrow();expect(everyday('time-zone',{date:'2026-11-01',time:'01:30',from:'America/New_York',to:'UTC',ambiguity:'earlier'}).metrics[2].value).toBe('2026-11-01T05:30:00.000Z');expect(everyday('time-zone',{date:'2026-11-01',time:'01:30',from:'America/New_York',to:'UTC',ambiguity:'later'}).metrics[2].value).toBe('2026-11-01T06:30:00.000Z');});
+ it('uses actual month ends and rejects invalid dates',()=>{expect(everyday('date-add',{start:'2024-01-31',years:'0',months:'1',weeks:'0',days:'0'}).metrics[0].value).toBe('2024-02-29');expect(()=>everyday('age',{birth:'2025-02-29',asof:'2026-01-01'})).toThrow();});
+ it('roundtrips UTF-8 and rejects malformed encodings',()=>{const encoded=everyday('base64',{direction:'encode',text:'Hello 🌍'}).metrics[0].value as string;expect(everyday('base64',{direction:'decode',text:encoded}).metrics[0].value).toBe('Hello 🌍');expect(()=>everyday('base64',{direction:'decode',text:'***'})).toThrow();});
+});

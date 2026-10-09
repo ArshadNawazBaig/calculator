@@ -1,0 +1,118 @@
+FINFLO — COST, SEARCH, AND LAUNCH RESEARCH
+Checked 9 October 2026. Research only; no services provisioned, account settings changed, or deployment performed.
+
+RECOMMENDED ARCHITECTURE
+
+Launch without a database. Calculator logic, authored explanations, formulas, source references, and the catalog can be version-controlled; calculations and temporary inputs can remain in browser memory. A generated search index avoids search-server bills. A verified contact mailbox can handle correspondence without a new database. A backend becomes justified for a specific requirement such as protected external API credentials, centrally updated live data, or persistent user-owned records—not for the basic catalog.
+
+No database means $0 database charges at every traffic level. It does not make hosting, domain renewal, mailbox, licensed data, or later advertising integrations free.
+
+If relational persistence becomes necessary, Neon Launch is a current fit for the owner's no-minimum, end-of-month-billing preference. Its official current pricing page states $0.106/CU-hour, $0.35/GB-month, and no monthly minimum. The older explanatory blog's $0.14 rate is outdated. Compute suspends when idle, but retained data, restore history, snapshots, or extra branches can continue to incur usage charges. Current sources: https://neon.com/pricing and https://neon.com/blog/new-usage-based-pricing . The pricing page is served as text/markdown to this research client; a local evidence copy is retained.
+
+Firestore Standard on Blaze is another no-subscription-minimum option when a document model is appropriate. In us-central1, current on-demand rates are $0.03/100,000 reads, $0.09/100,000 writes, and $0.01/100,000 deletes. Daily allowances and storage/network charges matter. Crucially, Google Cloud self-serve billing may charge at spending thresholds before month-end, so it does not promise the owner's exact preferred payment timing. Sources: https://cloud.google.com/firestore/pricing , https://firebase.google.com/docs/firestore/pricing , https://docs.cloud.google.com/billing/docs/how-to/billing-cycle .
+
+DynamoDB Standard on-demand has no provisioned-capacity floor. In the cited US East example, a million read request units cost $0.125 and a million write units cost $0.625. Item size and read consistency determine units; transactions, global replicas, backups, and adjacent services change costs. It is a viable zero-base-fee alternative, but adds AWS/IAM design work. Source: https://aws.amazon.com/dynamodb/pricing/ .
+
+Upstash Redis PAYG is a possible later cache/rate-limit service: $0.20/100,000 commands and storage above the first 1 GB at $0.25/GB-month. Paid usage does not inherit free-tier command credits. Replicated writes count again. Its optional $200/month Prod Pack must not be silently enabled. It documents enforced PAYG budget caps through rate limiting. Source: https://upstash.com/pricing/redis .
+
+Cloudflare D1 is not an eligible paid upgrade if the requirement remains absolutely no fixed monthly fee. The Free tier exists, but paid D1 usage is available through Workers Paid, whose subscription is $5/month. D1 row charges and Workers execution are separate. Sources: https://developers.cloudflare.com/d1/platform/pricing/ and https://developers.cloudflare.com/workers/platform/pricing/ .
+
+Turso is also not zero-minimum after upgrading: the verified month-to-month Developer plan is $5.99/month plus overages. The annual-discount display shows $4.99/month and must not be confused with month-to-month pricing. Source: https://turso.tech/pricing?frequency=monthly .
+
+COST MODEL
+
+cost-examples.json contains reproducible arithmetic and assumptions. These are hypothetical DATABASE request loads, not visitor forecasts. Public calculator usage makes no database requests in the recommended architecture.
+
+                              Low             Medium          High
+Reads/month                   100,000         10,000,000      100,000,000
+Writes/month                  10,000          100,000         1,000,000
+Stored size                   0.25            1               10
+No database                   $0              $0              $0
+Firestore modeled total       $0              $2.55           $41.49
+DynamoDB requests ONLY         $0.01875        $1.3125         $13.125
+Neon compute + storage        $0.1935         $10.95          $80.88
+Upstash commands + storage    $0.22           $20.20          $204.25
+
+Comparability limits are essential. Firestore uses 30 evenly distributed days, the qualifying default database, 1 KiB/read returned to US/Europe, no index/rules/listener amplification, no backups, and the provider's hourly storage rate. Daily free allowances cannot be pooled across the month. The high case includes $10.2441 modeled internet egress. Stored-size numbers mean the provider's GB/GiB billing unit, not an assertion that units are identical.
+
+DynamoDB rows above omit transfer and storage. If the cited 25 GB Standard storage allowance is available, sample storage remains within it; if not, add $0.0625/$0.25/$2.50. Each read is <=4 KiB strongly consistent and each write <=1 KiB.
+
+Neon's examples independently ASSUME 1/100/730 CU-hours respectively. Request count cannot establish CU-hours; query cost, concurrency, indexes, burst timing, and wake intervals must be measured. These assumptions are not throughput guarantees. Sample egress stays below the current included allowance; restore history, snapshots, and extra branches are excluded. The low figure is metered usage; the current page says invoices below $0.50 are not collected.
+
+All costs exclude taxes, FX conversion, external APIs, hosting, support plans, credentials, and unrelated usage that consumes shared quotas. Configure monitoring and sensible limits; distinguish alerts from hard caps. Firestore budgets do not stop requests. Neon documents 80%/100% notifications; do not promise hard enforcement based only on a setting called spending_limit.
+
+HOSTING IS A SEPARATE DECISION
+
+Do not infer Sites account pricing from any third-party provider comparison. The root agent must verify the selected hosting environment's actual plan and commercial terms; this research did not inspect or change the Sites account.
+
+For an external usage-based comparison, Firebase App Hosting supports the server-backed Next.js approach on Blaze, with no subscription floor shown in its pricing model. Billable dimensions include outgoing bandwidth, Cloud Run CPU/memory/requests, builds, artifact storage, logs, secrets, and sometimes Cloud Storage. Its listed bandwidth allowance is 10 GiB/month, then $0.15/cached GiB and $0.20/uncached GiB. Source: https://firebase.google.com/docs/app-hosting/costs .
+
+Illustrative BANDWIDTH-ONLY model: 100,000 / 1,000,000 / 10,000,000 total HTTP requests, averaging 50 KiB each and 90% cached, yield approximately $0 / $5.84 / $72.36 beyond the shared 10 GiB allowance, allocating that allowance proportionally across cached/uncached traffic. Add compute/build/storage/etc. One page view can cause many requests, and large calculator bundles would change this substantially. This is not a deployment quote.
+
+Vercel Hobby is restricted to personal non-commercial use, so it should not be assumed suitable for an advertising business. Pro currently displays a $20/month base price plus applicable usage. That is a hosting fee, not a database fee, but must still be disclosed. Sources: https://vercel.com/docs/plans/hobby and https://vercel.com/pricing .
+
+SEARCH FOUNDATIONS AND CURRENT AI GUIDANCE
+
+Google's technical baseline is a publicly crawlable working page with indexable content. Meeting that baseline does not guarantee indexing. Apply it to Finflo with server-rendered explanations and links, valid successful status codes, real 404s, temporary maintenance responses, and production robots settings. Source: https://developers.google.com/search/docs/essentials/technical .
+
+Maintain one preferred HTTPS hostname and route format; redirect actual duplicates, set consistent canonicals, and submit only indexable canonical URLs in sitemaps. Use meaningful content-change dates rather than resetting every lastmod on every build. Search/filter results and unfinished tools should not create an indexable URL explosion. Canonicals are not privacy controls. Sensitive calculation values should not become ordinary query-string URLs or server logs. Sources: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls and https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap .
+
+Keep the full catalog commitment, but only publish a route as an operational calculator when its actual modes, assumptions, outputs, and references are ready. SEO should not be implemented by exposing placeholder or materially inaccurate tools. Each page needs a useful, original explanation and worked example appropriate to its topic; blanket copied paragraphs do not establish expertise.
+
+Google's current generative-AI guidance emphasizes useful, distinctive content and the same search fundamentals. For Finflo this means explaining why an output changes, showing mathematical assumptions and units, citing primary sources, and providing examples calculated by the tested engine. No special AI schema or AI text file is required. Source: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide and https://developers.google.com/search/docs/appearance/ai-features .
+
+Important 2026 update: FAQ rich results stopped appearing May 7, 2026; Google removed their documentation June 15. Keep genuinely helpful on-page FAQs, but do not promise a Google FAQ rich result. June 15 guidance also clarifies that llms.txt does not improve or harm Google visibility. Source: https://developers.google.com/search/updates .
+
+Use truthful JSON-LD for visible entities and breadcrumbs where appropriate. Do not invent ratings, medical review, authors, organization credentials, or a special GEO vocabulary. Valid schema.org vocabulary does not automatically create eligibility for a Google feature, and valid markup does not guarantee that Google displays a rich result. Source: https://developers.google.com/search/docs/appearance/structured-data/sd-policies .
+
+Use real equivalent regional pages before introducing hreflang. Canadian, UK, and US mortgage assumptions must be independently supported; merely changing a currency symbol is insufficient. General percentage/math tools can serve international readers from a shared page. Source: https://developers.google.com/search/docs/specialty/international/localized-versions .
+
+Target good field Core Web Vitals: LCP <=2.5 seconds, INP <=200 ms, CLS <=0.1 at the 75th percentile. Prelaunch lab tests are diagnostic, not proof of those field metrics. Ads must reserve space and avoid taking over inputs/results. Source: https://web.dev/articles/vitals .
+
+REGIONAL AND LONG-TAIL OPPORTUNITY HYPOTHESES
+
+These are editorial hypotheses, not measured search volumes, CPCs, CPMs, organic difficulty scores, or revenue forecasts. Prioritization does not remove any tools from the requested catalog.
+
+US first: mortgage payment with property tax/insurance, extra-payment payoff, biweekly-versus-monthly explanations, refinance break-even, take-home-pay assumptions, hourly-to-annual salary, compound interest with contributions, retirement contribution scenarios. Distinguish amortization math from current lending offers, income tax liability from withholding, and national rules from state-specific assumptions. Primary context: https://www.consumerfinance.gov/owning-a-home/ and https://www.irs.gov/individuals/tax-withholding-estimator .
+
+Canada: Canadian mortgage term versus amortization period, renewal scenarios, payment frequencies, and the relevant compounding convention. The existing audited Canadian mortgage variant provides an implementation target, but rates, qualification assumptions, and local rules still require primary-source verification. Do not present this research as a completed Canadian formula review.
+
+UK: repayment versus interest-only mortgage, overpayments, savings compounding, and salary conversions. If property-purchase taxes are later added, specify the jurisdiction: SDLT applies in England and Northern Ireland; Scotland and Wales have separate regimes. Avoid a generic 'UK stamp duty' calculation that silently conflates them. This is a scope idea, not a new requirement beyond the audited catalog. Primary context: https://www.gov.uk/stamp-duty-land-tax .
+
+Australia: home-loan repayment frequency, extra repayments, loan comparisons, and metric construction quantities. Any offset-account or jurisdiction-specific tax tool would need additional independent specification. Primary consumer context: https://moneysmart.gov.au/home-loans/mortgage-calculator .
+
+International evergreen layer: percentage changes, fractions, date/time duration, conversions, construction quantities, and practical finance education. Localize units and terminology accurately rather than generating near-identical country doorway pages.
+
+Validate hypotheses with country-filtered Keyword Planner estimates and, after launch, Search Console query/page/country data. Advertiser search bidding costs are not publisher RPM/CPM. No account or paid campaign was accessed or created here. Source: https://support.google.com/google-ads/answer/7337243 .
+
+PUBLIC LAUNCH CHECKLIST — OWNER FACTS AND ACTUAL DATA PRACTICES
+
+This is an operational checklist, not a conclusion that any privacy/legal regime applies or has been satisfied.
+
+Before public launch, obtain a verified business/operator identity and working contact address the owner authorizes publishing. Do not invent support@finflo.org, a postal address, entity registration, company location, named experts, or professional credentials. Configure and test the actual contact destination. A mailto link is acceptable when real and appropriate; a form that discards messages is not.
+
+Inventory actual production data flows: hosting/CDN logs, security/rate limiting, optional external exchange-rate requests, contact mail, error reporting, browser storage, and third-party assets. 'No accounts/no analytics' does not prove no personal data is processed: servers typically receive IP addresses and request metadata. Verify provider-specific logging/retention and actual network/storage behavior before writing claims.
+
+Keep calculator inputs in memory by default. Any saved preference, share URL, or persistent scenario must be intentional and described accurately. Avoid claims such as 'nothing ever leaves your device' if a tool calls a live-data service or a sharing feature transmits values. Never send health/financial inputs to analytics or advertising services by default.
+
+Finalize privacy information from that real data inventory: who operates the service, contact route, categories/purposes, recipients/providers, retention or criteria, user rights and applicable contact process, and international transfer details where relevant. Missing facts remain launch blockers for factual copy, not material to fabricate. Reference for notice content: https://ico.org.uk/for-organisations/advice-for-small-organisations/privacy-notices-and-cookies/cookies-and-privacy-notices-in-detail/ .
+
+Do not ship a pretend cookie-consent banner with switches controlling nothing. If the initial application has no analytics/ads or optional storage, describe the actual state. Audit hosting and embedded assets too. When optional services are introduced, implement and test the actual controls and persistence/withdrawal behavior required for that integration and audience; review current regional requirements at that time.
+
+Before enabling Google publisher ads for EEA/UK/Swiss traffic, satisfy Google's current certified-CMP/TCF requirement and test vendor and ad-request behavior. A custom cosmetic toggle is not a substitute. Complete real publisher setup, policy pages, and ads.txt instructions only with the actual issued publisher ID. No claim of AdSense approval or guaranteed ad revenue. Source: https://support.google.com/adsense/answer/13554020?hl=en .
+
+Verify domain ownership, TLS, preferred-host redirects, production base URL, live-page status codes, sitemap URLs, and DNS. Keep previews from indexing. Verify Search Console ownership, submit the sitemap, inspect representative pages from every category, and monitor indexing/crawl reports. Search Console setup is external account work; no account was modified in this research.
+
+Require documented numerical fixtures and boundary tests; keyboard/assistive-technology checks; real build/type/lint results; dependency review; working mobile forms; and genuine error/offline/maintenance behavior. Compare the coverage manifest to shipped routes and mode support. Financial/medical copy must reflect actual limitations and cannot claim review that did not happen.
+
+POST-LAUNCH OPERATIONS
+
+First two weeks: watch deployment errors, indexing eligibility, canonical selection, broken links, actual contact delivery, and performance regressions. Fix causes, not just warnings. Verify live-source freshness for any changing financial data.
+
+Following 30–90 days: use observed query/page/country evidence to improve specific explanations and internal links, review useful long-tail cases, and assess real field performance once sufficient data exists. Build original educational resources based on tested calculators. These are work intervals, not promises of ranking speed. Do not buy links or mass-publish derivative country pages.
+
+DEPENDENCY ADVISORY
+
+GitHub's reviewed CVE-2026-93687 / GHSA-vfj7-8cjw-p6xm marks braces <=3.0.3 High (CVSS 4.0 8.7), with no patched version listed as of this check. npm view braces version returned 3.0.3. The issue concerns stack exhaustion from deeply nested untrusted brace patterns. Source: https://github.com/advisories/ghsa-vfj7-8cjw-p6xm .
+
+This research did not inspect the checkout dependency graph. If root's npm audit confirms the affected dependency is development-only, report that scope rather than implying a shipped calculator endpoint is automatically exploitable. Retain the issue in handoff, avoid untrusted patterns in affected build/CI tools, monitor upstream resolution, and do not call the overall audit clean. Do not blindly run force-upgrades to hide the advisory.

@@ -1,0 +1,345 @@
+{
+  "amortization": {
+    "title": "OpenStax loan amortization",
+    "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+    "verification": "verified-primary",
+    "supports": "Periodic rate, ordinary annuity present value and fixed loan payment.",
+    "checkedAt": "2026-10-09"
+  },
+  "annuities": {
+    "title": "OpenStax annuities",
+    "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+    "verification": "verified-primary",
+    "supports": "PV/FV of ordinary and due annuities.",
+    "checkedAt": "2026-10-09"
+  },
+  "simple-interest": {
+    "title": "OpenStax simple interest",
+    "url": "https://openstax.org/books/contemporary-mathematics/pages/6-3-simple-interest",
+    "verification": "verified-primary",
+    "supports": "I=P*r*t and balance P+I.",
+    "checkedAt": "2026-10-09"
+  },
+  "apr": {
+    "title": "CFPB Regulation Z Appendix J",
+    "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/j/",
+    "verification": "verified-primary",
+    "supports": "Actuarial closed-end APR; cash-flow equation, regular and irregular periods. Regulatory APR is nominal annual unit-period rate.",
+    "checkedAt": "2026-10-09"
+  },
+  "tax2026": {
+    "title": "IRS Revenue Procedure 2025-32",
+    "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+    "verification": "verified-primary",
+    "supports": "2026 ordinary tax, capital gains, deduction and other indexed thresholds; see separate JSON.",
+    "checkedAt": "2026-10-09"
+  },
+  "retirement2026": {
+    "title": "IRS 2026 retirement limits",
+    "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+    "verification": "verified-primary",
+    "supports": "401k/IRA annual and catch-up limits and income phaseouts.",
+    "checkedAt": "2026-10-09"
+  },
+  "fica2026": {
+    "title": "SSA 2026 fact sheet",
+    "url": "https://www.ssa.gov/cola/factsheets/2026.html",
+    "verification": "verified-primary",
+    "supports": "2026 OASDI wage base 184500 and payroll tax rates.",
+    "checkedAt": "2026-10-09"
+  },
+  "medicare": {
+    "title": "IRS Additional Medicare tax",
+    "url": "https://www.irs.gov/taxtopics/tc560",
+    "verification": "verified-primary",
+    "supports": "Additional 0.9%; final thresholds 250000 joint,125000 separate,200000 other; employer withholding threshold 200000 regardless of filing status.",
+    "checkedAt": "2026-10-09"
+  },
+  "ssa-pia": {
+    "title": "SSA primary insurance amount",
+    "url": "https://www.ssa.gov/OACT/COLA/piaformula.html",
+    "verification": "verified-primary",
+    "supports": "AIME three bands and cohort-year bend points; not a current-salary estimate.",
+    "checkedAt": "2026-10-09"
+  },
+  "rmd": {
+    "title": "IRS RMD FAQs",
+    "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+    "verification": "verified-primary",
+    "supports": "Prior Dec31 balance divided by appropriate divisor. Table II for sole-beneficiary spouse >10y younger; Table III otherwise, Table I for inherited accounts.",
+    "checkedAt": "2026-10-09"
+  },
+  "rmd-tables": {
+    "title": "IRS Publication 590-B",
+    "url": "https://www.irs.gov/publications/p590b",
+    "verification": "verified-primary",
+    "supports": "Current life-expectancy divisor tables and examples; historical pre-2022 tables differ.",
+    "checkedAt": "2026-10-09"
+  },
+  "cpi": {
+    "title": "BLS CPI inflation calculator",
+    "url": "https://www.bls.gov/data/inflation_calculator.htm",
+    "verification": "verified-primary",
+    "supports": "Uses CPI-U all-items US city average; historical year comparisons need consistent annual/monthly data.",
+    "checkedAt": "2026-10-09"
+  },
+  "ca-mortgage": {
+    "title": "FCAC fixed mortgage agreement disclosure",
+    "url": "https://www.canada.ca/content/dam/canada/financial-consumer-agency/migration/eng/forindustry/publications/commissionerguidance/documents/agreefixmortgage-eng.pdf",
+    "verification": "verified-primary",
+    "supports": "Example fixed rate compounded semiannually, not in advance; mathematical equivalent monthly conversion required.",
+    "checkedAt": "2026-10-09"
+  },
+  "ca-payments": {
+    "title": "FCAC choosing a mortgage",
+    "url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/choose-mortgage.html",
+    "verification": "verified-primary",
+    "supports": "Payment frequency and accelerated schedules; term is distinct from amortization.",
+    "checkedAt": "2026-10-09"
+  },
+  "sdlt": {
+    "title": "HMRC residential SDLT",
+    "url": "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates",
+    "verification": "verified-primary",
+    "supports": "England/Northern Ireland current marginal bands; first-buyer relief, additional home and nonresident surcharges differ.",
+    "checkedAt": "2026-10-09"
+  },
+  "va": {
+    "title": "VA funding fee",
+    "url": "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/",
+    "verification": "verified-primary",
+    "supports": "Purchase first use 2.15%, later use 3.3% under5% down;5%-<10% down1.5%;>=10%down1.25%; exemptions. Updated2026-10-05.",
+    "checkedAt": "2026-10-09"
+  },
+  "fha": {
+    "title": "HUD Mortgage Insurance Premium appendix",
+    "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/4000.1hsgh.pdf",
+    "verification": "primary-requires-effective-table-verification",
+    "supports": "General UFMIP1.75%; annual MIP must use applicable term/LTV/base-loan/date table. Do not apply0.55% universally.",
+    "checkedAt": "2026-10-09"
+  },
+  "bmi": {
+    "title": "CDC calculating BMI",
+    "url": "https://www.cdc.gov/growth-chart-training/hcp/using-bmi/calculating-bmi.html",
+    "verification": "verified-primary",
+    "supports": "BMI=kg/m^2. Adults20+ and child/teen2-19 require different interpretation.",
+    "checkedAt": "2026-10-09"
+  },
+  "bmi-limits": {
+    "title": "CDC BMI FAQ",
+    "url": "https://www.cdc.gov/bmi/faq/index.html",
+    "verification": "verified-primary",
+    "supports": "Screening measure, pediatric BMI-for-age percentiles and limitations.",
+    "checkedAt": "2026-10-09"
+  },
+  "mifflin": {
+    "title": "Mifflin et al 1990 original paper",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/",
+    "verification": "verified-primary",
+    "supports": "Male10W+6.25H-5A+5,female10W+6.25H-5A-161; sample19-78 healthy subjects.",
+    "checkedAt": "2026-10-09"
+  },
+  "harris": {
+    "title": "Roza/Shizgal 1984 original paper",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/6741850/",
+    "verification": "verified-primary-abstract",
+    "supports": "Revised Harris-Benedict; abstract supports method/limitations, full coefficients corroborated via hospital institutional source.",
+    "checkedAt": "2026-10-09"
+  },
+  "harris-coefficients": {
+    "title": "Maastricht UMC energy calculation",
+    "url": "https://nutritionalassessment.mumc.nl/en/calculating-energy-expenditure",
+    "verification": "verified-primary-institutional",
+    "supports": "Male88.362+13.397W+4.799H-5.677A;female447.593+9.247W+3.098H-4.330A.",
+    "checkedAt": "2026-10-09"
+  },
+  "macros": {
+    "title": "National Academies macronutrient DRI",
+    "url": "https://www.ncbi.nlm.nih.gov/books/n/nap10872/pdf/",
+    "verification": "verified-primary",
+    "supports": "Adult AMDR:carbohydrate45-65%,fat20-35%,protein10-35%; edition-specific nutritional references, not personalized prescriptions.",
+    "checkedAt": "2026-10-09"
+  },
+  "pregnancy": {
+    "title": "ACOG estimating due date",
+    "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date",
+    "verification": "verified-primary",
+    "supports": "LMP+280 days assumes28-day cycle; ART transfer date/embryo age; early ultrasound preferred for confirmation.",
+    "checkedAt": "2026-10-09"
+  },
+  "fertility": {
+    "title": "ACOG fertility awareness",
+    "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning",
+    "verification": "verified-primary",
+    "supports": "Cycle dates and fertile windows uncertain; calendar estimates do not identify exact conception or reliable contraception.",
+    "checkedAt": "2026-10-09"
+  },
+  "pregnancy-weight": {
+    "title": "CDC pregnancy weight gain",
+    "url": "https://www.cdc.gov/maternal-infant-health/pregnancy-weight/index.html",
+    "verification": "verified-primary",
+    "supports": "Singleton/twin ranges stratified by prepregnancy BMI; underweight twin recommendation has different evidence source.",
+    "checkedAt": "2026-10-09"
+  },
+  "met": {
+    "title": "2024 Compendium of Physical Activities",
+    "url": "https://pacompendium.com/adult-compendium/",
+    "verification": "verified-primary",
+    "supports": "Versioned activity-specific MET table for19-59; verify licensing/attribution before copying entire dataset.",
+    "checkedAt": "2026-10-09"
+  },
+  "met-limits": {
+    "title": "Compendium corrected METs",
+    "url": "https://pacompendium.com/corrected-mets/",
+    "verification": "verified-primary",
+    "supports": "Standard METs are population estimates, not precise personal energy costs.",
+    "checkedAt": "2026-10-09"
+  },
+  "tanaka": {
+    "title": "Tanaka et al 2001 original paper",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/",
+    "verification": "verified-primary",
+    "supports": "Predicted max HR208-0.7*age for healthy adults; substantial individual variance.",
+    "checkedAt": "2026-10-09"
+  },
+  "gfr": {
+    "title": "NIDDK adult eGFR equations",
+    "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults",
+    "verification": "verified-primary",
+    "supports": "Race-free CKD-EPI2021 creatinine/combined and2012 cystatin C; coefficients,units,limitations. ReviewedMay2025.",
+    "checkedAt": "2026-10-09"
+  },
+  "gfr-child": {
+    "title": "NIDDK Schwartz2009 study",
+    "url": "https://repository.niddk.nih.gov/publications/2176",
+    "verification": "verified-primary",
+    "supports": "Bedside eGFR0.413*height_cm/SCr_mg_dL; pediatric CKD sample.",
+    "checkedAt": "2026-10-09"
+  },
+  "bsa": {
+    "title": "Mosteller original paper",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/3657876/",
+    "verification": "verified-primary-record",
+    "supports": "1987 BSA formula provenance; use corroboration for exact formula.",
+    "checkedAt": "2026-10-09"
+  },
+  "bsa-validation": {
+    "title": "BSA comparison original study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16546483/",
+    "verification": "verified-primary",
+    "supports": "Mosteller sqrt(Wkg*Hcm/3600) and limitations in different body size groups.",
+    "checkedAt": "2026-10-09"
+  },
+  "army": {
+    "title": "Army ALARACT053/2024",
+    "url": "https://www.armyresilience.army.mil/abcp/pdf/ARN41420-ALARACT_0532024-000-WEB-1.pdf",
+    "verification": "primary-discovered-fetch-blocked",
+    "supports": "One-site tape test authorized; inspect current directive and worksheets before official compliance claims.",
+    "checkedAt": "2026-10-09"
+  },
+  "army2026": {
+    "title": "US Army 2026 body composition policy review",
+    "url": "https://www.armyupress.army.mil/Journals/Military-Review/Online-Exclusive/2026-OLE/Body-Composition-Policy/",
+    "verification": "verified-primary",
+    "supports": "One-site sex-specific method policy history; later official policy changes still require tracking.",
+    "checkedAt": "2026-10-09"
+  },
+  "bac": {
+    "title": "Alcohol calculations and uncertainty",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4361698/",
+    "verification": "verified-primary-research",
+    "supports": "Widmark distribution-factor model and uncertainty; cannot determine safe-to-drive status.",
+    "checkedAt": "2026-10-09"
+  },
+  "bac-factors": {
+    "title": "Hangover study methods appendix",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7564564/",
+    "verification": "verified-primary-research",
+    "supports": "One explicit variant uses r0.68/0.55 and elimination0.15g/L/h, with0.5h absorption offset; factors differ by model.",
+    "checkedAt": "2026-10-09"
+  },
+  "eating-disorders": {
+    "title": "NIMH eating disorders",
+    "url": "https://www.nimh.nih.gov/health/publications/eating-disorders",
+    "verification": "verified-primary",
+    "supports": "Eating disorders affect all body weights. BMI cannot establish or exclude a diagnosis.",
+    "checkedAt": "2026-10-09"
+  },
+  "ww-proprietary": {
+    "title": "WW SEC filing2025",
+    "url": "https://www.sec.gov/Archives/edgar/data/105319/000119312525114307/d934787dex991.htm",
+    "verification": "verified-primary",
+    "supports": "Company identifies Points as a proprietary nutritional algorithm.",
+    "checkedAt": "2026-10-09"
+  },
+  "ww-current": {
+    "title": "WW official Points explanation",
+    "url": "https://www.weightwatchers.com/uk/blog/what-are-points",
+    "verification": "verified-primary",
+    "supports": "2026 current formula includes fiber/unsaturated fat/protein/saturated fat/added sugars; not equivalent to historical4-input SmartPoints.",
+    "checkedAt": "2026-10-09"
+  },
+  "army-male": {
+    "title": "Army DA5500 June2023",
+    "url": "https://recruiting.army.mil/Portals/15/DA5500.pdf",
+    "verification": "verified-primary-search-extract",
+    "supports": "Male one-site equation and age standards; page fetch403, search extract contains equation.",
+    "checkedAt": "2026-10-09"
+  },
+  "army-female": {
+    "title": "Army DA5501 June2023",
+    "url": "https://recruiting.army.mil/Portals/15/DA5501.pdf",
+    "verification": "verified-primary-search-extract",
+    "supports": "Female one-site equation; page fetch403, search extract contains equation.",
+    "checkedAt": "2026-10-09"
+  },
+  "army2025": {
+    "title": "Army ALARACT032/2025",
+    "url": "https://www.armyresilience.army.mil/ard/images/pdf/Policy/ALARACT_0322025.pdf",
+    "verification": "verified-primary-search-extract",
+    "supports": "Male/female formulas and worked examples; nearest whole percent rounding.",
+    "checkedAt": "2026-10-09"
+  },
+  "lean-mass": {
+    "title": "Original CT-versus-formula lean-mass study",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5079277/",
+    "verification": "verified-primary-study-methods",
+    "supports": "Boer,James,Hume coefficients; context-specific accuracy limitations.",
+    "checkedAt": "2026-10-09"
+  },
+  "ideal-weight": {
+    "title": "Peterson et al original ideal-weight comparison study",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4841935/",
+    "verification": "verified-primary-study",
+    "supports": "Table3 Robinson/Devine/Hamwi/Miller historical formulas; linear estimates not universal ideal weights.",
+    "checkedAt": "2026-10-09"
+  },
+  "nes": {
+    "title": "Nes et al HUNT fitness study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22376273/",
+    "verification": "verified-primary",
+    "supports": "MaxHR211-0.64*age; standard error10.8bpm.",
+    "checkedAt": "2026-10-09"
+  },
+  "epley": {
+    "title": "Original resistance-testing study Epley method",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11723088/",
+    "verification": "verified-primary-study-methods",
+    "supports": "1RM=W*(1+0.0333*reps), not the0.333 typographical error in another publication.",
+    "checkedAt": "2026-10-09"
+  },
+  "lander": {
+    "title": "Original betaine strength study methods",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3844502/",
+    "verification": "verified-primary-study-methods",
+    "supports": "1RM=100W/(101.3-2.67123*reps).",
+    "checkedAt": "2026-10-09"
+  },
+  "brzycki": {
+    "title": "Repetition prediction study",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11435939/",
+    "verification": "primary-with-detected-typos",
+    "supports": "Brzycki denominator1.0278-0.0278reps; that paper has obvious Epley and Lander transcription errors, so those variants are corroborated elsewhere.",
+    "checkedAt": "2026-10-09"
+  }
+}

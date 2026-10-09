@@ -1,0 +1,76 @@
+{
+  "periodic-rate": {
+    "equations": [
+      "i=(1+j/m)^(m/p)-1 for nominal annual j compounded m times, paid p times",
+      "continuous i=exp(j/p)-1",
+      "j_out=k*((1+j_in/m)^(m/k)-1); continuous equivalent j_out=m*ln(1+j_in/m)"
+    ],
+    "notes": "Use expm1/log1p for stability. j decimals, m/p positive. APY is effective annual, not nominalAPR."
+  },
+  "amortization": {
+    "equations": [
+      "PMT=P*i/(1-(1+i)^(-n)); i=0 =>P/n",
+      "B_k=P*(1+i)^k-PMT*((1+i)^k-1)/i",
+      "N=-ln(1-P*i/PMT)/ln(1+i) provided PMT>P*i",
+      "interest_k=B_(k-1)*i; principal_k=min(PMT+extra-interest_k,B_(k-1)); B_k=B_(k-1)-principal_k"
+    ],
+    "notes": "Reduce last payment to actual balance+interest; stop negative amortization explicitly; amortization may round interest each period or only display, but disclose and use one convention."
+  },
+  "tvm": {
+    "equations": [
+      "0=PV*(1+i)^n+PMT*(1+i*due)*((1+i)^n-1)/i+FV",
+      "i=0 =>0=PV+n*PMT+FV"
+    ],
+    "notes": "Signs represent cash in/out. Solve one unknown. RATE/IRR roots may be absent or nonunique; bracket and scan, never return arbitrary unconverged Newton estimate."
+  },
+  "growth": {
+    "equations": [
+      "FV=P*(1+i)^n+C*((1+i)^n-1)/i*(1+i*due)",
+      "i=0 =>FV=P+n*C",
+      "RealFV=NominalFV/(1+inflation)^years",
+      "RealRate=(1+nominal)/(1+inflation)-1"
+    ],
+    "notes": "Different monthly/annual additions, tax timing, contribution growth and fees require period simulation. Do not treat tax on earnings as tax on all balances."
+  },
+  "discounting": {
+    "equations": [
+      "NPV=sum(CF_t/(1+r)^t)",
+      "IRR solves NPV=0",
+      "XIRR solves sum(CF_j/(1+r)^((date_j-date_0)/365))=0 with explicitACT/365 convention"
+    ],
+    "notes": "Irregular amount cash flows are not necessarily irregular date cash flows. Competitor IRR second mode is annual amounts; Average Return first mode has actual dates."
+  },
+  "tax": {
+    "equations": [
+      "Tax=sum(max(0,min(taxableIncome,upper)-lower)*rate) over progressive bands",
+      "Capital gains stack above ordinary taxable income before applying0/15/20 bands"
+    ],
+    "notes": "Apply correct year/status and deductions before bands; credits afterwards per eligibility. Version full legal rules separately."
+  },
+  "bmi": {
+    "equations": [
+      "BMI=Wkg/(Hm^2)",
+      "adult healthy-range weights=[18.5*Hm^2,25*Hm^2)"
+    ],
+    "notes": "Classify unrounded BMI; adultCDC20+, child2-19 uses age/sex LMS data. No diagnostic labels."
+  },
+  "energy": {
+    "equations": [
+      "Mifflin male=10W+6.25H-5A+5;female=10W+6.25H-5A-161",
+      "RevisedHarris male=88.362+13.397W+4.799H-5.677A;female=447.593+9.247W+3.098H-4.330A",
+      "KatchMcArdle=370+21.6*LBMkg;LBM=W*(1-BF/100)",
+      "TDEE=estimatedRestingEnergy*activityFactor"
+    ],
+    "notes": "Wkg,Hcm,Ayears,kcal/day. Activity factors are heuristic and must be displayed; Katch exact primary provenance remains to verify. These models are not for automated prescribing."
+  },
+  "pregnancy-date": {
+    "equations": [
+      "EDD=LMP+280+(cycleLength-28)days",
+      "EDD=conception+266days",
+      "EDD=transferDate+266-embryoAgeDays",
+      "EDD=ultrasoundDate+(280-(weeks*7+days))days",
+      "gestationalDays=asOfDate-(EDD-280days)"
+    ],
+    "notes": "Use calendar-day arithmetic independent ofDST. Cycle adjustment is a calendar estimate; first-trimester dating/clinician decisions supersede it. Do not infer exact paternity/conception."
+  }
+}

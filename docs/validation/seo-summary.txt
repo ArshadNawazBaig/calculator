@@ -1,0 +1,22 @@
+Finflo production preview SEO and internal-link audit
+Full crawl build: fuW5GZ5UjYbMiOFSahANJ
+Full crawl timestamp: 2026-10-09T16:12:58.790474+00:00
+Targeted final recheck build: p7aNm6pzeCU4wnSSsexAO
+Targeted timestamp: 2026-10-09T16:16:05.119925+00:00
+Origin: http://127.0.0.1:3100
+
+PASS: 249/249 page routes, including all201 active calculators.
+PASS: 196/196 eligible deterministic calculators include SSR input/result worked examples; all201 include formulas.
+PASS: 403 JSON-LD blocks parse with essential tool and breadcrumb checks.
+PASS: Canonicals, title and description tags present and correct across all249 pages.
+PASS: No broken internal links or orphan content; all201 tools within2 clicks from home.
+PASS: Four404 probes; three308 aliases; shared images/icons; API health.
+PASS: All249 pages carry staging noindex in both meta and HTTP header. XML sitemap is empty.
+
+CLOSED: Finance/other and health/other now have distinct category-specific title and description.
+CLOSED: /search now includes a static SSR H1.
+OPEN FINDINGS: None in this bounded audit.
+
+The full crawl belongs to the first build above. Only the three corrected routes were fetched again after the final rebuild.
+No production edits. No repeated accessibility or browser suite. This is not Google rich-result certification, a ranking prediction, or a live-domain indexability test.
+Artifacts: report.json, summary.txt, routes.json, probes.json, link-graph.json, targeted-recheck.json, audit.py, targeted-recheck.py, gzipped HTML responses.

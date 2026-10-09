@@ -1,0 +1,304 @@
+{
+  "researched_at": "2026-10-09T11:40:07.030977+00:00",
+  "recommendation": "No database for launch; Neon Launch for future SQL persistence, Firestore Blaze for a document model if threshold billing is acceptable.",
+  "providers": [
+    {
+      "id": "none",
+      "name": "No database at launch",
+      "meets_no_monthly_minimum": true,
+      "recommendation": "Preferred for current scope. Versioned calculator registry, formulas and editorial content live in source; calculation state stays in browser memory. Search can use a generated local index.",
+      "fixed_monthly_fee_usd": 0,
+      "database_cost_usd": 0,
+      "qualification": "Hosting, domain, optional external data feeds, and contact mailbox costs remain separate."
+    },
+    {
+      "id": "neon",
+      "name": "Neon Launch / Postgres",
+      "meets_no_monthly_minimum": true,
+      "recommendation": "Preferred future relational option if structured persistence becomes necessary; do not provision speculatively.",
+      "fixed_monthly_fee_usd": 0,
+      "billing_timing": "Official current pricing page explicitly says metered hourly, billed at end of month; invoices under $0.50 not collected.",
+      "units": {
+        "compute_usd_per_cu_hour": 0.106,
+        "storage_usd_per_gb_month": 0.35,
+        "restore_history_usd_per_gb_month": 0.2,
+        "extra_branch_usd_per_branch_month": 1.5,
+        "public_egress_included_gb_per_project": 500,
+        "public_egress_usd_per_extra_gb": 0.1,
+        "snapshots_usd_per_gb_month": 0.09
+      },
+      "notes": [
+        "Compute scales to zero; retained storage and optional history/snapshots still cost money. No subscription floor is different from no bill for an existing database.",
+        "Do not use the older blog compute price of $0.14; current price is $0.106.",
+        "Paid plans do not carry the Free plan compute allowance.",
+        "Region/provider selection and billing currency should be verified in actual account.",
+        "Spending notifications are documented; do not claim they form a hard cap without checking the account feature."
+      ],
+      "sources": [
+        "neon_pricing",
+        "neon_no_minimum",
+        "neon_alerts"
+      ]
+    },
+    {
+      "id": "firestore",
+      "name": "Firestore Standard on Firebase Blaze",
+      "meets_no_monthly_minimum": true,
+      "fixed_monthly_fee_usd": 0,
+      "region": "us-central1 (Iowa), default on-demand consumption model, USD, one qualifying default database",
+      "billing_timing": "Usage-based through Google Cloud Billing; self-serve accounts can use threshold-triggered charges before month-end, not necessarily month-end-only payment.",
+      "units": {
+        "reads_usd_per_100k": 0.03,
+        "writes_usd_per_100k": 0.09,
+        "deletes_usd_per_100k": 0.01,
+        "storage_usd_per_gib_hour": 0.000205479,
+        "internet_egress_usd_per_gib_after_10_gib_under_1tib": 0.12
+      },
+      "free": {
+        "reads_per_day": 50000,
+        "writes_per_day": 20000,
+        "deletes_per_day": 20000,
+        "storage_gib": 1,
+        "egress_gib_per_month": 10
+      },
+      "notes": [
+        "Read quotas are daily, not a monthly pool. Extra index reads, listeners, security-rule reads, and empty query minimum reads can increase costs.",
+        "Stored document metadata/indexes count toward storage.",
+        "TTL, backups, restore, PITR have separate paid usage; disabled in sample model.",
+        "Australia and China destinations have different egress rates.",
+        "Budgets/alerts are not automatic hard stops."
+      ],
+      "sources": [
+        "firestore_pricing",
+        "firestore_billing",
+        "firebase_plans",
+        "google_billing_cycle"
+      ]
+    },
+    {
+      "id": "dynamodb",
+      "name": "Amazon DynamoDB Standard, on-demand",
+      "meets_no_monthly_minimum": true,
+      "fixed_monthly_fee_usd": 0,
+      "region": "us-east-1, single-region Standard table, no provisioned capacity or commitments",
+      "billing_timing": "Monthly usage billing; AWS normally charges the card on file.",
+      "units": {
+        "usd_per_million_read_request_units": 0.125,
+        "usd_per_million_write_request_units": 0.625,
+        "storage_usd_per_gb_month": 0.25
+      },
+      "notes": [
+        "Example unit assumptions: <=4 KiB strongly consistent read = 1 RRU; <=1 KiB write = 1 WRU. Eventually consistent reads use half the units; transactional reads/writes cost more.",
+        "25 GB Standard table storage allowance is described on official pricing page; account eligibility and shared consumption must be checked.",
+        "Global replicas, backups/PITR, streams/exports, transfer, Lambda/API, and support are separate costs.",
+        "Operational/IAM complexity may outweigh savings for this calculator site."
+      ],
+      "sources": [
+        "dynamodb_pricing",
+        "dynamodb_on_demand",
+        "aws_billing"
+      ]
+    },
+    {
+      "id": "upstash",
+      "name": "Upstash Redis Pay as You Go",
+      "meets_no_monthly_minimum": true,
+      "fixed_monthly_fee_usd": 0,
+      "recommendation": "Possible cache or rate-limit store, not needed for browser calculators.",
+      "units": {
+        "usd_per_100k_commands": 0.2,
+        "storage_usd_per_gb_month_over_1_gb": 0.25
+      },
+      "notes": [
+        "Paid plan does not inherit free monthly commands.",
+        "Writes replicated to additional regions count again; examples assume one primary and no read regions.",
+        "First 1 GB storage is free; persistent storage above it costs even without commands.",
+        "Optional Prod Pack is $200/month/database and violates a no-fixed-fee choice if enabled.",
+        "PAYG supports a hard budget cap implemented through rate limiting; reaching it can affect availability."
+      ],
+      "sources": [
+        "upstash_pricing"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "Cloudflare D1",
+      "meets_no_monthly_minimum": false,
+      "fixed_monthly_fee_usd": 5,
+      "reason": "Free D1 exists, but exceeding free limits requires Workers Paid with a $5/month subscription. D1 usage-only wording does not remove the Workers minimum.",
+      "units": {
+        "paid_included_read_rows_monthly": 25000000000,
+        "paid_included_write_rows_monthly": 50000000,
+        "paid_included_storage_gb": 5,
+        "usd_per_million_extra_rows_read": 0.001,
+        "usd_per_million_extra_rows_written": 1,
+        "usd_per_extra_gb_month": 0.75
+      },
+      "notes": [
+        "Rows scanned and index maintenance contribute to billing.",
+        "D1 itself has no egress fee; Workers execution has its own bill.",
+        "Free plan stops queries at daily limits rather than billing overages."
+      ],
+      "sources": [
+        "d1_pricing",
+        "workers_pricing"
+      ]
+    },
+    {
+      "id": "turso",
+      "name": "Turso Cloud",
+      "meets_no_monthly_minimum": false,
+      "reason": "Free plan exists, but month-to-month Developer tier has a $5.99/month base subscription (annual-discount display $4.99/month). It is not zero-minimum PAYG.",
+      "sources": [
+        "turso_pricing"
+      ],
+      "fixed_monthly_fee_usd": 5.99
+    }
+  ],
+  "cost_model": {
+    "assumptions": [
+      "These are illustrative request volumes, not measured website traffic forecasts or provider capacity benchmarks. Public browser calculator use generates zero DB reads/writes in the recommended architecture.",
+      "30-day month, uniform daily operations, one region, no transactions, no optional paid add-ons, taxes excluded, USD.",
+      "Firestore assumes one qualifying default database, direct document reads with a 1 KiB returned payload, no extra index/rules/listener reads, and 30-day hourly storage rate. GB/GiB distinctions are provider-specific; sample stored-size number is interpreted using each provider billing unit.",
+      "Firestore sample egress is to US/Europe destinations; other regions and protocol/data overhead can alter bills.",
+      "DynamoDB estimates are REQUESTS ONLY with 1 RRU/read and 1 WRU/write; storage allowance eligibility and transfer/service costs are separate.",
+      "Neon CU-hours are additional independent assumptions, not inferred from query counts. Actual compute depends on timing, concurrency, indexes, query complexity, and scale-to-zero wake intervals. History, extra branches and snapshots excluded; model egress below 500 GB.",
+      "Upstash assumes each operation maps to one billed command, one region, no paid Prod Pack.",
+      "Billing alerts are not hard caps unless the provider explicitly enforces one."
+    ],
+    "workloads": [
+      {
+        "name": "low",
+        "reads": 100000,
+        "writes": 10000,
+        "average_stored_gb": 0.25,
+        "neon_assumed_cu_hours": 1,
+        "estimates_usd": {
+          "no_database": 0,
+          "firestore_reads": 0.0,
+          "firestore_writes": 0.0,
+          "firestore_storage": 0.0,
+          "firestore_egress": 0.0,
+          "firestore_total": 0.0,
+          "dynamodb_requests_only": 0.01875,
+          "dynamodb_storage_if_no_allowance": 0.0625,
+          "neon_compute_plus_storage": 0.1935,
+          "upstash_commands_plus_storage": 0.22
+        }
+      },
+      {
+        "name": "medium",
+        "reads": 10000000,
+        "writes": 100000,
+        "average_stored_gb": 1,
+        "neon_assumed_cu_hours": 100,
+        "estimates_usd": {
+          "no_database": 0,
+          "firestore_reads": 2.55,
+          "firestore_writes": 0.0,
+          "firestore_storage": 0.0,
+          "firestore_egress": 0.0,
+          "firestore_total": 2.55,
+          "dynamodb_requests_only": 1.3125,
+          "dynamodb_storage_if_no_allowance": 0.25,
+          "neon_compute_plus_storage": 10.95,
+          "upstash_commands_plus_storage": 20.2
+        }
+      },
+      {
+        "name": "high",
+        "reads": 100000000,
+        "writes": 1000000,
+        "average_stored_gb": 10,
+        "neon_assumed_cu_hours": 730,
+        "estimates_usd": {
+          "no_database": 0,
+          "firestore_reads": 29.55,
+          "firestore_writes": 0.36,
+          "firestore_storage": 1.3315,
+          "firestore_egress": 10.2441,
+          "firestore_total": 41.49,
+          "dynamodb_requests_only": 13.125,
+          "dynamodb_storage_if_no_allowance": 2.5,
+          "neon_compute_plus_storage": 80.88,
+          "upstash_commands_plus_storage": 204.25
+        }
+      }
+    ]
+  },
+  "sources": {
+    "firestore_pricing": "https://cloud.google.com/firestore/pricing",
+    "firestore_billing": "https://firebase.google.com/docs/firestore/pricing",
+    "firebase_plans": "https://firebase.google.com/pricing",
+    "google_billing_cycle": "https://docs.cloud.google.com/billing/docs/how-to/billing-cycle",
+    "neon_pricing": "https://neon.com/pricing",
+    "neon_no_minimum": "https://neon.com/blog/new-usage-based-pricing",
+    "neon_alerts": "https://api-docs.neon.tech/reference/setorganizationspendinglimit",
+    "dynamodb_pricing": "https://aws.amazon.com/dynamodb/pricing/",
+    "dynamodb_on_demand": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+    "aws_billing": "https://aws.amazon.com/aws-cost-management/aws-billing/faqs/",
+    "upstash_pricing": "https://upstash.com/pricing/redis",
+    "d1_pricing": "https://developers.cloudflare.com/d1/platform/pricing/",
+    "workers_pricing": "https://developers.cloudflare.com/workers/platform/pricing/",
+    "turso_pricing": "https://turso.tech/pricing?frequency=monthly",
+    "firebase_app_hosting": "https://firebase.google.com/docs/app-hosting/costs",
+    "vercel_pricing": "https://vercel.com/pricing",
+    "vercel_hobby": "https://vercel.com/docs/plans/hobby",
+    "google_ai_guide": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+    "google_ai_features": "https://developers.google.com/search/docs/appearance/ai-features",
+    "google_updates": "https://developers.google.com/search/updates",
+    "technical_seo": "https://developers.google.com/search/docs/essentials/technical",
+    "sitemaps": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+    "canonicals": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "structured_data": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+    "international": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+    "web_vitals": "https://web.dev/articles/vitals",
+    "keyword_planner": "https://support.google.com/google-ads/answer/7337243",
+    "us_mortgage": "https://www.consumerfinance.gov/owning-a-home/",
+    "us_withholding": "https://www.irs.gov/individuals/tax-withholding-estimator",
+    "uk_property_tax": "https://www.gov.uk/stamp-duty-land-tax",
+    "au_mortgage": "https://moneysmart.gov.au/home-loans/mortgage-calculator",
+    "privacy_notice": "https://ico.org.uk/for-organisations/advice-for-small-organisations/privacy-notices-and-cookies/cookies-and-privacy-notices-in-detail/",
+    "google_cmp": "https://support.google.com/adsense/answer/13554020?hl=en",
+    "braces_advisory": "https://github.com/advisories/ghsa-vfj7-8cjw-p6xm",
+    "braces_registry": "https://registry.npmjs.org/braces/latest"
+  },
+  "braces": {
+    "advisory": "CVE-2026-93687 / GHSA-vfj7-8cjw-p6xm",
+    "severity": "High, CVSS 4.0 8.7",
+    "affected": "braces <=3.0.3",
+    "patched_versions": "None in GitHub advisory as checked 2026-10-09",
+    "npm_latest_verified": "3.0.3",
+    "advisory_updated": "2026-10-02",
+    "local_dependency_graph_verified": false,
+    "guidance": "Report the audit finding accurately. If root confirms dev-only dependency, distinguish build/CI exposure from shipped runtime exposure. Do not describe the full audit as clean. Avoid feeding untrusted glob patterns into affected tooling and monitor upstream resolution."
+  },
+  "host_bandwidth_model": {
+    "source": "https://firebase.google.com/docs/app-hosting/costs",
+    "unit": "USD bandwidth-only; runtime/build/storage excluded",
+    "assumptions": {
+      "response_kib": 50,
+      "cached_fraction": 0.9,
+      "included_gib": 10,
+      "cached_usd_per_gib": 0.15,
+      "uncached_usd_per_gib": 0.2
+    },
+    "examples": [
+      {
+        "requests": 100000,
+        "transfer_gib": 4.7684,
+        "bandwidth_usd": 0.0
+      },
+      {
+        "requests": 1000000,
+        "transfer_gib": 47.6837,
+        "bandwidth_usd": 5.84
+      },
+      {
+        "requests": 10000000,
+        "transfer_gib": 476.8372,
+        "bandwidth_usd": 72.36
+      }
+    ]
+  }
+}

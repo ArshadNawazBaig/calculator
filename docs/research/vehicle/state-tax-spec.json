@@ -1,0 +1,2244 @@
+{
+  "auditDate": "2026-10-09",
+  "scope": "Research for ordinary passenger-vehicle dealer purchases, with explicit exceptions. This is not a complete legal tax engine for every transaction, exemption, local jurisdiction, or vehicle class.",
+  "selector": {
+    "count": 51,
+    "blankOption": true,
+    "rateAlwaysEditable": true,
+    "automaticStateRateLookupObserved": false,
+    "behavior": "On calculation, state selection changes trade/rebate taxable-base treatment. The entered rate is retained; no automatic local-rate lookup was observed. All 51 state/DC choices were tested at fixed inputs.",
+    "cashback": "Same 52-option list including blank; browser state changes preserve the entered rate. All 51 cashback calculations have not been independently tested."
+  },
+  "implementation": {
+    "inputs": [
+      "state",
+      "transactionDateOrTaxYear",
+      "newOrUsed",
+      "dealerPurchase",
+      "qualifyingOwnedTradeClass",
+      "manufacturerRebateAssignedAtSale",
+      "userTaxRate",
+      "taxableDealerFees",
+      "nonTaxableGovernmentFees",
+      "actualTaxAmountOverride"
+    ],
+    "baseFormula": "max(0, priceAfterDealerDiscounts + taxableFees - eligibleTradeDeduction - eligibleManufacturerRebate). Apply the user rate only within a valid simple-percentage scope.",
+    "principalFormula": "price - rebateAppliedToPurchase - cashDown - tradeValue + tradeLoanPayoff + financedTax + financedFees. Trade payoff must not automatically reduce gross eligible trade credit.",
+    "manualOverride": "Allow an actual quoted tax amount when local rules, valuation floors, multiple taxes, caps, or unresolved treatment prevent a reliable automatic estimate. Display the assumptions used.",
+    "unsupported": "Do not invent a combined local rate. Do not treat a manufacturer rebate as an unreimbursed dealer discount. Do not automatically claim exemptions or incentives outside the verified scope."
+  },
+  "rows": [
+    {
+      "state": "AL",
+      "name": "Alabama",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.alabama.gov/wp-content/uploads/2022/06/Automotive_Sales_Use_Lease_Tax_Guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible motor vehicle trade allowance reduces the taxable price. Manufacturer rebates remain taxable. Apply the appropriate user-entered automotive rate and local components."
+      ],
+      "competitor": {
+        "state": "AL",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=AL&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "AK",
+      "name": "Alaska",
+      "eligibleTradeDeductible": null,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "verified_local_rules_required",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.commerce.alaska.gov/web/dcra/officeofthestateassessor/alaskasalestaxinformation.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no statewide sales tax. Municipalities set their own sales taxes and exemptions. State selection cannot establish a local rate or rebate/trade rule; use a quoted local tax amount."
+      ],
+      "competitor": {
+        "state": "AK",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=AK&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "AZ",
+      "name": "Arizona",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.azleg.gov/ars/42/05061.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://azdor.gov/model-city-tax-code/articles-and-sections/exclusion-cash-discounts-returns-refunds-trade-values",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.azleg.gov/ars/42/05001.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying trade allowance reduces gross receipts under section 42-5001. A manufacturer rebate reduces the tax base when assigned to the retailer under section 42-5061. Local rates remain user-entered."
+      ],
+      "competitor": {
+        "state": "AZ",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=AZ&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "AR",
+      "name": "Arkansas",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.dfa.arkansas.gov/wp-content/uploads/et2008_3-1.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.dfa.arkansas.gov/wp-content/uploads/ClaimforSalesTaxRefundCreditUsedMV.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "GR-12 allows eligible trade credit. GR-3(I) includes vehicle manufacturer or dealer rebates in gross receipts. The downloaded 2008 compilation contains old price thresholds; do not use those thresholds for current used-vehicle taxes. Scope this preset to a normal taxable dealer sale."
+      ],
+      "competitor": {
+        "state": "AR",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=AR&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "CA",
+      "name": "California",
+      "eligibleTradeDeductible": false,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.cdtfa.ca.gov/industry/motor-vehicle-dealers/industry-topics.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Trade allowance does not reduce taxable selling price; assigned manufacturer rebates remain taxable. Unreimbursed dealer discounts are different. Taxable dealer documentation charges must be separated from exempt government registration fees."
+      ],
+      "competitor": {
+        "state": "CA",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=CA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "CO",
+      "name": "Colorado",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://tax.colorado.gov/sites/tax/files/documents/SUTT_Motor_Vehicles_November_2021.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade allowance reduces state and state-administered local tax bases; manufacturer rebates remain taxable. Home-rule municipalities may have different rules, so a single state preset does not establish every local component."
+      ],
+      "competitor": {
+        "state": "CO",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=CO&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "CT",
+      "name": "Connecticut",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://portal.ct.gov/dmv/vehicle-services/sales-tax-registrations/sales-tax-calculator",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade allowance is deducted; manufacturer rebates remain taxable. Vehicle price thresholds can change the applicable rate. Private-sale book-value rules are outside this ordinary dealer preset."
+      ],
+      "competitor": {
+        "state": "CT",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=CT&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "DE",
+      "name": "Delaware",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_dlrmanual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.de.gov/VehicleServices/titles/index.shtml?dc=ve_title_credit",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "This is a vehicle document fee, not general sales tax. One qualifying Delaware-titled trade may reduce the fee base. The dealer manual does not permit manufacturer rebates to reduce total purchase price. Do not default the fee to zero merely because Delaware has no general sales tax."
+      ],
+      "competitor": {
+        "state": "DE",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=DE&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "DC",
+      "name": "District of Columbia",
+      "eligibleTradeDeductible": null,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "verified_value_based_exception",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/50-2201.03",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv-migrate.dc.gov/book/dmv-fees/dmv-fees-0",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Excise tax depends on DMV fair market value, weight, and fuel efficiency. Ordinary price times a state rate is not sufficient. Use the actual DMV tax amount or a verified DMV taxable value and applicable rate."
+      ],
+      "competitor": {
+        "state": "DC",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=DC&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "FL",
+      "name": "Florida",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800030.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://floridarevenue.com/taxes/tips/documents/TIP_03A01-20.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade in the same transaction reduces the base; manufacturer rebates remain taxable. County surtax may apply only to the first $5,000. Use separate components or an actual tax override rather than applying a combined rate to the entire price."
+      ],
+      "competitor": {
+        "state": "FL",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=FL&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "GA",
+      "name": "Georgia",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://dor.georgia.gov/document/document/motor-vehicle-online-manual/download",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.georgia.gov/document/document/mv-7d-state-and-local-title-ad-valorem-tax-fees/download",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "New-vehicle dealer purchases use TAVT with qualifying trade and rebate deductions. Used vehicles and seller-financed transactions have different valuation rules. Require the vehicle condition and verified TAVT base; do not label this general sales tax."
+      ],
+      "competitor": {
+        "state": "GA",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=GA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "HI",
+      "name": "Hawaii",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "trade_verified_GET_scope_rebate_unresolved",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://tax.hawaii.gov/get/exemptions-get/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.hawaii.gov/get/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Official GET guidance treats trade allowance as a price adjustment. GET is a seller tax and may involve a passed-on gross-up. Manufacturer rebate treatment remains unresolved in this research. Use an actual tax amount until the specific transaction is established."
+      ],
+      "competitor": {
+        "state": "HI",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=HI&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "ID",
+      "name": "Idaho",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://tax.idaho.gov/search-category/sales-tax/page/72/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible property accepted into dealer resale inventory in the same transaction can reduce the base. A manufacturer rebate reduces price only when paid directly to the dealer and deducted from the vehicle price; a cash rebate retained by the buyer does not."
+      ],
+      "competitor": {
+        "state": "ID",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=ID&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "IL",
+      "name": "Illinois",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://tax.illinois.gov/forms/sales/vehicleusetax/st-556-sales-tax-transaction-return-instructions.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The motor vehicle trade deduction is uncapped from January 1, 2022. Manufacturer rebates remain taxable. Do not apply the historical 2020\u20132021 $10,000 limit to a current transaction."
+      ],
+      "competitor": {
+        "state": "IL",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=IL&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "IN",
+      "name": "Indiana",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.in.gov/dor/files/sib28s.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Only eligible like-kind owned and titled property qualifies for trade credit. Manufacturer rebates remain taxable. Trade loan payoff affects financing, not the gross eligible trade allowance."
+      ],
+      "competitor": {
+        "state": "IN",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=IN&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "IA",
+      "name": "Iowa",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.legis.iowa.gov/docs/ACO/chapter/701.250.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The fee for new registration allows eligible trade and qualifying manufacturer cash rebate deductions. A manufacturer-issued credit or debit card payment is not a qualifying cash rebate. Use the full eligible trade value, not net equity."
+      ],
+      "competitor": {
+        "state": "IA",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=IA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "KS",
+      "name": "Kansas",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.ksrevenue.gov/pdf/pub1526.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.ksrevenue.gov/faqs-taxsales.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The 2025 publication supports qualifying assigned new-vehicle rebates. An older HTML publication still displays a June 2024 sunset; use the newer PDF. Trade must meet resale and transaction requirements. A separate 120-day sale-credit workflow is additional scope."
+      ],
+      "competitor": {
+        "state": "KS",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=KS&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "KY",
+      "name": "Kentucky",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://revenue.ky.gov/Property/Motor-Vehicles/Pages/Motor-Vehicle-Usage-Tax.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=53526",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying new-vehicle trade credit is allowed. Manufacturer or dealer rebates provided and applied at purchase reduce the price. Actual-price documentation and used-vehicle valuation rules remain relevant; do not apply this preset to every vehicle transfer."
+      ],
+      "competitor": {
+        "state": "KY",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=KY&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4800.0
+    },
+    {
+      "state": "LA",
+      "name": "Louisiana",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://doa.louisiana.gov/media/yuld4zs0/61v01.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue.louisiana.gov/LawsPolicies/LAC61_I_4301_4.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying trade transfers must occur simultaneously. A new-vehicle manufacturer rebate assigned to the selling dealer and directly reducing price is deductible. A buyer-retained cash rebate does not satisfy that scope."
+      ],
+      "competitor": {
+        "state": "LA",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=LA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "ME",
+      "name": "Maine",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://president.maine.gov/legis/statutes/36/title36sec1765.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.maine.gov/REVENUE/salesuse/Bull24.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade in the same property category reduces the base; manufacturer rebates remain taxable. Maine excise tax is separate from sales tax."
+      ],
+      "competitor": {
+        "state": "ME",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=ME&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "MD",
+      "name": "Maryland",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://mva.maryland.gov/your-mva-guide/businesses/bulletins-businesses/taxable-price",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The April 23, 2026 MVA bulletin allows eligible non-leased trade allowance, while manufacturer rebates remain taxable. Dealer processing charges are included. The applicable rate remains editable."
+      ],
+      "competitor": {
+        "state": "MD",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MD&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "MA",
+      "name": "Massachusetts",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.mass.gov/guides/motor-vehicle-and-trailer-sales-and-use-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible dealer or lessor business sales can deduct a qualifying previously taxed or exempt trade. A manufacturer rebate reduces the base when applied at sale. Later rebates and casual private trades have different treatment."
+      ],
+      "competitor": {
+        "state": "MA",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "MI",
+      "name": "Michigan",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.michigan.gov/taxes/rep-legal/rab/2022-revenue-administrative-bulletins/revenue-administrative-bulletin-2022-17",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/SUW/TY2026/485_11-25.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.michigan.gov/-/media/Project/Websites/sos/01preston/Dealer_Manual_Chapter_8.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "For ordinary motor vehicles, trade deduction is capped at $12,000 in 2026, $11,000 in 2025, $13,000 in 2027, and $14,000 in 2028; the scheduled cap ends in 2029. Manufacturer rebates remain taxable. RV-for-RV rules are different. Require transaction year and eligible vehicle class."
+      ],
+      "competitor": {
+        "state": "MI",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MI&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "tradeCap2026": 12000,
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "MN",
+      "name": "Minnesota",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.state.mn.us/sites/default/files/2011-11/RN_96-20.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.revenue.state.mn.us/guide/coupons-and-other-discounts",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle purchase price excludes eligible trade and rebate amounts. The current DOR guide continues to reference Revenue Notice 96-20."
+      ],
+      "competitor": {
+        "state": "MN",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MN&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "MS",
+      "name": "Mississippi",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.dor.ms.gov/business/business-tax-frequently-asked-questions",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.ms.gov/sites/default/files/Business/Part%20IV%20Sales%20and%20Use%20Tax.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade and dealer price reductions reduce the base; manufacturer rebates assigned to a dealer remain taxable."
+      ],
+      "competitor": {
+        "state": "MS",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MS&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "MO",
+      "name": "Missouri",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://sa.dor.mo.gov/mv/stc/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.mo.gov/forms/426.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official calculator uses net price after eligible trade and rebate amounts. Qualifying separate sales within 180 days are an additional credit workflow. Do not allow a negative taxable base."
+      ],
+      "competitor": {
+        "state": "MO",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MO&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "MT",
+      "name": "Montana",
+      "eligibleTradeDeductible": null,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "no_general_sales_tax",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://revenue.mt.gov/taxes/general-sales-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no general sales tax. Registration and other vehicle fees can still apply. Rebate and trade sales-tax flags are not meaningful without a relevant tax component."
+      ],
+      "competitor": {
+        "state": "MT",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=MT&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4800.0
+    },
+    {
+      "state": "NE",
+      "name": "Nebraska",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://revenue.nebraska.gov/about/chapter-1-sales-and-use-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue.nebraska.gov/sites/revenue.nebraska.gov/files/doc/info/6-191.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade and a manufacturer rebate transferred to the dealer at sale reduce the base. A later cash rebate does not. An owned trade must meet title and any lease-buyout requirements."
+      ],
+      "competitor": {
+        "state": "NE",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NE&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "NV",
+      "name": "Nevada",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://tax.nv.gov/wp-content/uploads/2025/09/Motor-Vehicle-and-Vessel-Dealers-Packet.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.nv.gov/faqs/nevada-national-guard-exemption-faqs/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.nv.gov/wp-content/uploads/2025/10/Nevada-Tax-Notes-October-2025-1.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible vehicle trade credit reduces the taxable amount. Manufacturer-reimbursed rebates remain taxable; an unreimbursed dealer discount reduces price. The current state FAQ independently confirms the trade credit."
+      ],
+      "competitor": {
+        "state": "NV",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NV&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "NH",
+      "name": "New Hampshire",
+      "eligibleTradeDeductible": null,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "no_general_sales_tax",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.revenue.nh.gov/resource-center/frequently-asked-questions/general-information",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no general sales tax. Registration and municipal permit fees are separate and can still be payable."
+      ],
+      "competitor": {
+        "state": "NH",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NH&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "NJ",
+      "name": "New Jersey",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://nj.gov/treasury/taxation/taxamnesty/treasury/taxation/documents/pdf/guides/New-Jersey-Consumer-Automotive-Tax-Guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade in the purchase transaction reduces price; manufacturer and reimbursed credit-card rebates remain taxable. An unreimbursed dealer discount is different."
+      ],
+      "competitor": {
+        "state": "NJ",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NJ&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "NM",
+      "name": "New Mexico",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.mvd.newmexico.gov/chapter-6-fees-penalties-and-excise-tax/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tax.newmexico.gov/2020/10/22/motor-vehicle-excise-tax/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle excise tax price excludes eligible trade and contractually guaranteed rebates, including qualifying rebates paid later. Private-sale valuation rules are outside this preset."
+      ],
+      "competitor": {
+        "state": "NM",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NM&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "NY",
+      "name": "New York",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/taxable_receipt.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade taken for resale and applied to the specific purchase reduces the base. Manufacturer rebates remain taxable whether assigned or paid later."
+      ],
+      "competitor": {
+        "state": "NY",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NY&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "NC",
+      "name": "North Carolina",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "trade_verified_rebate_unresolved",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.ncdor.gov/documents/reports/nc-tax-expenditure-report-2017/open",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_105/GS_105-187.3.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Highway use tax allows eligible motor vehicle trade allowance; dealer administrative fees enter the retail value. The vehicle-specific manufacturer rebate treatment remains unresolved. Certain commercial vehicles and RVs have tax caps, which must not be assumed for ordinary passenger cars."
+      ],
+      "competitor": {
+        "state": "NC",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=NC&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "ND",
+      "name": "North Dakota",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.tax.nd.gov/sites/www/files/documents/guidelines/business/sales-use/gl-21963.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The 2025 guideline deducts qualifying manufacturer discounts, incentives, or rebates applied at sale, plus eligible trade and qualifying insurance credits."
+      ],
+      "competitor": {
+        "state": "ND",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=ND&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "OH",
+      "name": "Ohio",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-5739.01",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Trade credit applies only to a new motor vehicle sold by a licensed new motor vehicle dealer. Used-vehicle purchases do not receive that trade deduction. Manufacturer third-party reimbursements remain taxable; employee or supplier discounts have separate exceptions."
+      ],
+      "competitor": {
+        "state": "OH",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=OH&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "tradeEligiblePurchasedVehicle": "new_only",
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "OK",
+      "name": "Oklahoma",
+      "eligibleTradeDeductible": null,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "different_tax_bases_require_current_reconciliation",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://oklahoma.gov/content/dam/service-oklahoma/intranet/sops/g--motor-vehicles/G.01%20-%20Original%20Titles.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://oklahoma.gov/content/dam/service-oklahoma/Documents/LicensedOperatorConference9.2023.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/rules-and-policies/agency-rules/Title710-2021.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Oklahoma has separate vehicle sales and excise taxes. The 2023 operator guidance allows trade credit for sales tax; older excise guidance excludes trade credit and includes valuation conditions. The indexed original-title procedure deducts rebates. Keep an actual tax override while reconciling the current effective excise rule and each separate base."
+      ],
+      "competitor": {
+        "state": "OK",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=OK&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0,
+      "taxComponents": {
+        "salesTax": {
+          "eligibleTradeDeductible": true,
+          "source": "2023 Service Oklahoma operator conference, SB984"
+        },
+        "exciseTax": {
+          "eligibleTradeDeductible": false,
+          "source": "2021 administrative rule and indexed original-title SOP; current effective rule requires reconciliation before automation"
+        }
+      }
+    },
+    {
+      "state": "OR",
+      "name": "Oregon",
+      "eligibleTradeDeductible": false,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.oregon.gov/dor/programs/businesses/Pages/Vehicle-privilege-and-use-taxes.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.oregon.gov/dor/programs/businesses/Documents/Publication_OR-V-TAX_Oregon_Vehicle_Use_Tax_Information_150-612-005.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying vehicle privilege/use tax allows rebate and discount reductions, but does not deduct trade allowance or down payment. Dealer, weight, mileage, and title eligibility matter. Oregon having no general sales tax does not make every qualifying vehicle tax-free."
+      ],
+      "competitor": {
+        "state": "OR",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=OR&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "PA",
+      "name": "Pennsylvania",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/use-tax/motor-vehicle-understated-value-program",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue-pa.custhelp.com/app/answers/detail/a_id/1813/kw/sales%20tax%20on%20vehicle%20purchase",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue-pa.custhelp.com/app/answers/detail/a_id/3988/~/how-is-sales-tax-calculated-on-a-sale-where-a-discount-or-coupon-is-applied",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official vehicle FAQ deducts eligible trade. The August 2026 DOR discount FAQ allows rebates and manufacturer coupons to establish a reduced price when the item and allowance appear on the invoice. Actual vehicle price must still satisfy applicable valuation rules."
+      ],
+      "competitor": {
+        "state": "PA",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=PA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "RI",
+      "name": "Rhode Island",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://rules.sos.ri.gov/Regulations/part/280-20-70-28?reg_id=9845",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The trade deduction is limited to eligible private passenger automobile-for-automobile exchanges; the regulation excludes a truck trade in its example. Eligible trade and manufacturer rebates reduce price. Require vehicle classification."
+      ],
+      "competitor": {
+        "state": "RI",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=RI&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "tradeEligibleClass": "private_passenger_automobile_to_private_passenger_automobile",
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "SC",
+      "name": "South Carolina",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_base_via_statutory_cross_reference",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.dor.sc.gov/node/1036",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://scdmvonline.com/-/media/Files/DealerConnection_Issue13_Feb2019.ashx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.scstatehouse.gov/Acts%26JointResolutions/2021/2021Acts%26JointResolutionsVolumeI.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.sc.gov/resources-site/lawandpolicy/Documents/SCSalesandUseTaxManual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "For an ordinary dealer purchase first registered in South Carolina, infrastructure maintenance fee is 5% capped at $500. The statute adopts Chapter 36 sales-price definitions, supporting eligible trade deduction and taxable third-party manufacturer rebates. Use the cap; a generic uncapped sales-tax percentage is insufficient."
+      ],
+      "competitor": {
+        "state": "SC",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=SC&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0,
+      "inference": "The infrastructure maintenance fee statute adopts Chapter 36 sales price definitions. The current DOR manual treats third-party manufacturer rebates as included in sales price. These primary sources jointly support taxable rebates; confirm this interpretation if expanding beyond ordinary dealer purchases."
+    },
+    {
+      "state": "SD",
+      "name": "South Dakota",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://dor.sd.gov/media/3ejfnthn/2023-mv-procedures-manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible owned trade reduces dealer purchase price; rebates remain taxable. Vehicle excise tax is separate from general sales tax. Lease treatment is outside this preset."
+      ],
+      "competitor": {
+        "state": "SD",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=SD&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "TN",
+      "name": "Tennessee",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://www.tn.gov/content/dam/tn/revenue/documents/tax_manuals/sales-use-tax-manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tn.gov/content/dam/tn/revenue/documents/tax_manuals/June-2024/auto-dealership-guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tn.gov/revenue/tax-fraud/out-of-state-llc-registration-scheme.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible same-transaction trade reduces the base; manufacturer rebates remain taxable. State sales tax, capped local tax, and additional single-article tax are separate components. Use a component calculation or an actual tax amount."
+      ],
+      "competitor": {
+        "state": "TN",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=TN&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "TX",
+      "name": "Texas",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://comptroller.texas.gov/taxes/publications/96-254/total-consideration.php",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://star.comptroller.texas.gov/view/202511005P?q1=legal+action+services",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Use the full eligible direct trade allowance in the same transaction, not trade equity. A separately stated manufacturer rebate passed to the customer reduces consideration. Private-party standard presumptive value and even-trade cases need separate treatment."
+      ],
+      "competitor": {
+        "state": "TX",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=TX&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "UT",
+      "name": "Utah",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://tax.utah.gov/forms-pubs/pub-05/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade must be between the same two parties in the same transaction. Qualifying manufacturer rebates are excluded whether paid to the buyer or retained as a down payment. Leased vehicles must first satisfy owned-trade requirements."
+      ],
+      "competitor": {
+        "state": "UT",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=UT&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "VT",
+      "name": "Vermont",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": null,
+      "sourceStatus": "trade_verified_rebate_unresolved",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://dmv.vermont.gov/registrations/new",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.vermont.gov/tax-title/vehicle-taxation/credits-refunds?order=title&sort=desc",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Purchase and use tax has vehicle valuation and eligible trade rules. A primary vehicle-specific manufacturer rebate rule was not established. General sales-tax or financing disclosure rules are not sufficient substitutes; use manual treatment for the unresolved allowance."
+      ],
+      "competitor": {
+        "state": "VT",
+        "status": 200,
+        "taxRow": "Sale Tax | $3,800.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=VT&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 3800.0
+    },
+    {
+      "state": "VA",
+      "name": "Virginia",
+      "eligibleTradeDeductible": false,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://transactions-t.dmv.virginia.gov/commercial/dealer/pdf/dealer_manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle sales and use tax includes trade and rebate credits in the taxable amount and has a $75 minimum. Unreimbursed dealer discounts are different. The minimum must be handled separately from the rate."
+      ],
+      "competitor": {
+        "state": "VA",
+        "status": 200,
+        "taxRow": "Sale Tax | $5,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=VA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 5000.0
+    },
+    {
+      "state": "WA",
+      "name": "Washington",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://dor.wa.gov/book/export/html/943",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade reduces retail sales tax; manufacturer rebates remain part of the selling price. B&O tax is separate. Do not apply the expired July 2025 EV exemption as a current default."
+      ],
+      "competitor": {
+        "state": "WA",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=WA&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "WV",
+      "name": "West Virginia",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": false,
+      "sources": [
+        {
+          "url": "https://transportation.wv.gov/DMV/vrs/training/Documents/DMV2024DealerSeminars.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://transportation.wv.gov/dmv/DMVFormSearch/DMV-1-TR_Certificate-for-Title-of-Motor-Vehicle-wf.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.wv.gov/titles",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade must meet West Virginia title and tax-paid conditions. Manufacturer rebates remain taxable. A minimum tax can apply to low-price transactions; use explicit minimum handling or a quoted tax amount."
+      ],
+      "competitor": {
+        "state": "WV",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=WV&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "WI",
+      "name": "Wisconsin",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": false,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.wi.gov/DOR%20Publications/pb202.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Manufacturer rebates do not reduce dealer taxable receipts. Eligible trade credit is deducted separately."
+      ],
+      "competitor": {
+        "state": "WI",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=WI&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    },
+    {
+      "state": "WY",
+      "name": "Wyoming",
+      "eligibleTradeDeductible": true,
+      "assignedManufacturerRebateDeductible": true,
+      "sourceStatus": "verified_scoped_base_treatment",
+      "automaticPresetSafe": true,
+      "sources": [
+        {
+          "url": "https://dot.state.wy.us/files/live/sites/wydot/files/shared/Motor%20Vehicle%20Services/WYSalesUseTaxStatementForMotorVehicleSales_08.01.22.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official vehicle sales statement deducts eligible trade and manufacturer rebates assigned at sale. A leased trade must first meet purchase, title, and tax requirements. The competitor calculation contradicts both this form and its own explanatory prose."
+      ],
+      "competitor": {
+        "state": "WY",
+        "status": 200,
+        "taxRow": "Sale Tax | $4,000.00",
+        "url": "https://www.calculator.net/auto-loan-calculator.html?csaleprice=50000&cmonthlypay=750&cloanterm=60&cinterestrate=5&cincentive=2000&cdownpayment=10000&ctradeinvalue=10000&ctradeinowned=0&cstate=WY&csaletax=10&ctitlereg=0&cttrinloan=1&ctype=standard&x=Calculate"
+      },
+      "salesTaxRateAutofill": false,
+      "observedTaxAtPrice50000Trade10000Rebate2000Rate10": 4000.0
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "AUTO-CA",
+      "state": "CA",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 50000,
+        "taxAtUserRate": 5000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-TX",
+      "state": "TX",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-MD",
+      "state": "MD",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-ID",
+      "state": "ID",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-NM",
+      "state": "NM",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-ND",
+      "state": "ND",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-WY",
+      "state": "WY",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-DE",
+      "state": "DE",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-IL",
+      "state": "IL",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-IN",
+      "state": "IN",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-NY",
+      "state": "NY",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-MA",
+      "state": "MA",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-MN",
+      "state": "MN",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-NE",
+      "state": "NE",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-UT",
+      "state": "UT",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "taxAtUserRate": 3800.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-WI",
+      "state": "WI",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-MS",
+      "state": "MS",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-CO",
+      "state": "CO",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-CT",
+      "state": "CT",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-AL",
+      "state": "AL",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "manufacturerRebate": 2000,
+        "taxRatePercent": 10,
+        "taxableFees": 0,
+        "qualifyingDealerTransaction": true,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "taxAtUserRate": 4000.0
+      },
+      "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+    },
+    {
+      "id": "AUTO-MI-CAP",
+      "state": "MI",
+      "input": {
+        "price": 50000,
+        "trade": 20000,
+        "rebate": 0,
+        "year": 2026,
+        "taxRatePercent": 6
+      },
+      "expected": {
+        "tradeDeduction": 12000,
+        "taxableBase": 38000,
+        "tax": 2280
+      }
+    },
+    {
+      "id": "AUTO-OH-NEW",
+      "state": "OH",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "purchasedCondition": "new",
+        "licensedNewDealer": true,
+        "taxRatePercent": 10
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000
+      }
+    },
+    {
+      "id": "AUTO-OH-USED",
+      "state": "OH",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "purchasedCondition": "used",
+        "taxRatePercent": 10
+      },
+      "expected": {
+        "taxableBase": 50000,
+        "tax": 5000
+      }
+    },
+    {
+      "id": "AUTO-TX-PAYOFF",
+      "state": "TX",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "tradeLoanPayoff": 15000,
+        "rebate": 2000,
+        "taxRatePercent": 6.25
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 2375,
+        "netTradeEquity": -5000
+      },
+      "notes": "Loanpayoff affectsfinanceprincipal, notfulltradecredit."
+    },
+    {
+      "id": "AUTO-OR",
+      "state": "OR",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "taxRatePercent": 0.5,
+        "vehicleQualifies": true
+      },
+      "expected": {
+        "taxableBase": 48000,
+        "tax": 240
+      }
+    },
+    {
+      "id": "AUTO-RI-TRUCK",
+      "state": "RI",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "tradeClass": "truck",
+        "purchaseClass": "private_passenger_automobile",
+        "taxRatePercent": 7
+      },
+      "expected": {
+        "taxableBase": 48000,
+        "tax": 3360
+      }
+    },
+    {
+      "id": "AUTO-NEGATIVE-BASE",
+      "input": {
+        "price": 10000,
+        "eligibleTrade": 12000,
+        "eligibleRebate": 0,
+        "taxRatePercent": 10
+      },
+      "expected": {
+        "taxableBase": 0,
+        "tax": 0
+      },
+      "notes": "No negative sales tax; this fixturedoesnotapplyVAminimumorotherspecialfees."
+    },
+    {
+      "id": "AUTO-RATE-PRESERVATION",
+      "input": {
+        "taxRatePercent": 7.25,
+        "oldState": "CA",
+        "newState": "TX"
+      },
+      "expected": {
+        "taxRatePercent": 7.25
+      }
+    },
+    {
+      "id": "AUTO-AK-LOCAL",
+      "state": "AK",
+      "expected": {
+        "automaticPreset": false,
+        "manualMunicipalityTaxRequired": true
+      }
+    },
+    {
+      "id": "AUTO-DC-VALUE",
+      "state": "DC",
+      "expected": {
+        "automaticPreset": false,
+        "manualDMVTaxOrVerifiedDMVValueRequired": true
+      }
+    },
+    {
+      "id": "AUTO-AZ",
+      "state": "AZ",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "ratePercent": 10,
+        "rebateAssignedAtSale": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800
+      }
+    },
+    {
+      "id": "AUTO-AR",
+      "state": "AR",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "ratePercent": 10
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000
+      }
+    },
+    {
+      "id": "AUTO-PA",
+      "state": "PA",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "ratePercent": 10,
+        "rebateShownOnInvoice": true
+      },
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800
+      }
+    },
+    {
+      "id": "AUTO-MI-REBATE-CAP",
+      "state": "MI",
+      "input": {
+        "price": 50000,
+        "trade": 20000,
+        "rebate": 2000,
+        "year": 2026,
+        "ratePercent": 6
+      },
+      "expected": {
+        "tradeDeduction": 12000,
+        "taxableBase": 38000,
+        "tax": 2280
+      }
+    },
+    {
+      "id": "AUTO-SC-CAP",
+      "state": "SC",
+      "input": {
+        "price": 50000,
+        "trade": 10000,
+        "rebate": 2000,
+        "ordinaryDealerPurchase": true,
+        "firstRegistrationInSC": true
+      },
+      "expected": {
+        "taxableBase": 40000,
+        "IMF": 500
+      }
+    },
+    {
+      "id": "AUTO-SC-BELOW-CAP",
+      "state": "SC",
+      "input": {
+        "price": 8000,
+        "trade": 1000,
+        "rebate": 500,
+        "ordinaryDealerPurchase": true,
+        "firstRegistrationInSC": true
+      },
+      "expected": {
+        "taxableBase": 7000,
+        "IMF": 350
+      }
+    },
+    {
+      "id": "AUTO-VA-MINIMUM",
+      "state": "VA",
+      "input": {
+        "price": 1000,
+        "trade": 200,
+        "rebate": 100,
+        "ratePercent": 4.15
+      },
+      "expected": {
+        "taxableBase": 1000,
+        "tax": 75
+      }
+    },
+    {
+      "id": "AUTO-OK-SPLIT",
+      "state": "OK",
+      "expected": {
+        "automaticCombinedTaxAllowed": false,
+        "actualTaxOverrideAvailable": true
+      }
+    },
+    {
+      "id": "AUTO-UNKNOWN-REBATE",
+      "state": "VT",
+      "input": {
+        "manufacturerRebate": 2000
+      },
+      "expected": {
+        "silentlyAssumeDeductible": false,
+        "manualTaxTreatmentRequired": true
+      }
+    }
+  ],
+  "counts": {
+    "states": 51,
+    "bothFlagsVerified": 43,
+    "simpleScopedPresetCandidates": 34,
+    "fixtures": 39
+  },
+  "pending": [
+    {
+      "state": "AK",
+      "status": "verified_local_rules_required",
+      "notes": [
+        "There is no statewide sales tax. Municipalities set their own sales taxes and exemptions. State selection cannot establish a local rate or rebate/trade rule; use a quoted local tax amount."
+      ]
+    },
+    {
+      "state": "DC",
+      "status": "verified_value_based_exception",
+      "notes": [
+        "Excise tax depends on DMV fair market value, weight, and fuel efficiency. Ordinary price times a state rate is not sufficient. Use the actual DMV tax amount or a verified DMV taxable value and applicable rate."
+      ]
+    },
+    {
+      "state": "HI",
+      "status": "trade_verified_GET_scope_rebate_unresolved",
+      "notes": [
+        "Official GET guidance treats trade allowance as a price adjustment. GET is a seller tax and may involve a passed-on gross-up. Manufacturer rebate treatment remains unresolved in this research. Use an actual tax amount until the specific transaction is established."
+      ]
+    },
+    {
+      "state": "MT",
+      "status": "no_general_sales_tax",
+      "notes": [
+        "There is no general sales tax. Registration and other vehicle fees can still apply. Rebate and trade sales-tax flags are not meaningful without a relevant tax component."
+      ]
+    },
+    {
+      "state": "NH",
+      "status": "no_general_sales_tax",
+      "notes": [
+        "There is no general sales tax. Registration and municipal permit fees are separate and can still be payable."
+      ]
+    },
+    {
+      "state": "NC",
+      "status": "trade_verified_rebate_unresolved",
+      "notes": [
+        "Highway use tax allows eligible motor vehicle trade allowance; dealer administrative fees enter the retail value. The vehicle-specific manufacturer rebate treatment remains unresolved. Certain commercial vehicles and RVs have tax caps, which must not be assumed for ordinary passenger cars."
+      ]
+    },
+    {
+      "state": "OK",
+      "status": "different_tax_bases_require_current_reconciliation",
+      "notes": [
+        "Oklahoma has separate vehicle sales and excise taxes. The 2023 operator guidance allows trade credit for sales tax; older excise guidance excludes trade credit and includes valuation conditions. The indexed original-title procedure deducts rebates. Keep an actual tax override while reconciling the current effective excise rule and each separate base."
+      ]
+    },
+    {
+      "state": "VT",
+      "status": "trade_verified_rebate_unresolved",
+      "notes": [
+        "Purchase and use tax has vehicle valuation and eligible trade rules. A primary vehicle-specific manufacturer rebate rule was not established. General sales-tax or financing disclosure rules are not sufficient substitutes; use manual treatment for the unresolved allowance."
+      ]
+    }
+  ],
+  "presetMeaning": "automaticPresetSafe identifies a candidate for a scoped taxable-base preset after the listed eligibility inputs, caps, dates, and exceptions are implemented. It does not validate arbitrary local rates or every transaction.",
+  "directAccessLimitations": [
+    "Some primary agency PDFs were accessible through indexed official text but failed direct downloads or redirected. Those sources are retained as provenance, not represented as locally archived full PDFs.",
+    "Michigan dealer-manual rebate text was verified through indexed official content; direct fetch failed.",
+    "Oklahoma original-title SOP was indexed but the direct URL returned 404, so current excise treatment remains unresolved.",
+    "South Carolina rebate treatment is a stated inference across the IMF statute and current DOR sales-price guidance."
+  ]
+}

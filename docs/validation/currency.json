@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "status": "complete-no-open-findings-in-tested-scope",
+  "testedAt": "2026-10-09T15:30:40.958469+00:00",
+  "scope": "Independent global-currency normalization, numerical precision, provenance, dates/freshness, official UF parsing, cache/failure/privacy and bounded browser integration QA.",
+  "results": {
+    "isolatedContractChecks": 39,
+    "isolatedPassed": 39,
+    "formalVitestTests": 43,
+    "formalVitestPassed": 43,
+    "independentNumericJsonFixtures": 9,
+    "browserIntegrationCases": 8,
+    "browserPassed": 8,
+    "desktopAxeViolations": 0,
+    "mobileAxeViolations": 0,
+    "mobileViewportAndPageWidth": 390,
+    "browserRuntimeErrors": 0,
+    "browserConsoleWarnings": 0,
+    "upstreamSmokeCalls": 1,
+    "smokeHttpStatus": 200,
+    "smokeQuotes": 167,
+    "smokeMissing": [
+      "BGN",
+      "CUC",
+      "HRK",
+      "SLL",
+      "STD",
+      "ZWL"
+    ],
+    "targetedEslint": "pass",
+    "fullTypecheckWithoutIncremental": "pass"
+  },
+  "resolvedFindings": [
+    {
+      "id": "offline-identity",
+      "behavior": "Same-instrument conversion returns rate1 without fetching, preserving123.45USD."
+    },
+    {
+      "id": "per-quote-freshness",
+      "behavior": "Expired spot and daily quotes are pruned independently. Valid daily pairs survive refresh failure; USD identity remains available. Structural corruption is rejected before pruning."
+    },
+    {
+      "id": "future-and-invalid-dates",
+      "behavior": "Tomorrow observations and future retrieval timestamps rejected; impossible contributor dates and nonboolean exclusions rejected."
+    },
+    {
+      "id": "replacement-provenance",
+      "behavior": "Inverse-quote attribution and peg status replace the coarse quote provenance; omitted expanded providers retain the documented Frankfurter peg interpretation."
+    },
+    {
+      "id": "usd-identity-source",
+      "behavior": "API does not relabel USD mathematical identity as a blended peg quote."
+    },
+    {
+      "id": "uf-civil-date",
+      "behavior": "SII current date/year follows America/Santiago, including after midnight UTC and UTC New Year; blank observations are never silently replaced."
+    },
+    {
+      "id": "uf-positive-value",
+      "behavior": "UF zero and malformed localized decimals are rejected; exact dated values are parsed across multi-column day cells."
+    },
+    {
+      "id": "numeric-underflow",
+      "behavior": "Positive quote/cross-rate underflow is rejected instead of returning a plausible zero."
+    }
+  ],
+  "independentEvidence": {
+    "gold": "Pinned direct XAU/USD4138.78 gives2XAU=8277.56USD; avoids coarse1/.00024 inversion.",
+    "vnd": "Pinned direct USD/VND25868 preserves25868VND=1USD; avoids coarse inverse .000039.",
+    "uf": "SII Oct9,2026 value41130.94CLP/UF gives2UF=82261.88CLP.",
+    "nbp": "Pinned USD/PLN3.9022 and EUR/PLN4.3775 give100USD=89.14220445459737EUR.",
+    "sources": "Primary cached evidence in /tmp/finflo-state-currency-research; no competitor output used as arithmetic oracle."
+  },
+  "networkPrivacy": {
+    "browser": "Exactly one mocked generic GET /api/global-rates, no query/body/amount/selected currencies, no third-party request. Subsequent conversion and matrix operations use browser snapshot.",
+    "tests": "All formal tests and39isolated checks mock upstream fetches. One separately recorded actual endpoint smoke was the only live upstream exercise.",
+    "spotPolicy": "15-minute retrieval-age cutoff; daily14-day source-age policy verified at relevant boundaries."
+  },
+  "artifacts": {
+    "isolatedRunner": "/tmp/finflo-research-math-everyday/currency-qa/probe.cjs",
+    "isolatedResults": "/tmp/finflo-research-math-everyday/currency-qa/probe-results.json",
+    "snapshotHashes": "/tmp/finflo-research-math-everyday/currency-qa/snapshot-hashes.json",
+    "formalTests": "/Users/arshadnawaz/Desktop/calculator/finflo/tests/currency-global.test.ts",
+    "numericFixtures": "/Users/arshadnawaz/Desktop/calculator/finflo/tests/fixtures/currency-global-reference.json",
+    "vitestResults": "/tmp/finflo-research-math-everyday/currency-qa/vitest-result.json",
+    "browserRunner": "/tmp/finflo-research-math-everyday/currency-qa/browser.cjs",
+    "browserResults": "/tmp/finflo-research-math-everyday/currency-qa/browser-results.json",
+    "mobileScreenshot": "/tmp/finflo-research-math-everyday/currency-qa/currency-mobile.png",
+    "liveSmoke": "/tmp/finflo-research-math-everyday/currency-qa/actual-endpoint-smoke.json",
+    "liveResponse": "/tmp/finflo-research-math-everyday/currency-qa/actual-endpoint-response.json"
+  },
+  "authorizedProjectEdits": [
+    {
+      "path": "/Users/arshadnawaz/Desktop/calculator/finflo/tests/currency-global.test.ts",
+      "sha256": "fbeddbbd5a93d2a7853835215e9c85dfc2189ea3a0a2063de1680a821bf5bda3"
+    },
+    {
+      "path": "/Users/arshadnawaz/Desktop/calculator/finflo/tests/fixtures/currency-global-reference.json",
+      "sha256": "786fc56a15090e112a97834e9399862a523fbdcd05c4dbf3176cb2ac691d65c1"
+    }
+  ],
+  "productCalculationOrUiEdits": false,
+  "openFindings": [],
+  "limits": [
+    "The single live endpoint smoke occurred before USD-source metadata was corrected; the correction is verified by final isolated and formal mocked endpoint tests. It was not refetched merely to refresh evidence.",
+    "Browser automation used cached synthetic quotes with independent expected arithmetic; no claim that its numeric sample values are currently tradable rates.",
+    "Automated axe and Chromium emulation are bounded checks, not a full independent accessibility certification.",
+    "Snapshot and test counts overlap; do not sum them as distinct coverage."
+  ]
+}

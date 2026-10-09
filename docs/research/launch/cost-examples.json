@@ -1,0 +1,71 @@
+{
+  "assumptions": [
+    "These are illustrative request volumes, not measured website traffic forecasts or provider capacity benchmarks. Public browser calculator use generates zero DB reads/writes in the recommended architecture.",
+    "30-day month, uniform daily operations, one region, no transactions, no optional paid add-ons, taxes excluded, USD.",
+    "Firestore assumes one qualifying default database, direct document reads with a 1 KiB returned payload, no extra index/rules/listener reads, and 30-day hourly storage rate. GB/GiB distinctions are provider-specific; sample stored-size number is interpreted using each provider billing unit.",
+    "Firestore sample egress is to US/Europe destinations; other regions and protocol/data overhead can alter bills.",
+    "DynamoDB estimates are REQUESTS ONLY with 1 RRU/read and 1 WRU/write; storage allowance eligibility and transfer/service costs are separate.",
+    "Neon CU-hours are additional independent assumptions, not inferred from query counts. Actual compute depends on timing, concurrency, indexes, query complexity, and scale-to-zero wake intervals. History, extra branches and snapshots excluded; model egress below 500 GB.",
+    "Upstash assumes each operation maps to one billed command, one region, no paid Prod Pack.",
+    "Billing alerts are not hard caps unless the provider explicitly enforces one."
+  ],
+  "workloads": [
+    {
+      "name": "low",
+      "reads": 100000,
+      "writes": 10000,
+      "average_stored_gb": 0.25,
+      "neon_assumed_cu_hours": 1,
+      "estimates_usd": {
+        "no_database": 0,
+        "firestore_reads": 0.0,
+        "firestore_writes": 0.0,
+        "firestore_storage": 0.0,
+        "firestore_egress": 0.0,
+        "firestore_total": 0.0,
+        "dynamodb_requests_only": 0.01875,
+        "dynamodb_storage_if_no_allowance": 0.0625,
+        "neon_compute_plus_storage": 0.1935,
+        "upstash_commands_plus_storage": 0.22
+      }
+    },
+    {
+      "name": "medium",
+      "reads": 10000000,
+      "writes": 100000,
+      "average_stored_gb": 1,
+      "neon_assumed_cu_hours": 100,
+      "estimates_usd": {
+        "no_database": 0,
+        "firestore_reads": 2.55,
+        "firestore_writes": 0.0,
+        "firestore_storage": 0.0,
+        "firestore_egress": 0.0,
+        "firestore_total": 2.55,
+        "dynamodb_requests_only": 1.3125,
+        "dynamodb_storage_if_no_allowance": 0.25,
+        "neon_compute_plus_storage": 10.95,
+        "upstash_commands_plus_storage": 20.2
+      }
+    },
+    {
+      "name": "high",
+      "reads": 100000000,
+      "writes": 1000000,
+      "average_stored_gb": 10,
+      "neon_assumed_cu_hours": 730,
+      "estimates_usd": {
+        "no_database": 0,
+        "firestore_reads": 29.55,
+        "firestore_writes": 0.36,
+        "firestore_storage": 1.3315,
+        "firestore_egress": 10.2441,
+        "firestore_total": 41.49,
+        "dynamodb_requests_only": 13.125,
+        "dynamodb_storage_if_no_allowance": 2.5,
+        "neon_compute_plus_storage": 80.88,
+        "upstash_commands_plus_storage": 204.25
+      }
+    }
+  ]
+}

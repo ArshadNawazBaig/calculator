@@ -1,0 +1,1501 @@
+[
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-two-semesters-prior",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "letter",
+      "gradeScale": {
+        "A+": 4,
+        "A": 4,
+        "A-": 3.7,
+        "B+": 3.3,
+        "B": 3,
+        "B-": 2.7,
+        "C+": 2.3,
+        "C": 2,
+        "C-": 1.7,
+        "D+": 1.3,
+        "D": 1,
+        "D-": 0.7,
+        "F": 0,
+        "P": null,
+        "NP": null
+      },
+      "courses": [
+        {
+          "semester": "Fall",
+          "grade": "A",
+          "credits": 3
+        },
+        {
+          "semester": "Fall",
+          "grade": "B",
+          "credits": 1
+        },
+        {
+          "semester": "Spring",
+          "grade": "B+",
+          "credits": 2
+        },
+        {
+          "semester": "Spring",
+          "grade": "C",
+          "credits": 2
+        },
+        {
+          "semester": "Spring",
+          "grade": "P",
+          "credits": 3
+        }
+      ],
+      "previousGpa": 3,
+      "previousCredits": 12
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "termGpas": {
+        "Fall": 3.75,
+        "Spring": 2.65
+      },
+      "newGradedCredits": 8,
+      "newQualityPoints": 25.6,
+      "totalGradedCredits": 20,
+      "cumulativeGpa": 3.08
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12,
+    "derivation": "(15 + 10.6 + 3*12)/(4+4+12)=3.08; the P course does not enter the GPA denominator."
+  },
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-unequal-term-credits",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "letter",
+      "courses": [
+        {
+          "semester": "Fall",
+          "grade": "A",
+          "credits": 3
+        },
+        {
+          "semester": "Fall",
+          "grade": "B",
+          "credits": 1
+        },
+        {
+          "semester": "Spring",
+          "grade": "B",
+          "credits": 2
+        }
+      ],
+      "gradeScale": {
+        "A+": 4,
+        "A": 4,
+        "A-": 3.7,
+        "B+": 3.3,
+        "B": 3,
+        "B-": 2.7,
+        "C+": 2.3,
+        "C": 2,
+        "C-": 1.7,
+        "D+": 1.3,
+        "D": 1,
+        "D-": 0.7,
+        "F": 0,
+        "P": null,
+        "NP": null
+      },
+      "previousGpa": 0,
+      "previousCredits": 0
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "cumulativeGpa": 3.5,
+      "newQualityPoints": 21,
+      "newGradedCredits": 6
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-fail-counts",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "letter",
+      "gradeScale": {
+        "A+": 4,
+        "A": 4,
+        "A-": 3.7,
+        "B+": 3.3,
+        "B": 3,
+        "B-": 2.7,
+        "C+": 2.3,
+        "C": 2,
+        "C-": 1.7,
+        "D+": 1.3,
+        "D": 1,
+        "D-": 0.7,
+        "F": 0,
+        "P": null,
+        "NP": null
+      },
+      "courses": [
+        {
+          "grade": "F",
+          "credits": 3
+        },
+        {
+          "grade": "A",
+          "credits": 1
+        }
+      ],
+      "previousGpa": 0,
+      "previousCredits": 0
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "cumulativeGpa": 1,
+      "newGradedCredits": 4
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-percent-boundary",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "percentage",
+      "percentScale": [
+        {
+          "minimumPercent": 90,
+          "points": 4
+        },
+        {
+          "minimumPercent": 80,
+          "points": 3
+        },
+        {
+          "minimumPercent": 70,
+          "points": 2
+        },
+        {
+          "minimumPercent": 60,
+          "points": 1
+        },
+        {
+          "minimumPercent": 0,
+          "points": 0
+        }
+      ],
+      "courses": [
+        {
+          "grade": 89,
+          "credits": 3
+        },
+        {
+          "grade": 90,
+          "credits": 3
+        }
+      ],
+      "previousGpa": 0,
+      "previousCredits": 0
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "cumulativeGpa": 3.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-all-excluded",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "letter",
+      "gradeScale": {
+        "A+": 4,
+        "A": 4,
+        "A-": 3.7,
+        "B+": 3.3,
+        "B": 3,
+        "B-": 2.7,
+        "C+": 2.3,
+        "C": 2,
+        "C-": 1.7,
+        "D+": 1.3,
+        "D": 1,
+        "D-": 0.7,
+        "F": 0,
+        "P": null,
+        "NP": null
+      },
+      "courses": [
+        {
+          "grade": "P",
+          "credits": 3
+        }
+      ],
+      "previousGpa": 0,
+      "previousCredits": 0
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "No graded credits."
+  },
+  {
+    "group": "gpa-letter-percentage-semesters",
+    "slug": "gpa-calculator",
+    "id": "gpa-unknown-symbol",
+    "proposedModeId": "semester-grades",
+    "inputs": {
+      "gradeFormat": "letter",
+      "gradeScale": {
+        "A+": 4,
+        "A": 4,
+        "A-": 3.7,
+        "B+": 3.3,
+        "B": 3,
+        "B-": 2.7,
+        "C+": 2.3,
+        "C": 2,
+        "C-": 1.7,
+        "D+": 1.3,
+        "D": 1,
+        "D-": 0.7,
+        "F": 0,
+        "P": null,
+        "NP": null
+      },
+      "courses": [
+        {
+          "grade": "Z",
+          "credits": 3
+        }
+      ]
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Choose a defined grade or edit the grade scale."
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "federal-observed-2026",
+    "proposedModeId": "holiday-generation",
+    "inputs": {
+      "year": 2026,
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "observed-mon-fri"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "dates": [
+        "2026-01-01",
+        "2026-01-19",
+        "2026-02-16",
+        "2026-05-25",
+        "2026-06-19",
+        "2026-07-03",
+        "2026-09-07",
+        "2026-10-12",
+        "2026-11-11",
+        "2026-11-26",
+        "2026-12-25"
+      ]
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-july-observed",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2026-07-02",
+      "days": 1,
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "observed-mon-fri"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2026-07-06"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-july-actual",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2026-07-02",
+      "days": 1,
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "actual"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2026-07-03"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-next-year-holiday",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2021-12-30",
+      "days": 1,
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "observed-mon-fri"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2022-01-03"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12,
+    "derivation": "New Year 2022 falls Saturday, observed Friday 2021-12-31."
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-custom-week",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2026-10-08",
+      "days": 1,
+      "workdays": [
+        7,
+        1,
+        2,
+        3,
+        4
+      ],
+      "holidayPreset": "none"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2026-10-11"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-custom-week-inclusive",
+    "proposedModeId": "business",
+    "inputs": {
+      "start": "2026-10-11",
+      "end": "2026-10-15",
+      "inclusive": "yes",
+      "workdays": [
+        7,
+        1,
+        2,
+        3,
+        4
+      ],
+      "holidayPreset": "none"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "businessDays": 5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-custom-recurring",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2026-12-23",
+      "days": 1,
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "observed-mon-fri",
+      "recurringHolidays": [
+        {
+          "month": 12,
+          "day": 24
+        }
+      ]
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2026-12-28"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-leap-recurring-skip",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2027-02-28",
+      "days": 1,
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "none",
+      "recurringHolidays": [
+        {
+          "month": 2,
+          "day": 29
+        }
+      ]
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "date": "2027-03-01"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-duplicate-holiday",
+    "proposedModeId": "business",
+    "inputs": {
+      "start": "2026-07-02",
+      "end": "2026-07-07",
+      "inclusive": "no",
+      "workdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "holidayPreset": "us-federal-current",
+      "holidayObservation": "observed-mon-fri",
+      "holidays": [
+        "2026-07-03",
+        "2026-07-03"
+      ]
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "businessDays": 2
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "business-calendar-options",
+    "slug": "date-calculator",
+    "id": "business-empty-workweek",
+    "proposedModeId": "business-add",
+    "inputs": {
+      "start": "2026-10-08",
+      "days": 1,
+      "workdays": []
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Select at least one working weekday."
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-rounding-daily",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-06",
+          "start": "08:07",
+          "end": "17:08",
+          "breakMinutes": 30
+        }
+      ],
+      "overtimeMode": "daily",
+      "threshold": 8,
+      "roundMinutes": 15,
+      "rate": 20,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "rawHours": 8.516666666666667,
+      "totalHours": 8.75,
+      "regularHours": 8,
+      "overtimeHours": 0.75,
+      "grossPay": 182.5,
+      "roundedPunches": [
+        "2026-10-06T08:00:00",
+        "2026-10-06T17:15:00"
+      ]
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-daily-not-weekly",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-05",
+          "start": "08:00",
+          "end": "18:00",
+          "breakMinutes": 0
+        },
+        {
+          "workDate": "2026-10-06",
+          "start": "08:00",
+          "end": "14:00",
+          "breakMinutes": 0
+        }
+      ],
+      "overtimeMode": "daily",
+      "threshold": 8,
+      "roundMinutes": 0,
+      "rate": 20,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "totalHours": 16,
+      "regularHours": 14,
+      "overtimeHours": 2,
+      "grossPay": 340
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-weekly-same-shifts",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-05",
+          "start": "08:00",
+          "end": "18:00",
+          "breakMinutes": 0
+        },
+        {
+          "workDate": "2026-10-06",
+          "start": "08:00",
+          "end": "14:00",
+          "breakMinutes": 0
+        }
+      ],
+      "overtimeMode": "weekly",
+      "threshold": 40,
+      "roundMinutes": 0,
+      "rate": 20,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "totalHours": 16,
+      "regularHours": 16,
+      "overtimeHours": 0,
+      "grossPay": 320
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-overnight-rounding",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-05",
+          "start": "22:58",
+          "end": "06:07",
+          "breakMinutes": 30
+        }
+      ],
+      "overtimeMode": "none",
+      "threshold": 8,
+      "roundMinutes": 15,
+      "rate": 20,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "totalHours": 6.5,
+      "regularHours": 6.5,
+      "overtimeHours": 0,
+      "grossPay": 130,
+      "roundedPunches": [
+        "2026-10-05T23:00:00",
+        "2026-10-06T06:00:00"
+      ]
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-multiple-shifts-same-day",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-06",
+          "start": "08:00",
+          "end": "12:00",
+          "breakMinutes": 0
+        },
+        {
+          "workDate": "2026-10-06",
+          "start": "13:00",
+          "end": "18:00",
+          "breakMinutes": 0
+        }
+      ],
+      "overtimeMode": "daily",
+      "threshold": 8,
+      "roundMinutes": 0,
+      "rate": 20,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "totalHours": 9,
+      "regularHours": 8,
+      "overtimeHours": 1,
+      "grossPay": 190
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-half-way-rounds-later",
+    "proposedModeId": "round-punch",
+    "inputs": {
+      "time": "08:05:00",
+      "roundMinutes": 10
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "time": "08:10:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timecard-overtime-rounding",
+    "slug": "time-card-calculator",
+    "id": "timecard-rounded-break-exceeds-span",
+    "proposedModeId": "timesheet",
+    "inputs": {
+      "shifts": [
+        {
+          "workDate": "2026-10-06",
+          "start": "08:01",
+          "end": "08:06",
+          "breakMinutes": 5
+        }
+      ],
+      "overtimeMode": "none",
+      "roundMinutes": 15,
+      "rate": 20,
+      "threshold": 8,
+      "multiplier": 1.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Unpaid break exceeds the rounded shift length."
+  },
+  {
+    "group": "tile-layout-boxes-price",
+    "slug": "tile-calculator",
+    "id": "tile-grid-joint-exact-fit",
+    "proposedModeId": "procurement",
+    "inputs": {
+      "areaInput": "room-dimensions",
+      "layoutModel": "straight-grid-no-offcut-reuse",
+      "length": 2010,
+      "width": 1000,
+      "tileLength": 1000,
+      "tileWidth": 1000,
+      "gap": 10,
+      "lengthUnit": "mm",
+      "waste": 10,
+      "tilesPerBox": 2,
+      "purchaseBasis": "box",
+      "priceBasis": "box",
+      "price": 20
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "columns": 2,
+      "rows": 1,
+      "baseTiles": 2,
+      "orderTiles": 3,
+      "boxes": 2,
+      "purchasedTiles": 4,
+      "packageSurplus": 1,
+      "materialCost": 40
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tile-layout-boxes-price",
+    "slug": "tile-calculator",
+    "id": "tile-area-boxes",
+    "proposedModeId": "procurement",
+    "inputs": {
+      "areaInput": "known-area",
+      "layoutModel": "area-estimate",
+      "area": 10,
+      "areaUnit": "m2",
+      "tileLength": 0.25,
+      "tileWidth": 0.25,
+      "lengthUnit": "m",
+      "gap": 0,
+      "waste": 10,
+      "tilesPerBox": 12,
+      "purchaseBasis": "box",
+      "priceBasis": "box",
+      "price": 18
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "equivalentTiles": 160,
+      "orderTiles": 176,
+      "boxes": 15,
+      "purchasedTiles": 180,
+      "materialCost": 270
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tile-layout-boxes-price",
+    "slug": "tile-calculator",
+    "id": "tile-area-single-rounding",
+    "proposedModeId": "procurement",
+    "inputs": {
+      "areaInput": "known-area",
+      "layoutModel": "area-estimate",
+      "area": 0.21,
+      "areaUnit": "m2",
+      "tileLength": 0.5,
+      "tileWidth": 0.2,
+      "lengthUnit": "m",
+      "gap": 0,
+      "waste": 10,
+      "tilesPerBox": 1,
+      "purchaseBasis": "tile",
+      "priceBasis": "tile",
+      "price": 4
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "equivalentTiles": 2.1,
+      "orderTiles": 3,
+      "materialCost": 12
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12,
+    "derivation": "ceil(2.1*1.1)=3. Rounding 2.1 first and then adding allowance incorrectly produces 4 under this area-estimate contract."
+  },
+  {
+    "group": "tile-layout-boxes-price",
+    "slug": "tile-calculator",
+    "id": "tile-grid-no-reuse",
+    "proposedModeId": "procurement",
+    "inputs": {
+      "areaInput": "room-dimensions",
+      "layoutModel": "straight-grid-no-offcut-reuse",
+      "length": 1500,
+      "width": 1500,
+      "tileLength": 1000,
+      "tileWidth": 1000,
+      "gap": 0,
+      "lengthUnit": "mm",
+      "waste": 0,
+      "tilesPerBox": 1,
+      "purchaseBasis": "tile",
+      "priceBasis": "tile",
+      "price": 1
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "rows": 2,
+      "columns": 2,
+      "baseTiles": 4,
+      "orderTiles": 4,
+      "materialCost": 4
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tile-layout-boxes-price",
+    "slug": "tile-calculator",
+    "id": "tile-invalid-box",
+    "proposedModeId": "procurement",
+    "inputs": {
+      "tilesPerBox": 2.5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Tiles per box must be a positive integer."
+  },
+  {
+    "group": "resistor-band-count-options",
+    "slug": "resistor-calculator",
+    "id": "resistor-three-band",
+    "proposedModeId": "colors",
+    "inputs": {
+      "bandCount": 3,
+      "a": "brown",
+      "b": "black",
+      "multiplier": "orange"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "resistanceOhm": 10000,
+      "tolerancePercent": 20,
+      "minimumOhm": 8000,
+      "maximumOhm": 12000
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "resistor-band-count-options",
+    "slug": "resistor-calculator",
+    "id": "resistor-four-band-fractional",
+    "proposedModeId": "colors",
+    "inputs": {
+      "bandCount": 4,
+      "a": "yellow",
+      "b": "violet",
+      "multiplier": "gold",
+      "tolerance": "gold"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "resistanceOhm": 4.7,
+      "tolerancePercent": 5,
+      "minimumOhm": 4.465,
+      "maximumOhm": 4.935
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "resistor-band-count-options",
+    "slug": "resistor-calculator",
+    "id": "resistor-five-band",
+    "proposedModeId": "colors",
+    "inputs": {
+      "bandCount": 5,
+      "a": "red",
+      "b": "violet",
+      "c": "brown",
+      "multiplier": "orange",
+      "tolerance": "brown"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "resistanceOhm": 271000,
+      "tolerancePercent": 1,
+      "minimumOhm": 268290,
+      "maximumOhm": 273710
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "resistor-band-count-options",
+    "slug": "resistor-calculator",
+    "id": "resistor-six-band",
+    "proposedModeId": "colors",
+    "inputs": {
+      "bandCount": 6,
+      "a": "red",
+      "b": "green",
+      "c": "black",
+      "multiplier": "red",
+      "tolerance": "brown",
+      "temperatureCoefficient": "blue"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "resistanceOhm": 25000,
+      "tolerancePercent": 1,
+      "minimumOhm": 24750,
+      "maximumOhm": 25250,
+      "temperatureCoefficientPpmPerK": 10
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "resistor-band-count-options",
+    "slug": "resistor-calculator",
+    "id": "resistor-invalid-tolerance",
+    "proposedModeId": "colors",
+    "inputs": {
+      "bandCount": 4,
+      "a": "red",
+      "b": "red",
+      "multiplier": "brown",
+      "tolerance": "orange"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Tolerance color is not in the supported reference table."
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-km-per-liter",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 600,
+      "distanceUnit": "km",
+      "economy": 15,
+      "economyUnit": "km/L",
+      "price": 1.6,
+      "priceUnit": "per-L"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "liters": 40,
+      "cost": 64
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-liters-per-mile-price-gallon",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 50,
+      "distanceUnit": "mi",
+      "economy": 0.08,
+      "economyUnit": "L/mi",
+      "price": 3.785411784,
+      "priceUnit": "per-US-gal"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "liters": 4,
+      "cost": 4
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-us-mpg-independent",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 300,
+      "distanceUnit": "mi",
+      "economy": 20,
+      "economyUnit": "US-mpg",
+      "price": 4,
+      "priceUnit": "per-US-gal"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "usGallons": 15,
+      "liters": 56.78117676,
+      "cost": 60
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-metric-price-gallon",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 400,
+      "distanceUnit": "km",
+      "economy": 8,
+      "economyUnit": "L/100km",
+      "price": 4,
+      "priceUnit": "per-US-gal"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "liters": 32,
+      "cost": 33.814022701842994
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-zero-distance",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 0,
+      "distanceUnit": "mi",
+      "economy": 20,
+      "economyUnit": "US-mpg",
+      "price": 4,
+      "priceUnit": "per-US-gal"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "liters": 0,
+      "cost": 0
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "fuel-independent-units",
+    "slug": "fuel-cost-calculator",
+    "id": "fuel-zero-economy",
+    "proposedModeId": "trip",
+    "inputs": {
+      "distance": 50,
+      "distanceUnit": "km",
+      "economy": 0,
+      "economyUnit": "km/L",
+      "price": 1,
+      "priceUnit": "per-L"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Fuel economy must be positive."
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-mile-two-thirty",
+    "proposedModeId": "solve",
+    "inputs": {
+      "solve": "speed",
+      "distance": 1,
+      "distanceUnit": "mi",
+      "durationFormat": "hms",
+      "duration": "00:02:30",
+      "outputSpeedUnit": "mph"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "metersPerSecond": 10.72896,
+      "speed": 24
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-distance-hms",
+    "proposedModeId": "solve",
+    "inputs": {
+      "solve": "distance",
+      "speed": 72,
+      "speedUnit": "km/h",
+      "durationFormat": "hms",
+      "duration": "01:15:00",
+      "outputDistanceUnit": "km"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "distance": 90,
+      "distanceMeters": 90000
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-time-si",
+    "proposedModeId": "solve",
+    "inputs": {
+      "solve": "time",
+      "distance": 1500,
+      "distanceUnit": "m",
+      "speed": 5,
+      "speedUnit": "m/s"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "durationSeconds": 300,
+      "durationHms": "00:05:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-knots-conversion",
+    "proposedModeId": "convert",
+    "inputs": {
+      "speed": 10,
+      "speedUnit": "knots",
+      "outputSpeedUnit": "km/h"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "speed": 18.52
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-over-day",
+    "proposedModeId": "solve",
+    "inputs": {
+      "solve": "distance",
+      "speed": 5,
+      "speedUnit": "km/h",
+      "durationFormat": "hms",
+      "duration": "25:30:00",
+      "outputDistanceUnit": "km"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "distance": 127.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "speed-duration-and-units",
+    "slug": "speed-calculator",
+    "id": "speed-bad-duration",
+    "proposedModeId": "solve",
+    "inputs": {
+      "solve": "speed",
+      "distance": 10,
+      "distanceUnit": "km",
+      "durationFormat": "hms",
+      "duration": "01:60:00"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Duration minutes must be less than 60."
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "password-unique-digits",
+    "proposedModeId": "password",
+    "inputs": {
+      "lowercase": false,
+      "uppercase": false,
+      "digits": true,
+      "symbols": false,
+      "ambiguous": "include",
+      "excludeBrackets": false,
+      "unique": true,
+      "length": 10,
+      "count": 3
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "properties": [
+      {
+        "eachPasswordLength": 10
+      },
+      {
+        "eachPasswordSortedEquals": "0123456789"
+      },
+      {
+        "passwordCount": 3
+      }
+    ]
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "password-unique-unambiguous-digits",
+    "proposedModeId": "password",
+    "inputs": {
+      "lowercase": false,
+      "uppercase": false,
+      "digits": true,
+      "symbols": false,
+      "ambiguous": "exclude-0O1Il",
+      "excludeBrackets": false,
+      "unique": true,
+      "length": 8,
+      "count": 2
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "properties": [
+      {
+        "eachPasswordSortedEquals": "23456789"
+      },
+      {
+        "passwordCount": 2
+      }
+    ]
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "password-unique-impossible",
+    "proposedModeId": "password",
+    "inputs": {
+      "lowercase": false,
+      "uppercase": false,
+      "digits": true,
+      "symbols": false,
+      "ambiguous": "exclude-0O1Il",
+      "unique": true,
+      "length": 9,
+      "count": 1
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Only 8 different characters remain; shorten the password or allow repetition."
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "password-exclude-brackets",
+    "proposedModeId": "password",
+    "inputs": {
+      "lowercase": true,
+      "uppercase": true,
+      "digits": true,
+      "symbols": true,
+      "ambiguous": "exclude-0O1Il",
+      "excludeBrackets": true,
+      "unique": false,
+      "length": 24,
+      "count": 5
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "properties": [
+      {
+        "eachPasswordLength": 24
+      },
+      {
+        "eachPasswordExcludes": "0O1Il()[]{}<>"
+      },
+      {
+        "eachPasswordHasClasses": [
+          "lowercase",
+          "uppercase",
+          "digits",
+          "symbols"
+        ]
+      },
+      {
+        "passwordCount": 5
+      }
+    ]
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "password-no-class",
+    "proposedModeId": "password",
+    "inputs": {
+      "lowercase": false,
+      "uppercase": false,
+      "digits": false,
+      "symbols": false,
+      "length": 20,
+      "count": 1
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Select at least one character class."
+  },
+  {
+    "group": "password-character-options",
+    "slug": "password-generator",
+    "id": "random-index-rejection-boundary",
+    "proposedModeId": "random-index",
+    "inputs": {
+      "poolSize": 10,
+      "testByteSequence": [
+        255,
+        250,
+        249
+      ]
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "index": 9,
+      "bytesConsumed": 3
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12,
+    "derivation": "Limit is floor(256/10)*10=250. Reject bytes 255 and 250, accept 249 => 9."
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-non-octet-mask",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "172.16.5.23",
+      "maskInput": "dotted-mask",
+      "mask": "255.255.254.0"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "prefix": 23,
+      "network": "172.16.4.0",
+      "broadcast": "172.16.5.255",
+      "totalAddresses": 512,
+      "usableAddresses": 510,
+      "firstUsable": "172.16.4.1",
+      "lastUsable": "172.16.5.254"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-mask-point-to-point",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "192.0.2.3",
+      "maskInput": "dotted-mask",
+      "mask": "255.255.255.254"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "prefix": 31,
+      "network": "192.0.2.2",
+      "totalAddresses": 2,
+      "usableAddresses": 2,
+      "firstUsable": "192.0.2.2",
+      "lastUsable": "192.0.2.3"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-all-ones-mask",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "203.0.113.9",
+      "maskInput": "dotted-mask",
+      "mask": "255.255.255.255"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "prefix": 32,
+      "network": "203.0.113.9",
+      "totalAddresses": 1,
+      "usableAddresses": 1
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-zero-mask",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "203.0.113.9",
+      "maskInput": "dotted-mask",
+      "mask": "0.0.0.0"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expected": {
+      "prefix": 0,
+      "network": "0.0.0.0",
+      "broadcast": "255.255.255.255",
+      "totalAddresses": 4294967296,
+      "usableAddresses": 4294967294
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-discontiguous-mask",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "192.0.2.1",
+      "maskInput": "dotted-mask",
+      "mask": "255.0.255.0"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Subnet mask must have contiguous leading one bits."
+  },
+  {
+    "group": "ipv4-dotted-mask-input",
+    "slug": "ip-subnet-calculator",
+    "id": "ipv4-invalid-mask-octet",
+    "proposedModeId": "ipv4",
+    "inputs": {
+      "address": "192.0.2.1",
+      "maskInput": "dotted-mask",
+      "mask": "255.255.256.0"
+    },
+    "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+    "expectedError": "Each mask octet must be between 0 and 255."
+  }
+]

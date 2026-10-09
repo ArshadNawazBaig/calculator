@@ -1,0 +1,1247 @@
+{
+  "scope": "Actual isolated full Next16.4 application; OpenNext1.20.10 with two research-only patches, Wrangler4.149 local workerd, staged dist/server/index.js + two WASM modules + ASSETS. Not native Sites deployment.",
+  "results": [
+    {
+      "id": "normal-/api/health",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 34,
+        "contentType": "application/json",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 48188,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/calculators",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 197438,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/bra-size-calculator",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 44695,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/scientific-calculator",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 39486,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/base64-encode-decode",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 43355,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/privacy",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 26832,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "normal-/maintenance",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "bytes": 15132,
+        "contentType": "text/html; charset=utf-8",
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "unknown-route-404",
+      "status": "pass",
+      "actual": 404
+    },
+    {
+      "id": "redirect-/401K-calculator",
+      "status": "pass",
+      "actual": {
+        "status": 308,
+        "location": "/401k-calculator"
+      }
+    },
+    {
+      "id": "redirect-/percentage-calculator",
+      "status": "pass",
+      "actual": {
+        "status": 308,
+        "location": "/percent-calculator"
+      }
+    },
+    {
+      "id": "redirect-/terms-and-services",
+      "status": "pass",
+      "actual": {
+        "status": 308,
+        "location": "/terms"
+      }
+    },
+    {
+      "id": "maintenance-/",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "content-encoding": "identity",
+          "content-type": "text/html; charset=utf-8",
+          "etag": "\"n9prdwynplboc\"",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-nextjs-cache": "MISS",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-robots-tag": "noindex"
+        }
+      }
+    },
+    {
+      "id": "maintenance-/calculators",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "content-encoding": "identity",
+          "content-type": "text/html; charset=utf-8",
+          "etag": "\"n9prdwynplboc\"",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-nextjs-cache": "MISS",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-robots-tag": "noindex"
+        }
+      }
+    },
+    {
+      "id": "maintenance-/api/reference-rates",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "content-encoding": "identity",
+          "content-type": "text/html; charset=utf-8",
+          "etag": "\"n9prdwynplboc\"",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-nextjs-cache": "MISS",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-robots-tag": "noindex"
+        }
+      }
+    },
+    {
+      "id": "maintenance-/missing-adapter-qa-route",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "content-encoding": "identity",
+          "content-type": "text/html; charset=utf-8",
+          "etag": "\"n9prdwynplboc\"",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-nextjs-cache": "MISS",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-robots-tag": "noindex"
+        }
+      }
+    },
+    {
+      "id": "maintenance-/maintenance",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "etag": "\"n9prdwynplboc\"",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-nextjs-cache": "MISS",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-robots-tag": "noindex"
+        }
+      }
+    },
+    {
+      "id": "maintenance-bypass-/api/health",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "contentType": "application/json"
+      }
+    },
+    {
+      "id": "maintenance-bypass-/favicon.svg",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "contentType": "image/svg+xml"
+      }
+    },
+    {
+      "id": "private-robots",
+      "status": "pass",
+      "actual": "User-Agent: *\nAllow: /\nDisallow: /api/\n\n"
+    },
+    {
+      "id": "private-sitemap",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "urlCount": 0,
+        "noindex": "noindex, follow"
+      }
+    },
+    {
+      "id": "1440-bra-browser",
+      "status": "pass",
+      "actual": {
+        "result": "32D",
+        "width": 1440,
+        "scroll": 1440
+      }
+    },
+    {
+      "id": "1440-scientific-mathjs",
+      "status": "pass",
+      "actual": "44"
+    },
+    {
+      "id": "1440-base64-charset-client-chunk",
+      "status": "pass",
+      "actual": "gOk="
+    },
+    {
+      "id": "1440-binary-file-local",
+      "status": "pass",
+      "actual": "AP8QgA=="
+    },
+    {
+      "id": "1440-maintenance-browser",
+      "status": "pass",
+      "actual": 503
+    },
+    {
+      "id": "390-bra-browser",
+      "status": "pass",
+      "actual": {
+        "result": "32D",
+        "width": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "id": "390-scientific-mathjs",
+      "status": "pass",
+      "actual": "44"
+    },
+    {
+      "id": "390-base64-charset-client-chunk",
+      "status": "pass",
+      "actual": "gOk="
+    },
+    {
+      "id": "390-binary-file-local",
+      "status": "pass",
+      "actual": "AP8QgA=="
+    },
+    {
+      "id": "390-maintenance-browser",
+      "status": "pass",
+      "actual": 503
+    },
+    {
+      "id": "no-browser-input-upload-or-external-request",
+      "status": "pass",
+      "actual": {
+        "requestCount": 182,
+        "external": [],
+        "writes": [],
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/bra-size-calculator",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/finance?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/health?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1c3fauuwxajmh.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32ik0xy2emito.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0heobpr_nr71-.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/math?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/everyday?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/golf-handicap-calculator?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/gpa-calculator?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/grade-calculator?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/shoe-size-conversion?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/?_rsc=Wc-dm6RX_5_qSs0H",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators?_rsc=vlyrevr26d4BQ1IR",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/finance?_rsc=sHUYCXWDZ-QvNjbj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/health?_rsc=sHUYCXWDZ-QvNjbj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2lcevptiho-5z.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/math?_rsc=sHUYCXWDZ-QvNjbj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0gtcug0an2qq1.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/everyday?_rsc=sHUYCXWDZ-QvNjbj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/golf-handicap-calculator?_rsc=seDchtKx6ngYeYS0",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/gpa-calculator?_rsc=seDchtKx6ngYeYS0",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/grade-calculator?_rsc=seDchtKx6ngYeYS0",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/shoe-size-conversion?_rsc=seDchtKx6ngYeYS0",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/scientific-calculator",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/finance?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/health?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1a4rdlms2zo82.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0heobpr_nr71-.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/31dw05a2ekob7.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0g5tdzs6maja6.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/basic-calculator?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/big-number-calculator?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/binary-calculator?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/common-factor-calculator?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/base64-encode-decode",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/basic-calculator?_rsc=BaVVWoYXDIQ1Wz3b",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0a2qrm3iuc327.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2h-m7zsd9thvp.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/finance?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/calculators/health?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/bandwidth-calculator?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/ip-subnet-calculator?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/password-generator?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/url-encode-decode?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8787/age-calculator?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators/finance?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators/health?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators/math?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators/everyday?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/guides?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/about?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/contact?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/privacy?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/terms?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/editorial-policy?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/accessibility?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/sitemap?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/disclaimer?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/cookies?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:8788/calculators?_rsc=DgokPT_TBZ4UOBma",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/bra-size-calculator",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/calculators/everyday?_rsc=F1JN4QMm_TNUD1cJ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1c3fauuwxajmh.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32ik0xy2emito.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0heobpr_nr71-.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/scientific-calculator",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/calculators/math?_rsc=bbPKJk_tHXHVY2Uj",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1a4rdlms2zo82.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0heobpr_nr71-.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/31dw05a2ekob7.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0g5tdzs6maja6.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/base64-encode-decode",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2bz3074ugtspr.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/34h4ak1kev28h.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/07q_fzxp5bmpi.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/0a2qrm3iuc327.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/_next/static/chunks/2h-m7zsd9thvp.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8787/calculators/everyday?_rsc=5se-ssMOS-tx3rFC",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/calculators",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/3c-ah3gnhbh6m.css",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0tekk_hu_1tg8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/1p2lymx0szh7y.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0ly4_7fmto36_.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/32jxkzoi8auf8.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/275zb-qz-lw-l.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/_next/static/chunks/0p5lktcjnovjz.js",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/guides?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/about?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/contact?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/privacy?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/terms?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/editorial-policy?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/accessibility?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/sitemap?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/disclaimer?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/cookies?_rsc=QSARPr6W9not5tfZ",
+      "method": "GET"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:8788/calculators?_rsc=DgokPT_TBZ4UOBma",
+      "method": "GET"
+    }
+  ],
+  "axes": [
+    {
+      "width": 1440,
+      "route": "bra",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "maintenance",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "bra",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "maintenance",
+      "violations": []
+    }
+  ]
+}

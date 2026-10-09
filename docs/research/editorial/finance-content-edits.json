@@ -1,0 +1,1497 @@
+{
+  "interest-calculator": {
+    "scopeModes": [
+      "equivalent-nominal-rate"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Are monthly and annual contributions alternatives?",
+          "answer": "In the dual-stream mode they are additive: the annual contribution is extra to the twelve monthly contributions."
+        },
+        {
+          "question": "How is tax on interest modeled?",
+          "answer": "Tax is applied to positive interest under the stated settlement convention. This simplified treatment may differ from actual account and tax rules."
+        }
+      ],
+      "after": [
+        {
+          "question": "Are monthly and annual contributions alternatives?",
+          "answer": "In the dual-stream mode they are additive: the annual contribution is extra to the twelve monthly contributions."
+        },
+        {
+          "question": "How is tax on interest modeled?",
+          "answer": "Tax is applied to positive interest under the stated settlement convention. Account-specific tax treatment and fees are not determined."
+        },
+        {
+          "question": "Are semimonthly and biweekly compounding the same?",
+          "answer": "No. Equivalent nominal rates uses 24 semimonthly periods or 26 biweekly periods per year. It compares equal annual growth, not exact calendar posting dates."
+        }
+      ]
+    }
+  },
+  "compound-interest-calculator": {
+    "scopeModes": [
+      "equivalent-nominal-rate"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Why do equivalent nominal rates differ?",
+          "answer": "Different compounding frequencies can produce the same effective annual growth. The quoted nominal rate changes to preserve that annual result."
+        },
+        {
+          "question": "Can I add both monthly and yearly deposits?",
+          "answer": "Yes. The dual-stream mode adds both streams and allows their increase assumptions to be entered separately."
+        }
+      ],
+      "after": [
+        {
+          "question": "Why do equivalent nominal rates differ?",
+          "answer": "Changing compounding frequency changes the nominal quote needed to preserve the same effective annual growth. The extended rate mode includes 24-period, 26-period and continuous conventions."
+        },
+        {
+          "question": "Can I add both monthly and yearly deposits?",
+          "answer": "Yes. The dual-stream mode adds both streams and allows their annual increase assumptions to be entered separately."
+        }
+      ]
+    }
+  },
+  "investment-calculator": {
+    "scopeModes": [
+      "equivalent-nominal-rate"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "notesEdit": {
+      "before": [],
+      "after": [
+        "Returns and contribution growth are entered scenarios. An implied rate or required contribution is not a forecast; taxes and inflation follow the selected mode’s stated assumptions."
+      ]
+    }
+  },
+  "mortgage-payoff-calculator": {
+    "scopeModes": [
+      "inferred"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "amortization",
+        "title": "OpenStax loan amortization",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+        "supports": "Periodic rate, ordinary annuity present value and fixed loan payment."
+      },
+      {
+        "id": "cfpb-biweekly",
+        "title": "CFPB mortgage terms: biweekly payments",
+        "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/",
+        "supports": "Half monthly payment every two weeks;26 collections commonly produce13monthly payments/year. Servicing terms and fees affect actual result."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Original-versus-remaining FAQ must account for the added balance-inference mode.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate mortgage payoff time and interest from your remaining balance and payment, or explore extra principal repayments.",
+      "after": "Estimate mortgage payoff and interest, infer a remaining balance from loan history, or compare an accelerated biweekly scenario."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Should I enter the original loan amount or the remaining balance?",
+          "answer": "For an existing mortgage, enter the balance still owed and the remaining term or payment that matches your scenario."
+        },
+        {
+          "question": "Can I use my full escrow-inclusive mortgage payment?",
+          "answer": "Use the principal-and-interest portion for payoff calculations. Taxes, insurance and other escrow charges do not reduce the loan balance."
+        }
+      ],
+      "after": [
+        {
+          "question": "Should I enter the original loan amount or the remaining balance?",
+          "answer": "Use the remaining balance in the standard payoff modes. Accelerated biweekly with balance inference can also start from original terms and completed payments, or a known payment and remaining term."
+        },
+        {
+          "question": "Can I use my full escrow-inclusive mortgage payment?",
+          "answer": "Use principal and interest only. Taxes, insurance and other escrow charges do not reduce mortgage principal."
+        },
+        {
+          "question": "Does the biweekly result reproduce my lender’s exact payment dates?",
+          "answer": "No. It models 26 equal interest periods per year and half the contractual monthly payment. Actual collection dates, fees and principal-credit timing depend on the lender."
+        }
+      ]
+    }
+  },
+  "mortgage-calculator": {
+    "scopeModes": [
+      "cost-lines",
+      "inferred"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "amortization",
+        "title": "OpenStax loan amortization",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+        "supports": "Periodic rate, ordinary annuity present value and fixed loan payment."
+      },
+      {
+        "id": "cfpb-biweekly",
+        "title": "CFPB mortgage terms: biweekly payments",
+        "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/",
+        "supports": "Half monthly payment every two weeks;26 collections commonly produce13monthly payments/year. Servicing terms and fees affect actual result."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Is the mortgage payment the same as my total housing cost?",
+          "answer": "Principal and interest repay the loan. Taxes, insurance, HOA fees and other entered ownership costs are tracked separately."
+        },
+        {
+          "question": "Will an extra payment automatically lower future monthly payments?",
+          "answer": "The schedule applies extra money to principal and shortens repayment. It does not model a lender-approved recast of the scheduled payment."
+        },
+        {
+          "question": "Can I compare a bonus payment with recurring extras?",
+          "answer": "Yes. Calendar-based extra payments combine one-time dated amounts with monthly and annual extras and compare the resulting payoff with a baseline."
+        }
+      ],
+      "after": [
+        {
+          "question": "Is the mortgage payment the same as my total housing cost?",
+          "answer": "Principal and interest repay the loan. The ownership-cost worksheet separately accepts annual or monthly costs and percentages of original purchase price, with independent growth assumptions."
+        },
+        {
+          "question": "Will an extra payment automatically lower future monthly payments?",
+          "answer": "The schedule applies extra money to principal and shortens repayment. It does not model a lender-approved recast of the scheduled payment."
+        },
+        {
+          "question": "Can I compare dated extras and a biweekly schedule?",
+          "answer": "Use Calendar-based extra payments for dated principal additions. The accelerated biweekly mode instead uses 26 equal interest periods, which may differ from your lender’s actual posting schedule."
+        }
+      ]
+    }
+  },
+  "personal-loan-calculator": {
+    "scopeModes": [
+      "cash-cost"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "amortization",
+        "title": "OpenStax loan amortization",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+        "supports": "Periodic rate, ordinary annuity present value and fixed loan payment."
+      },
+      {
+        "id": "cfpb-finance-charge",
+        "title": "CFPB Regulation Z: Finance charge",
+        "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/4/",
+        "supports": "Insurance fee classification depends on legal inclusion/exclusion requirements; total-cashflow borrowing cost need not equal disclosed APR."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "New cash-cost mode explicitly supports the fees and insurance omitted by the earlier description.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate personal-loan monthly payments and total interest, and see how extra payments affect a fixed-rate repayment schedule.",
+      "after": "Estimate personal-loan payments, origination fees, monthly insurance and the resulting borrowing cash-flow cost."
+    },
+    "notesEdit": {
+      "before": [
+        "Fees, variable rates, collateral requirements, and lender-specific payment conventions are not automatically included."
+      ],
+      "after": [
+        "The standard repayment mode omits fees. The cash-cost mode includes entered origination fees and monthly insurance but does not classify regulatory finance charges or determine a legal APR."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Does this personal-loan estimate include an origination fee?",
+          "answer": "Not automatically. An upfront fee can reduce the cash you receive without reducing the principal you must repay."
+        },
+        {
+          "question": "Why can a longer term cost more despite a lower payment?",
+          "answer": "A longer term spreads principal across more payments but usually keeps interest accruing for longer at the same positive rate."
+        }
+      ],
+      "after": [
+        {
+          "question": "Where do I include an origination fee?",
+          "answer": "Use Origination fee, insurance & cash cost. The fee can be a percentage or dollar amount and can be withheld from disbursement or paid separately upfront."
+        },
+        {
+          "question": "Does the cash-flow cost equal the lender’s disclosed APR?",
+          "answer": "Not necessarily. It includes the insurance amount you enter. Regulatory APR depends on which charges must be included under the transaction’s rules."
+        },
+        {
+          "question": "Why is the payment based on more money than I receive?",
+          "answer": "An origination fee can reduce net proceeds while the contractual payment still repays the full note principal."
+        }
+      ]
+    }
+  },
+  "sales-tax-calculator": {
+    "scopeModes": [
+      "known-pair"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "retail-math",
+        "title": "OpenStax: discounts, markups and sales tax",
+        "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+        "supports": "Percentage-price arithmetic and inverses; no jurisdiction-specific tax determination."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Add sales tax to a net price or remove included tax from a total using the rate you enter.",
+      "after": "Calculate net price, sales tax, gross price or an implied tax rate from a selected pair of known values."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "How do I remove tax already included in a total?",
+          "answer": "Divide the total by one plus the tax rate. Subtracting that rate directly from the gross total gives a different, incorrect base."
+        },
+        {
+          "question": "Does the calculator find the sales-tax rate for my address?",
+          "answer": "No. You supply the rate and determine whether the purchase is taxable or exempt under the applicable rules."
+        }
+      ],
+      "after": [
+        {
+          "question": "How do I remove tax already included in a total?",
+          "answer": "Divide the total by one plus the tax rate. The known-pair mode also solves from net and gross prices or from tax amount and a positive rate."
+        },
+        {
+          "question": "Does the calculator find the sales-tax rate for my address?",
+          "answer": "No. You supply the rate and determine whether the transaction is taxable or exempt."
+        }
+      ]
+    }
+  },
+  "vat-calculator": {
+    "scopeModes": [
+      "known-pair"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "retail-math",
+        "title": "OpenStax: discounts, markups and sales tax",
+        "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+        "supports": "Percentage-price arithmetic and inverses; no jurisdiction-specific tax determination."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Retail arithmetic is transferable algebra; the source is not offered as jurisdiction-specific VAT guidance.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Add VAT to a net amount or extract included VAT from a gross total, using an explicitly entered VAT rate.",
+      "after": "Calculate VAT, net or gross amounts, or an implied VAT rate from the values you already know."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "How is VAT extracted from a tax-inclusive price?",
+          "answer": "The net amount is gross divided by one plus the VAT rate; VAT is the difference between gross and net."
+        },
+        {
+          "question": "Does this decide which VAT rate or exemption applies?",
+          "answer": "No. Rate selection, place-of-supply rules, exemptions and recoverability are outside this arithmetic calculator."
+        }
+      ],
+      "after": [
+        {
+          "question": "How is VAT extracted from a tax-inclusive price?",
+          "answer": "Net equals gross divided by one plus the entered rate. VAT is the difference. The known-pair mode can also start from tax amount and a positive rate."
+        },
+        {
+          "question": "Does this decide which VAT rate or exemption applies?",
+          "answer": "No. Rate selection, place of supply, exemptions and recoverability are outside this arithmetic model."
+        }
+      ]
+    }
+  },
+  "discount-calculator": {
+    "scopeModes": [
+      "known-pair"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "retail-math",
+        "title": "OpenStax: discounts, markups and sales tax",
+        "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+        "supports": "Percentage-price arithmetic and inverses; no jurisdiction-specific tax determination."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Find a sale price after a percentage discount and fixed reduction, with the amount saved shown from the original price.",
+      "after": "Calculate sale price and savings, combine a percentage and fixed reduction, or recover the original price from a known pair."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "In what order are the discounts applied?",
+          "answer": "The model applies the percentage reduction first, then subtracts the fixed discount from that reduced price."
+        },
+        {
+          "question": "Is sales tax automatically included in the discounted price?",
+          "answer": "No. The discount calculation does not determine local sales-tax treatment or whether a particular coupon changes the taxable amount."
+        }
+      ],
+      "after": [
+        {
+          "question": "In what order are a percentage and fixed discount applied?",
+          "answer": "The main calculation applies the percentage reduction first, then subtracts the fixed amount. The known-pair mode solves one discount relationship from the selected inputs."
+        },
+        {
+          "question": "Can a zero final price determine the original price?",
+          "answer": "At 100% off, every original price produces zero. That inverse case is indeterminate; a positive final price with 100% off is inconsistent."
+        },
+        {
+          "question": "Is sales tax included in the discounted price?",
+          "answer": "No. This tool does not decide how a discount or coupon affects the taxable amount."
+        }
+      ]
+    }
+  },
+  "percent-off-calculator": {
+    "scopeModes": [
+      "known-pair"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "retail-math",
+        "title": "OpenStax: discounts, markups and sales tax",
+        "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+        "supports": "Percentage-price arithmetic and inverses; no jurisdiction-specific tax determination."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Do discounts of 20% and then 10% equal 30% off?",
+          "answer": "No. A $100 item becomes $80, then $72: the combined saving is 28%, because the second discount uses the reduced price."
+        },
+        {
+          "question": "Can I also compare a fixed discount?",
+          "answer": "The main calculation supports a fixed reduction after the percentage discount. The consecutive-discount mode compares two percentage reductions."
+        }
+      ],
+      "after": [
+        {
+          "question": "Do discounts of 20% and then 10% equal 30% off?",
+          "answer": "No. Each percentage acts on the current price, so a $100 item falls to $80 and then $72, for a 28% combined reduction."
+        },
+        {
+          "question": "Can I recover an original price from the sale price?",
+          "answer": "Use the known-pair mode with final price and percent off. A zero final price at 100% off cannot identify one original price."
+        }
+      ]
+    }
+  },
+  "margin-calculator": {
+    "scopeModes": [
+      "known-pair"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "retail-math",
+        "title": "OpenStax: discounts, markups and sales tax",
+        "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+        "supports": "Percentage-price arithmetic and inverses; no jurisdiction-specific tax determination."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Why are margin and markup different percentages?",
+          "answer": "Margin divides profit by selling price; markup divides profit by cost. The different denominators produce different percentages."
+        },
+        {
+          "question": "Do the stock and FX modes apply my broker's exact requirements?",
+          "answer": "No. They use entered ratios, leverage and exchange rates. Broker-specific rules, financing charges and instrument requirements can differ."
+        }
+      ],
+      "after": [
+        {
+          "question": "Why are margin and markup different percentages?",
+          "answer": "Margin divides profit by revenue; markup divides profit by cost. The profit-and-margin inverse requires positive profit and positive margin in this model."
+        },
+        {
+          "question": "Do the stock and FX modes apply my broker’s exact requirements?",
+          "answer": "No. They use entered ratios, leverage and exchange rates. Broker rules, financing charges and instrument requirements can differ."
+        }
+      ]
+    }
+  },
+  "retirement-calculator": {
+    "scopeModes": [
+      "salary-growth"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Explore a retirement savings target, monthly contributions, fixed withdrawals and balance longevity under explicit return and spending assumptions.",
+      "after": "Model retirement savings, salary-based contributions and inflation-linked spending, with a year-by-year withdrawal scenario."
+    },
+    "notesEdit": {
+      "before": [],
+      "after": [
+        "Constant returns and spending assumptions are scenarios. The salary-growth mode uses year-end savings and withdrawals, clips surplus other income rather than reinvesting it, and shows negative balances as unmet funding needs."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Does the retirement target include market volatility?",
+          "answer": "No. It discounts modeled spending using constant assumptions and does not simulate market volatility or sequence-of-returns risk."
+        },
+        {
+          "question": "Why might required monthly saving be zero?",
+          "answer": "Under the entered assumptions, the existing balance alone reaches the target. That scenario result is not a guarantee of future performance."
+        }
+      ],
+      "after": [
+        {
+          "question": "Does an income-based retirement need use my final salary?",
+          "answer": "In Salary growth & income-based retirement, the need is a share of current income, inflated to retirement once. Savings based on salary grow separately with each year’s modeled income."
+        },
+        {
+          "question": "What does a negative projected retirement balance mean?",
+          "answer": "It marks spending the modeled resources cannot fund. It is not a prediction that an investment account can continue making those withdrawals."
+        },
+        {
+          "question": "Does the target include market volatility?",
+          "answer": "No. Constant return assumptions do not model volatility or sequence-of-returns risk."
+        }
+      ]
+    }
+  },
+  "college-cost-calculator": {
+    "scopeModes": [
+      "funded-share"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Project future education costs and monthly savings needed, using entered cost inflation, investment growth and study duration.",
+      "after": "Project college costs and a chosen funded share, then estimate monthly savings with optional annual tax on investment interest."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Does the model assume savings keep growing during college?",
+          "answer": "No. It conservatively aims to fund all projected study costs at enrollment, without investment growth during the study years."
+        },
+        {
+          "question": "Are grants and scholarships automatically deducted?",
+          "answer": "No. Enter costs and resources appropriate to your scenario; the calculator does not determine financial-aid awards."
+        }
+      ],
+      "after": [
+        {
+          "question": "Does the model assume savings keep growing during college?",
+          "answer": "No. It aims to hold all modeled nominal study costs at enrollment and assumes no investment gains during the study years."
+        },
+        {
+          "question": "How does the taxable-savings mode apply tax?",
+          "answer": "It taxes positive accumulated interest at each saving year-end. Monthly contributions are not interest, and the model does not establish 529 or other account tax eligibility."
+        },
+        {
+          "question": "How do I model partial funding?",
+          "answer": "Enter the share of projected costs to fund from these savings. Scholarships, grants and financial-aid awards are not selected automatically."
+        }
+      ]
+    }
+  },
+  "salary-calculator": {
+    "scopeModes": [
+      "schedule-units"
+    ],
+    "sourceAdditions": [],
+    "sourceRemovals": [],
+    "reason": "Quarterly pay is now implemented. Pay-frequency factors are declared model conventions, not jurisdictional payroll rules.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Convert gross pay across hourly, daily, weekly, biweekly, semimonthly, monthly and annual periods, with an unpaid-leave comparison.",
+      "after": "Convert gross salary across hourly through annual pay periods, including quarterly pay, and compare unpaid-day adjustments."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Why do biweekly and semimonthly pay differ?",
+          "answer": "The conversion uses 26 biweekly periods versus 24 semimonthly periods per year. They are different payment schedules."
+        },
+        {
+          "question": "Is the converted salary my take-home pay?",
+          "answer": "No. These are gross-pay conversions. Taxes, benefits and payroll deductions are excluded; unpaid leave affects the adjusted comparison."
+        }
+      ],
+      "after": [
+        {
+          "question": "Why do biweekly and semimonthly pay differ?",
+          "answer": "Annualization uses 26 biweekly periods and 24 semimonthly periods. Quarterly pay uses four periods."
+        },
+        {
+          "question": "Do holidays and vacation automatically reduce annual salary?",
+          "answer": "Only the separate unpaid-day scenario reduces earnings. Paid leave does not automatically reduce a fixed annual salary."
+        },
+        {
+          "question": "Is the converted salary my take-home pay?",
+          "answer": "No. These are gross-pay conversions before taxes, benefits and payroll deductions."
+        }
+      ]
+    }
+  },
+  "budget-calculator": {
+    "scopeModes": [
+      "period-lines"
+    ],
+    "sourceAdditions": [],
+    "sourceRemovals": [],
+    "reason": "Earlier FAQ incorrectly applies take-home-only convention to the new gross-income mode.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Compare monthly take-home income with spending and savings allocations to find a remaining balance or shortfall.",
+      "after": "Build a monthly budget from take-home totals or mixed-period gross-income lines, with pretax savings, assumed tax and debt payments."
+    },
+    "notesEdit": {
+      "before": [],
+      "after": [
+        "The simple budget mode takes take-home income. Mixed-period budget uses gross income, deducts entered pretax saving and a flat scenario tax, and keeps debt payments separate from living expenses."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Should I enter gross salary or take-home income?",
+          "answer": "Use take-home income in this budget. Otherwise payroll deductions may be counted as money available to spend."
+        },
+        {
+          "question": "How can I avoid counting the same deduction twice?",
+          "answer": "Do not enter a payroll deduction again as an expense if it has already been removed from the take-home income figure."
+        }
+      ],
+      "after": [
+        {
+          "question": "Should I enter gross salary or take-home income?",
+          "answer": "Use take-home income in the simple budget. In Mixed-period budget & debt ratio, use gross income; that mode separately subtracts pretax saving and the entered flat tax."
+        },
+        {
+          "question": "Can I combine annual and monthly amounts?",
+          "answer": "Yes. Each mixed-period line has its own annual or monthly selector; annual amounts are divided by twelve."
+        },
+        {
+          "question": "How can I avoid counting a debt payment twice?",
+          "answer": "Enter a payment in either living expenses or debt payments, not both. The mixed-period model deducts the two groups separately."
+        }
+      ]
+    }
+  },
+  "debt-ratio-calculator": {
+    "scopeModes": [
+      "period-lines"
+    ],
+    "sourceAdditions": [],
+    "sourceRemovals": [],
+    "reason": "Clarify period normalization without inventing lender underwriting criteria.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Calculate debt-to-income ratio from gross monthly income and entered monthly debt obligations, with a clear percentage result.",
+      "after": "Calculate debt-to-income ratio from gross income and debt payments entered as monthly totals or mixed annual and monthly lines."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Should I use income before or after tax for DTI?",
+          "answer": "This calculator uses gross monthly income before tax. A household cash-flow budget is a different calculation."
+        },
+        {
+          "question": "Which debt payments should I include?",
+          "answer": "Enter the obligations relevant to your comparison. Lenders may count debts differently, so the result does not establish borrowing eligibility."
+        }
+      ],
+      "after": [
+        {
+          "question": "Should I use income before or after tax for DTI?",
+          "answer": "Use gross income before tax. The mixed-period budget’s spendable-income result is separate from the gross-income denominator used for DTI."
+        },
+        {
+          "question": "Can I enter annual debt or income amounts?",
+          "answer": "Yes. The mixed-period mode normalizes each annual amount to one-twelfth before calculating the ratio."
+        },
+        {
+          "question": "Does the result establish loan eligibility?",
+          "answer": "No. Lenders may count income and obligations differently; use the debts relevant to the comparison."
+        }
+      ]
+    }
+  },
+  "rent-vs-buy-calculator": {
+    "scopeModes": [
+      "cost-streams"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "annuities",
+        "title": "OpenStax annuities",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+        "supports": "PV/FV of ordinary and due annuities."
+      },
+      {
+        "id": "amortization",
+        "title": "OpenStax loan amortization",
+        "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+        "supports": "Periodic rate, ordinary annuity present value and fixed loan payment."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Earlier FAQ describes only the legacy terminal-wealth model and omits the new present-cost comparison.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Compare a rent-and-invest scenario with buying a home using entered housing costs, appreciation, returns and selling assumptions.",
+      "after": "Compare renting and buying through housing cash flows, refundable deposits, mortgage equity and a common investment-return assumption."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "What is compared at the end of the scenario?",
+          "answer": "The model compares the buyer's net equity after selling with the renter's invested initial cash and ongoing cost differences."
+        },
+        {
+          "question": "Does the comparison forecast future home prices or investment returns?",
+          "answer": "No. Those growth rates are assumptions. Taxes, moving costs and uncertainty are not fully modeled."
+        }
+      ],
+      "after": [
+        {
+          "question": "How does the detailed mode treat a refundable deposit?",
+          "answer": "It records the deposit as an upfront renter outflow and the selected refund at exit. A full refund removes its nominal cost but can still have a present-value opportunity cost."
+        },
+        {
+          "question": "Is mortgage principal counted as an expense twice?",
+          "answer": "No. The detailed mode includes payments in cash outflows and subtracts remaining loan debt from sale proceeds to calculate equity at exit."
+        },
+        {
+          "question": "What does the terminal buying advantage measure?",
+          "answer": "In the detailed mode it grows the same present-value cost difference to the comparison end date. It is not an additional benefit to add to that difference."
+        }
+      ]
+    }
+  },
+  "bond-calculator": {
+    "scopeModes": [
+      "dated",
+      "day-count"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "ms-price",
+        "title": "Microsoft PRICE documented method",
+        "url": "https://learn.microsoft.com/en-us/dax/price-function-dax",
+        "supports": "Regular coupon price formula including accrued interest, five day-count choices and distinct final-coupon simple-discount branch."
+      },
+      {
+        "id": "ms-days360",
+        "title": "Microsoft DAYS360 documented conventions",
+        "url": "https://support.microsoft.com/en-us/office/days360-function-b9a509fd-49ef-407e-94df-0cbda5718c2a",
+        "supports": "US/NASD and European30/360 date normalization."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "The previous accrued-interest FAQ directly contradicts the implemented dated mode.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate a fixed-coupon bond's price or yield from face value, coupon rate, maturity and payment frequency.",
+      "after": "Calculate regular-coupon bond price or yield, including dated settlement, accrued interest and selectable day-count conventions."
+    },
+    "notesEdit": {
+      "before": [],
+      "after": [
+        "The basic mode assumes coupon-date valuation. The dated mode handles regular annual, semiannual or quarterly coupons and nonnegative yields; odd coupons, call features, default and ex-coupon adjustments are excluded."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Is accrued interest included in the bond price?",
+          "answer": "No. Valuation is assumed to occur exactly on a coupon date, so the model excludes accrued interest."
+        },
+        {
+          "question": "Does the yield account for default or early redemption?",
+          "answer": "No. The model assumes the scheduled coupons and face value are paid, without call features or default losses."
+        }
+      ],
+      "after": [
+        {
+          "question": "Is accrued interest included in the bond price?",
+          "answer": "The dated mode reports clean price, accrued interest and dirty price separately. Its cash settlement amount includes accrued interest. The basic years-to-maturity mode assumes coupon-date valuation."
+        },
+        {
+          "question": "Why does the day-count convention change the answer?",
+          "answer": "The convention determines the accrued portion of a coupon and the time to the next payment. US-NASD and European 30/360 can differ at month ends."
+        },
+        {
+          "question": "Does the yield account for default or early redemption?",
+          "answer": "No. These modes assume the scheduled regular coupons and redemption amount are paid."
+        }
+      ]
+    }
+  },
+  "depreciation-calculator": {
+    "scopeModes": [
+      "fiscal"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "ms-vdb",
+        "title": "Microsoft VDB documented method",
+        "url": "https://support.microsoft.com/en-us/excel/functions/vdb-function",
+        "supports": "User declining factor, fractional periods and optional switch to straight-line."
+      },
+      {
+        "id": "irs-depreciation",
+        "title": "IRS Publication946(2025)",
+        "url": "https://www.irs.gov/publications/p946",
+        "supports": "US tax conventions and MACRS differ from generic book depreciation; half-year and mid-quarter examples."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Compare straight-line and accelerated asset-depreciation schedules from cost, salvage value and useful life.",
+      "after": "Compare book-depreciation schedules, including fiscal dates, partial-year conventions and an optional switch to straight-line expense."
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Is this a complete tax-depreciation calculation?",
+          "answer": "No. It produces mathematical book-depreciation schedules, not a complete MACRS or jurisdiction-specific tax deduction calculation."
+        },
+        {
+          "question": "What does salvage value change?",
+          "answer": "Salvage value represents the residual amount excluded from the depreciable base under the selected method and schedule."
+        }
+      ],
+      "after": [
+        {
+          "question": "Is this a complete tax-depreciation calculation?",
+          "answer": "No. These are book-depreciation scenarios. MACRS, bonus depreciation and section 179 eligibility are not determined."
+        },
+        {
+          "question": "What does the fiscal-year mode add?",
+          "answer": "It accepts a service date, fiscal-year start, declining factor and partial-year convention. It can switch permanently to straight-line when that gives the higher annual rate."
+        },
+        {
+          "question": "Will every declining-balance schedule reach salvage value?",
+          "answer": "Not necessarily. With the straight-line switch disabled, the model leaves unused basis rather than forcing a final writeoff."
+        }
+      ]
+    }
+  },
+  "401k-calculator": {
+    "scopeModes": [
+      "dated-withdrawal"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-early-exceptions",
+        "title": "IRS exceptions to additional early-distribution tax",
+        "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions",
+        "supports": "Plan-type-specific exceptions, age59.5, separation calendar-year55 rule, disability, governmental457 and SIMPLEIRA exceptions to base10% rule."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "The old withdrawal FAQ says all withdrawal modes use manual penalty rates, overlooking the dated exception branch.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "notesEdit": {
+      "before": [
+        "The 2026 employee deferral limit is $24,500 before eligible catch-up contributions. Employer contributions and plan limits require separate checks."
+      ],
+      "after": [
+        "Optional contribution caps use frozen 2026 parameters; employer-plan eligibility and future limits need separate checks. The dated traditional-account distribution mode applies only the selected age or verified-exception assumptions."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Are contribution limits always applied to the projection?",
+          "answer": "No. The salary-based mode lets you choose uncapped scenarios or frozen 2026 limits. Future legal limits and plan eligibility are not predicted."
+        },
+        {
+          "question": "How are employer matching tiers applied?",
+          "answer": "Each tier matches only the contribution slice up to its cumulative threshold. Contributions and the resulting match enter the balance at year end."
+        },
+        {
+          "question": "Does an early withdrawal always incur the displayed penalty?",
+          "answer": "No. The withdrawal mode uses your entered rates; age, account type and qualifying exceptions can change actual treatment."
+        }
+      ],
+      "after": [
+        {
+          "question": "Are contribution limits always applied to the projection?",
+          "answer": "No. The salary-based mode offers uncapped scenarios or frozen 2026 limits. Future limits and plan eligibility are not predicted."
+        },
+        {
+          "question": "How are employer matching tiers applied?",
+          "answer": "Each tier matches the employee contribution slice up to its cumulative salary threshold. Contributions and the match enter at year end."
+        },
+        {
+          "question": "How does the dated distribution mode handle the additional tax?",
+          "answer": "It tests age 59½, the specified employer-plan separation-year rule and entered verified exceptions against the taxable portion. An exception to additional tax does not remove ordinary income tax."
+        }
+      ]
+    }
+  },
+  "ira-calculator": {
+    "scopeModes": [
+      "dated-withdrawal"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-early-exceptions",
+        "title": "IRS exceptions to additional early-distribution tax",
+        "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions",
+        "supports": "Plan-type-specific exceptions, age59.5, separation calendar-year55 rule, disability, governmental457 and SIMPLEIRA exceptions to base10% rule."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Global claim that limits are never enforced is stale after the ceiling mode; retain explicit MAGI/deductibility limits.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "notesEdit": {
+      "before": [
+        "IRA contribution limits, deductibility, income phaseouts, and distributions depend on your circumstances; they are not automatically enforced in this scenario model."
+      ],
+      "after": [
+        "The 2026 ceiling mode compares compensation and the age-based combined IRA cap; it does not determine MAGI eligibility or deductibility. Dated distributions cover the stated traditional-account rules; Roth ordering and special account rules are excluded."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Does the IRA ceiling determine deductibility or full eligibility?",
+          "answer": "No. It compares eligible compensation with the age-based combined ceiling, before MAGI restrictions, deductibility and other eligibility rules."
+        },
+        {
+          "question": "What does an equal pretax-budget comparison change?",
+          "answer": "It reduces the Roth contribution by the assumed current tax, then compares it with traditional savings after the assumed withdrawal tax."
+        },
+        {
+          "question": "Are traditional and Roth IRA contribution ceilings separate allowances?",
+          "answer": "No. The ceiling mode treats traditional and Roth contributions as sharing one combined annual limit under its stated assumptions."
+        }
+      ],
+      "after": [
+        {
+          "question": "Does the IRA ceiling determine deductibility or full eligibility?",
+          "answer": "No. It compares eligible compensation with the age-based combined ceiling, before MAGI restrictions, deductibility and other eligibility rules."
+        },
+        {
+          "question": "What does an equal pretax-budget comparison change?",
+          "answer": "It reduces the Roth contribution by the assumed current tax, then compares it with traditional savings after the assumed withdrawal tax."
+        },
+        {
+          "question": "Does leaving an employer at age 55 create an IRA exception?",
+          "answer": "The dated mode applies its separation-year exception only to the relevant qualified employer plan, not to an IRA. Other exceptions must be separately established."
+        }
+      ]
+    }
+  },
+  "social-security-calculator": {
+    "scopeModes": [
+      "cohort",
+      "streams"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "ssa-fra",
+        "title": "SSA full retirement age and benefit reduction",
+        "url": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+        "supports": "Full retirement age by birth year; birth-first-of-month and January1 handling; age62entitlement conditions."
+      },
+      {
+        "id": "ssa-early-late",
+        "title": "SSA early and late retirement adjustments",
+        "url": "https://www.ssa.gov/oact/quickcalc/early_late.html",
+        "supports": "Reduction rates, delayed credits, payment timing and cohort-specific delayed credit percentage."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Sources should explain the newly added model rather than link only to a general calculator directory.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Compare retirement claiming-age adjustments using an entered full-retirement-age Social Security benefit, without reconstructing earnings history.",
+      "after": "Compare Social Security claiming ages, full-retirement-age cohorts and two benefit streams under shared COLA and discount assumptions."
+    },
+    "notesEdit": {
+      "before": [
+        "Delayed credits modeled here apply to people born in 1943 or later and stop at age 70."
+      ],
+      "after": [
+        "Uses entered FRA benefits or supplied monthly amounts, not lifetime earnings history. Supported cohorts start in 1943; delayed credits stop at age 70. Spousal/survivor benefits, the earnings test, taxes and exact SSA payment timing are excluded."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Where does the starting benefit come from?",
+          "answer": "Enter the full-retirement-age benefit from your SSA estimate. The calculator does not derive it from a lifetime earnings record."
+        },
+        {
+          "question": "Does waiting beyond age 70 keep increasing modeled delayed credits?",
+          "answer": "No. Modeled delayed credits stop at age 70. Spousal benefits, taxes and the earnings test are not included."
+        }
+      ],
+      "after": [
+        {
+          "question": "Where does the starting benefit come from?",
+          "answer": "Enter an FRA benefit from your SSA estimate or supply the two scenario benefits. The calculator does not reconstruct benefits from your earnings history."
+        },
+        {
+          "question": "What is held constant in a two-stream comparison?",
+          "answer": "Both streams use a common valuation age, lifespan, COLA and discount assumption. Candidate-age rows use the entered FRA benefit even when the two comparison amounts are supplied manually."
+        },
+        {
+          "question": "Does waiting beyond age 70 add delayed credits?",
+          "answer": "No. The model caps age-based delayed credits at 70; later changes in an actual benefit can have other causes."
+        }
+      ]
+    }
+  },
+  "rmd-calculator": {
+    "scopeModes": [
+      "calendar"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "rmd",
+        "title": "IRS RMD FAQs",
+        "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+        "supports": "Prior Dec31 balance divided by appropriate divisor. Table II for sole-beneficiary spouse >10y younger; Table III otherwise, Table I for inherited accounts."
+      },
+      {
+        "id": "irs-rmd2024",
+        "title": "IRS2024 final and proposed RMD regulations",
+        "url": "https://www.irs.gov/irb/2024-33_IRB",
+        "supports": "Final birth-cohort rules;1959cohort reserved in final regulations and proposedage73 is explicitly proposed, not automatically final."
+      },
+      {
+        "id": "irs-rmd2026-transition",
+        "title": "IRS Announcement2026-7",
+        "url": "https://www.irs.gov/pub/irs-drop/a-26-07.pdf",
+        "supports": "Anticipated future applicability of specified2024proposed RMD regulations; supports versioning rather than claiming all proposals finalized."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Uniform-only, no-spouse-table and no-beginning-date statements are obsolete for calendar mode.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate an RMD from a prior year-end balance and age using the Uniform Lifetime Table, with its scope clearly stated.",
+      "after": "Estimate owner RMDs with distribution-year rules, applicable lifetime tables and return-based projections, within the stated account scope."
+    },
+    "notesEdit": {
+      "before": [
+        "This tool does not determine your required beginning date or cover inherited accounts, all spouse exceptions, or account-specific rules."
+      ],
+      "after": [
+        "Owner accounts only; inherited accounts require separate rules. Calendar mode can use the eligible younger-spouse Joint table and supplied employer-plan deferral assumptions. The unresolved 1959 cohort returns a policy-verification status instead of an asserted final start age."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Which balance should I enter for this RMD estimate?",
+          "answer": "Use the relevant account's prior year-end balance. The model divides it by the selected Uniform Lifetime Table factor."
+        },
+        {
+          "question": "Does this table apply to every retirement account beneficiary?",
+          "answer": "No. Inherited accounts and certain spouse situations use different rules or tables. The calculator also does not determine your required beginning date."
+        }
+      ],
+      "after": [
+        {
+          "question": "Which balance and table does the calendar mode use?",
+          "answer": "Enter the prior December 31 balance. It uses the Uniform Lifetime Table or the Joint table when the entered sole-beneficiary spouse is more than ten years younger and within the verified dataset."
+        },
+        {
+          "question": "Does this determine a first distribution year?",
+          "answer": "Calendar mode reports one for supported birth cohorts and account assumptions, with first-year deadline information. It stops for policy verification on the unresolved 1959 cohort."
+        },
+        {
+          "question": "Does a zero owner RMD mean every withdrawal rule is satisfied?",
+          "answer": "No. Owner Roth exemptions and eligible current-employer deferral are limited branches. Inherited accounts and other account-specific obligations are outside this model."
+        }
+      ]
+    }
+  },
+  "fha-loan-calculator": {
+    "scopeModes": [
+      "policy",
+      "hud-ledger"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "hud-mip-duration",
+        "title": "HUD Mortgagee Letter2023-05",
+        "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/2023-05hsgml.pdf",
+        "supports": "Annual MIP rate/duration table and effective date;11years versus term by LTV."
+      },
+      {
+        "id": "hud-mip-calculation",
+        "title": "HUD periodic mortgage-insurance calculation",
+        "url": "https://www.hud.gov/hud-partners/housing-premium-calculation",
+        "supports": "Original amortization annual average balances; sequential cents rounding; financed upfront premium adjustment. Examples use historical rates; method separate from current rates."
+      }
+    ],
+    "sourceRemovals": [
+      {
+        "title": "HUD FHA resources",
+        "url": "https://www.hud.gov/buying/loans"
+      }
+    ],
+    "reason": "Replace false manual-only claims and generic redirect source with exact HUD rate and arithmetic references.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate an FHA-style mortgage payment using entered upfront fees and annual insurance assumptions, with optional fee financing.",
+      "after": "Estimate standard FHA fees, mortgage-insurance schedules and extra-payment payoff, or enter rates in a manual premium worksheet."
+    },
+    "notesEdit": {
+      "before": [
+        "This estimate does not determine eligibility or automatically apply all program fee tiers, exemptions, or insurance cancellation rules."
+      ],
+      "after": [
+        "Verified-policy mode covers the stated standard forward FHA table for endorsement dates from March 20, 2023 through October 9, 2026. Eligibility, special programs and older vintages are excluded; manual modes use entered rates."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Are FHA insurance rates and eligibility selected automatically?",
+          "answer": "No. Enter the rates that apply to your case. Default percentages are illustrative, and program tiers and eligibility are not determined."
+        },
+        {
+          "question": "What changes when I finance the upfront fee?",
+          "answer": "The fee is added to the loan principal, increasing the balance used to calculate principal-and-interest payments."
+        }
+      ],
+      "after": [
+        {
+          "question": "Are FHA insurance rates selected automatically?",
+          "answer": "The verified-policy mode selects the supported standard forward rates from base loan, original LTV, term and policy date. Manual modes use entered rates. Neither determines borrower or property eligibility."
+        },
+        {
+          "question": "Do extra principal payments lower each future monthly MIP amount?",
+          "answer": "The policy mode calculates scheduled MIP from original contractual amortization. Extra payments shorten actual payoff, which ends modeled coverage, but do not rewrite the original premium schedule."
+        },
+        {
+          "question": "How does financing the upfront premium change the result?",
+          "answer": "The premium increases note principal. The HUD worksheet also applies the financed-upfront adjustment when deriving periodic insurance charges."
+        }
+      ]
+    }
+  },
+  "va-mortgage-calculator": {
+    "scopeModes": [
+      "policy"
+    ],
+    "sourceAdditions": [],
+    "sourceRemovals": [],
+    "reason": "Separate automated fee arithmetic from the eligibility facts the calculator cannot establish.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate a VA-style mortgage payment with an entered funding fee, fee-financing choice and other specified ownership costs.",
+      "after": "Estimate VA purchase or refinance funding fees and payments, using the selected fee tier, financing choice and verified exemption assumptions."
+    },
+    "notesEdit": {
+      "before": [
+        "This estimate does not determine eligibility or automatically apply all program fee tiers, exemptions, or insurance cancellation rules."
+      ],
+      "after": [
+        "Verified-policy mode covers stated VA purchase, cash-out and IRRRL fees for closing dates from April 7, 2023 through October 9, 2026. Service eligibility, entitlement and exemption evidence remain separate checks."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Does the calculator decide whether I owe a VA funding fee?",
+          "answer": "No. Fee exemptions, service eligibility and applicable tiers must be checked separately. Enter the funding fee appropriate to your circumstances."
+        },
+        {
+          "question": "Can the funding fee be included in the loan balance?",
+          "answer": "The model can add the entered fee to principal. That increases the amount financed and the resulting payment."
+        }
+      ],
+      "after": [
+        {
+          "question": "Does the calculator choose a funding-fee tier?",
+          "answer": "Verified-policy mode uses the selected loan type, first or later use, down-payment tier and entered verified exemption. It does not independently confirm service eligibility or supporting evidence."
+        },
+        {
+          "question": "Does VA mortgage insurance add a monthly premium?",
+          "answer": "The VA policy mode assigns zero monthly mortgage insurance. The funding fee is a separate upfront charge that can be financed in the scenario."
+        },
+        {
+          "question": "Does ordinary retirement pay prove a funding-fee exemption?",
+          "answer": "No. Select an exemption only when the applicable qualifying status has been verified; receiving retirement pay alone does not establish it."
+        }
+      ]
+    }
+  },
+  "tax-calculator": {
+    "scopeModes": [
+      "ordinary-detail",
+      "self-employment",
+      "additional-medicare",
+      "qualified-gains",
+      "niit",
+      "dependent-credit",
+      "actc",
+      "amt-base"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-tax2025",
+        "title": "IRS Revenue Procedure2024-40",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+        "supports": "2025 ordinary brackets and preferential-rate thresholds; use2025standarddeduction amendment fromRP2025-32 rather than superseded original deduction."
+      },
+      {
+        "id": "irs-tax2026-bulletin",
+        "title": "IRS Revenue Procedure2025-32 in IRB2025-45",
+        "url": "https://www.irs.gov/irb/2025-45_IRB",
+        "supports": "2026ordinary/capital-gain/AMT/credit/exclusion limits and amended2025standarddeductions."
+      },
+      {
+        "id": "irs-se-tax",
+        "title": "IRS Topic554 Self-employment tax",
+        "url": "https://www.irs.gov/taxtopics/tc554",
+        "supports": "92.35% net-earnings conversion,400threshold,12.4%SocialSecurity and2.9%Medicare,additionalMedicare thresholds and deduction."
+      },
+      {
+        "id": "irs-se-instructions",
+        "title": "IRS ScheduleSE instructions2025",
+        "url": "https://www.irs.gov/instructions/i1040sse",
+        "supports": "Base allocation and schedule order;2026wagebase must come from2026SSA rather than copying2025amount."
+      },
+      {
+        "id": "irs-additional-medicare",
+        "title": "IRS Topic 560: Additional Medicare Tax",
+        "url": "https://www.irs.gov/taxtopics/tc560",
+        "supports": "Wage and SE coordination, filing-status thresholds and withholding distinction."
+      },
+      {
+        "id": "irs-preferential-tax",
+        "title": "IRS1040 instructions Qualified Dividends and Capital Gain Tax Worksheet",
+        "url": "https://www.irs.gov/instructions/i1040gi",
+        "supports": "Stacking preferential gains above ordinary taxable income; qualification/specialcapitalgain exclusions and worksheet method."
+      },
+      {
+        "id": "irs-niit",
+        "title": "IRS Topic559 Net investment income tax",
+        "url": "https://www.irs.gov/taxtopics/tc559",
+        "supports": "3.8% on lesser of net investment income and MAGI excess above status threshold; income categorization limits."
+      },
+      {
+        "id": "irs-ctc-eligibility",
+        "title": "IRS Schedule8812 instructions",
+        "url": "https://www.irs.gov/instructions/i1040s8",
+        "supports": "Dependency,age,SSN/citizenship/residency eligibility; refundablecredit special branches."
+      },
+      {
+        "id": "irs-ctc-form",
+        "title": "IRS Schedule8812(2025)",
+        "url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf",
+        "supports": "2200child/500otherdependent amounts,400000joint/200000other phaseout,ceiling1000increments,refundableearned-income worksheet;2026limitsseparatelyverified."
+      },
+      {
+        "id": "irs-amt-topic",
+        "title": "IRS Topic556 Alternative Minimum Tax",
+        "url": "https://www.irs.gov/taxtopics/tc556",
+        "supports": "AMT recomposition and preferential gain tax rates; regular tax comparison isnot adding fulltentativeminimumtaxontopofregulartax."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Global exclusions now wrongly deny newly implemented modules; preserve exclusions at the appropriate module level.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate 2026 US federal ordinary-income and employee payroll taxes from wages, filing status and entered deduction assumptions.",
+      "after": "Explore US federal ordinary-income tax and separate 2026 self-employment, investment-income, credit and AMT worksheets."
+    },
+    "notesEdit": {
+      "before": [
+        "Excludes self-employment, capital gains, AMT, NIIT, special deductions, credit eligibility, and many filing-specific adjustments. Verify with current IRS instructions."
+      ],
+      "after": [
+        "Ordinary-income worksheets support 2025 and 2026. Other added modules use their explicitly stated 2026 or fixed-threshold scope. Outputs are separate worksheets, not an automatically combined return; unsupported interactions, state/local taxes and eligibility determinations remain excluded."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Is this a complete 2026 federal tax return calculation?",
+          "answer": "No. It is a wage-focused estimate and excludes many adjustments, investment-income rules, credits and special taxes."
+        },
+        {
+          "question": "Are state and local income taxes calculated automatically?",
+          "answer": "No. Any state or local tax is an amount you supply. The model does not select local brackets or determine applicable rules."
+        }
+      ],
+      "after": [
+        {
+          "question": "Does this produce one complete federal tax result?",
+          "answer": "No. The ordinary-income, self-employment, investment-income, credit and AMT modules are separate bounded worksheets. Some totals overlap, so do not add every displayed metric together."
+        },
+        {
+          "question": "Which years and income rules are covered?",
+          "answer": "The detailed ordinary-income mode offers 2025 and 2026. Other modes state their own scope; qualified-gain, dependent-credit and AMT branches exclude the special cases listed with their results."
+        },
+        {
+          "question": "Does the dependent-credit worksheet establish eligibility?",
+          "answer": "No. Eligibility is supplied as an assumption. The basic refundable branch is limited to at most two qualifying children and excludes the special Schedule 8812 branches."
+        }
+      ]
+    }
+  },
+  "take-home-pay-calculator": {
+    "scopeModes": [
+      "w4",
+      "fica"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-payroll2026",
+        "title": "IRS Publication15-T(2026)",
+        "url": "https://www.irs.gov/publications/p15t",
+        "supports": "Worksheet1A annual percentage method, W4steps2/3/4, distinct2026withholding tables; not annualtaxliability divided by pay periods."
+      },
+      {
+        "id": "irs-additional-medicare",
+        "title": "IRS Topic 560: Additional Medicare Tax",
+        "url": "https://www.irs.gov/taxtopics/tc560",
+        "supports": "Wage and SE coordination, filing-status thresholds and withholding distinction."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "The existing FAQ falsely says no W-4 withholding engine is available.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Estimate take-home wages after modeled 2026 federal taxes, employee payroll taxes and the state or local tax amount you enter.",
+      "after": "Estimate take-home wages, 2026 W-4 federal withholding and paycheck FICA, with separate wage bases and year-to-date inputs."
+    },
+    "notesEdit": {
+      "before": [
+        "Excludes self-employment, capital gains, AMT, NIIT, special deductions, credit eligibility, and many filing-specific adjustments. Verify with current IRS instructions."
+      ],
+      "after": [
+        "The annual wage estimate, W-4 withholding worksheet and paycheck FICA mode are separate calculations. W-4 scope is IRS 2026 Worksheet 1A for forms from 2020 onward; employer-specific and state/local payroll rules are not selected automatically."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Will this match the withholding on my next paycheck?",
+          "answer": "Not necessarily. It is an annual wage-tax estimate, not a full W-4 withholding engine or employer payroll calculation."
+        },
+        {
+          "question": "Does the estimate handle self-employment income?",
+          "answer": "No. Self-employment tax and business-income adjustments are outside this wage-only model."
+        }
+      ],
+      "after": [
+        {
+          "question": "Can I estimate withholding for one paycheck?",
+          "answer": "Yes. The W-4 mode uses taxable wages for that pay, pay frequency and the entered W-4 Step 2, 3 and 4 amounts. It is separate from the annual wage-tax estimate."
+        },
+        {
+          "question": "Are gross wages and payroll-tax wages always identical?",
+          "answer": "No. Federal withholding, Social Security and Medicare can use different taxable wage amounts. Enter the wage base requested by each mode."
+        },
+        {
+          "question": "Does Additional Medicare withholding use my filing status?",
+          "answer": "The paycheck FICA branch uses the employer’s $200,000 withholding trigger. Final Additional Medicare liability uses a separate filing-status calculation."
+        }
+      ]
+    }
+  },
+  "marriage-calculator": {
+    "scopeModes": [
+      "year-scenarios"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-tax2025",
+        "title": "IRS Revenue Procedure2024-40",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+        "supports": "2025 ordinary brackets and preferential-rate thresholds; use2025standarddeduction amendment fromRP2025-32 rather than superseded original deduction."
+      },
+      {
+        "id": "irs-tax2026-bulletin",
+        "title": "IRS Revenue Procedure2025-32 in IRB2025-45",
+        "url": "https://www.irs.gov/irb/2025-45_IRB",
+        "supports": "2026ordinary/capital-gain/AMT/credit/exclusion limits and amended2025standarddeductions."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "Description must include 2025 and entered deductions; clarify single versus married-separate scope.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Compare a simplified 2026 federal tax estimate for two single filers with one married joint return using standard deductions.",
+      "after": "Compare 2025 or 2026 ordinary-income tax for two eligible single-filer scenarios and one joint scenario, with selected deductions."
+    },
+    "notesEdit": {
+      "before": [],
+      "after": [
+        "The year-scenarios mode compares ordinary income and either basic standard deductions or separately verified entered amounts. It does not combine credits, investment-income rules or other taxes, and it is not a married-filing-separately calculation."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "What does the marriage comparison include?",
+          "answer": "It compares ordinary-income brackets and standard deductions for the entered incomes, rather than reproducing complete tax returns."
+        },
+        {
+          "question": "Does it determine whether a couple should file jointly?",
+          "answer": "No. Credits, dependents, itemization, payroll-tax differences and other provisions are excluded. Filing eligibility and actual circumstances need separate review."
+        }
+      ],
+      "after": [
+        {
+          "question": "What does the year-based comparison include?",
+          "answer": "It compares the selected year’s ordinary-income brackets using basic standard deductions or the deduction amounts you enter."
+        },
+        {
+          "question": "Does it decide whether a married couple should file separately?",
+          "answer": "No. It compares two eligible single-filer scenarios with one joint scenario. Married-filing-separately rules, credits and other taxes require a separate analysis."
+        }
+      ]
+    }
+  },
+  "estate-tax-calculator": {
+    "scopeModes": [
+      "estate-lines"
+    ],
+    "sourceAdditions": [
+      {
+        "id": "irs-estate2026",
+        "title": "IRS Form706 instructions July2026",
+        "url": "https://www.irs.gov/instructions/i706",
+        "supports": "Gross estate/deductions,adjustedtaxablegifts,unifiedcredit and portability requirements; this isnot universal40%of grossestate."
+      },
+      {
+        "id": "irs-tax2026-bulletin",
+        "title": "IRS Revenue Procedure2025-32 in IRB2025-45",
+        "url": "https://www.irs.gov/irb/2025-45_IRB",
+        "supports": "2026ordinary/capital-gain/AMT/credit/exclusion limits and amended2025standarddeductions."
+      }
+    ],
+    "sourceRemovals": [],
+    "reason": "New detailed mode contradicts the old top-rate-only and no-portability-input FAQs.",
+    "reviewBasis": "Read-only current definitions, engine notes, prior independent fixtures and verified primary source metadata; original editorial wording.",
+    "descriptionEdit": {
+      "before": "Explore a simplified 2026 federal estate-tax estimate using taxable estate, remaining exclusion and the model's top-bracket assumption.",
+      "after": "Estimate a 2026 federal estate-tax scenario from asset and deduction lines, adjusted gifts, exclusion and entered credit assumptions."
+    },
+    "notesEdit": {
+      "before": [
+        "State estate/inheritance taxes, citizenship rules, marital deductions, and gift-tax credit accounting require professional review."
+      ],
+      "after": [
+        "The legacy mode is a top-bracket approximation. Estate assets, gifts & credits uses the graduated tentative-tax schedule and entered Form 706 adjustments within a 2026 US citizen/resident scope. Valuations, deductions, valid portability elections, nonresident rules and state taxes are not established by the calculator."
+      ]
+    },
+    "faqsEdit": {
+      "before": [
+        {
+          "question": "Why does this model use a 40% rate?",
+          "answer": "It is a high-value-estate approximation that applies the top rate to the amount above the entered remaining basic exclusion."
+        },
+        {
+          "question": "Are state inheritance taxes and portability included?",
+          "answer": "No. State taxes, portability, treaty treatment, marital deductions and prior gift-tax credit accounting require separate analysis."
+        }
+      ],
+      "after": [
+        {
+          "question": "Do both estate modes use only a flat 40% rate?",
+          "answer": "No. The legacy approximation uses the top rate above its entered exclusion. The detailed assets-and-gifts mode uses the graduated tentative-tax schedule and applicable exclusion credit."
+        },
+        {
+          "question": "Can I enter a deceased spouse’s unused exclusion?",
+          "answer": "The detailed mode accepts a valid elected DSUE amount as an assumption. It does not determine portability eligibility or make the required election."
+        },
+        {
+          "question": "Are state inheritance taxes and all gift adjustments included?",
+          "answer": "State and generation-skipping taxes are excluded. Adjusted taxable gifts, gift tax payable, deductions and other credits must be supplied after separate verification."
+        }
+      ]
+    }
+  }
+}

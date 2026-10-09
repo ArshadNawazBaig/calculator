@@ -1,0 +1,1675 @@
+[
+  {
+    "name": "Mortgage Calculator",
+    "competitorUrl": "https://www.calculator.net/mortgage-calculator.html",
+    "slug": "mortgage-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "monthly principal+interest",
+      " monthly/annual schedule",
+      " ownership costs",
+      " dated monthly/yearly/one-time extras",
+      " biweekly comparison"
+    ],
+    "implementationConventions": "P=price-downpayment; annual tax/insurance/PMI divided into monthly budget, HOA frequency explicit; costs may grow annually. US nominal annual loan rate/12. Model PMI cancellation assumption separately.",
+    "limitationsAndDependencies": "PMI lender rules and local taxes are user inputs; never market default rate as live.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Mortgage Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/loan-calculator.html",
+    "slug": "loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "amortizing installments",
+      " deferred lump-sum",
+      " zero-coupon bond present borrowing"
+    ],
+    "implementationConventions": "Convert compounding to payment frequency; deferred amount=P*(1+j/m)^(m*t); bond present value=face/(1+j/m)^(m*t).",
+    "limitationsAndDependencies": "Dates/day-count outside fixed intervals require explicit convention.",
+    "sourceIds": [
+      "amortization",
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Auto Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/auto-loan-calculator.html",
+    "slug": "auto-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "solve payment",
+      " reverse solve affordable price",
+      " trade-in/debt",
+      " fees/tax financing"
+    ],
+    "implementationConventions": "Net principal=price-rebate-down-tradeValue+tradeDebt+financedTaxFees. Tax base varies with rebate/trade-in treatment and state.",
+    "limitationsAndDependencies": "Do not infer local/state rates from a national average; version each jurisdiction if auto-tax is implemented.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Auto Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Interest Calculator",
+    "competitorUrl": "https://www.calculator.net/interest-calculator.html",
+    "slug": "interest-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "principal plus annual/monthly additions",
+      " deposit timing",
+      " compounding",
+      " tax",
+      " inflation"
+    ],
+    "implementationConventions": "Event-based cash-flow accumulation; taxes apply to interest earnings under declared annual timing; inflation-adjust final value.",
+    "limitationsAndDependencies": "Continuous compounding and contribution timing need independent tests.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Interest Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Payment Calculator",
+    "competitorUrl": "https://www.calculator.net/payment-calculator.html",
+    "slug": "payment-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "payment from fixed term",
+      " payoff duration from fixed payment"
+    ],
+    "implementationConventions": "N formula requires payment>periodInterest; display years/months and final smaller installment.",
+    "limitationsAndDependencies": "Variable-rate future cannot be known; fixed-rate estimate only.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Payment Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Retirement Calculator",
+    "competitorUrl": "https://www.calculator.net/retirement-calculator.html",
+    "slug": "retirement-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "discounting"
+    ],
+    "requiredModes": [
+      "required nest egg",
+      " saving contribution target",
+      " withdrawal amount",
+      " fund longevity"
+    ],
+    "implementationConventions": "Project income growth until retirement; replacement-rate or dollar spending; net other income; inflation-adjust withdrawals; solve retirement fund PV and pre-retirement savings.",
+    "limitationsAndDependencies": "Assumed returns are scenarios, no guaranteed sustainable withdrawal; lifespan user assumption.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Retirement Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Amortization Calculator",
+    "competitorUrl": "https://www.calculator.net/amortization-calculator.html",
+    "slug": "amortization-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "dated schedule",
+      " regular and custom extras",
+      " monthly and annual summaries"
+    ],
+    "implementationConventions": "Use actual planned extra payment dates and final-payment truncation; reconcile sums of principal to original balance.",
+    "limitationsAndDependencies": "No fees/taxes implied unless separately entered.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Amortization Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Investment Calculator",
+    "competitorUrl": "https://www.calculator.net/investment-calculator.html",
+    "slug": "investment-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "tvm",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "solve final balance",
+      " starting principal",
+      " return",
+      " contribution",
+      " duration"
+    ],
+    "implementationConventions": "Support beginning/end contributions and monthly/annual schedules, independent compounding frequency.",
+    "limitationsAndDependencies": "Return solver nonconvergence/negative returns must be explicit.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Investment Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Currency Calculator",
+    "competitorUrl": "https://www.calculator.net/currency-calculator.html",
+    "slug": "currency-calculator",
+    "category": "finance",
+    "families": [
+      "ratio"
+    ],
+    "requiredModes": [
+      "provider exchange quote",
+      " custom-rate calculation"
+    ],
+    "implementationConventions": "target=amount*quotedTargetPerSource; cross rate=targetPerEUR/sourcePerEUR if ECB base used; show quote timestamp and source.",
+    "limitationsAndDependencies": "Live mode requires licensed provider/cache/staleness policy; hardcoded sample rates cannot be labeled live.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Currency Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Inflation Calculator",
+    "competitorUrl": "https://www.calculator.net/inflation-calculator.html",
+    "slug": "inflation-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "ratio"
+    ],
+    "requiredModes": [
+      "US CPI historical",
+      " constant-rate forward",
+      " constant-rate backward"
+    ],
+    "implementationConventions": "historical=amount*CPI_target/CPI_start; forward=A*(1+r)^t; backward=A/(1+r)^t. Choose month or annual average consistently.",
+    "limitationsAndDependencies": "BLS dataset vintage must be committed/updated; incomplete current year is not a full-year average.",
+    "sourceIds": [
+      "cpi"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Inflation Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Finance Calculator",
+    "competitorUrl": "https://www.calculator.net/finance-calculator.html",
+    "slug": "finance-calculator",
+    "category": "finance",
+    "families": [
+      "tvm",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "solve N",
+      "I/Y",
+      "PV",
+      "PMT",
+      "FV with P/Y,C/Y and payment timing"
+    ],
+    "implementationConventions": "Use signed cash-flow TVM identity and effective period-rate conversion. Exactly one unknown.",
+    "limitationsAndDependencies": "RATE may have no valid root; check residual and domain.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Finance Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Mortgage Payoff Calculator",
+    "competitorUrl": "https://www.calculator.net/mortgage-payoff-calculator.html",
+    "slug": "mortgage-payoff-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "remaining term known",
+      " balance+payment known",
+      " monthly/annual/one-time extras",
+      " accelerated biweekly"
+    ],
+    "implementationConventions": "If only original loan and remaining term, derive remaining balance from elapsed payments. Compare baseline and modified schedule.",
+    "limitationsAndDependencies": "Biweekly servicing/application practices affect actual savings; show model.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Mortgage Payoff Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Income Tax Calculator",
+    "competitorUrl": "https://www.calculator.net/tax-calculator.html",
+    "slug": "tax-calculator",
+    "category": "finance",
+    "families": [
+      "tax"
+    ],
+    "requiredModes": [
+      "2025/2026",
+      "five filing statuses",
+      "wages/self-employment",
+      "investment/rental/SSA income",
+      "deductions",
+      "credits",
+      "withholding/refund"
+    ],
+    "implementationConventions": "Use full tax pipeline, capital-gain stacking and income-specific tax bases. Separate tax liability from prepaid amounts.",
+    "limitationsAndDependencies": "Full parity needs many rules beyond tax brackets, including OBBBA, QBI, AMT, NIIT, credits and phaseouts. No unverifiedstate computation.",
+    "sourceIds": [
+      "tax2026",
+      "fica2026",
+      "medicare"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Income Tax Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Compound Interest Calculator",
+    "competitorUrl": "https://www.calculator.net/compound-interest-calculator.html",
+    "slug": "compound-interest-calculator",
+    "category": "finance",
+    "families": [
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "convert equivalent nominal rates across compounding frequencies"
+    ],
+    "implementationConventions": "This competitor tool converts equivalent rates, not just future investment value. Preserve conversion mode alongside any added savings mode.",
+    "limitationsAndDependencies": "Label APR/APY correctly; continuous-rate limits need log1p/expm1.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Compound Interest Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Salary Calculator",
+    "competitorUrl": "https://www.calculator.net/salary-calculator.html",
+    "slug": "salary-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "hour/day/week/biweek/semimonth/month/quarter/year",
+      "holiday/vacation adjustment"
+    ],
+    "implementationConventions": "Annual base=hourly*hoursPerWeek*52. Adjust paid/unpaid day assumptions explicitly;biweekly26 andsemimonthly24 differ.",
+    "limitationsAndDependencies": "It is gross pay conversion, not tax withholding; leap/pay-calendar effects may differ.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Salary Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "401K Calculator",
+    "competitorUrl": "https://www.calculator.net/401k-calculator.html",
+    "slug": "401k-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "tax"
+    ],
+    "requiredModes": [
+      "balance projection",
+      "early withdrawal cost",
+      "maximum employer match"
+    ],
+    "implementationConventions": "Employer match=salary*matchFraction*min(employeeContributionRate,matchCap);tiered match uses marginal employee-rate bands. Apply year-specific limits.",
+    "limitationsAndDependencies": "Early withdrawal exceptions and age55 separation rule require current IRS evidence; employer eligibility/vesting not universal.",
+    "sourceIds": [
+      "retirement2026",
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#401K Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Interest Rate Calculator",
+    "competitorUrl": "https://www.calculator.net/interest-rate-calculator.html",
+    "slug": "interest-rate-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "solve loan annual rate from amount/payment/term"
+    ],
+    "implementationConventions": "Find i satisfying present value of payments;annual nominal=12*i. Zero rate atpayment=P/n.",
+    "limitationsAndDependencies": "Negative implied rate permitted only if explicitly supported; reject impossible input/root failure.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Interest Rate Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Sales Tax Calculator",
+    "competitorUrl": "https://www.calculator.net/sales-tax-calculator.html",
+    "slug": "sales-tax-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "solve before-tax",
+      "rate",
+      "after-tax"
+    ],
+    "implementationConventions": "after=before*(1+r);tax=before*r. Require any2 independentknown quantities.",
+    "limitationsAndDependencies": "Entered rate only unless exact jurisdiction data verified.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Sales Tax Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "House Affordability Calculator",
+    "competitorUrl": "https://www.calculator.net/house-affordability-calculator.html",
+    "slug": "house-affordability-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "income+DTI-based",
+      "fixed monthly housing budget"
+    ],
+    "implementationConventions": "Housing allowance=min(frontRatio*monthlyGross,backRatio*monthlyGross-otherDebt). Solve price accounting for percent/fixed down payment, tax, insurance, HOA and maintenance.",
+    "limitationsAndDependencies": "28/36,31/43,41 are illustrative underwriting models not approval promises; taxes/user rates.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#House Affordability Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Savings Calculator",
+    "competitorUrl": "https://www.calculator.net/savings-calculator.html",
+    "slug": "savings-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "principal",
+      "annual+monthly additions",
+      "annual contribution increases",
+      "tax"
+    ],
+    "implementationConventions": "Simulate increasing contribution series and tax-on-interest timing;monthly/annual contributions can coexist.",
+    "limitationsAndDependencies": "Tax treatment depends account,jurisdiction;display simple user-rate assumption.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Savings Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Rent Calculator",
+    "competitorUrl": "https://www.calculator.net/rent-calculator.html",
+    "slug": "rent-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "income-based rent affordability with monthly debts"
+    ],
+    "implementationConventions": "Present explicitly adjustable budgeting scenarios rather than claiming universal qualification; derive from income fractions minus other obligations.",
+    "limitationsAndDependencies": "Competitor exact rent thresholds need observed output validation; no official rule guarantees affordability.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Rent Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Marriage Tax Calculator",
+    "competitorUrl": "https://www.calculator.net/marriage-calculator.html",
+    "slug": "marriage-calculator",
+    "category": "finance",
+    "families": [
+      "tax"
+    ],
+    "requiredModes": [
+      "two hypothetical unmarried filings vs combined joint filing"
+    ],
+    "implementationConventions": "Compute each eligible filing status with same tax engine; joint minus individual sum is marriage difference; allocation and deductions follow rules.",
+    "limitationsAndDependencies": "Cannot be a single bracket comparison; legal filing eligibility, credits, community-property and state rules matter.",
+    "sourceIds": [
+      "tax2026"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Marriage Tax Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Estate Tax Calculator",
+    "competitorUrl": "https://www.calculator.net/estate-tax-calculator.html",
+    "slug": "estate-tax-calculator",
+    "category": "finance",
+    "families": [
+      "tax"
+    ],
+    "requiredModes": [
+      "assets minus deductions",
+      "prior taxable gifts",
+      "federal estate estimate"
+    ],
+    "implementationConventions": "Gross estate=sum assets;deduct admissible debts/expenses/charity/state estate tax;apply estate/gift unified-credit calculation. 2026 basic exclusion15m.",
+    "limitationsAndDependencies": "Portability,spouse status,prior gift taxes,valuation,trusts require additional facts; simple40%excess is scoped simplified estimate only.",
+    "sourceIds": [
+      "tax2026"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Estate Tax Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Pension Calculator",
+    "competitorUrl": "https://www.calculator.net/pension-calculator.html",
+    "slug": "pension-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "lump sum vs pension",
+      "single vs joint survivor",
+      "working longer comparison"
+    ],
+    "implementationConventions": "Discount monthly pension with COLA;survivor stream after modeled death;compare present and future cash flows over common horizon.",
+    "limitationsAndDependencies": "Life expectancy not guarantee;survivor percentage and contract specifics needed;PBGCguarantees not inferred.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Pension Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Social Security Calculator",
+    "competitorUrl": "https://www.calculator.net/social-security-calculator.html",
+    "slug": "social-security-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "optimal claiming-age comparison",
+      "two specified claiming-age benefit streams"
+    ],
+    "implementationConventions": "Use birthyear FRA schedule and monthly early/delayed retirement factors; compare discounted/accumulated streams with COLA. Actual benefits should be user SSA estimate.",
+    "limitationsAndDependencies": "Competitor is claiming-age comparison, not salary-to-benefit calculator. If estimating benefit,need35year indexed earnings and cohort-specific bendpoints.",
+    "sourceIds": [
+      "ssa-pia"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Social Security Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Annuity Calculator",
+    "competitorUrl": "https://www.calculator.net/annuity-calculator.html",
+    "slug": "annuity-calculator",
+    "category": "finance",
+    "families": [
+      "growth"
+    ],
+    "requiredModes": [
+      "accumulation with initial sum and annual/monthly contributions",
+      "begin/end"
+    ],
+    "implementationConventions": "Ordinary/annuity-due growth with stated fixed assumed return.",
+    "limitationsAndDependencies": "An insurer lifetime annuity quotation needs mortality/contract data and is not determined by this equation.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Annuity Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Annuity Payout Calculator",
+    "competitorUrl": "https://www.calculator.net/annuity-payout-calculator.html",
+    "slug": "annuity-payout-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "fixed payout amount from term",
+      "duration from payout",
+      "payment frequency"
+    ],
+    "implementationConventions": "Withdrawal=PV*i/(1-(1+i)^-n);duration as amortization. Fractional final withdrawal;nondepletion if withdrawals<=earnings.",
+    "limitationsAndDependencies": "No mortality guarantee,insurance rider,tax quote implied.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Annuity Payout Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Credit Card Calculator",
+    "competitorUrl": "https://www.calculator.net/credit-card-calculator.html",
+    "slug": "credit-card-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "payoff date from fixed payment",
+      "payment from target date"
+    ],
+    "implementationConventions": "Assumed monthlyAPR/12 simulation with no newcharges; payment<=interest means no payoff.",
+    "limitationsAndDependencies": "Real cards daily-averagebalance,grace periods,multipleAPR buckets and minimum rules differ.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Credit Card Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Credit Cards Payoff Calculator",
+    "competitorUrl": "https://www.calculator.net/credit-card-payoff-calculator.html",
+    "slug": "credit-card-payoff-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "multiple cards",
+      "monthly payoff budget",
+      "avalanche comparison"
+    ],
+    "implementationConventions": "Pay all minimums,allocate extra to highestAPR,roll paid-off budget into next debt;clamp balances.",
+    "limitationsAndDependencies": "Reject budget below sum minimums;show no-new-purchases assumption.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Credit Cards Payoff Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Debt Payoff Calculator",
+    "competitorUrl": "https://www.calculator.net/debt-payoff-calculator.html",
+    "slug": "debt-payoff-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "multiple debts",
+      "monthly/yearly/dated one-time extras",
+      "fixed-total or declining budget"
+    ],
+    "implementationConventions": "Simulate debts with waterfallallocation and selected budget policy; retain minimums and payoff order;compare baseline.",
+    "limitationsAndDependencies": "Disclose interest accrual and extra-payment allocation; secured-loan prepayment penalties excluded unless supplied.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Debt Payoff Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Debt Consolidation Calculator",
+    "competitorUrl": "https://www.calculator.net/debt-consolidation-calculator.html",
+    "slug": "debt-consolidation-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "existing debts vs new loan+fees"
+    ],
+    "implementationConventions": "Compute existing schedules separately and new principal/rate/term; origination percent/dollar fee financed vs cash affects APR andcost.",
+    "limitationsAndDependencies": "Lower monthly payment need not mean lower totalcost;compare cash outlay over common horizon.",
+    "sourceIds": [
+      "amortization",
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Debt Consolidation Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Repayment Calculator",
+    "competitorUrl": "https://www.calculator.net/repayment-calculator.html",
+    "slug": "repayment-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "payment from term",
+      "duration from payment",
+      "independent compounding/payment frequencies"
+    ],
+    "implementationConventions": "Convert nominal compounding to periodic effective rate;all payment frequencies and partial finalpayment.",
+    "limitationsAndDependencies": "Prevent negativeamortization and infinite loops.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Repayment Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Student Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/student-loan-calculator.html",
+    "slug": "student-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "basic unknown principal/payment",
+      "extra repayment",
+      "in-school borrowing projection"
+    ],
+    "implementationConventions": "Track annual newborrowing,in-school/grace interest and capitalization before amortization;interest-paid-during-school option.",
+    "limitationsAndDependencies": "Federal income-driven forgiveness plans are separate changing rules;do not invent eligibility or current plan availability.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Student Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "College Cost Calculator",
+    "competitorUrl": "https://www.calculator.net/college-cost-calculator.html",
+    "slug": "college-cost-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "discounting"
+    ],
+    "requiredModes": [
+      "project college costs",
+      "savings needed",
+      "funded percentage"
+    ],
+    "implementationConventions": "Escalate current yearly cost by time to entry and year ofattendance;investment return less declared tax and existing savings offset needed contributions.",
+    "limitationsAndDependencies": "Cost averages need current CollegeBoard source/version;allow manual costs without fake averages.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#College Cost Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Simple Interest Calculator",
+    "competitorUrl": "https://www.calculator.net/simple-interest-calculator.html",
+    "slug": "simple-interest-calculator",
+    "category": "finance",
+    "families": [
+      "simple-interest"
+    ],
+    "requiredModes": [
+      "solve principal",
+      "interest rate",
+      "term",
+      "ending balance"
+    ],
+    "implementationConventions": "A=P*(1+r*t);align rate period and term units;solve selected unknown andzero cases.",
+    "limitationsAndDependencies": "Simple interest does not compound.",
+    "sourceIds": [
+      "simple-interest"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Simple Interest Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "CD Calculator",
+    "competitorUrl": "https://www.calculator.net/cd-calculator.html",
+    "slug": "cd-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "CD return with year/monthterm",
+      "compounding",
+      "tax"
+    ],
+    "implementationConventions": "A=P*(1+j/m)^(m*t);APYinput differs nominal; tax interest not principal.",
+    "limitationsAndDependencies": "Early withdrawal penalties and deposit insurance eligibility not calculated unless explicitly modeled.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#CD Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Bond Calculator",
+    "competitorUrl": "https://www.calculator.net/bond-calculator.html",
+    "slug": "bond-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "price/yield-to-maturity solve",
+      "dated clean/dirty price and accrued interest"
+    ],
+    "implementationConventions": "Price=sum coupon/(1+y/f)^k+face/(1+y/f)^N;dated modes require coupon schedule,settlement/maturity and selected day-count. Clean=dirty-accrued.",
+    "limitationsAndDependencies": "Odd coupons,ex-coupon dates andday-count require full convention support; do not label simple periodic model exact bond quote.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Bond Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Mutual Fund Calculator",
+    "competitorUrl": "https://www.calculator.net/mutual-fund-calculator.html",
+    "slug": "mutual-fund-calculator",
+    "category": "finance",
+    "families": [
+      "growth"
+    ],
+    "requiredModes": [
+      "front load",
+      "deferred load",
+      "expense ratio",
+      "monthly/yearly investment"
+    ],
+    "implementationConventions": "Reduce each subscription by frontload;deduct ongoing expense at stated interval;apply deferredfee basis onexit;compare nofee case.",
+    "limitationsAndDependencies": "Fund prospectus can define different bases/tiered/redemption fees;user assumptions only.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Mutual Fund Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Roth IRA Calculator",
+    "competitorUrl": "https://www.calculator.net/roth-ira-calculator.html",
+    "slug": "roth-ira-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "tax"
+    ],
+    "requiredModes": [
+      "Roth vs taxable savings",
+      "contribution limit option"
+    ],
+    "implementationConventions": "Project aftertax contributions and returns; taxable comparison taxes income underdeclared timing. Year/age contribution caps.",
+    "limitationsAndDependencies": "Eligibility MAGI,earned compensation and qualified-withdrawal rules require evidence;don't assume all distributions taxfree.",
+    "sourceIds": [
+      "retirement2026",
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Roth IRA Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "IRA Calculator",
+    "competitorUrl": "https://www.calculator.net/ira-calculator.html",
+    "slug": "ira-calculator",
+    "category": "finance",
+    "families": [
+      "growth",
+      "tax"
+    ],
+    "requiredModes": [
+      "traditional vs Roth vs regular taxable account"
+    ],
+    "implementationConventions": "Use equal pretax outlay forfair comparison; traditional balance taxed at retirement assumption; Roth contributions fundedafter tax.",
+    "limitationsAndDependencies": "Deductibility/MAGI/employercoverage/early distributions andstate rules vary.",
+    "sourceIds": [
+      "retirement2026",
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#IRA Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "RMD Calculator",
+    "competitorUrl": "https://www.calculator.net/rmd-calculator.html",
+    "slug": "rmd-calculator",
+    "category": "finance",
+    "families": [
+      "ratio",
+      "growth"
+    ],
+    "requiredModes": [
+      "annual RMD",
+      "future schedule",
+      "solebeneficiary spouse age choice"
+    ],
+    "implementationConventions": "RMD=priorDec31balance/current-age divisor;use IRS TableII if spouse solelybenefits and>10y younger,otherwiseIII;apply growth and withdrawals consistently.",
+    "limitationsAndDependencies": "Need actual complete IRS tables and birthyear RMD startage;inheritance rules separate;2027 projection rates not current data.",
+    "sourceIds": [
+      "rmd",
+      "rmd-tables"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#RMD Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "VAT Calculator",
+    "competitorUrl": "https://www.calculator.net/vat-calculator.html",
+    "slug": "vat-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "solve net",
+      "gross",
+      "VAT amount",
+      "rate"
+    ],
+    "implementationConventions": "gross=net*(1+r);VAT=gross-net;require consistent independentinputs.",
+    "limitationsAndDependencies": "Country/product eligibility andrates not inferred.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#VAT Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Cash Back or Low Interest Calculator",
+    "competitorUrl": "https://www.calculator.net/cash-back-or-low-interest-calculator.html",
+    "slug": "cash-back-or-low-interest-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "cashrebate at standard APR vs promotional APR"
+    ],
+    "implementationConventions": "Build two different financed principals accountingrebate-tax treatment,then amortize;comparepayment/interest/total.",
+    "limitationsAndDependencies": "Rebate taxation andqualifying rates provider/jurisdiction specific.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Cash Back or Low Interest Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Auto Lease Calculator",
+    "competitorUrl": "https://www.calculator.net/auto-lease-calculator.html",
+    "slug": "auto-lease-calculator",
+    "category": "finance",
+    "families": [
+      "lease"
+    ],
+    "requiredModes": [
+      "monthly payment orreverse price",
+      "money factor orinterest input"
+    ],
+    "implementationConventions": "Basepayment=(adjustedCapCost-residual)/months+(adjustedCapCost+residual)*moneyFactor. ApproxAPRpercent=moneyFactor*2400. Add actual lease tax convention.",
+    "limitationsAndDependencies": "Different from discounted residual-finance lease model; sales tax differs bystate;not every fee entered.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Auto Lease Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Depreciation Calculator",
+    "competitorUrl": "https://www.calculator.net/depreciation-calculator.html",
+    "slug": "depreciation-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "straightline",
+      "decliningbalance",
+      "sumofyearsdigits",
+      "partialyear methods"
+    ],
+    "implementationConventions": "SL=(cost-salvage)/life;DB=min(book-salvage,book*factor/life);SYD=(remainingYears/[life*(life+1)/2])*(cost-salvage); prorate partialyear conventions.",
+    "limitationsAndDependencies": "Accounting estimate is not automatically IRS MACRS/bonus depreciation; fullcalendar boundary testingneeded.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Depreciation Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Average Return Calculator",
+    "competitorUrl": "https://www.calculator.net/average-return-calculator.html",
+    "slug": "average-return-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "dated deposits/withdrawals",
+      "sequence average+cumulative return"
+    ],
+    "implementationConventions": "Dated mode moneyweighted annualized XIRR;returnseries arithmetic average vs geometric cumulative product(1+r)-1,weight byperiod durations.",
+    "limitationsAndDependencies": "IRR may be nonunique;returns<-100% invalidate geometric model;verify competitor interpretation of repeatedperiods.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Average Return Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Margin Calculator",
+    "competitorUrl": "https://www.calculator.net/margin-calculator.html",
+    "slug": "margin-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "profitmargin",
+      "stockmargin",
+      "FXmargin"
+    ],
+    "implementationConventions": "profit=revenue-cost;margin=profit/revenue;markup=profit/cost;equityRequirement=shares*price*marginFraction;FXmargin=units*quote/leverage.",
+    "limitationsAndDependencies": "Stock/FX broker risk/liquidation rules separate;zero revenue denominator explicit.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Margin Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Discount Calculator",
+    "competitorUrl": "https://www.calculator.net/discount-calculator.html",
+    "slug": "discount-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "solve originalprice",
+      "discount",
+      "finalprice",
+      "savings",
+      "percent/fraction display"
+    ],
+    "implementationConventions": "final=original*(1-discount);savings=original-final.",
+    "limitationsAndDependencies": "Reject underdetermined/inconsistentinputs;fraction can be exact rational.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Discount Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Business Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/business-loan-calculator.html",
+    "slug": "business-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "periodic-rate",
+      "apr"
+    ],
+    "requiredModes": [
+      "installments",
+      "interestonly",
+      "bullet",
+      "fees",
+      "frequency"
+    ],
+    "implementationConventions": "Calculate principal cashflows with origination/document/otherfees;IRRofnetproceeds yieldsAPR;interestonly ends withballoon.",
+    "limitationsAndDependencies": "SBA eligibility/guarantee fees/currentprogram rules not part ofgenericloan unless versioned.",
+    "sourceIds": [
+      "amortization",
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Business Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Debt-to-Income Ratio Calculator",
+    "competitorUrl": "https://www.calculator.net/debt-ratio-calculator.html",
+    "slug": "debt-ratio-calculator",
+    "category": "finance",
+    "families": [
+      "ratio"
+    ],
+    "requiredModes": [
+      "monthly/annual income and housing/debt fields"
+    ],
+    "implementationConventions": "DTI=monthlyRecurringDebt/monthlyGrossIncome;show front-end housing andback-end totals;avoiddoublecount rent+mortgage where alternatives.",
+    "limitationsAndDependencies": "Underwriting grossincome definition anddebt inclusion vary; ratio is not loanapproval.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Debt-to-Income Ratio Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Real Estate Calculator",
+    "competitorUrl": "https://www.calculator.net/real-estate-calculator.html",
+    "slug": "real-estate-calculator",
+    "category": "finance",
+    "families": [
+      "directory"
+    ],
+    "requiredModes": [
+      "real-estate tool directory"
+    ],
+    "implementationConventions": "No calculator form in audited competitor page;implement category hub linking property tools.",
+    "limitationsAndDependencies": "Do not fabricate a generic real-estate engine to match thetitle.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Real Estate Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Take-Home-Paycheck Calculator",
+    "competitorUrl": "https://www.calculator.net/take-home-pay-calculator.html",
+    "slug": "take-home-pay-calculator",
+    "category": "finance",
+    "families": [
+      "tax"
+    ],
+    "requiredModes": [
+      "payfrequency",
+      "filingstatus",
+      "dependents",
+      "otherjobs",
+      "deductions",
+      "selfemployment",
+      "state/local assumedrate"
+    ],
+    "implementationConventions": "Annualize anduse correct W4withholding method orlabel annual-tax-allocationestimate;separate retirement income-tax deductions fromFICA wage deductions.",
+    "limitationsAndDependencies": "Full paycheck requires IRS15T2026,pre/posttax benefit distinctions,state/local regulations. Flatfederalbracket estimate is partialscope.",
+    "sourceIds": [
+      "tax2026",
+      "fica2026",
+      "medicare"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Take-Home-Paycheck Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Personal Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/personal-loan-calculator.html",
+    "slug": "personal-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "apr"
+    ],
+    "requiredModes": [
+      "amount/rate/term",
+      "originationfee upfront/deducted",
+      "insurance"
+    ],
+    "implementationConventions": "Payment based onnoteprincipal;netdisbursement differs if fee deducted. APRsolves netreceived vs all requiredpayments.",
+    "limitationsAndDependencies": "Insurance may ormaynot be financecharge;financial disclosure assumption explicit.",
+    "sourceIds": [
+      "amortization",
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Personal Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Boat Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/boat-loan-calculator.html",
+    "slug": "boat-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "payment/affordable price",
+      "percent/dollar down",
+      "tradein",
+      "taxesfees"
+    ],
+    "implementationConventions": "Loanprincipal after down/trade/financedfees;term months/years normalized.",
+    "limitationsAndDependencies": "State-tax base/registration andongoing ownership costs vary.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Boat Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Lease Calculator",
+    "competitorUrl": "https://www.calculator.net/lease-calculator.html",
+    "slug": "lease-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "discounting"
+    ],
+    "requiredModes": [
+      "solve leasepayment",
+      "residual",
+      "principal",
+      "rate",
+      "term"
+    ],
+    "implementationConventions": "Periodic financial lease PMT=(P-RV/(1+i)^n)*i/(1-(1+i)^-n);i0 =>(P-RV)/n. Distinguish due/ordinary.",
+    "limitationsAndDependencies": "Not same asauto money-factor formula;equipment realcontracts fees/servicing can differ.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Lease Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Refinance Calculator",
+    "competitorUrl": "https://www.calculator.net/refinance-calculator.html",
+    "slug": "refinance-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "known remainingbalance vsderivedbalance",
+      "newterm/rate",
+      "points",
+      "costs",
+      "cashout"
+    ],
+    "implementationConventions": "Compare originalremainingschedule against newprincipal includingchosen financedcashout/costs. Show paymentchange,totalcost andbreakeven over commonhorizon.",
+    "limitationsAndDependencies": "Cost/paymentreduction simplebreakeven fails if termsdiffer/cashout;use balance-aware comparison.",
+    "sourceIds": [
+      "amortization",
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Refinance Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Budget Calculator",
+    "competitorUrl": "https://www.calculator.net/budget-calculator.html",
+    "slug": "budget-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "income/expenses/savings categories",
+      "monthly/annual frequencies",
+      "assumedtax"
+    ],
+    "implementationConventions": "Normalize toannual thenmonthly;netincome=gross*(1-taxAssumption);surplus=netincome-expenses-savings. Show allocationpercentages.",
+    "limitationsAndDependencies": "Taxinput is simplifiedbudget assumption,not computed statutorytax.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Budget Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Rental Property Calculator",
+    "competitorUrl": "https://www.calculator.net/rental-property-calculator.html",
+    "slug": "rental-property-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "discounting"
+    ],
+    "requiredModes": [
+      "loan/cash purchase",
+      "repair",
+      "income/vacancy",
+      "expenses/growth",
+      "exitprice/appreciation",
+      "holdingperiod"
+    ],
+    "implementationConventions": "NOI=effectiveincome-operatingexpenses excludingdebtservice;caprate=NOI/propertyvalue;cashflow=NOI-debtservice;cashoncash=annualCF/initialcash;IRRincluding net saleproceeds andloanbalance.",
+    "limitationsAndDependencies": "Taxdepreciation,recapture/capitalgain andleasing constraints omittedunless modeled;display assumptions.",
+    "sourceIds": [
+      "amortization",
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Rental Property Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "IRR Calculator",
+    "competitorUrl": "https://www.calculator.net/irr-calculator.html",
+    "slug": "irr-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "regular contributions/withdrawals+endvalue",
+      "annual irregularamounts"
+    ],
+    "implementationConventions": "Build signedcashflow timeline;scanforroots with r>-1; report multiplepossibleIRRs when signschangemorethanonce.",
+    "limitationsAndDependencies": "Competitor irregularamountmode not sameas XIRR dates;keep bothdistinct.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#IRR Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "ROI Calculator",
+    "competitorUrl": "https://www.calculator.net/roi-calculator.html",
+    "slug": "roi-calculator",
+    "category": "finance",
+    "families": [
+      "ratio"
+    ],
+    "requiredModes": [
+      "total andannualizedROI",
+      "datedorduration mode"
+    ],
+    "implementationConventions": "ROI=(ending-beginning)/beginning;annualized=(ending/beginning)^(1/years)-1;explicit ACT/365calendar convention.",
+    "limitationsAndDependencies": "No externalcashflowadjustment withoutseparate IRR;negativeendingvalue maynot have real CAGR.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#ROI Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "APR Calculator",
+    "competitorUrl": "https://www.calculator.net/apr-calculator.html",
+    "slug": "apr-calculator",
+    "category": "finance",
+    "families": [
+      "apr",
+      "amortization"
+    ],
+    "requiredModes": [
+      "general financed/upfrontfees",
+      " mortgagepoints+PMI"
+    ],
+    "implementationConventions": "Find periodrate equating netamountfinanced torequiredcashflows;nominalAPR=periodrate*paymentsPerYear. TreatPMIduration separately.",
+    "limitationsAndDependencies": "RegZfinancecharge inclusions andirregularfirstperiods matter;estimate notcertified disclosure.",
+    "sourceIds": [
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#APR Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "FHA Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/fha-loan-calculator.html",
+    "slug": "fha-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "upfrontMIP",
+      "annualMIP",
+      "duration",
+      "costs",
+      "extras"
+    ],
+    "implementationConventions": "Baseprincipal=price-down;financedUFMIP=baseprincipal*rate; annualMIP applied underHUD averagebalance rules;durationbased LTVandterm.",
+    "limitationsAndDependencies": "CurrentHUDtable/loanlimits andhistoricalendorsementdate required;default0.55%notuniversal;useroverride clearlyassumption.",
+    "sourceIds": [
+      "fha",
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#FHA Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "VA Mortgage Calculator",
+    "competitorUrl": "https://www.calculator.net/va-mortgage-calculator.html",
+    "slug": "va-mortgage-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "first/subsequentuse",
+      "exemption",
+      "fee upfront/financed",
+      "costs",
+      "extras"
+    ],
+    "implementationConventions": "FundingFee=baseLoan*applicablerate;0for qualifyingexemption;add iffinanced. No monthlyVA mortgageinsurance.",
+    "limitationsAndDependencies": "Exemptioneligibility must beusersupplied/confirmed,not inferredfrom militarycategoryalone.",
+    "sourceIds": [
+      "va",
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#VA Mortgage Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Home Equity Loan Calculator",
+    "competitorUrl": "https://www.calculator.net/home-equity-loan-calculator.html",
+    "slug": "home-equity-loan-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "apr",
+      "ratio"
+    ],
+    "requiredModes": [
+      "loanrepayment",
+      "borrowingcapacity"
+    ],
+    "implementationConventions": "Capacity=max(0,propertyValue*allowedCLTV-existingSecuredBalances);repaymentand feeAPR separately.",
+    "limitationsAndDependencies": "CLTVlimit isuser/lenderassumption,notapproval.",
+    "sourceIds": [
+      "amortization",
+      "apr"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Home Equity Loan Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "HELOC Calculator",
+    "competitorUrl": "https://www.calculator.net/heloc-calculator.html",
+    "slug": "heloc-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "ratio"
+    ],
+    "requiredModes": [
+      "interestonlydraw phase",
+      "amortizingrepayment",
+      "capacity",
+      "fees"
+    ],
+    "implementationConventions": "Assumeinitialdrawnamount/statedconstantAPR;drawpayment=balance*monthlyrate;thenPMToverrepaymentphase. Capacitylikehomeequity.",
+    "limitationsAndDependencies": "RealvariableAPRand changingdraws needtimeline;line limit isnot actualdrawnbalance.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#HELOC Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Down Payment Calculator",
+    "competitorUrl": "https://www.calculator.net/down-payment-calculator.html",
+    "slug": "down-payment-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic",
+      "amortization"
+    ],
+    "requiredModes": [
+      "maxpricefromcash",
+      "cashneededfromprice",
+      "downpercentfromprice+cash"
+    ],
+    "implementationConventions": "Percentclosingcost:price=cash/(downFraction+closingFraction);fixedclosingcost:price=(cash-fixedFee)/downFraction. Othermodes invert.",
+    "limitationsAndDependencies": "Closingcost percent basemustbe price vsloan explicitly;zero-denominator cases.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Down Payment Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Rent vs. Buy Calculator",
+    "competitorUrl": "https://www.calculator.net/rent-vs-buy-calculator.html",
+    "slug": "rent-vs-buy-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "growth",
+      "discounting"
+    ],
+    "requiredModes": [
+      "timehorizon buy/rent comparison with investmentopportunitycost"
+    ],
+    "implementationConventions": "Simulate bothnetwealth paths including downpayment,closing/sale costs,maintenance,taxes,insurance,mortgagebalance,rentgrowth,deposit return,and investmentofcashdifference.",
+    "limitationsAndDependencies": "Mortgageinterestdeduction needs itemizationbenefit not fullinterest*taxrate;future appreciation/returns uncertain.",
+    "sourceIds": [
+      "amortization",
+      "tax2026"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Rent vs. Buy Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Payback Period Calculator",
+    "competitorUrl": "https://www.calculator.net/payback-period-calculator.html",
+    "slug": "payback-period-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "fixedgrowingcashflow",
+      "annualirregularcashflows",
+      "simpleanddiscountedpayback"
+    ],
+    "implementationConventions": "CumulativeCF crosses initialinvestment;fraction=unrecoveredatstart/nextCF where assumeduniformperiodreceipt;discountCFby(1+r)^t.",
+    "limitationsAndDependencies": "If not recoveredinhorizon saynotreached;cashflowtimingfraction isapproximation.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Payback Period Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Present Value Calculator",
+    "competitorUrl": "https://www.calculator.net/present-value-calculator.html",
+    "slug": "present-value-calculator",
+    "category": "finance",
+    "families": [
+      "discounting"
+    ],
+    "requiredModes": [
+      "singlefutureamount",
+      "periodicdeposits beginning/end"
+    ],
+    "implementationConventions": "PV=FV/(1+r)^n;annuityPV=C*(1-(1+r)^-n)/r*(1+r*due);r0=>n*C.",
+    "limitationsAndDependencies": "Keepperiods andrate unitconsistent.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Present Value Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Future Value Calculator",
+    "competitorUrl": "https://www.calculator.net/future-value-calculator.html",
+    "slug": "future-value-calculator",
+    "category": "finance",
+    "families": [
+      "growth"
+    ],
+    "requiredModes": [
+      "initialamount plusperiodicpayment",
+      "beginning/end"
+    ],
+    "implementationConventions": "FV=P*(1+r)^n+C*((1+r)^n-1)/r*(1+r*due).",
+    "limitationsAndDependencies": "Periodinteger vsfractional paymentcounts need explicitrules.",
+    "sourceIds": [
+      "annuities"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Future Value Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Commission Calculator",
+    "competitorUrl": "https://www.calculator.net/commission-calculator.html",
+    "slug": "commission-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "simpleprice/rate/commission solve",
+      "tieredwithbase/fixed/percentage rates"
+    ],
+    "implementationConventions": "Marginal tiercommission=sum(max(0,min(sales,upper)-lower)*rate)+base;fixed-dollar tier meaning explicitlydefined.",
+    "limitationsAndDependencies": "Tierthreshold order,wholeamountvsincrementaltier andcommissionbase needdisclosure.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Commission Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Mortgage Calculator UK",
+    "competitorUrl": "https://www.calculator.net/mortgage-calculator-uk.html",
+    "slug": "mortgage-calculator-uk",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "repayment andinterestonly",
+      "deposit",
+      "overpayments",
+      "fees"
+    ],
+    "implementationConventions": "Monthly nominal rate/12 convention with fixedassumedrate;interestonlypayment=P*i andfullprincipal remains. Label productrateperiod vswholeloanterm.",
+    "limitationsAndDependencies": "Trackerfutureunknown;SDLT England/NI only,ScotlandLBTT/WalesLTT separate;don'tapply USPMI/FICA.",
+    "sourceIds": [
+      "amortization",
+      "sdlt"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Mortgage Calculator UK",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Canadian Mortgage Calculator",
+    "competitorUrl": "https://www.calculator.net/canadian-mortgage-calculator.html",
+    "slug": "canadian-mortgage-calculator",
+    "category": "finance",
+    "families": [
+      "amortization",
+      "periodic-rate"
+    ],
+    "requiredModes": [
+      "monthly/semimonthly/biweekly/weekly",
+      "acceleratedvariants",
+      "prepayments",
+      "costs"
+    ],
+    "implementationConventions": "Fixedsemiannualnominal:j2 =>i_p=(1+j/2)^(2/p)-1; acceleratedbiweekly=monthlyPayment/2 paid26times;acceleratedweekly=monthlyPayment/4 paid52times.",
+    "limitationsAndDependencies": "Term vsamortization separate;variablemortgagecompounding dependscontract;CMHCpremiums/taxes need currentrules.",
+    "sourceIds": [
+      "ca-mortgage",
+      "ca-payments"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Canadian Mortgage Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Mortgage Amortization Calculator",
+    "competitorUrl": "https://www.calculator.net/mortgage-amortization-calculator.html",
+    "slug": "mortgage-amortization-calculator",
+    "category": "finance",
+    "families": [
+      "amortization"
+    ],
+    "requiredModes": [
+      "monthlyschedule",
+      "term/rate",
+      "extras"
+    ],
+    "implementationConventions": "USprincipal/rate/term amortization withdate/extra paymentoptionsas auditedfields.",
+    "limitationsAndDependencies": "Notduplicate genericloan UI if auditedmortgageextras missing.",
+    "sourceIds": [
+      "amortization"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Mortgage Amortization Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Percent Off Calculator",
+    "competitorUrl": "https://www.calculator.net/percent-off-calculator.html",
+    "slug": "percent-off-calculator",
+    "category": "finance",
+    "families": [
+      "arithmetic"
+    ],
+    "requiredModes": [
+      "pricewithpercentdiscount",
+      "taxifprovided"
+    ],
+    "implementationConventions": "discounted=price*(1-percent/100);multiple sequentialdiscountsmultiplyremainingfractions.",
+    "limitationsAndDependencies": "Never addsequentialdiscountpercentages as ifsamebase.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Percent Off Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity and edge-case behavior still require independent tests"
+  }
+]

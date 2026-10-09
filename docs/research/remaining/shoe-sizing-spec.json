@@ -1,0 +1,206 @@
+{
+  "auditDate": "2026-10-09",
+  "slug": "shoe-size-conversion",
+  "status": "verified-chart-candidates-with-reuse-and-region-gaps",
+  "primarySources": {
+    "adult": "https://www.nike.com/size-fit/mens-footwear",
+    "children": "https://www.nike.com/size-fit/kids-footwear"
+  },
+  "candidateDataset": {
+    "adult": "38 columns USmen3.5..22, USwomen5..23.5, UK, EU, CM/JP, foot length inches",
+    "child": "Big kids13 columns1Y..7Y; little kids15 columns8C..3Y; baby/toddler10 columns1C..10C",
+    "privateEvidence": [
+      "evidence/nike-men-tables.json",
+      "evidence/nike-kids-tables.json"
+    ],
+    "scope": "These are inspected source facts, not a cleared deployable chart asset. No manufacturer prose/artwork/code is needed.",
+    "observedMissingRegion": "No CN column. CM/JP is a nominal label and differs from foot length; multiplying either by10 does not establish a verified China conversion.",
+    "criticalAmbiguities": [
+      "UK6 maps to both USmen6.5/EU39 and USmen7/EU40; reverse lookups must return both source matches.",
+      "Nominal USmen3.5 and kids3.5Y share regional size labels, but adult chart foot length8.5in differs from big-kids chart8.75in. Keep chart group explicit.",
+      "Adult chart includes a USwomen column, but that does not prove it matches every women-specific product/chart.",
+      "Infant age values are rough chart guidance, not an exact measurement-to-size law; do not calculate fit from age."
+    ]
+  },
+  "rights": {
+    "usTermsUrl": "https://agreementservice.svs.nike.com/us/en_us/rest/agreement?agreementType=termsOfUse&uxId=com.nike.commerce.nikedotcom.web&country=US&language=en&requestType=redirect",
+    "verification": "US terms endpoint returned403 through web tool. No open commercial data licence identified. Do not substitute Hong Kong terms as verified US terms or claim permission.",
+    "nextStep": "Establish a reuse basis or choose an appropriately licensed independent sizing dataset. Named-chart attribution does not itself establish permission; no legal clearance conclusion offered."
+  },
+  "implementationIfDataCleared": [
+    "Accept a selected brand/chart-group and source-size system. Exact row lookup, not formula interpolation.",
+    "Return all matches if a source label repeats. No matching row means unsupported; do not extrapolate at large/small sizes.",
+    "For measured foot length use the selected chart\u2019s measurement row and documented between-size rule; distinguish numeric labels from physical lengths.",
+    "Keep supplied-chart data separate from generic length-unit conversion."
+  ],
+  "referenceFixtures": [
+    {
+      "sourceGroup": "nike-men-0",
+      "input": {
+        "US - Men": "9"
+      },
+      "expected": {
+        "US - Men": "9",
+        "US - Women": "10.5",
+        "UK": "8",
+        "CM / JP": "27",
+        "EU": "42.5",
+        "Foot Length (in)": "10 5/16"
+      }
+    },
+    {
+      "sourceGroup": "nike-men-0",
+      "input": {
+        "US - Men": "6.5"
+      },
+      "expected": {
+        "US - Men": "6.5",
+        "US - Women": "8",
+        "US - Kids": "6.5Y",
+        "UK": "6",
+        "CM / JP": "24.5",
+        "EU": "39",
+        "Foot Length (in)": "9 1/2"
+      }
+    },
+    {
+      "sourceGroup": "nike-men-0",
+      "input": {
+        "US - Men": "7"
+      },
+      "expected": {
+        "US - Men": "7",
+        "US - Women": "8.5",
+        "US - Kids": "7Y",
+        "UK": "6",
+        "CM / JP": "25",
+        "EU": "40",
+        "Foot Length (in)": "9 11/16"
+      }
+    },
+    {
+      "sourceGroup": "nike-men-0",
+      "input": {
+        "US - Men": "3.5"
+      },
+      "expected": {
+        "US - Men": "3.5",
+        "US - Women": "5",
+        "US - Kids": "3.5Y",
+        "UK": "3",
+        "CM / JP": "22.5",
+        "EU": "35.5",
+        "Foot Length (in)": "8 1/2"
+      }
+    },
+    {
+      "sourceGroup": "nike-kids-0",
+      "input": {
+        "US - Kids": "3.5Y"
+      },
+      "expected": {
+        "US - Kids": "3.5Y",
+        "US - Men": "3.5",
+        "US - Women": "5",
+        "UK": "3",
+        "CM / JP": "22.5",
+        "EU": "35.5",
+        "Foot Length (in)": "8 12/16"
+      }
+    },
+    {
+      "sourceGroup": "nike-kids-1",
+      "input": {
+        "US - Kids": "8C"
+      },
+      "expected": {
+        "US - Kids": "8C",
+        "UK": "7.5",
+        "CM / JP": "14",
+        "EU": "25",
+        "Foot Length (in)": "5 15/16"
+      }
+    },
+    {
+      "sourceGroup": "nike-kids-2",
+      "input": {
+        "US - Kids": "1C"
+      },
+      "expected": {
+        "US - Kids": "1C",
+        "Age (Months)": "3",
+        "UK": "0.5",
+        "CM / JP": "7",
+        "EU": "16",
+        "Foot Length (in)": "3  9/16"
+      }
+    }
+  ],
+  "safeUserInputAlternative": {
+    "name": "Custom sizing chart lookup",
+    "columns": [
+      "group",
+      "USmen",
+      "USwomen",
+      "UK",
+      "EU",
+      "JP",
+      "CN",
+      "footLengthMm"
+    ],
+    "behavior": "User pastes a chart they can use; validate finite nonnegative physical lengths, preserve C/Y suffixes, and perform exact text matching. Missing columns remain unavailable. Repeated keys return all matches.",
+    "syntheticFixtures": [
+      {
+        "rows": [
+          {
+            "group": "custom",
+            "US": "6.5",
+            "UK": "6",
+            "EU": "39"
+          },
+          {
+            "group": "custom",
+            "US": "7",
+            "UK": "6",
+            "EU": "40"
+          }
+        ],
+        "query": {
+          "UK": "6"
+        },
+        "expectedUSMatches": [
+          "6.5",
+          "7"
+        ]
+      },
+      {
+        "rows": [
+          {
+            "group": "custom",
+            "US": "1C",
+            "UK": "0.5",
+            "EU": "16"
+          }
+        ],
+        "query": {
+          "US": "1C"
+        },
+        "expectedEU": "16"
+      },
+      {
+        "rows": [
+          {
+            "group": "custom",
+            "US": "1C",
+            "EU": "16"
+          }
+        ],
+        "query": {
+          "US": "1Y"
+        },
+        "expected": "no match"
+      }
+    ]
+  },
+  "parity": "Generic foot-length conversion and custom charts are useful local alternatives but do not close all named regional/adult/child/infant presets."
+}

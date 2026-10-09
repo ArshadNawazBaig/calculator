@@ -1,0 +1,32 @@
+import {expect,it,describe} from 'vitest';
+import fixtures from './fixtures/everyday-physical-reference.json';
+import {definitions} from '@/lib/calculators/registry';
+import {defaults,type Values} from '@/lib/calculators/types';
+import {calculate} from '@/lib/calculators/engine';
+type Fixture={id:string;group:string;slug:string;proposedModeId:string;inputs:Record<string,unknown>;expected?:Record<string,unknown>;expectedError?:string};
+const algorithms:Record<string,string>={'molarity-concentration-units':'molarity-units','gdp-income':'income-gdp','floor-cost-units':'floor-measured','concrete-stairs':'concrete-measured','concrete-curb':'concrete-measured','concrete-quantity-units':'concrete-measured','roof-footprint-angle':'roof-measured','roof-material':'roof-packages','stairs-mount-headroom':'stairs-layout','voltage-custom-ac-parallel':'voltage-impedance','voltage-wire-gauge':'wire-gauge','tire-single-alt-rim':'tire-target','engine-quartermile':'quarter-mile'};
+const labels:Record<string,string>={watts:'Power',mechanicalHp:'Mechanical horsepower',molarityM:'Molarity',concentration:'Concentration',massConcentrationGL:'Mass concentration',massG:'Mass in grams',volumeML:'Volume in milliliters',factorIncome:'Net factor income',grossDomesticIncome:'Gross domestic income estimate',grossNationalIncome:'Gross national income estimate',gdpEstimate:'Reconciled GDP estimate',destination:'Destination local time',sourceOffsetMinutes:'Source offset minutes',destinationOffsetMinutes:'Destination offset minutes',areaM2:'Area in square meters',areaFt2:'Area in square feet',volumeM3:'Net volume',netVolumeM3:'Net volume',netVolumeFt3:'Net cubic feet',netVolumeYd3:'Net cubic yards',orderVolumeM3:'Order volume',orderVolumeFt3:'Order cubic feet',crossSectionM2:'Cross-section area',planAreaM2:'Horizontal area',planAreaFt2:'Horizontal square feet',netRoofAreaM2:'Net roof area',netRoofAreaFt2:'Net roof square feet',orderAreaM2:'Order area',orderAreaFt2:'Order square feet',roofingSquares:'Roofing squares',packages:'Packages',purchasedAreaM2:'Purchased area',riserHeight:'Riser height',treads:'Treads',totalRun:'Total run',headroom:'Headroom at opening',requiredOpening:'Required opening',topTreadHeight:'Top finished tread height',topSupportHeight:'Top support elevation',firstRoughRise:'First rough rise',effectiveOhmPerM:'Longitudinal coefficient',dropV:'Voltage drop',dropPercent:'Voltage drop percentage',receivingVoltage:'Approximate receiving voltage',diameterMm:'Equivalent solid diameter',areaMm2:'Cross-sectional area',loopResistanceOhm:'Loop resistance',rhoOhmM:'Resistivity',seconds:'Transfer seconds',averageMbps:'Average bandwidth',transferGB:'Transferred data',days:'Reporting days',sidewallMm:'Sidewall',circumferenceMm:'Circumference',revolutionsPerKm:'Revolutions per kilometer',originalDiameterMm:'Nominal diameter',targetSidewallMm:'Target sidewall',targetAspectPercent:'Target aspect ratio',candidateDiameterMm:'Candidate diameter',diameterDifferencePercent:'Diameter difference',actualSpeed:'Circumference-based actual speed',centimeters:'Centimeters',feet:'Whole feet',inches:'Remaining inches',motherCm:'Mother height',fatherCm:'Father height',predictedCm:'Mid-parental estimate',estimatedHp:'Empirical horsepower estimate'};
+describe('Independent physical and construction reference cases',()=>{for(const test of fixtures as Fixture[])it(test.id,async()=>{
+ const op=test.group==='power-unit-converter'?(test.proposedModeId==='work'?'power-work-units':'power-units'):test.group==='timezone-coverage'?(test.proposedModeId==='zone'?'time-zone':'fixed-time-zone'):test.group==='height-units'?(test.proposedModeId==='parental'?'parent-height-units':'height-units'):test.group==='bandwidth-unit-time-options'?(test.proposedModeId==='data-converter'?'data-units':test.proposedModeId):algorithms[test.group];
+ const mode=definitions.find(d=>d.slug===test.slug)!.modes.find(m=>m.algorithm===op)!;expect(mode,op).toBeDefined();const v:Values=defaults(mode);
+ for(const key of ['price','waste','otherIncome','statisticalDiscrepancy'])if(key in v)v[key]='0';
+ if(op==='molarity-units')v.solve=test.proposedModeId==='concentration-transform'?'convert':test.proposedModeId;
+ if(op==='income-gdp')v.components=test.proposedModeId==='income-aggregate'?'aggregate':'detailed';
+ if(op==='concrete-measured')v.shape=test.proposedModeId;
+ if(op==='floor-measured')v.shape=String(test.inputs.shape||'rectangle');
+ if(op==='wire-gauge')v.calculation=test.proposedModeId==='wire-size'?'geometry':'dc';
+ if(op==='quarter-mile')v.method=test.proposedModeId==='quarter-mile-et'?'et':'trap';
+ if(op==='tire-target')v.comparison=test.proposedModeId==='single'?'single':test.inputs.candidateAspect?'candidate':'target';
+ if(op==='website-units')v.periodBasis=test.inputs.outputStart?'calendar-dates':'explicit-days';
+ for(const [key,value]of Object.entries(test.inputs))v[key]=String(value);
+ // Shared-unit reference fixtures map to the equivalent independent dimension controls.
+ if(op==='concrete-measured')for(const field of mode.fields.filter(f=>f.key.endsWith('Unit'))){const base=field.key.slice(0,-4);if(test.inputs[base]!==undefined&&test.inputs[field.key]===undefined){const shared=test.inputs.unit||(base==='length'?undefined:test.inputs.crossSectionUnit);if(shared)v[field.key]=String(shared);}}
+ if(test.expectedError){await expect(calculate('everyday',mode,v)).rejects.toThrow();return;}
+ const result=await calculate('everyday',mode,v),metrics=Object.fromEntries(result.metrics.map(m=>[m.label,m.value]));
+ for(const [key,expected]of Object.entries(test.expected||{})){
+  let label=labels[key];if(key==='value')label=op==='data-units'?'Converted data':'Converted power';if(key==='diameterMm'&&op==='tire-target')label='Nominal diameter';if(key==='receivingVoltage'&&op==='wire-gauge')label='Receiving voltage';if(key==='orderAreaFt2'&&op==='roof-measured')label='Order roof square feet';
+  if(key==='cost')label=op==='floor-measured'?'Estimated area cost':op==='concrete-measured'?'Material cost':op==='roof-measured'?'Area-based cost':'Package cost';
+  expect(label,key).toBeDefined();let actual=metrics[label];expect(actual,`${key}: ${JSON.stringify(metrics)}`).toBeDefined();if(key==='destination')actual=String(actual).replace(' ','T');
+  if(typeof expected==='number')expect(Math.abs(Number(actual)-expected),key).toBeLessThanOrEqual(Math.max(1e-9,Math.abs(expected)*1e-11));else expect(actual,key).toEqual(expected);
+ }
+ });});

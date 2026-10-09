@@ -1,0 +1,730 @@
+[
+  {
+    "name": "BMI Calculator",
+    "competitorUrl": "https://www.calculator.net/bmi-calculator.html",
+    "slug": "bmi-calculator",
+    "category": "health",
+    "families": [
+      "bmi"
+    ],
+    "requiredModes": [
+      "US/metric",
+      "adult screening",
+      "child/teen age-sex percentile"
+    ],
+    "implementationConventions": "BMI=kg/m²; CDC adult20+ thresholds18.5,25,30,35,40; classify before rounding. Pediatric2-19 uses official CDC LMS percentile dataset and exact age in months.",
+    "limitationsAndDependencies": "Do not apply adult categories to children or label bodyfat/diagnosis from BMI. Child data is required for parity, not fabricated percentiles.",
+    "sourceIds": [
+      "bmi",
+      "bmi-limits"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#BMI Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Calorie Calculator",
+    "competitorUrl": "https://www.calculator.net/calorie-calculator.html",
+    "slug": "calorie-calculator",
+    "category": "health",
+    "families": [
+      "energy"
+    ],
+    "requiredModes": [
+      "Mifflin",
+      "revised Harris",
+      "Katch",
+      "activity factors",
+      "maintenance/goal scenarios",
+      "zigzag display",
+      "energy conversion"
+    ],
+    "implementationConventions": "BMR formula family then activity multiplier. Nutritional kcal=4184J=4.184kJ; small calorie=4.184J. Goal deficits are explicit rough scenarios, not guaranteed linear weight change.",
+    "limitationsAndDependencies": "Adult nonpregnant estimates. Do not supply extreme or underweight-loss targets. Do not promise static3500kcal/lb trajectory. Katch provenance/activity coefficients require explicit method labeling.",
+    "sourceIds": [
+      "mifflin",
+      "harris",
+      "harris-coefficients",
+      "eating-disorders"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Calorie Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Body Fat Calculator",
+    "competitorUrl": "https://www.calculator.net/body-fat-calculator.html",
+    "slug": "body-fat-calculator",
+    "category": "health",
+    "families": [
+      "anthropometry"
+    ],
+    "requiredModes": [
+      "US/metric Navy circumference",
+      "BMI-based estimate",
+      "fat and lean mass"
+    ],
+    "implementationConventions": "Legacy male BF%=86.010log10(abdomenIn-neckIn)-70.041log10(heightIn)+36.76;female=163.205log10(waistIn+hipIn-neckIn)-97.684log10(heightIn)-78.387. Conversion toinches before formulas. LBM=W*(1-BF/100).",
+    "limitationsAndDependencies": "Exact independent primary provenance of these legacy Navy coefficients and any Deurenberg BMI variants still needs verifying; reject nonpositive log arguments and implausibleoutputs, do not clamp silently. Not currentArmytest.",
+    "sourceIds": [
+      "bmi"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Body Fat Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "BMR Calculator",
+    "competitorUrl": "https://www.calculator.net/bmr-calculator.html",
+    "slug": "bmr-calculator",
+    "category": "health",
+    "families": [
+      "energy"
+    ],
+    "requiredModes": [
+      "Mifflin",
+      "revised Harris",
+      "Katch",
+      "activity-based related expenditure",
+      "kcal/kJ"
+    ],
+    "implementationConventions": "See energy family. Mifflin predicts resting expenditure, which is not a direct measured basal test; Katch requires actual body-fat input.",
+    "limitationsAndDependencies": "No clinical nutrition prescription; illness,pregnancy,children andbodycomposition changes limit accuracy.",
+    "sourceIds": [
+      "mifflin",
+      "harris",
+      "harris-coefficients"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#BMR Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Macro Calculator",
+    "competitorUrl": "https://www.calculator.net/macro-calculator.html",
+    "slug": "macro-calculator",
+    "category": "health",
+    "families": [
+      "energy",
+      "ratio"
+    ],
+    "requiredModes": [
+      "calorie-goal estimate",
+      "balanced/lowcarb/highprotein orcustom macro allocation"
+    ],
+    "implementationConventions": "Use declared energy model;proteinGrams=calories*proteinShare/4;carbGrams=calories*carbShare/4;fatGrams=calories*fatShare/9. Shares sum1.",
+    "limitationsAndDependencies": "Activity/intake assumptions must be visible; do not pretend one split fits medical conditions or pregnancy.",
+    "sourceIds": [
+      "mifflin",
+      "macros"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Macro Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Ideal Weight Calculator",
+    "competitorUrl": "https://www.calculator.net/ideal-weight-calculator.html",
+    "slug": "ideal-weight-calculator",
+    "category": "health",
+    "families": [
+      "anthropometry",
+      "bmi"
+    ],
+    "requiredModes": [
+      "Robinson",
+      "Miller",
+      "Devine",
+      "Hamwi",
+      "BMI-derivedrange",
+      "US/metric"
+    ],
+    "implementationConventions": "Height excessx=inches-60. Robinsonkg male52+1.9x,female49+1.7x;Devine50+2.3x/45.5+2.3x;Miller56.2+1.41x/53.1+1.36x;Hamwilb106+6x/100+5x.",
+    "limitationsAndDependencies": "Historical estimates, primarily adult >=60in derivations; avoid extrapolating tochildren/shortheight without qualification. Hamwi exact lb and rounded kg variants differ;label variant. Not an appearance goal.",
+    "sourceIds": [
+      "ideal-weight",
+      "bmi"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Ideal Weight Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Pregnancy Calculator",
+    "competitorUrl": "https://www.calculator.net/pregnancy-calculator.html",
+    "slug": "pregnancy-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "due date",
+      "LMP+cycle",
+      "ultrasound age",
+      "conception",
+      "IVF embryo age3/5/6days"
+    ],
+    "implementationConventions": "Compute EDD then gestational age and dates of weeks/trimesters using calendar arithmetic; display estimated timeline only.",
+    "limitationsAndDependencies": "Clinical ultrasound/ART dating supersedes simple calendar estimate. Never identify exact conception or guarantee deliverydate.",
+    "sourceIds": [
+      "pregnancy"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Pregnancy Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Pregnancy Weight Gain Calculator",
+    "competitorUrl": "https://www.calculator.net/pregnancy-weight-gain-calculator.html",
+    "slug": "pregnancy-weight-gain-calculator",
+    "category": "health",
+    "families": [
+      "bmi",
+      "range"
+    ],
+    "requiredModes": [
+      "gestational week",
+      "prepregnancy BMI",
+      "currentweight",
+      "singleton/twin"
+    ],
+    "implementationConventions": "Singleton totalgainlb:underweight28-40,normal25-35,overweight15-25,obesity11-20;twins50-62/37-54/31-50/25-42 respectively. Compare observed gain.",
+    "limitationsAndDependencies": "Per-week bands require CDC/IOM tracker methodology; linear0-to40week interpolation is not clinically validated. Underweighttwins has different source. Triplets/higherBMI individualizedcare.",
+    "sourceIds": [
+      "pregnancy-weight"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Pregnancy Weight Gain Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Pregnancy Conception Calculator",
+    "competitorUrl": "https://www.calculator.net/pregnancy-conception-calculator.html",
+    "slug": "pregnancy-conception-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "reverse fromdue date",
+      "LMP",
+      "ultrasound"
+    ],
+    "implementationConventions": "EDD-266days gives central estimated conception;derive alternative estimates consistently. Fertility window includes sperm survival and ovulationuncertainty.",
+    "limitationsAndDependencies": "No exact conception/paternity conclusions; exact window width must be sourced rather than arbitraryconfidenceinterval.",
+    "sourceIds": [
+      "pregnancy",
+      "fertility"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Pregnancy Conception Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Due Date Calculator",
+    "competitorUrl": "https://www.calculator.net/due-date-calculator.html",
+    "slug": "due-date-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "LMP withcycleadjustment",
+      "ultrasound",
+      "conception",
+      "IVFtransfer"
+    ],
+    "implementationConventions": "LMP+280days+(cycle-28);conception+266;transfer+266-embryoAge;scan+(280-gestationalDays).",
+    "limitationsAndDependencies": "Use clinician-confirmed ultrasound gestationalage input; don't rediagnose/redate based onraw measurements.",
+    "sourceIds": [
+      "pregnancy"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Due Date Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Pace Calculator",
+    "competitorUrl": "https://www.calculator.net/pace-calculator.html",
+    "slug": "pace-calculator",
+    "category": "health",
+    "families": [
+      "kinematics"
+    ],
+    "requiredModes": [
+      "solve time/distance/pace",
+      "multi-point splits",
+      "pace/speed converter",
+      "finish-time extrapolation"
+    ],
+    "implementationConventions": "speed=distance/time;pace=time/distance. Split pace=(cumulativeTime_i-cumulativeTime_prev)/(distance_i-distance_prev). Finish extrapolation assumes constant averagepace.",
+    "limitationsAndDependencies": "Parsehh:mm:ss andmm:ss explicitly;timestamps/track distances strictlyincrease;convert units before calculations.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Pace Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Army Body Fat Calculator",
+    "competitorUrl": "https://www.calculator.net/army-body-fat-calculator.html",
+    "slug": "army-body-fat-calculator",
+    "category": "health",
+    "families": [
+      "anthropometry"
+    ],
+    "requiredModes": [
+      "male/female one-site",
+      "weight andabdomen",
+      "age standards"
+    ],
+    "implementationConventions": "Male=-26.97-0.12*weightLb+1.99*abdomenIn;female=-9.15-0.015*weightLb+1.27*abdomenIn. Official2025example:male210lb35in=17.48->17%;female165lb30in=26.475->26%.",
+    "limitationsAndDependencies": "Measurement repetition/rounding and current policy exemptions need currentArmyprocedure, not just formula. Show estimated result, not officialcompliance determination. Do not use Navy neck/hip method forcurrentArmy.",
+    "sourceIds": [
+      "army-male",
+      "army-female",
+      "army2025",
+      "army2026"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Army Body Fat Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Carbohydrate Calculator",
+    "competitorUrl": "https://www.calculator.net/carbohydrate-calculator.html",
+    "slug": "carbohydrate-calculator",
+    "category": "health",
+    "families": [
+      "energy",
+      "ratio"
+    ],
+    "requiredModes": [
+      "maintenance/weightchange calorie scenarios",
+      "carbohydrate ranges"
+    ],
+    "implementationConventions": "Adult AMDR45-65%energy ->grams=calories*share/4;show selected calorie-model assumptions and alternative ranges separately.",
+    "limitationsAndDependencies": "Do not call lowcarb targets universally healthy or offer diabetestreatment guidance;current nutrition guidance edition mustbe explicit.",
+    "sourceIds": [
+      "macros",
+      "mifflin"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Carbohydrate Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Lean Body Mass Calculator",
+    "competitorUrl": "https://www.calculator.net/lean-body-mass-calculator.html",
+    "slug": "lean-body-mass-calculator",
+    "category": "health",
+    "families": [
+      "anthropometry"
+    ],
+    "requiredModes": [
+      "Boer",
+      "James",
+      "Hume adults",
+      "Peters children",
+      "US/metric"
+    ],
+    "implementationConventions": "Boermale0.407W+0.267H-19.2,female0.252W+0.473H-48.3. Jamesmale1.1W-128(W/H)^2,female1.07W-148(W/H)^2. Humemale0.32810W+0.33929H-29.5336,female0.29569W+0.41813H-43.2933;Wkg,Hcm.",
+    "limitationsAndDependencies": "Peters pediatric ECV method requires primarysource verification beforelaunch;James has severe-obesitylimitations;reject impossibleLBM ratherthanhideerrors. Not dosingtool.",
+    "sourceIds": [
+      "lean-mass"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Lean Body Mass Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Healthy Weight Calculator",
+    "competitorUrl": "https://www.calculator.net/healthy-weight-calculator.html",
+    "slug": "healthy-weight-calculator",
+    "category": "health",
+    "families": [
+      "bmi"
+    ],
+    "requiredModes": [
+      "US/metric adult BMI-derived weight interval"
+    ],
+    "implementationConventions": "Weight interval[18.5*h²,25*h²),hmeters;don't round upper boundary into inclusivehealthy25.0.",
+    "limitationsAndDependencies": "Adult screening interval, not individualizedtarget; pregnancy,children,muscularbodycomposition need differentassessment.",
+    "sourceIds": [
+      "bmi",
+      "bmi-limits"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Healthy Weight Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Calories Burned Calculator",
+    "competitorUrl": "https://www.calculator.net/calories-burned-calculator.html",
+    "slug": "calories-burned-calculator",
+    "category": "health",
+    "families": [
+      "energy",
+      "kinematics"
+    ],
+    "requiredModes": [
+      "activity+duration MET",
+      "distance+speed walking/running/cycling"
+    ],
+    "implementationConventions": "Grosskcal≈MET*3.5*weightKg/200*minutes usingoxygenconvention;alternative MET*kg*hours differs5%,label chosenmodel. Netactivitykcal may useMET-1 separately. Distance mode derives duration and selects appropriate speedMET.",
+    "limitationsAndDependencies": "Commit versioned activity table withcode/unit/source/license. Constant singleMET for allactivityspeeds is notparity;terrain/efficiencycause uncertainty.",
+    "sourceIds": [
+      "met",
+      "met-limits"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Calories Burned Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "One Rep Max Calculator",
+    "competitorUrl": "https://www.calculator.net/one-rep-max-calculator.html",
+    "slug": "one-rep-max-calculator",
+    "category": "health",
+    "families": [
+      "strength"
+    ],
+    "requiredModes": [
+      "Epley",
+      "Brzycki",
+      "Lander",
+      "unitconversion",
+      "percent-rep table"
+    ],
+    "implementationConventions": "Epley=W*(1+reps/30);Brzycki=36W/(37-reps) exactrational variant or W/(1.0278-0.0278reps) roundedvariant;Lander=100W/(101.3-2.67123reps). A measured1rep should return liftedW byexplicitmode.",
+    "limitationsAndDependencies": "Positive integerreps;limit validity range and preventnonpositive denominator. Choose/document roundedvs exactvariant. Sourcepapers contain transcriptionerrors—use cross-checkedsources. No automaticmaxattempt instructions.",
+    "sourceIds": [
+      "epley",
+      "brzycki",
+      "lander"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#One Rep Max Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Target Heart Rate Calculator",
+    "competitorUrl": "https://www.calculator.net/target-heart-rate-calculator.html",
+    "slug": "target-heart-rate-calculator",
+    "category": "health",
+    "families": [
+      "physiology"
+    ],
+    "requiredModes": [
+      "knownmax vsageestimate",
+      "traditional/Tanaka/Nes",
+      "Karvonen andmaxHRpercent zones"
+    ],
+    "implementationConventions": "HRmaxtraditional220-age;Tanaka208-0.7age;Nes211-0.64age. HRreserve=HRmax-resting;Karvonen=resting+intensity*reserve;directzone=intensity*HRmax.",
+    "limitationsAndDependencies": "Zones method must be labeled;medication/conditions alterresponse;resting<max validation;predicted max is not personalmeasuredlimit.",
+    "sourceIds": [
+      "tanaka",
+      "nes"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Target Heart Rate Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Protein Calculator",
+    "competitorUrl": "https://www.calculator.net/protein-calculator.html",
+    "slug": "protein-calculator",
+    "category": "health",
+    "families": [
+      "energy",
+      "ratio"
+    ],
+    "requiredModes": [
+      "grams/kg andAMDR energy ranges",
+      "activity/goal scenarios"
+    ],
+    "implementationConventions": "Reference adult RDA0.8g/kg/day requiresappropriate DRIcontext;AMDR10-35%energy givesgrams=calories*share/4;athlete/goalranges need explicitindependent sources.",
+    "limitationsAndDependencies": "Do not prescribe forrenal disease,pregnancy,children orclaimmaximumsafe intake frompopulationrange. Newnutrition recommendations may differ;name sourceedition.",
+    "sourceIds": [
+      "macros"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Protein Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Fat Intake Calculator",
+    "competitorUrl": "https://www.calculator.net/fat-intake-calculator.html",
+    "slug": "fat-intake-calculator",
+    "category": "health",
+    "families": [
+      "energy",
+      "ratio"
+    ],
+    "requiredModes": [
+      "maintenance/goal totalfat andsaturatedfat ranges"
+    ],
+    "implementationConventions": "Adult totalfat20-35%energy ->grams=calories*share/9. Distinguish total/saturated/transfat; any saturated-limitpercent mustcite guidanceedition.",
+    "limitationsAndDependencies": "Cannot infer fatquality fromgrams;needs/morbidityvary;avoid rigidrestriction recommendations.",
+    "sourceIds": [
+      "macros"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Fat Intake Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "TDEE Calculator",
+    "competitorUrl": "https://www.calculator.net/tdee-calculator.html",
+    "slug": "tdee-calculator",
+    "category": "health",
+    "families": [
+      "energy"
+    ],
+    "requiredModes": [
+      "Mifflin orKatch",
+      "activitylevel",
+      "units"
+    ],
+    "implementationConventions": "TDEE=RMR*declaredactivityfactor;display RMRandfactor separately. Include exactcalorie/kJconversion.",
+    "limitationsAndDependencies": "Heuristicactivitylevels not universallyvalidated;Katch provenance limitation;do notapply tochildren orpregnancy bydefault.",
+    "sourceIds": [
+      "mifflin",
+      "met-limits"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#TDEE Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Ovulation Calculator",
+    "competitorUrl": "https://www.calculator.net/ovulation-calculator.html",
+    "slug": "ovulation-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "LMP+typicalcycle",
+      "fertilewindow",
+      "nextcycles"
+    ],
+    "implementationConventions": "Nextperiod=LMP+cycleDays;centralovulation≈nextperiod-14days;windowdate arithmetic usesexplicitestimate.",
+    "limitationsAndDependencies": "Lutealphaselength varies,especially irregularcycles. Not reliablecontraception orinfertilitydiagnosis. Do notlabelcalendardate asconfirmedovulation.",
+    "sourceIds": [
+      "fertility"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Ovulation Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Conception Calculator",
+    "competitorUrl": "https://www.calculator.net/conception-calculator.html",
+    "slug": "conception-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "LMP+cycle",
+      "estimated conception/fertile dates"
+    ],
+    "implementationConventions": "Same calendarovulation model;relatedconceptionwindow isestimated probabilityperiod,not an exactknown event.",
+    "limitationsAndDependencies": "No guaranteedfertility orpaternity claims;provide uncertaintyandcycle limitations.",
+    "sourceIds": [
+      "fertility"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Conception Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Period Calculator",
+    "competitorUrl": "https://www.calculator.net/period-calculator.html",
+    "slug": "period-calculator",
+    "category": "health",
+    "families": [
+      "pregnancy-date"
+    ],
+    "requiredModes": [
+      "LMP",
+      "cyclelength",
+      "bleedinglength",
+      "futurecalendar"
+    ],
+    "implementationConventions": "Periodstart_n=LMP+n*cycleLength;end=start+bleedingLength-1 inclusive. Calendar-days not local-millisecond differences.",
+    "limitationsAndDependencies": "Forecast isbased onregularcycleassumption;do notdiagnose missedperiodor pregnancy.",
+    "sourceIds": [
+      "fertility"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Period Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "GFR Calculator",
+    "competitorUrl": "https://www.calculator.net/gfr-calculator.html",
+    "slug": "gfr-calculator",
+    "category": "health",
+    "families": [
+      "clinical-equation"
+    ],
+    "requiredModes": [
+      "adultcreatinine",
+      "childheight+creatinine",
+      "units",
+      "optional currentcystatinC modes"
+    ],
+    "implementationConventions": "AdultCKD-EPI2021:142*min(Scr/k,1)^a*max(Scr/k,1)^-1.2*0.9938^age*(female?1.012:1),k=.7/.9,a=-.241/-.302;Scrmg/dL. µmol/L/88.4. ChildbedsideSchwartz=.413*heightCm/Scr.",
+    "limitationsAndDependencies": "Prefer racefreeadultdefault. Competitorlegacyrace-based results are historical, notcurrent recommendation. Pediatric/youngadultcurrent U25 preferredwhereappropriate; equationpopulation andkidneydisease diagnosislimitationsmustshow;one valuecannotestablish CKD.",
+    "sourceIds": [
+      "gfr",
+      "gfr-child"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#GFR Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Body Type Calculator",
+    "competitorUrl": "https://www.calculator.net/body-type-calculator.html",
+    "slug": "body-type-calculator",
+    "category": "health",
+    "families": [
+      "fashion-anthropometry"
+    ],
+    "requiredModes": [
+      "bust/waist/highhip/hip classification",
+      "waist-hipratio",
+      "unitconversion"
+    ],
+    "implementationConventions": "WHR=waist/hip. Fashion categories useexplicit deterministicthreshold scheme withnamedsource or label ownheuristic; allmeasurements sameunits.",
+    "limitationsAndDependencies": "No universal scientificallyvalidbodytype categories or nutritionrecommendations. Competitorthresholdmethod needsindependentprovenance before claimingmatchingcategoryparity.",
+    "sourceIds": [],
+    "inputSpec": "competitor-finance-health-inputs.json#Body Type Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Body Surface Area Calculator",
+    "competitorUrl": "https://www.calculator.net/body-surface-area-calculator.html",
+    "slug": "body-surface-area-calculator",
+    "category": "health",
+    "families": [
+      "anthropometry"
+    ],
+    "requiredModes": [
+      "Mosteller",
+      "DuBois",
+      "Haycock",
+      "GehanGeorge",
+      "Boyd",
+      "Fujimoto",
+      "Takahira",
+      "Schlich comparison"
+    ],
+    "implementationConventions": "Mosteller=sqrt(Wkg*Hcm/3600);DuBois=.007184*W^.425*H^.725. Others require exactcoefficient/unitrecord andtests beforelaunch.",
+    "limitationsAndDependencies": "Otherformula primarycoefficients notfullyverified inthisaudit;notmedicationdosing. Boyd weightunits/powerlog arecommon implementationtraps. AllBSA m².",
+    "sourceIds": [
+      "bsa",
+      "bsa-validation"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Body Surface Area Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "BAC Calculator",
+    "competitorUrl": "https://www.calculator.net/bac-calculator.html",
+    "slug": "bac-calculator",
+    "category": "health",
+    "families": [
+      "pharmacokinetics"
+    ],
+    "requiredModes": [
+      "beer/wine/liquor/custombeverages",
+      "ABV",
+      "time",
+      "bodyweight",
+      "distributionmodel"
+    ],
+    "implementationConventions": "Ethanolg=sum(volumeMl*ABVfraction*.789);oneWidmarkvariantBACg/dL=max(0,ethanolg/(r*weightKg)/10-.015*elapsedHours),r=.68/.55. Absorptionoffset/otherfactors vary bynamedmodel.",
+    "limitationsAndDependencies": "No safetodrive/sobercountdown assurance;estimated0isnot measuredzero. Food,absorption,timing,bodycomposition andmetabolism causewideuncertainty. Avoidfake legallimit universality.",
+    "sourceIds": [
+      "bac",
+      "bac-factors"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#BAC Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Anorexic BMI Calculator",
+    "competitorUrl": "https://www.calculator.net/anorexic-bmi-calculator.html",
+    "slug": "anorexic-bmi-calculator",
+    "category": "health",
+    "families": [
+      "bmi",
+      "education"
+    ],
+    "requiredModes": [
+      "BMI screening andeating-disorder information"
+    ],
+    "implementationConventions": "Reuse validBMIengine only with responsible neutralinterpretation. No mathematical test can label a person anorexic.",
+    "limitationsAndDependencies": "Do not create an underweightgoal calculator or diagnosticthreshold. Account for competitorroute inmanifest as an evidence-based replacement, visiblyexplain scope. Eatingdisorders can occuratanyweight.",
+    "sourceIds": [
+      "bmi",
+      "eating-disorders"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Anorexic BMI Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Weight Watcher Points Calculator",
+    "competitorUrl": "https://www.calculator.net/weight-watchers-points-calculator.html",
+    "slug": "weight-watchers-points-calculator",
+    "category": "health",
+    "families": [
+      "proprietary"
+    ],
+    "requiredModes": [
+      "competitor4modes:claimedlatest",
+      "historicalUSPointsPlus",
+      "historicalPoints",
+      "historicaldailyallowance"
+    ],
+    "implementationConventions": "Current officialPoints includesproprietary factors;exactupdatedalgorithm isnot public. Historicalformulas canonly be presented as dated,unofficial estimates once independentlysourced/licensing reviewed.",
+    "limitationsAndDependencies": "Currentparity blockedbyproprietary algorithm. Do notlabel2015SmartPoints4-inputformula ascurrent2026, norinventdailyallowance. Keep route accountedfor andoffer officialWW link plusindependentnutritioncalculator.",
+    "sourceIds": [
+      "ww-proprietary",
+      "ww-current"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Weight Watcher Points Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  },
+  {
+    "name": "Overweight Calculator",
+    "competitorUrl": "https://www.calculator.net/overweight-calculator.html",
+    "slug": "overweight-calculator",
+    "category": "health",
+    "families": [
+      "bmi"
+    ],
+    "requiredModes": [
+      "age/sex",
+      "US/metric",
+      "BMIcategory"
+    ],
+    "implementationConventions": "Use sameBMIengine withadultthreshold>=25 andchildage-sexpercentiles. Present screening results neutrally.",
+    "limitationsAndDependencies": "Notdiagnosis;noautomaticweightloss prescription;childpercentile datasetrequired.",
+    "sourceIds": [
+      "bmi",
+      "bmi-limits"
+    ],
+    "inputSpec": "competitor-finance-health-inputs.json#Overweight Calculator",
+    "observedDate": "2026-10-09",
+    "verificationStatus": "Implementation research; exact output parity, unverified coefficients and edge-case behavior still require independent tests"
+  }
+]

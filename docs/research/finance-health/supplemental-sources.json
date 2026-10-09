@@ -1,0 +1,32 @@
+{
+  "navy-body-fat": {
+    "title": "Foulis et al. 2023 original military body composition validation study",
+    "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1183836/full",
+    "supports": "Methods gives both sex-specific circumference equations, with centimeter-to-inch conversion. Not current Army one-site equation.",
+    "checkedAt": "2026-10-09"
+  },
+  "deurenberg": {
+    "title": "Deurenberg et al. 1991 original body fat prediction study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2043597/",
+    "supports": "Abstract explicitly gives adult and child BMI-based equations. Estimates have substantial individual error.",
+    "checkedAt": "2026-10-09"
+  },
+  "haycock": {
+    "title": "Haycock, Schwartz, Wisotsky1978 original BSA study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/650346/",
+    "supports": "Original abstract gives0.024265*kg^0.5378*cm^0.3964.",
+    "checkedAt": "2026-10-09"
+  },
+  "bsa-comparison": {
+    "title": "Kuehnapfel et al.2017 original 3D BSA validation study",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5313586/",
+    "supports": "Table1 prints DuBois0.007184*kg^.425*cm^.725; primary validation of empirical equations.",
+    "checkedAt": "2026-10-09"
+  },
+  "pregnancy-weight-iom": {
+    "title": "IOM2009 Weight Gain During Pregnancy Table7-3",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK32801/",
+    "supports": "Primary guideline gives roundedkg andlb recommendations separately, plus trimester-specific gain rates.",
+    "checkedAt": "2026-10-09"
+  }
+}

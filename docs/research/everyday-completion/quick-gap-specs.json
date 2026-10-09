@@ -1,0 +1,1223 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-09",
+  "scope": "Remaining local everyday utility and landscape gaps only. Research and independently derivedfixtures; no productedits.",
+  "summary": {
+    "specFamilies": 7,
+    "fixtures": 185,
+    "validFixtures": 158,
+    "validationFixtures": 27,
+    "charsetChoices": 40,
+    "moleculePresets": 23,
+    "densityUnits": 41,
+    "volumeUnits": 14
+  },
+  "evidenceCorrections": [
+    "Captured mulchpriceunit includes4fixedbag sizes; oldnote thatbagswerenotobservedwasincomplete.",
+    "Captured moleculepresetincludes[Co(NH3)6]Cl3; oldnote thatbracketswerenotverifiedwasincorrect.",
+    "CapturedASCIIselectoractuallyuseswindows-1252value. CorrectFinflolabelsemantics ratherthanreproduceconfusinglabel."
+  ],
+  "sourceRegistry": {
+    "nist": {
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+      "title": "NIST SI conversion factors"
+    },
+    "prefixes": {
+      "url": "https://www.bipm.org/en/measurement-units/si-prefixes",
+      "title": "BIPM decimal SI prefixes"
+    },
+    "nws": {
+      "url": "https://www.weather.gov/safety/cold-wind-chill-chart",
+      "title": "NWS wind chill equation and domain"
+    },
+    "nwsEquation": {
+      "url": "https://www.weather.gov/media/epz/wxcalc/windChill.pdf",
+      "title": "NWS formula and input conversions"
+    },
+    "base64": {
+      "url": "https://www.rfc-editor.org/rfc/rfc4648",
+      "title": "RFC4648 Base64 alphabet, padding and canonical bits"
+    },
+    "encoding": {
+      "url": "https://encoding.spec.whatwg.org/",
+      "title": "WHATWG text codecs, algorithms and label aliases"
+    },
+    "utf16": {
+      "url": "https://www.rfc-editor.org/rfc/rfc2781",
+      "title": "UTF16 byte order, surrogate pairs and BOM"
+    },
+    "utf8": {
+      "url": "https://www.rfc-editor.org/rfc/rfc3629",
+      "title": "UTF8 scalar-value encoding"
+    },
+    "cp1252": {
+      "url": "https://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1252.TXT",
+      "title": "Microsoft Windows1252 byte mapping"
+    },
+    "file": {
+      "url": "https://www.w3.org/TR/FileAPI/",
+      "title": "W3C local File/Blob byte APIs"
+    },
+    "legacyCodec": {
+      "url": "https://github.com/inexorabletash/text-encoding",
+      "title": "Historical reference implementation of legacy encoders; archived2018"
+    },
+    "legacyLicense": {
+      "url": "https://github.com/inexorabletash/text-encoding/blob/master/LICENSE.md",
+      "title": "Unlicense/Apache2 code terms; WHATWG-derived indexes separately identified"
+    },
+    "iconv": {
+      "url": "https://github.com/pillarjs/iconv-lite",
+      "title": "Local codec library alternative; verify each required encoding"
+    },
+    "atomic": {
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/periodictable/CSV",
+      "title": "PubChem atomic masses independently retrieved2026-10-09"
+    },
+    "cobalt": {
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Hexaamminecobalt(III)%20chloride/property/MolecularFormula/JSON",
+      "title": "PubChem CID159295 formula Cl3CoH18N6"
+    }
+  },
+  "unitTables": {
+    "lengthToM": {
+      "m": "1",
+      "cm": "0.01",
+      "in": "0.0254",
+      "ft": "0.3048",
+      "yd": "0.9144"
+    },
+    "areaToM2": {
+      "m2": "1",
+      "ft2": "0.09290304",
+      "yd2": "0.83612736",
+      "acre": "4046.85642240"
+    },
+    "volumeToM3": {
+      "m3": "1",
+      "ft3": "0.028316846592",
+      "yd3": "0.764554857984",
+      "in3": "0.000016387064",
+      "km3": "1E+9",
+      "mi3": "4168181825.440579584",
+      "cm3": "0.000001",
+      "mm3": "1E-9",
+      "L": "0.001",
+      "mL": "0.000001",
+      "US-pt": "0.000473176473",
+      "US-qt": "0.000946352946",
+      "US-gal": "0.003785411784",
+      "UK-gal": "0.00454609"
+    },
+    "massToKg": {
+      "kg": "1",
+      "g": "0.001",
+      "mg": "0.000001",
+      "lb": "0.45359237",
+      "oz": "0.028349523125",
+      "grain": "0.00006479891",
+      "short-ton": "907.18474000",
+      "long-ton": "1016.04690880",
+      "tonne": "1000",
+      "slug": "14.5939029372063648293963254593175853018372703412073490813648"
+    },
+    "densityToKgM3": {
+      "kg/m3": "1",
+      "kg/cm3": "1E+6",
+      "g/m3": "0.001",
+      "g/cm3": "1E+3",
+      "g/mm3": "1E+6",
+      "mg/m3": "0.000001",
+      "mg/cm3": "1",
+      "mg/mm3": "1E+3",
+      "Eg/L": "1000000000000000000",
+      "Pg/L": "1000000000000000",
+      "Tg/L": "1000000000000",
+      "Gg/L": "1000000000",
+      "Mg/L": "1000000",
+      "kg/L": "1000",
+      "hg/L": "100",
+      "dag/L": "10",
+      "g/L": "1",
+      "dg/L": "0.1",
+      "cg/L": "0.01",
+      "mg/L": "0.001",
+      "ug/L": "0.000001",
+      "ng/L": "1E-9",
+      "pg/L": "1E-12",
+      "fg/L": "1E-15",
+      "ag/L": "1E-18",
+      "lb/in3": "27679.9047102031211936439620910737884467894920041808587554183",
+      "lb/ft3": "16.0184633739601395796550706545565905363365115764935525204967",
+      "lb/yd3": "0.593276421257782947394632246465058908753204132462724167425804",
+      "lb/US-gal": "119.826427316896628543913255805514235700387411273510211062417",
+      "lb/UK-gal": "99.7763726631016983825661172568074983117360193045012307279442",
+      "oz/in3": "1729.99404438769507460274763069211177792434325026130367221364",
+      "oz/ft3": "1.00115396087250872372844191590978690852103197353084703253104",
+      "oz/US-gal": "7.48915170730603928399457848784463973127421320459438819140105",
+      "oz/UK-gal": "6.23602329144385614891038232855046864448350120653132692049651",
+      "grain/US-gal": "0.0171180610452709469348447508293591765286267730390728872946310",
+      "grain/UK-gal": "0.0142537675233002426260808738938296426159622884720716043897063",
+      "grain/ft3": "0.00228835191056573422566501009350808436233378736807050750292810",
+      "short-ton/yd3": "1186.55284251556589478926449293011781750640826492544833485161",
+      "long-ton/yd3": "1328.93918361743380216397623208173195560717725671650213503380",
+      "slug/ft3": "515.378818393196203441024929903239463855526414867521315043073",
+      "psi/1000ft": "2.30665872585026009947033017425614903723245766701507156295153"
+    },
+    "electricalFactors": {
+      "V": {
+        "kV": "1000",
+        "V": "1",
+        "mV": "0.001"
+      },
+      "I": {
+        "A": "1",
+        "mA": "0.001"
+      },
+      "R": {
+        "ohm": "1",
+        "kohm": "1000",
+        "Mohm": "1E+6"
+      },
+      "P": {
+        "W": "1",
+        "kW": "1000",
+        "MW": "1E+6",
+        "hp-mechanical": "745.69987158227022000",
+        "BtuIT/h": "0.293071070172222222222222222222222222222222222222222222222222"
+      }
+    }
+  },
+  "specs": [
+    {
+      "id": "landscape-purchasing",
+      "slugs": [
+        "mulch-calculator",
+        "gravel-calculator"
+      ],
+      "proposedAlgorithm": "landscape-purchasing",
+      "proposedMode": "purchasing",
+      "evidence": [
+        "mulch-area-multi",
+        "gravel-shapes-bags"
+      ],
+      "fields": {
+        "shape": [
+          "beds",
+          "known-area",
+          "rectangle",
+          "circle"
+        ],
+        "beds": "JSON rows {name,length,width,unit};1..100rows; per-row unit supports mixed beds",
+        "area": "number >=0",
+        "areaUnit": [
+          "m2",
+          "ft2",
+          "yd2",
+          "acre"
+        ],
+        "length": "number >=0",
+        "lengthUnit": [
+          "m",
+          "cm",
+          "in",
+          "ft",
+          "yd"
+        ],
+        "width": "number >=0",
+        "widthUnit": [
+          "m",
+          "cm",
+          "in",
+          "ft",
+          "yd"
+        ],
+        "diameter": "number >=0",
+        "diameterUnit": [
+          "m",
+          "cm",
+          "in",
+          "ft",
+          "yd"
+        ],
+        "depth": "number >=0",
+        "depthUnit": [
+          "m",
+          "cm",
+          "in",
+          "ft",
+          "yd"
+        ],
+        "density": "positive if mass output/pricing or mass bag required",
+        "densityUnit": [
+          "kg/m3",
+          "g/cm3",
+          "lb/ft3"
+        ],
+        "waste": "optional0..100%; default0; original explicit allowance, not evidence-required",
+        "price": "optional nonnegative number; blank means omit cost",
+        "priceBasis": [
+          "ft3",
+          "yd3",
+          "m3",
+          "L",
+          "lb",
+          "short-ton",
+          "kg",
+          "tonne",
+          "bag"
+        ],
+        "bagSize": "positive when bag pricing",
+        "bagUnit": [
+          "ft3",
+          "L",
+          "lb",
+          "kg"
+        ],
+        "currency": "display label only"
+      },
+      "formulas": [
+        "Normalize every bed separately: A=sum(length_i*factor_i*width_i*factor_i); known area converts independently. Circle A=pi*(diameter_m/2)^2.",
+        "V=A*depth_m; orderV=V*(1+waste/100); M=orderV*density_kg_m3 if density required.",
+        "Bulk-volume cost=orderV/priceVolumeFactor*price; bulk-mass cost=M/priceMassFactor*price.",
+        "Volume bags=ceil(orderV/(bagSize*volumeFactor)); mass bags=ceil(M/(bagSize*massFactor)); whole-bag cost=bags*price. Do not ceil individual bed bags; aggregate material first.",
+        "For bag pricing show unrounded equivalent bags plus whole bags and material surplus so users see rounding policy. Use Decimal for exact integer boundaries."
+      ],
+      "observedMulchBagPresets": [
+        {
+          "bagSize": 2,
+          "bagUnit": "ft3"
+        },
+        {
+          "bagSize": 76.9,
+          "bagUnit": "ft3"
+        },
+        {
+          "bagSize": 60,
+          "bagUnit": "L"
+        },
+        {
+          "bagSize": 730,
+          "bagUnit": "L"
+        }
+      ],
+      "outputs": [
+        "Area m2/ft2",
+        "Geometric volume m3/yd3/ft3/L",
+        "Order volume after allowance",
+        "Mass kg/lb if density supplied",
+        "Equivalent bags and order bags when chosen",
+        "Material cost excluding delivery/tax/labor"
+      ],
+      "validation": [
+        "Hidden density not required for volume-only mulch. Each row numeric cell must be a string/number, not null/boolean/nested object.",
+        "No silent unknown-unit fallback; no negative dimensions/density/price; zero area gives zero material/bags/cost.",
+        "Each rectangle contributes its nonoverlapping area; overlap subtraction is not inferred.",
+        "Do not apply inferred gravel preset densities as exact facts. Keep editable density and name moisture/compaction assumptions."
+      ],
+      "sources": [
+        "nist"
+      ]
+    },
+    {
+      "id": "mass-units",
+      "slugs": [
+        "mass-calculator"
+      ],
+      "proposedAlgorithm": "mass-units",
+      "proposedMode": "measurement-units",
+      "fields": {
+        "density": "finite nonnegative",
+        "densityUnit": [
+          "kg/m3",
+          "kg/cm3",
+          "g/m3",
+          "g/cm3",
+          "g/mm3",
+          "mg/m3",
+          "mg/cm3",
+          "mg/mm3",
+          "Eg/L",
+          "Pg/L",
+          "Tg/L",
+          "Gg/L",
+          "Mg/L",
+          "kg/L",
+          "hg/L",
+          "dag/L",
+          "g/L",
+          "dg/L",
+          "cg/L",
+          "mg/L",
+          "ug/L",
+          "ng/L",
+          "pg/L",
+          "fg/L",
+          "ag/L",
+          "lb/in3",
+          "lb/ft3",
+          "lb/yd3",
+          "lb/US-gal",
+          "lb/UK-gal",
+          "oz/in3",
+          "oz/ft3",
+          "oz/US-gal",
+          "oz/UK-gal",
+          "grain/US-gal",
+          "grain/UK-gal",
+          "grain/ft3",
+          "short-ton/yd3",
+          "long-ton/yd3",
+          "slug/ft3",
+          "psi/1000ft"
+        ],
+        "volume": "finite nonnegative",
+        "volumeUnit": [
+          "m3",
+          "ft3",
+          "yd3",
+          "in3",
+          "km3",
+          "mi3",
+          "cm3",
+          "mm3",
+          "L",
+          "mL",
+          "US-pt",
+          "US-qt",
+          "US-gal",
+          "UK-gal"
+        ],
+        "outputMassUnit": [
+          "kg",
+          "g",
+          "mg",
+          "lb",
+          "oz",
+          "grain",
+          "short-ton",
+          "long-ton",
+          "tonne",
+          "slug"
+        ]
+      },
+      "formula": "massKg=density*densityToKgM3[densityUnit]*volume*volumeToM3[volumeUnit]; selectedMass=massKg/massToKg[outputMassUnit]",
+      "unitNotes": [
+        "Mass is not force; ounces and pounds are avoirdupois mass. US pint/quart/gallon are liquid, explicitly labeled.",
+        "psi/1000ft is a pressure-gradient-derived equivalent density at standard gravity9.80665m/s2: rho=gradientPaPerM/g0. Label this convention; do not describe it as an SI density unit.",
+        "Slug=1lbf*s2/ft=0.45359237*9.80665/0.3048kg.",
+        "Density and volume selections must be independent of any shared unit toggles. Reject finite-input combinations whose output overflows."
+      ],
+      "sources": [
+        "nist",
+        "prefixes"
+      ]
+    },
+    {
+      "id": "wind-units",
+      "slugs": [
+        "wind-chill-calculator"
+      ],
+      "proposedAlgorithm": "wind-units",
+      "proposedMode": "measurement-units",
+      "fields": {
+        "temperature": "finite",
+        "temperatureUnit": [
+          "F",
+          "C",
+          "K"
+        ],
+        "wind": "positive",
+        "windUnit": [
+          "mph",
+          "km/h",
+          "m/s",
+          "knots"
+        ],
+        "outputTemperatureUnit": [
+          "F",
+          "C",
+          "K"
+        ]
+      },
+      "formulas": [
+        "TF = T forF;1.8*T+32 forC;1.8*(T-273.15)+32 forK.",
+        "Vmph = V for mph;V/1.609344 forkm/h;V/0.44704 form/s;V*1852/1609.344 forknots.",
+        "WCF=35.74+.6215*TF-35.75*Vmph^.16+.4275*TF*Vmph^.16; WCC=(WCF-32)*5/9; WCK=WCC+273.15."
+      ],
+      "bounds": [
+        "Evaluate after normalization: TF<=50 and Vmph>3; strict equality3mph fails. No validity claim for lower-temperature limit beyond source; retain any app finite range only as UI bound.",
+        "Kelvin>=0; valid speed above threshold; use tolerant conversion checks at exact physical threshold to avoid1ulp turning3mph equivalent intovalid.",
+        "Output is apparent thermal index, not an object temperature, forecast, or precise frostbite timer."
+      ],
+      "sources": [
+        "nws",
+        "nwsEquation",
+        "nist"
+      ]
+    },
+    {
+      "id": "ohm-units",
+      "slugs": [
+        "ohms-law-calculator"
+      ],
+      "proposedAlgorithm": "ohm-units",
+      "proposedMode": "measurement-units",
+      "fields": {
+        "pair": [
+          "vi",
+          "vr",
+          "ir",
+          "vp",
+          "ip",
+          "rp"
+        ],
+        "a": "first known value",
+        "aUnit": "options determined by first symbol",
+        "b": "second known value",
+        "bUnit": "options determined by second symbol",
+        "outputVoltageUnit": [
+          "kV",
+          "V",
+          "mV"
+        ],
+        "outputCurrentUnit": [
+          "A",
+          "mA"
+        ],
+        "outputResistanceUnit": [
+          "ohm",
+          "kohm",
+          "Mohm"
+        ],
+        "outputPowerUnit": [
+          "W",
+          "kW",
+          "MW",
+          "hp-mechanical",
+          "BtuIT/h"
+        ]
+      },
+      "formulas": {
+        "vi": "R=V/I;P=V*I",
+        "vr": "I=V/R;P=V*I",
+        "ir": "V=I*R;P=V*I",
+        "vp": "I=P/V;R=V*V/P",
+        "ip": "V=P/I;R=P/(I*I)",
+        "rp": "I=sqrt(P/R);V=sqrt(P*R)"
+      },
+      "contract": [
+        "Use strictly positive knowns for a unique passive-resistor solution. Zero pairs can be underdetermined; reject with explanatory error instead of0/0.",
+        "Normalizea/b independently from selected pair and unit before solving. Change pair must reset incompatible units; hidden old prefix must not leak.",
+        "Power hp means mechanical550ft*lbf/s, not metric or electric hp; BTU means International Table BTU perhour. Show exact conventions.",
+        "V=IR and P=VI assume ideal resistive/DC quantities; this does not compute impedance or reactive power."
+      ],
+      "sources": [
+        "nist",
+        "prefixes"
+      ]
+    },
+    {
+      "id": "grade-letters",
+      "slugs": [
+        "grade-calculator"
+      ],
+      "proposedAlgorithms": [
+        "grade-letters",
+        "grade-letter-final"
+      ],
+      "proposedModes": [
+        "letter-assessments",
+        "letter-final"
+      ],
+      "fields": {
+        "assessments": "JSONrows{name,grade,weight};grade letter or explicit numericpercentage",
+        "weightBasis": [
+          "percentage",
+          "relative-points"
+        ],
+        "letterScale": "editable JSONrows{letter,percentage}, example only",
+        "current": "numericpercentageorletter forfinalmode",
+        "target": "numericpercentageorletter forfinalmode",
+        "remainingWeight": "percentage0<weight<=100"
+      },
+      "exampleScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      },
+      "formulas": [
+        "Map every letter to the entered representative percentage. Numeric grade strings parse as finite numbers, not strings passed toNumber without validation.",
+        "Current average=sum(mappedGrade*weight)/sum(weight). Percentageweights total<=100; relativepointweights may exceed100.",
+        "If remainingWeight=r and completed average=c, required=(target-c*(1-r/100))/(r/100). If deriving r from percentrows, r=100-sum(completedweights).",
+        "Do not infer unique percentages fromGPA values or aletterrange. ExampleA95 is a user-editable scoring assumption, not a universal gradingstandard.",
+        "A requiredscore>100 is a valid unattainable-without-extra-credit result, not inputerror. Negative requiredscore can be reported as minimum0while retainingraw mathematicallyrequiredvalue."
+      ],
+      "validation": [
+        "Trim/case-normalize letters; uppercase A- andB+ without erasing sign. Reject unknownsymbols, duplicate scaleletters, malformedJSON, blanknumericcells, nonprimitivevalues.",
+        "Weights positive; totalnonzero. Reject duplicate normalizedscaleletters. Permitnumericgradesabove100only with anexplicit extra-credit policy switch if desired.",
+        "Do not output a finalletterunless a separate declaredthresholdtable exists. Representative inputvalue does not define gradecutoff."
+      ],
+      "integrationRisks": [
+        "Reuse GPA row/schema pattern, not semantic GPA output; max-grade-points constraint wouldrejectpercentages."
+      ],
+      "sources": []
+    },
+    {
+      "id": "base64-files-charsets",
+      "slugs": [
+        "base64-encode-decode"
+      ],
+      "proposedAlgorithms": [
+        "base64-bytes",
+        "base64-text-charset"
+      ],
+      "proposedModes": [
+        "files",
+        "character-encoding"
+      ],
+      "separation": [
+        "Bytes↔Base64 neverrequires validUTF8. Text↔bytes is a separate explicitcodecstage.",
+        "Fileencode readsFile.arrayBuffer(), writesASCIIBase64. Filedecode treats inputfile asASCIIBase64 text, validates, yieldsarbitrarybytes. Textdecode onlywhenuserrequests it.",
+        "Blob downloadapplication/octet-stream witha userchosenbasename; neverinject decodedHTML/SVGasDOM or iframe. No network/upload/account."
+      ],
+      "fields": {
+        "direction": [
+          "encode",
+          "decode"
+        ],
+        "text": "for textmode",
+        "charset": "listed below",
+        "file": "client-only File, not engineJSON",
+        "filename": "inert downloadbasename",
+        "outputKind": [
+          "base64-text",
+          "binary-file",
+          "decoded-text"
+        ],
+        "bom": [
+          "none",
+          "include-on-encode",
+          "strip-on-decode",
+          "preserve-on-decode"
+        ]
+      },
+      "byteContract": [
+        "StandardRFC4648alphabet +/; emitcanonicalpaddedoutput. Separate URLsafe variant onlyif explicitlylabeled.",
+        "Strict default rejectswhitespace/nonalphabet/incorrectpadding. Optional removeASCIIwhitespace is anexplicitimportnormalization;neverdiscard arbitrarypunctuation.",
+        "Canonicalvalidation: decode then re-encode and requireexactnormalizedmatch; catchesnonzero padbits likeZh== orZm9=.",
+        "Emptybytes encodeemptystring; emptyBase64 decodeemptyfile. A sizecap mustclearlyallowzero.",
+        "Use chunkedbyte loops or3-byte streamingblocks; do notspreadmegabytesintoString.fromCharCode andblow callstack.",
+        "Proposed cap10MiB binary, Base64 bound4*ceil(n/3). Checkbeforeallocation;abort/replaceoperation revision prevents staleexports; revoke priorBlobURLs."
+      ],
+      "charsetContract": [
+        "UTF8: rejectunpairedJSsurrogates instead of silentreplacement if strict fidelitypromised; fataldecode rejectsbadsequences.",
+        "UTF16LE/BE: explicitendianness; defaultnoBOM; encodecodeunits including validsurrogatepairs. Oddbytecount orinvalidsurrogatefails stricttextdecode.",
+        "StrictASCII: codepoints0..127 only. StrictISO8859-1:codepoints0..255 directbytes. Theseare NOTWHATWGaliases, which mapascii/latin1labels toWindows1252.",
+        "Windows1252: EuroU+20AC→0x80;strictundefinedbytepolicyexplicit. Forfulllegacychoices localcodecmustactuallyencodeanddecode; browserTextEncoderonlyUTF8.",
+        "GB2312label inWHATWGmapsGBK; labelasGBK(GB2312compatible) ifusingthatcodecinsteadofclaimingstrictGB2312. ISO8859-8-IusesHebrewsamebyteindexwithlogicalorderinglabel.",
+        "NativeTextDecoder support mustfeature-testlabel; iso8859-16 isnot reliablynativeinChromium. No silentfallbacktoUTF8.",
+        "ISO2022JPisstateful; includeencoder/decoderthatcoversit. Historicaltext-encodingpolyfill implementslegacyencoderswithNONSTANDARD_allowLegacyEncoding butisarchived2018; treatasreference, pin/audit ifvendored, retain license/indexprovenance. iconv-lite aloneisnotprovencompleteforISO2022JP.",
+        "Fullcapturedlabelcoverage listandindependentPythonstandardcodecfixturesareincluded; do notmarkallcharsetsdoneafteronlyUTF16/Latin1."
+      ],
+      "sources": [
+        "base64",
+        "encoding",
+        "utf8",
+        "utf16",
+        "cp1252",
+        "file",
+        "legacyCodec",
+        "legacyLicense",
+        "iconv"
+      ],
+      "charsetChoices": [
+        {
+          "id": "utf-8",
+          "referencePythonCodec": "utf-8",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "ascii",
+          "referencePythonCodec": "ascii",
+          "source": "encoding",
+          "semanticOverride": true
+        },
+        {
+          "id": "utf-16le",
+          "referencePythonCodec": "utf-16-le",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "utf-16be",
+          "referencePythonCodec": "utf-16-be",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "big5",
+          "referencePythonCodec": "big5",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "gb18030",
+          "referencePythonCodec": "gb18030",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "gb2312",
+          "referencePythonCodec": "gb2312",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "euc-jp",
+          "referencePythonCodec": "euc_jp",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-2022-jp",
+          "referencePythonCodec": "iso2022_jp",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "shift-jis",
+          "referencePythonCodec": "shift_jis",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "euc-kr",
+          "referencePythonCodec": "euc_kr",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "ibm866",
+          "referencePythonCodec": "cp866",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "koi8-r",
+          "referencePythonCodec": "koi8_r",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "koi8-u",
+          "referencePythonCodec": "koi8_u",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "macintosh",
+          "referencePythonCodec": "mac_roman",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "x-mac-cyrillic",
+          "referencePythonCodec": "mac_cyrillic",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-1",
+          "referencePythonCodec": "iso8859_1",
+          "source": "encoding",
+          "semanticOverride": true
+        },
+        {
+          "id": "iso-8859-2",
+          "referencePythonCodec": "iso8859_2",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-3",
+          "referencePythonCodec": "iso8859_3",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-4",
+          "referencePythonCodec": "iso8859_4",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-5",
+          "referencePythonCodec": "iso8859_5",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-6",
+          "referencePythonCodec": "iso8859_6",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-7",
+          "referencePythonCodec": "iso8859_7",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-8",
+          "referencePythonCodec": "iso8859_8",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-10",
+          "referencePythonCodec": "iso8859_10",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-13",
+          "referencePythonCodec": "iso8859_13",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-14",
+          "referencePythonCodec": "iso8859_14",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-15",
+          "referencePythonCodec": "iso8859_15",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-16",
+          "referencePythonCodec": "iso8859_16",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "iso-8859-8-i",
+          "referencePythonCodec": "iso8859_8",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-874",
+          "referencePythonCodec": "cp874",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1250",
+          "referencePythonCodec": "cp1250",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1251",
+          "referencePythonCodec": "cp1251",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1252",
+          "referencePythonCodec": "cp1252",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1253",
+          "referencePythonCodec": "cp1253",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1254",
+          "referencePythonCodec": "cp1254",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1255",
+          "referencePythonCodec": "cp1255",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1256",
+          "referencePythonCodec": "cp1256",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1257",
+          "referencePythonCodec": "cp1257",
+          "source": "encoding",
+          "semanticOverride": false
+        },
+        {
+          "id": "windows-1258",
+          "referencePythonCodec": "cp1258",
+          "source": "encoding",
+          "semanticOverride": false
+        }
+      ]
+    },
+    {
+      "id": "molecule-presets",
+      "slugs": [
+        "molecular-weight-calculator"
+      ],
+      "algorithm": "molecular-weight existing, plus selector/notation support",
+      "mode": "formula existing",
+      "fields": {
+        "preset": "Custom plus23formula choices",
+        "formula": "editable, authoritativecalculationinput"
+      },
+      "presets": [
+        {
+          "id": "H2O",
+          "label": "Water",
+          "formula": "H2O",
+          "counts": {
+            "H": 2,
+            "O": 1
+          },
+          "molarMass": 18.015,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Water/property/MolecularFormula/JSON",
+          "pubchemCID": 962
+        },
+        {
+          "id": "CO2",
+          "label": "Carbon dioxide",
+          "formula": "CO2",
+          "counts": {
+            "C": 1,
+            "O": 2
+          },
+          "molarMass": 44.009,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Carbon%20dioxide/property/MolecularFormula/JSON",
+          "pubchemCID": 280
+        },
+        {
+          "id": "NH3",
+          "label": "Ammonia",
+          "formula": "NH3",
+          "counts": {
+            "N": 1,
+            "H": 3
+          },
+          "molarMass": 17.031,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Ammonia/property/MolecularFormula/JSON",
+          "pubchemCID": 222
+        },
+        {
+          "id": "NaCl",
+          "label": "Sodium chloride",
+          "formula": "NaCl",
+          "counts": {
+            "Na": 1,
+            "Cl": 1
+          },
+          "molarMass": 58.4397693,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Sodium%20chloride/property/MolecularFormula/JSON",
+          "pubchemCID": 5234
+        },
+        {
+          "id": "H2SO4",
+          "label": "Sulfuric acid",
+          "formula": "H2SO4",
+          "counts": {
+            "H": 2,
+            "S": 1,
+            "O": 4
+          },
+          "molarMass": 98.082,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Sulfuric%20acid/property/MolecularFormula/JSON",
+          "pubchemCID": 1118
+        },
+        {
+          "id": "HCl",
+          "label": "Hydrogen chloride",
+          "formula": "HCl",
+          "counts": {
+            "H": 1,
+            "Cl": 1
+          },
+          "molarMass": 36.458,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Hydrogen%20chloride/property/MolecularFormula/JSON",
+          "pubchemCID": 313
+        },
+        {
+          "id": "HNO3",
+          "label": "Nitric acid",
+          "formula": "HNO3",
+          "counts": {
+            "H": 1,
+            "N": 1,
+            "O": 3
+          },
+          "molarMass": 63.012,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Nitric%20acid/property/MolecularFormula/JSON",
+          "pubchemCID": 944
+        },
+        {
+          "id": "NaHCO3",
+          "label": "Sodium bicarbonate",
+          "formula": "NaHCO3",
+          "counts": {
+            "Na": 1,
+            "H": 1,
+            "C": 1,
+            "O": 3
+          },
+          "molarMass": 84.0057693,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Sodium%20bicarbonate/property/MolecularFormula/JSON",
+          "pubchemCID": 516892
+        },
+        {
+          "id": "CaCO3",
+          "label": "Calcium carbonate",
+          "formula": "CaCO3",
+          "counts": {
+            "Ca": 1,
+            "C": 1,
+            "O": 3
+          },
+          "molarMass": 100.088,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Calcium%20carbonate/property/MolecularFormula/JSON",
+          "pubchemCID": 10112
+        },
+        {
+          "id": "KCl",
+          "label": "Potassium chloride",
+          "formula": "KCl",
+          "counts": {
+            "K": 1,
+            "Cl": 1
+          },
+          "molarMass": 74.5483,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Potassium%20chloride/property/MolecularFormula/JSON",
+          "pubchemCID": 4873
+        },
+        {
+          "id": "[Co(NH3)6]Cl3",
+          "label": "Hexaamminecobalt(III) chloride",
+          "formula": "[Co(NH3)6]Cl3",
+          "counts": {
+            "Co": 1,
+            "N": 6,
+            "H": 18,
+            "Cl": 3
+          },
+          "molarMass": 267.46919,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Hexaamminecobalt%28III%29%20chloride/property/MolecularFormula/JSON",
+          "pubchemCID": 159295
+        },
+        {
+          "id": "KMnO4",
+          "label": "Potassium permanganate",
+          "formula": "KMnO4",
+          "counts": {
+            "K": 1,
+            "Mn": 1,
+            "O": 4
+          },
+          "molarMass": 158.03234,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Potassium%20permanganate/property/MolecularFormula/JSON",
+          "pubchemCID": 516875
+        },
+        {
+          "id": "CuSO4·5H2O",
+          "label": "Copper sulfate pentahydrate",
+          "formula": "CuSO4·5H2O",
+          "counts": {
+            "Cu": 1,
+            "S": 1,
+            "O": 9,
+            "H": 10
+          },
+          "molarMass": 249.691,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Copper%20sulfate%20pentahydrate/property/MolecularFormula/JSON",
+          "pubchemCID": 24463
+        },
+        {
+          "id": "CH4",
+          "label": "Methane",
+          "formula": "CH4",
+          "counts": {
+            "C": 1,
+            "H": 4
+          },
+          "molarMass": 16.043,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Methane/property/MolecularFormula/JSON",
+          "pubchemCID": 297
+        },
+        {
+          "id": "C2H5OH",
+          "label": "Ethanol",
+          "formula": "C2H5OH",
+          "counts": {
+            "C": 2,
+            "H": 6,
+            "O": 1
+          },
+          "molarMass": 46.069,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Ethanol/property/MolecularFormula/JSON",
+          "pubchemCID": 702
+        },
+        {
+          "id": "C2H4O2",
+          "label": "Acetic acid",
+          "formula": "C2H4O2",
+          "counts": {
+            "C": 2,
+            "H": 4,
+            "O": 2
+          },
+          "molarMass": 60.052,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Acetic%20acid/property/MolecularFormula/JSON",
+          "pubchemCID": 176
+        },
+        {
+          "id": "C6H12O6",
+          "label": "Glucose",
+          "formula": "C6H12O6",
+          "counts": {
+            "C": 6,
+            "H": 12,
+            "O": 6
+          },
+          "molarMass": 180.156,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Glucose/property/MolecularFormula/JSON",
+          "pubchemCID": 5793
+        },
+        {
+          "id": "C6H6",
+          "label": "Benzene",
+          "formula": "C6H6",
+          "counts": {
+            "C": 6,
+            "H": 6
+          },
+          "molarMass": 78.114,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Benzene/property/MolecularFormula/JSON",
+          "pubchemCID": 241
+        },
+        {
+          "id": "C8H18",
+          "label": "Octane",
+          "formula": "C8H18",
+          "counts": {
+            "C": 8,
+            "H": 18
+          },
+          "molarMass": 114.232,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Octane/property/MolecularFormula/JSON",
+          "pubchemCID": 356
+        },
+        {
+          "id": "C12H22O11",
+          "label": "Sucrose",
+          "formula": "C12H22O11",
+          "counts": {
+            "C": 12,
+            "H": 22,
+            "O": 11
+          },
+          "molarMass": 342.297,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Sucrose/property/MolecularFormula/JSON",
+          "pubchemCID": 5988
+        },
+        {
+          "id": "C9H8O4",
+          "label": "Aspirin",
+          "formula": "C9H8O4",
+          "counts": {
+            "C": 9,
+            "H": 8,
+            "O": 4
+          },
+          "molarMass": 180.159,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Aspirin/property/MolecularFormula/JSON",
+          "pubchemCID": 2244
+        },
+        {
+          "id": "C6H8O7",
+          "label": "Citric acid",
+          "formula": "C6H8O7",
+          "counts": {
+            "C": 6,
+            "H": 8,
+            "O": 7
+          },
+          "molarMass": 192.123,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Citric%20acid/property/MolecularFormula/JSON",
+          "pubchemCID": 311
+        },
+        {
+          "id": "CH4N2O",
+          "label": "Urea",
+          "formula": "CH4N2O",
+          "counts": {
+            "C": 1,
+            "H": 4,
+            "N": 2,
+            "O": 1
+          },
+          "molarMass": 60.056,
+          "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Urea/property/MolecularFormula/JSON",
+          "pubchemCID": 1176
+        }
+      ],
+      "interaction": [
+        "Selecting preset writesformula visibly and marksresultstale; editingformula switchesselectortoCustom unlessexactlymatchingpreset.",
+        "Do not calculatepresetbehindacustomformula: sameengineinputs usedbyformandbrowsertool.",
+        "Bracketsareactuallyobserved: [Co(NH3)6]Cl3. Addbalanced[]groupingalongside(), respectingmatchedclosers, multiplierbounds andnestinglimits; or useequivalent(Co(NH3)6)Cl3asclearlyshownpresetnormalization.",
+        "Hydratedot· orASCII. separatesstoichiometricsegments; CuSO4·5H2O means9O10Htotal. No decimalfractionstoichiometry supportimplied.",
+        "KeepPubChemlistedmassconvention, retrievaldate andisotope caveat. Do notswitchtoIUPACabridgedsilentlytoforcecompetitornumbermatch.",
+        "Ionchargeoratomicisotopenotationisnotaddedbybracketgrouping. [Co(NH3)6]Cl3 isneutralcomposition, notapromiseofchargeparsing."
+      ],
+      "sources": [
+        "atomic",
+        "cobalt"
+      ]
+    }
+  ],
+  "fixturesFile": "quick-gap-fixtures.json",
+  "implementationPriorities": [
+    "landscape-purchasing",
+    "mass-units",
+    "wind-units",
+    "ohm-units",
+    "grade-letters",
+    "molecule-presets",
+    "base64-files-charsets"
+  ],
+  "noExternalServiceRequired": true,
+  "licensingNotes": [
+    "Standardformulas, unitfacts andchemicalcompositions are factual; writeoriginallabels/explanations.",
+    "Anyvendedcodecpackageorindexdata retainsitsownlicense/provenance. NativeFileAPI hasnohostedservicecharge."
+  ]
+}

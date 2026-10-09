@@ -1,0 +1,157 @@
+{
+  "auditedAtUTC": "2026-10-09T16:12:58.790474+00:00",
+  "origin": "http://127.0.0.1:3100",
+  "productionBuildId": "fuW5GZ5UjYbMiOFSahANJ",
+  "scope": "Read-only HTTP crawl of current localhost3100 production build; current source may include later small edits. No browser/accessibility rerun.",
+  "counts": {
+    "catalogRoutes": 204,
+    "activeCalculatorRoutes": 201,
+    "blockedCalculatorRoutes": 2,
+    "topicHubs": 1,
+    "seedRoutes": 249,
+    "crawledPageRoutes": 249,
+    "routeKinds": {
+      "home": 1,
+      "tool": 201,
+      "information": 9,
+      "category": 4,
+      "directory": 1,
+      "subcategory": 21,
+      "guide-directory": 1,
+      "guide": 3,
+      "system": 3,
+      "blocked-tool": 2,
+      "topic-hub": 1,
+      "search": 1,
+      "html-sitemap": 1
+    },
+    "successful200Pages": 249,
+    "checks": 15,
+    "internalAnchorInstances": 8261,
+    "uniqueInternalEdges": 6537,
+    "externalReferenceUrlsObservedNotFetched": 139,
+    "formulaPages": 201,
+    "expectedDeterministicNonsensitiveExamplePages": 196,
+    "observedDeterministicNonsensitiveExamplePages": 196,
+    "jsonLdBlocks": 403,
+    "renderedFormulaBlocks": 547
+  },
+  "issues": [
+    {
+      "severity": "info",
+      "code": "h1-cardinality",
+      "path": "/search",
+      "detail": {
+        "observed": "No h1 in HTTP-rendered HTML. SearchResults is a client component behind Suspense.",
+        "indexing": "Search page deliberately noindex.",
+        "impact": "Not an indexable-content blocker. A server-rendered search heading would improve initial content."
+      },
+      "status": "closed",
+      "closedBy": "Targeted HTTP SSR recheck on final build; corrected metadata and search H1 verified."
+    },
+    {
+      "severity": "warning",
+      "code": "duplicate-title",
+      "path": [
+        "/calculators/finance/other",
+        "/calculators/health/other"
+      ],
+      "detail": {
+        "value": "Other calculators | Finflo",
+        "count": 2
+      },
+      "status": "closed",
+      "closedBy": "Targeted HTTP SSR recheck on final build; corrected metadata and search H1 verified."
+    },
+    {
+      "severity": "warning",
+      "code": "duplicate-description",
+      "path": [
+        "/calculators/finance/other",
+        "/calculators/health/other"
+      ],
+      "detail": {
+        "value": "Explore other tools with clear inputs, worked examples, and transparent calculation methods.",
+        "count": 2
+      },
+      "status": "closed",
+      "closedBy": "Targeted HTTP SSR recheck on final build; corrected metadata and search H1 verified."
+    }
+  ],
+  "issueCounts": {
+    "info": 1,
+    "warning": 2
+  },
+  "graph": {
+    "unreachableExpectedContentPages": [],
+    "maximumToolClickDepthFromHome": 2,
+    "toolDepthDistribution": {
+      "2": 192,
+      "1": 9
+    },
+    "systemPagesWithoutInternalInbound": []
+  },
+  "staging": {
+    "robotsTxt": "User-Agent: *\nAllow: /\nDisallow: /api/\n\n",
+    "sitemapBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n</urlset>\n",
+    "allPageMetaNoindex": true,
+    "allPageHeaderNoindex": true
+  },
+  "limitations": [
+    "Structured data checked for valid JSON and essential WebApplication/Breadcrumb fields; no live Google Rich Results Test or ranking claim.",
+    "External reference destinations not fetched; this is an internal-link audit.",
+    "Pages are intentionally noindex in staging; this does not test live production indexability.",
+    "Sensitive/random calculators excluded from the deterministic worked-example requirement; random tools separately checked for absent random default outputs.",
+    "Snapshot captures build ID and per-response hashes; source changes after build are not asserted present."
+  ],
+  "checksSummary": {
+    "pageStatus": "249/249 HTTP200",
+    "activeTools": "201/201 HTTP200 with one title, description, canonical and h1",
+    "canonical": "All249 expected page canonicals on https://finflo.org; query variants canonicalize to clean path.",
+    "uniqueMetadata": "All201 calculator titles and descriptions unique. Two Other subcategory pages duplicate title and description.",
+    "schema": "403 JSON-LD blocks parse; all201 tools have matching WebApplication and BreadcrumbList.",
+    "internalLinks": "No404, redirect, missing-fragment or orphan issue in8261 rendered internal anchor instances.",
+    "staging": "All249 page meta robots and X-Robots-Tag headers noindex; empty XML sitemap and no robots.txt sitemap advertisement.",
+    "httpErrors": "Four invalid content routes return404.",
+    "aliases": "Three expected aliases return308 with expected canonical target.",
+    "assets": "OG image, favicon SVG and apple touch icon return200.",
+    "service": "Health endpoint returns200; maintenance display route returns200 while maintenance switch is inactive."
+  },
+  "redirects": {
+    "/percentage-calculator": {
+      "status": 308,
+      "location": "/percent-calculator"
+    },
+    "/terms-and-services": {
+      "status": 308,
+      "location": "/terms"
+    },
+    "/401K-calculator": {
+      "status": 308,
+      "location": "/401k-calculator"
+    }
+  },
+  "recommendations": [],
+  "sourceSnapshot": {
+    "src/app/[slug]/page.tsx": "f5d051a7a259c8ee2ebfbb004885e382d1e68ef6998f0bee5fe00255a8038671",
+    "src/app/calculators/[category]/[subcategory]/page.tsx": "9afaf4d3d11915c759188c80db6f6cd2f692861f333c091639ec485786c33d43",
+    "src/lib/metadata.ts": "279bbfeb2a60cee849815a43e71128934c153f7c066b69207e2dcff584779c07",
+    "src/lib/site.ts": "121995968c3f2a8b83d4f68b71e3867f5968849b08664306ee91f4406d3f6f8f",
+    "src/app/sitemap.ts": "c734bf1457313d485de7d6a7dc651bb9cbf0564041543e2b0ad790161a2f76dd",
+    "src/app/robots.ts": "32b2e0bb7e10b4efdb3c2596467f80a09c9e2723df73401ae2e7438b1d8ffcf2",
+    "src/proxy.ts": "06999614e9b19269a1cdf723eb81c82d005d9edfd0bcce294fcb30ca7d10be14"
+  },
+  "targetedFinalRecheck": {
+    "auditedAtUTC": "2026-10-09T16:16:05.119925+00:00",
+    "buildId": "p7aNm6pzeCU4wnSSsexAO",
+    "paths": [
+      "/calculators/finance/other",
+      "/calculators/health/other",
+      "/search"
+    ],
+    "status": "passed",
+    "artifact": "targeted-recheck.json",
+    "scope": "Only the three pages affected by source corrections were re-fetched after rebuild. The249-route full crawl belongs to the prior build identified above."
+  },
+  "openIssueCounts": {}
+}

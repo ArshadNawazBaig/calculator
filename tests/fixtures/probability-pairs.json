@@ -1,0 +1,494 @@
+[
+  {
+    "id": "prob-pair-A-B",
+    "known": {
+      "A": "0.4",
+      "B": "0.3"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-A-notA",
+    "known": {
+      "A": "0.4",
+      "notA": "0.6"
+    },
+    "expected_state": "underdetermined",
+    "solutions": []
+  },
+  {
+    "id": "prob-pair-A-notB",
+    "known": {
+      "A": "0.4",
+      "notB": "0.7"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-A-intersection",
+    "known": {
+      "A": "0.4",
+      "intersection": "0.12"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-A-union",
+    "known": {
+      "A": "0.4",
+      "union": "0.58"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-A-xor",
+    "known": {
+      "A": "0.4",
+      "xor": "0.46"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-A-neither",
+    "known": {
+      "A": "0.4",
+      "neither": "0.42"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-B-notA",
+    "known": {
+      "B": "0.3",
+      "notA": "0.6"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-B-notB",
+    "known": {
+      "B": "0.3",
+      "notB": "0.7"
+    },
+    "expected_state": "underdetermined",
+    "solutions": []
+  },
+  {
+    "id": "prob-pair-B-intersection",
+    "known": {
+      "B": "0.3",
+      "intersection": "0.12"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-B-union",
+    "known": {
+      "B": "0.3",
+      "union": "0.58"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-B-xor",
+    "known": {
+      "B": "0.3",
+      "xor": "0.46"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-B-neither",
+    "known": {
+      "B": "0.3",
+      "neither": "0.42"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notA-notB",
+    "known": {
+      "notA": "0.6",
+      "notB": "0.7"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notA-intersection",
+    "known": {
+      "notA": "0.6",
+      "intersection": "0.12"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notA-union",
+    "known": {
+      "notA": "0.6",
+      "union": "0.58"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notA-xor",
+    "known": {
+      "notA": "0.6",
+      "xor": "0.46"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notA-neither",
+    "known": {
+      "notA": "0.6",
+      "neither": "0.42"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notB-intersection",
+    "known": {
+      "notB": "0.7",
+      "intersection": "0.12"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notB-union",
+    "known": {
+      "notB": "0.7",
+      "union": "0.58"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notB-xor",
+    "known": {
+      "notB": "0.7",
+      "xor": "0.46"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-notB-neither",
+    "known": {
+      "notB": "0.7",
+      "neither": "0.42"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-intersection-union",
+    "known": {
+      "intersection": "0.12",
+      "union": "0.58"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      },
+      {
+        "A": ".3",
+        "B": ".4"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-intersection-xor",
+    "known": {
+      "intersection": "0.12",
+      "xor": "0.46"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      },
+      {
+        "A": ".3",
+        "B": ".4"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-intersection-neither",
+    "known": {
+      "intersection": "0.12",
+      "neither": "0.42"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      },
+      {
+        "A": ".3",
+        "B": ".4"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-union-xor",
+    "known": {
+      "union": "0.58",
+      "xor": "0.46"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      },
+      {
+        "A": ".3",
+        "B": ".4"
+      }
+    ]
+  },
+  {
+    "id": "prob-pair-union-neither",
+    "known": {
+      "union": "0.58",
+      "neither": "0.42"
+    },
+    "expected_state": "underdetermined",
+    "solutions": []
+  },
+  {
+    "id": "prob-pair-xor-neither",
+    "known": {
+      "xor": "0.46",
+      "neither": "0.42"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": ".3"
+      },
+      {
+        "A": ".3",
+        "B": ".4"
+      }
+    ]
+  },
+  {
+    "id": "prob-singular-intersection",
+    "known": {
+      "A": "0",
+      "intersection": "0"
+    },
+    "expected_state": "underdetermined"
+  },
+  {
+    "id": "prob-impossible-intersection",
+    "known": {
+      "A": "0",
+      "intersection": ".1"
+    },
+    "expected_state": "inconsistent"
+  },
+  {
+    "id": "prob-singular-xor",
+    "known": {
+      "A": ".5",
+      "xor": ".5"
+    },
+    "expected_state": "underdetermined"
+  },
+  {
+    "id": "prob-inconsistent-xor",
+    "known": {
+      "A": ".5",
+      "xor": ".4"
+    },
+    "expected_state": "inconsistent"
+  },
+  {
+    "id": "prob-singular-union",
+    "known": {
+      "A": "1",
+      "union": "1"
+    },
+    "expected_state": "underdetermined"
+  },
+  {
+    "id": "prob-zero-union",
+    "known": {
+      "union": "0",
+      "neither": "1"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": "0",
+        "B": "0"
+      }
+    ]
+  },
+  {
+    "id": "prob-tangent",
+    "known": {
+      "intersection": ".25",
+      "union": ".75"
+    },
+    "expected_state": "unique",
+    "solutions": [
+      {
+        "A": ".5",
+        "B": ".5"
+      }
+    ]
+  },
+  {
+    "id": "prob-negative-discriminant",
+    "known": {
+      "intersection": ".4",
+      "union": ".5"
+    },
+    "expected_state": "inconsistent"
+  },
+  {
+    "id": "prob-tiny-root",
+    "known": {
+      "intersection": "1e-20",
+      "union": ".4"
+    },
+    "expected_state": "multiple",
+    "solutions": [
+      {
+        "A": ".4",
+        "B": "2.5e-20"
+      },
+      {
+        "A": "2.5e-20",
+        "B": ".4"
+      }
+    ],
+    "relative_tolerance": "1e-12"
+  }
+]

@@ -1,0 +1,4520 @@
+{
+  "snapshotAt": "2026-10-09T16:12:41.489341+00:00",
+  "scope": "Refresh of identified remaining calculator controls against the actual runtime registry and captured competitor forms.This is not a fresh exhaustive interactive recrawl or a claim of complete competitor equivalence.",
+  "catalogAccounting": {
+    "catalogRoutes": 204,
+    "calculatorDefinitions": 201,
+    "registeredModes": 548,
+    "unavailableWholeTools": [
+      "mileage-calculator",
+      "weight-watchers-points-calculator"
+    ],
+    "directoryHubs": [
+      "real-estate-calculator"
+    ],
+    "remainingWorkItems": 9,
+    "affectedRoutes": 9,
+    "implementationReadyItems": []
+  },
+  "remaining": [
+    {
+      "id": "BRA-REGIONAL-CONVERTER",
+      "slugs": [
+        "bra-size-calculator"
+      ],
+      "classification": "source-chart-reuse",
+      "status": "research_or_dataset_needed",
+      "observedUseCase": "Convert an entered band/cup between US/CA, UK, EU, FR/BE/ES, AU/NZ and the captured dress-code convention.",
+      "currentImplementation": "Direct US estimate and traditional+4/+5 band estimate, with independent inch/cm measurements; no source-system band/cup conversion controls.",
+      "remaining": "Select and verify a named regional convention covering the captured systems and valid band/cup domains; preserve differing cup ladders. The inspected manufacturer candidate has reuse restrictions and incomplete A/AA/domain coverage. This is unresolved source/reuse provenance, not a legal conclusion that factual relationships cannot be implemented.",
+      "capturedControls": [
+        "bclocation",
+        "bcsize",
+        "bccup"
+      ],
+      "readyArtifact": "docs/research/remaining/bra-sizing-spec.json",
+      "sourceUrl": "https://www.calculator.net/bra-size-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "primarySources": [
+        "https://www.freyalingerie.com/us/en/size-guide/",
+        "https://www.freyalingerie.com/us/en/privacy-policy/",
+        "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size"
+      ],
+      "action": "Select and verify a named regional convention covering the captured systems and valid band/cup domains; preserve differing cup ladders. The inspected manufacturer candidate has reuse restrictions and incomplete A/AA/domain coverage. This is unresolved source/reuse provenance, not a legal conclusion that factual relationships cannot be implemented.",
+      "reason": "Direct US estimate and traditional+4/+5 band estimate, with independent inch/cm measurements; no source-system band/cup conversion controls."
+    },
+    {
+      "id": "SHOE-REGIONS-AGES",
+      "slugs": [
+        "shoe-size-conversion"
+      ],
+      "classification": "source-chart-reuse",
+      "status": "research_or_dataset_needed",
+      "observedUseCase": "Convert source sizes or foot length across the captured adult, child and infant/toddler regional systems.",
+      "currentImplementation": "Measured foot length in cm/mm/in produces adult US men/women approximation and Mondopoint.Regional source-size selectors and child/infant charts are absent.",
+      "remaining": "Verify a specific chart/system for US men/women,UK,EU,JP,CN and adult/child/infant groups.Official Nike candidates demonstrate repeated reverse keys and group-specific foot-length rows and lack CN; their facts do not establish a universal conversion. Resolve source provenance and applicable reuse terms rather than fabricating a regional arithmetic mapping.",
+      "capturedControls": [
+        "ac=a/k/i",
+        "usw",
+        "usm",
+        "uk",
+        "eu",
+        "jp",
+        "cn",
+        "fl"
+      ],
+      "readyArtifact": "docs/research/remaining/shoe-sizing-spec.json",
+      "sourceUrl": "https://www.calculator.net/shoe-size-conversion.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "primarySources": [
+        "https://www.nike.com/size-fit/mens-footwear",
+        "https://www.nike.com/size-fit/kids-footwear"
+      ],
+      "action": "Verify a specific chart/system for US men/women,UK,EU,JP,CN and adult/child/infant groups.Official Nike candidates demonstrate repeated reverse keys and group-specific foot-length rows and lack CN; their facts do not establish a universal conversion. Resolve source provenance and applicable reuse terms rather than fabricating a regional arithmetic mapping.",
+      "reason": "Measured foot length in cm/mm/in produces adult US men/women approximation and Mondopoint.Regional source-size selectors and child/infant charts are absent."
+    },
+    {
+      "id": "BTU-LOAD-FACTORS",
+      "slugs": [
+        "btu-calculator"
+      ],
+      "classification": "primary-model-verification",
+      "status": "research_or_dataset_needed",
+      "observedUseCase": "Vary ceiling height, insulation, climate and room/whole-house type in the captured load forms.",
+      "currentImplementation": "ENERGY STAR8-foot-ceiling table with ft²/m²,sun,occupants,kitchen, plus separately labeled heat-energy Q=m*c*deltaT.",
+      "remaining": "Verify an appropriate heating/cooling power model and coefficients for ceiling height,room/whole-house type,insulation and climate.ENERGY STAR does not provide the missing generic height/climate multipliers.Entered conduction coefficients are a possible local alternative, not equivalent room-load presets; Q is energy rather than power.",
+      "capturedControls": [
+        "ceilingheight1",
+        "roomtype1",
+        "insulation1",
+        "climate1",
+        "roomwidth",
+        "roomlength",
+        "ceilingheight"
+      ],
+      "readyArtifact": "docs/research/remaining/btu-spec.json",
+      "sourceUrl": "https://www.calculator.net/btu-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "primarySources": [
+        "https://www.energystar.gov/products/room_air_conditioners",
+        "https://www.acca.org/standards/technical-manuals/manual-j",
+        "https://openstax.org/books/college-physics-2e/pages/14-5-conduction"
+      ],
+      "action": "Verify an appropriate heating/cooling power model and coefficients for ceiling height,room/whole-house type,insulation and climate.ENERGY STAR does not provide the missing generic height/climate multipliers.Entered conduction coefficients are a possible local alternative, not equivalent room-load presets; Q is energy rather than power.",
+      "reason": "ENERGY STAR8-foot-ceiling table with ft²/m²,sun,occupants,kitchen, plus separately labeled heat-energy Q=m*c*deltaT."
+    },
+    {
+      "id": "HEIGHT-KHAMIS-ROCHE",
+      "slugs": [
+        "height-calculator"
+      ],
+      "classification": "source-corrected-dataset",
+      "status": "research_or_dataset_needed",
+      "observedUseCase": "Predict adult height from child age/sex/current height/weight and both parents.",
+      "currentImplementation": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
+      "remaining": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
+      "capturedControls": [
+        "cage",
+        "csex",
+        "cheightfeet",
+        "cpound",
+        "mcheightfeet",
+        "fcheightfeet"
+      ],
+      "readyArtifact": "docs/research/remaining/khamis-roche-blocker.json",
+      "sourceUrl": "https://www.calculator.net/height-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "primarySources": [
+        "https://publications.aap.org/pediatrics/article/94/4/504/59488/Predicting-Adult-Stature-Without-Using-Skeletal",
+        "https://publications.aap.org/pediatrics/article/95/3/457/59792/ERRATUM",
+        "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/"
+      ],
+      "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
+      "reason": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode."
+    },
+    {
+      "id": "BORG-SCALES",
+      "slugs": [
+        "target-heart-rate-calculator"
+      ],
+      "classification": "source-authorization",
+      "status": "named_method_authorization_unresolved",
+      "observedUseCase": "Choose Borg or modified Borg CR10 perceived-exertion scale output.",
+      "currentImplementation": "Predicted/measured maximum and percentage/reserve heart-rate methods exist.",
+      "remaining": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
+      "capturedControls": [
+        "cintensity: Borg scale",
+        "cintensity: modified Borg CR10"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/target-heart-rate-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
+      "reason": "Predicted/measured maximum and percentage/reserve heart-rate methods exist."
+    },
+    {
+      "id": "NEC-IMPEDANCE",
+      "slugs": [
+        "voltage-drop-calculator"
+      ],
+      "classification": "source-edition-dataset",
+      "status": "research_or_dataset_needed",
+      "observedUseCase": "Select conductor material/size and PVC, aluminum or steel conduit for an NEC table-based impedance calculation.",
+      "currentImplementation": "Entered impedance, geometric resistance, gauge, temperature and phase calculations exist.",
+      "remaining": "Obtain a verifiable edition-specific resistance/reactance or effective-impedance dataset keyed by conductor material,size and conduit.Confirm the use basis for the named table.No dataset is bundled; entered coefficients and geometric resistance remain useful local modes.",
+      "capturedControls": [
+        "necmaterial",
+        "necwiresize",
+        "necconduit",
+        "necpf"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/voltage-drop-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Obtain a verifiable edition-specific resistance/reactance or effective-impedance dataset keyed by conductor material,size and conduit.Confirm the use basis for the named table.No dataset is bundled; entered coefficients and geometric resistance remain useful local modes.",
+      "reason": "Entered impedance, geometric resistance, gauge, temperature and phase calculations exist."
+    },
+    {
+      "id": "GOLF-NINE-HOLE",
+      "slugs": [
+        "golf-handicap-calculator"
+      ],
+      "classification": "source-official-processing",
+      "status": "official_processing_or_expected_score_data_needed",
+      "observedUseCase": "Use the observed mixed-round workflow including nine-hole results.",
+      "currentImplementation": "Independent 18-hole score differential, differential-list index and course-handicap formulas exist.",
+      "remaining": "Connect the applicable verified expected-score process/data for a current9-hole differential, or allow a separately supplied verified18-hole-equivalent differential with explicit scope.Do not double9-hole scores and call the result an official current handicap.The separate 18-hole row workflow is implemented and tested.",
+      "capturedControls": [
+        "form1:r1..r20 course rating",
+        "form1:l1..l20 slope",
+        "form1:c1..c20 18-hole score",
+        "form1:n1..n20 9-hole score",
+        "form1:a1..a20 PCC"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/golf-handicap-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "captureReverifiedOn": "2026-10-09",
+      "capturedSourceTableHeaders": [
+        "Course rating",
+        "Slope rating",
+        "18-hole score",
+        "9-hole score",
+        "Playing condition adjustment"
+      ],
+      "action": "Connect the applicable verified expected-score process/data for a current9-hole differential, or allow a separately supplied verified18-hole-equivalent differential with explicit scope.Do not double9-hole scores and call the result an official current handicap.The separate 18-hole row workflow is implemented and tested.",
+      "reason": "Independent 18-hole score differential, differential-list index and course-handicap formulas exist."
+    },
+    {
+      "id": "ROAD-MILEAGE",
+      "slugs": [
+        "mileage-calculator"
+      ],
+      "classification": "provider-or-operated-dataset",
+      "status": "routing_provider_or_graph_not_connected",
+      "observedUseCase": "Enter origin and destination to obtain road-route mileage.",
+      "currentImplementation": "Route is explicitly unavailable; fuel-cost calculation and straight-line distance are separate tools.",
+      "remaining": "Connect a usable routing/geocoding service or operate a real route graph. No paid account is inherently required, but none is currently connected.",
+      "capturedControls": [
+        "from",
+        "to"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/mileage-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Connect a usable routing/geocoding service or operate a real route graph. No paid account is inherently required, but none is currently connected.",
+      "reason": "Route is explicitly unavailable; fuel-cost calculation and straight-line distance are separate tools."
+    },
+    {
+      "id": "WW-NAMED-METHODS",
+      "slugs": [
+        "weight-watchers-points-calculator"
+      ],
+      "classification": "source-authorization",
+      "status": "named_method_version_and_authorization_unresolved",
+      "observedUseCase": "Use latest, old US, old alternate Points and daily target forms.",
+      "currentImplementation": "Route is explicitly unavailable.",
+      "remaining": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
+      "capturedControls": [
+        "Four captured forms: latest, old US, old alternate, daily target"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/weight-watchers-points-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
+      "reason": "Route is explicitly unavailable."
+    }
+  ],
+  "closedSincePreviousSnapshot": [
+    {
+      "id": "TAX-2025-COMPOSED",
+      "slugs": [
+        "tax-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "taxYear",
+        "persons",
+        "qualifiedDividends",
+        "netEligibleLTCG",
+        "iraEnabled",
+        "studentInterestEnabled",
+        "qbiMethod",
+        "eitcEnabled"
+      ],
+      "evidence": "Both years propagate through federal and additional helpers.65 independent fixtures and composed/dispatcher assertions pass.",
+      "validation": "Independent targeted tax tests passed in this review"
+    },
+    {
+      "id": "TAX-THREE-PLUS-CHILDREN",
+      "slugs": [
+        "tax-calculator",
+        "marriage-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "qualifyingChildren",
+        "ACTCPayrollMode",
+        "ACTCAdjustedPayroll",
+        "ACTCUnreportedPayroll",
+        "verifiedEITC",
+        "excessSocialSecurityCredit",
+        "form2555"
+      ],
+      "evidence": "Qualifying child count0–20 and earned/payroll ACTC alternatives are present.14 independent worksheet fixtures plus ordering/gate tests pass; named special exceptions remain explicit scope.",
+      "validation": "Independent targeted tax tests passed in this review"
+    },
+    {
+      "id": "TAX-STATE-LOCAL-PLANNING",
+      "slugs": [
+        "tax-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "stateLocalRate",
+        "stateLocalBase",
+        "stateLocalEnteredBase",
+        "stateLocalPayments"
+      ],
+      "evidence": "Manual assumed-rate/state-payment planning is separate from federal tax and federal refund.Independent dispatched cases pass.",
+      "validation": "Independent targeted tax tests passed in this review"
+    },
+    {
+      "id": "TAKEHOME-ANNUAL-WORKFLOW",
+      "slugs": [
+        "take-home-pay-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "annualIncome",
+        "secondJobIncome",
+        "thirdJobIncome",
+        "employmentType",
+        "federalOnlyDeductions",
+        "allWageBaseDeductions",
+        "afterTaxDeductions",
+        "periodsPerYear",
+        "stateRate",
+        "cityRate"
+      ],
+      "evidence": "Annual planning is attached separately from W4withholding; selected-year federal tax and employee wage cap verified.Three earned sources share employment type; joint scenario assumes nonworking spouse and points to full federal mode for separate spouse incomes.",
+      "validation": "Independent targeted tax tests passed in this review"
+    },
+    {
+      "id": "MARRIAGE-QSS-AND-STATE",
+      "slugs": [
+        "marriage-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "filingA",
+        "filingB",
+        "stateLocalRatePercentA",
+        "stateLocalRatePercentB",
+        "stateLocalRatePercentJoint",
+        "verifiedScenarioAmounts"
+      ],
+      "evidence": "Eligible QSS counterfactual and independent state/local assumed bases/rates are present.Three federal scenarios recompute year-specific rules; dispatch/labels verified.",
+      "validation": "Independent targeted tax tests passed in this review"
+    },
+    {
+      "id": "FHA-HISTORICAL-78",
+      "slugs": [
+        "fha-loan-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "policySource",
+        "closingDate",
+        "caseAssignedDate",
+        "originalPrice",
+        "originalAppraisal",
+        "paidMipMonths",
+        "servicerCancellationConfirmed"
+      ],
+      "evidence": "Historical78% eligibility/request check and original-schedule projection are registered.Implementation explicitly distinguishes request eligibility from confirmed billing cancellation; current policy and manual final-month remain separate.",
+      "validation": "Registry/source checked; no claim this agent reran the dedicated numerical suite during this snapshot"
+    },
+    {
+      "id": "BRA-LEGACY-UNITS",
+      "slugs": [
+        "bra-size-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "measurementUnit",
+        "unitScheme",
+        "underUnit",
+        "bustUnit"
+      ],
+      "evidence": "Direct band and traditional+4/+5 arithmetic modes, shared or individual inches/centimeters now present.Regional size systems remain a separate open item.",
+      "validation": "Registry/source checked; no claim this agent reran the dedicated numerical suite during this snapshot"
+    },
+    {
+      "id": "SHOE-INPUT-UNITS",
+      "slugs": [
+        "shoe-size-conversion"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "measurementUnit"
+      ],
+      "evidence": "Centimeters/inches/millimeters are now accepted; current named output coverage remains limited separately.",
+      "validation": "Registry/source checked; no claim this agent reran the dedicated numerical suite during this snapshot"
+    },
+    {
+      "id": "BTU-AREA-UNITS",
+      "slugs": [
+        "btu-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "areaUnit"
+      ],
+      "evidence": "Square meters and square feet now normalize into the existing room-capacity table.",
+      "validation": "Registry/source checked; no claim this agent reran the dedicated numerical suite during this snapshot"
+    },
+    {
+      "id": "BODY-INPUT-UNITS",
+      "slugs": [
+        "body-type-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "unitScheme",
+        "bustUnit",
+        "waistUnit",
+        "hipUnit",
+        "highHipUnit"
+      ],
+      "evidence": "FFIT circumferences now accept independent inches/centimeters or a shared unit.",
+      "validation": "Registry/source checked; no claim this agent reran the dedicated numerical suite during this snapshot"
+    },
+    {
+      "id": "GOLF-ROUND-ROWS",
+      "slugs": [
+        "golf-handicap-calculator"
+      ],
+      "status": "present_with_declared_scope",
+      "controlsChecked": [
+        "rounds"
+      ],
+      "evidence": "Recent 3–20 completed 18-hole round rows compose course rating, slope, adjusted gross score and optional PCC into the estimated index. Independently verified score selection, PCC sensitivity, positive/negative rounding and the index ceiling. Nine-hole expected-score processing remains open separately.",
+      "validation": "tests/golf-rounds.test.ts: 24/24 passed"
+    }
+  ],
+  "alreadySupportedWithExplicitScope": [
+    {
+      "group": "state-vehicle-tax",
+      "status": "present",
+      "scope": "All51statechoices;34confirmed ordinary presets plus editablemanual/quoted taxes. Automaticlocal/ZIP lookup was not observed and is not counted as missing."
+    },
+    {
+      "group": "currency",
+      "status": "present",
+      "scope": "172instrument choices:164broad daily references,BTCspot,CLFdailyUF,and6legacy manual-only labels.Not a claimed intradayFX feed."
+    }
+  ],
+  "validation": {
+    "newYearAndACTCSuite": "tests/tax-years.test.ts:151tests passed",
+    "integratedSuites": [
+      "tests/tax-years.test.ts",
+      "tests/tax-additional.test.ts",
+      "tests/composition-ledgers.test.ts"
+    ],
+    "integratedResult": {
+      "tests": 527,
+      "passed": 527,
+      "failed": 0
+    },
+    "golfRoundSuite": {
+      "path": "tests/golf-rounds.test.ts",
+      "tests": 24,
+      "passed": 24,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "targetedESLint": "passed",
+    "scope": "Only named targeted suites rerun by this agent; no claim of global full-suite or browser pass."
+  },
+  "knownScopeLimitsNotMisreportedAsMissingControls": [
+    "An entire federal/state tax return is not inferred from these calculator forms; supported calculations disclose excluded coordination and special eligibility.",
+    "2026W4withholding remains explicitly2026; annual2025/2026income planning is separate.",
+    "HistoricalFHA78%request eligibility/projection does not automatically certify actual billing cessation.",
+    "No invented generic BTUcoefficients, Khamis–Roche coefficients, currentWWalgorithm, or9-holeexpectedscore is presented as verified.",
+    "Brand chart source selection/reuse remains unresolved; this report does not give a legal conclusion or assert a paid subscription is mandatory."
+  ],
+  "manifestNote": "Implementation snapshot and coverage manifest are regenerated from the current typed registry; unresolved mode records remain explicit.",
+  "routes": [
+    {
+      "slug": "401k-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "retirement-account"
+        },
+        {
+          "id": "withdrawal",
+          "algorithm": "early-withdrawal"
+        },
+        {
+          "id": "salary-match",
+          "algorithm": "salary-401k"
+        },
+        {
+          "id": "dated-withdrawal",
+          "algorithm": "early-distribution"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "age-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "age",
+          "algorithm": "age"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "amortization-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "dated-extras",
+          "algorithm": "dated-loan"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "annuity-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "accumulate",
+          "algorithm": "annuity"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "annuity-payout-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "withdraw",
+          "algorithm": "annuity-payout"
+        },
+        {
+          "id": "longevity",
+          "algorithm": "fund-longevity"
+        },
+        {
+          "id": "frequency-longevity",
+          "algorithm": "withdrawal-frequency"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "anorexic-bmi-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "screening",
+          "algorithm": "bmi"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "apr-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "apr",
+          "algorithm": "apr"
+        },
+        {
+          "id": "frequencies",
+          "algorithm": "loan-frequencies"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "area-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 8,
+      "registeredModes": [
+        {
+          "id": "rectangle",
+          "algorithm": "area-rectangle"
+        },
+        {
+          "id": "triangle",
+          "algorithm": "area-triangle"
+        },
+        {
+          "id": "trapezoid",
+          "algorithm": "area-trapezoid"
+        },
+        {
+          "id": "circle",
+          "algorithm": "area-circle"
+        },
+        {
+          "id": "sector",
+          "algorithm": "area-sector"
+        },
+        {
+          "id": "ellipse",
+          "algorithm": "area-ellipse"
+        },
+        {
+          "id": "parallelogram",
+          "algorithm": "area-parallelogram"
+        },
+        {
+          "id": "triangle-sss",
+          "algorithm": "triangle-sss"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "army-body-fat-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "policy-2026",
+          "algorithm": "army-ratio-2026"
+        },
+        {
+          "id": "army",
+          "algorithm": "army-fat"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "auto-lease-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "lease",
+          "algorithm": "lease"
+        },
+        {
+          "id": "reverse-price",
+          "algorithm": "lease-price"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "auto-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "payment",
+          "algorithm": "auto-loan"
+        },
+        {
+          "id": "reverse-price",
+          "algorithm": "vehicle-price"
+        },
+        {
+          "id": "state-tax-financing",
+          "algorithm": "vehicle-state-tax"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "average-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "summary",
+          "algorithm": "statistics"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "average-return-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "returns",
+          "algorithm": "average-return"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-irr"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bac-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "widmark",
+          "algorithm": "bac"
+        },
+        {
+          "id": "beverages",
+          "algorithm": "bac-beverages"
+        },
+        {
+          "id": "single-units",
+          "algorithm": "bac-unit-single"
+        },
+        {
+          "id": "beverage-units",
+          "algorithm": "bac-unit-rows"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bandwidth-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 6,
+      "registeredModes": [
+        {
+          "id": "transfer",
+          "algorithm": "bandwidth"
+        },
+        {
+          "id": "website",
+          "algorithm": "website-bandwidth"
+        },
+        {
+          "id": "hosting",
+          "algorithm": "bandwidth-hosting"
+        },
+        {
+          "id": "units",
+          "algorithm": "data-units"
+        },
+        {
+          "id": "measured-transfer",
+          "algorithm": "transfer-units"
+        },
+        {
+          "id": "reporting",
+          "algorithm": "website-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "base64-encode-decode",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "text",
+          "algorithm": "base64"
+        },
+        {
+          "id": "character-encoding",
+          "algorithm": "base64-charset"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "basic-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "expression",
+          "algorithm": "expression"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "big-number-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "expression",
+          "algorithm": "big-expression"
+        },
+        {
+          "id": "integer",
+          "algorithm": "big-integer"
+        },
+        {
+          "id": "decimal",
+          "algorithm": "decimal-arithmetic"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "binary-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "arithmetic",
+          "algorithm": "base-2"
+        },
+        {
+          "id": "convert",
+          "algorithm": "base-convert"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bmi-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "adult",
+          "algorithm": "bmi"
+        },
+        {
+          "id": "child",
+          "algorithm": "bmi-child"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bmr-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "energy",
+          "algorithm": "bmr"
+        },
+        {
+          "id": "energy-conversion",
+          "algorithm": "food-energy"
+        },
+        {
+          "id": "energy-units",
+          "algorithm": "food-energy-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "boat-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "reverse-price",
+          "algorithm": "vehicle-price"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "body-fat-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "navy",
+          "algorithm": "body-fat"
+        },
+        {
+          "id": "bmi-estimate",
+          "algorithm": "bodyfat-bmi"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "body-surface-area-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "bsa",
+          "algorithm": "bsa"
+        },
+        {
+          "id": "research-equations",
+          "algorithm": "bsa-research"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "body-type-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "ratios",
+          "algorithm": "body-ratios"
+        },
+        {
+          "id": "fashion-ffit",
+          "algorithm": "fashion-ffit"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bond-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "bond",
+          "algorithm": "bond"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-bond"
+        },
+        {
+          "id": "day-count",
+          "algorithm": "bond-day-count"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "bra-size-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "us",
+          "algorithm": "bra"
+        },
+        {
+          "id": "traditional-band",
+          "algorithm": "bra-legacy"
+        }
+      ],
+      "remainingIds": [
+        "BRA-REGIONAL-CONVERTER"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "btu-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "room",
+          "algorithm": "btu"
+        },
+        {
+          "id": "heat-energy",
+          "algorithm": "heat-energy"
+        }
+      ],
+      "remainingIds": [
+        "BTU-LOAD-FACTORS"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "budget-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "budget",
+          "algorithm": "budget"
+        },
+        {
+          "id": "period-lines",
+          "algorithm": "budget-lines"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "business-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "frequencies",
+          "algorithm": "loan-frequencies"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "calorie-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "energy",
+          "algorithm": "tdee"
+        },
+        {
+          "id": "energy-conversion",
+          "algorithm": "food-energy"
+        },
+        {
+          "id": "energy-units",
+          "algorithm": "food-energy-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "calories-burned-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "met",
+          "algorithm": "calories-burned"
+        },
+        {
+          "id": "activities",
+          "algorithm": "activity-energy"
+        },
+        {
+          "id": "distance",
+          "algorithm": "activity-distance"
+        },
+        {
+          "id": "activity-library",
+          "algorithm": "activity-references"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "canadian-mortgage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "repayment",
+          "algorithm": "mortgage-ca"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "carbohydrate-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "split",
+          "algorithm": "macros"
+        },
+        {
+          "id": "energy-ranges",
+          "algorithm": "macro-energy"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "cash-back-or-low-interest-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "compare",
+          "algorithm": "rebate-compare"
+        },
+        {
+          "id": "reverse-price",
+          "algorithm": "vehicle-price"
+        },
+        {
+          "id": "state-tax-financing",
+          "algorithm": "vehicle-state-tax"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "cd-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "circle-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "circle",
+          "algorithm": "circle"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "college-cost-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "college",
+          "algorithm": "college"
+        },
+        {
+          "id": "funded-share",
+          "algorithm": "college-share"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "commission-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "commission"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "commission-inverse"
+        },
+        {
+          "id": "tiers",
+          "algorithm": "commission-tiers"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "common-factor-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "numbers",
+          "algorithm": "common-factors"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "compound-interest-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "equivalent",
+          "algorithm": "equivalent-rate"
+        },
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        },
+        {
+          "id": "equivalent-nominal-rate",
+          "algorithm": "equivalent-nominal-rate"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "conception-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "fertile-window",
+          "algorithm": "cycle"
+        },
+        {
+          "id": "lmp",
+          "algorithm": "pregnancy-lmp"
+        },
+        {
+          "id": "conception",
+          "algorithm": "pregnancy-conception"
+        },
+        {
+          "id": "ivf",
+          "algorithm": "pregnancy-ivf"
+        },
+        {
+          "id": "ultrasound",
+          "algorithm": "pregnancy-ultrasound"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "concrete-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "slab",
+          "algorithm": "concrete-slab"
+        },
+        {
+          "id": "column",
+          "algorithm": "concrete-column"
+        },
+        {
+          "id": "tube",
+          "algorithm": "concrete-tube"
+        },
+        {
+          "id": "stairs",
+          "algorithm": "concrete-stairs"
+        },
+        {
+          "id": "measured",
+          "algorithm": "concrete-measured"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "confidence-interval-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "mean",
+          "algorithm": "confidence"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "conversion-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 11,
+      "registeredModes": [
+        {
+          "id": "length",
+          "algorithm": "convert-length"
+        },
+        {
+          "id": "area",
+          "algorithm": "convert-area"
+        },
+        {
+          "id": "volume",
+          "algorithm": "convert-volume"
+        },
+        {
+          "id": "mass",
+          "algorithm": "convert-mass"
+        },
+        {
+          "id": "time",
+          "algorithm": "convert-time"
+        },
+        {
+          "id": "speed",
+          "algorithm": "convert-speed"
+        },
+        {
+          "id": "pressure",
+          "algorithm": "convert-pressure"
+        },
+        {
+          "id": "energy",
+          "algorithm": "convert-energy"
+        },
+        {
+          "id": "power",
+          "algorithm": "convert-power"
+        },
+        {
+          "id": "data",
+          "algorithm": "convert-data"
+        },
+        {
+          "id": "temperature",
+          "algorithm": "temperature"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "credit-card-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "payoff",
+          "algorithm": "payoff"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "credit-card-payoff-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "debts",
+          "algorithm": "debt-payoff"
+        },
+        {
+          "id": "budget-ledger",
+          "algorithm": "debt-budget-ledger"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "currency-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "manual",
+          "algorithm": "currency"
+        },
+        {
+          "id": "reference",
+          "algorithm": "currency-reference"
+        },
+        {
+          "id": "global-reference",
+          "algorithm": "currency-global"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "date-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 6,
+      "registeredModes": [
+        {
+          "id": "difference",
+          "algorithm": "date-difference"
+        },
+        {
+          "id": "add",
+          "algorithm": "date-add"
+        },
+        {
+          "id": "business",
+          "algorithm": "business-days"
+        },
+        {
+          "id": "business-add",
+          "algorithm": "business-add"
+        },
+        {
+          "id": "custom-business",
+          "algorithm": "calendar-count"
+        },
+        {
+          "id": "custom-business-add",
+          "algorithm": "calendar-add"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "day-counter",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "difference",
+          "algorithm": "date-difference"
+        },
+        {
+          "id": "business",
+          "algorithm": "business-days"
+        },
+        {
+          "id": "business-add",
+          "algorithm": "business-add"
+        },
+        {
+          "id": "custom-business",
+          "algorithm": "calendar-count"
+        },
+        {
+          "id": "custom-business-add",
+          "algorithm": "calendar-add"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "day-of-the-week-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "weekday",
+          "algorithm": "weekday"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "debt-consolidation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "consolidate",
+          "algorithm": "consolidation"
+        },
+        {
+          "id": "fee-comparison",
+          "algorithm": "consolidation-fee-comparison"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "debt-payoff-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "debts",
+          "algorithm": "debt-payoff"
+        },
+        {
+          "id": "budget-ledger",
+          "algorithm": "debt-budget-ledger"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "debt-ratio-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "ratio",
+          "algorithm": "dti"
+        },
+        {
+          "id": "period-lines",
+          "algorithm": "budget-lines"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "density-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "density"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "density-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "depreciation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "depreciation",
+          "algorithm": "depreciation"
+        },
+        {
+          "id": "fiscal",
+          "algorithm": "book-depreciation"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "dew-point-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "magnus",
+          "algorithm": "dew-point"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "dew-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "dice-roller",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "dice",
+          "algorithm": "dice"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "discount-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "discount"
+        },
+        {
+          "id": "known-pair",
+          "algorithm": "retail-discount"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "distance-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "points",
+          "algorithm": "distance"
+        },
+        {
+          "id": "earth",
+          "algorithm": "great-circle"
+        },
+        {
+          "id": "dms",
+          "algorithm": "great-circle-dms"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "down-payment-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "amount",
+          "algorithm": "down-payment"
+        },
+        {
+          "id": "price",
+          "algorithm": "down-price"
+        },
+        {
+          "id": "save",
+          "algorithm": "save-time"
+        },
+        {
+          "id": "percentage",
+          "algorithm": "down-percent"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "due-date-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "lmp",
+          "algorithm": "pregnancy-lmp"
+        },
+        {
+          "id": "conception",
+          "algorithm": "pregnancy-conception"
+        },
+        {
+          "id": "ivf",
+          "algorithm": "pregnancy-ivf"
+        },
+        {
+          "id": "ultrasound",
+          "algorithm": "pregnancy-ultrasound"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "electricity-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "energy",
+          "algorithm": "electricity"
+        },
+        {
+          "id": "load",
+          "algorithm": "electricity-load"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "engine-horsepower-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "torque",
+          "algorithm": "horsepower"
+        },
+        {
+          "id": "quarter-mile",
+          "algorithm": "quarter-mile"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "estate-tax-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "estate",
+          "algorithm": "estate-tax"
+        },
+        {
+          "id": "estate-lines",
+          "algorithm": "tax-estate-lines"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "exponent-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "power",
+          "algorithm": "power"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "factor-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "factor",
+          "algorithm": "factors"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "fat-intake-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "split",
+          "algorithm": "macros"
+        },
+        {
+          "id": "energy-ranges",
+          "algorithm": "macro-energy"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "fha-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "program",
+          "algorithm": "program-loan"
+        },
+        {
+          "id": "policy",
+          "algorithm": "program-policy"
+        },
+        {
+          "id": "hud-ledger",
+          "algorithm": "hud-mip-ledger"
+        },
+        {
+          "id": "ownership-comparison",
+          "algorithm": "program-composed"
+        },
+        {
+          "id": "historical-mip-78",
+          "algorithm": "fha-historical-78"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "finance-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "tvm",
+          "algorithm": "tvm"
+        },
+        {
+          "id": "nominal-tvm",
+          "algorithm": "nominal-tvm"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "fraction-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "arithmetic",
+          "algorithm": "fraction"
+        },
+        {
+          "id": "simplify",
+          "algorithm": "fraction-simplify"
+        },
+        {
+          "id": "compare",
+          "algorithm": "fraction-compare"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "fuel-cost-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "metric",
+          "algorithm": "fuel-metric"
+        },
+        {
+          "id": "us",
+          "algorithm": "fuel-us"
+        },
+        {
+          "id": "mixed-units",
+          "algorithm": "fuel-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "future-value-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gas-mileage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "us",
+          "algorithm": "mpg"
+        },
+        {
+          "id": "metric",
+          "algorithm": "consumption"
+        },
+        {
+          "id": "odometer",
+          "algorithm": "fuel-odometer"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gcf-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "numbers",
+          "algorithm": "gcd"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gdp-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "expenditure",
+          "algorithm": "gdp"
+        },
+        {
+          "id": "income",
+          "algorithm": "income-gdp"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gfr-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "adult",
+          "algorithm": "gfr-adult"
+        },
+        {
+          "id": "pediatric",
+          "algorithm": "gfr-child"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "golf-handicap-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "index",
+          "algorithm": "golf-index"
+        },
+        {
+          "id": "course",
+          "algorithm": "course-handicap"
+        },
+        {
+          "id": "rounds-to-index",
+          "algorithm": "golf-rounds"
+        },
+        {
+          "id": "differential",
+          "algorithm": "golf-differential"
+        }
+      ],
+      "remainingIds": [
+        "GOLF-NINE-HOLE"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gpa-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "courses",
+          "algorithm": "gpa"
+        },
+        {
+          "id": "target",
+          "algorithm": "gpa-target"
+        },
+        {
+          "id": "semester-grades",
+          "algorithm": "semester-gpa"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "grade-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "weighted",
+          "algorithm": "grade"
+        },
+        {
+          "id": "final",
+          "algorithm": "final-grade"
+        },
+        {
+          "id": "points",
+          "algorithm": "grade-points"
+        },
+        {
+          "id": "letter-assessments",
+          "algorithm": "grade-letters"
+        },
+        {
+          "id": "letter-final",
+          "algorithm": "grade-letter-final"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "gravel-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "bed",
+          "algorithm": "landscape"
+        },
+        {
+          "id": "circle",
+          "algorithm": "gravel-circle"
+        },
+        {
+          "id": "purchasing",
+          "algorithm": "landscape-purchasing"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "half-life-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "remaining",
+          "algorithm": "half-life"
+        },
+        {
+          "id": "solve",
+          "algorithm": "half-life-solve"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "half-life-inverse"
+        },
+        {
+          "id": "constants",
+          "algorithm": "decay-constants"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "healthy-weight-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "reference",
+          "algorithm": "healthy-weight"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "heat-index-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "nws",
+          "algorithm": "heat-index"
+        },
+        {
+          "id": "dew",
+          "algorithm": "heat-dew"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "height-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "parental",
+          "algorithm": "height"
+        },
+        {
+          "id": "converter",
+          "algorithm": "height-units"
+        },
+        {
+          "id": "parent-units",
+          "algorithm": "parent-height-units"
+        }
+      ],
+      "remainingIds": [
+        "HEIGHT-KHAMIS-ROCHE"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "heloc-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "heloc",
+          "algorithm": "heloc"
+        },
+        {
+          "id": "capacity",
+          "algorithm": "equity-capacity"
+        },
+        {
+          "id": "fee-schedule",
+          "algorithm": "heloc-fees"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "hex-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "arithmetic",
+          "algorithm": "base-16"
+        },
+        {
+          "id": "convert",
+          "algorithm": "base-convert-hex"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "home-equity-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "capacity",
+          "algorithm": "equity-capacity"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "horsepower-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "torque",
+          "algorithm": "horsepower"
+        },
+        {
+          "id": "work",
+          "algorithm": "power-work"
+        },
+        {
+          "id": "converter",
+          "algorithm": "power-units"
+        },
+        {
+          "id": "measured-work",
+          "algorithm": "power-work-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "hours-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "duration",
+          "algorithm": "clock-duration"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-duration"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "house-affordability-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "affordability",
+          "algorithm": "affordability"
+        },
+        {
+          "id": "budget",
+          "algorithm": "house-budget"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ideal-weight-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "reference",
+          "algorithm": "ideal-weight"
+        },
+        {
+          "id": "child",
+          "algorithm": "bmi-child"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "inflation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "historical",
+          "algorithm": "cpi-historical"
+        },
+        {
+          "id": "future",
+          "algorithm": "inflation"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "interest-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        },
+        {
+          "id": "equivalent-nominal-rate",
+          "algorithm": "equivalent-nominal-rate"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "interest-rate-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "rate",
+          "algorithm": "interest-rate"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "investment-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "tvm",
+          "algorithm": "tvm"
+        },
+        {
+          "id": "nominal-tvm",
+          "algorithm": "nominal-tvm"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        },
+        {
+          "id": "equivalent-nominal-rate",
+          "algorithm": "equivalent-nominal-rate"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ip-subnet-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "ipv4",
+          "algorithm": "ipv4"
+        },
+        {
+          "id": "ipv6",
+          "algorithm": "ipv6"
+        },
+        {
+          "id": "mask",
+          "algorithm": "ipv4-mask"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ira-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "retirement-account"
+        },
+        {
+          "id": "withdrawal",
+          "algorithm": "early-withdrawal"
+        },
+        {
+          "id": "equal-cost",
+          "algorithm": "equal-cost-ira"
+        },
+        {
+          "id": "2026-ceiling",
+          "algorithm": "ira-limit"
+        },
+        {
+          "id": "dated-withdrawal",
+          "algorithm": "early-distribution"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "irr-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "irr",
+          "algorithm": "irr"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-irr"
+        },
+        {
+          "id": "regular",
+          "algorithm": "regular-irr"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "lcm-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "numbers",
+          "algorithm": "lcm"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "lean-body-mass-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "bodyfat",
+          "algorithm": "lean-fat"
+        },
+        {
+          "id": "boer",
+          "algorithm": "lean-boer"
+        },
+        {
+          "id": "pediatric",
+          "algorithm": "lean-pediatric"
+        },
+        {
+          "id": "historical-equations",
+          "algorithm": "lean-comparison"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "lease-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "financing",
+          "algorithm": "financing-lease"
+        },
+        {
+          "id": "lease",
+          "algorithm": "lease"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "deferred",
+          "algorithm": "deferred"
+        },
+        {
+          "id": "bond",
+          "algorithm": "zero-bond"
+        },
+        {
+          "id": "frequencies",
+          "algorithm": "loan-frequencies"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "log-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "log",
+          "algorithm": "log"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "log-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "long-division-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "divide",
+          "algorithm": "long-division"
+        },
+        {
+          "id": "steps",
+          "algorithm": "division-steps"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "love-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "names",
+          "algorithm": "love"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "macro-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "split",
+          "algorithm": "macros"
+        },
+        {
+          "id": "energy-ranges",
+          "algorithm": "macro-energy"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "margin-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "margin"
+        },
+        {
+          "id": "target",
+          "algorithm": "margin-target"
+        },
+        {
+          "id": "stock",
+          "algorithm": "stock-margin"
+        },
+        {
+          "id": "fx",
+          "algorithm": "fx-margin"
+        },
+        {
+          "id": "known-pair",
+          "algorithm": "retail-margin"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "marriage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "compare",
+          "algorithm": "marriage-tax"
+        },
+        {
+          "id": "year-scenarios",
+          "algorithm": "tax-marriage-scenarios"
+        },
+        {
+          "id": "federal-comparison",
+          "algorithm": "tax-marriage-composed"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mass-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "mass"
+        },
+        {
+          "id": "measurement-units",
+          "algorithm": "mass-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "matrix-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "matrix",
+          "algorithm": "matrix"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mean-median-mode-range-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "summary",
+          "algorithm": "statistics"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mileage-calculator",
+      "routeKind": "unavailable",
+      "registeredModeCount": 0,
+      "registeredModes": [],
+      "remainingIds": [
+        "ROAD-MILEAGE"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "molarity-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "molarity",
+          "algorithm": "molarity"
+        },
+        {
+          "id": "mass",
+          "algorithm": "molarity-mass"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "molarity-inverse"
+        },
+        {
+          "id": "measured",
+          "algorithm": "molarity-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "molecular-weight-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "formula",
+          "algorithm": "molecular-weight"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mortgage-amortization-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "repayment",
+          "algorithm": "mortgage"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mortgage-calculator-uk",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "repayment",
+          "algorithm": "mortgage-uk"
+        },
+        {
+          "id": "interest-only",
+          "algorithm": "interest-only"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mortgage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "repayment",
+          "algorithm": "mortgage"
+        },
+        {
+          "id": "dated-extras",
+          "algorithm": "dated-loan"
+        },
+        {
+          "id": "cost-lines",
+          "algorithm": "ownership-lines"
+        },
+        {
+          "id": "inferred",
+          "algorithm": "biweekly-inferred"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mortgage-payoff-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "payoff",
+          "algorithm": "payoff"
+        },
+        {
+          "id": "inferred-dated-extras",
+          "algorithm": "dated-loan"
+        },
+        {
+          "id": "inferred",
+          "algorithm": "biweekly-inferred"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mulch-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "bed",
+          "algorithm": "landscape"
+        },
+        {
+          "id": "area",
+          "algorithm": "landscape-area"
+        },
+        {
+          "id": "purchasing",
+          "algorithm": "landscape-purchasing"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "mutual-fund-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        },
+        {
+          "id": "loads",
+          "algorithm": "fund-loads"
+        },
+        {
+          "id": "exit-load",
+          "algorithm": "fund-exit-load"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "number-sequence-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "sequence",
+          "algorithm": "sequence"
+        },
+        {
+          "id": "nth",
+          "algorithm": "nth-sequence"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ohms-law-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "ohm",
+          "algorithm": "ohm"
+        },
+        {
+          "id": "measurement-units",
+          "algorithm": "ohm-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "one-rep-max-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "rep",
+          "algorithm": "one-rep"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "overweight-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "adult",
+          "algorithm": "bmi"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ovulation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "cycle",
+          "algorithm": "cycle"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "p-value-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "p",
+          "algorithm": "p-value"
+        },
+        {
+          "id": "normal-tails",
+          "algorithm": "normal-tails"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pace-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 7,
+      "registeredModes": [
+        {
+          "id": "pace",
+          "algorithm": "pace"
+        },
+        {
+          "id": "time",
+          "algorithm": "pace-time"
+        },
+        {
+          "id": "distance",
+          "algorithm": "pace-distance"
+        },
+        {
+          "id": "splits",
+          "algorithm": "pace-splits"
+        },
+        {
+          "id": "finish",
+          "algorithm": "pace-finish"
+        },
+        {
+          "id": "convert",
+          "algorithm": "pace-convert"
+        },
+        {
+          "id": "measurement-units",
+          "algorithm": "pace-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "password-generator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "password",
+          "algorithm": "password"
+        },
+        {
+          "id": "custom",
+          "algorithm": "password-uniform"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "payback-period-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "payback",
+          "algorithm": "payback"
+        },
+        {
+          "id": "growing",
+          "algorithm": "growing-payback"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "payment-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "payoff",
+          "algorithm": "payoff"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pension-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "pension",
+          "algorithm": "pension"
+        },
+        {
+          "id": "streams",
+          "algorithm": "pension-streams"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "percent-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 7,
+      "registeredModes": [
+        {
+          "id": "of",
+          "algorithm": "percent-of"
+        },
+        {
+          "id": "what",
+          "algorithm": "percent-what"
+        },
+        {
+          "id": "change",
+          "algorithm": "percent-change"
+        },
+        {
+          "id": "difference",
+          "algorithm": "percent-difference"
+        },
+        {
+          "id": "adjust",
+          "algorithm": "percent-adjust"
+        },
+        {
+          "id": "base",
+          "algorithm": "percent-base"
+        },
+        {
+          "id": "reverse",
+          "algorithm": "percent-reverse-change"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "percent-error-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "error",
+          "algorithm": "percent-error"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "percent-off-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "discount"
+        },
+        {
+          "id": "sequential",
+          "algorithm": "sequential-discount"
+        },
+        {
+          "id": "known-pair",
+          "algorithm": "retail-discount"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "period-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "cycle",
+          "algorithm": "cycle"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "permutation-and-combination-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "count",
+          "algorithm": "combinations"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "personal-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "cash-cost",
+          "algorithm": "personal-cashcost"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pregnancy-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "lmp",
+          "algorithm": "pregnancy-lmp"
+        },
+        {
+          "id": "conception",
+          "algorithm": "pregnancy-conception"
+        },
+        {
+          "id": "ivf",
+          "algorithm": "pregnancy-ivf"
+        },
+        {
+          "id": "ultrasound",
+          "algorithm": "pregnancy-ultrasound"
+        },
+        {
+          "id": "due-date",
+          "algorithm": "pregnancy-reverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pregnancy-conception-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "lmp",
+          "algorithm": "pregnancy-lmp"
+        },
+        {
+          "id": "conception",
+          "algorithm": "pregnancy-conception"
+        },
+        {
+          "id": "ivf",
+          "algorithm": "pregnancy-ivf"
+        },
+        {
+          "id": "ultrasound",
+          "algorithm": "pregnancy-ultrasound"
+        },
+        {
+          "id": "due-date",
+          "algorithm": "pregnancy-reverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pregnancy-weight-gain-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "singleton",
+          "algorithm": "pregnancy-gain"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "present-value-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "pv",
+          "algorithm": "present-value"
+        },
+        {
+          "id": "timing",
+          "algorithm": "pv-timing"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "prime-factorization-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "factor",
+          "algorithm": "prime-factors"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "probability-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "events",
+          "algorithm": "probability"
+        },
+        {
+          "id": "normal",
+          "algorithm": "normal-interval"
+        },
+        {
+          "id": "inverse-normal",
+          "algorithm": "normal-inverse"
+        },
+        {
+          "id": "independent-solver",
+          "algorithm": "probability-solver"
+        },
+        {
+          "id": "series",
+          "algorithm": "probability-series"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "protein-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "protein",
+          "algorithm": "protein"
+        },
+        {
+          "id": "energy-ranges",
+          "algorithm": "macro-energy"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "pythagorean-theorem-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "hypotenuse",
+          "algorithm": "pythagoras"
+        },
+        {
+          "id": "leg",
+          "algorithm": "pythagoras-leg"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "quadratic-formula-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "roots",
+          "algorithm": "quadratic"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "random-number-generator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "random",
+          "algorithm": "random-exact"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "ratio-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "simplify",
+          "algorithm": "ratio"
+        },
+        {
+          "id": "solve",
+          "algorithm": "proportion"
+        },
+        {
+          "id": "all-proportions",
+          "algorithm": "proportion-all"
+        },
+        {
+          "id": "scale",
+          "algorithm": "ratio-scale"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "real-estate-calculator",
+      "routeKind": "directory_hub",
+      "registeredModeCount": 0,
+      "registeredModes": [],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "refinance-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "compare",
+          "algorithm": "refinance"
+        },
+        {
+          "id": "horizon",
+          "algorithm": "refinance-horizon"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "rent-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "rent",
+          "algorithm": "rent"
+        },
+        {
+          "id": "obligations",
+          "algorithm": "rent-obligations"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "rent-vs-buy-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "compare",
+          "algorithm": "rent-buy"
+        },
+        {
+          "id": "cost-streams",
+          "algorithm": "rent-buy-streams"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "rental-property-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "rental",
+          "algorithm": "rental"
+        },
+        {
+          "id": "holding",
+          "algorithm": "rental-holding"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "repayment-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "loan",
+          "algorithm": "loan"
+        },
+        {
+          "id": "payoff",
+          "algorithm": "payoff"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "resistor-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "network",
+          "algorithm": "resistors"
+        },
+        {
+          "id": "colors",
+          "algorithm": "resistor-colors"
+        },
+        {
+          "id": "conductor",
+          "algorithm": "conductor-resistance"
+        },
+        {
+          "id": "bands",
+          "algorithm": "resistor-bands"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "retirement-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "target",
+          "algorithm": "retirement-target"
+        },
+        {
+          "id": "save",
+          "algorithm": "retirement-save"
+        },
+        {
+          "id": "withdraw",
+          "algorithm": "annuity-payout"
+        },
+        {
+          "id": "longevity",
+          "algorithm": "fund-longevity"
+        },
+        {
+          "id": "salary-growth",
+          "algorithm": "retire-salary"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "right-triangle-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "legs",
+          "algorithm": "right-triangle"
+        },
+        {
+          "id": "pair",
+          "algorithm": "right-pair"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "rmd-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "rmd",
+          "algorithm": "rmd"
+        },
+        {
+          "id": "calendar",
+          "algorithm": "owner-rmd"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "roi-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "roi",
+          "algorithm": "roi"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-roi"
+        },
+        {
+          "id": "dated-cashflows",
+          "algorithm": "dated-irr"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "roman-numeral-converter",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "roman",
+          "algorithm": "roman"
+        },
+        {
+          "id": "date",
+          "algorithm": "roman-date"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "roofing-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "roof",
+          "algorithm": "roof"
+        },
+        {
+          "id": "area-angle",
+          "algorithm": "roof-measured"
+        },
+        {
+          "id": "materials",
+          "algorithm": "roof-packages"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "root-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "root",
+          "algorithm": "root"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "roth-ira-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "roth",
+          "algorithm": "roth"
+        },
+        {
+          "id": "equal-cost",
+          "algorithm": "equal-cost-ira"
+        },
+        {
+          "id": "2026-ceiling",
+          "algorithm": "ira-limit"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "rounding-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "round",
+          "algorithm": "round"
+        },
+        {
+          "id": "increment",
+          "algorithm": "round-increment"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "salary-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "salary",
+          "algorithm": "salary"
+        },
+        {
+          "id": "schedule-units",
+          "algorithm": "salary-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "sales-tax-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "tax",
+          "algorithm": "sales-tax"
+        },
+        {
+          "id": "known-pair",
+          "algorithm": "retail-tax"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "sample-size-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "sample",
+          "algorithm": "sample-size"
+        },
+        {
+          "id": "margin",
+          "algorithm": "margin-error"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "savings-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "growth",
+          "algorithm": "growth"
+        },
+        {
+          "id": "dual-streams",
+          "algorithm": "dual-contributions"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "scientific-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "expression",
+          "algorithm": "expression"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "scientific-notation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "notation",
+          "algorithm": "scientific-notation"
+        },
+        {
+          "id": "arithmetic",
+          "algorithm": "scientific-arithmetic"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "shoe-size-conversion",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "length",
+          "algorithm": "shoe"
+        }
+      ],
+      "remainingIds": [
+        "SHOE-REGIONS-AGES"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "simple-interest-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "simple",
+          "algorithm": "simple-interest"
+        },
+        {
+          "id": "inverse",
+          "algorithm": "simple-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "sleep-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "cycles",
+          "algorithm": "sleep"
+        },
+        {
+          "id": "duration",
+          "algorithm": "sleep-duration"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "slope-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "points",
+          "algorithm": "slope"
+        },
+        {
+          "id": "endpoint",
+          "algorithm": "slope-endpoint"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "social-security-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "claim",
+          "algorithm": "social-security"
+        },
+        {
+          "id": "cohort",
+          "algorithm": "social-fra"
+        },
+        {
+          "id": "streams",
+          "algorithm": "social-streams"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "speed-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "calculate",
+          "algorithm": "speed"
+        },
+        {
+          "id": "measured",
+          "algorithm": "speed-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "square-footage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "rectangle",
+          "algorithm": "floor-area"
+        },
+        {
+          "id": "circle",
+          "algorithm": "floor-circle"
+        },
+        {
+          "id": "shapes",
+          "algorithm": "floor-shapes"
+        },
+        {
+          "id": "measured",
+          "algorithm": "floor-measured"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "stair-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "stairs",
+          "algorithm": "stairs"
+        },
+        {
+          "id": "rise-run",
+          "algorithm": "stairs-rise-run"
+        },
+        {
+          "id": "layout",
+          "algorithm": "stairs-layout"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "standard-deviation-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "summary",
+          "algorithm": "statistics"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "statistics-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "summary",
+          "algorithm": "statistics"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "student-loan-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "student",
+          "algorithm": "student-loan"
+        },
+        {
+          "id": "school-borrowing",
+          "algorithm": "student-borrowing"
+        },
+        {
+          "id": "principal-budget",
+          "algorithm": "student-principal"
+        },
+        {
+          "id": "fixed-payment",
+          "algorithm": "payoff"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "surface-area-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 12,
+      "registeredModes": [
+        {
+          "id": "sphere",
+          "algorithm": "surface-area-sphere"
+        },
+        {
+          "id": "cone",
+          "algorithm": "surface-area-cone"
+        },
+        {
+          "id": "cube",
+          "algorithm": "surface-area-cube"
+        },
+        {
+          "id": "cylinder",
+          "algorithm": "surface-area-cylinder"
+        },
+        {
+          "id": "cuboid",
+          "algorithm": "surface-area-cuboid"
+        },
+        {
+          "id": "capsule",
+          "algorithm": "surface-area-capsule"
+        },
+        {
+          "id": "cap",
+          "algorithm": "surface-area-cap"
+        },
+        {
+          "id": "frustum",
+          "algorithm": "surface-area-frustum"
+        },
+        {
+          "id": "ellipsoid",
+          "algorithm": "surface-area-ellipsoid"
+        },
+        {
+          "id": "pyramid",
+          "algorithm": "surface-area-pyramid"
+        },
+        {
+          "id": "tube",
+          "algorithm": "surface-area-tube"
+        },
+        {
+          "id": "cap-inverse",
+          "algorithm": "cap-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "take-home-pay-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 5,
+      "registeredModes": [
+        {
+          "id": "federal-2026",
+          "algorithm": "federal-tax"
+        },
+        {
+          "id": "w4",
+          "algorithm": "tax-payroll-w4"
+        },
+        {
+          "id": "fica",
+          "algorithm": "tax-payroll-fica"
+        },
+        {
+          "id": "paycheck-composed",
+          "algorithm": "tax-paycheck-composed"
+        },
+        {
+          "id": "annual-tax-pay",
+          "algorithm": "annual-tax-pay"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "target-heart-rate-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "target",
+          "algorithm": "heart-rate"
+        },
+        {
+          "id": "methods",
+          "algorithm": "heart-rate-methods"
+        }
+      ],
+      "remainingIds": [
+        "BORG-SCALES"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "tax-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 24,
+      "registeredModes": [
+        {
+          "id": "federal-2026",
+          "algorithm": "federal-tax"
+        },
+        {
+          "id": "ordinary-detail",
+          "algorithm": "tax-ordinary-detailed"
+        },
+        {
+          "id": "self-employment",
+          "algorithm": "tax-self-employment"
+        },
+        {
+          "id": "additional-medicare",
+          "algorithm": "tax-additional-medicare"
+        },
+        {
+          "id": "qualified-gains",
+          "algorithm": "tax-gain"
+        },
+        {
+          "id": "niit",
+          "algorithm": "tax-niit"
+        },
+        {
+          "id": "dependent-credit",
+          "algorithm": "tax-child-credit"
+        },
+        {
+          "id": "actc",
+          "algorithm": "tax-basic-actc"
+        },
+        {
+          "id": "amt-base",
+          "algorithm": "tax-amt-base"
+        },
+        {
+          "id": "federal-composed",
+          "algorithm": "tax-federal-composed"
+        },
+        {
+          "id": "standard-expanded",
+          "algorithm": "tax-standard-expanded"
+        },
+        {
+          "id": "social-benefits",
+          "algorithm": "tax-social-benefits"
+        },
+        {
+          "id": "senior-deduction",
+          "algorithm": "tax-senior-deduction"
+        },
+        {
+          "id": "itemization-2026",
+          "algorithm": "tax-itemization-2026"
+        },
+        {
+          "id": "care-2026",
+          "algorithm": "tax-care-2026"
+        },
+        {
+          "id": "tips-2026",
+          "algorithm": "tax-tips-2026"
+        },
+        {
+          "id": "overtime-2026",
+          "algorithm": "tax-overtime-2026"
+        },
+        {
+          "id": "car-interest-2026",
+          "algorithm": "tax-car-interest-2026"
+        },
+        {
+          "id": "education-2026",
+          "algorithm": "tax-education-2026"
+        },
+        {
+          "id": "student-interest-2026",
+          "algorithm": "tax-student-interest-2026"
+        },
+        {
+          "id": "ira-deduction-2026",
+          "algorithm": "tax-ira-deduction-2026"
+        },
+        {
+          "id": "qbi-2026",
+          "algorithm": "tax-qbi-2026"
+        },
+        {
+          "id": "qbi-itemization-2026",
+          "algorithm": "tax-qbi-section68"
+        },
+        {
+          "id": "eitc-estimate-2026",
+          "algorithm": "tax-eitc-estimate-2026"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "tdee-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "energy",
+          "algorithm": "tdee"
+        },
+        {
+          "id": "energy-conversion",
+          "algorithm": "food-energy"
+        },
+        {
+          "id": "energy-units",
+          "algorithm": "food-energy-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "tile-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "tiles",
+          "algorithm": "tile"
+        },
+        {
+          "id": "procurement",
+          "algorithm": "tile-procurement"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "time-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "arithmetic",
+          "algorithm": "time-arithmetic"
+        },
+        {
+          "id": "datetime",
+          "algorithm": "datetime-add"
+        },
+        {
+          "id": "expression",
+          "algorithm": "duration-expression"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "time-card-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "timesheet",
+          "algorithm": "time-card"
+        },
+        {
+          "id": "dated-shifts",
+          "algorithm": "shift-card"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "time-duration-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "duration",
+          "algorithm": "clock-duration"
+        },
+        {
+          "id": "dated",
+          "algorithm": "dated-duration"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "time-zone-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "zone",
+          "algorithm": "time-zone"
+        },
+        {
+          "id": "fixed",
+          "algorithm": "fixed-time-zone"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "tip-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "tip",
+          "algorithm": "tip"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "tire-size-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "compare",
+          "algorithm": "tires"
+        },
+        {
+          "id": "nominal",
+          "algorithm": "tire-target"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "triangle-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 4,
+      "registeredModes": [
+        {
+          "id": "sss",
+          "algorithm": "triangle-sss"
+        },
+        {
+          "id": "sas",
+          "algorithm": "triangle-sas"
+        },
+        {
+          "id": "asa",
+          "algorithm": "triangle-asa"
+        },
+        {
+          "id": "ssa",
+          "algorithm": "triangle-ssa"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "url-encode-decode",
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "text",
+          "algorithm": "url-codec"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "va-mortgage-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "program",
+          "algorithm": "program-loan"
+        },
+        {
+          "id": "policy",
+          "algorithm": "program-policy"
+        },
+        {
+          "id": "ownership-comparison",
+          "algorithm": "program-composed"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "vat-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "tax",
+          "algorithm": "sales-tax"
+        },
+        {
+          "id": "known-pair",
+          "algorithm": "retail-tax"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "voltage-drop-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "dc",
+          "algorithm": "voltage-drop"
+        },
+        {
+          "id": "impedance",
+          "algorithm": "voltage-impedance"
+        },
+        {
+          "id": "gauge",
+          "algorithm": "wire-gauge"
+        }
+      ],
+      "remainingIds": [
+        "NEC-IMPEDANCE"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "volume-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 12,
+      "registeredModes": [
+        {
+          "id": "sphere",
+          "algorithm": "volume-sphere"
+        },
+        {
+          "id": "cone",
+          "algorithm": "volume-cone"
+        },
+        {
+          "id": "cube",
+          "algorithm": "volume-cube"
+        },
+        {
+          "id": "cylinder",
+          "algorithm": "volume-cylinder"
+        },
+        {
+          "id": "cuboid",
+          "algorithm": "volume-cuboid"
+        },
+        {
+          "id": "capsule",
+          "algorithm": "volume-capsule"
+        },
+        {
+          "id": "cap",
+          "algorithm": "volume-cap"
+        },
+        {
+          "id": "frustum",
+          "algorithm": "volume-frustum"
+        },
+        {
+          "id": "ellipsoid",
+          "algorithm": "volume-ellipsoid"
+        },
+        {
+          "id": "pyramid",
+          "algorithm": "volume-pyramid"
+        },
+        {
+          "id": "tube",
+          "algorithm": "volume-tube"
+        },
+        {
+          "id": "cap-inverse",
+          "algorithm": "cap-inverse"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "weight-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "mass",
+          "algorithm": "convert-mass"
+        },
+        {
+          "id": "calculate",
+          "algorithm": "weight"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "weight-watchers-points-calculator",
+      "routeKind": "unavailable",
+      "registeredModeCount": 0,
+      "registeredModes": [],
+      "remainingIds": [
+        "WW-NAMED-METHODS"
+      ],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "wind-chill-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 2,
+      "registeredModes": [
+        {
+          "id": "nws",
+          "algorithm": "wind-chill"
+        },
+        {
+          "id": "measurement-units",
+          "algorithm": "wind-units"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    },
+    {
+      "slug": "z-score-calculator",
+      "routeKind": "calculator",
+      "registeredModeCount": 3,
+      "registeredModes": [
+        {
+          "id": "z",
+          "algorithm": "z-score"
+        },
+        {
+          "id": "normal-tails",
+          "algorithm": "normal-tails"
+        },
+        {
+          "id": "between",
+          "algorithm": "normal-between"
+        }
+      ],
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+    }
+  ],
+  "sourceHashes": {
+    "src/lib/calculators/registry.ts": "754de3983096328afc8e0719bd17082fab2d6be35198c895800544be2b9f155c",
+    "src/lib/calculators/tax-composition.ts": "8734c8b13ddf1b2c9bea993472ff6adbb0da92704ec130fe51c706fdd7aaa048",
+    "src/lib/calculators/child-credit.ts": "c2208f9927efe03521f615f6cc1facc1b60679d78f4744afebf23d9e2ea3ec3e",
+    "src/lib/calculators/historical-fha.ts": "710bc57422af2d595ad8a32c6bd50c95c7cc25c9cc41c238e24e8fdc176022f3",
+    "src/lib/calculators/everyday-engine.ts": "119555d89372619b44dbf60cdf72fcf06d1877e1e09f73a9a93e2e1a6e8dbfe2"
+  }
+}

@@ -1,0 +1,4568 @@
+{
+  "schemaVersion": 1,
+  "snapshotGeneratedAt": "2026-10-09T12:19:06.391Z",
+  "integration": "Resolve definition by slug, mode by modeId; call public calculate(category,mode,inputs). Compare named metrics; numeric pass when absError<=max(absTol,relTol*abs(expected)). Expected labels are current snapshot presentation names, not stable algorithm IDs.",
+  "referenceCases": [
+    {
+      "id": "rmd-calculator--uniform-73::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "73",
+        "balance": "34800"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 1313.2075471698113,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 26.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Not inheritedIRA or solebeneficiaryspouse>10yearsyounger; year-of-birth startingage verifiedseparately.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-73"
+    },
+    {
+      "id": "rmd-calculator--uniform-75::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "75",
+        "balance": "34800"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 1414.6341463414635,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 24.6,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Not inheritedIRA or solebeneficiaryspouse>10yearsyounger; year-of-birth startingage verifiedseparately.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-75"
+    },
+    {
+      "id": "rmd-calculator--uniform-80::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "80",
+        "balance": "34800"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 1722.7722772277227,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 20.2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Not inheritedIRA or solebeneficiaryspouse>10yearsyounger; year-of-birth startingage verifiedseparately.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-80"
+    },
+    {
+      "id": "rmd-calculator--uniform-74::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "74",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 10392.156862745098,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 25.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-74"
+    },
+    {
+      "id": "rmd-calculator--uniform-76::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "76",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 11181.434599156119,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 23.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-76"
+    },
+    {
+      "id": "rmd-calculator--uniform-77::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "77",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 11572.052401746725,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 22.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-77"
+    },
+    {
+      "id": "rmd-calculator--uniform-78::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "78",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 12045.454545454546,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 22,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-78"
+    },
+    {
+      "id": "rmd-calculator--uniform-79::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "79",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 12559.241706161138,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 21.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-79"
+    },
+    {
+      "id": "rmd-calculator--uniform-81::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "81",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 13659.79381443299,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 19.4,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-81"
+    },
+    {
+      "id": "rmd-calculator--uniform-82::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "82",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 14324.324324324325,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 18.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-82"
+    },
+    {
+      "id": "rmd-calculator--uniform-83::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "83",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 14971.75141242938,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 17.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-83"
+    },
+    {
+      "id": "rmd-calculator--uniform-84::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "84",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 15773.809523809523,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 16.8,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-84"
+    },
+    {
+      "id": "rmd-calculator--uniform-85::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "85",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 16562.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 16,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-85"
+    },
+    {
+      "id": "rmd-calculator--uniform-86::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "86",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 17434.21052631579,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 15.2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-86"
+    },
+    {
+      "id": "rmd-calculator--uniform-87::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "87",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 18402.777777777777,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 14.4,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-87"
+    },
+    {
+      "id": "rmd-calculator--uniform-88::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "88",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 19343.065693430657,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 13.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-88"
+    },
+    {
+      "id": "rmd-calculator--uniform-89::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "89",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 20542.63565891473,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 12.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-89"
+    },
+    {
+      "id": "rmd-calculator--uniform-90::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "90",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 21721.311475409835,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 12.2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-90"
+    },
+    {
+      "id": "rmd-calculator--uniform-91::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "91",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 23043.478260869564,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 11.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-91"
+    },
+    {
+      "id": "rmd-calculator--uniform-92::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "92",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 24537.037037037036,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 10.8,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-92"
+    },
+    {
+      "id": "rmd-calculator--uniform-93::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "93",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 26237.62376237624,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 10.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-93"
+    },
+    {
+      "id": "rmd-calculator--uniform-94::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "94",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 27894.736842105263,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 9.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-94"
+    },
+    {
+      "id": "rmd-calculator--uniform-95::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "95",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 29775.280898876405,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 8.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-95"
+    },
+    {
+      "id": "rmd-calculator--uniform-96::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "96",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 31547.619047619046,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 8.4,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-96"
+    },
+    {
+      "id": "rmd-calculator--uniform-97::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "97",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 33974.35897435898,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 7.8,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-97"
+    },
+    {
+      "id": "rmd-calculator--uniform-98::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "98",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 36301.3698630137,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 7.3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-98"
+    },
+    {
+      "id": "rmd-calculator--uniform-99::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "99",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 38970.58823529412,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 6.8,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-99"
+    },
+    {
+      "id": "rmd-calculator--uniform-100::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "100",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 41406.25,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 6.4,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-100"
+    },
+    {
+      "id": "rmd-calculator--uniform-101::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "101",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 44166.666666666664,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 6,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-101"
+    },
+    {
+      "id": "rmd-calculator--uniform-102::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "102",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 47321.42857142857,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 5.6,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-102"
+    },
+    {
+      "id": "rmd-calculator--uniform-103::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "103",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 50961.53846153846,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 5.2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-103"
+    },
+    {
+      "id": "rmd-calculator--uniform-104::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "104",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 54081.63265306123,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 4.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-104"
+    },
+    {
+      "id": "rmd-calculator--uniform-105::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "105",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 57608.69565217391,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 4.6,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-105"
+    },
+    {
+      "id": "rmd-calculator--uniform-106::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "106",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 61627.90697674418,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 4.3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-106"
+    },
+    {
+      "id": "rmd-calculator--uniform-107::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "107",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 64634.14634146341,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 4.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-107"
+    },
+    {
+      "id": "rmd-calculator--uniform-108::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "108",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 67948.71794871795,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-108"
+    },
+    {
+      "id": "rmd-calculator--uniform-109::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "109",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 71621.62162162163,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-109"
+    },
+    {
+      "id": "rmd-calculator--uniform-110::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "110",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 75714.28571428571,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-110"
+    },
+    {
+      "id": "rmd-calculator--uniform-111::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "111",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 77941.17647058824,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.4,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-111"
+    },
+    {
+      "id": "rmd-calculator--uniform-112::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "112",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 80303.0303030303,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-112"
+    },
+    {
+      "id": "rmd-calculator--uniform-113::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "113",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 85483.87096774194,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-113"
+    },
+    {
+      "id": "rmd-calculator--uniform-114::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "114",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 88333.33333333333,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-114"
+    },
+    {
+      "id": "rmd-calculator--uniform-115::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "115",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 91379.31034482758,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2.9,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-115"
+    },
+    {
+      "id": "rmd-calculator--uniform-116::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "116",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 94642.85714285714,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2.8,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-116"
+    },
+    {
+      "id": "rmd-calculator--uniform-117::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "117",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 98148.14814814815,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-117"
+    },
+    {
+      "id": "rmd-calculator--uniform-118::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "118",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 106000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-118"
+    },
+    {
+      "id": "rmd-calculator--uniform-119::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "119",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 115217.39130434782,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2.3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-119"
+    },
+    {
+      "id": "rmd-calculator--uniform-120::rmd-calculator::rmd",
+      "category": "finance",
+      "slug": "rmd-calculator",
+      "modeId": "rmd",
+      "inputs": {
+        "age": "120",
+        "balance": "265000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated annual RMD",
+          "expected": 132500,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Uniform Lifetime factor",
+          "expected": 2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Owner lifetime distribution; correct table selection assumed. Age120 means120andolder.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rmd-calculator--uniform-120"
+    },
+    {
+      "id": "mortgage-calculator--design-example::mortgage-calculator::repayment",
+      "category": "finance",
+      "slug": "mortgage-calculator",
+      "modeId": "repayment",
+      "inputs": {
+        "price": "400000",
+        "down": "20",
+        "rate": "6.5",
+        "years": "30",
+        "tax": "4800",
+        "insurance": "1800",
+        "pmi": "0",
+        "hoa": "100",
+        "other": "0",
+        "taxGrowth": "0",
+        "insuranceGrowth": "0",
+        "hoaGrowth": "0",
+        "extra": "0",
+        "extraAnnual": "0",
+        "oneTime": "0",
+        "oneMonth": "12",
+        "start": "2026-11-01"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 2022.617675177484,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Initial monthly ownership cost",
+          "expected": 2672.6176751774838,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 408142.3630638942,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Fixed nominal US rate; no PMI or payment rounding before amortization. Approved image amount is inaccurate: display P&I 2022.62.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "mortgage-calculator--design-example"
+    },
+    {
+      "id": "mortgage-calculator--monthly-extra::mortgage-calculator::repayment",
+      "category": "finance",
+      "slug": "mortgage-calculator",
+      "modeId": "repayment",
+      "inputs": {
+        "price": "250000",
+        "down": "0",
+        "rate": "6",
+        "years": "30",
+        "tax": "3600",
+        "insurance": "1200",
+        "pmi": "0",
+        "hoa": "0",
+        "other": "0",
+        "taxGrowth": "0",
+        "insuranceGrowth": "0",
+        "hoaGrowth": "0",
+        "extra": "200",
+        "extraAnnual": "0",
+        "oneTime": "0",
+        "oneMonth": "12",
+        "start": "2026-11-01",
+        "principal": "250000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1498.876312881881,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 203362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 453362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Payoff time",
+          "expected": 267,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Payments not rounded per month; no prepayment fees; extra paid at each period end.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "mortgage-calculator--monthly-extra"
+    },
+    {
+      "id": "mortgage-payoff-calculator--monthly-extra::mortgage-payoff-calculator::loan",
+      "category": "finance",
+      "slug": "mortgage-payoff-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "250000",
+        "rate": "6",
+        "years": "30",
+        "extra": "200",
+        "start": "2026-11-01",
+        "price": "250000",
+        "down": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1498.876312881881,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 203362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 453362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Payoff time",
+          "expected": 267,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Payments not rounded per month; no prepayment fees; extra paid at each period end.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "mortgage-payoff-calculator--monthly-extra"
+    },
+    {
+      "id": "amortization-calculator--monthly-extra::amortization-calculator::loan",
+      "category": "finance",
+      "slug": "amortization-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "250000",
+        "rate": "6",
+        "years": "30",
+        "extra": "200",
+        "start": "2026-11-01",
+        "price": "250000",
+        "down": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1498.876312881881,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 203362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 453362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Payoff time",
+          "expected": 267,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Payments not rounded per month; no prepayment fees; extra paid at each period end.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "amortization-calculator--monthly-extra"
+    },
+    {
+      "id": "mortgage-amortization-calculator--monthly-extra::mortgage-amortization-calculator::repayment",
+      "category": "finance",
+      "slug": "mortgage-amortization-calculator",
+      "modeId": "repayment",
+      "inputs": {
+        "price": "250000",
+        "down": "0",
+        "rate": "6",
+        "years": "30",
+        "tax": "3600",
+        "insurance": "1200",
+        "pmi": "0",
+        "hoa": "0",
+        "other": "0",
+        "taxGrowth": "0",
+        "insuranceGrowth": "0",
+        "hoaGrowth": "0",
+        "extra": "200",
+        "extraAnnual": "0",
+        "oneTime": "0",
+        "oneMonth": "12",
+        "start": "2026-11-01",
+        "principal": "250000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1498.876312881881,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 203362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 453362.51141502033,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Payoff time",
+          "expected": 267,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Payments not rounded per month; no prepayment fees; extra paid at each period end.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "mortgage-amortization-calculator--monthly-extra"
+    },
+    {
+      "id": "canadian-mortgage-calculator--monthly::canadian-mortgage-calculator::repayment",
+      "category": "finance",
+      "slug": "canadian-mortgage-calculator",
+      "modeId": "repayment",
+      "inputs": {
+        "price": "500000",
+        "down": "0",
+        "rate": "5",
+        "years": "25",
+        "tax": "3600",
+        "insurance": "1200",
+        "pmi": "0",
+        "hoa": "0",
+        "other": "0",
+        "taxGrowth": "0",
+        "insuranceGrowth": "0",
+        "hoaGrowth": "0",
+        "extra": "0",
+        "extraAnnual": "0",
+        "oneTime": "0",
+        "oneMonth": "12",
+        "start": "2026-11-01"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 2908.0249251850905,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Fixedrate quote compoundedsemiannually; termdistinctfromamortization.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "canadian-mortgage-calculator--monthly"
+    },
+    {
+      "id": "loan-calculator--zero-rate::loan-calculator::loan",
+      "category": "finance",
+      "slug": "loan-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "10000",
+        "rate": "0",
+        "years": "5",
+        "extra": "0",
+        "start": "2026-11-01",
+        "price": "10000",
+        "down": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 166.66666666666666,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 10000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "loan-calculator--zero-rate"
+    },
+    {
+      "id": "payment-calculator--zero-rate::payment-calculator::loan",
+      "category": "finance",
+      "slug": "payment-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "10000",
+        "rate": "0",
+        "years": "5",
+        "extra": "0",
+        "start": "2026-11-01",
+        "price": "10000",
+        "down": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 166.66666666666666,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 10000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "payment-calculator--zero-rate"
+    },
+    {
+      "id": "amortization-calculator--zero-rate::amortization-calculator::loan",
+      "category": "finance",
+      "slug": "amortization-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "10000",
+        "rate": "0",
+        "years": "5",
+        "extra": "0",
+        "start": "2026-11-01",
+        "price": "10000",
+        "down": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 166.66666666666666,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 10000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "amortization-calculator--zero-rate"
+    },
+    {
+      "id": "mortgage-amortization-calculator--zero-rate::mortgage-amortization-calculator::repayment",
+      "category": "finance",
+      "slug": "mortgage-amortization-calculator",
+      "modeId": "repayment",
+      "inputs": {
+        "price": "10000",
+        "down": "0",
+        "rate": "0",
+        "years": "5",
+        "tax": "3600",
+        "insurance": "1200",
+        "pmi": "0",
+        "hoa": "0",
+        "other": "0",
+        "taxGrowth": "0",
+        "insuranceGrowth": "0",
+        "hoaGrowth": "0",
+        "extra": "0",
+        "extraAnnual": "0",
+        "oneTime": "0",
+        "oneMonth": "12",
+        "start": "2026-11-01",
+        "principal": "10000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 166.66666666666666,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total payments",
+          "expected": 10000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "mortgage-amortization-calculator--zero-rate"
+    },
+    {
+      "id": "loan-calculator--installments::loan-calculator::loan",
+      "category": "finance",
+      "slug": "loan-calculator",
+      "modeId": "loan",
+      "inputs": {
+        "principal": "10000",
+        "rate": "12",
+        "years": "1",
+        "extra": "0",
+        "start": "2026-11-01"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 888.487886783417,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 661.8546414010049,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "loan-calculator--installments"
+    },
+    {
+      "id": "loan-calculator--deferred::loan-calculator::deferred",
+      "category": "finance",
+      "slug": "loan-calculator",
+      "modeId": "deferred",
+      "inputs": {
+        "principal": "10000",
+        "rate": "6",
+        "years": "2",
+        "frequency": "12"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Balance due",
+          "expected": 11271.597762053918,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Interest accrued",
+          "expected": 1271.5977620539174,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Not an amortizing payment output.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "loan-calculator--deferred"
+    },
+    {
+      "id": "loan-calculator--zero-coupon::loan-calculator::bond",
+      "category": "finance",
+      "slug": "loan-calculator",
+      "modeId": "bond",
+      "inputs": {
+        "face": "12100",
+        "rate": "10",
+        "years": "2",
+        "frequency": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Present borrowing value",
+          "expected": 10000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Discount",
+          "expected": 2100,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "loan-calculator--zero-coupon"
+    },
+    {
+      "id": "auto-loan-calculator--financed-costs::auto-loan-calculator::payment",
+      "category": "finance",
+      "slug": "auto-loan-calculator",
+      "modeId": "payment",
+      "inputs": {
+        "price": "30000",
+        "down": "3000",
+        "trade": "5000",
+        "owed": "2000",
+        "rebate": "0",
+        "tax": "6",
+        "tradeTax": "no",
+        "fees": "200",
+        "rate": "6",
+        "years": "5"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 26000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 502.65283976512586,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 4159.170385907552,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Sales tax amount is explicitly supplied; no assumption that trade-in reduces tax in every state.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "auto-loan-calculator--financed-costs"
+    },
+    {
+      "id": "interest-calculator--begin::interest-calculator::growth",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "beginning",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1695.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 395.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "interest-calculator--begin"
+    },
+    {
+      "id": "interest-calculator--end::interest-calculator::growth",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1662,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 362,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "interest-calculator--end"
+    },
+    {
+      "id": "savings-calculator--begin::savings-calculator::growth",
+      "category": "finance",
+      "slug": "savings-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "beginning",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1695.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 395.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "savings-calculator--begin"
+    },
+    {
+      "id": "savings-calculator--end::savings-calculator::growth",
+      "category": "finance",
+      "slug": "savings-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1662,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 362,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "savings-calculator--end"
+    },
+    {
+      "id": "future-value-calculator--begin::future-value-calculator::growth",
+      "category": "finance",
+      "slug": "future-value-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "beginning",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1695.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 395.1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "future-value-calculator--begin"
+    },
+    {
+      "id": "future-value-calculator--end::future-value-calculator::growth",
+      "category": "finance",
+      "slug": "future-value-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1662,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total contributions",
+          "expected": 1300,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Growth after modeled tax",
+          "expected": 362,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "One contribution each year, not each month; no tax, inflation or fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "future-value-calculator--end"
+    },
+    {
+      "id": "interest-calculator--tax-inflation::interest-calculator::growth",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "0",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "3",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "20",
+        "inflation": "3"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1259.712,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Inflation-adjusted value",
+          "expected": 1152.8149299870875,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Tax charged annually as earned, no deferred taxation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "interest-calculator--tax-inflation"
+    },
+    {
+      "id": "compound-interest-calculator--nominal-to-effective::compound-interest-calculator::equivalent",
+      "category": "finance",
+      "slug": "compound-interest-calculator",
+      "modeId": "equivalent",
+      "inputs": {
+        "rate": "6",
+        "frequency": "12",
+        "target": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Equivalent nominal annual rate",
+          "expected": 6.1677811864499565,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "This competitor tool converts equivalent interest rates; it is not solely an investment FV tool.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "compound-interest-calculator--nominal-to-effective"
+    },
+    {
+      "id": "compound-interest-calculator--annual-to-monthly::compound-interest-calculator::equivalent",
+      "category": "finance",
+      "slug": "compound-interest-calculator",
+      "modeId": "equivalent",
+      "inputs": {
+        "rate": "6",
+        "frequency": "1",
+        "target": "12"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Equivalent nominal annual rate",
+          "expected": 5.841060678411645,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "compound-interest-calculator--annual-to-monthly"
+    },
+    {
+      "id": "compound-interest-calculator--continuous::compound-interest-calculator::equivalent",
+      "category": "finance",
+      "slug": "compound-interest-calculator",
+      "modeId": "equivalent",
+      "inputs": {
+        "rate": "6",
+        "frequency": "12",
+        "target": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Equivalent nominal annual rate",
+          "expected": 5.985049813246889,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Only the stated assumptions and mode; a fixture is not a claim of complete competitor parity.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "compound-interest-calculator--continuous"
+    },
+    {
+      "id": "investment-calculator--solve-futureValue::investment-calculator::tvm",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "fv",
+        "pv": "1000",
+        "fv": "1662",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Future value",
+          "expected": 1662,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Positive principal/contribution convention for investment; unique positive rate in this case.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "investment-calculator--solve-futureValue"
+    },
+    {
+      "id": "investment-calculator--solve-presentValue::investment-calculator::tvm",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "pv",
+        "pv": "1000",
+        "fv": "1662",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Required present value",
+          "expected": 1000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Positive principal/contribution convention for investment; unique positive rate in this case.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "investment-calculator--solve-presentValue"
+    },
+    {
+      "id": "investment-calculator--solve-contribution::investment-calculator::tvm",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "pmt",
+        "pv": "1000",
+        "fv": "1662",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Periodic contribution",
+          "expected": 100,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Positive principal/contribution convention for investment; unique positive rate in this case.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "investment-calculator--solve-contribution"
+    },
+    {
+      "id": "investment-calculator--solve-ratePercent::investment-calculator::tvm",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "rate",
+        "pv": "1000",
+        "fv": "1662",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Annual effective return",
+          "expected": 10,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Positive principal/contribution convention for investment; unique positive rate in this case.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "investment-calculator--solve-ratePercent"
+    },
+    {
+      "id": "investment-calculator--solve-periods::investment-calculator::tvm",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "years",
+        "pv": "1000",
+        "fv": "1662",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Time to target",
+          "expected": 3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Positive principal/contribution convention for investment; unique positive rate in this case.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "investment-calculator--solve-periods"
+    },
+    {
+      "id": "interest-rate-calculator--recover-nominal::interest-rate-calculator::rate",
+      "category": "finance",
+      "slug": "interest-rate-calculator",
+      "modeId": "rate",
+      "inputs": {
+        "principal": "10000",
+        "years": "1",
+        "payment": "888.487886783417"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Nominal annual interest rate",
+          "expected": 12,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Effective annual rate",
+          "expected": 12.682503013196973,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Loan quote is nominal, not effective annual. Solver should name both outputs correctly.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "interest-rate-calculator--recover-nominal"
+    },
+    {
+      "id": "apr-calculator--fee-vs-nominal::apr-calculator::apr",
+      "category": "finance",
+      "slug": "apr-calculator",
+      "modeId": "apr",
+      "inputs": {
+        "principal": "10000",
+        "rate": "12",
+        "years": "1",
+        "fees": "500"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated nominal APR",
+          "expected": 21.855897521407037,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Monthly payment",
+          "expected": 888.487886783417,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Net loan proceeds",
+          "expected": 9500,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Not (interest+fees)/principal/year; no oddfirstperiod, mortgageinsurance orexcludedfeeclassification.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "apr-calculator--fee-vs-nominal"
+    },
+    {
+      "id": "bond-calculator--coupon-date::bond-calculator::bond",
+      "category": "finance",
+      "slug": "bond-calculator",
+      "modeId": "bond",
+      "inputs": {
+        "solve": "price",
+        "face": "1000",
+        "coupon": "5",
+        "yield": "6",
+        "price": "950",
+        "years": "2",
+        "frequency": "2"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated bond price",
+          "expected": 981.4145079859481,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "No oddperiod,ex-couponoraccrualdaycount; datedclean/dirtyrequiresconvention.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bond-calculator--coupon-date"
+    },
+    {
+      "id": "average-return-calculator--arithmetic-geometric::average-return-calculator::returns",
+      "category": "finance",
+      "slug": "average-return-calculator",
+      "modeId": "returns",
+      "inputs": {
+        "returns": "10,-10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Arithmetic average",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Geometric average",
+          "expected": -0.5012562893380045,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Cumulative return",
+          "expected": -1,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "No external cashflows. Arithmeticmean0%doesnotmeanunchangedbalance.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "average-return-calculator--arithmetic-geometric"
+    },
+    {
+      "id": "payback-period-calculator--simple-and-discounted::payback-period-calculator::payback",
+      "category": "finance",
+      "slug": "payback-period-calculator",
+      "modeId": "payback",
+      "inputs": {
+        "flows": "-1000,400,400,400,400",
+        "rate": "10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Simple payback",
+          "expected": 2.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Discounted payback",
+          "expected": 3.01925,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Fractionalyear interpolateslinearlywithinlastperiod; cashactuallypaidatyearend only would break even at4years.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "payback-period-calculator--simple-and-discounted"
+    },
+    {
+      "id": "salary-calculator--work-calendar::salary-calculator::salary",
+      "category": "finance",
+      "slug": "salary-calculator",
+      "modeId": "salary",
+      "inputs": {
+        "amount": "25",
+        "period": "hour",
+        "hours": "40",
+        "days": "5",
+        "leave": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Annual gross pay",
+          "expected": 52000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Annual pay after unpaid leave",
+          "expected": 46000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Monthly equivalent",
+          "expected": 4333.333333333333,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Paid leave must not be subtracted. Explicit52-week convention.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "salary-calculator--work-calendar"
+    },
+    {
+      "id": "va-mortgage-calculator--first-use-zero-down::va-mortgage-calculator::program",
+      "category": "finance",
+      "slug": "va-mortgage-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "0",
+        "rate": "6",
+        "years": "30",
+        "fee": "2.15",
+        "financeFee": "yes",
+        "annualInsurance": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 306450,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 6450,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1837.3225843306097,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Purchase loan; excludesrefinance, manufacturedhome andotherloantypefees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "va-mortgage-calculator--first-use-zero-down"
+    },
+    {
+      "id": "va-mortgage-calculator--subsequent-zero-down::va-mortgage-calculator::program",
+      "category": "finance",
+      "slug": "va-mortgage-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "0",
+        "rate": "6",
+        "years": "30",
+        "fee": "3.3",
+        "financeFee": "yes",
+        "annualInsurance": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 309900,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 9900,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1858.0070774483797,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Purchase loan; excludesrefinance, manufacturedhome andotherloantypefees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "va-mortgage-calculator--subsequent-zero-down"
+    },
+    {
+      "id": "va-mortgage-calculator--five-percent-down::va-mortgage-calculator::program",
+      "category": "finance",
+      "slug": "va-mortgage-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "5",
+        "rate": "6",
+        "years": "30",
+        "fee": "1.5",
+        "financeFee": "yes",
+        "annualInsurance": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 289275,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 4275,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1734.3497816356246,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Purchase loan; excludesrefinance, manufacturedhome andotherloantypefees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "va-mortgage-calculator--five-percent-down"
+    },
+    {
+      "id": "va-mortgage-calculator--ten-percent-down::va-mortgage-calculator::program",
+      "category": "finance",
+      "slug": "va-mortgage-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "10",
+        "rate": "6",
+        "years": "30",
+        "fee": "1.25",
+        "financeFee": "yes",
+        "annualInsurance": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 273375,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 3375,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1639.021248136337,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Purchase loan; excludesrefinance, manufacturedhome andotherloantypefees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "va-mortgage-calculator--ten-percent-down"
+    },
+    {
+      "id": "va-mortgage-calculator--exempt::va-mortgage-calculator::program",
+      "category": "finance",
+      "slug": "va-mortgage-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "0",
+        "rate": "6",
+        "years": "30",
+        "fee": "0",
+        "financeFee": "yes",
+        "annualInsurance": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 300000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1798.6515754582572,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Purchase loan; excludesrefinance, manufacturedhome andotherloantypefees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "va-mortgage-calculator--exempt"
+    },
+    {
+      "id": "fha-loan-calculator--explicit-mip::fha-loan-calculator::program",
+      "category": "finance",
+      "slug": "fha-loan-calculator",
+      "modeId": "program",
+      "inputs": {
+        "price": "300000",
+        "down": "3.5",
+        "rate": "6",
+        "years": "30",
+        "fee": "1.75",
+        "financeFee": "yes",
+        "annualInsurance": "0.55"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Loan amount",
+          "expected": 294566.25,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Upfront program fee",
+          "expected": 5066.25,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Regular monthly payment",
+          "expected": 1766.0734987977694,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "AnnualMIP0.55% is explicitly input, not universal rule. FullHUD decliningaveragebalance premium calculation not covered.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "fha-loan-calculator--explicit-mip"
+    },
+    {
+      "id": "debt-payoff-calculator--avalanche::credit-card-payoff-calculator::debts",
+      "category": "finance",
+      "slug": "credit-card-payoff-calculator",
+      "modeId": "debts",
+      "inputs": {
+        "debts": "1000,12,100\n1000,24,100",
+        "extra": "300",
+        "strategy": "avalanche"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Debt-free after",
+          "expected": 5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 70.6822139,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Minimums fixed100; no purchases, changing minimum percentages or late fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "debt-payoff-calculator--avalanche"
+    },
+    {
+      "id": "debt-payoff-calculator--avalanche::debt-payoff-calculator::debts",
+      "category": "finance",
+      "slug": "debt-payoff-calculator",
+      "modeId": "debts",
+      "inputs": {
+        "debts": "1000,12,100\n1000,24,100",
+        "extra": "300",
+        "strategy": "avalanche"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Debt-free after",
+          "expected": 5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total interest",
+          "expected": 70.6822139,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Minimums fixed100; no purchases, changing minimum percentages or late fees.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "debt-payoff-calculator--avalanche"
+    },
+    {
+      "id": "roth-ira-calculator--fixed-contributions::roth-ira-calculator::roth",
+      "category": "finance",
+      "slug": "roth-ira-calculator",
+      "modeId": "roth",
+      "inputs": {
+        "balance": "0",
+        "contribution": "7500",
+        "rate": "5",
+        "years": "3",
+        "tax": "22"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Qualified Roth-style balance",
+          "expected": 23643.75,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Annually taxed account",
+          "expected": 23388.9075,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "QualifiedRothwithdrawalassumed; alltaxablereturn taxedannually asinterest; eligibilityandcontributionlimitsseparate.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "roth-ira-calculator--fixed-contributions"
+    },
+    {
+      "id": "401k-calculator--match-and-growth::401k-calculator::growth",
+      "category": "finance",
+      "slug": "401k-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "balance": "50000",
+        "contribution": "10000",
+        "employer": "3000",
+        "rate": "5",
+        "years": "3",
+        "tax": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected account balance",
+          "expected": 98863.75,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "No salary growth, vesting forfeiture or legal-limit caps triggered.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "401k-calculator--match-and-growth"
+    },
+    {
+      "id": "rent-vs-buy-calculator--one-year-cash::rent-vs-buy-calculator::compare",
+      "category": "finance",
+      "slug": "rent-vs-buy-calculator",
+      "modeId": "compare",
+      "inputs": {
+        "price": "100000",
+        "down": "100",
+        "rate": "0",
+        "term": "30",
+        "years": "1",
+        "rent": "700",
+        "rentGrowth": "0",
+        "costs": "250",
+        "appreciation": "10",
+        "investment": "0",
+        "buyCosts": "5",
+        "sellCosts": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Buying advantage under assumptions",
+          "expected": 3800,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "No taxdeductions, mortgage, deposit, rentgrowth or opportunityreturn; deliberatelytransparentone-yearcashcomparison.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "rent-vs-buy-calculator--one-year-cash"
+    },
+    {
+      "id": "bmi-calculator--unit-equivalence-metric::bmi-calculator::adult",
+      "category": "health",
+      "slug": "bmi-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "units": "metric",
+        "weight": "68.0388555",
+        "height": "177.8",
+        "age": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body mass index",
+          "expected": 21.522538152219163,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Exact SI conversion; CDC703roundedshortcut gives a slightly different number and must be labeled if selected.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmi-calculator--unit-equivalence-metric"
+    },
+    {
+      "id": "bmi-calculator--unit-equivalence-US::bmi-calculator::adult",
+      "category": "health",
+      "slug": "bmi-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "units": "us",
+        "weight": "150",
+        "height": "70",
+        "age": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body mass index",
+          "expected": 21.522538152219163,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Exact SI conversion; CDC703roundedshortcut gives a slightly different number and must be labeled if selected.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmi-calculator--unit-equivalence-US"
+    },
+    {
+      "id": "bmi-calculator--rounding-boundary::bmi-calculator::adult",
+      "category": "health",
+      "slug": "bmi-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "units": "metric",
+        "weight": "99.996",
+        "height": "200",
+        "age": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body mass index",
+          "expected": 24.999,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Do not classify rounded25.0 as overweight.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmi-calculator--rounding-boundary"
+    },
+    {
+      "id": "bmr-calculator--mifflin-male::bmr-calculator::energy",
+      "category": "health",
+      "slug": "bmr-calculator",
+      "modeId": "energy",
+      "inputs": {
+        "sex": "male",
+        "age": "30",
+        "units": "metric",
+        "weight": "80",
+        "height": "180",
+        "method": "mifflin",
+        "fat": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated resting energy",
+          "expected": 1780,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Population resting-energy estimate; not direct metabolic measurement.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmr-calculator--mifflin-male"
+    },
+    {
+      "id": "bmr-calculator--mifflin-female::bmr-calculator::energy",
+      "category": "health",
+      "slug": "bmr-calculator",
+      "modeId": "energy",
+      "inputs": {
+        "sex": "female",
+        "age": "30",
+        "units": "metric",
+        "weight": "80",
+        "height": "180",
+        "method": "mifflin",
+        "fat": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated resting energy",
+          "expected": 1614,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Population resting-energy estimate; not direct metabolic measurement.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmr-calculator--mifflin-female"
+    },
+    {
+      "id": "bmr-calculator--harris-male::bmr-calculator::energy",
+      "category": "health",
+      "slug": "bmr-calculator",
+      "modeId": "energy",
+      "inputs": {
+        "sex": "male",
+        "age": "30",
+        "units": "metric",
+        "weight": "80",
+        "height": "180",
+        "method": "harris",
+        "fat": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated resting energy",
+          "expected": 1853.632,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Estimate only.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmr-calculator--harris-male"
+    },
+    {
+      "id": "bmr-calculator--harris-female::bmr-calculator::energy",
+      "category": "health",
+      "slug": "bmr-calculator",
+      "modeId": "energy",
+      "inputs": {
+        "sex": "female",
+        "age": "30",
+        "units": "metric",
+        "weight": "80",
+        "height": "180",
+        "method": "harris",
+        "fat": "20"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated resting energy",
+          "expected": 1615.093,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Estimate only.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bmr-calculator--harris-female"
+    },
+    {
+      "id": "body-fat-calculator--navy-male::body-fat-calculator::navy",
+      "category": "health",
+      "slug": "body-fat-calculator",
+      "modeId": "navy",
+      "inputs": {
+        "sex": "male",
+        "units": "us",
+        "height": "72",
+        "weight": "176.36980974790205",
+        "waist": "36",
+        "neck": "16",
+        "hip": "40"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 18.57216454451655,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Research field estimate with substantial individual error; not current Army one-site method.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-fat-calculator--navy-male"
+    },
+    {
+      "id": "body-fat-calculator--navy-metric-male::body-fat-calculator::navy",
+      "category": "health",
+      "slug": "body-fat-calculator",
+      "modeId": "navy",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "height": "182.88",
+        "weight": "80",
+        "waist": "91.44",
+        "neck": "40.64",
+        "hip": "100"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 18.57216454451655,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Unit-equivalence regression catches mixing cm with inch constants.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-fat-calculator--navy-metric-male"
+    },
+    {
+      "id": "body-fat-calculator--navy-female::body-fat-calculator::navy",
+      "category": "health",
+      "slug": "body-fat-calculator",
+      "modeId": "navy",
+      "inputs": {
+        "sex": "female",
+        "units": "us",
+        "height": "65",
+        "weight": "143.30047042017043",
+        "waist": "30",
+        "neck": "13",
+        "hip": "40"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 31.087927489728255,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Research field estimate with substantial individual error; not current Army one-site method.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-fat-calculator--navy-female"
+    },
+    {
+      "id": "body-fat-calculator--navy-metric-female::body-fat-calculator::navy",
+      "category": "health",
+      "slug": "body-fat-calculator",
+      "modeId": "navy",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "height": "165.1",
+        "weight": "65",
+        "waist": "76.2",
+        "neck": "33.02",
+        "hip": "101.6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 31.087927489728255,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Unit-equivalence regression catches mixing cm with inch constants.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-fat-calculator--navy-metric-female"
+    },
+    {
+      "id": "ideal-weight-calculator--historical-male::ideal-weight-calculator::reference",
+      "category": "health",
+      "slug": "ideal-weight-calculator",
+      "modeId": "reference",
+      "inputs": {
+        "sex": "male",
+        "units": "us",
+        "height": "70"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Devine estimate",
+          "expected": 73,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Robinson estimate",
+          "expected": 71,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Miller estimate",
+          "expected": 70.3,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Hamwi estimate",
+          "expected": 75.29633342,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Historical reference estimates, not individualized healthy/ideal targets; below5ft extrapolation unsupported.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "ideal-weight-calculator--historical-male"
+    },
+    {
+      "id": "ideal-weight-calculator--historical-female::ideal-weight-calculator::reference",
+      "category": "health",
+      "slug": "ideal-weight-calculator",
+      "modeId": "reference",
+      "inputs": {
+        "sex": "female",
+        "units": "us",
+        "height": "70"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Devine estimate",
+          "expected": 68.5,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Robinson estimate",
+          "expected": 66,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Miller estimate",
+          "expected": 66.7,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Hamwi estimate",
+          "expected": 68.0388555,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Historical reference estimates, not individualized healthy/ideal targets; below5ft extrapolation unsupported.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "ideal-weight-calculator--historical-female"
+    },
+    {
+      "id": "army-body-fat-calculator--one-site-male::army-body-fat-calculator::army",
+      "category": "health",
+      "slug": "army-body-fat-calculator",
+      "modeId": "army",
+      "inputs": {
+        "sex": "male",
+        "units": "us",
+        "weight": "210",
+        "waist": "35"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 17.48,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Raw inputs already on accepted measurement increments; official tape/weight rounding must precede equation where policy requires.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "army-body-fat-calculator--one-site-male"
+    },
+    {
+      "id": "army-body-fat-calculator--one-site-female::army-body-fat-calculator::army",
+      "category": "health",
+      "slug": "army-body-fat-calculator",
+      "modeId": "army",
+      "inputs": {
+        "sex": "female",
+        "units": "us",
+        "weight": "165",
+        "waist": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated body fat",
+          "expected": 26.475,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Raw inputs already on accepted measurement increments; official tape/weight rounding must precede equation where policy requires.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "army-body-fat-calculator--one-site-female"
+    },
+    {
+      "id": "lean-body-mass-calculator--male::lean-body-mass-calculator::boer",
+      "category": "health",
+      "slug": "lean-body-mass-calculator",
+      "modeId": "boer",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "weight": "80",
+        "height": "180"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated lean mass",
+          "expected": 61.42,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Predicted lean mass, not DXA measurement; not pediatric or extreme-body-size validation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "lean-body-mass-calculator--male"
+    },
+    {
+      "id": "lean-body-mass-calculator--female::lean-body-mass-calculator::boer",
+      "category": "health",
+      "slug": "lean-body-mass-calculator",
+      "modeId": "boer",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "weight": "80",
+        "height": "180"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated lean mass",
+          "expected": 57,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Predicted lean mass, not DXA measurement; not pediatric or extreme-body-size validation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "lean-body-mass-calculator--female"
+    },
+    {
+      "id": "body-surface-area-calculator--mosteller::body-surface-area-calculator::bsa",
+      "category": "health",
+      "slug": "body-surface-area-calculator",
+      "modeId": "bsa",
+      "inputs": {
+        "units": "metric",
+        "weight": "72",
+        "height": "200",
+        "method": "mosteller"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body surface area",
+          "expected": 2,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Estimate only; no drugdose recommendation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-surface-area-calculator--mosteller"
+    },
+    {
+      "id": "body-surface-area-calculator--mosteller-general::body-surface-area-calculator::bsa",
+      "category": "health",
+      "slug": "body-surface-area-calculator",
+      "modeId": "bsa",
+      "inputs": {
+        "units": "metric",
+        "weight": "70",
+        "height": "175",
+        "method": "mosteller"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body surface area",
+          "expected": 1.8446619684315546,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Catches a squared/linearunitimplementationerror.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-surface-area-calculator--mosteller-general"
+    },
+    {
+      "id": "body-surface-area-calculator--haycock::body-surface-area-calculator::bsa",
+      "category": "health",
+      "slug": "body-surface-area-calculator",
+      "modeId": "bsa",
+      "inputs": {
+        "units": "metric",
+        "weight": "70",
+        "height": "175",
+        "method": "haycock"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body surface area",
+          "expected": 1.8467763490366442,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Estimation only; not a medication dosing calculator.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-surface-area-calculator--haycock"
+    },
+    {
+      "id": "body-surface-area-calculator--dubois::body-surface-area-calculator::bsa",
+      "category": "health",
+      "slug": "body-surface-area-calculator",
+      "modeId": "bsa",
+      "inputs": {
+        "units": "metric",
+        "weight": "70",
+        "height": "175",
+        "method": "dubois"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Body surface area",
+          "expected": 1.8481430181213467,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Estimation only; not a medication dosing calculator.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "body-surface-area-calculator--dubois"
+    },
+    {
+      "id": "gfr-calculator--2021-male-40-scr0.5::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "male",
+        "age": "40",
+        "creatinine": "0.5",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 132.23314807361788,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-male-40-scr0.5"
+    },
+    {
+      "id": "gfr-calculator--2021-male-40-scr1::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "male",
+        "age": "40",
+        "creatinine": "1",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 97.57511057093215,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-male-40-scr1"
+    },
+    {
+      "id": "gfr-calculator--2021-male-65-scr0.5::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "male",
+        "age": "65",
+        "creatinine": "0.5",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 113.19184725920925,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-male-65-scr0.5"
+    },
+    {
+      "id": "gfr-calculator--2021-male-65-scr1::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "male",
+        "age": "65",
+        "creatinine": "1",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 83.52449573307071,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-male-65-scr1"
+    },
+    {
+      "id": "gfr-calculator--micromol-male::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "male",
+        "age": "40",
+        "creatinine": "88.4",
+        "unit": "umol"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 97.57511057093215,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Do not mixmicromol/L withmg/dL coefficients.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--micromol-male"
+    },
+    {
+      "id": "gfr-calculator--2021-female-40-scr0.5::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "female",
+        "age": "40",
+        "creatinine": "0.5",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 121.51934217125223,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-female-40-scr0.5"
+    },
+    {
+      "id": "gfr-calculator--2021-female-40-scr1::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "female",
+        "age": "40",
+        "creatinine": "1",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 73.03755078319783,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-female-40-scr1"
+    },
+    {
+      "id": "gfr-calculator--2021-female-65-scr0.5::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "female",
+        "age": "65",
+        "creatinine": "0.5",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 104.0208073276012,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-female-65-scr0.5"
+    },
+    {
+      "id": "gfr-calculator--2021-female-65-scr1::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "female",
+        "age": "65",
+        "creatinine": "1",
+        "unit": "mg"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 62.520293987373385,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Adult18+ race-free estimate; normalized to1.73m\u00b2, not unindexed clearance or diagnosis.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--2021-female-65-scr1"
+    },
+    {
+      "id": "gfr-calculator--micromol-female::gfr-calculator::adult",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "adult",
+      "inputs": {
+        "sex": "female",
+        "age": "40",
+        "creatinine": "88.4",
+        "unit": "umol"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 73.03755078319783,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Do not mixmicromol/L withmg/dL coefficients.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--micromol-female"
+    },
+    {
+      "id": "gfr-calculator--pediatric-schwartz::gfr-calculator::pediatric",
+      "category": "health",
+      "slug": "gfr-calculator",
+      "modeId": "pediatric",
+      "inputs": {
+        "height": "120",
+        "creatinine": "0.6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated GFR",
+          "expected": 82.6,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Pediatricmethod, not adult CKD-EPI; pediatricmodelselection needs clinicalcontext.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "gfr-calculator--pediatric-schwartz"
+    },
+    {
+      "id": "pregnancy-calculator--lmp-standard::pregnancy-calculator::lmp",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2026-01-01",
+        "cycle": "28",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--lmp-standard"
+    },
+    {
+      "id": "pregnancy-calculator--lmp-long-cycle::pregnancy-calculator::lmp",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2026-01-01",
+        "cycle": "35",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-15",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--lmp-long-cycle"
+    },
+    {
+      "id": "pregnancy-calculator--lmp-leap-year::pregnancy-calculator::lmp",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2028-01-01",
+        "cycle": "28",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2028-10-07",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--lmp-leap-year"
+    },
+    {
+      "id": "pregnancy-calculator--ivf-day3::pregnancy-calculator::ivf",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "3",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-21",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--ivf-day3"
+    },
+    {
+      "id": "pregnancy-calculator--ivf-day5::pregnancy-calculator::ivf",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "5",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-19",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--ivf-day5"
+    },
+    {
+      "id": "pregnancy-calculator--ivf-day6::pregnancy-calculator::ivf",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "6",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-18",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--ivf-day6"
+    },
+    {
+      "id": "pregnancy-calculator--conception::pregnancy-calculator::conception",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "conception",
+      "inputs": {
+        "date": "2026-01-15",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Actual fertilization date often unknown outside assisted reproduction.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--conception"
+    },
+    {
+      "id": "pregnancy-calculator--ultrasound::pregnancy-calculator::ultrasound",
+      "category": "health",
+      "slug": "pregnancy-calculator",
+      "modeId": "ultrasound",
+      "inputs": {
+        "date": "2026-03-12",
+        "weeks": "10",
+        "days": "0",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use clinically provided gestational age; do not implement clinical redating decisions from this arithmetic.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-calculator--ultrasound"
+    },
+    {
+      "id": "due-date-calculator--lmp-standard::due-date-calculator::lmp",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2026-01-01",
+        "cycle": "28",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--lmp-standard"
+    },
+    {
+      "id": "due-date-calculator--lmp-long-cycle::due-date-calculator::lmp",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2026-01-01",
+        "cycle": "35",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-15",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--lmp-long-cycle"
+    },
+    {
+      "id": "due-date-calculator--lmp-leap-year::due-date-calculator::lmp",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "lmp",
+      "inputs": {
+        "date": "2028-01-01",
+        "cycle": "28",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2028-10-07",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Cycle-adjusted estimate; not confirmation of ovulation or replacement for clinical dating.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--lmp-leap-year"
+    },
+    {
+      "id": "due-date-calculator--ivf-day3::due-date-calculator::ivf",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "3",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-21",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--ivf-day3"
+    },
+    {
+      "id": "due-date-calculator--ivf-day5::due-date-calculator::ivf",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "5",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-19",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--ivf-day5"
+    },
+    {
+      "id": "due-date-calculator--ivf-day6::due-date-calculator::ivf",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "ivf",
+      "inputs": {
+        "date": "2026-01-01",
+        "embryo": "6",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-09-18",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Known embryo age in days; estimates may require clinician confirmation.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--ivf-day6"
+    },
+    {
+      "id": "due-date-calculator--conception::due-date-calculator::conception",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "conception",
+      "inputs": {
+        "date": "2026-01-15",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Actual fertilization date often unknown outside assisted reproduction.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--conception"
+    },
+    {
+      "id": "due-date-calculator--ultrasound::due-date-calculator::ultrasound",
+      "category": "health",
+      "slug": "due-date-calculator",
+      "modeId": "ultrasound",
+      "inputs": {
+        "date": "2026-03-12",
+        "weeks": "10",
+        "days": "0",
+        "asof": "2026-03-15"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Estimated due date",
+          "expected": "2026-10-08",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use clinically provided gestational age; do not implement clinical redating decisions from this arithmetic.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "due-date-calculator--ultrasound"
+    },
+    {
+      "id": "pregnancy-weight-gain-calculator--iom-kg-bmi18::pregnancy-weight-gain-calculator::singleton",
+      "category": "health",
+      "slug": "pregnancy-weight-gain-calculator",
+      "modeId": "singleton",
+      "inputs": {
+        "units": "metric",
+        "preweight": "72",
+        "height": "200",
+        "week": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Pre-pregnancy BMI",
+          "expected": 18,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total reference gain",
+          "expected": "12.5\u201318 kg",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use primarykg range directly; do not demand exact equality with convertingCDC rounded pound endpoints.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-weight-gain-calculator--iom-kg-bmi18"
+    },
+    {
+      "id": "pregnancy-weight-gain-calculator--iom-kg-bmi22::pregnancy-weight-gain-calculator::singleton",
+      "category": "health",
+      "slug": "pregnancy-weight-gain-calculator",
+      "modeId": "singleton",
+      "inputs": {
+        "units": "metric",
+        "preweight": "88",
+        "height": "200",
+        "week": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Pre-pregnancy BMI",
+          "expected": 22,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total reference gain",
+          "expected": "11.5\u201316 kg",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use primarykg range directly; do not demand exact equality with convertingCDC rounded pound endpoints.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-weight-gain-calculator--iom-kg-bmi22"
+    },
+    {
+      "id": "pregnancy-weight-gain-calculator--iom-kg-bmi27::pregnancy-weight-gain-calculator::singleton",
+      "category": "health",
+      "slug": "pregnancy-weight-gain-calculator",
+      "modeId": "singleton",
+      "inputs": {
+        "units": "metric",
+        "preweight": "108",
+        "height": "200",
+        "week": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Pre-pregnancy BMI",
+          "expected": 27,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total reference gain",
+          "expected": "7\u201311.5 kg",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use primarykg range directly; do not demand exact equality with convertingCDC rounded pound endpoints.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-weight-gain-calculator--iom-kg-bmi27"
+    },
+    {
+      "id": "pregnancy-weight-gain-calculator--iom-kg-bmi32::pregnancy-weight-gain-calculator::singleton",
+      "category": "health",
+      "slug": "pregnancy-weight-gain-calculator",
+      "modeId": "singleton",
+      "inputs": {
+        "units": "metric",
+        "preweight": "128",
+        "height": "200",
+        "week": "24"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Pre-pregnancy BMI",
+          "expected": 32,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Total reference gain",
+          "expected": "5\u20139 kg",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Use primarykg range directly; do not demand exact equality with convertingCDC rounded pound endpoints.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "pregnancy-weight-gain-calculator--iom-kg-bmi32"
+    },
+    {
+      "id": "bac-calculator--widmark-male::bac-calculator::widmark",
+      "category": "health",
+      "slug": "bac-calculator",
+      "modeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "weight": "80",
+        "volume": "500",
+        "abv": "5",
+        "hours": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Alcohol consumed",
+          "expected": 19.725,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Model estimate",
+          "expected": 0.02125919117647059,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Explicitinstantabsorptionmodel andassumeddistribution/elimination; never a safe-to-drive, sobriety or forensic conclusion.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bac-calculator--widmark-male"
+    },
+    {
+      "id": "bac-calculator--widmark-female::bac-calculator::widmark",
+      "category": "health",
+      "slug": "bac-calculator",
+      "modeId": "widmark",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "weight": "60",
+        "volume": "500",
+        "abv": "5",
+        "hours": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Alcohol consumed",
+          "expected": 19.725,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Model estimate",
+          "expected": 0.04477272727272727,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Explicitinstantabsorptionmodel andassumeddistribution/elimination; never a safe-to-drive, sobriety or forensic conclusion.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "bac-calculator--widmark-female"
+    },
+    {
+      "id": "macro-calculator--custom-allocation::macro-calculator::split",
+      "category": "health",
+      "slug": "macro-calculator",
+      "modeId": "split",
+      "inputs": {
+        "calories": "2000",
+        "protein": "20",
+        "carbs": "50",
+        "fat": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Protein",
+          "expected": 100,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Carbohydrate",
+          "expected": 250,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Fat",
+          "expected": 66.66666666666667,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "User-entered calorie and percent target; no prescribed diet.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "macro-calculator--custom-allocation"
+    },
+    {
+      "id": "calories-burned-calculator--met-oxygen::calories-burned-calculator::met",
+      "category": "health",
+      "slug": "calories-burned-calculator",
+      "modeId": "met",
+      "inputs": {
+        "units": "metric",
+        "weight": "70",
+        "met": "8",
+        "minutes": "30"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Gross energy estimate",
+          "expected": 294,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        },
+        {
+          "metricLabel": "Energy above resting estimate",
+          "expected": 257.25,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Explicit8MET scenario, not inferred from unsourced activity label. StandardMET assumes resting3.5mL/kg/min.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "calories-burned-calculator--met-oxygen"
+    },
+    {
+      "id": "one-rep-max-calculator--epley-exact::one-rep-max-calculator::rep",
+      "category": "health",
+      "slug": "one-rep-max-calculator",
+      "modeId": "rep",
+      "inputs": {
+        "weight": "100",
+        "reps": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Epley estimate",
+          "expected": 120,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Empirical estimate; coefficient1/30 differs slightly from rounded.0333 variant.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "one-rep-max-calculator--epley-exact"
+    },
+    {
+      "id": "one-rep-max-calculator--brzycki::one-rep-max-calculator::rep",
+      "category": "health",
+      "slug": "one-rep-max-calculator",
+      "modeId": "rep",
+      "inputs": {
+        "weight": "100",
+        "reps": "6"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Brzycki estimate",
+          "expected": 116.12903225806451,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "Rejectreps>=37; practical model validity is much narrower than algebraic domain.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "one-rep-max-calculator--brzycki"
+    },
+    {
+      "id": "one-rep-max-calculator--measured-single::one-rep-max-calculator::rep",
+      "category": "health",
+      "slug": "one-rep-max-calculator",
+      "modeId": "rep",
+      "inputs": {
+        "weight": "100",
+        "reps": "1"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Epley estimate",
+          "expected": 100,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "methodScope": "If the product chooses formula-only behavior, label estimate and separate actual-single mode; no guarantee of an untested heavier lift.",
+      "referenceArtifact": "expanded-fixtures.json",
+      "sourceFixtureId": "one-rep-max-calculator--measured-single"
+    }
+  ],
+  "targetedRegressionCases": [
+    {
+      "id": "partial-year-beginning-deposit",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "0",
+        "years": "0.5",
+        "frequency": "1",
+        "timing": "beginning",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1100,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "The chosen beginning-of-year deposit occurs at t0, within the half-year horizon. With zero interest,1000+100=1100."
+    },
+    {
+      "id": "one-and-half-year-beginning-deposits",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "0",
+        "years": "1.5",
+        "frequency": "1",
+        "timing": "beginning",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1200,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "Beginning-of-year deposits occur at t0 andt1. With zero interest,1000+100+100=1200."
+    },
+    {
+      "id": "partial-year-end-deposit-control",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputs": {
+        "initial": "1000",
+        "contribution": "100",
+        "contributionFrequency": "1",
+        "rate": "0",
+        "years": "0.5",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "0",
+        "inflation": "0"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Projected balance",
+          "expected": 1000,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "End-year deposit at t1 lies outside half-year horizon; no deposit yet."
+    },
+    {
+      "id": "no-deposits-contribution-frequency-invariance",
+      "type": "metamorphic",
+      "category": "finance",
+      "slug": "interest-calculator",
+      "modeId": "growth",
+      "inputsA": {
+        "initial": "1000",
+        "contribution": "0",
+        "contributionFrequency": "1",
+        "rate": "10",
+        "years": "0.5",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "20",
+        "inflation": "0"
+      },
+      "inputsB": {
+        "initial": "1000",
+        "contribution": "0",
+        "contributionFrequency": "12",
+        "rate": "10",
+        "years": "0.5",
+        "frequency": "1",
+        "timing": "end",
+        "taxRate": "20",
+        "inflation": "0"
+      },
+      "expectation": {
+        "metricLabel": "Projected balance",
+        "differenceExpected": 0,
+        "absoluteTolerance": 1e-07
+      },
+      "independentDerivation": "Contribution is zero in both scenarios. Merely changing an unused deposit frequency must not change tax or ending value for identical compounding and horizon. Current code taxes the last completed contribution period before the partial horizon, producing different outcomes."
+    },
+    {
+      "id": "ignored-unknown-cannot-be-empty",
+      "category": "finance",
+      "slug": "investment-calculator",
+      "modeId": "tvm",
+      "inputs": {
+        "solve": "fv",
+        "pv": "1000",
+        "fv": "",
+        "pmt": "100",
+        "rate": "10",
+        "years": "3",
+        "periods": "1",
+        "timing": "end"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Future value",
+          "expected": 1662,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "The definition says chosen unknown is ignored; users should be able to leave future value empty when solving future value. Generic required-field validation currently executes first."
+    },
+    {
+      "id": "zero-interest-inverse",
+      "category": "finance",
+      "slug": "interest-rate-calculator",
+      "modeId": "rate",
+      "inputs": {
+        "principal": "12000",
+        "years": "1",
+        "payment": "1000"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Nominal annual interest rate",
+          "expected": 0,
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "Zero-rate boundary:12000/12=1000."
+    },
+    {
+      "id": "multiple-irr-roots",
+      "category": "finance",
+      "slug": "irr-calculator",
+      "modeId": "irr",
+      "inputs": {
+        "flows": "-100,230,-132",
+        "rate": "10"
+      },
+      "expectations": [
+        {
+          "metricLabel": "Detected IRR",
+          "expected": "10.000000%, 20.000000%",
+          "absoluteTolerance": 1e-07,
+          "relativeTolerance": 1e-10
+        }
+      ],
+      "independentDerivation": "Independent factorization gives exactly10%and20%roots."
+    },
+    {
+      "id": "debt-minimum-plus-extra-amortizes",
+      "type": "valid-input",
+      "category": "finance",
+      "slug": "debt-payoff-calculator",
+      "modeId": "debts",
+      "inputs": {
+        "debts": "1000,24,10",
+        "extra": "100",
+        "strategy": "avalanche"
+      },
+      "expectedNoError": true,
+      "expectations": [
+        {
+          "metricLabel": "Monthly debt budget",
+          "expected": 110
+        }
+      ],
+      "independentDerivation": "First interest is20, total payment budget110. Although the contract minimum10does not cover interest, the entered total budget does and the single debt should amortize. Parser rejects before applying extra."
+    }
+  ],
+  "referenceCasesCount": 153,
+  "targetedCasesCount": 8,
+  "provenance": "Numerical reference values come from independently generated Decimal50/calendar fixtures, not captured product outputs. Targeted cases use explicit cash-flow identities or invariance.",
+  "sourceHashes": {
+    "types.ts": "7e60485faffbff1ee959992767940a7d01b4e6420efcf43279b43def6cc3f4a0",
+    "helpers.ts": "8e6a8027c898cf085ecea1e225b0470b37781dcd14d89d8f2c41198510b98fd2",
+    "mortgage.ts": "30ce26f928320488d7a92fa9fc8c3e3bb7a1dc8feec214551675e404d407af2c",
+    "engine.ts": "e8bcbea14fcb151c3baec4725c2c203d0b0fb95ac1bab1b82161cada89492b20",
+    "finance-engine.ts": "db5b85b392ec92d80f8217278f175380d327cd5f36c6d2c9d2d9d5b268106c0e",
+    "finance-definitions.ts": "67994c0ff9b92aeb15565afbda088a27552fe3df9ec07a5c3ce8a74ae1b1129b",
+    "finance-extra-definitions.ts": "a3a80925a5f860007d07aa5329c5bc20ddd3684d33f79809e6ce74052a30e247",
+    "health-engine.ts": "98d71ae8c2ba5f8c7b36e55d9aa3b01ff7005a66f18812376ba9c5e0286b3895",
+    "health-definitions.ts": "9ff2808c7b82d0ce8acbf998edaec1fbde74b0c5190437ff2910e5b4b22597ee"
+  }
+}

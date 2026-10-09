@@ -1,0 +1,124 @@
+{
+  "sourceDate": "2026-10-09",
+  "independence": "Expected decimal arithmetic uses Python Decimal at precision60; values are pinned research examples, never live-rate promises or product outputs.",
+  "sources": [
+    "https://api.nbp.pl/api/exchangerates/tables/a/?format=json",
+    "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+    "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "https://api.frankfurter.dev/v2/rate/xau/usd",
+    "https://api.frankfurter.dev/v2/rate/usd/vnd"
+  ],
+  "cases": [
+    {
+      "id": "usd-eur",
+      "amount": 100,
+      "from": "USD",
+      "to": "EUR",
+      "usdPerUnit": {
+        "EUR": "1.11111111111111111111111111111111111111111111111111111111111"
+      },
+      "expectedConverted": "90",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "eur-jpy",
+      "amount": 100,
+      "from": "EUR",
+      "to": "JPY",
+      "usdPerUnit": {
+        "EUR": "1.11111111111111111111111111111111111111111111111111111111111",
+        "JPY": "0.00666666666666666666666666666666666666666666666666666666666667"
+      },
+      "expectedConverted": "16666.6666666666666666666666666666666666666666666666666666667",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "nbp-usd-eur",
+      "amount": 100,
+      "from": "USD",
+      "to": "EUR",
+      "usdPerUnit": {
+        "EUR": "1.12180308543898313771718517759212751781046589103582594433909"
+      },
+      "expectedConverted": "89.1422044545973729297544260422615648201027984009137635636779",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "uf-to-clp",
+      "amount": 2,
+      "from": "CLF",
+      "to": "CLP",
+      "usdPerUnit": {
+        "CLF": "45.7010444444444444444444444444444444444444444444444444444444",
+        "CLP": "0.00111111111111111111111111111111111111111111111111111111111111"
+      },
+      "expectedConverted": "82261.88",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "uf-to-usd",
+      "amount": 2,
+      "from": "CLF",
+      "to": "USD",
+      "usdPerUnit": {
+        "CLF": "45.7010444444444444444444444444444444444444444444444444444444"
+      },
+      "expectedConverted": "91.4020888888888888888888888888888888888888888888888888888889",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "bitcoin-spot",
+      "amount": 0.1,
+      "from": "BTC",
+      "to": "USD",
+      "usdPerUnit": {
+        "BTC": "83005.615"
+      },
+      "expectedConverted": "8300.5615",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "gold-direct",
+      "amount": 2,
+      "from": "XAU",
+      "to": "USD",
+      "usdPerUnit": {
+        "XAU": "4138.78"
+      },
+      "expectedConverted": "8277.56",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "vnd-direct",
+      "amount": 25868,
+      "from": "VND",
+      "to": "USD",
+      "usdPerUnit": {
+        "VND": "0.0000386578011442709138704190505644038967063553425081181382402969"
+      },
+      "expectedConverted": "1",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    },
+    {
+      "id": "zero-amount",
+      "amount": 0,
+      "from": "EUR",
+      "to": "JPY",
+      "usdPerUnit": {
+        "EUR": "1.11111111111111111111111111111111111111111111111111111111111",
+        "JPY": "0.00666666666666666666666666666666666666666666666666666666666667"
+      },
+      "expectedConverted": "0",
+      "relativeTolerance": 1e-12,
+      "absoluteTolerance": 1e-12
+    }
+  ]
+}

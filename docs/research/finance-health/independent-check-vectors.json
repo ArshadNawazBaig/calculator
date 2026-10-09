@@ -1,0 +1,285 @@
+[
+  {
+    "tool": "Mortgage Calculator",
+    "case": "approved-design example correct arithmetic",
+    "inputs": {
+      "homePrice": 400000,
+      "downPercent": 20,
+      "annualNominalRatePercent": 6.5,
+      "years": 30
+    },
+    "expected": {
+      "monthlyPrincipalInterest": 2022.617675177484,
+      "roundedMonthlyPrincipalInterest": "2022.62"
+    },
+    "notes": "No taxes, insurance, PMI or HOA. Source image $2023.42 is illustrative and should not be copied as factual.",
+    "source": "OpenStax ordinary-annuity equation; independently evaluated with Decimal45digit"
+  },
+  {
+    "tool": "Canadian Mortgage Calculator",
+    "case": "semiannual quoted rate",
+    "inputs": {
+      "principal": 500000,
+      "nominalSemiannualRatePercent": 5,
+      "amortizationYears": 25,
+      "frequency": "monthly"
+    },
+    "expected": {
+      "monthlyPayment": 2908.0249251850905
+    },
+    "notes": "Uses (1+0.05/2)^(1/6)-1, not0.05/12.",
+    "source": "FCAC compounding convention and independent algebra"
+  },
+  {
+    "tool": "Compound Interest Calculator",
+    "case": "nominal monthly to effectiveannual",
+    "inputs": {
+      "inputRatePercent": 6,
+      "inputCompound": 12,
+      "outputCompound": 1
+    },
+    "expected": {
+      "outputRatePercent": 6.1677811864499565
+    },
+    "notes": "Preserves annual accumulation factor.",
+    "source": "Compounding identity"
+  },
+  {
+    "tool": "Loan Calculator",
+    "case": "zero rate",
+    "inputs": {
+      "principal": 10000,
+      "annualRate": 0,
+      "months": 60
+    },
+    "expected": {
+      "payment": 166.66666666666666,
+      "totalInterest": 0
+    },
+    "notes": "Display rounding must not create nonzero totalinterest.",
+    "source": "Exact arithmetic"
+  },
+  {
+    "tool": "Future Value Calculator",
+    "case": "ordinary annuity",
+    "inputs": {
+      "initial": 1000,
+      "annualRatePercent": 10,
+      "years": 3,
+      "endYearContribution": 100
+    },
+    "expected": {
+      "finalBalance": 1662,
+      "contributions": 1300,
+      "interest": 362
+    },
+    "notes": "1000*1.1^3 +100*(1.1^2+1.1+1).",
+    "source": "Finite cash-flow sum independent ofannuity formula"
+  },
+  {
+    "tool": "Future Value Calculator",
+    "case": "annuity due",
+    "inputs": {
+      "initial": 1000,
+      "annualRatePercent": 10,
+      "years": 3,
+      "startYearContribution": 100
+    },
+    "expected": {
+      "finalBalance": 1695.1
+    },
+    "notes": "Contributions occur times0,1,2.",
+    "source": "Finite cash-flow sum"
+  },
+  {
+    "tool": "Income Tax Calculator",
+    "case": "2026 ordinaryincome only",
+    "inputs": {
+      "status": "single",
+      "wages": 100000,
+      "standardDeduction": 16100,
+      "taxYear": 2026
+    },
+    "expected": {
+      "taxableIncome": 83900,
+      "ordinaryFederalTax": 13170
+    },
+    "notes": "No credits, capitalgains, adjustments, payrolltax orspecialdeductions.",
+    "source": "IRS2026brackets:1240+4560+7370"
+  },
+  {
+    "tool": "Income Tax Calculator",
+    "case": "2026 ordinaryincome joint",
+    "inputs": {
+      "status": "marriedJoint",
+      "wages": 160000,
+      "standardDeduction": 32200,
+      "taxYear": 2026
+    },
+    "expected": {
+      "taxableIncome": 127800,
+      "ordinaryFederalTax": 17540
+    },
+    "notes": "No credits, capitalgains, adjustments, payrolltax orspecialdeductions.",
+    "source": "IRS2026brackets:2480+9120+5940"
+  },
+  {
+    "tool": "BMI Calculator",
+    "case": "metric",
+    "inputs": {
+      "weightKg": 70,
+      "heightCm": 175,
+      "age": 30
+    },
+    "expected": {
+      "bmi": 22.857142857142858,
+      "category": "healthy adult BMI range"
+    },
+    "notes": "Classify before rounding.",
+    "source": "CDC BMI equation"
+  },
+  {
+    "tool": "BMR Calculator",
+    "case": "Mifflinmale",
+    "inputs": {
+      "weightKg": 80,
+      "heightCm": 180,
+      "age": 30,
+      "sex": "male",
+      "method": "Mifflin"
+    },
+    "expected": {
+      "kcalPerDay": 1780
+    },
+    "notes": "800+1125-150+5.",
+    "source": "Mifflin1990"
+  },
+  {
+    "tool": "BMR Calculator",
+    "case": "Mifflinfemale",
+    "inputs": {
+      "weightKg": 80,
+      "heightCm": 180,
+      "age": 30,
+      "sex": "female",
+      "method": "Mifflin"
+    },
+    "expected": {
+      "kcalPerDay": 1614
+    },
+    "notes": "800+1125-150-161.",
+    "source": "Mifflin1990"
+  },
+  {
+    "tool": "Army Body Fat Calculator",
+    "case": "Armyofficialmaleexample",
+    "inputs": {
+      "weightLb": 210,
+      "abdomenIn": 35,
+      "sex": "male"
+    },
+    "expected": {
+      "rawPercent": 17.48,
+      "nearestWholePercent": 17
+    },
+    "notes": "Verify source procedure for measurement rounding before formula.",
+    "source": "Army ALARACT032/2025 TableB5"
+  },
+  {
+    "tool": "Army Body Fat Calculator",
+    "case": "Armyofficialfemaleexample",
+    "inputs": {
+      "weightLb": 165,
+      "abdomenIn": 30,
+      "sex": "female"
+    },
+    "expected": {
+      "rawPercent": 26.475,
+      "nearestWholePercent": 26
+    },
+    "notes": "Verify source procedure for measurement rounding before formula.",
+    "source": "Army ALARACT032/2025 TableB5"
+  },
+  {
+    "tool": "Body Surface Area Calculator",
+    "case": "Mosteller roundnumbers",
+    "inputs": {
+      "weightKg": 72,
+      "heightCm": 200
+    },
+    "expected": {
+      "squareMeters": 2
+    },
+    "notes": "sqrt(72*200/3600)=sqrt4.",
+    "source": "Mosteller"
+  },
+  {
+    "tool": "GFR Calculator",
+    "case": "pediatricbedside",
+    "inputs": {
+      "heightCm": 120,
+      "serumCreatinineMgDl": 0.6,
+      "method": "Schwartz2009"
+    },
+    "expected": {
+      "mlMinPer173m2": 82.6
+    },
+    "notes": "Not an adultmodel.",
+    "source": "NIDDK0.413*120/0.6"
+  },
+  {
+    "tool": "Pace Calculator",
+    "case": "pace unitcheck",
+    "inputs": {
+      "distanceKm": 5,
+      "timeSeconds": 1500
+    },
+    "expected": {
+      "secondsPerKm": 300,
+      "kph": 12
+    },
+    "notes": "25minutesover5km is5min/km.",
+    "source": "Distance/time arithmetic"
+  },
+  {
+    "tool": "Due Date Calculator",
+    "case": "LMPcalendar",
+    "inputs": {
+      "lmp": "2026-01-01",
+      "cycleDays": 28
+    },
+    "expected": {
+      "dueDate": "2026-10-08"
+    },
+    "notes": "Calendar280days; noDST effect.",
+    "source": "ACOG280-day convention"
+  },
+  {
+    "tool": "Due Date Calculator",
+    "case": "day5IVF",
+    "inputs": {
+      "transferDate": "2026-01-01",
+      "embryoAgeDays": 5
+    },
+    "expected": {
+      "dueDate": "2026-09-19"
+    },
+    "notes": "266-5=261days aftertransfer.",
+    "source": "ACOGARTexample"
+  },
+  {
+    "tool": "RMD Calculator",
+    "case": "IRSage73example",
+    "inputs": {
+      "priorDec31Balance": 34800,
+      "age": 73,
+      "table": "Uniform Lifetime"
+    },
+    "expected": {
+      "divisor": 26.5,
+      "rmd": 1313.2075471698113
+    },
+    "notes": "Tables dependage/year andbeneficiarycontext; actualsource rounds result to1313.",
+    "source": "IRS Publication590-B2025 examplefor2026"
+  }
+]

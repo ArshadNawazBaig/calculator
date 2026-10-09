@@ -1,0 +1,558 @@
+{
+  "verified": "2026-10-09",
+  "provenance": "Independent Python Decimal80 formula reference. No product imports. Primary references inherited from hud78-audit/spec.json and program-composition spec. Twenty-six-period planning convention is Finflo-defined, not an asserted lender calendar.",
+  "fixtures": [
+    {
+      "id": "historical-financed-standard",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 360,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 6,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 136,
+        "Monthly-plan prepayment request month": 136,
+        "Accelerated-plan prepayment request month": 100,
+        "Note principal": 98188.75,
+        "Contractual monthly P&I": 588.6911662659231,
+        "Monthly payoff payments": 360,
+        "Accelerated payoff periods": 637,
+        "Monthly-plan total MIP": 5501.88,
+        "Accelerated total MIP": 5501.88
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.98,
+          "acceleratedMIP": 43.98
+        },
+        {
+          "month": 136,
+          "monthlyMIP": 35.55,
+          "acceleratedMIP": 35.55
+        },
+        {
+          "month": 137,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Original monthly amortization drives premium duration; financed upfront premium normalized proportionately."
+    },
+    {
+      "id": "historical-paid-upfront",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 360,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "no",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 6,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 136,
+        "Monthly-plan prepayment request month": 136,
+        "Accelerated-plan prepayment request month": 100,
+        "Note principal": 96500.0,
+        "Contractual monthly P&I": 578.5662567724061,
+        "Monthly payoff payments": 360,
+        "Accelerated payoff periods": 637,
+        "Monthly-plan total MIP": 5501.88,
+        "Accelerated total MIP": 5501.88
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.98,
+          "acceleratedMIP": 43.98
+        },
+        {
+          "month": 136,
+          "monthlyMIP": 35.55,
+          "acceleratedMIP": 35.55
+        },
+        {
+          "month": 137,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Cash-paid upfront amount never inflates note principal or normalized threshold."
+    },
+    {
+      "id": "historical-prepayments-do-not-stop-billing",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 360,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 6,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs",
+        "monthlyExtra": 200,
+        "annualExtra": 1000,
+        "annualExtraStart": 12
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 136,
+        "Monthly-plan prepayment request month": 60,
+        "Accelerated-plan prepayment request month": 60,
+        "Note principal": 98188.75,
+        "Contractual monthly P&I": 588.6911662659231,
+        "Monthly payoff payments": 168,
+        "Accelerated payoff periods": 334,
+        "Monthly-plan total MIP": 5501.88,
+        "Accelerated total MIP": 5501.88
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.98,
+          "acceleratedMIP": 43.98
+        },
+        {
+          "month": 136,
+          "monthlyMIP": 35.55,
+          "acceleratedMIP": 35.55
+        },
+        {
+          "month": 137,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Request threshold can move earlier, but premiums continue to original-schedule stop or actual payoff."
+    },
+    {
+      "id": "historical-combined-extras",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 360,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 6,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [
+          {
+            "month": 7,
+            "amount": 1200
+          },
+          {
+            "month": 7,
+            "amount": 300
+          }
+        ],
+        "tableView": "costs",
+        "monthlyExtra": 125,
+        "monthlyExtraStart": 3,
+        "annualExtra": 750,
+        "annualExtraStart": 6
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 136,
+        "Monthly-plan prepayment request month": 60,
+        "Accelerated-plan prepayment request month": 60,
+        "Note principal": 98188.75,
+        "Contractual monthly P&I": 588.6911662659231,
+        "Monthly payoff payments": 197,
+        "Accelerated payoff periods": 384,
+        "Monthly-plan total MIP": 5501.88,
+        "Accelerated total MIP": 5501.88
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.98,
+          "acceleratedMIP": 43.98
+        },
+        {
+          "month": 136,
+          "monthlyMIP": 35.55,
+          "acceleratedMIP": 35.55
+        },
+        {
+          "month": 137,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Monthly, annual and same-month one-time extra principal retain separate timing at 26 periods."
+    },
+    {
+      "id": "historical-short-term-no-five-year",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 180,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 4,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 44,
+        "Monthly-plan prepayment request month": 44,
+        "Accelerated-plan prepayment request month": 39,
+        "Note principal": 98188.75,
+        "Contractual monthly P&I": 726.2903280566724,
+        "Monthly payoff payments": 180,
+        "Accelerated payoff periods": 350,
+        "Monthly-plan total MIP": 1764.48,
+        "Accelerated total MIP": 1764.48
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.23,
+          "acceleratedMIP": 43.23
+        },
+        {
+          "month": 44,
+          "monthlyMIP": 36.24,
+          "acceleratedMIP": 36.24
+        },
+        {
+          "month": 45,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Original term <=180 months has no 60-month minimum in this charged vintage."
+    },
+    {
+      "id": "historical-short-term-exempt",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 180,
+        "baseLoanAmount": 78000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 4,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 0,
+        "Monthly-plan prepayment request month": "No annual MIP",
+        "Accelerated-plan prepayment request month": "No annual MIP",
+        "Note principal": 79365.0,
+        "Contractual monthly P&I": 587.0533221597973,
+        "Monthly payoff payments": 180,
+        "Accelerated payoff periods": 350,
+        "Monthly-plan total MIP": 0.0,
+        "Accelerated total MIP": 0.0
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "At exactly78% for case assignment after2011-04-18, original annual MIP is zero even with supplied positive vintage rate."
+    },
+    {
+      "id": "historical-long-original-below78",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 240,
+        "baseLoanAmount": 70000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 4,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 60,
+        "Monthly-plan prepayment request month": 60,
+        "Accelerated-plan prepayment request month": 60,
+        "Note principal": 71225.0,
+        "Contractual monthly P&I": 431.6094895435109,
+        "Monthly payoff payments": 240,
+        "Accelerated payoff periods": 461,
+        "Monthly-plan total MIP": 1759.8,
+        "Accelerated total MIP": 1759.8
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 31.6,
+          "acceleratedMIP": 31.6
+        },
+        {
+          "month": 60,
+          "monthlyMIP": 26.97,
+          "acceleratedMIP": 26.97
+        },
+        {
+          "month": 61,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "Longer loans retain the minimum60 months even if original base principal starts below78%."
+    },
+    {
+      "id": "historical-official-factor-anchor",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 360,
+        "baseLoanAmount": 221950,
+        "originalPrice": 230000,
+        "originalAppraisal": 230000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 4,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 111,
+        "Monthly-plan prepayment request month": 111,
+        "Accelerated-plan prepayment request month": 90,
+        "Note principal": 224169.5,
+        "Contractual monthly P&I": 1070.2194807684432,
+        "Monthly payoff payments": 360,
+        "Accelerated payoff periods": 673,
+        "Monthly-plan total MIP": 10275.18,
+        "Accelerated total MIP": 10275.18
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 100.91,
+          "acceleratedMIP": 100.91
+        },
+        {
+          "month": 111,
+          "monthlyMIP": 81.54,
+          "acceleratedMIP": 81.54
+        },
+        {
+          "month": 112,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "HUD anchor factor1.01; scheduled crossing uses note threshold181194."
+    },
+    {
+      "id": "historical-early-payoff-minimum",
+      "input": {
+        "policySource": "historical",
+        "program": "FHAstandard-forward",
+        "verifiedEligibleMMI": "yes",
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "firstPaymentDate": "2012-05-01",
+        "termMonths": 240,
+        "baseLoanAmount": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financeUpfrontFee": "yes",
+        "manualUpfrontRate": 1.75,
+        "manualAnnualMip": 0.55,
+        "manualLastMipMonth": 132,
+        "nominalAprPercent": 0,
+        "ownershipHorizonMonths": 360,
+        "ownershipCosts": [],
+        "extraPayments": [
+          {
+            "month": 24,
+            "amount": 1000000
+          }
+        ],
+        "tableView": "costs"
+      },
+      "expectedMetrics": {
+        "Original-schedule projected final MIP month": 60,
+        "Monthly-plan prepayment request month": "Paid off before a request is needed",
+        "Accelerated-plan prepayment request month": "Paid off before a request is needed",
+        "Note principal": 98188.75,
+        "Contractual monthly P&I": 409.1197916666667,
+        "Monthly payoff payments": 24,
+        "Accelerated payoff periods": 52,
+        "Monthly-plan total MIP": 1010.64,
+        "Accelerated total MIP": 1010.64
+      },
+      "expectedRows": [
+        {
+          "month": 1,
+          "monthlyMIP": 43.22,
+          "acceleratedMIP": 43.22
+        },
+        {
+          "month": 24,
+          "monthlyMIP": 41.0,
+          "acceleratedMIP": 41.0
+        },
+        {
+          "month": 25,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 60,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 61,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        },
+        {
+          "month": 360,
+          "monthlyMIP": 0.0,
+          "acceleratedMIP": 0.0
+        }
+      ],
+      "absoluteTolerance": 1e-06,
+      "scope": "MIP stops at payoff before60 months; the theoretical request eligibility month is not a billing stop and is unnecessary after payoff."
+    }
+  ]
+}

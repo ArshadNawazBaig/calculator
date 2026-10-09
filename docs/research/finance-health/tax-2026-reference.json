@@ -1,0 +1,176 @@
+{
+  "verifiedAt": "2026-10-09",
+  "taxYear": 2026,
+  "filingYear": 2027,
+  "jurisdiction": "US federal",
+  "status": "Verified reference parameters; not a complete tax engine",
+  "ordinaryIncomeRates": [
+    0.1,
+    0.12,
+    0.22,
+    0.24,
+    0.32,
+    0.35,
+    0.37
+  ],
+  "ordinaryIncomeBracketUpperBounds": {
+    "single": [
+      12400,
+      50400,
+      105700,
+      201775,
+      256225,
+      640600,
+      null
+    ],
+    "marriedJoint": [
+      24800,
+      100800,
+      211400,
+      403550,
+      512450,
+      768700,
+      null
+    ],
+    "marriedSeparate": [
+      12400,
+      50400,
+      105700,
+      201775,
+      256225,
+      384350,
+      null
+    ],
+    "headOfHousehold": [
+      17700,
+      67450,
+      105700,
+      201750,
+      256200,
+      640600,
+      null
+    ],
+    "qualifyingSurvivingSpouse": [
+      24800,
+      100800,
+      211400,
+      403550,
+      512450,
+      768700,
+      null
+    ]
+  },
+  "standardDeduction": {
+    "single": 16100,
+    "marriedJoint": 32200,
+    "marriedSeparate": 16100,
+    "headOfHousehold": 24150,
+    "qualifyingSurvivingSpouse": 32200
+  },
+  "additionalStandardDeductionPerAgeOrBlindCondition": {
+    "unmarriedNotSurvivingSpouse": 2050,
+    "other": 1650
+  },
+  "dependentStandardDeduction": {
+    "minimum": 1350,
+    "earnedIncomeAddition": 450,
+    "cap": "otherwise applicable basic standard deduction"
+  },
+  "longTermCapitalGainsUpperBounds": {
+    "single": [
+      49450,
+      545500,
+      null
+    ],
+    "marriedJoint": [
+      98900,
+      613700,
+      null
+    ],
+    "marriedSeparate": [
+      49450,
+      306850,
+      null
+    ],
+    "headOfHousehold": [
+      66200,
+      579600,
+      null
+    ],
+    "qualifyingSurvivingSpouse": [
+      98900,
+      613700,
+      null
+    ]
+  },
+  "longTermCapitalGainsRates": [
+    0,
+    0.15,
+    0.2
+  ],
+  "childTaxCreditMaximum": 2200,
+  "childTaxCreditRefundableMaximum": 1700,
+  "estateBasicExclusion": 15000000,
+  "giftAnnualExclusion": 19000,
+  "socialSecurityWageBase": 184500,
+  "employeeSocialSecurityRate": 0.062,
+  "employeeMedicareRate": 0.0145,
+  "additionalMedicareRate": 0.009,
+  "additionalMedicareThreshold": {
+    "single": 200000,
+    "headOfHousehold": 200000,
+    "marriedJoint": 250000,
+    "marriedSeparate": 125000,
+    "qualifyingSurvivingSpouse": 200000
+  },
+  "employerAdditionalMedicareWithholdingThresholdRegardlessOfFilingStatus": 200000,
+  "retirement": {
+    "elective401kLimit": 24500,
+    "catchUp50Plus": 8000,
+    "catchUpAge60Through63": 11250,
+    "iraLimit": 7500,
+    "iraCatchUp50Plus": 1100,
+    "rothPhaseoutSingleHeadOfHousehold": [
+      153000,
+      168000
+    ],
+    "rothPhaseoutMarriedJoint": [
+      242000,
+      252000
+    ],
+    "rothPhaseoutMarriedSeparateLivingWithSpouse": [
+      0,
+      10000
+    ]
+  },
+  "criticalNotes": [
+    "Head-of-household 32%/35% breakpoints differ by $25 from single; do not blindly reuse the single table.",
+    "Capital-gain rate thresholds apply to stacked taxable income, not to capital gains considered in isolation.",
+    "A marginal bracket estimator is not full parity with the competitor tax tool. Further implement self-employment tax, Social Security income taxation, credit eligibility and phaseouts, AMT, NIIT, SALT caps, itemization, qualified business income, and applicable OBBBA deductions.",
+    "Income tax liability, W-4 withholding, and paycheck estimation are different models.",
+    "Additional Medicare withholding at the employer and final tax liability use different thresholds.",
+    "Do not publish state/local tax outputs from a flat guessed rate or national average."
+  ],
+  "sources": [
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "supports": "ordinary brackets, capital-gain brackets, deductions, estate and gift parameters; pages 10-14 and 18 of document"
+    },
+    {
+      "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+      "supports": "summary and tax/filing-year distinction"
+    },
+    {
+      "url": "https://www.ssa.gov/cola/factsheets/2026.html",
+      "supports": "wage base and employee payroll rates"
+    },
+    {
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "supports": "retirement limits and phaseouts"
+    },
+    {
+      "url": "https://www.irs.gov/taxtopics/tc560",
+      "supports": "Additional Medicare0.9% final liability and employer withholding threshold distinction"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+import {describe,it,expect} from 'vitest';
+import fixtures from './fixtures/base64-regressions.json';
+import * as codec from '@/lib/calculators/base64-codec';
+import {definitions} from '@/lib/calculators/registry';
+import {calculate} from '@/lib/calculators/engine';
+import {defaults} from '@/lib/calculators/types';
+import {assertBase64Fixture} from './support/base64-adapter.cjs';
+describe('Independent codec reference cases',()=>{for(const fixture of fixtures)it(fixture.id,async()=>{await assertBase64Fixture(fixture,{codec,definitions,calculate,defaults});});
+ it('round-trips the maximum supported binary file without regex stack overflow',()=>{const input=new Uint8Array(codec.MAX_BINARY_BYTES);for(let i=0;i<input.length;i++)input[i]=i%256;const encoded=codec.bytesToBase64(input),decoded=codec.base64ToBytes(encoded);expect(decoded.length).toBe(input.length);expect(Buffer.compare(Buffer.from(input),Buffer.from(decoded))).toBe(0);});
+ it('rejects noncanonical pad bits',()=>{expect(()=>codec.base64ToBytes('Zh==')).toThrow();expect(()=>codec.base64ToBytes('Zm9=')).toThrow();});
+});

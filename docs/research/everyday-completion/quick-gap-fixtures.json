@@ -1,0 +1,3818 @@
+[
+  {
+    "id": "mulch-two-beds-yd-price",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "beds",
+      "beds": [
+        {
+          "length": 10,
+          "width": 5,
+          "unit": "ft"
+        },
+        {
+          "length": 6,
+          "width": 4,
+          "unit": "ft"
+        }
+      ],
+      "depth": 3,
+      "depthUnit": "in",
+      "waste": 0,
+      "priceBasis": "yd3",
+      "price": 54
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Area ft2": 74,
+      "Volume ft3": 18.5,
+      "Volume m3": 0.523861661952,
+      "Volume yd3": 0.6851851851851852,
+      "Material cost": 37
+    }
+  },
+  {
+    "id": "mulch-whole-bags-after-aggregation",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "beds",
+      "beds": [
+        {
+          "length": 10,
+          "width": 5,
+          "unit": "ft"
+        },
+        {
+          "length": 6,
+          "width": 4,
+          "unit": "ft"
+        }
+      ],
+      "depth": 3,
+      "depthUnit": "in",
+      "waste": 10,
+      "priceBasis": "bag",
+      "bagSize": 2,
+      "bagUnit": "ft3",
+      "price": 4
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "18.5ft3×1.1=20.35; ceil(20.35/2)=11",
+    "expected": {
+      "Order volume ft3": 20.35,
+      "Equivalent bags": 10.175,
+      "Order bags": 11,
+      "Material cost": 44
+    }
+  },
+  {
+    "id": "mulch-mixed-row-units",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "beds",
+      "beds": [
+        {
+          "length": 2,
+          "width": 3,
+          "unit": "m"
+        },
+        {
+          "length": 10,
+          "width": 10,
+          "unit": "ft"
+        }
+      ],
+      "depth": 10,
+      "depthUnit": "cm",
+      "priceBasis": "L",
+      "price": 0.2
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Area m2": 15.290304,
+      "Volume m3": 1.5290304,
+      "Material cost": 305.80608
+    }
+  },
+  {
+    "id": "mulch-bag-exact-60",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 0.12,
+      "areaUnit": "m2",
+      "depth": 1,
+      "depthUnit": "m",
+      "priceBasis": "bag",
+      "bagSize": 60.0,
+      "bagUnit": "L",
+      "price": 7
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Order bags": 2,
+      "Material cost": 14,
+      "Volume m3": 0.12
+    }
+  },
+  {
+    "id": "mulch-bag-exact-730",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 1.46,
+      "areaUnit": "m2",
+      "depth": 1,
+      "depthUnit": "m",
+      "priceBasis": "bag",
+      "bagSize": 730.0,
+      "bagUnit": "L",
+      "price": 7
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Order bags": 2,
+      "Material cost": 14,
+      "Volume m3": 1.46
+    }
+  },
+  {
+    "id": "mulch-bag-exact-76.9",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 4.3551310058496,
+      "areaUnit": "m2",
+      "depth": 1,
+      "depthUnit": "m",
+      "priceBasis": "bag",
+      "bagSize": 76.9,
+      "bagUnit": "ft3",
+      "price": 7
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Order bags": 2,
+      "Material cost": 14,
+      "Volume m3": 4.3551310058496
+    }
+  },
+  {
+    "id": "gravel-known-area-price-kg",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 20,
+      "areaUnit": "m2",
+      "depth": 10,
+      "depthUnit": "cm",
+      "waste": 10,
+      "density": 1500,
+      "densityUnit": "kg/m3",
+      "priceBasis": "kg",
+      "price": 0.1
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Volume m3": 2,
+      "Order volume m3": 2.2,
+      "Mass kg": 3300,
+      "Material cost": 330
+    }
+  },
+  {
+    "id": "gravel-known-area-price-tonne",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 20,
+      "areaUnit": "m2",
+      "depth": 10,
+      "depthUnit": "cm",
+      "waste": 10,
+      "density": 1500,
+      "densityUnit": "kg/m3",
+      "priceBasis": "tonne",
+      "price": 80
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Volume m3": 2,
+      "Order volume m3": 2.2,
+      "Mass kg": 3300,
+      "Material cost": 264
+    }
+  },
+  {
+    "id": "gravel-known-area-price-m3",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 20,
+      "areaUnit": "m2",
+      "depth": 10,
+      "depthUnit": "cm",
+      "waste": 10,
+      "density": 1500,
+      "densityUnit": "kg/m3",
+      "priceBasis": "m3",
+      "price": 50
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Volume m3": 2,
+      "Order volume m3": 2.2,
+      "Mass kg": 3300,
+      "Material cost": 110
+    }
+  },
+  {
+    "id": "gravel-known-area-price-L",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 20,
+      "areaUnit": "m2",
+      "depth": 10,
+      "depthUnit": "cm",
+      "waste": 10,
+      "density": 1500,
+      "densityUnit": "kg/m3",
+      "priceBasis": "L",
+      "price": 0.04
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Volume m3": 2,
+      "Order volume m3": 2.2,
+      "Mass kg": 3300,
+      "Material cost": 88
+    }
+  },
+  {
+    "id": "gravel-short-ton-price",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 108,
+      "areaUnit": "ft2",
+      "depth": 3,
+      "depthUnit": "in",
+      "density": 1186.552842515566,
+      "densityUnit": "kg/m3",
+      "priceBasis": "short-ton",
+      "price": 80
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Volume yd3": 1,
+      "Mass lb": 2000,
+      "Material cost": 80
+    }
+  },
+  {
+    "id": "gravel-mass-bags",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 20,
+      "areaUnit": "m2",
+      "depth": 10,
+      "depthUnit": "cm",
+      "density": 1500,
+      "densityUnit": "kg/m3",
+      "waste": 10,
+      "priceBasis": "bag",
+      "bagSize": 25,
+      "bagUnit": "kg",
+      "price": 6
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Order bags": 132,
+      "Material cost": 792
+    }
+  },
+  {
+    "id": "landscape-empty-bag-unit",
+    "group": "landscape-purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "area": 1,
+      "areaUnit": "m2",
+      "depth": 1,
+      "depthUnit": "m",
+      "priceBasis": "bag",
+      "bagSize": 0,
+      "bagUnit": "L",
+      "price": 6
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Bag size must be positive"
+  },
+  {
+    "id": "mass-density-kg-m3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "kg/m3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.006
+    }
+  },
+  {
+    "id": "mass-density-kg-cm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "kg/cm3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000.0
+    }
+  },
+  {
+    "id": "mass-density-g-m3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "g/m3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-06
+    }
+  },
+  {
+    "id": "mass-density-g-cm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "g/cm3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6.0
+    }
+  },
+  {
+    "id": "mass-density-g-mm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "g/mm3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000.0
+    }
+  },
+  {
+    "id": "mass-density-mg-m3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "mg/m3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-09
+    }
+  },
+  {
+    "id": "mass-density-mg-cm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "mg/cm3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.006
+    }
+  },
+  {
+    "id": "mass-density-mg-mm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "mg/mm3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6.0
+    }
+  },
+  {
+    "id": "mass-density-Eg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "Eg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000000000000000.0
+    }
+  },
+  {
+    "id": "mass-density-Pg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "Pg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000000000000.0
+    }
+  },
+  {
+    "id": "mass-density-Tg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "Tg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000000000.0
+    }
+  },
+  {
+    "id": "mass-density-Gg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "Gg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000000.0
+    }
+  },
+  {
+    "id": "mass-density-Mg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "Mg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6000.0
+    }
+  },
+  {
+    "id": "mass-density-kg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "kg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6.0
+    }
+  },
+  {
+    "id": "mass-density-hg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "hg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.6
+    }
+  },
+  {
+    "id": "mass-density-dag-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "dag/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.06
+    }
+  },
+  {
+    "id": "mass-density-g-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "g/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.006
+    }
+  },
+  {
+    "id": "mass-density-dg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "dg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.0006
+    }
+  },
+  {
+    "id": "mass-density-cg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "cg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-05
+    }
+  },
+  {
+    "id": "mass-density-mg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "mg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-06
+    }
+  },
+  {
+    "id": "mass-density-ug-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "ug/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-09
+    }
+  },
+  {
+    "id": "mass-density-ng-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "ng/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-12
+    }
+  },
+  {
+    "id": "mass-density-pg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "pg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-15
+    }
+  },
+  {
+    "id": "mass-density-fg-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "fg/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-18
+    }
+  },
+  {
+    "id": "mass-density-ag-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "ag/L",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 6e-21
+    }
+  },
+  {
+    "id": "mass-density-lb-in3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "lb/in3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 166.07942826121874
+    }
+  },
+  {
+    "id": "mass-density-lb-ft3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "lb/ft3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.09611078024376084
+    }
+  },
+  {
+    "id": "mass-density-lb-yd3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "lb/yd3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.0035596585275466976
+    }
+  },
+  {
+    "id": "mass-density-lb-US-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "lb/US-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.7189585639013798
+    }
+  },
+  {
+    "id": "mass-density-lb-UK-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "lb/UK-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.5986582359786102
+    }
+  },
+  {
+    "id": "mass-density-oz-in3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "oz/in3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 10.379964266326171
+    }
+  },
+  {
+    "id": "mass-density-oz-ft3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "oz/ft3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.006006923765235052
+    }
+  },
+  {
+    "id": "mass-density-oz-US-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "oz/US-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.04493491024383624
+    }
+  },
+  {
+    "id": "mass-density-oz-UK-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "oz/UK-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.03741613974866314
+    }
+  },
+  {
+    "id": "mass-density-grain-US-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "grain/US-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.00010270836627162568
+    }
+  },
+  {
+    "id": "mass-density-grain-UK-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "grain/UK-gal",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 8.552260513980145e-05
+    }
+  },
+  {
+    "id": "mass-density-grain-ft3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "grain/ft3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 1.3730111463394405e-05
+    }
+  },
+  {
+    "id": "mass-density-short-ton-yd3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "short-ton/yd3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 7.119317055093395
+    }
+  },
+  {
+    "id": "mass-density-long-ton-yd3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "long-ton/yd3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 7.973635101704603
+    }
+  },
+  {
+    "id": "mass-density-slug-ft3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "slug/ft3",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 3.0922729103591773
+    }
+  },
+  {
+    "id": "mass-density-psi-1000ft",
+    "group": "mass-units",
+    "inputs": {
+      "density": 2,
+      "densityUnit": "psi/1000ft",
+      "volume": 3,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-20,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.01383995235510156
+    }
+  },
+  {
+    "id": "mass-volume-m3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "m3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 2000.0
+    }
+  },
+  {
+    "id": "mass-volume-ft3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "ft3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 56.633693184
+    }
+  },
+  {
+    "id": "mass-volume-yd3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "yd3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 1529.109715968
+    }
+  },
+  {
+    "id": "mass-volume-in3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "in3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.032774128
+    }
+  },
+  {
+    "id": "mass-volume-km3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "km3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 2000000000000.0
+    }
+  },
+  {
+    "id": "mass-volume-mi3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "mi3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 8336363650881.159
+    }
+  },
+  {
+    "id": "mass-volume-cm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "cm3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.002
+    }
+  },
+  {
+    "id": "mass-volume-mm3",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "mm3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 2e-06
+    }
+  },
+  {
+    "id": "mass-volume-L",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 2.0
+    }
+  },
+  {
+    "id": "mass-volume-mL",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "mL",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.002
+    }
+  },
+  {
+    "id": "mass-volume-US-pt",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "US-pt",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0.946352946
+    }
+  },
+  {
+    "id": "mass-volume-US-qt",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "US-qt",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 1.892705892
+    }
+  },
+  {
+    "id": "mass-volume-US-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "US-gal",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 7.570823568
+    }
+  },
+  {
+    "id": "mass-volume-UK-gal",
+    "group": "mass-units",
+    "inputs": {
+      "density": 1000,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "UK-gal",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-12,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 9.09218
+    }
+  },
+  {
+    "id": "mass-zero-volume",
+    "group": "mass-units",
+    "inputs": {
+      "density": 19.3,
+      "densityUnit": "g/cm3",
+      "volume": 0,
+      "volumeUnit": "cm3",
+      "outputMassUnit": "kg"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Mass kg": 0
+    }
+  },
+  {
+    "id": "mass-negative-density",
+    "group": "mass-units",
+    "inputs": {
+      "density": -1,
+      "densityUnit": "kg/m3",
+      "volume": 2,
+      "volumeUnit": "m3"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Density cannot be negative"
+  },
+  {
+    "id": "wind-F-mph",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 20.0,
+      "temperatureUnit": "F",
+      "wind": 10.0,
+      "windUnit": "mph"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Wind chill F": 8.854038235710771,
+      "Wind chill C": -12.858867646827349,
+      "Wind chill K": 260.29113235317266
+    }
+  },
+  {
+    "id": "wind-C-km/h",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": -10.0,
+      "temperatureUnit": "C",
+      "wind": 20.0,
+      "windUnit": "km/h"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Wind chill F": -0.10481043209108022,
+      "Wind chill C": -17.836005795606155,
+      "Wind chill K": 255.31399420439385
+    }
+  },
+  {
+    "id": "wind-K-m/s",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 263.15,
+      "temperatureUnit": "K",
+      "wind": 5.555555555555555,
+      "windUnit": "m/s"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Wind chill F": -0.10481043209108022,
+      "Wind chill C": -17.836005795606155,
+      "Wind chill K": 255.31399420439385
+    }
+  },
+  {
+    "id": "wind-C-knots",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 0.0,
+      "temperatureUnit": "C",
+      "wind": 10.0,
+      "windUnit": "knots"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Wind chill F": 23.00220757829552,
+      "Wind chill C": -4.9987735676136005,
+      "Wind chill K": 268.1512264323864
+    }
+  },
+  {
+    "id": "wind-reject-above50F",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 11,
+      "temperatureUnit": "C",
+      "wind": 10.0,
+      "windUnit": "mph"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "above50F"
+  },
+  {
+    "id": "wind-reject-above50F",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 283.16,
+      "temperatureUnit": "K",
+      "wind": 10.0,
+      "windUnit": "mph"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "above50F"
+  },
+  {
+    "id": "wind-reject-exact3mph",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 10,
+      "temperatureUnit": "F",
+      "wind": 4.828032,
+      "windUnit": "km/h"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "exact3mph"
+  },
+  {
+    "id": "wind-reject-exact3mph",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": 10,
+      "temperatureUnit": "F",
+      "wind": 1.34112,
+      "windUnit": "m/s"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "exact3mph"
+  },
+  {
+    "id": "wind-reject-belowabsolutezero",
+    "group": "wind-units",
+    "inputs": {
+      "temperature": -1,
+      "temperatureUnit": "K",
+      "wind": 20.0,
+      "windUnit": "mph"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "belowabsolutezero"
+  },
+  {
+    "id": "ohm-prefix-vi",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vi",
+      "a": 12000.0,
+      "aUnit": "mV",
+      "b": 2.0,
+      "bUnit": "mA"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-prefix-vr",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vr",
+      "a": 0.012,
+      "aUnit": "kV",
+      "b": 6.0,
+      "bUnit": "kohm"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-prefix-ir",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "ir",
+      "a": 2.0,
+      "aUnit": "mA",
+      "b": 0.006,
+      "bUnit": "Mohm"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-prefix-vp",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vp",
+      "a": 12.0,
+      "aUnit": "V",
+      "b": 2.4e-05,
+      "bUnit": "kW"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-prefix-ip",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "ip",
+      "a": 2.0,
+      "aUnit": "mA",
+      "b": 0.024,
+      "bUnit": "W"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-prefix-rp",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "rp",
+      "a": 6.0,
+      "aUnit": "kohm",
+      "b": 2.4e-08,
+      "bUnit": "MW"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 12,
+      "Current A": 0.002,
+      "Resistance ohm": 6000,
+      "Power W": 0.024
+    }
+  },
+  {
+    "id": "ohm-power-hp-mechanical",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vp",
+      "a": 120,
+      "aUnit": "V",
+      "b": 2,
+      "bUnit": "hp-mechanical"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 120,
+      "Current A": 12.428331193037836,
+      "Resistance ohm": 9.655359045084202,
+      "Power W": 1491.3997431645405
+    }
+  },
+  {
+    "id": "ohm-power-BtuIT/h",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vp",
+      "a": 120,
+      "aUnit": "V",
+      "b": 2,
+      "bUnit": "BtuIT/h"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Voltage V": 120,
+      "Current A": 0.004884517836203704,
+      "Resistance ohm": 24567.41975852118,
+      "Power W": 0.5861421403444445
+    }
+  },
+  {
+    "id": "ohm-wrong-dimension-prefix",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vi",
+      "a": 12,
+      "aUnit": "kohm",
+      "b": 2,
+      "bUnit": "mA"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Unit does not match quantity"
+  },
+  {
+    "id": "ohm-zero-underdetermined",
+    "group": "ohm-units",
+    "inputs": {
+      "pair": "vi",
+      "a": 0,
+      "aUnit": "V",
+      "b": 0,
+      "bUnit": "A"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Strictly positive knowns required for unique result"
+  },
+  {
+    "id": "grade-letter-percentages",
+    "group": "grade-letters",
+    "inputs": {
+      "assessments": [
+        {
+          "grade": "A",
+          "weight": 20
+        },
+        {
+          "grade": "B+",
+          "weight": 30
+        },
+        {
+          "grade": "C",
+          "weight": 10
+        }
+      ],
+      "weightBasis": "percentage",
+      "letterScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "(95*20+88*30+75*10)/60=5290/60",
+    "expected": {
+      "Completed weight": 60,
+      "Weighted percentage": 88.16666666666667
+    }
+  },
+  {
+    "id": "grade-letter-relativeweights",
+    "group": "grade-letters",
+    "inputs": {
+      "assessments": [
+        {
+          "grade": "A",
+          "weight": 200
+        },
+        {
+          "grade": "B+",
+          "weight": 100
+        }
+      ],
+      "weightBasis": "relative-points",
+      "letterScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Total weight": 300,
+      "Weighted percentage": 92.66666666666667
+    }
+  },
+  {
+    "id": "grade-letter-custom-scale",
+    "group": "grade-letters",
+    "inputs": {
+      "assessments": [
+        {
+          "grade": "a-",
+          "weight": 2
+        },
+        {
+          "grade": " B+ ",
+          "weight": 1
+        },
+        {
+          "grade": "80",
+          "weight": 1
+        }
+      ],
+      "weightBasis": "relative-points",
+      "letterScale": {
+        "A-": 92,
+        "B+": 89
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Weighted percentage": 88.25
+    }
+  },
+  {
+    "id": "grade-final-letters",
+    "group": "grade-letter-final",
+    "inputs": {
+      "current": "B",
+      "target": "A-",
+      "remainingWeight": 40,
+      "letterScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "(91-85*.6)/.4=100",
+    "expected": {
+      "Required final percentage": 100
+    }
+  },
+  {
+    "id": "grade-final-unattainable",
+    "group": "grade-letter-final",
+    "inputs": {
+      "current": "B",
+      "target": "A",
+      "remainingWeight": 20,
+      "letterScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "Required final percentage": 135
+    }
+  },
+  {
+    "id": "grade-letter-missing",
+    "group": "grade-letters",
+    "inputs": {
+      "assessments": [
+        {
+          "grade": "Q",
+          "weight": 1
+        }
+      ],
+      "letterScale": {
+        "A+": 98,
+        "A": 95,
+        "A-": 91,
+        "B+": 88,
+        "B": 85,
+        "B-": 81,
+        "C+": 78,
+        "C": 75,
+        "C-": 71,
+        "D+": 68,
+        "D": 65,
+        "D-": 61,
+        "F": 0
+      }
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Unknown letter"
+  },
+  {
+    "id": "grade-letter-duplicate",
+    "group": "grade-letters",
+    "inputs": {
+      "letterScale": [
+        {
+          "letter": "A",
+          "percentage": 95
+        },
+        {
+          "letter": "a",
+          "percentage": 90
+        }
+      ]
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Duplicate normalized letter"
+  },
+  {
+    "id": "base64-binary-0",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": []
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "",
+      "byteLength": 0
+    }
+  },
+  {
+    "id": "base64-binary-1",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        0
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "AA==",
+      "byteLength": 1
+    }
+  },
+  {
+    "id": "base64-binary-2",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        0,
+        255
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "AP8=",
+      "byteLength": 2
+    }
+  },
+  {
+    "id": "base64-binary-3",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        0,
+        255,
+        16
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "AP8Q",
+      "byteLength": 3
+    }
+  },
+  {
+    "id": "base64-binary-4",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        0,
+        255,
+        16,
+        128
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "AP8QgA==",
+      "byteLength": 4
+    }
+  },
+  {
+    "id": "base64-binary-5",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w==",
+      "byteLength": 256
+    }
+  },
+  {
+    "id": "base64-binary-6",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "encode",
+      "bytes": [
+        137,
+        80,
+        78,
+        71,
+        13,
+        10,
+        26,
+        10
+      ]
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "base64": "iVBORw0KGgo=",
+      "byteLength": 8
+    }
+  },
+  {
+    "id": "base64-reject-A===",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "A==="
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-A",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "A"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-AA=A",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "AA=A"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-Zh==",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "Zh=="
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-Zm9=",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "Zm9="
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-AP8Q$",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "AP8Q$"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject-YW Jj",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "YW Jj"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-reject--w==",
+    "group": "base64-bytes",
+    "inputs": {
+      "direction": "decode",
+      "base64": "-w=="
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Invalid canonical standard Base64"
+  },
+  {
+    "id": "base64-charset-utf-8",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Aé中😀",
+      "charset": "utf-8",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        65,
+        195,
+        169,
+        228,
+        184,
+        173,
+        240,
+        159,
+        152,
+        128
+      ],
+      "base64": "QcOp5Lit8J+YgA==",
+      "roundTripText": "Aé中😀"
+    }
+  },
+  {
+    "id": "base64-charset-ascii",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A",
+      "charset": "ascii",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        65,
+        127
+      ],
+      "base64": "QX8=",
+      "roundTripText": "A"
+    }
+  },
+  {
+    "id": "base64-charset-utf-16le",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A😀",
+      "charset": "utf-16le",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        65,
+        0,
+        61,
+        216,
+        0,
+        222
+      ],
+      "base64": "QQA92ADe",
+      "roundTripText": "A😀"
+    }
+  },
+  {
+    "id": "base64-charset-utf-16be",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A😀",
+      "charset": "utf-16be",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        0,
+        65,
+        216,
+        61,
+        222,
+        0
+      ],
+      "base64": "AEHYPd4A",
+      "roundTripText": "A😀"
+    }
+  },
+  {
+    "id": "base64-charset-big5",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "中文",
+      "charset": "big5",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        164,
+        164,
+        164,
+        229
+      ],
+      "base64": "pKSk5Q==",
+      "roundTripText": "中文"
+    }
+  },
+  {
+    "id": "base64-charset-gb18030",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "中文😀",
+      "charset": "gb18030",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        214,
+        208,
+        206,
+        196,
+        148,
+        57,
+        252,
+        54
+      ],
+      "base64": "1tDOxJQ5/DY=",
+      "roundTripText": "中文😀"
+    }
+  },
+  {
+    "id": "base64-charset-gb2312",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "中文",
+      "charset": "gb2312",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        214,
+        208,
+        206,
+        196
+      ],
+      "base64": "1tDOxA==",
+      "roundTripText": "中文"
+    }
+  },
+  {
+    "id": "base64-charset-euc-jp",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "日本",
+      "charset": "euc-jp",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        198,
+        252,
+        203,
+        220
+      ],
+      "base64": "xvzL3A==",
+      "roundTripText": "日本"
+    }
+  },
+  {
+    "id": "base64-charset-iso-2022-jp",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A日本B",
+      "charset": "iso-2022-jp",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        65,
+        27,
+        36,
+        66,
+        70,
+        124,
+        75,
+        92,
+        27,
+        40,
+        66,
+        66
+      ],
+      "base64": "QRskQkZ8S1wbKEJC",
+      "roundTripText": "A日本B"
+    }
+  },
+  {
+    "id": "base64-charset-shift-jis",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "日本",
+      "charset": "shift-jis",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        147,
+        250,
+        150,
+        123
+      ],
+      "base64": "k/qWew==",
+      "roundTripText": "日本"
+    }
+  },
+  {
+    "id": "base64-charset-euc-kr",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "한국",
+      "charset": "euc-kr",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        199,
+        209,
+        177,
+        185
+      ],
+      "base64": "x9GxuQ==",
+      "roundTripText": "한국"
+    }
+  },
+  {
+    "id": "base64-charset-ibm866",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЯБ",
+      "charset": "ibm866",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        159,
+        129
+      ],
+      "base64": "n4E=",
+      "roundTripText": "ЯБ"
+    }
+  },
+  {
+    "id": "base64-charset-koi8-r",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЯБ",
+      "charset": "koi8-r",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        241,
+        226
+      ],
+      "base64": "8eI=",
+      "roundTripText": "ЯБ"
+    }
+  },
+  {
+    "id": "base64-charset-koi8-u",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЇЄ",
+      "charset": "koi8-u",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        183,
+        180
+      ],
+      "base64": "t7Q=",
+      "roundTripText": "ЇЄ"
+    }
+  },
+  {
+    "id": "base64-charset-macintosh",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "é£",
+      "charset": "macintosh",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        142,
+        163
+      ],
+      "base64": "jqM=",
+      "roundTripText": "é£"
+    }
+  },
+  {
+    "id": "base64-charset-x-mac-cyrillic",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЯБ",
+      "charset": "x-mac-cyrillic",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        159,
+        129
+      ],
+      "base64": "n4E=",
+      "roundTripText": "ЯБ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-1",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "é£",
+      "charset": "iso-8859-1",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        233,
+        163
+      ],
+      "base64": "6aM=",
+      "roundTripText": "é£"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-2",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Łą",
+      "charset": "iso-8859-2",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        163,
+        177
+      ],
+      "base64": "o7E=",
+      "roundTripText": "Łą"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-3",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ħġ",
+      "charset": "iso-8859-3",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        161,
+        245
+      ],
+      "base64": "ofU=",
+      "roundTripText": "Ħġ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-4",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ģā",
+      "charset": "iso-8859-4",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        171,
+        224
+      ],
+      "base64": "q+A=",
+      "roundTripText": "Ģā"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-5",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЯБ",
+      "charset": "iso-8859-5",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        207,
+        177
+      ],
+      "base64": "z7E=",
+      "roundTripText": "ЯБ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-6",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "اب",
+      "charset": "iso-8859-6",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        199,
+        200
+      ],
+      "base64": "x8g=",
+      "roundTripText": "اب"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-7",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ωα",
+      "charset": "iso-8859-7",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        217,
+        225
+      ],
+      "base64": "2eE=",
+      "roundTripText": "Ωα"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-8",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "אב",
+      "charset": "iso-8859-8",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        224,
+        225
+      ],
+      "base64": "4OE=",
+      "roundTripText": "אב"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-10",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ēā",
+      "charset": "iso-8859-10",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        162,
+        224
+      ],
+      "base64": "ouA=",
+      "roundTripText": "Ēā"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-13",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ĀĮ",
+      "charset": "iso-8859-13",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        194,
+        193
+      ],
+      "base64": "wsE=",
+      "roundTripText": "ĀĮ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-14",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ŵŷ",
+      "charset": "iso-8859-14",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        208,
+        254
+      ],
+      "base64": "0P4=",
+      "roundTripText": "Ŵŷ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-15",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "€œ",
+      "charset": "iso-8859-15",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        164,
+        189
+      ],
+      "base64": "pL0=",
+      "roundTripText": "€œ"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-16",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "€Ș",
+      "charset": "iso-8859-16",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        164,
+        170
+      ],
+      "base64": "pKo=",
+      "roundTripText": "€Ș"
+    }
+  },
+  {
+    "id": "base64-charset-iso-8859-8-i",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "אב",
+      "charset": "iso-8859-8-i",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        224,
+        225
+      ],
+      "base64": "4OE=",
+      "roundTripText": "אב"
+    }
+  },
+  {
+    "id": "base64-charset-windows-874",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "กข",
+      "charset": "windows-874",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        161,
+        162
+      ],
+      "base64": "oaI=",
+      "roundTripText": "กข"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1250",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Łą",
+      "charset": "windows-1250",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        163,
+        185
+      ],
+      "base64": "o7k=",
+      "roundTripText": "Łą"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1251",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ЯБ",
+      "charset": "windows-1251",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        223,
+        193
+      ],
+      "base64": "38E=",
+      "roundTripText": "ЯБ"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1252",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "€é",
+      "charset": "windows-1252",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        128,
+        233
+      ],
+      "base64": "gOk=",
+      "roundTripText": "€é"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1253",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ωα",
+      "charset": "windows-1253",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        217,
+        225
+      ],
+      "base64": "2eE=",
+      "roundTripText": "Ωα"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1254",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Ğı",
+      "charset": "windows-1254",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        208,
+        253
+      ],
+      "base64": "0P0=",
+      "roundTripText": "Ğı"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1255",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "אב",
+      "charset": "windows-1255",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        224,
+        225
+      ],
+      "base64": "4OE=",
+      "roundTripText": "אב"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1256",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "اب",
+      "charset": "windows-1256",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        199,
+        200
+      ],
+      "base64": "x8g=",
+      "roundTripText": "اب"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1257",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "ĀĮ",
+      "charset": "windows-1257",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        194,
+        193
+      ],
+      "base64": "wsE=",
+      "roundTripText": "ĀĮ"
+    }
+  },
+  {
+    "id": "base64-charset-windows-1258",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "Đơ",
+      "charset": "windows-1258",
+      "bom": "none"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        208,
+        245
+      ],
+      "base64": "0PU=",
+      "roundTripText": "Đơ"
+    }
+  },
+  {
+    "id": "base64-unrepresentable-ascii",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "é",
+      "charset": "ascii"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Character cannot be represented"
+  },
+  {
+    "id": "base64-unrepresentable-iso-8859-1",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "€",
+      "charset": "iso-8859-1"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Character cannot be represented"
+  },
+  {
+    "id": "base64-unrepresentable-windows-1252",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "中",
+      "charset": "windows-1252"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Character cannot be represented"
+  },
+  {
+    "id": "base64-invalid-text-utf-8-/w==",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "decode",
+      "text": "/w==",
+      "charset": "utf-8"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Malformed text bytes"
+  },
+  {
+    "id": "base64-invalid-text-utf-16le-QQ==",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "decode",
+      "text": "QQ==",
+      "charset": "utf-16le"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Malformed text bytes"
+  },
+  {
+    "id": "base64-invalid-text-utf-16le-ANg=",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "decode",
+      "text": "ANg=",
+      "charset": "utf-16le"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Malformed text bytes"
+  },
+  {
+    "id": "base64-bom-utf-16le",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A",
+      "charset": "utf-16le",
+      "bom": "include-on-encode"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        255,
+        254,
+        65,
+        0
+      ],
+      "base64": "//5BAA=="
+    }
+  },
+  {
+    "id": "base64-bom-utf-16be",
+    "group": "base64-text-charset",
+    "inputs": {
+      "direction": "encode",
+      "text": "A",
+      "charset": "utf-16be",
+      "bom": "include-on-encode"
+    },
+    "absoluteTolerance": 0,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "bytes": [
+        254,
+        255,
+        0,
+        65
+      ],
+      "base64": "/v8AQQ=="
+    }
+  },
+  {
+    "id": "molecule-preset-H2O",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "H2O",
+      "formula": "H2O"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "H": 2,
+        "O": 1
+      },
+      "Molar mass": 18.015
+    }
+  },
+  {
+    "id": "molecule-preset-CO2",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "CO2",
+      "formula": "CO2"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 1,
+        "O": 2
+      },
+      "Molar mass": 44.009
+    }
+  },
+  {
+    "id": "molecule-preset-NH3",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "NH3",
+      "formula": "NH3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "N": 1,
+        "H": 3
+      },
+      "Molar mass": 17.031
+    }
+  },
+  {
+    "id": "molecule-preset-NaCl",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "NaCl",
+      "formula": "NaCl"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "Na": 1,
+        "Cl": 1
+      },
+      "Molar mass": 58.4397693
+    }
+  },
+  {
+    "id": "molecule-preset-H2SO4",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "H2SO4",
+      "formula": "H2SO4"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "H": 2,
+        "S": 1,
+        "O": 4
+      },
+      "Molar mass": 98.082
+    }
+  },
+  {
+    "id": "molecule-preset-HCl",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "HCl",
+      "formula": "HCl"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "H": 1,
+        "Cl": 1
+      },
+      "Molar mass": 36.458
+    }
+  },
+  {
+    "id": "molecule-preset-HNO3",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "HNO3",
+      "formula": "HNO3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "H": 1,
+        "N": 1,
+        "O": 3
+      },
+      "Molar mass": 63.012
+    }
+  },
+  {
+    "id": "molecule-preset-NaHCO3",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "NaHCO3",
+      "formula": "NaHCO3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "Na": 1,
+        "H": 1,
+        "C": 1,
+        "O": 3
+      },
+      "Molar mass": 84.0057693
+    }
+  },
+  {
+    "id": "molecule-preset-CaCO3",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "CaCO3",
+      "formula": "CaCO3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "Ca": 1,
+        "C": 1,
+        "O": 3
+      },
+      "Molar mass": 100.088
+    }
+  },
+  {
+    "id": "molecule-preset-KCl",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "KCl",
+      "formula": "KCl"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "K": 1,
+        "Cl": 1
+      },
+      "Molar mass": 74.5483
+    }
+  },
+  {
+    "id": "molecule-preset-[Co(NH3)6]Cl3",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "[Co(NH3)6]Cl3",
+      "formula": "[Co(NH3)6]Cl3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "Co": 1,
+        "N": 6,
+        "H": 18,
+        "Cl": 3
+      },
+      "Molar mass": 267.46919
+    }
+  },
+  {
+    "id": "molecule-preset-KMnO4",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "KMnO4",
+      "formula": "KMnO4"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "K": 1,
+        "Mn": 1,
+        "O": 4
+      },
+      "Molar mass": 158.03234
+    }
+  },
+  {
+    "id": "molecule-preset-CuSO4·5H2O",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "CuSO4·5H2O",
+      "formula": "CuSO4·5H2O"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "Cu": 1,
+        "S": 1,
+        "O": 9,
+        "H": 10
+      },
+      "Molar mass": 249.691
+    }
+  },
+  {
+    "id": "molecule-preset-CH4",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "CH4",
+      "formula": "CH4"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 1,
+        "H": 4
+      },
+      "Molar mass": 16.043
+    }
+  },
+  {
+    "id": "molecule-preset-C2H5OH",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C2H5OH",
+      "formula": "C2H5OH"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 2,
+        "H": 6,
+        "O": 1
+      },
+      "Molar mass": 46.069
+    }
+  },
+  {
+    "id": "molecule-preset-C2H4O2",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C2H4O2",
+      "formula": "C2H4O2"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 2,
+        "H": 4,
+        "O": 2
+      },
+      "Molar mass": 60.052
+    }
+  },
+  {
+    "id": "molecule-preset-C6H12O6",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C6H12O6",
+      "formula": "C6H12O6"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 6,
+        "H": 12,
+        "O": 6
+      },
+      "Molar mass": 180.156
+    }
+  },
+  {
+    "id": "molecule-preset-C6H6",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C6H6",
+      "formula": "C6H6"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 6,
+        "H": 6
+      },
+      "Molar mass": 78.114
+    }
+  },
+  {
+    "id": "molecule-preset-C8H18",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C8H18",
+      "formula": "C8H18"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 8,
+        "H": 18
+      },
+      "Molar mass": 114.232
+    }
+  },
+  {
+    "id": "molecule-preset-C12H22O11",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C12H22O11",
+      "formula": "C12H22O11"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 12,
+        "H": 22,
+        "O": 11
+      },
+      "Molar mass": 342.297
+    }
+  },
+  {
+    "id": "molecule-preset-C9H8O4",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C9H8O4",
+      "formula": "C9H8O4"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 9,
+        "H": 8,
+        "O": 4
+      },
+      "Molar mass": 180.159
+    }
+  },
+  {
+    "id": "molecule-preset-C6H8O7",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "C6H8O7",
+      "formula": "C6H8O7"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 6,
+        "H": 8,
+        "O": 7
+      },
+      "Molar mass": 192.123
+    }
+  },
+  {
+    "id": "molecule-preset-CH4N2O",
+    "group": "molecule-presets",
+    "inputs": {
+      "preset": "CH4N2O",
+      "formula": "CH4N2O"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Manual atomcounts multiplied with independently downloaded PubChem AtomicMass; not product parser output.",
+    "expected": {
+      "counts": {
+        "C": 1,
+        "H": 4,
+        "N": 2,
+        "O": 1
+      },
+      "Molar mass": 60.056
+    }
+  },
+  {
+    "id": "molecule-bracket-mismatch",
+    "group": "molecule-presets",
+    "inputs": {
+      "formula": "[Co(NH3)6)Cl3"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Mismatched group delimiters"
+  },
+  {
+    "id": "molecule-bracket-empty",
+    "group": "molecule-presets",
+    "inputs": {
+      "formula": "[]Cl3"
+    },
+    "absoluteTolerance": 1e-09,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expectedError": "Empty group"
+  },
+  {
+    "id": "molecule-bracket-coefficient",
+    "group": "molecule-presets",
+    "inputs": {
+      "formula": "2[Co(NH3)6]Cl3"
+    },
+    "absoluteTolerance": 1e-08,
+    "relativeTolerance": 1e-12,
+    "derivation": "Independent reference arithmetic or standard codec, not product execution.",
+    "expected": {
+      "counts": {
+        "Co": 2,
+        "N": 12,
+        "H": 36,
+        "Cl": 6
+      },
+      "Molar mass": 534.93838
+    }
+  }
+]

@@ -1,0 +1,3774 @@
+{
+  "schemaVersion": 1,
+  "generatedDate": "2026-10-09",
+  "scope": "Implementable independent health formula and unit specs. Research only; no product files changed.",
+  "notes": [
+    "All proposed IDs and keys are integration suggestions; root may map to current definitions.",
+    "Ages/cohorts are scientific applicability, not an invented diagnosis or claim of exact individual prediction.",
+    "Primary source factual coefficients and original wording only; private HTML/PDF captures must not be shipped."
+  ],
+  "sources": {
+    "deurenberg": {
+      "title": "Deurenberg et al. (1991), original study abstract and formulas",
+      "url": "https://research.vu.nl/en/publications/body-mass-index-as-a-measure-of-body-fatness-age-and-sex-specific/"
+    },
+    "hume": {
+      "title": "Hume (1966): Prediction of lean body mass from height and weight",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/5929341/",
+      "fullText": "http://muirheads.co.uk/richard/Hume1966.pdf",
+      "privateEvidence": "primary/hume-original.txt"
+    },
+    "james": {
+      "title": "Puri and Blake (2022), comparison of ten LBM equations, Table 2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10993957/",
+      "note": "Primary empirical comparison reproduces James & Waterlow equations; original 1976 report not inspected."
+    },
+    "gehan": {
+      "title": "Gehan and George (1970), Estimation of human body surface area",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/5527019/"
+    },
+    "bsa2020": {
+      "title": "Formulae for calculating body surface area in modern U.S. Army Soldiers (2020), Table 3",
+      "url": "https://doi.org/10.1016/j.jtherbio.2020.102650"
+    },
+    "epa": {
+      "title": "EPA Exposure Factors Handbook, Chapter 7 and Appendix 7A",
+      "url": "https://www.epa.gov/sites/default/files/2015-09/documents/efh-chapter07.pdf"
+    },
+    "fujimoto": {
+      "title": "Fujimoto et al. (1968), three age-specific formulas",
+      "url": "https://www.jstage.jst.go.jp/article/jjh1946/23/5/23_5_443/_article/"
+    },
+    "schlich": {
+      "title": "Schlich et al. (2010), 3D body scanning and specific surface area",
+      "url": "https://ernaehrungs-umschau.de/wp-content/uploads/2026/free_pdfs/EU04_2010_178_183.qxd.pdf",
+      "privateEvidence": "primary/schlich-original.txt"
+    },
+    "takahiraVariant": {
+      "title": "AI-driven CT body surface area comparison (2026), published 0.007241 Takahira variant",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13124374/",
+      "privateEvidence": "primary/PMC13124374.xml"
+    },
+    "takahiraAlternate": {
+      "title": "Advanced Body Measurement Techniques (2024), published 0.007246 Takahira variant",
+      "url": "https://www.mdpi.com/2076-3417/14/2/834"
+    },
+    "nist": {
+      "title": "NIST SP 811 Appendix B.8 conversion factors",
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    },
+    "nist44": {
+      "title": "NIST Handbook 44 (2026), Appendix C",
+      "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+    },
+    "widmark": {
+      "title": "Searle (2015), Alcohol calculations and their uncertainty",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4361698/"
+    },
+    "niaaa": {
+      "title": "NIAAA, What is a standard drink?",
+      "url": "https://rethinkingdrinking.niaaa.nih.gov/how-much-too-much/whats-standard-drink"
+    },
+    "compendium": {
+      "title": "2024 Compendium of Physical Activities, definitions and use permissions",
+      "url": "https://pacompendium.com/"
+    },
+    "wheelchair": {
+      "title": "2024 Adult Wheelchair Compendium, numerical activities and baseline",
+      "url": "https://pacompendium.com/adult-wheelchair-users-compendium/"
+    },
+    "wheelchairPaper": {
+      "title": "Conger et al. (2024), Wheelchair Compendium update",
+      "url": "https://doi.org/10.1016/j.jshs.2023.11.003"
+    }
+  },
+  "families": [
+    {
+      "id": "bodyfat-bmi",
+      "slug": "body-fat-calculator",
+      "title": "Age- and sex-adjusted BMI estimate",
+      "proposedModeId": "bmi-estimate",
+      "inputKeys": {
+        "sex": [
+          "male",
+          "female"
+        ],
+        "units": [
+          "metric",
+          "us"
+        ],
+        "weight": "kg or lb",
+        "height": "cm or inches",
+        "age": "years"
+      },
+      "formula": {
+        "bmi": "weightKg/(heightCm/100)^2",
+        "adultPercent": "1.20*BMI+0.23*age-10.8*maleFlag-5.4",
+        "childPercentOptional": "1.51*BMI-0.70*age-3.6*maleFlag+1.4",
+        "fatKg": "weightKg*percent/100",
+        "leanKg": "weightKg-fatKg"
+      },
+      "applicability": {
+        "observedStudyAges": [
+          7,
+          83
+        ],
+        "observedStudyBmi": [
+          13.9,
+          40.9
+        ],
+        "adultEquationAge": "16 and older; study ends at 83",
+        "childEquationAge": "7 through 15, separate optional mode",
+        "population": "Original study: 1,229 participants, 521 male and 708 female. Not individually measured composition.",
+        "errors": "Adult SEE 4.1 percentage points; child SEE 4.4. Obesity can be overestimated.",
+        "proposedProductPolicy": "Adult mode age 16\u201383 is an explicit study-bounded product range. Do not call all larger ages biologically invalid. If accepting extrapolation, display it explicitly."
+      },
+      "validation": [
+        "Finite positive height and weight.",
+        "Reject results outside physical 0\u2013100%; do not clamp into apparent validity.",
+        "Do not transform this estimate into a personalized weight target or medication dose."
+      ],
+      "sources": [
+        "deurenberg"
+      ]
+    },
+    {
+      "id": "lean-comparison",
+      "slug": "lean-body-mass-calculator",
+      "title": "James and Hume estimates",
+      "proposedModeIds": [
+        "james",
+        "hume"
+      ],
+      "inputKeys": {
+        "sex": [
+          "male",
+          "female"
+        ],
+        "units": [
+          "metric",
+          "us"
+        ],
+        "weight": "kg or lb",
+        "height": "cm or inches",
+        "age": "years; used for applicability, not equation"
+      },
+      "formula": {
+        "jamesMale": "1.10*weightKg-128*(weightKg/heightCm)^2",
+        "jamesFemale": "1.07*weightKg-148*(weightKg/heightCm)^2",
+        "humeMale": "0.32810*weightKg+0.33929*heightCm-29.5336",
+        "humeFemale": "0.29569*weightKg+0.41813*heightCm-43.2933",
+        "impliedBodyFatPercent": "100*(1-leanKg/weightKg)"
+      },
+      "applicability": {
+        "humeSourceRecommendation": "Original paper suggests males over 16 and females over 30; original fitted ages male 40\u201377 and female 37\u201380.",
+        "humeSample": "29 men and 27 women, hospital patients; excluded fluid retention and malnutrition. Female regression error around 5.4 kg, male 2.3 kg.",
+        "james": "Historical adult estimate; original 1976 report was not inspected. Primary 2022 paper provides exact quadratic coefficients.",
+        "jamesAlgebraicLimit": "At fixed height, lean mass peaks at BMI 42.96875 male or 36.14864864864865 female, then decreases. These are derived mathematical turning points, not clinically validated BMI cutoffs.",
+        "proposedPolicy": "Return an unavailable comparison with an explanation beyond the James turning point. Enforce Hume source age guidance if age is collected; otherwise prominently state applicability."
+      },
+      "validation": [
+        "Positive finite height/weight. Require 0 < estimatedLeanKg <= bodyWeightKg.",
+        "Do not silently clamp or average unrelated estimates.",
+        "Use the original full Hume intercepts; some later papers round them to 29.53/43.29."
+      ],
+      "sources": [
+        "hume",
+        "james"
+      ]
+    },
+    {
+      "id": "bsa-equations",
+      "slug": "body-surface-area-calculator",
+      "title": "Five additional surface-area equations",
+      "proposedModeId": "bsa",
+      "inputKeys": {
+        "method": [
+          "gehan",
+          "boyd",
+          "fujimoto",
+          "takahira",
+          "schlich"
+        ],
+        "units": [
+          "metric",
+          "us"
+        ],
+        "weight": "kg or lb",
+        "height": "cm or inches",
+        "sex": "male/female visible for Schlich",
+        "age": "needed for Fujimoto branches and population notes",
+        "outputUnit": [
+          "m2",
+          "ft2",
+          "in2"
+        ]
+      },
+      "equations": {
+        "gehan": {
+          "formula": "0.0235*heightCm^0.42246*weightKg^0.51456",
+          "population": "401 pooled postnatal historical measurements, including children and adults; 130 aged 20+. Not a universal clinical validation.",
+          "agePolicy": "No arbitrary adult-only floor; identify mixed-age historical basis.",
+          "sources": [
+            "gehan",
+            "bsa2020",
+            "epa"
+          ]
+        },
+        "boyd": {
+          "formula": "0.0003207*heightCm^0.3*(1000*weightKg)^(0.7285-0.0188*log10(1000*weightKg))",
+          "population": "Historical pooled formula. Exact universal age/size limits are not established by inspected primary sources.",
+          "agePolicy": "Do not invent a validation range. Clearly label historical estimate.",
+          "coefficientNote": "Use gram form. 0.03330*Wkg^(0.6157-0.0188log10Wkg)*Hcm^0.3 has a rounded coefficient and is not algebraically exact.",
+          "sources": [
+            "bsa2020"
+          ]
+        },
+        "fujimoto": {
+          "formula": "0.008883*weightKg^0.444*heightCm^0.663",
+          "population": "201 Japanese participants from newborn through older ages; general equation corresponds to age 6 and older. Generalization to other populations is uncertain.",
+          "agePolicy": "General branch age >=6. If younger ages are supported, choose the original age branch explicitly.",
+          "optionalAgeBranches": [
+            {
+              "ages": "0 <= age < 1",
+              "formula": "0.009568*weightKg^0.473*heightCm^0.655"
+            },
+            {
+              "ages": "1 <= age < 6",
+              "formula": "0.038189*weightKg^0.423*heightCm^0.362"
+            }
+          ],
+          "sources": [
+            "fujimoto",
+            "bsa2020"
+          ]
+        },
+        "takahira": {
+          "formula": "0.007241*weightKg^0.425*heightCm^0.725",
+          "population": "Historical Japanese formula; original age/size cohort limits and exact original coefficient not verified.",
+          "agePolicy": "Do not invent a universal validation range; identify historical comparison.",
+          "coefficientNote": "Use explicitly cited published 0.007241 variant. Other primary comparisons print 0.007246; the 1925 original was not verified. This is a documented variant choice, not a licensing blocker.",
+          "sources": [
+            "takahiraVariant",
+            "takahiraAlternate"
+          ]
+        },
+        "schlich": {
+          "formulaMale": "0.175*weightKg^0.38*(heightCm/100)^1.24",
+          "formulaFemale": "0.141*weightKg^0.46*(heightCm/100)^1.08",
+          "equivalentOriginal": "specificSurfaceMale=0.175*BMI^-0.62; specificSurfaceFemale=0.141*BMI^-0.54; BSA=weightKg*specificSurface",
+          "population": "3D-scanned adults, 49 men age 21\u201368 and 132 women age 20\u201384. Seven children were excluded from sex-specific fitting.",
+          "agePolicy": "Adult-only estimate. Flag age outside sex-specific study range as extrapolation, or make it unavailable under a study-bounded policy. Do not use pediatric age/shape assumptions.",
+          "coefficientNote": "Use native meter formulas from primary paper. Common cm constants 0.000579479 and 0.000975482 are rounded conversions.",
+          "sources": [
+            "schlich"
+          ]
+        }
+      },
+      "conversion": {
+        "m2PerFt2": "0.09290304",
+        "m2PerIn2": "0.00064516"
+      },
+      "validation": [
+        "Finite strictly positive mass and stature; output must remain finite and positive.",
+        "Do not round intermediate unit conversions or exponents.",
+        "Comparison cards must show method identity; do not average estimates into a diagnostic result.",
+        "Keep existing no-medication-dosing limitation."
+      ],
+      "sources": [
+        "gehan",
+        "bsa2020",
+        "fujimoto",
+        "schlich",
+        "takahiraVariant",
+        "takahiraAlternate",
+        "nist"
+      ]
+    },
+    {
+      "id": "pace-units",
+      "slug": "pace-calculator",
+      "title": "Unit choices across solving, splits, projections and conversion",
+      "proposedModeIds": [
+        "pace",
+        "time",
+        "distance",
+        "splits",
+        "finish",
+        "convert"
+      ],
+      "inputTransformations": {
+        "distanceUnitToMeters": {
+          "km": "1000",
+          "mi": "1609.344",
+          "m": "1",
+          "yd": ".9144"
+        },
+        "paceUnit": [
+          "min-km",
+          "min-mile"
+        ],
+        "elapsed": "Decimal minutes or a separate HMS control; HH may exceed 23, MM/SS must be 0\u201359. Never parse a civil Date.",
+        "splitRows": "Same selected distance unit for cumulative checkpoints; normalize to meters before segment differences.",
+        "finish": "Completed and total use selected shared distanceUnit. If independent units are offered normalize each first."
+      },
+      "formulas": {
+        "pace": "elapsedSeconds / (distanceMeters/1000), seconds/km",
+        "time": "distanceMeters * paceMinutes * 60 / paceUnitMeters",
+        "distance": "elapsedSeconds * paceUnitMeters / (paceMinutes*60)",
+        "finish": "elapsedSeconds * totalMeters/completedMeters",
+        "speedConversions": {
+          "min-km": "60000/value meters/hour",
+          "min-mile": "96560.64/value meters/hour",
+          "kph": "value*1000 meters/hour",
+          "mph": "value*1609.344 meters/hour",
+          "mps": "value*3600 meters/hour",
+          "mpm": "value*60 meters/hour",
+          "yps": "value*.9144*3600 meters/hour",
+          "ypm": "value*.9144*60 meters/hour"
+        },
+        "outputs": "All eight units already accepted as inputs should be available as outputs, with numeric unrounded values plus HH:MM:SS pace."
+      },
+      "validation": [
+        "Unknown unit strings must be rejected.",
+        "Only denominators require >0; zero distance/time is valid for a multiplication result. Find-pace with zero elapsed has undefined/infinite speed and must be handled explicitly.",
+        "Strictly increasing positive checkpoints and times; no empty/malformed CSV cells.",
+        "Finish total >= completed >0."
+      ],
+      "sources": [
+        "nist",
+        "nist44"
+      ]
+    },
+    {
+      "id": "food-energy",
+      "slug": "calorie-calculator",
+      "title": "Food energy cal, kcal, J and kJ",
+      "proposedModeId": "energy-conversion",
+      "appliesToExistingSharedConverter": true,
+      "inputKeys": {
+        "value": "finite nonnegative amount",
+        "from": [
+          "kcal",
+          "kj",
+          "cal",
+          "j"
+        ]
+      },
+      "joulesPerUnit": {
+        "kcal": "4184",
+        "kj": "1000",
+        "cal": "4.184",
+        "j": "1"
+      },
+      "formula": "J=value*joulesPerUnit[from]; every target value=J/joulesPerUnit[target].",
+      "notes": [
+        "Use thermochemical calorie: 1 cal=4.184 J exactly.",
+        "A dietary Calorie is 1 kcal=1000 cal. Label explicitly to avoid a 1000-fold misunderstanding.",
+        "BMR/TDEE already return kJ, so this closes conversion choices only."
+      ],
+      "sources": [
+        "nist"
+      ]
+    },
+    {
+      "id": "bac-units",
+      "slug": "bac-calculator",
+      "title": "Weight and beverage volume units",
+      "proposedModeIds": [
+        "widmark",
+        "beverages"
+      ],
+      "inputKeys": {
+        "weightUnit": [
+          "kg",
+          "lb"
+        ],
+        "volumeUnit": [
+          "ml",
+          "l",
+          "us-floz",
+          "us-cup",
+          "us-pint",
+          "imperial-floz",
+          "imperial-pint",
+          "metric-cup"
+        ],
+        "beverageRow": "count,volume,ABV with global volumeUnit, or validated row volumeUnit",
+        "hours": "nonnegative hours"
+      },
+      "millilitersPerUnit": {
+        "ml": "1",
+        "l": "1000",
+        "us-floz": "29.5735295625",
+        "us-cup": "236.5882365",
+        "us-pint": "473.176473",
+        "imperial-floz": "28.4130625",
+        "imperial-pint": "568.26125",
+        "metric-cup": "250"
+      },
+      "formula": {
+        "massKg": "weight if kg; weight*.45359237 if lb",
+        "alcoholGrams": "sum(count*volume*millilitersPerUnit*ABV/100*.789)",
+        "bacPercent": "max(0,alcoholGrams/(weightKg*1000*r)*100-.015*hours)",
+        "r": "0.68 male and 0.55 female, explicitly simplified assumptions"
+      },
+      "notes": [
+        "Existing beverage-row mode uses kg regardless of global preferences; add a real weight unit control.",
+        "US fluid ounce and Imperial fluid ounce differ; never use a single ambiguous oz unit.",
+        "US cup means 8 US fluid ounces here; metric cup is 250 mL. Do not equate nutrition-label rounded household measures with exact customary units.",
+        "Preserve the timing model stated by each mode: single-beverage mode says hours since drinking began; multiple-beverage mode says hours since assumed absorption and assumes instantaneous absorption. Do not silently merge those meanings.",
+        "Fractional counts can represent partial drinks if intentionally supported; otherwise require integers and let amount vary.",
+        "BAC% numerically represents grams alcohol per deciliter; do not multiply percent by 100 twice.",
+        "Do not determine legal driving limits or sobriety from this estimate."
+      ],
+      "sources": [
+        "nist",
+        "nist44",
+        "widmark",
+        "niaaa"
+      ]
+    },
+    {
+      "id": "activity-catalog",
+      "slug": "calories-burned-calculator",
+      "title": "2024 activity references covering all 106 captured choices",
+      "proposedModeId": "activities",
+      "dataFile": "/tmp/finflo-research-math-everyday/remaining-health/activity-presets.json",
+      "presetCount": 112,
+      "observedChoiceCount": 106,
+      "formula": {
+        "ordinary": "grossKcal=MET*3.5*weightKg*minutes/200",
+        "wheelchair": "grossKcal=MET_WC*.992*weightKg*minutes/60",
+        "aboveRest": "Use (MET-1) with the matching baseline. Existing UI floors negative above-rest values at zero; label this convention if any MET<1 is added.",
+        "weight": "kg=lb*.45359237"
+      },
+      "integration": [
+        "Keep code as a string, preserving leading zeros.",
+        "Store basis per preset and branch energy conversion. A wheelchair MET cannot enter the ordinary adult oxygen conversion.",
+        "Display activity-specific MET basis, primary code and source; allow code/label search and categories in the selector.",
+        "Keep exact MET values; never average the split options or interpolate unmeasured activities.",
+        "Retain custom-MET mode for a separately sourced user intensity.",
+        "Adult Compendium applies to ages 19\u201359; older adults and youth have other references. Do not quietly treat this table as age universal.",
+        "Every numeric fixture is independently multiplied from official MET facts and the stated model; no product output captured."
+      ],
+      "permission": "Official site permits commercial use free of charge, requests citation, and says not to change MET values or combine activities with different MET levels.",
+      "sources": [
+        "compendium",
+        "wheelchair",
+        "wheelchairPaper"
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "deurenberg-male",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-estimate",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 100,
+        "height": 200,
+        "age": 30
+      },
+      "expected": {
+        "bmi": 25,
+        "bodyFatPercent": 20.7,
+        "fatKg": 20.7,
+        "leanKg": 79.3
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "deurenberg-female",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-estimate",
+      "inputs": {
+        "units": "metric",
+        "sex": "female",
+        "weight": 100,
+        "height": 200,
+        "age": 30
+      },
+      "expected": {
+        "bmi": 25,
+        "bodyFatPercent": 31.5,
+        "fatKg": 31.5,
+        "leanKg": 68.5
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "deurenberg-us",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-estimate",
+      "inputs": {
+        "units": "us",
+        "sex": "female",
+        "weight": 160,
+        "height": 64,
+        "age": 45
+      },
+      "expected": {
+        "bmi": 27.46365545465466,
+        "bodyFatPercent": 37.90638654558559
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "deurenberg-child-optional",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-child-optional",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 45,
+        "height": 150,
+        "age": 10
+      },
+      "expected": {
+        "bmi": 20,
+        "bodyFatPercent": 21,
+        "fatKg": 9.45,
+        "leanKg": 35.55
+      },
+      "absoluteTolerance": 1e-09,
+      "optional": true
+    },
+    {
+      "id": "deurenberg-age-boundary",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-estimate",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 60,
+        "height": 150,
+        "age": 16
+      },
+      "expected": {
+        "bmi": 26.666666666666668,
+        "bodyFatPercent": 19.48
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "deurenberg-below-adult",
+      "slug": "body-fat-calculator",
+      "proposedModeId": "bmi-estimate",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 50,
+        "height": 150,
+        "age": 15
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectError": "Use separate child equation; adult formula is not appropriate."
+    },
+    {
+      "id": "james-male",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "james",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 70,
+        "height": 175,
+        "age": 45
+      },
+      "expected": {
+        "leanKg": 56.52,
+        "leanLb": 124.60527058689281,
+        "impliedBodyFatPercent": 19.257142857142856
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "james-female",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "james",
+      "inputs": {
+        "units": "metric",
+        "sex": "female",
+        "weight": 70,
+        "height": 175,
+        "age": 45
+      },
+      "expected": {
+        "leanKg": 51.22,
+        "leanLb": 112.92077069109429,
+        "impliedBodyFatPercent": 26.82857142857143
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "hume-male",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "hume",
+      "inputs": {
+        "units": "metric",
+        "sex": "male",
+        "weight": 70,
+        "height": 175,
+        "age": 45
+      },
+      "expected": {
+        "leanKg": 52.80915,
+        "leanLb": 116.42424673060528,
+        "impliedBodyFatPercent": 24.558357142857144
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "hume-female",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "hume",
+      "inputs": {
+        "units": "metric",
+        "sex": "female",
+        "weight": 70,
+        "height": 175,
+        "age": 45
+      },
+      "expected": {
+        "leanKg": 50.57775,
+        "leanLb": 111.50485181221192,
+        "impliedBodyFatPercent": 27.74607142857143
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "hume-young-female",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "hume",
+      "inputs": {
+        "units": "metric",
+        "sex": "female",
+        "weight": 60,
+        "height": 165,
+        "age": 25
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectUnavailable": "Outside original recommended female age over 30."
+    },
+    {
+      "id": "james-decreasing-branch",
+      "slug": "lean-body-mass-calculator",
+      "proposedModeId": "james",
+      "inputs": {
+        "units": "metric",
+        "sex": "female",
+        "weight": 120,
+        "height": 170,
+        "age": 45
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectUnavailable": "Beyond mathematical peak; cannot present as a credible rising-weight estimate."
+    },
+    {
+      "id": "bsa-gehan-male",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "gehan",
+        "units": "metric",
+        "weight": 70,
+        "height": 175,
+        "sex": "male",
+        "age": 45,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.8538532975180517,
+        "ft2": 19.954710820206227,
+        "in2": 2873.4783581096967
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.853853297518051823265992427653020429160895816022414672"
+    },
+    {
+      "id": "bsa-gehan-female",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "gehan",
+        "units": "metric",
+        "weight": 55,
+        "height": 160,
+        "sex": "female",
+        "age": 40,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.5766722198685348,
+        "ft2": 16.97115853117976,
+        "in2": 2443.846828489886
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.576672219868534706584598184567227435798725727446155757"
+    },
+    {
+      "id": "bsa-boyd-male",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "boyd",
+        "units": "metric",
+        "weight": 70,
+        "height": 175,
+        "sex": "male",
+        "age": 45,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.85069463659523,
+        "ft2": 19.920711276996208,
+        "in2": 2868.5824238874543
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.850694636595229931200867817930794533918792413774875077"
+    },
+    {
+      "id": "bsa-boyd-female",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "boyd",
+        "units": "metric",
+        "weight": 55,
+        "height": 160,
+        "sex": "female",
+        "age": 40,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.5784602570802475,
+        "ft2": 16.990404803548383,
+        "in2": 2446.6182917109672
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.578460257080247535838911599684624777877507290489605852"
+    },
+    {
+      "id": "bsa-fujimoto-male",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 70,
+        "height": 175,
+        "sex": "male",
+        "age": 45,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.7985288892373341,
+        "ft2": 19.359203845615106,
+        "in2": 2787.7253537685756
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.79852888923733413607661707428663551707021002381271744"
+    },
+    {
+      "id": "bsa-fujimoto-female",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 55,
+        "height": 160,
+        "sex": "female",
+        "age": 40,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.522692626623464,
+        "ft2": 16.39012702515939,
+        "in2": 2360.178291622952
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.52269262662346390248779445465693208854584101624560676"
+    },
+    {
+      "id": "bsa-takahira-male",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "takahira",
+        "units": "metric",
+        "weight": 70,
+        "height": 175,
+        "sex": "male",
+        "age": 45,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.8628067363887348,
+        "ft2": 20.051084834131746,
+        "in2": 2887.356216114971
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.862806736388734921706870807513723379304411526930463568"
+    },
+    {
+      "id": "bsa-takahira-female",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "takahira",
+        "units": "metric",
+        "weight": 55,
+        "height": 160,
+        "sex": "female",
+        "age": 40,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.575577165117975,
+        "ft2": 16.959371459943345,
+        "in2": 2442.149490231842
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.575577165117975076799645535673551832761722267810801819"
+    },
+    {
+      "id": "bsa-schlich-male",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "schlich",
+        "units": "metric",
+        "weight": 70,
+        "height": 175,
+        "sex": "male",
+        "age": 45,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.7601208367895669,
+        "ft2": 18.945783009787053,
+        "in2": 2728.1927534093356
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.760120836789566950685868589366567259519068668104758871"
+    },
+    {
+      "id": "bsa-schlich-female",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "schlich",
+        "units": "metric",
+        "weight": 55,
+        "height": 160,
+        "sex": "female",
+        "age": 40,
+        "outputUnit": "m2"
+      },
+      "expected": {
+        "m2": 1.479910771140163,
+        "ft2": 15.929626965276517,
+        "in2": 2293.8662829998184
+      },
+      "absoluteTolerance": 1e-08,
+      "expectedM2Decimal": "1.479910771140162898125149983302245804400763103811855157"
+    },
+    {
+      "id": "fujimoto-age-0.5",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 7,
+        "height": 65,
+        "sex": "female",
+        "age": 0.5
+      },
+      "expected": {
+        "m2": 0.369837366679456
+      },
+      "absoluteTolerance": 1e-09,
+      "optional": true,
+      "expectedM2Decimal": "0.3698373666794560061244871288662986240926234140360798917"
+    },
+    {
+      "id": "fujimoto-age-1",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 10,
+        "height": 75,
+        "sex": "female",
+        "age": 1
+      },
+      "expected": {
+        "m2": 0.4827368626962677
+      },
+      "absoluteTolerance": 1e-09,
+      "optional": true,
+      "expectedM2Decimal": "0.4827368626962676762156131819048281784973072042119126638"
+    },
+    {
+      "id": "fujimoto-age-5",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 20,
+        "height": 110,
+        "sex": "female",
+        "age": 5
+      },
+      "expected": {
+        "m2": 0.7434608886606361
+      },
+      "absoluteTolerance": 1e-09,
+      "optional": true,
+      "expectedM2Decimal": "0.7434608886606360327781802689790390305478471664260373079"
+    },
+    {
+      "id": "fujimoto-age-6",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "fujimoto",
+        "units": "metric",
+        "weight": 23,
+        "height": 120,
+        "sex": "female",
+        "age": 6
+      },
+      "expected": {
+        "m2": 0.8544054057364145
+      },
+      "absoluteTolerance": 1e-09,
+      "optional": false,
+      "expectedM2Decimal": "0.854405405736414574655410720694167885206504999344088432"
+    },
+    {
+      "id": "boyd-us-square-feet",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "boyd",
+        "units": "us",
+        "weight": 154,
+        "height": 70,
+        "age": 40,
+        "sex": "male",
+        "outputUnit": "ft2"
+      },
+      "expected": {
+        "m2": 1.8573974524980603,
+        "ft2": 19.992859786913975
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "schlich-child",
+      "slug": "body-surface-area-calculator",
+      "proposedModeId": "bsa",
+      "inputs": {
+        "method": "schlich",
+        "units": "metric",
+        "weight": 35,
+        "height": 140,
+        "age": 10,
+        "sex": "male"
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectUnavailable": "Children excluded from the original sex-specific fitted formulas."
+    },
+    {
+      "id": "pace-convert-min-km",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "6.213711922373339696174341844",
+        "unit": "min-km"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-min-mile",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "10",
+        "unit": "min-mile"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-kph",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "9.656064",
+        "unit": "kph"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-mph",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "6",
+        "unit": "mph"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-mps",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "2.68224",
+        "unit": "mps"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-mpm",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "160.9344",
+        "unit": "mpm"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-yps",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "2.933333333333333333333333333",
+        "unit": "yps"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-convert-ypm",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": "176",
+        "unit": "ypm"
+      },
+      "expected": {
+        "minPerKm": 6.2137119223733395,
+        "minPerMile": 10,
+        "kph": 9.656064,
+        "mph": 6,
+        "mps": 2.68224,
+        "metersPerMinute": 160.9344,
+        "yardsPerSecond": 2.933333333333333,
+        "yardsPerMinute": 176,
+        "milePaceHMS": "00:10:00",
+        "kilometerPaceHMS": "00:06:13"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-track-yards",
+      "slug": "pace-calculator",
+      "proposedModeId": "pace",
+      "inputs": {
+        "distance": 1760,
+        "distanceUnit": "yd",
+        "minutes": 8
+      },
+      "expected": {
+        "secondsPerKm": 298.2581722739203,
+        "secondsPerMile": 480,
+        "kph": 12.07008,
+        "mph": 7.5
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-race-mile-time",
+      "slug": "pace-calculator",
+      "proposedModeId": "time",
+      "inputs": {
+        "distance": 13.1,
+        "distanceUnit": "mi",
+        "pace": 8.5,
+        "paceUnit": "min-mile"
+      },
+      "expected": {
+        "minutes": 111.35,
+        "seconds": 6681,
+        "timeHMS": "01:51:21"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-distance-meters",
+      "slug": "pace-calculator",
+      "proposedModeId": "distance",
+      "inputs": {
+        "minutes": 42,
+        "pace": 5.25,
+        "paceUnit": "min-km",
+        "distanceUnit": "m"
+      },
+      "expected": {
+        "distance": 8000,
+        "distanceMeters": 8000
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-zero-distance-time",
+      "slug": "pace-calculator",
+      "proposedModeId": "time",
+      "inputs": {
+        "distance": 0,
+        "distanceUnit": "mi",
+        "pace": 8,
+        "paceUnit": "min-mile"
+      },
+      "expected": {
+        "minutes": 0,
+        "seconds": 0
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-splits-miles",
+      "slug": "pace-calculator",
+      "proposedModeId": "splits",
+      "inputs": {
+        "distanceUnit": "mi",
+        "splits": "1,00:08:00\n3,00:25:00\n5,00:41:00"
+      },
+      "expected": {
+        "totalDistanceMeters": 8046.72,
+        "totalSeconds": 2460,
+        "segmentSecondsPerMile": [
+          480,
+          510,
+          480
+        ],
+        "averageSecondsPerMile": 492,
+        "averageSecondsPerKm": 305.7146265807683
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-finish-miles",
+      "slug": "pace-calculator",
+      "proposedModeId": "finish",
+      "inputs": {
+        "distanceUnit": "mi",
+        "completed": 5,
+        "total": 13.1,
+        "elapsed": "00:42:30"
+      },
+      "expected": {
+        "finishSeconds": 6681,
+        "remainingSeconds": 4131,
+        "finishHMS": "01:51:21",
+        "remainingHMS": "01:08:51"
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "pace-invalid-clock",
+      "slug": "pace-calculator",
+      "proposedModeId": "finish",
+      "inputs": {
+        "distanceUnit": "km",
+        "completed": 5,
+        "total": 10,
+        "elapsed": "00:60:00"
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectError": "Minute component must be below 60."
+    },
+    {
+      "id": "pace-invalid-enum",
+      "slug": "pace-calculator",
+      "proposedModeId": "convert",
+      "inputs": {
+        "value": 10,
+        "unit": "constructor"
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectError": "Unknown speed unit."
+    },
+    {
+      "id": "food-cal-250000",
+      "slug": "calorie-calculator",
+      "proposedModeId": "energy-conversion",
+      "inputs": {
+        "value": 250000.0,
+        "from": "cal"
+      },
+      "expected": {
+        "kcal": 250.0,
+        "kj": 1046.0,
+        "cal": 250000.0,
+        "j": 1046000.0
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "food-j-1046000",
+      "slug": "calorie-calculator",
+      "proposedModeId": "energy-conversion",
+      "inputs": {
+        "value": 1046000.0,
+        "from": "j"
+      },
+      "expected": {
+        "kcal": 250.0,
+        "kj": 1046.0,
+        "cal": 250000.0,
+        "j": 1046000.0
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "food-kcal-250",
+      "slug": "calorie-calculator",
+      "proposedModeId": "energy-conversion",
+      "inputs": {
+        "value": 250.0,
+        "from": "kcal"
+      },
+      "expected": {
+        "kcal": 250.0,
+        "kj": 1046.0,
+        "cal": 250000.0,
+        "j": 1046000.0
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "food-kj-1046",
+      "slug": "calorie-calculator",
+      "proposedModeId": "energy-conversion",
+      "inputs": {
+        "value": 1046.0,
+        "from": "kj"
+      },
+      "expected": {
+        "kcal": 250.0,
+        "kj": 1046.0,
+        "cal": 250000.0,
+        "j": 1046000.0
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "food-j-0",
+      "slug": "calorie-calculator",
+      "proposedModeId": "energy-conversion",
+      "inputs": {
+        "value": 0.0,
+        "from": "j"
+      },
+      "expected": {
+        "kcal": 0.0,
+        "kj": 0.0,
+        "cal": 0.0,
+        "j": 0.0
+      },
+      "absoluteTolerance": 1e-08
+    },
+    {
+      "id": "bac-volume-ml",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 355,
+        "volumeUnit": "ml",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 14.00475,
+        "bacPercent": 0.014421743697478992
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-l",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 0.355,
+        "volumeUnit": "l",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 14.00475,
+        "bacPercent": 0.014421743697478992
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-us-floz",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 12,
+        "volumeUnit": "us-floz",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 14.0001088948875,
+        "bacPercent": 0.014411993476654412
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-us-cup",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 1.5,
+        "volumeUnit": "us-cup",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 14.0001088948875,
+        "bacPercent": 0.014411993476654412
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-us-pint",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 0.75,
+        "volumeUnit": "us-pint",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 14.0001088948875,
+        "bacPercent": 0.014411993476654412
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-imperial-floz",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 20,
+        "volumeUnit": "imperial-floz",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 22.4179063125,
+        "bacPercent": 0.03209644183298319
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-imperial-pint",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 1,
+        "volumeUnit": "imperial-pint",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 22.4179063125,
+        "bacPercent": 0.03209644183298319
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-volume-metric-cup",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 2,
+        "volumeUnit": "metric-cup",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {
+        "alcoholGrams": 19.725,
+        "bacPercent": 0.0264390756302521
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-multiple-us-weight",
+      "slug": "bac-calculator",
+      "proposedModeId": "beverages",
+      "inputs": {
+        "sex": "female",
+        "weight": 160,
+        "weightUnit": "lb",
+        "volumeUnit": "us-floz",
+        "beverages": "2,12,5\n1,5,12",
+        "hours": 1.5
+      },
+      "expected": {
+        "alcoholGrams": 42.0003266846625,
+        "weightKg": 72.5747792,
+        "bacPercent": 0.08272144356141561
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-no-alcohol",
+      "slug": "bac-calculator",
+      "proposedModeId": "beverages",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volumeUnit": "ml",
+        "beverages": "2,355,0",
+        "hours": 2
+      },
+      "expected": {
+        "alcoholGrams": 0,
+        "bacPercent": 0
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "bac-invalid-unit",
+      "slug": "bac-calculator",
+      "proposedModeId": "widmark",
+      "inputs": {
+        "sex": "male",
+        "weight": 70,
+        "weightUnit": "kg",
+        "volume": 12,
+        "volumeUnit": "oz",
+        "abv": 5,
+        "hours": 1
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectError": "Ambiguous or unknown volume unit."
+    },
+    {
+      "id": "activity-17152",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "17152"
+      },
+      "expected": {
+        "grossKcal": 102.9,
+        "aboveRestKcal": 66.15,
+        "met": 2.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/walking/"
+    },
+    {
+      "id": "activity-17200",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "17200"
+      },
+      "expected": {
+        "grossKcal": 176.4,
+        "aboveRestKcal": 139.65,
+        "met": 4.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/walking/"
+    },
+    {
+      "id": "activity-17080",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "17080"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/walking/"
+    },
+    {
+      "id": "activity-12050",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12050"
+      },
+      "expected": {
+        "grossKcal": 341.775,
+        "aboveRestKcal": 305.025,
+        "met": 9.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-12120",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12120"
+      },
+      "expected": {
+        "grossKcal": 543.9,
+        "aboveRestKcal": 507.15,
+        "met": 14.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-01010",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01010"
+      },
+      "expected": {
+        "grossKcal": 147.0,
+        "aboveRestKcal": 110.25,
+        "met": 4.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-01040",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01040"
+      },
+      "expected": {
+        "grossKcal": 367.5,
+        "aboveRestKcal": 330.75,
+        "met": 10.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-01008",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01008"
+      },
+      "expected": {
+        "grossKcal": 312.375,
+        "aboveRestKcal": 275.625,
+        "met": 8.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-01009",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01009"
+      },
+      "expected": {
+        "grossKcal": 312.375,
+        "aboveRestKcal": 275.625,
+        "met": 8.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-18230",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18230"
+      },
+      "expected": {
+        "grossKcal": 360.15,
+        "aboveRestKcal": 323.4,
+        "met": 9.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-17190",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "17190"
+      },
+      "expected": {
+        "grossKcal": 139.65,
+        "aboveRestKcal": 102.9,
+        "met": 3.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/walking/"
+    },
+    {
+      "id": "activity-17220",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "17220"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/walking/"
+    },
+    {
+      "id": "activity-12030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12030"
+      },
+      "expected": {
+        "grossKcal": 312.375,
+        "aboveRestKcal": 275.625,
+        "met": 8.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-12090",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12090"
+      },
+      "expected": {
+        "grossKcal": 441.0,
+        "aboveRestKcal": 404.25,
+        "met": 12.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-12140",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12140"
+      },
+      "expected": {
+        "grossKcal": 341.775,
+        "aboveRestKcal": 305.025,
+        "met": 9.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-01030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01030"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-01050",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01050"
+      },
+      "expected": {
+        "grossKcal": 441.0,
+        "aboveRestKcal": 404.25,
+        "met": 12.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-18292",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18292"
+      },
+      "expected": {
+        "grossKcal": 213.15,
+        "aboveRestKcal": 176.4,
+        "met": 5.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-02003",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02003"
+      },
+      "expected": {
+        "grossKcal": 330.75,
+        "aboveRestKcal": 294.0,
+        "met": 9.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02006",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02006"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02120",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02120"
+      },
+      "expected": {
+        "grossKcal": 194.775,
+        "aboveRestKcal": 158.025,
+        "met": 5.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-01236",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01236"
+      },
+      "expected": {
+        "grossKcal": 396.9,
+        "aboveRestKcal": 360.15,
+        "met": 10.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-02020",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02020"
+      },
+      "expected": {
+        "grossKcal": 275.625,
+        "aboveRestKcal": 238.875,
+        "met": 7.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02048",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02048"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02070",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02070"
+      },
+      "expected": {
+        "grossKcal": 268.275,
+        "aboveRestKcal": 231.525,
+        "met": 7.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02065",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02065"
+      },
+      "expected": {
+        "grossKcal": 341.775,
+        "aboveRestKcal": 305.025,
+        "met": 9.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02054",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02054"
+      },
+      "expected": {
+        "grossKcal": 128.625,
+        "aboveRestKcal": 91.875,
+        "met": 3.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02001",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02001"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02005",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02005"
+      },
+      "expected": {
+        "grossKcal": 176.4,
+        "aboveRestKcal": 139.65,
+        "met": 4.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-01220",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "01220"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/bicycling/"
+    },
+    {
+      "id": "activity-02022",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02022"
+      },
+      "expected": {
+        "grossKcal": 139.65,
+        "aboveRestKcal": 102.9,
+        "met": 3.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02035",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02035"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02071",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02071"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02080",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02080"
+      },
+      "expected": {
+        "grossKcal": 249.9,
+        "aboveRestKcal": 213.15,
+        "met": 6.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02101",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02101"
+      },
+      "expected": {
+        "grossKcal": 84.525,
+        "aboveRestKcal": 47.775,
+        "met": 2.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02150",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02150"
+      },
+      "expected": {
+        "grossKcal": 84.525,
+        "aboveRestKcal": 47.775,
+        "met": 2.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-02050",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "02050"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/conditioning-exercise/"
+    },
+    {
+      "id": "activity-15030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15030"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-90501",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "90501"
+      },
+      "expected": {
+        "grossKcal": 177.072,
+        "aboveRestKcal": 142.352,
+        "met": 5.1,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/adult-wheelchair-users-compendium/"
+    },
+    {
+      "id": "activity-15090",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15090"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-03030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "03030"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/dancing/"
+    },
+    {
+      "id": "activity-03093",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "03093"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/dancing/"
+    },
+    {
+      "id": "activity-03031",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "03031"
+      },
+      "expected": {
+        "grossKcal": 360.15,
+        "aboveRestKcal": 323.4,
+        "met": 9.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/dancing/"
+    },
+    {
+      "id": "activity-03040",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "03040"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/dancing/"
+    },
+    {
+      "id": "activity-15210",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15210"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15240",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15240"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15290",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15290"
+      },
+      "expected": {
+        "grossKcal": 128.625,
+        "aboveRestKcal": 91.875,
+        "met": 3.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15320",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15320"
+      },
+      "expected": {
+        "grossKcal": 441.0,
+        "aboveRestKcal": 404.25,
+        "met": 12.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15370",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15370"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-18100",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18100"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-15530",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15530"
+      },
+      "expected": {
+        "grossKcal": 257.25,
+        "aboveRestKcal": 220.5,
+        "met": 7.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15537",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15537"
+      },
+      "expected": {
+        "grossKcal": 213.15,
+        "aboveRestKcal": 176.4,
+        "met": 5.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15591",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15591"
+      },
+      "expected": {
+        "grossKcal": 275.625,
+        "aboveRestKcal": 238.875,
+        "met": 7.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15550",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15550"
+      },
+      "expected": {
+        "grossKcal": 452.025,
+        "aboveRestKcal": 415.275,
+        "met": 12.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15560",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15560"
+      },
+      "expected": {
+        "grossKcal": 305.025,
+        "aboveRestKcal": 268.275,
+        "met": 8.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15580",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15580"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-19160",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "19160"
+      },
+      "expected": {
+        "grossKcal": 231.525,
+        "aboveRestKcal": 194.775,
+        "met": 6.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/winter-activities/"
+    },
+    {
+      "id": "activity-19190",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "19190"
+      },
+      "expected": {
+        "grossKcal": 194.775,
+        "aboveRestKcal": 158.025,
+        "met": 5.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/winter-activities/"
+    },
+    {
+      "id": "activity-15620",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15620"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15675",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15675"
+      },
+      "expected": {
+        "grossKcal": 249.9,
+        "aboveRestKcal": 213.15,
+        "met": 6.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15711",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15711"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-12010",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "12010"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/running/"
+    },
+    {
+      "id": "activity-18150",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18150"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-18370",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18370"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-15040",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15040"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15080",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15080"
+      },
+      "expected": {
+        "grossKcal": 91.875,
+        "aboveRestKcal": 55.125,
+        "met": 2.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15120",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15120"
+      },
+      "expected": {
+        "grossKcal": 286.65,
+        "aboveRestKcal": 249.9,
+        "met": 7.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-03012",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "03012"
+      },
+      "expected": {
+        "grossKcal": 249.9,
+        "aboveRestKcal": 213.15,
+        "met": 6.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/dancing/"
+    },
+    {
+      "id": "activity-15200",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15200"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15230",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15230"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15265",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15265"
+      },
+      "expected": {
+        "grossKcal": 158.025,
+        "aboveRestKcal": 121.275,
+        "met": 4.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15300",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15300"
+      },
+      "expected": {
+        "grossKcal": 139.65,
+        "aboveRestKcal": 102.9,
+        "met": 3.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15350",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15350"
+      },
+      "expected": {
+        "grossKcal": 286.65,
+        "aboveRestKcal": 249.9,
+        "met": 7.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15360",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15360"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-19030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "19030"
+      },
+      "expected": {
+        "grossKcal": 257.25,
+        "aboveRestKcal": 220.5,
+        "met": 7.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/winter-activities/"
+    },
+    {
+      "id": "activity-15430",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15430"
+      },
+      "expected": {
+        "grossKcal": 378.525,
+        "aboveRestKcal": 341.775,
+        "met": 10.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15520",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15520"
+      },
+      "expected": {
+        "grossKcal": 367.5,
+        "aboveRestKcal": 330.75,
+        "met": 10.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15540",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15540"
+      },
+      "expected": {
+        "grossKcal": 183.75,
+        "aboveRestKcal": 147.0,
+        "met": 5.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15593",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15593"
+      },
+      "expected": {
+        "grossKcal": 452.025,
+        "aboveRestKcal": 415.275,
+        "met": 12.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15552",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15552"
+      },
+      "expected": {
+        "grossKcal": 305.025,
+        "aboveRestKcal": 268.275,
+        "met": 8.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-18200",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18200"
+      },
+      "expected": {
+        "grossKcal": 257.25,
+        "aboveRestKcal": 220.5,
+        "met": 7.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-19090",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "19090"
+      },
+      "expected": {
+        "grossKcal": 312.375,
+        "aboveRestKcal": 275.625,
+        "met": 8.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/winter-activities/"
+    },
+    {
+      "id": "activity-19180",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "19180"
+      },
+      "expected": {
+        "grossKcal": 257.25,
+        "aboveRestKcal": 220.5,
+        "met": 7.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/winter-activities/"
+    },
+    {
+      "id": "activity-15610",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15610"
+      },
+      "expected": {
+        "grossKcal": 257.25,
+        "aboveRestKcal": 220.5,
+        "met": 7.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15670",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15670"
+      },
+      "expected": {
+        "grossKcal": 121.275,
+        "aboveRestKcal": 84.525,
+        "met": 3.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15725",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15725"
+      },
+      "expected": {
+        "grossKcal": 294.0,
+        "aboveRestKcal": 257.25,
+        "met": 8.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-15720",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15720"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-18360",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18360"
+      },
+      "expected": {
+        "grossKcal": 367.5,
+        "aboveRestKcal": 330.75,
+        "met": 10.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-18365",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "18365"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/water-activities/"
+    },
+    {
+      "id": "activity-15730",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "15730"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sports/"
+    },
+    {
+      "id": "activity-08010",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08010"
+      },
+      "expected": {
+        "grossKcal": 202.125,
+        "aboveRestKcal": 165.375,
+        "met": 5.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-04001",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "04001"
+      },
+      "expected": {
+        "grossKcal": 128.625,
+        "aboveRestKcal": 91.875,
+        "met": 3.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/fishing-hunting/"
+    },
+    {
+      "id": "activity-08110",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08110"
+      },
+      "expected": {
+        "grossKcal": 220.5,
+        "aboveRestKcal": 183.75,
+        "met": 6.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08130",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08130"
+      },
+      "expected": {
+        "grossKcal": 91.875,
+        "aboveRestKcal": 55.125,
+        "met": 2.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08195",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08195"
+      },
+      "expected": {
+        "grossKcal": 194.775,
+        "aboveRestKcal": 158.025,
+        "met": 5.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08019",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08019"
+      },
+      "expected": {
+        "grossKcal": 165.375,
+        "aboveRestKcal": 128.625,
+        "met": 4.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08245",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08245"
+      },
+      "expected": {
+        "grossKcal": 139.65,
+        "aboveRestKcal": 102.9,
+        "met": 3.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08125",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08125"
+      },
+      "expected": {
+        "grossKcal": 165.375,
+        "aboveRestKcal": 128.625,
+        "met": 4.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-08160",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "08160"
+      },
+      "expected": {
+        "grossKcal": 147.0,
+        "aboveRestKcal": 110.25,
+        "met": 4.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/lawn-garden/"
+    },
+    {
+      "id": "activity-05050",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05050"
+      },
+      "expected": {
+        "grossKcal": 73.5,
+        "aboveRestKcal": 36.75,
+        "met": 2.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-05020",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05020"
+      },
+      "expected": {
+        "grossKcal": 128.625,
+        "aboveRestKcal": 91.875,
+        "met": 3.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-05022",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05022"
+      },
+      "expected": {
+        "grossKcal": 121.275,
+        "aboveRestKcal": 84.525,
+        "met": 3.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-05120",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05120"
+      },
+      "expected": {
+        "grossKcal": 213.15,
+        "aboveRestKcal": 176.4,
+        "met": 5.8,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-05175",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05175"
+      },
+      "expected": {
+        "grossKcal": 128.625,
+        "aboveRestKcal": 91.875,
+        "met": 3.5,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-14020",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "14020"
+      },
+      "expected": {
+        "grossKcal": 110.25,
+        "aboveRestKcal": 73.5,
+        "met": 3.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/sexual-activity/"
+    },
+    {
+      "id": "activity-07040",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "07040"
+      },
+      "expected": {
+        "grossKcal": 47.775,
+        "aboveRestKcal": 11.025,
+        "met": 1.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/inactivity/"
+    },
+    {
+      "id": "activity-05060",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "05060"
+      },
+      "expected": {
+        "grossKcal": 121.275,
+        "aboveRestKcal": 84.525,
+        "met": 3.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-activities/"
+    },
+    {
+      "id": "activity-06160",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "06160"
+      },
+      "expected": {
+        "grossKcal": 121.275,
+        "aboveRestKcal": 84.525,
+        "met": 3.3,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-repair/"
+    },
+    {
+      "id": "activity-06072",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "06072"
+      },
+      "expected": {
+        "grossKcal": 147.0,
+        "aboveRestKcal": 110.25,
+        "met": 4.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/home-repair/"
+    },
+    {
+      "id": "activity-09030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "09030"
+      },
+      "expected": {
+        "grossKcal": 36.75,
+        "aboveRestKcal": 0.0,
+        "met": 1.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/miscellaneous/"
+    },
+    {
+      "id": "activity-07030",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "07030"
+      },
+      "expected": {
+        "grossKcal": 36.75,
+        "aboveRestKcal": 0.0,
+        "met": 1.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/inactivity/"
+    },
+    {
+      "id": "activity-07020",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "07020"
+      },
+      "expected": {
+        "grossKcal": 36.75,
+        "aboveRestKcal": 0.0,
+        "met": 1.0,
+        "minutes": 30
+      },
+      "absoluteTolerance": 1e-09,
+      "sourceUrl": "https://pacompendium.com/inactivity/"
+    },
+    {
+      "id": "activity-us-units",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "us",
+        "weight": 180,
+        "minutes": 45,
+        "activity": "12030"
+      },
+      "expected": {
+        "grossKcal": 546.52210680375,
+        "aboveRestKcal": 482.22538835625
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "activity-zero-time",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 0,
+        "activity": "90501"
+      },
+      "expected": {
+        "grossKcal": 0,
+        "aboveRestKcal": 0
+      },
+      "absoluteTolerance": 1e-09
+    },
+    {
+      "id": "activity-invalid-code",
+      "slug": "calories-burned-calculator",
+      "proposedModeId": "activities",
+      "inputs": {
+        "units": "metric",
+        "weight": 70,
+        "minutes": 30,
+        "activity": "99999"
+      },
+      "expected": {},
+      "absoluteTolerance": 1e-09,
+      "expectError": "Unknown activity code."
+    }
+  ],
+  "statistics": {
+    "families": 7,
+    "fixtures": 175,
+    "numericalFixtures": 167,
+    "validationOrApplicabilityFixtures": 8,
+    "activityPresets": 112,
+    "capturedActivityChoicesCovered": 106
+  },
+  "artifactFiles": {
+    "activityPresets": "/tmp/finflo-research-math-everyday/remaining-health/activity-presets.json",
+    "fixtureFile": "/tmp/finflo-research-math-everyday/remaining-health/independent-fixtures.json"
+  }
+}

@@ -1,0 +1,2131 @@
+{
+  "provenance": "Independent Decimal/rational research plus direct domain and timing contracts.",
+  "fixtures": [
+    {
+      "id": "duplicate-extras-one-posting",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "periods": 26,
+        "oneTimeExtras": [
+          {
+            "month": 2,
+            "amount": 50
+          },
+          {
+            "month": 2,
+            "amount": 50
+          }
+        ],
+        "annualExtraStart": 2,
+        "annualExtra": 100,
+        "monthlyExtra": 10,
+        "monthlyExtraStart": 2
+      },
+      "expected": {
+        "notePrincipal": 1200.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 100.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 50.0,
+        "paymentCount": 19,
+        "payoffYears": 0.7307692307692307,
+        "payoffMonthBucket": 9,
+        "finalPayment": 30.0,
+        "totalInterest": 0.0,
+        "totalPI": 1200.0,
+        "totalExtraPrincipal": 270.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1200.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 1200.0,
+        "firstMonthlyRequiredBudget": 100.0,
+        "firstYearPlannedRegularPI": 1300.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "9": {
+            "month": 9,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "10": {
+            "month": 10,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [
+          {
+            "period": 5,
+            "amount": 210.0
+          },
+          {
+            "period": 7,
+            "amount": 10.0
+          },
+          {
+            "period": 9,
+            "amount": 10.0
+          },
+          {
+            "period": 11,
+            "amount": 10.0
+          },
+          {
+            "period": 13,
+            "amount": 10.0
+          },
+          {
+            "period": 16,
+            "amount": 10.0
+          },
+          {
+            "period": 18,
+            "amount": 10.0
+          }
+        ],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.038461538461538464,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 50.0,
+          "extra": 0.0,
+          "ending": 1150.0
+        },
+        "lastLoanRow": {
+          "period": 19,
+          "timeYears": 0.7307692307692307,
+          "opening": 30.0,
+          "interest": 0.0,
+          "regular": 30.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "monthly-extras-twelve-not-thirteen",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 120000,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 6,
+        "termMonths": 360,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "periods": 26,
+        "monthlyExtra": 100
+      },
+      "expected": {
+        "notePrincipal": 120000.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 719.4606301833029,
+        "equivalentPeriodicRate": 0.0023045937390381885,
+        "regularPeriodicPI": 359.73031509165145,
+        "paymentCount": 498,
+        "payoffYears": 19.153846153846153,
+        "payoffMonthBucket": 230,
+        "finalPayment": 69.18157953976127,
+        "totalInterest": 81755.14818009053,
+        "totalPI": 201755.14818009053,
+        "totalExtraPrincipal": 22900.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 13975.689870427499,
+        "loanPaymentsOverHorizon": 21105.976384765876,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 112869.71348566162,
+        "housingCashOverHorizon": 21105.976384765876,
+        "firstMonthlyRequiredBudget": 719.4606301833029,
+        "firstYearPlannedRegularPI": 9352.988192382938,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [
+          {
+            "period": 3,
+            "amount": 100.0
+          },
+          {
+            "period": 5,
+            "amount": 100.0
+          },
+          {
+            "period": 7,
+            "amount": 100.0
+          },
+          {
+            "period": 9,
+            "amount": 100.0
+          },
+          {
+            "period": 11,
+            "amount": 100.0
+          },
+          {
+            "period": 13,
+            "amount": 100.0
+          },
+          {
+            "period": 16,
+            "amount": 100.0
+          },
+          {
+            "period": 18,
+            "amount": 100.0
+          },
+          {
+            "period": 20,
+            "amount": 100.0
+          },
+          {
+            "period": 22,
+            "amount": 100.0
+          },
+          {
+            "period": 24,
+            "amount": 100.0
+          },
+          {
+            "period": 26,
+            "amount": 100.0
+          },
+          {
+            "period": 29,
+            "amount": 100.0
+          },
+          {
+            "period": 31,
+            "amount": 100.0
+          },
+          {
+            "period": 33,
+            "amount": 100.0
+          },
+          {
+            "period": 35,
+            "amount": 100.0
+          },
+          {
+            "period": 37,
+            "amount": 100.0
+          },
+          {
+            "period": 39,
+            "amount": 100.0
+          },
+          {
+            "period": 42,
+            "amount": 100.0
+          },
+          {
+            "period": 44,
+            "amount": 100.0
+          },
+          {
+            "period": 46,
+            "amount": 100.0
+          },
+          {
+            "period": 48,
+            "amount": 100.0
+          },
+          {
+            "period": 50,
+            "amount": 100.0
+          },
+          {
+            "period": 52,
+            "amount": 100.0
+          },
+          {
+            "period": 55,
+            "amount": 100.0
+          },
+          {
+            "period": 57,
+            "amount": 100.0
+          },
+          {
+            "period": 59,
+            "amount": 100.0
+          },
+          {
+            "period": 61,
+            "amount": 100.0
+          },
+          {
+            "period": 63,
+            "amount": 100.0
+          },
+          {
+            "period": 65,
+            "amount": 100.0
+          },
+          {
+            "period": 68,
+            "amount": 100.0
+          },
+          {
+            "period": 70,
+            "amount": 100.0
+          },
+          {
+            "period": 72,
+            "amount": 100.0
+          },
+          {
+            "period": 74,
+            "amount": 100.0
+          },
+          {
+            "period": 76,
+            "amount": 100.0
+          },
+          {
+            "period": 78,
+            "amount": 100.0
+          },
+          {
+            "period": 81,
+            "amount": 100.0
+          },
+          {
+            "period": 83,
+            "amount": 100.0
+          },
+          {
+            "period": 85,
+            "amount": 100.0
+          },
+          {
+            "period": 87,
+            "amount": 100.0
+          },
+          {
+            "period": 89,
+            "amount": 100.0
+          },
+          {
+            "period": 91,
+            "amount": 100.0
+          },
+          {
+            "period": 94,
+            "amount": 100.0
+          },
+          {
+            "period": 96,
+            "amount": 100.0
+          },
+          {
+            "period": 98,
+            "amount": 100.0
+          },
+          {
+            "period": 100,
+            "amount": 100.0
+          },
+          {
+            "period": 102,
+            "amount": 100.0
+          },
+          {
+            "period": 104,
+            "amount": 100.0
+          },
+          {
+            "period": 107,
+            "amount": 100.0
+          },
+          {
+            "period": 109,
+            "amount": 100.0
+          },
+          {
+            "period": 111,
+            "amount": 100.0
+          },
+          {
+            "period": 113,
+            "amount": 100.0
+          },
+          {
+            "period": 115,
+            "amount": 100.0
+          },
+          {
+            "period": 117,
+            "amount": 100.0
+          },
+          {
+            "period": 120,
+            "amount": 100.0
+          },
+          {
+            "period": 122,
+            "amount": 100.0
+          },
+          {
+            "period": 124,
+            "amount": 100.0
+          },
+          {
+            "period": 126,
+            "amount": 100.0
+          },
+          {
+            "period": 128,
+            "amount": 100.0
+          },
+          {
+            "period": 130,
+            "amount": 100.0
+          },
+          {
+            "period": 133,
+            "amount": 100.0
+          },
+          {
+            "period": 135,
+            "amount": 100.0
+          },
+          {
+            "period": 137,
+            "amount": 100.0
+          },
+          {
+            "period": 139,
+            "amount": 100.0
+          },
+          {
+            "period": 141,
+            "amount": 100.0
+          },
+          {
+            "period": 143,
+            "amount": 100.0
+          },
+          {
+            "period": 146,
+            "amount": 100.0
+          },
+          {
+            "period": 148,
+            "amount": 100.0
+          },
+          {
+            "period": 150,
+            "amount": 100.0
+          },
+          {
+            "period": 152,
+            "amount": 100.0
+          },
+          {
+            "period": 154,
+            "amount": 100.0
+          },
+          {
+            "period": 156,
+            "amount": 100.0
+          },
+          {
+            "period": 159,
+            "amount": 100.0
+          },
+          {
+            "period": 161,
+            "amount": 100.0
+          },
+          {
+            "period": 163,
+            "amount": 100.0
+          },
+          {
+            "period": 165,
+            "amount": 100.0
+          },
+          {
+            "period": 167,
+            "amount": 100.0
+          },
+          {
+            "period": 169,
+            "amount": 100.0
+          },
+          {
+            "period": 172,
+            "amount": 100.0
+          },
+          {
+            "period": 174,
+            "amount": 100.0
+          },
+          {
+            "period": 176,
+            "amount": 100.0
+          },
+          {
+            "period": 178,
+            "amount": 100.0
+          },
+          {
+            "period": 180,
+            "amount": 100.0
+          },
+          {
+            "period": 182,
+            "amount": 100.0
+          },
+          {
+            "period": 185,
+            "amount": 100.0
+          },
+          {
+            "period": 187,
+            "amount": 100.0
+          },
+          {
+            "period": 189,
+            "amount": 100.0
+          },
+          {
+            "period": 191,
+            "amount": 100.0
+          },
+          {
+            "period": 193,
+            "amount": 100.0
+          },
+          {
+            "period": 195,
+            "amount": 100.0
+          },
+          {
+            "period": 198,
+            "amount": 100.0
+          },
+          {
+            "period": 200,
+            "amount": 100.0
+          },
+          {
+            "period": 202,
+            "amount": 100.0
+          },
+          {
+            "period": 204,
+            "amount": 100.0
+          },
+          {
+            "period": 206,
+            "amount": 100.0
+          },
+          {
+            "period": 208,
+            "amount": 100.0
+          },
+          {
+            "period": 211,
+            "amount": 100.0
+          },
+          {
+            "period": 213,
+            "amount": 100.0
+          },
+          {
+            "period": 215,
+            "amount": 100.0
+          },
+          {
+            "period": 217,
+            "amount": 100.0
+          },
+          {
+            "period": 219,
+            "amount": 100.0
+          },
+          {
+            "period": 221,
+            "amount": 100.0
+          },
+          {
+            "period": 224,
+            "amount": 100.0
+          },
+          {
+            "period": 226,
+            "amount": 100.0
+          },
+          {
+            "period": 228,
+            "amount": 100.0
+          },
+          {
+            "period": 230,
+            "amount": 100.0
+          },
+          {
+            "period": 232,
+            "amount": 100.0
+          },
+          {
+            "period": 234,
+            "amount": 100.0
+          },
+          {
+            "period": 237,
+            "amount": 100.0
+          },
+          {
+            "period": 239,
+            "amount": 100.0
+          },
+          {
+            "period": 241,
+            "amount": 100.0
+          },
+          {
+            "period": 243,
+            "amount": 100.0
+          },
+          {
+            "period": 245,
+            "amount": 100.0
+          },
+          {
+            "period": 247,
+            "amount": 100.0
+          },
+          {
+            "period": 250,
+            "amount": 100.0
+          },
+          {
+            "period": 252,
+            "amount": 100.0
+          },
+          {
+            "period": 254,
+            "amount": 100.0
+          },
+          {
+            "period": 256,
+            "amount": 100.0
+          },
+          {
+            "period": 258,
+            "amount": 100.0
+          },
+          {
+            "period": 260,
+            "amount": 100.0
+          },
+          {
+            "period": 263,
+            "amount": 100.0
+          },
+          {
+            "period": 265,
+            "amount": 100.0
+          },
+          {
+            "period": 267,
+            "amount": 100.0
+          },
+          {
+            "period": 269,
+            "amount": 100.0
+          },
+          {
+            "period": 271,
+            "amount": 100.0
+          },
+          {
+            "period": 273,
+            "amount": 100.0
+          },
+          {
+            "period": 276,
+            "amount": 100.0
+          },
+          {
+            "period": 278,
+            "amount": 100.0
+          },
+          {
+            "period": 280,
+            "amount": 100.0
+          },
+          {
+            "period": 282,
+            "amount": 100.0
+          },
+          {
+            "period": 284,
+            "amount": 100.0
+          },
+          {
+            "period": 286,
+            "amount": 100.0
+          },
+          {
+            "period": 289,
+            "amount": 100.0
+          },
+          {
+            "period": 291,
+            "amount": 100.0
+          },
+          {
+            "period": 293,
+            "amount": 100.0
+          },
+          {
+            "period": 295,
+            "amount": 100.0
+          },
+          {
+            "period": 297,
+            "amount": 100.0
+          },
+          {
+            "period": 299,
+            "amount": 100.0
+          },
+          {
+            "period": 302,
+            "amount": 100.0
+          },
+          {
+            "period": 304,
+            "amount": 100.0
+          },
+          {
+            "period": 306,
+            "amount": 100.0
+          },
+          {
+            "period": 308,
+            "amount": 100.0
+          },
+          {
+            "period": 310,
+            "amount": 100.0
+          },
+          {
+            "period": 312,
+            "amount": 100.0
+          },
+          {
+            "period": 315,
+            "amount": 100.0
+          },
+          {
+            "period": 317,
+            "amount": 100.0
+          },
+          {
+            "period": 319,
+            "amount": 100.0
+          },
+          {
+            "period": 321,
+            "amount": 100.0
+          },
+          {
+            "period": 323,
+            "amount": 100.0
+          },
+          {
+            "period": 325,
+            "amount": 100.0
+          },
+          {
+            "period": 328,
+            "amount": 100.0
+          },
+          {
+            "period": 330,
+            "amount": 100.0
+          },
+          {
+            "period": 332,
+            "amount": 100.0
+          },
+          {
+            "period": 334,
+            "amount": 100.0
+          },
+          {
+            "period": 336,
+            "amount": 100.0
+          },
+          {
+            "period": 338,
+            "amount": 100.0
+          },
+          {
+            "period": 341,
+            "amount": 100.0
+          },
+          {
+            "period": 343,
+            "amount": 100.0
+          },
+          {
+            "period": 345,
+            "amount": 100.0
+          },
+          {
+            "period": 347,
+            "amount": 100.0
+          },
+          {
+            "period": 349,
+            "amount": 100.0
+          },
+          {
+            "period": 351,
+            "amount": 100.0
+          },
+          {
+            "period": 354,
+            "amount": 100.0
+          },
+          {
+            "period": 356,
+            "amount": 100.0
+          },
+          {
+            "period": 358,
+            "amount": 100.0
+          },
+          {
+            "period": 360,
+            "amount": 100.0
+          },
+          {
+            "period": 362,
+            "amount": 100.0
+          },
+          {
+            "period": 364,
+            "amount": 100.0
+          },
+          {
+            "period": 367,
+            "amount": 100.0
+          },
+          {
+            "period": 369,
+            "amount": 100.0
+          },
+          {
+            "period": 371,
+            "amount": 100.0
+          },
+          {
+            "period": 373,
+            "amount": 100.0
+          },
+          {
+            "period": 375,
+            "amount": 100.0
+          },
+          {
+            "period": 377,
+            "amount": 100.0
+          },
+          {
+            "period": 380,
+            "amount": 100.0
+          },
+          {
+            "period": 382,
+            "amount": 100.0
+          },
+          {
+            "period": 384,
+            "amount": 100.0
+          },
+          {
+            "period": 386,
+            "amount": 100.0
+          },
+          {
+            "period": 388,
+            "amount": 100.0
+          },
+          {
+            "period": 390,
+            "amount": 100.0
+          },
+          {
+            "period": 393,
+            "amount": 100.0
+          },
+          {
+            "period": 395,
+            "amount": 100.0
+          },
+          {
+            "period": 397,
+            "amount": 100.0
+          },
+          {
+            "period": 399,
+            "amount": 100.0
+          },
+          {
+            "period": 401,
+            "amount": 100.0
+          },
+          {
+            "period": 403,
+            "amount": 100.0
+          },
+          {
+            "period": 406,
+            "amount": 100.0
+          },
+          {
+            "period": 408,
+            "amount": 100.0
+          },
+          {
+            "period": 410,
+            "amount": 100.0
+          },
+          {
+            "period": 412,
+            "amount": 100.0
+          },
+          {
+            "period": 414,
+            "amount": 100.0
+          },
+          {
+            "period": 416,
+            "amount": 100.0
+          },
+          {
+            "period": 419,
+            "amount": 100.0
+          },
+          {
+            "period": 421,
+            "amount": 100.0
+          },
+          {
+            "period": 423,
+            "amount": 100.0
+          },
+          {
+            "period": 425,
+            "amount": 100.0
+          },
+          {
+            "period": 427,
+            "amount": 100.0
+          },
+          {
+            "period": 429,
+            "amount": 100.0
+          },
+          {
+            "period": 432,
+            "amount": 100.0
+          },
+          {
+            "period": 434,
+            "amount": 100.0
+          },
+          {
+            "period": 436,
+            "amount": 100.0
+          },
+          {
+            "period": 438,
+            "amount": 100.0
+          },
+          {
+            "period": 440,
+            "amount": 100.0
+          },
+          {
+            "period": 442,
+            "amount": 100.0
+          },
+          {
+            "period": 445,
+            "amount": 100.0
+          },
+          {
+            "period": 447,
+            "amount": 100.0
+          },
+          {
+            "period": 449,
+            "amount": 100.0
+          },
+          {
+            "period": 451,
+            "amount": 100.0
+          },
+          {
+            "period": 453,
+            "amount": 100.0
+          },
+          {
+            "period": 455,
+            "amount": 100.0
+          },
+          {
+            "period": 458,
+            "amount": 100.0
+          },
+          {
+            "period": 460,
+            "amount": 100.0
+          },
+          {
+            "period": 462,
+            "amount": 100.0
+          },
+          {
+            "period": 464,
+            "amount": 100.0
+          },
+          {
+            "period": 466,
+            "amount": 100.0
+          },
+          {
+            "period": 468,
+            "amount": 100.0
+          },
+          {
+            "period": 471,
+            "amount": 100.0
+          },
+          {
+            "period": 473,
+            "amount": 100.0
+          },
+          {
+            "period": 475,
+            "amount": 100.0
+          },
+          {
+            "period": 477,
+            "amount": 100.0
+          },
+          {
+            "period": 479,
+            "amount": 100.0
+          },
+          {
+            "period": 481,
+            "amount": 100.0
+          },
+          {
+            "period": 484,
+            "amount": 100.0
+          },
+          {
+            "period": 486,
+            "amount": 100.0
+          },
+          {
+            "period": 488,
+            "amount": 100.0
+          },
+          {
+            "period": 490,
+            "amount": 100.0
+          },
+          {
+            "period": 492,
+            "amount": 100.0
+          },
+          {
+            "period": 494,
+            "amount": 100.0
+          },
+          {
+            "period": 497,
+            "amount": 100.0
+          }
+        ],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.038461538461538464,
+          "opening": 120000.0,
+          "interest": 276.5512486845826,
+          "regular": 359.73031509165145,
+          "extra": 0.0,
+          "ending": 119916.82093359293
+        },
+        "lastLoanRow": {
+          "period": 498,
+          "timeYears": 19.153846153846153,
+          "opening": 69.02251069376373,
+          "interest": 0.1590688459975443,
+          "regular": 69.18157953976127,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "annual-extra-at-month1-repeats13",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 24000,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 24,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "periods": 26,
+        "annualExtra": 100,
+        "annualExtraStart": 1
+      },
+      "expected": {
+        "notePrincipal": 24000.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 1000.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 500.0,
+        "paymentCount": 48,
+        "payoffYears": 1.8461538461538463,
+        "payoffMonthBucket": 23,
+        "finalPayment": 300.0,
+        "totalInterest": 0.0,
+        "totalPI": 24000.0,
+        "totalExtraPrincipal": 200.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 24000.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 24000.0,
+        "firstMonthlyRequiredBudget": 1000.0,
+        "firstYearPlannedRegularPI": 13000.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "23": {
+            "month": 23,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [
+          {
+            "period": 3,
+            "amount": 100.0
+          },
+          {
+            "period": 29,
+            "amount": 100.0
+          }
+        ],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.038461538461538464,
+          "opening": 24000.0,
+          "interest": 0.0,
+          "regular": 500.0,
+          "extra": 0.0,
+          "ending": 23500.0
+        },
+        "lastLoanRow": {
+          "period": 48,
+          "timeYears": 1.8461538461538463,
+          "opening": 300.0,
+          "interest": 0.0,
+          "regular": 300.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "negative-cost-growth-valid",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "costs": [
+          {
+            "amount": 1200,
+            "growthPercent": -50
+          }
+        ]
+      },
+      "expected": {
+        "notePrincipal": 1200.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 100.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 100.0,
+        "paymentCount": 12,
+        "payoffYears": 1.0,
+        "payoffMonthBucket": 12,
+        "finalPayment": 100.0,
+        "totalInterest": 0.0,
+        "totalPI": 1200.0,
+        "totalExtraPrincipal": 0.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 1800.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1200.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 3000.0,
+        "firstMonthlyRequiredBudget": 200.0,
+        "firstYearPlannedRegularPI": 1200.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 50.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 50.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 1100.0
+        },
+        "lastLoanRow": {
+          "period": 12,
+          "timeYears": 1.0,
+          "opening": 100.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "fee-financed-vs-cash-note",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 10,
+        "financeFee": true,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "otherClosingCash": 100,
+        "downPayment": 100
+      },
+      "expected": {
+        "notePrincipal": 1320.0,
+        "upfrontFee": 120.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 110.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 110.0,
+        "paymentCount": 12,
+        "payoffYears": 1.0,
+        "payoffMonthBucket": 12,
+        "finalPayment": 110.0,
+        "totalInterest": 0.0,
+        "totalPI": 1320.0,
+        "totalExtraPrincipal": 0.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1320.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 1520.0,
+        "firstMonthlyRequiredBudget": 110.0,
+        "firstYearPlannedRegularPI": 1320.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1320.0,
+          "interest": 0.0,
+          "regular": 110.0,
+          "extra": 0.0,
+          "ending": 1210.0
+        },
+        "lastLoanRow": {
+          "period": 12,
+          "timeYears": 1.0,
+          "opening": 110.0,
+          "interest": 0.0,
+          "regular": 110.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "fee-upfront-not-double-counted",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 10,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "otherClosingCash": 100,
+        "downPayment": 100
+      },
+      "expected": {
+        "notePrincipal": 1200.0,
+        "upfrontFee": 120.0,
+        "upfrontCashFee": 120.0,
+        "contractMonthlyPI": 100.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 100.0,
+        "paymentCount": 12,
+        "payoffYears": 1.0,
+        "payoffMonthBucket": 12,
+        "finalPayment": 100.0,
+        "totalInterest": 0.0,
+        "totalPI": 1200.0,
+        "totalExtraPrincipal": 0.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1200.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 1520.0,
+        "firstMonthlyRequiredBudget": 100.0,
+        "firstYearPlannedRegularPI": 1200.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 1100.0
+        },
+        "lastLoanRow": {
+          "period": 12,
+          "timeYears": 1.0,
+          "opening": 100.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "manual-premium-last-month1",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 12,
+        "lastMIPMonth": 1,
+        "ownershipHorizonMonths": 24
+      },
+      "expected": {
+        "notePrincipal": 1200.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 100.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 100.0,
+        "paymentCount": 12,
+        "payoffYears": 1.0,
+        "payoffMonthBucket": 12,
+        "finalPayment": 100.0,
+        "totalInterest": 0.0,
+        "totalPI": 1200.0,
+        "totalExtraPrincipal": 0.0,
+        "MIPChargeCount": 1,
+        "firstMonthlyMIP": 6.5,
+        "totalMIP": 6.5,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 0.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1200.0,
+        "MIPOverHorizon": 6.5,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 1206.5,
+        "firstMonthlyRequiredBudget": 106.5,
+        "firstYearPlannedRegularPI": 1200.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 0.0,
+            "MIP": 6.5
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 0.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 1100.0
+        },
+        "lastLoanRow": {
+          "period": 12,
+          "timeYears": 1.0,
+          "opening": 100.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 0.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "cost-horizon-extends-beyond-loan",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "costs": [
+          {
+            "amount": 1200,
+            "growthPercent": 0
+          }
+        ],
+        "oneTimeExtras": [
+          {
+            "month": 1,
+            "amount": 1200
+          }
+        ]
+      },
+      "expected": {
+        "notePrincipal": 1200.0,
+        "upfrontFee": 0.0,
+        "upfrontCashFee": 0.0,
+        "contractMonthlyPI": 100.0,
+        "equivalentPeriodicRate": 0.0,
+        "regularPeriodicPI": 100.0,
+        "paymentCount": 1,
+        "payoffYears": 0.08333333333333333,
+        "payoffMonthBucket": 1,
+        "finalPayment": 1200.0,
+        "totalInterest": 0.0,
+        "totalPI": 1200.0,
+        "totalExtraPrincipal": 1100.0,
+        "MIPChargeCount": 0,
+        "firstMonthlyMIP": 0.0,
+        "totalMIP": 0.0,
+        "ownershipHorizonMonths": 24,
+        "ownershipCostsOverHorizon": 2400.0,
+        "loanInterestOverHorizon": 0.0,
+        "loanPaymentsOverHorizon": 1200.0,
+        "MIPOverHorizon": 0.0,
+        "endingBalanceAtHorizon": 0.0,
+        "housingCashOverHorizon": 3600.0,
+        "firstMonthlyRequiredBudget": 200.0,
+        "firstYearPlannedRegularPI": 1200.0,
+        "selectedMonthlyRows": {
+          "1": {
+            "month": 1,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "2": {
+            "month": 2,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "6": {
+            "month": 6,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "7": {
+            "month": 7,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "12": {
+            "month": 12,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "13": {
+            "month": 13,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          },
+          "24": {
+            "month": 24,
+            "ownershipCost": 100.0,
+            "MIP": 0.0
+          }
+        },
+        "extraPostings": [
+          {
+            "period": 1,
+            "amount": 1200.0
+          }
+        ],
+        "firstLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 1100.0,
+          "ending": 0.0
+        },
+        "lastLoanRow": {
+          "period": 1,
+          "timeYears": 0.08333333333333333,
+          "opening": 1200.0,
+          "interest": 0.0,
+          "regular": 100.0,
+          "extra": 1100.0,
+          "ending": 0.0
+        }
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "manual-insufficient-PI-unpaid",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "originalMonthlyPayment": 1
+      },
+      "expected": {
+        "paidOff": false,
+        "remainingAtLoanHorizon": 1188,
+        "paymentCount": 12,
+        "totalPI": 12,
+        "totalInterest": 0,
+        "endingBalanceAtHorizon": 1188
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "manual-insufficient-PI-cured-by-late-extra",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "originalMonthlyPayment": 1,
+        "oneTimeExtras": [
+          {
+            "month": 12,
+            "amount": 1188
+          }
+        ]
+      },
+      "expected": {
+        "paidOff": true,
+        "remainingAtLoanHorizon": 0,
+        "paymentCount": 12,
+        "totalPI": 1200,
+        "totalInterest": 0,
+        "endingBalanceAtHorizon": 0,
+        "totalExtraPrincipal": 1188
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "manual-negative-amortization-reported",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 12,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "originalMonthlyPayment": 1
+      },
+      "expected": {
+        "paidOff": false,
+        "remainingAtLoanHorizon": 1339.5075331451667,
+        "paymentCount": 12,
+        "totalPI": 12,
+        "totalInterest": 151.5075331451667,
+        "endingBalanceAtHorizon": 1339.5075331451667
+      },
+      "absoluteTolerance": 0.02
+    },
+    {
+      "id": "reject-periods24-not-biweekly",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "periods": 24
+      },
+      "expectedError": true,
+      "expectedErrorContains": "12 monthly or 26"
+    },
+    {
+      "id": "reject-last-MIP-beyond-term",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 13,
+        "ownershipHorizonMonths": 24
+      },
+      "expectedError": true,
+      "expectedErrorContains": "between"
+    },
+    {
+      "id": "reject-unknown-cost-unit",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "costs": [
+          {
+            "amount": 100,
+            "unit": "unknown"
+          }
+        ]
+      },
+      "expectedError": true,
+      "expectedErrorContains": "supported ownership cost basis"
+    },
+    {
+      "id": "reject-cost-growth-minus100",
+      "operation": "program-mortgage-composition",
+      "input": {
+        "baseLoan": 1200,
+        "upfrontRate": 0,
+        "financeFee": false,
+        "apr": 0,
+        "termMonths": 12,
+        "annualMIP": 0,
+        "lastMIPMonth": 0,
+        "ownershipHorizonMonths": 24,
+        "costs": [
+          {
+            "amount": 100,
+            "growthPercent": -100
+          }
+        ]
+      },
+      "expectedError": true,
+      "expectedErrorContains": "annual cost growth"
+    },
+    {
+      "id": "dated-EOM-Feb1",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "0",
+        "annualExtraStart": "12",
+        "ownershipCosts": "[]",
+        "extraPayments": "[{\"date\": \"2026-02-01\", \"month\": 1, \"amount\": 10}]",
+        "tableView": "extra-mapping"
+      },
+      "expected": {
+        "tableRows": [
+          [
+            2,
+            "One-time",
+            10,
+            2,
+            5
+          ]
+        ]
+      },
+      "absoluteTolerance": 0
+    },
+    {
+      "id": "dated-EOM-Feb28",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "0",
+        "annualExtraStart": "12",
+        "ownershipCosts": "[]",
+        "extraPayments": "[{\"date\": \"2026-02-28\", \"month\": 1, \"amount\": 10}]",
+        "tableView": "extra-mapping"
+      },
+      "expected": {
+        "tableRows": [
+          [
+            2,
+            "One-time",
+            10,
+            2,
+            5
+          ]
+        ]
+      },
+      "absoluteTolerance": 0
+    },
+    {
+      "id": "dated-EOM-March1",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "0",
+        "annualExtraStart": "12",
+        "ownershipCosts": "[]",
+        "extraPayments": "[{\"date\": \"2026-03-01\", \"month\": 1, \"amount\": 10}]",
+        "tableView": "extra-mapping"
+      },
+      "expected": {
+        "tableRows": [
+          [
+            3,
+            "One-time",
+            10,
+            3,
+            7
+          ]
+        ]
+      },
+      "absoluteTolerance": 0
+    },
+    {
+      "id": "dated-before-anchor",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "0",
+        "annualExtraStart": "12",
+        "ownershipCosts": "[]",
+        "extraPayments": "[{\"date\": \"2025-12-01\", \"month\": 1, \"amount\": 10}]",
+        "tableView": "extra-mapping"
+      },
+      "expected": {
+        "tableRows": [
+          [
+            1,
+            "One-time",
+            10,
+            1,
+            3
+          ]
+        ]
+      },
+      "absoluteTolerance": 0
+    },
+    {
+      "id": "annual-first-month-not-silently-retargeted",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "100",
+        "annualExtraStart": "24",
+        "ownershipCosts": "[]",
+        "extraPayments": "[]",
+        "tableView": "extra-mapping"
+      },
+      "assertion": "noEarlierAnnualExtra",
+      "requestedMonth": 24,
+      "absoluteTolerance": 0,
+      "scope": "Future annual extra must be ignored beyond horizon or rejected, never moved to month12."
+    },
+    {
+      "id": "dated-after-contract-rejected",
+      "operation": "dispatch",
+      "input": {
+        "policySource": "manual",
+        "program": "FHAstandard-forward",
+        "baseLoanAmount": "1200",
+        "manualUpfrontRate": "0",
+        "financeUpfrontFee": "no",
+        "nominalAprPercent": "0",
+        "termMonths": "12",
+        "manualAnnualMip": "0",
+        "manualLastMipMonth": "0",
+        "manualOriginalPi": "0",
+        "firstPaymentDate": "2026-01-31",
+        "ownershipHorizonMonths": "12",
+        "monthlyExtra": "0",
+        "monthlyExtraStart": "1",
+        "annualExtra": "0",
+        "annualExtraStart": "12",
+        "ownershipCosts": "[]",
+        "extraPayments": "[{\"date\": \"2027-02-01\", \"amount\": 10}]",
+        "tableView": "extra-mapping"
+      },
+      "expectedError": true,
+      "expectedErrorContains": "between"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "auditDate": "2026-10-09",
+  "slug": "btu-calculator",
+  "status": "room-table-already-implemented-plus-ready-heat-energy",
+  "primarySources": {
+    "room": "https://www.energystar.gov/products/room_air_conditioners",
+    "heat": "https://openstax.org/books/physics/pages/11-2-heat-specific-heat-and-heat-transfer",
+    "conduction": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+    "units": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+    "hvacScope": "https://www.acca.org/standards/technical-manuals/manual-j"
+  },
+  "roomTable": {
+    "currentlyCorrect": "14 base-capacity rows; sunlight adjustment and people/kitchen increments agree with ENERGY STAR.",
+    "addToUI": "Table assumes an 8-foot ceiling. Heights above it may need more capacity; no numeric height multiplier is supplied.",
+    "formula": "baseBTUPerHour*sunFactor + max(people-2,0)*600 + (kitchen?4000:0)",
+    "sunFactor": {
+      "shade": 0.9,
+      "normal": 1,
+      "sunny": 1.1
+    },
+    "boundaryIssue": "Source adjoining rows say 100 up to 150, 150 up to 250, etc. No explicit half-open convention. Current upper-inclusive choice should be stated; do not silently claim source settles shared endpoints.",
+    "fixtures": [
+      {
+        "areaSqFt": 200,
+        "sun": "normal",
+        "people": 2,
+        "kitchen": false,
+        "capacityBTUPerHour": 6000
+      },
+      {
+        "areaSqFt": 200,
+        "sun": "sunny",
+        "people": 4,
+        "kitchen": true,
+        "capacityBTUPerHour": 11800
+      },
+      {
+        "areaSqFt": 200,
+        "sun": "shade",
+        "people": 1,
+        "kitchen": false,
+        "capacityBTUPerHour": 5400
+      },
+      {
+        "areaSqFt": 800,
+        "sun": "normal",
+        "people": 2,
+        "kitchen": false,
+        "capacityBTUPerHour": 18000
+      }
+    ]
+  },
+  "readyHeatMode": {
+    "formula": "Q_J=m_kg*c_J/(kg*K)*deltaT_K; volume alternative m=rho*L*W*H. deltaF*5/9=deltaK. Q_BTU_IT=Q_J/1055.05585262.",
+    "inputs": [
+      "positive mass OR positive volume and user-entered density",
+      "positive user-entered specific heat",
+      "signed temperature change in C/K or F"
+    ],
+    "outputs": [
+      "signed heat energy in J,kJ,BTU_IT",
+      "direction: heat added / removed / no temperature change"
+    ],
+    "limits": [
+      "Constant heat capacity; no phase change, moisture/latent heat, ventilation, solar gain or building losses.",
+      "Q is energy, not an air-conditioner capacity. BTU/h requires a defined duration/power model; never relabel BTU as BTU/h.",
+      "The volume fixture uses entered air properties as an explicit assumption, not a verified universal air default."
+    ],
+    "fixtures": [
+      {
+        "id": "heat-simple",
+        "inputs": {
+          "massKg": 2,
+          "specificHeatJPerKgK": 1000,
+          "deltaC": 10
+        },
+        "expected": {
+          "energyJ": 20000.0,
+          "energyBTUIT": 18.956342406266344
+        }
+      },
+      {
+        "id": "heat-cooling",
+        "inputs": {
+          "massKg": 2,
+          "specificHeatJPerKgK": 1000,
+          "deltaC": -10
+        },
+        "expected": {
+          "energyJ": -20000.0,
+          "energyBTUIT": -18.956342406266344
+        }
+      },
+      {
+        "id": "heat-zero-delta",
+        "inputs": {
+          "massKg": 2,
+          "specificHeatJPerKgK": 1000,
+          "deltaC": 0
+        },
+        "expected": {
+          "energyJ": 0.0,
+          "energyBTUIT": 0.0
+        }
+      },
+      {
+        "id": "heat-water-entered",
+        "inputs": {
+          "massKg": 1,
+          "specificHeatJPerKgK": 4186,
+          "deltaC": 20
+        },
+        "expected": {
+          "energyJ": 83720.0,
+          "energyBTUIT": 79.35124931263091
+        }
+      },
+      {
+        "id": "heat-fahrenheit-difference",
+        "inputs": {
+          "massKg": 2,
+          "specificHeatJPerKgK": 1000,
+          "deltaF": 18
+        },
+        "expected": {
+          "energyJ": 20000,
+          "energyBTUIT": 18.956342406266344
+        }
+      },
+      {
+        "id": "heat-volume",
+        "inputs": {
+          "lengthM": 5,
+          "widthM": 4,
+          "heightM": 2.5,
+          "densityKgM3": 1.2,
+          "specificHeatJPerKgK": 1005,
+          "deltaC": 10
+        },
+        "expected": {
+          "volumeM3": 50,
+          "massKg": 60,
+          "energyJ": 603000,
+          "energyBTUIT": 571.5337235489303
+        }
+      },
+      {
+        "id": "heat-invalid-cp",
+        "inputs": {
+          "massKg": 2,
+          "specificHeatJPerKgK": 0,
+          "deltaC": 10
+        },
+        "expectedError": "positive specific heat required"
+      }
+    ]
+  },
+  "optionalConductionWorksheet": {
+    "formula": "steadyHeatRate_W=sum(U_W/(m2*K)*area_m2)*deltaK; U=k/thickness or 1/R_total if valid entered assembly values.",
+    "fixtures": [
+      {
+        "inputs": {
+          "U": 0.5,
+          "areaM2": 20,
+          "deltaK": 20
+        },
+        "expectedW": 200,
+        "expectedBTUPerHour": 682.4283266255884
+      }
+    ],
+    "scope": "Only entered steady conduction; not a cooling design load or Manual J. Excludes solar, humidity, ducts, ventilation and time-varying storage."
+  },
+  "unresolvedCompetitorFactors": "No verified primary coefficients for generic insulation/climate/room-type multiplier controls. Do not invent coefficients or infer competitor hidden formulas. A transparent user-entered heat-loss coefficient / design temperature alternative is local, but does not close full sizing parity.",
+  "rights": "Formula facts and original explanations can be implemented without reproducing manual charts; source availability is not a claim of ACCA approval or legal clearance."
+}

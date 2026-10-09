@@ -1,0 +1,119 @@
+{
+  "verified": "2026-10-09",
+  "status": "Research-only bounded alternative for captured ceiling-height/climate controls; no product edits",
+  "proposedMode": "Steady heat-loss estimate",
+  "observedControls": {
+    "capturedFile": "/tmp/finflo-research-math-everyday/raw/btu-calculator.txt",
+    "competitor": [
+      "room area",
+      "ceiling height",
+      "insulation quality",
+      "cold/average/hot climate",
+      "room type",
+      "general room dimensions and temperature change"
+    ],
+    "independentExistingModes": [
+      "ENERGY STAR room-air-conditioner area guide",
+      "general heat energy Q=m*c*deltaT"
+    ]
+  },
+  "scope": "Steady sensible heat loss through an entered envelope UA plus outdoor air exchange. Does not claim HVAC equipment sizing, Manual J compliance, total cooling load or competitor coefficient parity.",
+  "inputs": [
+    {
+      "key": "width,length,height",
+      "units": [
+        "m",
+        "ft"
+      ],
+      "requirement": "Positive finite dimensions; ceiling height affects volume. If building component areas are derived, exposed wall area also changes."
+    },
+    {
+      "key": "envelopeUA",
+      "units": [
+        "W/K",
+        "BtuIT/(h F)"
+      ],
+      "requirement": "Entered overall heat-loss coefficient; or sum explicitly entered U-value times exposed component area. Do not infer from good/average/poor insulation."
+    },
+    {
+      "key": "naturalACH",
+      "units": "1/h",
+      "requirement": "Nonnegative actual operating air exchange assumption. Do not accept blower-door ACH50 as natural ACH without an independently supported conversion."
+    },
+    {
+      "key": "temperatureDifference",
+      "units": [
+        "K or C difference",
+        "F difference"
+      ],
+      "requirement": "Nonnegative heating design difference, or computed from indoor and outdoor design temperatures. Climate category alone is insufficient."
+    }
+  ],
+  "equations": {
+    "volume": "L*W*H in m3",
+    "envelopeUA": "sum(U_i * A_i), W/K, when components are supplied",
+    "airUA": "1207 * naturalACH * volume / 3600, W/K",
+    "conduction": "envelopeUA * deltaTK, W",
+    "air": "airUA * deltaTK, W",
+    "total": "conduction + air, W",
+    "BTUperHour": "total * 3600 / 1055.05585262",
+    "feet": "meters = feet * 0.3048",
+    "temperatureDifference": "deltaTK = deltaTF * 5/9, without adding or subtracting 32",
+    "imperialUA": "W/K = BtuIT/(h F) * (1055.05585262/3600) * 9/5"
+  },
+  "controlsGuidance": [
+    "Keep the existing ENERGY STAR area guide independent. Its ceiling-height note is qualitative, not a license to scale area loads linearly with height.",
+    "Use a manually entered outdoor design temperature for climate until a versioned, suitable local design-temperature source is implemented. Do not assign undocumented coefficients to Boston, Houston or generic climate labels.",
+    "Effective envelope UA must include windows, thermal bridges and exposed boundary assumptions. Do not treat ground or conditioned-adjacent surfaces as outdoor exposure automatically.",
+    "Use one canonical SI volumetric coefficient for unit equivalence; the rounded imperial 0.018 coefficient will not be exactly equivalent to 1207 J/(m3 K).",
+    "Expose conduction and air exchange separately. The air estimate assumes constant volumetric heat capacity at a stated reference condition.",
+    "No latent, solar, occupant/appliance gains, wind/stack model, duct losses, equipment capacity/efficiency or transient warm-up. These are not covered by this bounded model."
+  ],
+  "primarySources": [
+    {
+      "id": "conduction",
+      "url": "https://energy.hawaii.gov/wp-content/uploads/2022/06/BEE-Workshop-1_2022-04-07.pdf",
+      "title": "Hawaii State Energy Office building energy efficiency workshop",
+      "support": "Q=U*A*temperature difference*time; divide by time for steady heat flow.",
+      "verified": "2026-10-09"
+    },
+    {
+      "id": "air-coefficient",
+      "url": "https://docs.nrel.gov/docs/fy08osti/42059.pdf",
+      "title": "NREL building thermal envelope test report",
+      "section": "Table A10, printed page 171",
+      "support": "Dry air volumetric heat capacity 1.207 kJ/(m3 C) at sea level and 21.1 C; fixed ACH test condition.",
+      "retrieval": "Primary indexed PDF extract; direct PDF retrieval returned 502.",
+      "verified": "2026-10-09"
+    },
+    {
+      "id": "air-equation",
+      "url": "https://bsesc.energy.gov/sites/default/files/2022-08/Lec%202%20-%20HAM.pdf",
+      "title": "DOE-hosted University of Minnesota building science course, 2016",
+      "section": "Slide 14",
+      "support": "Air heat loss = 0.018 * ACH * volume * temperature difference in Btu/h with volume in cubic feet and difference in F. Rounded imperial coefficient.",
+      "retrieval": "Primary indexed slide text; direct request timed out.",
+      "verified": "2026-10-09"
+    },
+    {
+      "id": "area-guide",
+      "url": "https://www.energystar.gov/products/room_air_conditioners",
+      "title": "ENERGY STAR room air conditioners",
+      "support": "Area table assumes 8-foot ceiling; shade/sun adjustments and extra people/kitchen adjustments. No published numerical ceiling-height multiplier or Boston/Houston coefficient.",
+      "verified": "2026-10-09"
+    },
+    {
+      "id": "units",
+      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=200349",
+      "title": "NIST SP 811, Guide for the Use of SI",
+      "support": "International Table Btu and heat flow conversion. BtuIT=1055.05585262 J; BtuIT/hour=0.293071070172222... W.",
+      "verified": "2026-10-09"
+    }
+  ],
+  "fixtureGenerator": "reference.py",
+  "fixtureTolerance": "1e-8 W; 1e-7 Btu/h",
+  "dataBlockers": [
+    "Competitor climate/room/insulation coefficient algorithm is not published in captured content.",
+    "Regional design temperature or detailed material assembly presets require their own verified dataset; no invented presets."
+  ]
+}

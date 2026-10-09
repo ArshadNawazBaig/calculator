@@ -1,0 +1,134 @@
+{
+  "reviewedAt": "2026-10-09",
+  "productEdits": false,
+  "scope": "Browser QA on retained Finflo localhost3000 at1440x1000 and390x844. Production system behavior in an isolated Next16.4 webpack harness copying actual proxy/error/system components with test-only fault routes/root layout. Proposed fixes exist only in /tmp variant harness. No deployment or full production app build.",
+  "apparel": {
+    "cases": 32,
+    "passed": 32,
+    "axeScans": 10,
+    "axeViolations": 0,
+    "browserErrors": 0,
+    "reports": [
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/apparel-results.json",
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/individual-unit-results.json"
+    ],
+    "previousReport": "/tmp/finflo-research-math-everyday/apparel-system-qa/apparel-results-before-fixes.json",
+    "closedFindings": [
+      {
+        "issue": "Blank measurement changed to0 when changing units",
+        "repro": "Clear underbust; switch inches to cm.",
+        "resolution": "Root now skips blank/nonfinite inputs; desktop/mobile rerun passed."
+      },
+      {
+        "issue": "Valid35cm shoe length rejected after inches conversion",
+        "repro": "35cm \u219213.7795275591in \u2192internal35.000000000114cm exceeds strict35cm maximum.",
+        "resolution": "Root added narrow1e-9cm boundary tolerance; desktop/mobile rerun passed."
+      }
+    ],
+    "coverage": [
+      "Bra direct and traditional defaults/reset/mode switching",
+      "Traditional29.5in half-up tie and74.93cm equivalence",
+      "Direct31.5in/80.01cm equivalence",
+      "Negative cup-difference validation",
+      "Shoe25.4cm=254mm=10in; men8/women9 estimates",
+      "Shoe18cm and35cm boundaries across units",
+      "Shared\u2192mixed per-field\u2192shared units for bra direct/traditional and revised FFIT",
+      "Mobile overflow and labeled control accessibility"
+    ]
+  },
+  "productionBaseline": {
+    "report": "/tmp/finflo-research-math-everyday/apparel-system-qa/system-results.json",
+    "cases": 20,
+    "passed": 9,
+    "failed": 11,
+    "interpretation": "Failures collapse to maintenance rewrite loop and non-refetching retry controls. Genuine server errors produce500 and hide injected private messages. Root-layout metadata is intentionally absent in the first minimal harness, so its segment-error document-title violation is a harness limitation; global-error missing title is a product finding because it replaces root metadata."
+  },
+  "requiredProductFixes": [
+    {
+      "id": "SYS-01",
+      "file": "src/proxy.ts",
+      "severity": "high",
+      "observed": "In production Next start, MAINTENANCE_MODE=true causes /, /calculators, /api/qa, /missing-route and /maintenance to exceed6-second timeout. Health/public asset bypass works. Both localhost and127.0.0.1 reproduced.",
+      "candidate": "Inside maintenance mode, handle /maintenance with NextResponse.next({status:503,headers}) instead of rewriting it to itself. Other pages may continue rewriting to /maintenance. Preserve Retry-After300, Cache-Control no-store and X-Robots-Tag noindex.",
+      "verified": "Controlled variants: removing503 still hangs; direct503 responds; target pass-through responds503 with intended HTML and headers. Full candidate20/20 passed.",
+      "evidence": "/tmp/finflo-research-math-everyday/apparel-system-qa/maintenance-variants.json",
+      "status": "fixed-in-product-and-verified"
+    },
+    {
+      "id": "SYS-02",
+      "files": [
+        "src/app/error.tsx",
+        "src/app/global-error.tsx"
+      ],
+      "severity": "medium",
+      "observed": "Clear injected server fault, then select Try again: existing reset callback leaves the cached failed server payload on screen at both widths.",
+      "candidate": "Use the current Next16.4 retry prop/handler. Unlike reset, retry fetches server content again.",
+      "verified": "Both segment and root fault recovery passed at both widths with retry.",
+      "source": "https://nextjs.org/docs/app/api-reference/file-conventions/error#retry",
+      "status": "fixed-in-product-and-verified"
+    },
+    {
+      "id": "SYS-03",
+      "file": "src/app/global-error.tsx",
+      "severity": "medium",
+      "observed": "Global error replaces the root layout and has no document title; axe reports document-title.",
+      "candidate": "Render an explicit React title in the replacement document; optional explicit noindex meta also survives replaced root metadata.",
+      "verified": "Candidate <title>Page error | Finflo</title> resolves axe document-title at both widths.",
+      "source": "https://nextjs.org/docs/app/api-reference/file-conventions/error#global-error",
+      "status": "fixed-in-product-and-verified"
+    }
+  ],
+  "productionCandidate": {
+    "report": "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-system-results.json",
+    "cases": 20,
+    "passed": 20,
+    "axeScans": 6,
+    "axeViolations": 0,
+    "changes": "Only /tmp copies use retry, a global title/noindex meta, and a maintenance-target pass-through. Root product integration/retest remains required.",
+    "screenshots": [
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-segment-error-390.png",
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-global-error-390.png",
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-maintenance-390.png",
+      "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-maintenance-1440.png"
+    ]
+  },
+  "additionalObservations": [
+    {
+      "fact": "Direct /maintenance is200/noindex when maintenance mode is off; active maintenance proxy returns503.",
+      "interpretation": "Informational route behavior, not a failure."
+    },
+    {
+      "fact": "Any pathname containing a dot bypasses current maintenance condition; unknown /some.page returns404.",
+      "interpretation": "Broader than a static-asset allowlist; low-impact observation for current known routes, not counted as a failed requirement."
+    }
+  ],
+  "copyRecommendations": "/tmp/finflo-research-math-everyday/apparel-system-qa/truthful-public-copy.json",
+  "runners": [
+    "/tmp/finflo-research-math-everyday/apparel-system-qa/apparel.cjs",
+    "/tmp/finflo-research-math-everyday/apparel-system-qa/individual-units.cjs",
+    "/tmp/finflo-research-math-everyday/apparel-system-qa/system.cjs",
+    "/tmp/finflo-research-math-everyday/apparel-system-qa/variants.cjs",
+    "/tmp/finflo-research-math-everyday/apparel-system-qa/candidate-system.cjs"
+  ],
+  "harnessLifecycle": "All owned production test servers were terminated after each completed run. Retained root dev server untouched.",
+  "sourceHashes": {
+    "src/lib/calculators/input-display.ts": "9061ff2e3562645898297dc7489889be3d09d487c152dba0db7c23f8c607d496",
+    "src/lib/calculators/registry.ts": "a2453c6d174c6f2ac470c2a66ee91cd10c6d28f005c8d9dc9f9ac7ce948bbe61",
+    "src/lib/calculators/everyday-engine.ts": "1721199b9b8c42fa61346412378b6a509ac3507f6a3c617bb04371ea54b0a64c",
+    "src/lib/calculators/health-research-engine.ts": "0de6c959f62d134d0949032902de289f2b2288fbaca6110bc677a79cce877649",
+    "src/lib/calculators/field-visibility.ts": "d2195f48e4662c6030a31d6f8f3f501dc340c703511e3c4cc9f112ef09438996",
+    "src/app/error.tsx": "a858634ecb7e6e21c45dbd5fd037be543424ebe78f38515d2d86cb4f4f82e881",
+    "src/app/global-error.tsx": "0b80a35f48b347cab5fa72a1ba5b17511ad134c03883d47db3b5bf92f76a29b2",
+    "src/proxy.ts": "5959e6ce9595f01916bf2f77b3416160a249b2147236c0d931aae9593953476c"
+  },
+  "delivery": "Research and QA artifacts only. No product UI/calculation edits.",
+  "productionIntegrated": {
+    "report": "/tmp/finflo-research-math-everyday/apparel-system-qa/current-system-results.json",
+    "sourceHashes": "/tmp/finflo-research-math-everyday/apparel-system-qa/current-system-source-hashes.json",
+    "cases": 20,
+    "passed": 20,
+    "axeScans": 6,
+    "axeViolations": 0,
+    "status": "Current product files copied unchanged into isolated production harness; all three findings fixed by root and verified."
+  }
+}

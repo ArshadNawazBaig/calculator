@@ -1,0 +1,1419 @@
+{
+  "verifiedOn": "2026-10-09",
+  "count": 65,
+  "method": "Independently derived decimal arithmetic and primary parameter tables; product engines not executed for expected values. Function target adapters may map taxYear to shared parameters.",
+  "fixtures": [
+    {
+      "id": "composed-2025-single-wages",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "deductionChoice": "standard"
+      },
+      "expected": {
+        "AGI": 60000,
+        "standardDeduction": 15750,
+        "regularTax": 5071.5,
+        "modeledReturnTax": 5071.5
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Bracket tax on wage less amended year-specific basic standard deduction; no payroll tax included in return tax."
+    },
+    {
+      "id": "composed-2026-single-wages",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "deductionChoice": "standard"
+      },
+      "expected": {
+        "AGI": 60000,
+        "standardDeduction": 16100,
+        "regularTax": 5020,
+        "modeledReturnTax": 5020
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Bracket tax on wage less amended year-specific basic standard deduction; no payroll tax included in return tax."
+    },
+    {
+      "id": "standard-2025-single-age-blind",
+      "target": "expandedStandard",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "ageBlindConditions": 2
+      },
+      "expected": {
+        "basic": 15750,
+        "additional": 4000,
+        "standard": 19750
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Apply dependent cap before separate age/blind addition."
+    },
+    {
+      "id": "standard-2025-qss",
+      "target": "expandedStandard",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "qualifyingSurvivingSpouse",
+        "ageBlindConditions": 2
+      },
+      "expected": {
+        "basic": 31500,
+        "additional": 3200,
+        "standard": 34700
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Apply dependent cap before separate age/blind addition."
+    },
+    {
+      "id": "standard-2025-dependent-low-earned",
+      "target": "expandedStandard",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "dependent": "yes",
+        "earnedIncome": 100,
+        "ageBlindConditions": 1
+      },
+      "expected": {
+        "basic": 1350,
+        "additional": 2000,
+        "standard": 3350
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Apply dependent cap before separate age/blind addition."
+    },
+    {
+      "id": "standard-2025-dependent-capped",
+      "target": "expandedStandard",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "dependent": "yes",
+        "earnedIncome": 20000
+      },
+      "expected": {
+        "basic": 15750,
+        "additional": 0,
+        "standard": 15750
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Apply dependent cap before separate age/blind addition."
+    },
+    {
+      "id": "gain-2025-single",
+      "target": "gainTax",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "ordinary": 40000,
+        "gain": 20000
+      },
+      "expected": {
+        "g0": 8350,
+        "g15": 11650,
+        "g20": 0,
+        "preferential": 1747.5,
+        "ordinaryTax": 4561.5,
+        "total": 6309.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40"
+      ],
+      "derivation": "Stack gain above ordinary income using explicit status thresholds; cap at ordinary tax on combined income."
+    },
+    {
+      "id": "gain-2025-marriedJoint",
+      "target": "gainTax",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "ordinary": 90000,
+        "gain": 20000
+      },
+      "expected": {
+        "g0": 6700,
+        "g15": 13300,
+        "g20": 0,
+        "preferential": 1995.0,
+        "ordinaryTax": 10323.0,
+        "total": 12318.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40"
+      ],
+      "derivation": "Stack gain above ordinary income using explicit status thresholds; cap at ordinary tax on combined income."
+    },
+    {
+      "id": "gain-2025-marriedSeparate",
+      "target": "gainTax",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedSeparate",
+        "ordinary": 299950,
+        "gain": 100
+      },
+      "expected": {
+        "g0": 0,
+        "g15": 50,
+        "g20": 50,
+        "preferential": 17.5,
+        "ordinaryTax": 74529.75,
+        "total": 74547.25
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40"
+      ],
+      "derivation": "Stack gain above ordinary income using explicit status thresholds; cap at ordinary tax on combined income."
+    },
+    {
+      "id": "composed-2025-se-wage-cap",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 175000,
+            "ssWages": 175000,
+            "businessProfit": 10000
+          }
+        ],
+        "deductionChoice": "standard"
+      },
+      "expected": {
+        "baseSETax": 404.215,
+        "halfSEDeduction": 202.1075
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "ssa-base"
+      ],
+      "derivation": "SE earnings9235;2025 remainingSSbase1100\u00d7.124 versus2026 full9235\u00d7.124; Medicare9235\u00d7.029."
+    },
+    {
+      "id": "composed-2026-se-wage-cap",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 175000,
+            "ssWages": 175000,
+            "businessProfit": 10000
+          }
+        ],
+        "deductionChoice": "standard"
+      },
+      "expected": {
+        "baseSETax": 1412.955,
+        "halfSEDeduction": 706.4775
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "ssa-base"
+      ],
+      "derivation": "SE earnings9235;2025 remainingSSbase1100\u00d7.124 versus2026 full9235\u00d7.124; Medicare9235\u00d7.029."
+    },
+    {
+      "id": "care-2025-15000",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 15000,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.35,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 1050.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2025-15000.01",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 15000.01,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.34,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 1020.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2025-43000",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 43000,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.21,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 630.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2025-43000.01",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 43000.01,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.2,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 600.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2026-15000",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 15000,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.5,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 1500.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2026-45000",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 45000,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.35,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 1050.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "care-2026-75000.01",
+      "target": "careCredit",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "qualifyingPeople": 1,
+        "AGI": 75000.01,
+        "unreimbursedEligibleExpenses": 3000,
+        "earnedIncomeA": 15000
+      },
+      "expected": {
+        "rate": 0.34,
+        "eligibleExpenseBase": 3000,
+        "tentativeCredit": 1020.0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "i2441",
+        "law119-21"
+      ],
+      "derivation": "Each begun2000 AGI increment reduces1percentage point;2026 second-stage starts75000single."
+    },
+    {
+      "id": "salt-2025-500000",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "AGI": 500000,
+        "eligibleSALT": 50000
+      },
+      "expected": {
+        "SALTCap": 40000,
+        "SALTDeduction": 40000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "max(floor,yearcap-.30*max(0,MAGI-yearstart))."
+    },
+    {
+      "id": "salt-2025-550000",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "AGI": 550000,
+        "eligibleSALT": 50000
+      },
+      "expected": {
+        "SALTCap": 25000,
+        "SALTDeduction": 25000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "max(floor,yearcap-.30*max(0,MAGI-yearstart))."
+    },
+    {
+      "id": "salt-2025-700000",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "AGI": 700000,
+        "eligibleSALT": 50000
+      },
+      "expected": {
+        "SALTCap": 10000,
+        "SALTDeduction": 10000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "max(floor,yearcap-.30*max(0,MAGI-yearstart))."
+    },
+    {
+      "id": "salt-2026-550000",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "AGI": 550000,
+        "eligibleSALT": 50000
+      },
+      "expected": {
+        "SALTCap": 26900,
+        "SALTDeduction": 26900
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "max(floor,yearcap-.30*max(0,MAGI-yearstart))."
+    },
+    {
+      "id": "itemized-2025-charity-floor",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "AGI": 100000,
+        "eligibleMedical": 10000,
+        "eligibleSALT": 20000,
+        "eligibleCashCharity": 1000,
+        "otherVerifiedItemized": 10000
+      },
+      "expected": {
+        "medicalDeduction": 2500,
+        "charityDeduction": 1000,
+        "beforeOverallLimit": 33500,
+        "overallReduction": 0,
+        "itemizedDeduction": 33500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "2025nocharityfloor;2026deducts1000\u2212.005\u00d7100000=500."
+    },
+    {
+      "id": "itemized-2026-charity-floor",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "AGI": 100000,
+        "eligibleMedical": 10000,
+        "eligibleSALT": 20000,
+        "eligibleCashCharity": 1000,
+        "otherVerifiedItemized": 10000
+      },
+      "expected": {
+        "medicalDeduction": 2500,
+        "charityDeduction": 500,
+        "beforeOverallLimit": 33000,
+        "overallReduction": 0,
+        "itemizedDeduction": 33000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule-a",
+        "law119-21"
+      ],
+      "derivation": "2025nocharityfloor;2026deducts1000\u2212.005\u00d7100000=500."
+    },
+    {
+      "id": "itemized-2025-no-section68",
+      "target": "itemizedDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "AGI": 1000000,
+        "eligibleSALT": 50000,
+        "otherVerifiedItemized": 90000
+      },
+      "expected": {
+        "beforeOverallLimit": 100000,
+        "overallReduction": 0,
+        "itemizedDeduction": 100000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "law119-21"
+      ],
+      "derivation": "Section68 reintroduced only after2025."
+    },
+    {
+      "id": "nonitemizer-charity-2025",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "deductionChoice": "standard",
+        "eligibleNonitemizerCashCharity": 1000
+      },
+      "expected": {
+        "selectedDeduction": 15750
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "law119-21",
+        "rp25-32"
+      ],
+      "derivation": "2025no separate nonitemizer charity;2026basic16100+1000."
+    },
+    {
+      "id": "nonitemizer-charity-2026",
+      "target": "federalComposition",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "deductionChoice": "standard",
+        "eligibleNonitemizerCashCharity": 1000
+      },
+      "expected": {
+        "selectedDeduction": 17100
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "law119-21",
+        "rp25-32"
+      ],
+      "derivation": "2025no separate nonitemizer charity;2026basic16100+1000."
+    },
+    {
+      "id": "ira-2025-single-40-84000",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "age": 40,
+        "MAGI": 84000,
+        "contribution": 7000,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 3500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2025-single-50-84000",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "age": 50,
+        "MAGI": 84000,
+        "contribution": 8000,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 4000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2025-single-40-88999",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "age": 40,
+        "MAGI": 88999,
+        "contribution": 7000,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 200
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2025-single-40-89000",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "age": 40,
+        "MAGI": 89000,
+        "contribution": 7000,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2025-marriedJoint-40-136000",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "age": 40,
+        "MAGI": 136000,
+        "contribution": 7000,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 3500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2026-single-40-84000",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "age": 40,
+        "MAGI": 84000,
+        "contribution": 7500,
+        "compensationAvailable": 100000,
+        "covered": "yes"
+      },
+      "expected": {
+        "deduction": 5250
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a",
+        "irs-cola"
+      ],
+      "derivation": "Year limit times remaining phaseout fraction, rounded up$10, minimum$200 strictly inside phaseout."
+    },
+    {
+      "id": "ira-2025-spouse-covered",
+      "target": "traditionalIra",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "age": 40,
+        "MAGI": 241000,
+        "contribution": 7000,
+        "compensationAvailable": 100000,
+        "covered": "no",
+        "spouseCovered": "yes"
+      },
+      "expected": {
+        "deduction": 3500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub590a"
+      ],
+      "derivation": "Uncovered contributor uses236000\u2013246000 joint phaseout."
+    },
+    {
+      "id": "student-joint-2025-185000",
+      "target": "studentLoanInterest",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "MAGI": 185000,
+        "qualifiedInterest": 2500
+      },
+      "expected": {
+        "deduction": 1250
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub970",
+        "rp25-32"
+      ],
+      "derivation": "2500\u00d7clamp((joint upper\u2212MAGI)/30000,0,1)."
+    },
+    {
+      "id": "student-joint-2026-185000",
+      "target": "studentLoanInterest",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "marriedJoint",
+        "MAGI": 185000,
+        "qualifiedInterest": 2500
+      },
+      "expected": {
+        "deduction": 1666.6666666666667
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub970",
+        "rp25-32"
+      ],
+      "derivation": "2500\u00d7clamp((joint upper\u2212MAGI)/30000,0,1)."
+    },
+    {
+      "id": "student-joint-2025-200000",
+      "target": "studentLoanInterest",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "MAGI": 200000,
+        "qualifiedInterest": 2500
+      },
+      "expected": {
+        "deduction": 0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub970",
+        "rp25-32"
+      ],
+      "derivation": "2500\u00d7clamp((joint upper\u2212MAGI)/30000,0,1)."
+    },
+    {
+      "id": "student-joint-2026-200000",
+      "target": "studentLoanInterest",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "marriedJoint",
+        "MAGI": 200000,
+        "qualifiedInterest": 2500
+      },
+      "expected": {
+        "deduction": 416.6666666666667
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "pub970",
+        "rp25-32"
+      ],
+      "derivation": "2500\u00d7clamp((joint upper\u2212MAGI)/30000,0,1)."
+    },
+    {
+      "id": "qbi-2025-wage-phasein",
+      "target": "qbi",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "taxableBeforeQbiWithoutSection68": 222300,
+        "adjustedQbiBeforeTips": 100000,
+        "qualifiedBusinessW2Wages": 0,
+        "qualifiedUBIA": 0,
+        "SSTB": "no"
+      },
+      "expected": {
+        "phaseInFraction": 0.5,
+        "deduction": 10000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32",
+        "law119-21"
+      ],
+      "derivation": "NonSSTB:20000 minus phaseInFraction\u00d720000 when wage/property limit0; income cap does not bind."
+    },
+    {
+      "id": "qbi-2026-wage-phasein",
+      "target": "qbi",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "taxableBeforeQbiWithoutSection68": 222300,
+        "adjustedQbiBeforeTips": 100000,
+        "qualifiedBusinessW2Wages": 0,
+        "qualifiedUBIA": 0,
+        "SSTB": "no"
+      },
+      "expected": {
+        "phaseInFraction": 0.274,
+        "deduction": 14520
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32",
+        "law119-21"
+      ],
+      "derivation": "NonSSTB:20000 minus phaseInFraction\u00d720000 when wage/property limit0; income cap does not bind."
+    },
+    {
+      "id": "qbi-minimum-2025",
+      "target": "qbi",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "taxableBeforeQbiWithoutSection68": 1000,
+        "adjustedQbiBeforeTips": 1000,
+        "verifiedActiveQualifiedQbi": 1000,
+        "materialParticipationConfirmed": "yes",
+        "SSTB": "no"
+      },
+      "expected": {
+        "normalDeduction": 200,
+        "minimumDeduction": 0,
+        "deduction": 200
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "law119-21"
+      ],
+      "derivation": "400active-businessminimum starts2026."
+    },
+    {
+      "id": "qbi-minimum-2026",
+      "target": "qbi",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "taxableBeforeQbiWithoutSection68": 1000,
+        "adjustedQbiBeforeTips": 1000,
+        "verifiedActiveQualifiedQbi": 1000,
+        "materialParticipationConfirmed": "yes",
+        "SSTB": "no"
+      },
+      "expected": {
+        "normalDeduction": 200,
+        "minimumDeduction": 400,
+        "deduction": 400
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "law119-21"
+      ],
+      "derivation": "400active-businessminimum starts2026."
+    },
+    {
+      "id": "eitc-continuous-2025-0-single-10000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 0,
+        "earnedIncome": 10000,
+        "AGI": 10000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 649
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2025-1-single-20000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 4328
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2025-2-single-20000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 2,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 7152
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2025-3-single-20000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 8046
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2025-1-single-30000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 30000,
+        "AGI": 30000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 3265.33
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2025-3-marriedJoint-40000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "children": 3,
+        "earnedIncome": 40000,
+        "AGI": 40000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 6038.982
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-continuous-2026-3-single-20000",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 0,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 8231
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40",
+        "rp25-32"
+      ],
+      "derivation": "Continuous statutory-rate estimate only, not IRS income-bin lookup; min(phase-in,maxCredit\u2212rate\u00d7excess)."
+    },
+    {
+      "id": "eitc-investment-2025-11950",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 11950,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 4328
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40"
+      ],
+      "derivation": "Investment income exactly11950allowed; any excess disqualifies2025."
+    },
+    {
+      "id": "eitc-investment-2025-11950.01",
+      "target": "eitcContinuousEstimate",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 20000,
+        "AGI": 20000,
+        "investmentIncome": 11950.01,
+        "age": 30
+      },
+      "expected": {
+        "estimatedCredit": 0
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "rp24-40"
+      ],
+      "derivation": "Investment income exactly11950allowed; any excess disqualifies2025."
+    },
+    {
+      "id": "schedule1a-2025-tips-51",
+      "target": "tips",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "employeeTips": 25000,
+        "MAGI": 150999
+      },
+      "expected": {
+        "deduction": 25000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-tips-52",
+      "target": "tips",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "employeeTips": 25000,
+        "MAGI": 150999
+      },
+      "expected": {
+        "deduction": 25000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-tips-53",
+      "target": "tips",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "employeeTips": 25000,
+        "MAGI": 151000
+      },
+      "expected": {
+        "deduction": 24900
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-tips-54",
+      "target": "tips",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "employeeTips": 25000,
+        "MAGI": 151000
+      },
+      "expected": {
+        "deduction": 24900
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-overtime-55",
+      "target": "overtime",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifiedPremium": 12500,
+        "MAGI": 150999
+      },
+      "expected": {
+        "deduction": 12500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-overtime-56",
+      "target": "overtime",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "qualifiedPremium": 12500,
+        "MAGI": 150999
+      },
+      "expected": {
+        "deduction": 12500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-overtime-57",
+      "target": "overtime",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "qualifiedPremium": 12500,
+        "MAGI": 151000
+      },
+      "expected": {
+        "deduction": 12400
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-overtime-58",
+      "target": "overtime",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "qualifiedPremium": 12500,
+        "MAGI": 151000
+      },
+      "expected": {
+        "deduction": 12400
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-carInterest-59",
+      "target": "carInterest",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "loans": [
+          {
+            "qualifiedInterest": 10000,
+            "deductedElsewhere": 0
+          }
+        ],
+        "MAGI": 100000.01
+      },
+      "expected": {
+        "deduction": 9800
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-carInterest-60",
+      "target": "carInterest",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "loans": [
+          {
+            "qualifiedInterest": 10000,
+            "deductedElsewhere": 0
+          }
+        ],
+        "MAGI": 100000.01
+      },
+      "expected": {
+        "deduction": 9800
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-seniorDeduction-61",
+      "target": "seniorDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "single",
+        "eligibleCount": 1,
+        "MAGI": 100000
+      },
+      "expected": {
+        "value": 4500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-seniorDeduction-62",
+      "target": "seniorDeduction",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "single",
+        "eligibleCount": 1,
+        "MAGI": 100000
+      },
+      "expected": {
+        "value": 4500
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2025-seniorDeduction-63",
+      "target": "seniorDeduction",
+      "inputs": {
+        "taxYear": 2025,
+        "filing": "marriedJoint",
+        "eligibleCount": 2,
+        "MAGI": 200000
+      },
+      "expected": {
+        "value": 6000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    },
+    {
+      "id": "schedule1a-2026-seniorDeduction-64",
+      "target": "seniorDeduction",
+      "inputs": {
+        "taxYear": 2026,
+        "filing": "marriedJoint",
+        "eligibleCount": 2,
+        "MAGI": 200000
+      },
+      "expected": {
+        "value": 6000
+      },
+      "absoluteTolerance": 1e-08,
+      "sourceIds": [
+        "schedule1a-2025",
+        "law119-21"
+      ],
+      "derivation": "Same monetary formula in2025/2026; tips/OT floor steps, vehicle ceil steps, senior per-person6%phaseout."
+    }
+  ]
+}

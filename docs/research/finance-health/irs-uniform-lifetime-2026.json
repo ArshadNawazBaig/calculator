@@ -1,0 +1,315 @@
+{
+  "title": "IRS Uniform Lifetime Table III, current table as verified 2026-10-09",
+  "verifiedAt": "2026-10-09",
+  "sourceUrl": "https://www.irs.gov/publications/p590b",
+  "sourcePublication": "Publication 590-B (2025), Appendix B Table III; includes explicit application to 2026 distributions",
+  "sourceHtmlSha256": "b23b3b9c0b135da058ea54b6e1d3599f0d9112039c61ae6b6fa8e321c56d8904",
+  "method": "Direct extraction from IRS HTML table, both side-by-side age/factor columns, manually crosschecked with rendered IRS source.",
+  "scope": "IRA owner lifetime distributions: unmarried owners; married with spouse not more than 10 years younger; or spouse not sole designated beneficiary.",
+  "calculation": "prior December31 balance / factor for age attained on birthday in distribution year",
+  "notCovered": [
+    "Inherited IRA rules/TableI",
+    "Sole designated spouse more than10years younger/TableII",
+    "Determining first RMD year from birth date/account context",
+    "Roth owner lifetime exemption and employer planexceptions"
+  ],
+  "factorsByAge": {
+    "73": 26.5,
+    "74": 25.5,
+    "75": 24.6,
+    "76": 23.7,
+    "77": 22.9,
+    "78": 22.0,
+    "79": 21.1,
+    "80": 20.2,
+    "81": 19.4,
+    "82": 18.5,
+    "83": 17.7,
+    "84": 16.8,
+    "85": 16.0,
+    "86": 15.2,
+    "87": 14.4,
+    "88": 13.7,
+    "89": 12.9,
+    "90": 12.2,
+    "91": 11.5,
+    "92": 10.8,
+    "93": 10.1,
+    "94": 9.5,
+    "95": 8.9,
+    "96": 8.4,
+    "97": 7.8,
+    "98": 7.3,
+    "99": 6.8,
+    "100": 6.4,
+    "101": 6.0,
+    "102": 5.6,
+    "103": 5.2,
+    "104": 4.9,
+    "105": 4.6,
+    "106": 4.3,
+    "107": 4.1,
+    "108": 3.9,
+    "109": 3.7,
+    "110": 3.5,
+    "111": 3.4,
+    "112": 3.3,
+    "113": 3.1,
+    "114": 3.0,
+    "115": 2.9,
+    "116": 2.8,
+    "117": 2.7,
+    "118": 2.5,
+    "119": 2.3,
+    "120": 2.0
+  },
+  "age120AndOverFactor": 2.0,
+  "additionalSourceAge72Factor": 27.4,
+  "rows": [
+    {
+      "age": 72,
+      "distributionPeriod": 27.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 73,
+      "distributionPeriod": 26.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 74,
+      "distributionPeriod": 25.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 75,
+      "distributionPeriod": 24.6,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 76,
+      "distributionPeriod": 23.7,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 77,
+      "distributionPeriod": 22.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 78,
+      "distributionPeriod": 22.0,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 79,
+      "distributionPeriod": 21.1,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 80,
+      "distributionPeriod": 20.2,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 81,
+      "distributionPeriod": 19.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 82,
+      "distributionPeriod": 18.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 83,
+      "distributionPeriod": 17.7,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 84,
+      "distributionPeriod": 16.8,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 85,
+      "distributionPeriod": 16.0,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 86,
+      "distributionPeriod": 15.2,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 87,
+      "distributionPeriod": 14.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 88,
+      "distributionPeriod": 13.7,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 89,
+      "distributionPeriod": 12.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 90,
+      "distributionPeriod": 12.2,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 91,
+      "distributionPeriod": 11.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 92,
+      "distributionPeriod": 10.8,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 93,
+      "distributionPeriod": 10.1,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 94,
+      "distributionPeriod": 9.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 95,
+      "distributionPeriod": 8.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 96,
+      "distributionPeriod": 8.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 97,
+      "distributionPeriod": 7.8,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 98,
+      "distributionPeriod": 7.3,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 99,
+      "distributionPeriod": 6.8,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 100,
+      "distributionPeriod": 6.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 101,
+      "distributionPeriod": 6.0,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 102,
+      "distributionPeriod": 5.6,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 103,
+      "distributionPeriod": 5.2,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 104,
+      "distributionPeriod": 4.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 105,
+      "distributionPeriod": 4.6,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 106,
+      "distributionPeriod": 4.3,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 107,
+      "distributionPeriod": 4.1,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 108,
+      "distributionPeriod": 3.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 109,
+      "distributionPeriod": 3.7,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 110,
+      "distributionPeriod": 3.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 111,
+      "distributionPeriod": 3.4,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 112,
+      "distributionPeriod": 3.3,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 113,
+      "distributionPeriod": 3.1,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 114,
+      "distributionPeriod": 3.0,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 115,
+      "distributionPeriod": 2.9,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 116,
+      "distributionPeriod": 2.8,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 117,
+      "distributionPeriod": 2.7,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 118,
+      "distributionPeriod": 2.5,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 119,
+      "distributionPeriod": 2.3,
+      "age120Means120AndOver": false
+    },
+    {
+      "age": 120,
+      "distributionPeriod": 2.0,
+      "age120Means120AndOver": true
+    }
+  ]
+}

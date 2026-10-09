@@ -1,0 +1,2274 @@
+{
+  "artifact": "Numerical research and independent fixtures; no product edits",
+  "created": "2026-10-09",
+  "inspectedSnapshots": {
+    "helpers": {
+      "path": "/tmp/finflo-research-math-everyday/snapshot-helpers.ts",
+      "sha256": "8e6a8027c898cf085ecea1e225b0470b37781dcd14d89d8f2c41198510b98fd2"
+    },
+    "distributions": {
+      "path": "/tmp/finflo-research-math-everyday/snapshot-distributions.ts",
+      "sha256": "950819b79e46b4421c1a4ddae427da8ab9beb3e23765abd414552d611e6bd346"
+    }
+  },
+  "referenceEnvironment": {
+    "scipy": "1.18.1",
+    "mpmath": "1.4.1",
+    "mpmathDigits": 110,
+    "path": "/tmp/finflo-numerical-reference",
+    "note": "Reference packages are isolated outside product checkout."
+  },
+  "priorityFixes": [
+    "Introduce direct normalSf, gammaQ, beta complementary-tail, StudentSf, and FSf APIs. Never compute a very small upper tail by subtracting a rounded CDF from 1.",
+    "Every series/continued fraction must report convergence. Exceeding an iteration cap must trigger a vetted fallback or explicit unsupported-range error; never return a partial sum as a probability.",
+    "Fix Student central argument cancellation independently of degree limits. Compute t*t/(df+t*t) directly near t=0, rather than 1-df/(df+t*t).",
+    "Replace fixed inverse quantile brackets with adaptive positive bracketing and inversion of the smaller direct tail. Permit heavy-tail quantiles beyond +/-1e6.",
+    "Require finite, strictly positive shape/df inputs, deliberate support endpoints, and finite computed outputs. Validate internal regularized-beta x in [0,1]; do not turn invalid inputs into ordinary 0/1 outputs.",
+    "Large shape/df support requires stable log-normalization and asymptotic regimes, not only more loop iterations. An explicit limited numerical range is preferable to an undetected inaccurate result."
+  ],
+  "normal": {
+    "method": "Central normal-integral power series for 0<=z<2; backward Laplace continued fraction for z>=2, then symmetry.",
+    "formula": "SF(z)=phi(z)/(z+1/(z+2/(z+3/(...)))) for z>0. Central mass integral equals sum[n>=0] (-1)^n*z^(2n+1)/(2^n*n!*(2n+1)*sqrt(2*pi)).",
+    "codePath": "/tmp/finflo-research-math-everyday/normal-candidate.cjs",
+    "code": "// Original research implementation from DLMF power series and Laplace CF.\n// This is a verification artifact, not a checkout/product change.\nconst SQRT2PI = Math.sqrt(2 * Math.PI);\nfunction millsDenominator(z) {\n  let fraction = 0;\n  for (let k = 200; k >= 1; k--) fraction = k / (z + fraction);\n  return z + fraction;\n}\nfunction normalSf(z) {\n  if (Number.isNaN(z)) return NaN;\n  if (z === Infinity) return 0;\n  if (z === -Infinity) return 1;\n  if (z < 0) return 1 - normalSf(-z);\n  if (z === 0) return 0.5;\n  if (z < 2) {\n    let term = z, sum = z;\n    for (let n = 1; n < 100; n++) {\n      term *= -z * z / (2 * n);\n      const add = term / (2 * n + 1);\n      sum += add;\n      if (Math.abs(add) <= Number.EPSILON * Math.abs(sum)) break;\n    }\n    return 0.5 - sum / SQRT2PI;\n  }\n  return Math.exp(-0.5 * z * z) / SQRT2PI / millsDenominator(z);\n}\nfunction normalLogSf(z) {\n  if (Number.isNaN(z)) return NaN;\n  if (z === Infinity) return -Infinity;\n  if (z === -Infinity) return 0;\n  if (z < 0) return Math.log1p(-normalSf(-z));\n  if (z < 2) return Math.log(normalSf(z));\n  return -0.5 * z * z - Math.log(SQRT2PI) - Math.log(millsDenominator(z));\n}\nfunction normalCdf(z) { return z <= 0 ? normalSf(-z) : 1 - normalSf(z); }\nfunction inverseNormalSf(q) {\n  if (!Number.isFinite(q) || q <= 0 || q >= 1) throw new RangeError('Probability must be between zero and one.');\n  if (q === 0.5) return 0;\n  if (q > 0.5) return -inverseNormalSf(1 - q);\n  const target = Math.log(q);\n  let lo = 0, hi = 1;\n  while (normalLogSf(hi) > target) hi *= 2;\n  for (let i = 0; i < 100; i++) {\n    const mid = lo + (hi - lo) / 2;\n    if (mid === lo || mid === hi) break;\n    if (normalLogSf(mid) > target) lo = mid; else hi = mid;\n  }\n  return lo + (hi - lo) / 2;\n}\nfunction inverseNormalCdf(p) { return -inverseNormalSf(p); }\nmodule.exports = { normalSf, normalLogSf, normalCdf, inverseNormalSf, inverseNormalCdf };\n",
+    "sources": [
+      "normal-series",
+      "normal-cf"
+    ],
+    "validation": {
+      "gridCount": 3801,
+      "maxAbsolute": {
+        "z": 1.87,
+        "absolute": 2.983724378680108e-16,
+        "relative": 9.705722522065715e-15
+      },
+      "maxRelative": {
+        "z": 37.68,
+        "absolute": 5e-324,
+        "relative": 9.356679383326508e-14
+      },
+      "quantiles": [
+        {
+          "q": 5e-324,
+          "z": 38.46740561714434,
+          "reference": 38.467405617144344,
+          "absoluteError": 7.105427357601002e-15
+        },
+        {
+          "q": 1e-300,
+          "z": 37.0470962993612,
+          "reference": 37.0470962993612,
+          "absoluteError": 0.0
+        },
+        {
+          "q": 1e-100,
+          "z": 21.273453560965322,
+          "reference": 21.273453560965322,
+          "absoluteError": 0.0
+        },
+        {
+          "q": 1e-30,
+          "z": 11.464024688443615,
+          "reference": 11.464024688443613,
+          "absoluteError": 1.7763568394002505e-15
+        },
+        {
+          "q": 1e-20,
+          "z": 9.262340089798407,
+          "reference": 9.262340089798409,
+          "absoluteError": 1.7763568394002505e-15
+        },
+        {
+          "q": 1e-10,
+          "z": 6.361340902404056,
+          "reference": 6.361340902404056,
+          "absoluteError": 0.0
+        },
+        {
+          "q": 0.001,
+          "z": 3.090232306167813,
+          "reference": 3.090232306167813,
+          "absoluteError": 0.0
+        },
+        {
+          "q": 0.025,
+          "z": 1.959963984540058,
+          "reference": 1.9599639845400545,
+          "absoluteError": 3.552713678800501e-15
+        },
+        {
+          "q": 0.5,
+          "z": 0,
+          "reference": 0.0,
+          "absoluteError": 0.0
+        },
+        {
+          "q": 0.975,
+          "z": -1.9599639845400554,
+          "reference": -1.959963984540054,
+          "absoluteError": 1.3322676295501878e-15
+        }
+      ]
+    },
+    "accuracyQualification": "Observed numerical errors are grid measurements, not a proof of a uniform error bound. The reference treats each JavaScript binary64 input exactly. Use relative tolerance 1e-12 plus a few smallest subnormal units for SF; use absolute 2e-12 for logSF.",
+    "usage": [
+      "CDF(x)=SF(-x) for x<=0; CDF(x)=1-SF(x) for x>0. CDF rounding to exactly 1 at large positive x is expected; the separately computed SF must remain nonzero while representable.",
+      "Two-sided normal p=2*SF(abs(z)); do not form 2*(1-CDF(abs(z))).",
+      "For inverse upper tail pass q directly; constructing p=1-q destroys small q. Invert logSF for subnormal q.",
+      "For positive-tail intervals a<b, use SF(a)-SF(b), or exp(logSF(a)) * -expm1(logSF(b)-logSF(a)) for narrow intervals. Avoid CDF(b)-CDF(a) in the far positive tail.",
+      "normalSf(40) underflows to zero in binary64; normalLogSf(40) remains meaningful. Clearly distinguish underflow from an exact zero probability."
+    ]
+  },
+  "shapeLimits": {
+    "answer": "There is no universally reliable maximum df for the existing implementation: accuracy depends on both degrees/shape and the evaluation point, with independent cancellation failures even at df=100. A shape limit is an interim scope restriction, not a numerical proof.",
+    "interimRecommendation": {
+      "maxGammaShape": 10000,
+      "maxBetaA": 10000,
+      "maxBetaB": 10000,
+      "resultingChiSquareDfCap": 20000,
+      "resultingFDf1Cap": 20000,
+      "resultingFDf2Cap": 20000,
+      "resultingStudentDfCap": 20000,
+      "requirements": "Apply only after direct-tail, Student-center, convergence, and input fixes; retain lower positive-shape tests. Beyond this range show unsupported precision or use a vetted large-parameter algorithm. These values target ~1e-10 relative accuracy on tested ordinary cases, not all possible inputs."
+    },
+    "empiricalGammaGrid": [
+      {
+        "shapeCap": 1000,
+        "caseCount": 37,
+        "maxAbsoluteError": 1.815214645262131e-13,
+        "maxRelativeError": 2.280093138596804e-13
+      },
+      {
+        "shapeCap": 5000,
+        "caseCount": 45,
+        "maxAbsoluteError": 1.4932499681208355e-12,
+        "maxRelativeError": 4.01072492073418e-12
+      },
+      {
+        "shapeCap": 10000,
+        "caseCount": 53,
+        "maxAbsoluteError": 2.4810153931298373e-12,
+        "maxRelativeError": 4.948868692538313e-12
+      },
+      {
+        "shapeCap": 20000,
+        "caseCount": 61,
+        "maxAbsoluteError": 3.810174398211075e-12,
+        "maxRelativeError": 2.4850726404125514e-11
+      },
+      {
+        "shapeCap": 50000,
+        "caseCount": 69,
+        "maxAbsoluteError": 4.1776578026953e-06,
+        "maxRelativeError": 8.34538946388694e-06
+      }
+    ],
+    "empiricalBetaGrid": [
+      {
+        "shapeCap": 100,
+        "caseCount": 71,
+        "maxAbsoluteError": 6.711298183859071e-14,
+        "maxRelativeError": 1.4419417438913734e-13
+      },
+      {
+        "shapeCap": 1000,
+        "caseCount": 112,
+        "maxAbsoluteError": 5.844214001626824e-13,
+        "maxRelativeError": 1.2105104889107403e-12
+      },
+      {
+        "shapeCap": 5000,
+        "caseCount": 135,
+        "maxAbsoluteError": 2.313260694108976e-12,
+        "maxRelativeError": 5.696844919293834e-12
+      },
+      {
+        "shapeCap": 10000,
+        "caseCount": 191,
+        "maxAbsoluteError": 6.060596469126267e-12,
+        "maxRelativeError": 1.647358560668964e-11
+      },
+      {
+        "shapeCap": 100000,
+        "caseCount": 257,
+        "maxAbsoluteError": 3.172782592208989e-10,
+        "maxRelativeError": 6.345565184417992e-10
+      }
+    ],
+    "gridDefinition": "Gamma: selected a from .5 through 1e8, x=a+k*sqrt(a), k in {-8,-4,-2,0,1,2,4,8}, positive x only, plus special cases. Beta: a,b selected from {.5,1,2,10,100,1000,5000,10000,1e5,1e6,1e8,1e12}, x around mean by {-4,-2,0,2,4} standard deviations, selected combinations. Exact case lists in current-numerical-probe.json.",
+    "gammaMeanConvergence": [
+      {
+        "a": 1000,
+        "iterations": 248,
+        "converged": true
+      },
+      {
+        "a": 5000,
+        "iterations": 536,
+        "converged": true
+      },
+      {
+        "a": 10000,
+        "iterations": 749,
+        "converged": true
+      },
+      {
+        "a": 20000,
+        "iterations": 999,
+        "converged": false
+      },
+      {
+        "a": 50000,
+        "iterations": 999,
+        "converged": false
+      },
+      {
+        "a": 1000000,
+        "iterations": 999,
+        "converged": false
+      }
+    ],
+    "largeParameterRecommendation": "Use a tested incomplete-gamma implementation with Temme large-a expansion and an incomplete-beta implementation with balanced/unbalanced shape regimes, e.g. the algorithm families documented by Boost. Porting library code requires preserving its actual license. A simple normal approximation or a first asymptotic term is not an exact substitute; label approximation and verify error over an explicit supported domain.",
+    "largeGammaStructure": "lambda=x/a; eta=sign(lambda-1)*sqrt(2*(lambda-1-log(lambda))); Q(a,x)=normalSf(eta*sqrt(a))+S(a,eta), where S is the correction expansion. Omitting S leaves an O(1/sqrt(a)) center error: at a=1e6,x=a, Q is .4998670192391274 rather than .5.",
+    "sources": [
+      "gamma-large",
+      "beta-large",
+      "boost-gamma",
+      "boost-beta"
+    ]
+  },
+  "directTailTransformations": {
+    "gamma": "Current x>=a+1 continued-fraction branch already computes Q as factor*h. Return it directly for gammaQ and form P only when needed. In x<a+1 branch the positive series computes P directly. Return {p,q,logp,logq,converged,iterations} where feasible; choose the direct expression for the smaller tail. Clamping cannot repair nonconvergence.",
+    "beta": "I_x(a,b) complements I_(1-x)(b,a), but a small complementary argument must be formed directly from the original statistic, not as 1-x after x has rounded to 1. Expose a beta-tail API accepting both accurately computed x and y=1-x, or a dedicated transformed-distribution SF. Computing betaQ by 1-betaP is insufficient.",
+    "student": "For t>=0, r=t/sqrt(df). If r<=1, u=r*r/(1+r*r) is an accurate central argument; central mass=.5*I_u(.5,df/2), giving CDF=.5+mass and SF=.5-mass when this remains well-conditioned. For tails use SF=.5*I_v(df/2,.5), with v=1/(1+r*r) for r<=1, or v=s*s/(1+s*s), s=sqrt(df)/t, for r>1 to avoid r*r overflow. Select the tail form before subtractive cancellation becomes severe, e.g. use central form only while its beta value is <=.5. Negative t uses symmetry. Preserve log(v) if v itself underflows but the beta tail remains representable (very small df can cause this).",
+    "studentCenterVerified": "Replacing the current center formula by .5+.5*I_u(.5,df/2) gives .5000003979461869 (df100), .5000003988425573 (df1000), .500000398932307 (df10000), and .500000398941283 (df100000), each at t=1e-6 and consistent with independent references.",
+    "f": "For x>0, compute u=df1*x/(df1*x+df2), v=df2/(df1*x+df2) through stable ratios. CDF=I_u(df1/2,df2/2), SF=I_v(df2/2,df1/2). If R=(df1/df2)*x overflows, use its reciprocal via (df2/df1)/x, avoiding infinity/infinity. In an explicitly bounded df range this handles very large x; for arbitrary finite dfs use logarithmic ratios.",
+    "inverseStudent": "Use symmetry to invert q=min(p,1-p) as a positive-tail probability, bracket [0,hi] with hi doubled until SF(hi)<=q, then safeguarded bisection/Newton. Expose inverse survival for direct tiny q. Stop on bracket-width and probability criteria; signal overflow/nonconvergence rather than clipping.",
+    "sources": [
+      "beta-definition",
+      "gamma-upper",
+      "beta-upper",
+      "nist-t",
+      "nist-f",
+      "nist-chi"
+    ]
+  },
+  "observedFailures": [
+    {
+      "kind": "gamma",
+      "a": 10000,
+      "x": 10000,
+      "k": 0,
+      "current": 0.5013298083424362,
+      "expected": 0.5013298083399552,
+      "absoluteError": 2.4810153931298373e-12,
+      "relativeError": 4.948868692538313e-12
+    },
+    {
+      "kind": "gamma",
+      "a": 20000,
+      "x": 20000,
+      "k": 0,
+      "current": 0.5009403162299392,
+      "expected": 0.5009403162337493,
+      "absoluteError": 3.810174398211075e-12,
+      "relativeError": 7.606044621956853e-12
+    },
+    {
+      "kind": "gamma",
+      "a": 50000,
+      "x": 50000,
+      "k": 0,
+      "current": 0.5005905304469906,
+      "expected": 0.5005947081047933,
+      "absoluteError": 4.1776578026953e-06,
+      "relativeError": 8.34538946388694e-06
+    },
+    {
+      "kind": "gamma",
+      "a": 1000000,
+      "x": 1000000,
+      "k": 0,
+      "current": 0.34135676138963794,
+      "expected": 0.5001329807608725,
+      "absoluteError": 0.1587762193712346,
+      "relativeError": 0.3174680044688953
+    },
+    {
+      "kind": "gamma",
+      "a": 100000000,
+      "x": 100000000,
+      "k": 0,
+      "current": 0.039827847973600575,
+      "expected": 0.5000132980760141,
+      "absoluteError": 0.4601854501024136,
+      "relativeError": 0.9203464225314548
+    },
+    {
+      "kind": "beta",
+      "a": 100000000,
+      "b": 100000000,
+      "x": 0.5,
+      "k": 0,
+      "current": 0.6868028822555604,
+      "expected": 0.5000000000000028,
+      "absoluteError": 0.18680288225555763,
+      "relativeError": 0.3736057645111132
+    },
+    {
+      "kind": "beta",
+      "a": 1000000000000,
+      "b": 1000000000000,
+      "x": 0.5,
+      "k": 0,
+      "current": 0.9963054852591282,
+      "expected": 0.5,
+      "absoluteError": 0.4963054852591282,
+      "relativeError": 0.9926109705182564
+    },
+    {
+      "kind": "student",
+      "df": 100,
+      "x": 1e-06,
+      "current": 0.5000003977871204,
+      "expected": 0.5000003979461869,
+      "absoluteError": 1.5906653771935453e-10,
+      "relativeError": 3.18132822239222e-10
+    },
+    {
+      "kind": "student",
+      "df": 10000,
+      "x": 1e-06,
+      "current": 0.5000005944554611,
+      "expected": 0.500000398932307,
+      "absoluteError": 1.9552315411175414e-07,
+      "relativeError": 3.910459962217455e-07
+    },
+    {
+      "kind": "student",
+      "df": 100000,
+      "x": 1e-06,
+      "current": 0.5,
+      "expected": 0.5000003989412831,
+      "absoluteError": 3.9894128311956933e-07,
+      "relativeError": 7.978819296230571e-07
+    },
+    {
+      "kind": "student",
+      "df": 10000000000000000,
+      "x": 1,
+      "current": 0.5,
+      "expected": 0.8413447460685429,
+      "absoluteError": 0.3413447460685429,
+      "relativeError": 0.40571329132746986
+    },
+    {
+      "kind": "inverseStudent",
+      "df": 1,
+      "p": 1e-10,
+      "current": -1000000,
+      "expected": -3183098861.8379064,
+      "absoluteError": 3182098861.8379064,
+      "relativeError": 0.9996858407346411
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "normal-tail-0",
+      "function": "normalSf",
+      "inputs": {
+        "z": 0
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-0",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 0
+      },
+      "expected": -0.6931471805599453,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-1e-10",
+      "function": "normalSf",
+      "inputs": {
+        "z": 1e-10
+      },
+      "expected": 0.49999999996010575,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-1e-10",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 1e-10
+      },
+      "expected": -0.6931471806397338,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-0.5",
+      "function": "normalSf",
+      "inputs": {
+        "z": 0.5
+      },
+      "expected": 0.3085375387259869,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-0.5",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 0.5
+      },
+      "expected": -1.1759117615936185,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-1.87",
+      "function": "normalSf",
+      "inputs": {
+        "z": 1.87
+      },
+      "expected": 0.030741908929465954,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-1.87",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 1.87
+      },
+      "expected": -3.4821284435978774,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-1.9999999999999998",
+      "function": "normalSf",
+      "inputs": {
+        "z": 1.9999999999999998
+      },
+      "expected": 0.02275013194817922,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-1.9999999999999998",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 1.9999999999999998
+      },
+      "expected": -3.783184333682031,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-2",
+      "function": "normalSf",
+      "inputs": {
+        "z": 2
+      },
+      "expected": 0.02275013194817921,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-2",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 2
+      },
+      "expected": -3.783184333682032,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-4",
+      "function": "normalSf",
+      "inputs": {
+        "z": 4
+      },
+      "expected": 3.1671241833119924e-05,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-4",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 4
+      },
+      "expected": -10.360101486527292,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-8",
+      "function": "normalSf",
+      "inputs": {
+        "z": 8
+      },
+      "expected": 6.220960574271784e-16,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-8",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 8
+      },
+      "expected": -35.01343715991455,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-9",
+      "function": "normalSf",
+      "inputs": {
+        "z": 9
+      },
+      "expected": 1.1285884059538405e-19,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-9",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 9
+      },
+      "expected": -43.628149113332114,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-10",
+      "function": "normalSf",
+      "inputs": {
+        "z": 10
+      },
+      "expected": 7.619853024160525e-24,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-10",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 10
+      },
+      "expected": -53.23128515051247,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-20",
+      "function": "normalSf",
+      "inputs": {
+        "z": 20
+      },
+      "expected": 2.7536241186062337e-89,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-20",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 20
+      },
+      "expected": -203.91715537109727,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-30",
+      "function": "normalSf",
+      "inputs": {
+        "z": 30
+      },
+      "expected": 4.906713927148187e-198,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-30",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 30
+      },
+      "expected": -454.3212439563432,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-37",
+      "function": "normalSf",
+      "inputs": {
+        "z": 37
+      },
+      "expected": 5.725571222524577e-300,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-37",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 37
+      },
+      "expected": -689.0305855768906,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-38",
+      "function": "normalSf",
+      "inputs": {
+        "z": 38
+      },
+      "expected": 2.88542835e-316,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-38",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 38
+      },
+      "expected": -726.5572160188201,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-tail-40",
+      "function": "normalSf",
+      "inputs": {
+        "z": 40
+      },
+      "expected": 0.0,
+      "tolerance": {
+        "absolute": 5e-324,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits, erfc(z/sqrt(2))/2; binary64 input represented exactly",
+      "notes": "At z=40 the ordinary probability underflows; test logSf separately."
+    },
+    {
+      "id": "normal-logtail-40",
+      "function": "normalLogSf",
+      "inputs": {
+        "z": 40
+      },
+      "expected": -804.6084420137538,
+      "tolerance": {
+        "absolute": 2e-12,
+        "relative": 0
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf--10",
+      "function": "normalCdf",
+      "inputs": {
+        "z": -10
+      },
+      "expected": 7.619853024160525e-24,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf--4",
+      "function": "normalCdf",
+      "inputs": {
+        "z": -4
+      },
+      "expected": 3.1671241833119924e-05,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf--2",
+      "function": "normalCdf",
+      "inputs": {
+        "z": -2
+      },
+      "expected": 0.02275013194817921,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf-0",
+      "function": "normalCdf",
+      "inputs": {
+        "z": 0
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf-2",
+      "function": "normalCdf",
+      "inputs": {
+        "z": 2
+      },
+      "expected": 0.9772498680518208,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf-4",
+      "function": "normalCdf",
+      "inputs": {
+        "z": 4
+      },
+      "expected": 0.9999683287581669,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-cdf-10",
+      "function": "normalCdf",
+      "inputs": {
+        "z": 10
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-12
+      },
+      "reference": "mpmath 110 digits",
+      "notes": ""
+    },
+    {
+      "id": "normal-isf-5e-324",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 5e-324
+      },
+      "expected": 38.467405617144344,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-1e-300",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 1e-300
+      },
+      "expected": 37.0470962993612,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-1e-100",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 1e-100
+      },
+      "expected": 21.273453560965322,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-1e-30",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 1e-30
+      },
+      "expected": 11.464024688443613,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-1e-20",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 1e-20
+      },
+      "expected": 9.262340089798409,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-1e-10",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 1e-10
+      },
+      "expected": 6.361340902404056,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-0.001",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 0.001
+      },
+      "expected": 3.090232306167813,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-0.025",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 0.025
+      },
+      "expected": 1.9599639845400545,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-0.5",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 0.5
+      },
+      "expected": 0.0,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "normal-isf-0.975",
+      "function": "inverseNormalSf",
+      "inputs": {
+        "q": 0.975
+      },
+      "expected": -1.959963984540054,
+      "tolerance": {
+        "absolute": 2e-13,
+        "relative": 0
+      },
+      "reference": "SciPy 1.18.1 norm.isf",
+      "notes": "Pass q directly; 1-q rounds to 1 for small q."
+    },
+    {
+      "id": "gammaP-1-80",
+      "function": "gammaP",
+      "inputs": {
+        "a": 1,
+        "x": 80
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-1-80",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 1,
+        "x": 80
+      },
+      "expected": 1.804851387845408e-35,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-0.5-32",
+      "function": "gammaP",
+      "inputs": {
+        "a": 0.5,
+        "x": 32
+      },
+      "expected": 0.9999999999999988,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-0.5-32",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 0.5,
+        "x": 32
+      },
+      "expected": 1.2441921148543578e-15,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-2-3",
+      "function": "gammaP",
+      "inputs": {
+        "a": 2,
+        "x": 3
+      },
+      "expected": 0.8008517265285442,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-2-3",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 2,
+        "x": 3
+      },
+      "expected": 0.1991482734714558,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-5-50",
+      "function": "gammaP",
+      "inputs": {
+        "a": 5,
+        "x": 50
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-5-50",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 5,
+        "x": 50
+      },
+      "expected": 5.4497019829205215e-17,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-100-100",
+      "function": "gammaP",
+      "inputs": {
+        "a": 100,
+        "x": 100
+      },
+      "expected": 0.5132987982791487,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-100-100",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 100,
+        "x": 100
+      },
+      "expected": 0.48670120172085135,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-1000-1000",
+      "function": "gammaP",
+      "inputs": {
+        "a": 1000,
+        "x": 1000
+      },
+      "expected": 0.5042052441802155,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-1000-1000",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 1000,
+        "x": 1000
+      },
+      "expected": 0.4957947558197845,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-10000-10000",
+      "function": "gammaP",
+      "inputs": {
+        "a": 10000,
+        "x": 10000
+      },
+      "expected": 0.5013298083399552,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-10000-10000",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 10000,
+        "x": 10000
+      },
+      "expected": 0.4986701916600448,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-20000-20000",
+      "function": "gammaP",
+      "inputs": {
+        "a": 20000,
+        "x": 20000
+      },
+      "expected": 0.5009403162337493,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-20000-20000",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 20000,
+        "x": 20000
+      },
+      "expected": 0.49905968376625065,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-50000-50000",
+      "function": "gammaP",
+      "inputs": {
+        "a": 50000,
+        "x": 50000
+      },
+      "expected": 0.5005947081047933,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-50000-50000",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 50000,
+        "x": 50000
+      },
+      "expected": 0.4994052918952067,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-1000000.0-1000000.0",
+      "function": "gammaP",
+      "inputs": {
+        "a": 1000000.0,
+        "x": 1000000.0
+      },
+      "expected": 0.5001329807608725,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-1000000.0-1000000.0",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 1000000.0,
+        "x": 1000000.0
+      },
+      "expected": 0.4998670192391274,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaP-100000000.0-100000000.0",
+      "function": "gammaP",
+      "inputs": {
+        "a": 100000000.0,
+        "x": 100000000.0
+      },
+      "expected": 0.5000132980760141,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammainc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "gammaQ-100000000.0-100000000.0",
+      "function": "gammaQ",
+      "inputs": {
+        "a": 100000000.0,
+        "x": 100000000.0
+      },
+      "expected": 0.49998670192398587,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "SciPy 1.18.1 gammaincc",
+      "notes": "Large-shape fixtures may be explicit unsupported-input cases until a vetted large-shape algorithm is installed. Do not silently accept inaccurate outputs."
+    },
+    {
+      "id": "betaP-2-3-0.25",
+      "function": "betaP",
+      "inputs": {
+        "a": 2,
+        "b": 3,
+        "x": 0.25
+      },
+      "expected": 0.26171875,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-2-3-0.25",
+      "function": "betaQ",
+      "inputs": {
+        "a": 2,
+        "b": 3,
+        "x": 0.25
+      },
+      "expected": 0.73828125,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-2-50-0.99",
+      "function": "betaP",
+      "inputs": {
+        "a": 2,
+        "b": 50,
+        "x": 0.99
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-2-50-0.99",
+      "function": "betaQ",
+      "inputs": {
+        "a": 2,
+        "b": 50,
+        "x": 0.99
+      },
+      "expected": 5.050000000000224e-99,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-0.5-0.5-0.25",
+      "function": "betaP",
+      "inputs": {
+        "a": 0.5,
+        "b": 0.5,
+        "x": 0.25
+      },
+      "expected": 0.3333333333333333,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-0.5-0.5-0.25",
+      "function": "betaQ",
+      "inputs": {
+        "a": 0.5,
+        "b": 0.5,
+        "x": 0.25
+      },
+      "expected": 0.6666666666666666,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-0.5-5000-1e-16",
+      "function": "betaP",
+      "inputs": {
+        "a": 0.5,
+        "b": 5000,
+        "x": 1e-16
+      },
+      "expected": 7.978646139380819e-07,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-0.5-5000-1e-16",
+      "function": "betaQ",
+      "inputs": {
+        "a": 0.5,
+        "b": 5000,
+        "x": 1e-16
+      },
+      "expected": 0.9999992021353861,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-1-1-0.001",
+      "function": "betaP",
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "x": 0.001
+      },
+      "expected": 0.001,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-1-1-0.001",
+      "function": "betaQ",
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "x": 0.001
+      },
+      "expected": 0.999,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-1000-1000-0.5",
+      "function": "betaP",
+      "inputs": {
+        "a": 1000,
+        "b": 1000,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-1000-1000-0.5",
+      "function": "betaQ",
+      "inputs": {
+        "a": 1000,
+        "b": 1000,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-10000-10000-0.5",
+      "function": "betaP",
+      "inputs": {
+        "a": 10000,
+        "b": 10000,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-10000-10000-0.5",
+      "function": "betaQ",
+      "inputs": {
+        "a": 10000,
+        "b": 10000,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-100000000.0-100000000.0-0.5",
+      "function": "betaP",
+      "inputs": {
+        "a": 100000000.0,
+        "b": 100000000.0,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-100000000.0-100000000.0-0.5",
+      "function": "betaQ",
+      "inputs": {
+        "a": 100000000.0,
+        "b": 100000000.0,
+        "x": 0.5
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "betaP-100000000.0-1000000000000.0-9.999000099990002e-05",
+      "function": "betaP",
+      "inputs": {
+        "a": 100000000.0,
+        "b": 1000000000000.0,
+        "x": 9.999000099990002e-05
+      },
+      "expected": 0.5000132960814161,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betainc",
+      "notes": ""
+    },
+    {
+      "id": "betaQ-100000000.0-1000000000000.0-9.999000099990002e-05",
+      "function": "betaQ",
+      "inputs": {
+        "a": 100000000.0,
+        "b": 1000000000000.0,
+        "x": 9.999000099990002e-05
+      },
+      "expected": 0.49998670391836436,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact symmetry when a=b,x=.5; otherwise SciPy 1.18.1 betaincc",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-1-1",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 1,
+        "t": 1
+      },
+      "expected": 0.75,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-1-1",
+      "function": "studentSf",
+      "inputs": {
+        "df": 1,
+        "t": 1
+      },
+      "expected": 0.25,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-1-10000000000.0",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 1,
+        "t": 10000000000.0
+      },
+      "expected": 0.999999999968169,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-1-10000000000.0",
+      "function": "studentSf",
+      "inputs": {
+        "df": 1,
+        "t": 10000000000.0
+      },
+      "expected": 3.1830988618379065e-11,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-2-100",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 2,
+        "t": 100
+      },
+      "expected": 0.9999500074987502,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-2-100",
+      "function": "studentSf",
+      "inputs": {
+        "df": 2,
+        "t": 100
+      },
+      "expected": 4.999250124978129e-05,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-30-100",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 30,
+        "t": 100
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-30-100",
+      "function": "studentSf",
+      "inputs": {
+        "df": 30,
+        "t": 100
+      },
+      "expected": 9.923058983635155e-40,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-100-1e-06",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 100,
+        "t": 1e-06
+      },
+      "expected": 0.5000003979461869,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-100-1e-06",
+      "function": "studentSf",
+      "inputs": {
+        "df": 100,
+        "t": 1e-06
+      },
+      "expected": 0.49999960205381305,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-1000-1e-06",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 1000,
+        "t": 1e-06
+      },
+      "expected": 0.5000003988425573,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-1000-1e-06",
+      "function": "studentSf",
+      "inputs": {
+        "df": 1000,
+        "t": 1e-06
+      },
+      "expected": 0.4999996011574427,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-10000-1e-06",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 10000,
+        "t": 1e-06
+      },
+      "expected": 0.500000398932307,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-10000-1e-06",
+      "function": "studentSf",
+      "inputs": {
+        "df": 10000,
+        "t": 1e-06
+      },
+      "expected": 0.49999960106769303,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-100000-1e-06",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 100000,
+        "t": 1e-06
+      },
+      "expected": 0.5000003989412831,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-100000-1e-06",
+      "function": "studentSf",
+      "inputs": {
+        "df": 100000,
+        "t": 1e-06
+      },
+      "expected": 0.49999960105871694,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-1000000000000.0-1",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 1000000000000.0,
+        "t": 1
+      },
+      "expected": 0.8413447460684219,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-1000000000000.0-1",
+      "function": "studentSf",
+      "inputs": {
+        "df": 1000000000000.0,
+        "t": 1
+      },
+      "expected": 0.15865525393157806,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentCdf-1e+16-2",
+      "function": "studentCdf",
+      "inputs": {
+        "df": 1e+16,
+        "t": 2
+      },
+      "expected": 0.9772498680518208,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "studentSf-1e+16-2",
+      "function": "studentSf",
+      "inputs": {
+        "df": 1e+16,
+        "t": 2
+      },
+      "expected": 0.02275013194817922,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact Cauchy expression with mpmath when df=1; otherwise SciPy 1.18.1 stats.t",
+      "notes": ""
+    },
+    {
+      "id": "student-ppf-1-1e-10",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 1e-10,
+        "df": 1
+      },
+      "expected": -3183098861.837907,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "student-ppf-1-0.025",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 0.025,
+        "df": 1
+      },
+      "expected": -12.706204736174705,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "student-ppf-2-0.025",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 0.025,
+        "df": 2
+      },
+      "expected": -4.302652729749464,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "student-ppf-0.1-0.025",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 0.025,
+        "df": 0.1
+      },
+      "expected": -1682362288745.021,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "student-ppf-30-0.975",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 0.975,
+        "df": 30
+      },
+      "expected": 2.0422724563012378,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "student-ppf-10000-0.025",
+      "function": "inverseStudent",
+      "inputs": {
+        "p": 0.025,
+        "df": 10000
+      },
+      "expected": -1.9602012398906263,
+      "tolerance": {
+        "absolute": 1e-11,
+        "relative": 1e-09
+      },
+      "reference": "Cauchy -cot(pi*p) evaluated at 110 digits when df=1; otherwise SciPy 1.18.1 stats.t.ppf",
+      "notes": "Quantile must be bracketed adaptively; fixed +/-1e6 silently clips valid results."
+    },
+    {
+      "id": "fCdf-5-10-1000",
+      "function": "fCdf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 1000
+      },
+      "expected": 0.9999999999996293,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fSf-5-10-1000",
+      "function": "fSf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 1000
+      },
+      "expected": 3.7071680987086947e-13,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fCdf-5-10-10000000000.0",
+      "function": "fCdf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 10000000000.0
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fSf-5-10-10000000000.0",
+      "function": "fSf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 10000000000.0
+      },
+      "expected": 3.753749995307812e-48,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fCdf-1-1-1e+20",
+      "function": "fCdf",
+      "inputs": {
+        "df1": 1,
+        "df2": 1,
+        "x": 1e+20
+      },
+      "expected": 1.0,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fSf-1-1-1e+20",
+      "function": "fSf",
+      "inputs": {
+        "df1": 1,
+        "df2": 1,
+        "x": 1e+20
+      },
+      "expected": 6.366197723675814e-11,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fCdf-10000-10000-1",
+      "function": "fCdf",
+      "inputs": {
+        "df1": 10000,
+        "df2": 10000,
+        "x": 1
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fSf-10000-10000-1",
+      "function": "fSf",
+      "inputs": {
+        "df1": 10000,
+        "df2": 10000,
+        "x": 1
+      },
+      "expected": 0.5,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fCdf-5-10-0.2",
+      "function": "fCdf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 0.2
+      },
+      "expected": 0.044808229753570405,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    },
+    {
+      "id": "fSf-5-10-0.2",
+      "function": "fSf",
+      "inputs": {
+        "df1": 5,
+        "df2": 10,
+        "x": 0.2
+      },
+      "expected": 0.9551917702464295,
+      "tolerance": {
+        "absolute": 0,
+        "relative": 1e-10
+      },
+      "reference": "Exact reciprocal symmetry when df1=df2,x=1; otherwise SciPy 1.18.1 stats.f",
+      "notes": ""
+    }
+  ],
+  "additionalRegressionProperties": [
+    "normalCdf(x)=normalSf(-x); normalSf is nonincreasing and in [0,1].",
+    "Exact symmetry: I_.5(a,a)=.5; Student CDF(0,df)=.5; F CDF(1,df,df)=.5.",
+    "Check direct tails in relative error; an absolute 1e-8 tolerance would incorrectly let every tiny-tail test pass with zero.",
+    "Exercise both sides of the normal z=2 algorithm boundary and gamma x=a+1 branch boundary.",
+    "Use gamma P+Q=1 and beta P+Q=1 as supporting checks, not accuracy proof: two wrong complementary numbers still sum to 1.",
+    "Quantile round trips must use independent reference values and the same smaller tail; testing only implementation against itself can miss shared bugs.",
+    "Validation: NaN/Infinity degrees, nonpositive df, invalid probabilities, negative shape, and out-of-domain regularized-beta x must not produce a plausible numeric result."
+  ],
+  "sources": [
+    {
+      "id": "normal-series",
+      "url": "https://dlmf.nist.gov/7.6",
+      "supports": "Error-function power series, equation 7.6.1; rescale argument to z/sqrt(2)."
+    },
+    {
+      "id": "normal-cf",
+      "url": "https://dlmf.nist.gov/7.9",
+      "supports": "Laplace continued fraction for the complementary error function, equation 7.9.1; equivalent to the normal Mills-ratio fraction."
+    },
+    {
+      "id": "beta-definition",
+      "url": "https://dlmf.nist.gov/8.17",
+      "supports": "Regularized incomplete beta, symmetry, and continued fractions."
+    },
+    {
+      "id": "gamma-large",
+      "url": "https://dlmf.nist.gov/8.12",
+      "supports": "Uniform large-parameter incomplete-gamma expansion. Requires correction terms and stable treatment near x=a."
+    },
+    {
+      "id": "beta-large",
+      "url": "https://dlmf.nist.gov/8.18",
+      "supports": "Different large-parameter incomplete-beta asymptotics for balanced and unbalanced shapes."
+    },
+    {
+      "id": "gamma-upper",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.gammaincc.html",
+      "supports": "Direct regularized upper incomplete gamma and independent fixture implementation."
+    },
+    {
+      "id": "beta-upper",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.betaincc.html",
+      "supports": "Direct complementary regularized incomplete beta and independent fixture implementation."
+    },
+    {
+      "id": "boost-gamma",
+      "url": "https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/sf_gamma/igamma.html",
+      "supports": "Vetted algorithm selection and accuracy discussion for incomplete gamma."
+    },
+    {
+      "id": "boost-beta",
+      "url": "https://www.boost.org/doc/libs/1_84_0/libs/math/doc/html/math_toolkit/sf_beta/ibeta_function.html",
+      "supports": "Vetted incomplete-beta implementation uses several regimes; points to DiDonato and Morris algorithms."
+    },
+    {
+      "id": "nist-t",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3664.htm",
+      "supports": "Student t density, df=1 Cauchy special case, normal limit."
+    },
+    {
+      "id": "nist-f",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3665.htm",
+      "supports": "F CDF expressed as one minus incomplete beta with complementary argument."
+    },
+    {
+      "id": "nist-chi",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3666.htm",
+      "supports": "Chi-square CDF equals P(df/2,x/2)."
+    }
+  ]
+}

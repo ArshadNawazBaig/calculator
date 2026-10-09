@@ -1,0 +1,3396 @@
+[
+  {
+    "gap": "F05",
+    "id": "F05-NT-01",
+    "name": "12% nominal, 24 compounding periods",
+    "inputs": {
+      "principal": 1000,
+      "nominalRatePercent": 12,
+      "fromFrequency": 24,
+      "toFrequency": 12,
+      "years": 1
+    },
+    "expected": {
+      "effectiveAnnualRatePercent": 12.715977620539174,
+      "equivalentNominalRatePercent": 12.03,
+      "endingBalance": 1127.1597762053918
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F05",
+    "id": "F05-NT-02",
+    "name": "12% nominal, 26 compounding periods",
+    "inputs": {
+      "principal": 1000,
+      "nominalRatePercent": 12,
+      "fromFrequency": 26,
+      "toFrequency": 12,
+      "years": 1
+    },
+    "expected": {
+      "effectiveAnnualRatePercent": 12.718562203925815,
+      "equivalentNominalRatePercent": 12.032315968379404,
+      "endingBalance": 1127.185622039258
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F05",
+    "id": "F05-NT-03",
+    "name": "Zero rate across frequencies",
+    "inputs": {
+      "principal": 1000,
+      "nominalRatePercent": 0,
+      "fromFrequency": 24,
+      "toFrequency": 26,
+      "years": 3
+    },
+    "expected": {
+      "effectiveAnnualRatePercent": 0,
+      "equivalentNominalRatePercent": 0,
+      "endingBalance": 1000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F11",
+    "id": "F11-NT-01",
+    "name": "Zero-interest accelerated payment count",
+    "inputs": {
+      "principal": 26000,
+      "nominalAprPercent": 0,
+      "originalMonths": 26,
+      "biweeklyPosting": "26-equal-periods-model"
+    },
+    "expected": {
+      "contractualMonthlyPayment": 1000,
+      "acceleratedInstallment": 500,
+      "acceleratedPaymentCount": 52,
+      "comparisonDurationYears": 2,
+      "totalInterest": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "cfpb-biweekly"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F11",
+    "id": "F11-NT-02",
+    "name": "Positive-interest26period ledger",
+    "inputs": {
+      "principal": 10000,
+      "nominalAprPercent": 6,
+      "originalMonths": 120,
+      "biweeklyPosting": "26-equal-periods-model"
+    },
+    "expected": {
+      "contractualMonthlyPayment": 111.02050194164947,
+      "acceleratedInstallment": 55.510250970824735,
+      "acceleratedPaymentCount": 234,
+      "reducedFinalPayment": 1.7797659258046157,
+      "totalInterest": 2935.6682421279675,
+      "comparisonDurationYears": 9.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "cfpb-biweekly"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F11",
+    "id": "F11-NT-03",
+    "name": "Known monthly payment remaining principal",
+    "inputs": {
+      "knownMonthlyPayment": 500,
+      "remainingMonths": 20,
+      "nominalAprPercent": 0
+    },
+    "expected": {
+      "inferredRemainingBalance": 10000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "cfpb-biweekly"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F12",
+    "id": "F12-NT-01",
+    "name": "Equivalent dollar and percent down",
+    "inputs": {
+      "homePrice": 400000,
+      "downValue": 20,
+      "downUnit": "percent"
+    },
+    "expected": {
+      "downDollars": 80000,
+      "principalBeforeFees": 320000,
+      "downPercent": 20
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F12",
+    "id": "F12-NT-02",
+    "name": "Dollar down normalization",
+    "inputs": {
+      "homePrice": 400000,
+      "downValue": 80000,
+      "downUnit": "dollars"
+    },
+    "expected": {
+      "downDollars": 80000,
+      "principalBeforeFees": 320000,
+      "downPercent": 20
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F12",
+    "id": "F12-NT-03",
+    "name": "Other costs grow independently",
+    "inputs": {
+      "homePrice": 400000,
+      "costLines": [
+        {
+          "name": "tax",
+          "value": 1.2,
+          "unit": "percent-original-price",
+          "growthPercent": 3
+        },
+        {
+          "name": "other",
+          "value": 1200,
+          "unit": "annual-dollars",
+          "growthPercent": 10
+        }
+      ],
+      "projectionYears": 2
+    },
+    "expected": {
+      "firstYearOwnershipCosts": 6000,
+      "secondYearTax": 4944,
+      "secondYearOther": 1320,
+      "secondYearOwnershipCosts": 6264
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F17",
+    "id": "F17-NT-01",
+    "name": "Zero contractual rate with fee and insurance, withheld-from-disbursement",
+    "inputs": {
+      "notePrincipal": 10000,
+      "nominalAprPercent": 0,
+      "months": 12,
+      "originationValue": 10,
+      "originationUnit": "percent",
+      "feeTreatment": "withheld-from-disbursement",
+      "monthlyInsurance": 10,
+      "insuranceFinanceChargePolicy": "unclassified"
+    },
+    "expected": {
+      "fee": 1000,
+      "netSpendableProceeds": 9000,
+      "loanPayment": 833.3333333333334,
+      "totalMonthlyCash": 843.3333333333334,
+      "cashflowNominalAnnualCostPercent": 22.22708392451548,
+      "cashflowEffectiveAnnualCostPercent": 24.637258058115687
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "apr",
+        "cfpb-finance-charge"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F17",
+    "id": "F17-NT-02",
+    "name": "Zero contractual rate with fee and insurance, paid-upfront",
+    "inputs": {
+      "notePrincipal": 10000,
+      "nominalAprPercent": 0,
+      "months": 12,
+      "originationValue": 10,
+      "originationUnit": "percent",
+      "feeTreatment": "paid-upfront",
+      "monthlyInsurance": 10,
+      "insuranceFinanceChargePolicy": "unclassified"
+    },
+    "expected": {
+      "fee": 1000,
+      "netSpendableProceeds": 9000,
+      "loanPayment": 833.3333333333334,
+      "totalMonthlyCash": 843.3333333333334,
+      "cashflowNominalAnnualCostPercent": 22.22708392451548,
+      "cashflowEffectiveAnnualCostPercent": 24.637258058115687
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "apr",
+        "cfpb-finance-charge"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F17",
+    "id": "F17-NT-03",
+    "name": "No fee/insurance zero-cost baseline",
+    "inputs": {
+      "notePrincipal": 1200,
+      "nominalAprPercent": 0,
+      "months": 12,
+      "originationValue": 0,
+      "originationUnit": "dollars",
+      "feeTreatment": "paid-upfront",
+      "monthlyInsurance": 0
+    },
+    "expected": {
+      "netSpendableProceeds": 1200,
+      "loanPayment": 100,
+      "cashflowNominalAnnualCostPercent": 0,
+      "cashflowEffectiveAnnualCostPercent": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "amortization",
+        "apr",
+        "cfpb-finance-charge"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-01",
+    "name": "Recover net from tax-inclusive gross",
+    "inputs": {
+      "family": "vat",
+      "known": "gross-and-rate",
+      "gross": 120,
+      "ratePercent": 20
+    },
+    "expected": {
+      "net": 100,
+      "tax": 20,
+      "gross": 120
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-02",
+    "name": "Recover rate from both prices",
+    "inputs": {
+      "family": "sales-tax",
+      "known": "net-and-gross",
+      "net": 80,
+      "gross": 86
+    },
+    "expected": {
+      "ratePercent": 7.5,
+      "tax": 6
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-03",
+    "name": "Recover VAT net from tax and rate",
+    "inputs": {
+      "family": "vat",
+      "known": "tax-and-rate",
+      "tax": 15,
+      "ratePercent": 15
+    },
+    "expected": {
+      "net": 100,
+      "gross": 115
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-04",
+    "name": "Recover original discount price",
+    "inputs": {
+      "family": "discount",
+      "known": "final-and-rate",
+      "final": 72,
+      "discountPercent": 20
+    },
+    "expected": {
+      "original": 90,
+      "saved": 18
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-05",
+    "name": "Recover original from savings",
+    "inputs": {
+      "family": "discount",
+      "known": "saved-and-rate",
+      "saved": 18,
+      "discountPercent": 20
+    },
+    "expected": {
+      "original": 90,
+      "final": 72
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-06",
+    "name": "Fixed-currency discount",
+    "inputs": {
+      "family": "discount",
+      "known": "original-and-saved",
+      "original": 100,
+      "saved": 15,
+      "discountUnit": "fixed-currency"
+    },
+    "expected": {
+      "final": 85,
+      "discountPercent": 15
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-07",
+    "name": "Margin amount determines revenue and cost",
+    "inputs": {
+      "family": "margin",
+      "known": "profit-and-margin",
+      "profit": 20,
+      "marginPercent": 25
+    },
+    "expected": {
+      "revenue": 80,
+      "cost": 60,
+      "markupPercent": 33.333333333333336
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-08",
+    "name": "Zero revenue does not define margin",
+    "inputs": {
+      "family": "margin",
+      "known": "cost-and-revenue",
+      "cost": 0,
+      "revenue": 0
+    },
+    "expected": {
+      "profit": 0,
+      "marginStatus": "undefined"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F19",
+    "id": "F19-NT-09",
+    "name": "100percent inverse discount indeterminate",
+    "inputs": {
+      "family": "discount",
+      "known": "final-and-rate",
+      "final": 0,
+      "discountPercent": 100
+    },
+    "expected": {
+      "status": "indeterminate"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F24",
+    "id": "F24-NT-01",
+    "name": "Salary rises while savings share stays fixed",
+    "inputs": {
+      "currentAge": 60,
+      "retirementAge": 62,
+      "lifeExpectancyAge": 64,
+      "annualIncome": 100000,
+      "incomeGrowthPercent": 10,
+      "annualSavingValue": 10,
+      "savingUnit": "percent-income",
+      "currentSavings": 100000,
+      "annualReturnPercent": 5,
+      "retirementReturnPercent": 0,
+      "retirementNeedValue": 50,
+      "needUnit": "percent-current-income",
+      "inflationPercent": 0,
+      "otherRetirementIncome": 10000
+    },
+    "expected": {
+      "year1Salary": 100000,
+      "year2Salary": 110000,
+      "year1Contribution": 10000,
+      "year2Contribution": 11000,
+      "retirementBalance": 131750,
+      "firstRetirementSpending": 50000,
+      "requiredRetirementCapital": 80000,
+      "retirementSurplus": 51750
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F24",
+    "id": "F24-NT-02",
+    "name": "Current-income need receives inflation once",
+    "inputs": {
+      "currentAge": 60,
+      "retirementAge": 62,
+      "lifeExpectancyAge": 64,
+      "annualIncome": 100000,
+      "retirementNeedValue": 50,
+      "needUnit": "percent-current-income",
+      "inflationPercent": 3,
+      "retirementReturnPercent": 0,
+      "otherRetirementIncome": 0
+    },
+    "expected": {
+      "firstRetirementSpending": 53045,
+      "secondRetirementSpending": 54636.35,
+      "requiredRetirementCapital": 107681.35
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F33",
+    "id": "F33-NT-01",
+    "name": "Fund half the costs with zero-return monthly savings",
+    "inputs": {
+      "annualCostToday": 20000,
+      "yearsUntilEnrollment": 2,
+      "studyYears": 2,
+      "educationInflationPercent": 0,
+      "fundedSharePercent": 50,
+      "currentSavings": 8000,
+      "grossAnnualReturnPercent": 0,
+      "annualInterestTaxPercent": 25
+    },
+    "expected": {
+      "totalStudyCost": 40000,
+      "savingsTarget": 20000,
+      "futureExistingSavings": 8000,
+      "monthlyContributionRequired": 500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F33",
+    "id": "F33-NT-02",
+    "name": "Annual tax settlement preserves contribution principal",
+    "inputs": {
+      "annualCostToday": 15000,
+      "yearsUntilEnrollment": 1,
+      "studyYears": 1,
+      "educationInflationPercent": 0,
+      "fundedSharePercent": 100,
+      "currentSavings": 10000,
+      "grossAnnualReturnPercent": 8,
+      "annualInterestTaxPercent": 25
+    },
+    "expected": {
+      "futureExistingSavings": 10600,
+      "savingsTarget": 15000,
+      "netOneDollarMonthlyContributionGain": 12.325414860386436,
+      "monthlyContributionRequired": 356.9859554294992
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F33",
+    "id": "F33-NT-03",
+    "name": "Fraction-funded cost escalation",
+    "inputs": {
+      "annualCostToday": 10000,
+      "yearsUntilEnrollment": 1,
+      "studyYears": 2,
+      "educationInflationPercent": 10,
+      "fundedSharePercent": 50,
+      "currentSavings": 0,
+      "grossAnnualReturnPercent": 0,
+      "annualInterestTaxPercent": 0
+    },
+    "expected": {
+      "totalStudyCost": 23100,
+      "savingsTarget": 11550,
+      "monthlyContributionRequired": 962.5
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F37",
+    "id": "F37-NT-01",
+    "name": "Quarterly salary conversion",
+    "inputs": {
+      "salaryAmount": 15000,
+      "salaryPeriod": "quarterly"
+    },
+    "expected": {
+      "annual": 60000,
+      "monthly": 5000,
+      "biweekly": 2307.6923076923076,
+      "semimonthly": 2500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F37",
+    "id": "F37-NT-02",
+    "name": "Workday-adjusted hourly compensation",
+    "inputs": {
+      "salaryAmount": 25,
+      "salaryPeriod": "hourly",
+      "hoursPerDay": 8,
+      "daysPerWeek": 5,
+      "holidays": 10,
+      "vacationDays": 15
+    },
+    "expected": {
+      "unadjustedAnnual": 52000,
+      "adjustedWorkdays": 235,
+      "adjustedAnnual": 47000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F37",
+    "id": "F37-NT-03",
+    "name": "Mixed-period budget with pretax saving",
+    "inputs": {
+      "incomeLines": [
+        {
+          "amount": 60000,
+          "period": "annual"
+        }
+      ],
+      "pretaxRetirementLines": [
+        {
+          "amount": 6000,
+          "period": "annual"
+        }
+      ],
+      "flatIncomeTaxPercent": 20,
+      "expenseLines": [
+        {
+          "amount": 2000,
+          "period": "monthly"
+        }
+      ]
+    },
+    "expected": {
+      "grossMonthly": 5000,
+      "pretaxSavingMonthly": 500,
+      "taxMonthly": 900,
+      "spendableMonthlyAfterTaxAndPretaxSaving": 3600,
+      "surplusMonthly": 1600
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F37",
+    "id": "F37-NT-04",
+    "name": "DTI annual gross normalization",
+    "inputs": {
+      "incomeLines": [
+        {
+          "amount": 72000,
+          "period": "annual"
+        }
+      ],
+      "debtLines": [
+        {
+          "amount": 1500,
+          "period": "monthly"
+        },
+        {
+          "amount": 3600,
+          "period": "annual"
+        }
+      ]
+    },
+    "expected": {
+      "grossMonthlyIncome": 6000,
+      "monthlyDebtPayments": 1800,
+      "dtiPercent": 30
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "simple-interest"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F39",
+    "id": "F39-NT-01",
+    "name": "Refundable deposit is not a permanent expense",
+    "inputs": {
+      "years": 2,
+      "renterRentMonthly": 1000,
+      "rentGrowthPercent": 0,
+      "renterInsuranceMonthly": 20,
+      "insuranceGrowthPercent": 0,
+      "renterDeposit": 2000,
+      "depositRefundPercent": 100,
+      "renterUpfrontNonrefundable": 100,
+      "investmentReturnPercent": 0
+    },
+    "expected": {
+      "year1RentAndInsurance": 12240,
+      "year2RentAndInsurance": 12240,
+      "depositRefund": 2000,
+      "nominalRenterCost": 24580,
+      "renterCostPV": 24580
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F39",
+    "id": "F39-NT-02",
+    "name": "Deposit opportunity cost and growing rent",
+    "inputs": {
+      "years": 2,
+      "renterRentMonthly": 1000,
+      "rentGrowthPercent": 5,
+      "renterInsuranceMonthly": 20,
+      "insuranceGrowthPercent": 0,
+      "renterDeposit": 2000,
+      "depositRefundPercent": 100,
+      "renterUpfrontNonrefundable": 100,
+      "investmentReturnPercent": 5
+    },
+    "expected": {
+      "year1RentAndInsurance": 12240,
+      "year2RentAndInsurance": 12840,
+      "depositRefund": 2000,
+      "nominalRenterCost": 25180,
+      "renterCostPV": 23589.342403628118,
+      "depositOnlyPVOpportunityCost": 185.94104308390024
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-01",
+    "name": "Two remaining coupons US-NASD30/360",
+    "inputs": {
+      "settlement": "2026-04-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 5,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "US-NASD30/360",
+      "faceValue": 1000
+    },
+    "expected": {
+      "cleanPricePer100": 100.71796777034655,
+      "accruedInterestPer100": 1.5,
+      "dirtyPricePer100": 102.21796777034655,
+      "N": 2,
+      "A": 90.0,
+      "E": 180.0,
+      "DSC": 90.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-02",
+    "name": "Two remaining coupons Actual/Actual-coupon",
+    "inputs": {
+      "settlement": "2026-04-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 5,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "Actual/Actual-coupon",
+      "faceValue": 1000
+    },
+    "expected": {
+      "cleanPricePer100": 100.7192828460487,
+      "accruedInterestPer100": 1.4917127071823204,
+      "dirtyPricePer100": 102.21099555323103,
+      "N": 2,
+      "A": 90.0,
+      "E": 181.0,
+      "DSC": 91.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-03",
+    "name": "Two remaining coupons Actual/360",
+    "inputs": {
+      "settlement": "2026-04-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 5,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "Actual/360",
+      "faceValue": 1000
+    },
+    "expected": {
+      "cleanPricePer100": 100.70394635056196,
+      "accruedInterestPer100": 1.5,
+      "dirtyPricePer100": 102.20394635056196,
+      "N": 2,
+      "A": 90.0,
+      "E": 180.0,
+      "DSC": 91.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-04",
+    "name": "Two remaining coupons Actual/365",
+    "inputs": {
+      "settlement": "2026-04-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 5,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "Actual/365",
+      "faceValue": 1000
+    },
+    "expected": {
+      "cleanPricePer100": 100.74197334756117,
+      "accruedInterestPer100": 1.4794520547945205,
+      "dirtyPricePer100": 102.22142540235569,
+      "N": 2,
+      "A": 90.0,
+      "E": 182.5,
+      "DSC": 91.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-05",
+    "name": "One remaining coupon uses simple-discount branch",
+    "inputs": {
+      "settlement": "2026-10-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 5,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "US-NASD30/360"
+    },
+    "expected": {
+      "N": 1,
+      "A": 90,
+      "E": 180,
+      "dirtyPricePer100": 101.72839506172839,
+      "accruedInterestPer100": 1.5,
+      "cleanPricePer100": 100.22839506172839
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-06",
+    "name": "February month-end distinguishes conventions",
+    "inputs": {
+      "mode": "day-count",
+      "start": "2026-02-28",
+      "end": "2026-03-31"
+    },
+    "expected": {
+      "US-NASD30/360Days": 30,
+      "European30/360Days": 32,
+      "actualDays": 31
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F34",
+    "id": "F34-NT-07",
+    "name": "Exact coupon date par price",
+    "inputs": {
+      "settlement": "2026-01-01",
+      "maturity": "2027-01-01",
+      "couponRatePercent": 6,
+      "nominalYieldPercent": 6,
+      "redemptionPer100": 100,
+      "frequency": 2,
+      "basis": "US-NASD30/360"
+    },
+    "expected": {
+      "cleanPricePer100": 100,
+      "accruedInterestPer100": 0,
+      "dirtyPricePer100": 100
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-price",
+        "ms-days360"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-01",
+    "name": "Half-year200percent declining balance with switch",
+    "inputs": {
+      "cost": 1000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": true,
+      "serviceDate": "2026-02-01",
+      "accountingYearStart": "01-01",
+      "convention": "half-year"
+    },
+    "expected": {
+      "firstYearFraction": 0.5,
+      "annualDepreciation": [
+        200,
+        320,
+        192,
+        115.2,
+        115.2,
+        57.6
+      ],
+      "endingBookValue": 0,
+      "totalDepreciation": 1000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": [
+      "Independent reconstruction also agrees with IRS946 example arithmetic; this fixture does not determine tax eligibility."
+    ]
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-02",
+    "name": "150percent factor without silent final writeoff",
+    "inputs": {
+      "cost": 10000,
+      "salvage": 1000,
+      "lifeYears": 5,
+      "decliningFactor": 1.5,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-01-01",
+      "accountingYearStart": "01-01",
+      "convention": "full-month"
+    },
+    "expected": {
+      "annualDepreciation": [
+        3000,
+        2100,
+        1470,
+        1029,
+        720.3
+      ],
+      "endingBookValue": 1680.7,
+      "totalDepreciation": 8319.3
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-03",
+    "name": "October first-year convention full-month",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-10-20",
+      "accountingYearStart": "01-01",
+      "convention": "full-month"
+    },
+    "expected": {
+      "firstYearFraction": 0.25,
+      "firstYearDepreciation": 1200.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-04",
+    "name": "October first-year convention half-month",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-10-20",
+      "accountingYearStart": "01-01",
+      "convention": "half-month"
+    },
+    "expected": {
+      "firstYearFraction": 0.20833333333333334,
+      "firstYearDepreciation": 1000.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-05",
+    "name": "October first-year convention full-quarter",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-10-20",
+      "accountingYearStart": "01-01",
+      "convention": "full-quarter"
+    },
+    "expected": {
+      "firstYearFraction": 0.25,
+      "firstYearDepreciation": 1200.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-06",
+    "name": "October first-year convention half-quarter",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-10-20",
+      "accountingYearStart": "01-01",
+      "convention": "half-quarter"
+    },
+    "expected": {
+      "firstYearFraction": 0.125,
+      "firstYearDepreciation": 600.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-07",
+    "name": "October first-year convention half-year",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2026-10-20",
+      "accountingYearStart": "01-01",
+      "convention": "half-year"
+    },
+    "expected": {
+      "firstYearFraction": 0.5,
+      "firstYearDepreciation": 2400.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F36",
+    "id": "F36-NT-08",
+    "name": "Actual-days leap accounting year",
+    "inputs": {
+      "cost": 12000,
+      "salvage": 0,
+      "lifeYears": 5,
+      "decliningFactor": 2,
+      "switchToStraightLine": false,
+      "serviceDate": "2024-07-01",
+      "accountingYearStart": "01-01",
+      "convention": "actual-days"
+    },
+    "expected": {
+      "daysInFirstPeriod": 184,
+      "daysInAccountingYear": 366,
+      "firstYearFraction": 0.5027322404371585,
+      "firstYearDepreciation": 2413.1147540983607
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ms-vdb",
+        "irs-depreciation"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-01",
+    "name": "Separation in calendar year55 qualifies before birthday",
+    "inputs": {
+      "accountType": "traditional401k",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1971-12-31",
+      "distributionDate": "2026-05-01",
+      "separationYear": 2026,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 0,
+      "assumedIncomeTax": 2200,
+      "netCash": 7800,
+      "exception": "separation-year55"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-02",
+    "name": "Same facts do not qualify an IRA",
+    "inputs": {
+      "accountType": "traditionalIRA",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1971-12-31",
+      "distributionDate": "2026-05-01",
+      "separationYear": 2026,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 1000,
+      "assumedIncomeTax": 2200,
+      "netCash": 6800
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-03",
+    "name": "Prior-year separation does not become eligible by waiting",
+    "inputs": {
+      "accountType": "traditional401k",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1972-12-31",
+      "distributionDate": "2027-12-31",
+      "separationYear": 2026,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 1000,
+      "netCash": 6800
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": [
+      "Uses law verified2026as scenario; projected2027law is not independently asserted."
+    ]
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-04",
+    "name": "Exact59.5date 2026-10-08",
+    "inputs": {
+      "accountType": "traditional401k",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1967-04-09",
+      "distributionDate": "2026-10-08",
+      "separationYear": null,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 1000,
+      "netCash": 6800
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-05",
+    "name": "Exact59.5date 2026-10-09",
+    "inputs": {
+      "accountType": "traditional401k",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1967-04-09",
+      "distributionDate": "2026-10-09",
+      "separationYear": null,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 0,
+      "netCash": 7800
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-06",
+    "name": "Taxable basis and partial qualified exception",
+    "inputs": {
+      "accountType": "traditionalIRA",
+      "grossDistribution": 10000,
+      "taxableDistribution": 8000,
+      "birthDate": "1971-12-31",
+      "distributionDate": "2026-05-01",
+      "separationYear": null,
+      "qualifyingDisability": false,
+      "assumedIncomeTaxPercent": 22,
+      "otherVerifiedExceptionAmount": 3000
+    },
+    "expected": {
+      "additionalTaxBase": 5000,
+      "additionalTax": 500,
+      "assumedIncomeTax": 1760,
+      "netCash": 7740
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F26",
+    "id": "F26-NT-07",
+    "name": "Qualified disability removes additional tax only",
+    "inputs": {
+      "accountType": "traditionalIRA",
+      "grossDistribution": 10000,
+      "taxableDistribution": 10000,
+      "birthDate": "1971-12-31",
+      "distributionDate": "2026-05-01",
+      "separationYear": null,
+      "qualifyingDisability": true,
+      "assumedIncomeTaxPercent": 22
+    },
+    "expected": {
+      "additionalTax": 0,
+      "assumedIncomeTax": 2200,
+      "netCash": 7800
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-early-exceptions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F29",
+    "id": "F29-NT-01",
+    "name": "FRA67 age62and67 to age80",
+    "inputs": {
+      "benefitAtFra": 2000,
+      "fraMonths": 804,
+      "claimAgeMonthsA": 744,
+      "claimAgeMonthsB": 804,
+      "lifeExpectancyAgeMonths": 960,
+      "valuationAgeMonths": 744,
+      "annualDiscountPercent": 0,
+      "annualColaPercent": 0
+    },
+    "expected": {
+      "benefitA": 1400,
+      "benefitB": 2000,
+      "totalA": 302400,
+      "totalB": 312000,
+      "monthsAfterLaterStartToNominalBreakEven": 140,
+      "nominalBreakEvenAgeYears": 78.66666666666667
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ssa-early-late",
+        "ssa-fra",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F29",
+    "id": "F29-NT-02",
+    "name": "Age70delayed benefit versus62 to80",
+    "inputs": {
+      "benefitAtFra": 2000,
+      "fraMonths": 804,
+      "claimAgeMonthsA": 744,
+      "claimAgeMonthsB": 840,
+      "lifeExpectancyAgeMonths": 960,
+      "valuationAgeMonths": 744,
+      "annualDiscountPercent": 0,
+      "annualColaPercent": 0
+    },
+    "expected": {
+      "benefitA": 1400,
+      "benefitB": 2480,
+      "totalA": 302400,
+      "totalB": 297600
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ssa-early-late",
+        "ssa-fra",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F29",
+    "id": "F29-NT-03",
+    "name": "Same choices with longer lifespan",
+    "inputs": {
+      "benefitAtFra": 2000,
+      "fraMonths": 804,
+      "claimAgeMonthsA": 744,
+      "claimAgeMonthsB": 840,
+      "lifeExpectancyAgeMonths": 1020,
+      "valuationAgeMonths": 744,
+      "annualDiscountPercent": 0,
+      "annualColaPercent": 0
+    },
+    "expected": {
+      "totalA": 386400,
+      "totalB": 446400
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ssa-early-late",
+        "ssa-fra",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F29",
+    "id": "F29-NT-04",
+    "name": "January1uses preceding cohort",
+    "inputs": {
+      "mode": "fra-cohort",
+      "birthDate": "1960-01-01"
+    },
+    "expected": {
+      "cohortYear": 1959,
+      "fraYears": 66,
+      "fraAdditionalMonths": 10,
+      "fraMonths": 802
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ssa-early-late",
+        "ssa-fra",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F29",
+    "id": "F29-NT-05",
+    "name": "January2uses1960cohort",
+    "inputs": {
+      "mode": "fra-cohort",
+      "birthDate": "1960-01-02"
+    },
+    "expected": {
+      "cohortYear": 1960,
+      "fraMonths": 804
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "ssa-early-late",
+        "ssa-fra",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-01",
+    "name": "First2026ownerRMD",
+    "inputs": {
+      "birthDate": "1953-08-01",
+      "distributionYear": 2026,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 265000,
+      "spouseSoleBeneficiaryEntireApplicablePeriod": false
+    },
+    "expected": {
+      "attainedAge": 73,
+      "table": "III",
+      "factor": 26.5,
+      "RMD": 10000,
+      "firstDistributionYear": 2026,
+      "firstRmdLatestDeadline": "2027-04-01",
+      "nextRmdDeadline": "2027-12-31"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-02",
+    "name": "More than10years younger spouse",
+    "inputs": {
+      "birthDate": "1951-08-01",
+      "spouseBirthDate": "1962-08-01",
+      "distributionYear": 2026,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 100000,
+      "spouseSoleBeneficiaryEntireApplicablePeriod": true
+    },
+    "expected": {
+      "attainedAge": 75,
+      "spouseAge": 64,
+      "table": "II",
+      "factor": 25.3,
+      "RMD": 3952.5691699604745
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-03",
+    "name": "Exactly10years younger stays Uniform",
+    "inputs": {
+      "birthDate": "1951-08-01",
+      "spouseBirthDate": "1961-08-01",
+      "distributionYear": 2026,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 100000,
+      "spouseSoleBeneficiaryEntireApplicablePeriod": true
+    },
+    "expected": {
+      "table": "III",
+      "factor": 24.6,
+      "RMD": 4065.040650406504
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-04",
+    "name": "Sole beneficiary condition matters",
+    "inputs": {
+      "birthDate": "1951-08-01",
+      "spouseBirthDate": "1962-08-01",
+      "distributionYear": 2026,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 100000,
+      "spouseSoleBeneficiaryEntireApplicablePeriod": false
+    },
+    "expected": {
+      "table": "III",
+      "factor": 24.6,
+      "RMD": 4065.040650406504
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-05",
+    "name": "Two-year projection reselects factor",
+    "inputs": {
+      "birthDate": "1953-08-01",
+      "distributionYear": 2026,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 265000,
+      "projectionYears": 2,
+      "assumedReturnPercent": 0,
+      "withdrawalTiming": "year-end"
+    },
+    "expected": {
+      "RMDYear1": 10000,
+      "endingBalanceYear1": 255000,
+      "factorYear2": 25.5,
+      "RMDYear2": 10000,
+      "endingBalanceYear2": 245000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-06",
+    "name": "Owner Roth lifetime exception",
+    "inputs": {
+      "birthDate": "1951-08-01",
+      "distributionYear": 2026,
+      "accountType": "RothIRA",
+      "priorDecember31Balance": 100000
+    },
+    "expected": {
+      "RMD": 0,
+      "reason": "owner-lifetime-Roth-exemption"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F30",
+    "id": "F30-NT-07",
+    "name": "Unresolved1959futurecohort is not fabricated",
+    "inputs": {
+      "birthDate": "1959-08-01",
+      "distributionYear": 2032,
+      "accountType": "traditionalIRA",
+      "priorDecember31Balance": 100000,
+      "policyMode": "final-rules-verified-only"
+    },
+    "expected": {
+      "status": "policy-verification-required",
+      "proposedAge": 73
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "rmd",
+        "rmd-tables",
+        "irs-rmd2024",
+        "irs-rmd2026-transition"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-01",
+    "name": "FHA rate boundary 726200/95/360",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 726200,
+      "originalLtvPercent": 95,
+      "termMonths": 360
+    },
+    "expected": {
+      "annualMipRatePercent": 0.5,
+      "mipDurationMonths": 360,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-02",
+    "name": "FHA rate boundary 726200/95.01/360",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 726200,
+      "originalLtvPercent": 95.01,
+      "termMonths": 360
+    },
+    "expected": {
+      "annualMipRatePercent": 0.55,
+      "mipDurationMonths": 360,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-03",
+    "name": "FHA rate boundary 726200.01/95/360",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 726200.01,
+      "originalLtvPercent": 95,
+      "termMonths": 360
+    },
+    "expected": {
+      "annualMipRatePercent": 0.7,
+      "mipDurationMonths": 360,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-04",
+    "name": "FHA rate boundary 500000/90/360",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 500000,
+      "originalLtvPercent": 90,
+      "termMonths": 360
+    },
+    "expected": {
+      "annualMipRatePercent": 0.5,
+      "mipDurationMonths": 132,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-05",
+    "name": "FHA rate boundary 500000/90.01/180",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 500000,
+      "originalLtvPercent": 90.01,
+      "termMonths": 180
+    },
+    "expected": {
+      "annualMipRatePercent": 0.4,
+      "mipDurationMonths": 180,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-06",
+    "name": "FHA rate boundary 800000/78/180",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 800000,
+      "originalLtvPercent": 78,
+      "termMonths": 180
+    },
+    "expected": {
+      "annualMipRatePercent": 0.15,
+      "mipDurationMonths": 132,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-07",
+    "name": "FHA rate boundary 800000/78.01/180",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 800000,
+      "originalLtvPercent": 78.01,
+      "termMonths": 180
+    },
+    "expected": {
+      "annualMipRatePercent": 0.4,
+      "mipDurationMonths": 132,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-08",
+    "name": "FHA rate boundary 800000/90.01/180",
+    "inputs": {
+      "program": "FHAstandard-forward",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 800000,
+      "originalLtvPercent": 90.01,
+      "termMonths": 180
+    },
+    "expected": {
+      "annualMipRatePercent": 0.65,
+      "mipDurationMonths": 180,
+      "upfrontRatePercent": 1.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-09",
+    "name": "HUD historical method fixture year1",
+    "inputs": {
+      "mode": "hud-periodic-method",
+      "originalNoteAmount": 106605,
+      "nominalAprPercent": 7.5,
+      "originalScheduledPayment": 745.4,
+      "annualMipRatePercent": 0.5,
+      "financedUpfrontRatePercent": 2.25,
+      "year": 1
+    },
+    "expected": {
+      "averageOriginalScheduleBalance": 106160.65416666666,
+      "roundedAnnualBeforeUpfrontAdjustment": 530.8,
+      "roundedAnnualAfterUpfrontAdjustment": 519.12,
+      "monthlyMip": 43.26,
+      "annualBilledMip": 519.12
+    },
+    "absoluteTolerance": "0.0000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": [
+      "HistoricalratesusedonlytoverifyHUDmethod,notas2026default. Independentlyrecomputedfromdocumentedrounding."
+    ]
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-10",
+    "name": "HUD historical method fixture year2",
+    "inputs": {
+      "mode": "hud-periodic-method",
+      "originalNoteAmount": 106605,
+      "nominalAprPercent": 7.5,
+      "originalScheduledPayment": 745.4,
+      "annualMipRatePercent": 0.5,
+      "financedUpfrontRatePercent": 2.25,
+      "year": 2
+    },
+    "expected": {
+      "averageOriginalScheduleBalance": 105143.41083333333,
+      "roundedAnnualBeforeUpfrontAdjustment": 525.72,
+      "roundedAnnualAfterUpfrontAdjustment": 514.15,
+      "monthlyMip": 42.85,
+      "annualBilledMip": 514.2
+    },
+    "absoluteTolerance": "0.0000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": [
+      "HistoricalratesusedonlytoverifyHUDmethod,notas2026default. Independentlyrecomputedfromdocumentedrounding."
+    ]
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-11",
+    "name": "VA purchase boundary 0/first",
+    "inputs": {
+      "program": "VApurchase",
+      "policyDate": "2026-10-09",
+      "purchasePrice": 200000,
+      "downPercentOfPurchasePrice": 0,
+      "baseLoanAmount": 200000.0,
+      "vaUse": "first",
+      "vaExemptionReason": "none",
+      "financeUpfrontFee": true
+    },
+    "expected": {
+      "fundingFeePercent": 2.15,
+      "fundingFee": 4300,
+      "notePrincipal": 204300.0,
+      "monthlyMortgageInsurance": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-12",
+    "name": "VA purchase boundary 0/subsequent",
+    "inputs": {
+      "program": "VApurchase",
+      "policyDate": "2026-10-09",
+      "purchasePrice": 200000,
+      "downPercentOfPurchasePrice": 0,
+      "baseLoanAmount": 200000.0,
+      "vaUse": "subsequent",
+      "vaExemptionReason": "none",
+      "financeUpfrontFee": true
+    },
+    "expected": {
+      "fundingFeePercent": 3.3,
+      "fundingFee": 6600,
+      "notePrincipal": 206600.0,
+      "monthlyMortgageInsurance": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-13",
+    "name": "VA purchase boundary 5/first",
+    "inputs": {
+      "program": "VApurchase",
+      "policyDate": "2026-10-09",
+      "purchasePrice": 200000,
+      "downPercentOfPurchasePrice": 5,
+      "baseLoanAmount": 190000.0,
+      "vaUse": "first",
+      "vaExemptionReason": "none",
+      "financeUpfrontFee": true
+    },
+    "expected": {
+      "fundingFeePercent": 1.5,
+      "fundingFee": 2850,
+      "notePrincipal": 192850.0,
+      "monthlyMortgageInsurance": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-14",
+    "name": "VA purchase boundary 10/subsequent",
+    "inputs": {
+      "program": "VApurchase",
+      "policyDate": "2026-10-09",
+      "purchasePrice": 200000,
+      "downPercentOfPurchasePrice": 10,
+      "baseLoanAmount": 180000.0,
+      "vaUse": "subsequent",
+      "vaExemptionReason": "none",
+      "financeUpfrontFee": true
+    },
+    "expected": {
+      "fundingFeePercent": 1.25,
+      "fundingFee": 2250,
+      "notePrincipal": 182250.0,
+      "monthlyMortgageInsurance": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F40",
+    "id": "F40-NT-15",
+    "name": "VA verified disability exemption",
+    "inputs": {
+      "program": "VApurchase",
+      "policyDate": "2026-10-09",
+      "baseLoanAmount": 200000,
+      "vaUse": "subsequent",
+      "downPercentOfPurchasePrice": 0,
+      "vaExemptionReason": "receiving-qualifying-service-connected-disability-compensation"
+    },
+    "expected": {
+      "fundingFee": 0,
+      "monthlyMortgageInsurance": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "hud-mip-rates",
+        "hud-mip-duration",
+        "hud-mip-calculation",
+        "hud-current-handbook",
+        "va-fees-current",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-01",
+    "name": "Taxyearstandarddeductionamendment 2025",
+    "inputs": {
+      "module": "ordinary-bracket-estimate",
+      "taxYear": 2025,
+      "filingStatus": "single",
+      "ordinaryIncome": 60000,
+      "deductionMode": "standard",
+      "ageUnder65": true,
+      "blind": false
+    },
+    "expected": {
+      "standardDeduction": 15750,
+      "taxableIncome": 44250,
+      "bracketFormulaIncomeTax": 5071.5
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": [
+      "Bracket-formulaestimate;notIRS50-dollarTaxTablelookup."
+    ]
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-02",
+    "name": "Taxyearstandarddeductionamendment 2026",
+    "inputs": {
+      "module": "ordinary-bracket-estimate",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "ordinaryIncome": 60000,
+      "deductionMode": "standard",
+      "ageUnder65": true,
+      "blind": false
+    },
+    "expected": {
+      "standardDeduction": 16100,
+      "taxableIncome": 43900,
+      "bracketFormulaIncomeTax": 5020.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": [
+      "Bracket-formulaestimate;notIRS50-dollarTaxTablelookup."
+    ]
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-03",
+    "name": "SE2026profit10000wages0",
+    "inputs": {
+      "module": "base-self-employment-tax",
+      "taxYear": 2026,
+      "netBusinessProfit": 10000,
+      "samePersonSsWages": 0
+    },
+    "expected": {
+      "netEarnings": 9235.0,
+      "selfEmploymentSocialSecurity": 1145.14,
+      "selfEmploymentMedicare": 267.815,
+      "baseSelfEmploymentTax": 1412.955,
+      "deductibleHalfBaseSeTax": 706.4775
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-04",
+    "name": "SE2026profit10000wages184000",
+    "inputs": {
+      "module": "base-self-employment-tax",
+      "taxYear": 2026,
+      "netBusinessProfit": 10000,
+      "samePersonSsWages": 184000
+    },
+    "expected": {
+      "netEarnings": 9235.0,
+      "selfEmploymentSocialSecurity": 62.0,
+      "selfEmploymentMedicare": 267.815,
+      "baseSelfEmploymentTax": 329.815,
+      "deductibleHalfBaseSeTax": 164.9075
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-05",
+    "name": "SE2026profit400wages0",
+    "inputs": {
+      "module": "base-self-employment-tax",
+      "taxYear": 2026,
+      "netBusinessProfit": 400,
+      "samePersonSsWages": 0
+    },
+    "expected": {
+      "netEarnings": 369.4,
+      "selfEmploymentSocialSecurity": 0.0,
+      "selfEmploymentMedicare": 0.0,
+      "baseSelfEmploymentTax": 0.0,
+      "deductibleHalfBaseSeTax": 0.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-06",
+    "name": "SEadditionalMedicarethresholdcoordinateswages",
+    "inputs": {
+      "module": "additional-medicare-se",
+      "filingStatus": "single",
+      "medicareWages": 195000,
+      "netSelfEmploymentEarnings": 9235
+    },
+    "expected": {
+      "remainingSeThreshold": 5000,
+      "seAdditionalMedicareTax": 38.115
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-07",
+    "name": "Qualifiedgainstackingcrosseszerorateband",
+    "inputs": {
+      "module": "preferential-gain",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "ordinaryTaxableIncome": 45000,
+      "qualifiedPreferentialIncome": 10000
+    },
+    "expected": {
+      "gainAtZeroPercent": 4450,
+      "gainAt15Percent": 5550,
+      "gainAt20Percent": 0,
+      "preferentialTax": 832.5,
+      "ordinaryTax": 5152,
+      "combinedBracketFormulaTax": 5984.5
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-08",
+    "name": "Qualifiedgaincrosses15to20percentboundary",
+    "inputs": {
+      "module": "preferential-gain",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "ordinaryTaxableIncome": 545400,
+      "qualifiedPreferentialIncome": 200
+    },
+    "expected": {
+      "gainAtZeroPercent": 0,
+      "gainAt15Percent": 100,
+      "gainAt20Percent": 100,
+      "preferentialTax": 35
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-09",
+    "name": "NIITlesserofinvestmentincomeandMAGIexcess",
+    "inputs": {
+      "module": "niit",
+      "filingStatus": "single",
+      "MAGI": 220000,
+      "eligibleNetInvestmentIncome": 30000
+    },
+    "expected": {
+      "niitBase": 20000,
+      "niit": 760
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-10",
+    "name": "CTCphaseoutceilingboundary 200000",
+    "inputs": {
+      "module": "ctc-preliminary",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "MAGI": 200000,
+      "qualifyingChildren": 1,
+      "otherEligibleDependents": 0,
+      "eligibilityRequirementsSatisfied": true
+    },
+    "expected": {
+      "preliminaryCredit": 2200
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-11",
+    "name": "CTCphaseoutceilingboundary 200001",
+    "inputs": {
+      "module": "ctc-preliminary",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "MAGI": 200001,
+      "qualifyingChildren": 1,
+      "otherEligibleDependents": 0,
+      "eligibilityRequirementsSatisfied": true
+    },
+    "expected": {
+      "preliminaryCredit": 2150
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-12",
+    "name": "CTCphaseoutceilingboundary 201000",
+    "inputs": {
+      "module": "ctc-preliminary",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "MAGI": 201000,
+      "qualifyingChildren": 1,
+      "otherEligibleDependents": 0,
+      "eligibilityRequirementsSatisfied": true
+    },
+    "expected": {
+      "preliminaryCredit": 2150
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-13",
+    "name": "CTCphaseoutceilingboundary 201001",
+    "inputs": {
+      "module": "ctc-preliminary",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "MAGI": 201001,
+      "qualifyingChildren": 1,
+      "otherEligibleDependents": 0,
+      "eligibilityRequirementsSatisfied": true
+    },
+    "expected": {
+      "preliminaryCredit": 2100
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-14",
+    "name": "ACTCbasicbranchdoesnotrefundallunusedcredit",
+    "inputs": {
+      "module": "ctc-basic-actc",
+      "taxYear": 2026,
+      "qualifyingChildren": 1,
+      "otherEligibleDependents": 0,
+      "preliminaryCredit": 2200,
+      "nonrefundableCreditLimit": 500,
+      "earnedIncome": 7500,
+      "specialThreeChildOrPuertoRicoBranch": false
+    },
+    "expected": {
+      "nonrefundableCredit": 500,
+      "basicRefundableActc": 750,
+      "totalCredit": 1250
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-15",
+    "name": "AMT2026ordinary-only 100000",
+    "inputs": {
+      "module": "amt-already-computed-base",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "AMTI": 100000,
+      "regularTaxForAmtComparison": 2000,
+      "qualifiedPreferentialGains": 0
+    },
+    "expected": {
+      "amtExemption": 90100.0,
+      "taxableAmtBase": 9900.0,
+      "tentativeMinimumTax": 2574.0,
+      "additionalAmt": 574.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-16",
+    "name": "AMT2026ordinary-only 600000",
+    "inputs": {
+      "module": "amt-already-computed-base",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "AMTI": 600000,
+      "regularTaxForAmtComparison": 140000,
+      "qualifiedPreferentialGains": 0
+    },
+    "expected": {
+      "amtExemption": 40100.0,
+      "taxableAmtBase": 559900.0,
+      "tentativeMinimumTax": 151882.0,
+      "additionalAmt": 11882.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-17",
+    "name": "AMT2026ordinary-only 680200",
+    "inputs": {
+      "module": "amt-already-computed-base",
+      "taxYear": 2026,
+      "filingStatus": "single",
+      "AMTI": 680200,
+      "regularTaxForAmtComparison": 185566,
+      "qualifiedPreferentialGains": 0
+    },
+    "expected": {
+      "amtExemption": 0.0,
+      "taxableAmtBase": 680200.0,
+      "tentativeMinimumTax": 185566.0,
+      "additionalAmt": 0.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-18",
+    "name": "PayrollW4 standard",
+    "inputs": {
+      "module": "payroll-worksheet1A",
+      "taxYear": 2026,
+      "periodTaxableWages": 5000,
+      "periodsPerYear": 12,
+      "filingStatus": "singleOrMarriedSeparate",
+      "w4Version": "2020-or-later",
+      "step2Checked": false,
+      "step3Credit": 0,
+      "step4aOtherIncome": 0,
+      "step4bDeductions": 0,
+      "step4cExtra": 0
+    },
+    "expected": {
+      "adjustedAnnualWages": 51400.0,
+      "tentativeAnnualWithholding": 5020.0,
+      "federalWithholdingThisPeriod": 418.3333333333333
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-19",
+    "name": "PayrollW4 step2checked",
+    "inputs": {
+      "module": "payroll-worksheet1A",
+      "taxYear": 2026,
+      "periodTaxableWages": 5000,
+      "periodsPerYear": 12,
+      "filingStatus": "singleOrMarriedSeparate",
+      "w4Version": "2020-or-later",
+      "step2Checked": true,
+      "step3Credit": 0,
+      "step4aOtherIncome": 0,
+      "step4bDeductions": 0,
+      "step4cExtra": 0
+    },
+    "expected": {
+      "adjustedAnnualWages": 60000.0,
+      "tentativeAnnualWithholding": 8785.0,
+      "federalWithholdingThisPeriod": 732.0833333333334
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-20",
+    "name": "PayrollW4 credit-and-extra",
+    "inputs": {
+      "module": "payroll-worksheet1A",
+      "taxYear": 2026,
+      "periodTaxableWages": 5000,
+      "periodsPerYear": 12,
+      "filingStatus": "singleOrMarriedSeparate",
+      "w4Version": "2020-or-later",
+      "step2Checked": false,
+      "step3Credit": 2200,
+      "step4aOtherIncome": 0,
+      "step4bDeductions": 0,
+      "step4cExtra": 50
+    },
+    "expected": {
+      "adjustedAnnualWages": 51400.0,
+      "tentativeAnnualWithholding": 5020.0,
+      "federalWithholdingThisPeriod": 285.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-21",
+    "name": "PayrollW4 other-income-and-deductions",
+    "inputs": {
+      "module": "payroll-worksheet1A",
+      "taxYear": 2026,
+      "periodTaxableWages": 5000,
+      "periodsPerYear": 12,
+      "filingStatus": "singleOrMarriedSeparate",
+      "w4Version": "2020-or-later",
+      "step2Checked": false,
+      "step3Credit": 0,
+      "step4aOtherIncome": 1200,
+      "step4bDeductions": 2400,
+      "step4cExtra": 0
+    },
+    "expected": {
+      "adjustedAnnualWages": 50200.0,
+      "tentativeAnnualWithholding": 4876.0,
+      "federalWithholdingThisPeriod": 406.3333333333333
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-22",
+    "name": "Payrollzero-basekeepsvoluntaryextra",
+    "inputs": {
+      "module": "payroll-worksheet1A",
+      "taxYear": 2026,
+      "periodTaxableWages": 100,
+      "periodsPerYear": 12,
+      "filingStatus": "singleOrMarriedSeparate",
+      "w4Version": "2020-or-later",
+      "step2Checked": false,
+      "step3Credit": 2200,
+      "step4cExtra": 50
+    },
+    "expected": {
+      "adjustedAnnualWages": 0.0,
+      "tentativeAnnualWithholding": 0.0,
+      "federalWithholdingThisPeriod": 50.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-23",
+    "name": "FICAcapusesyear-to-datewages",
+    "inputs": {
+      "module": "payroll-fica",
+      "taxYear": 2026,
+      "socialSecurityWagesYtdBeforePay": 184000,
+      "medicareWagesYtdBeforePay": 184000,
+      "currentSocialSecurityWages": 1000,
+      "currentMedicareWages": 1000
+    },
+    "expected": {
+      "employeeSocialSecurityThisPay": 31,
+      "employeeMedicareThisPay": 14.5,
+      "employeeAdditionalMedicareWithheldThisPay": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-24",
+    "name": "EmployeradditionalMedicaretriggerindependentofjointstatus",
+    "inputs": {
+      "module": "payroll-fica",
+      "taxYear": 2026,
+      "filingStatus": "marriedJoint",
+      "socialSecurityWagesYtdBeforePay": 199500,
+      "medicareWagesYtdBeforePay": 199500,
+      "currentSocialSecurityWages": 1000,
+      "currentMedicareWages": 1000
+    },
+    "expected": {
+      "employeeSocialSecurityThisPay": 0,
+      "employeeMedicareThisPay": 14.5,
+      "employeeAdditionalMedicareWithheldThisPay": 4.5
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-25",
+    "name": "Unequal-incomemarriagecomparisonnarrowcase",
+    "inputs": {
+      "module": "marriage-ordinary-only",
+      "taxYear": 2026,
+      "incomeA": 120000,
+      "incomeB": 0,
+      "deductionMode": "standard",
+      "bothUnder65NotBlind": true,
+      "dependents": 0
+    },
+    "expected": {
+      "separateSingleBracketFormulaTax": 17570,
+      "jointBracketFormulaTax": 10040,
+      "jointTaxReduction": 7530
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F41",
+    "id": "F41-NT-26",
+    "name": "Estateassetsanddeductionsbasicnopriorgifts",
+    "inputs": {
+      "module": "estate-basic-no-prior-gifts",
+      "yearOfDeath": 2026,
+      "assetLines": [
+        10000000,
+        5000000,
+        2000000
+      ],
+      "allowableDeductionLines": [
+        500000,
+        500000
+      ],
+      "adjustedTaxableGifts": 0,
+      "DSUE": 0,
+      "fullBasicExclusionAvailable": true,
+      "usCitizenOrResidentScopeSatisfied": true
+    },
+    "expected": {
+      "grossEstate": 17000000,
+      "totalDeductions": 1000000,
+      "taxableEstate": 16000000,
+      "basicExclusion": 15000000,
+      "estimatedFederalEstateTax": 400000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Independent Python Decimal arithmetic/date operations; no product imports",
+      "sourceIds": [
+        "irs-tax2025",
+        "irs-tax2026-bulletin",
+        "irs-se-tax",
+        "irs-se-instructions",
+        "fica2026",
+        "irs-preferential-tax",
+        "irs-niit",
+        "irs-ctc-form",
+        "irs-ctc-eligibility",
+        "irs-payroll2026",
+        "irs-estate2026",
+        "irs-salt2026",
+        "irs-amt-topic"
+      ]
+    },
+    "notes": []
+  }
+]

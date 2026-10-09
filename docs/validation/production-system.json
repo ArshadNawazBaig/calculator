@@ -1,0 +1,297 @@
+{
+  "scope": "Isolated production Next16.4 webpack harness copies actual proxy/error components; test-only fault routes/root layout. Not a deployed Sites test or full production app build.",
+  "results": [
+    {
+      "id": "maintenance-503-/",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Fri, 09 Oct 2026 15:56:49 GMT",
+          "keep-alive": "timeout=5",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-middleware-rewrite": "http://localhost:3110/maintenance",
+          "x-robots-tag": "noindex"
+        },
+        "maintenanceHtml": true
+      }
+    },
+    {
+      "id": "maintenance-503-/calculators",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Fri, 09 Oct 2026 15:56:49 GMT",
+          "keep-alive": "timeout=5",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-middleware-rewrite": "http://localhost:3110/maintenance",
+          "x-robots-tag": "noindex"
+        },
+        "maintenanceHtml": true
+      }
+    },
+    {
+      "id": "maintenance-503-/api/qa",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Fri, 09 Oct 2026 15:56:49 GMT",
+          "keep-alive": "timeout=5",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-middleware-rewrite": "http://localhost:3110/maintenance",
+          "x-robots-tag": "noindex"
+        },
+        "maintenanceHtml": true
+      }
+    },
+    {
+      "id": "maintenance-503-/missing-route",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Fri, 09 Oct 2026 15:56:49 GMT",
+          "keep-alive": "timeout=5",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-middleware-rewrite": "http://localhost:3110/maintenance",
+          "x-robots-tag": "noindex"
+        },
+        "maintenanceHtml": true
+      }
+    },
+    {
+      "id": "maintenance-503-/maintenance",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "headers": {
+          "cache-control": "no-store",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Fri, 09 Oct 2026 15:56:49 GMT",
+          "keep-alive": "timeout=5",
+          "retry-after": "300",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-robots-tag": "noindex"
+        },
+        "maintenanceHtml": true
+      }
+    },
+    {
+      "id": "maintenance-bypass-/api/health",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "body": "{\"status\":\"ok\",\"service\":\"finflo\"}"
+      }
+    },
+    {
+      "id": "maintenance-bypass-/qa.txt",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "body": "Public asset still available"
+      }
+    },
+    {
+      "id": "uppercase-redirect-maintenance-order",
+      "status": "pass",
+      "actual": {
+        "status": 308,
+        "location": "/401k-calculator"
+      }
+    },
+    {
+      "id": "normal-maintenance-page-is-informational",
+      "status": "pass",
+      "actual": {
+        "status": 200,
+        "explicitRoute": "200 when maintenance is off; 503 only under proxy mode"
+      }
+    },
+    {
+      "id": "dotted-route-maintenance-probe",
+      "status": "pass",
+      "actual": {
+        "status": 404,
+        "maintenanceBypass": true,
+        "note": "proxy excludes any path containing a dot; assets intended, unknown dotted routes also bypass"
+      }
+    },
+    {
+      "id": "1440-segment-error-redacted",
+      "status": "pass",
+      "actual": {
+        "documentStatus": 500,
+        "privateErrorNotRendered": true
+      }
+    },
+    {
+      "id": "1440-segment-retry-recovers",
+      "status": "pass",
+      "actual": "Recovered with same boundary retry after fault removed"
+    },
+    {
+      "id": "1440-global-error-redacted",
+      "status": "pass",
+      "actual": {
+        "documentStatus": 500,
+        "privateErrorNotRendered": true
+      }
+    },
+    {
+      "id": "1440-global-retry-recovers",
+      "status": "pass",
+      "actual": "Recovered with global retry after fault removed"
+    },
+    {
+      "id": "1440-maintenance-mobile-desktop",
+      "status": "pass",
+      "actual": {
+        "width": 1440,
+        "scroll": 1440
+      }
+    },
+    {
+      "id": "390-segment-error-redacted",
+      "status": "pass",
+      "actual": {
+        "documentStatus": 500,
+        "privateErrorNotRendered": true
+      }
+    },
+    {
+      "id": "390-segment-retry-recovers",
+      "status": "pass",
+      "actual": "Recovered with same boundary retry after fault removed"
+    },
+    {
+      "id": "390-global-error-redacted",
+      "status": "pass",
+      "actual": {
+        "documentStatus": 500,
+        "privateErrorNotRendered": true
+      }
+    },
+    {
+      "id": "390-global-retry-recovers",
+      "status": "pass",
+      "actual": "Recovered with global retry after fault removed"
+    },
+    {
+      "id": "390-maintenance-mobile-desktop",
+      "status": "pass",
+      "actual": {
+        "width": 390,
+        "scroll": 390
+      }
+    }
+  ],
+  "errors": [],
+  "axes": [
+    {
+      "width": 1440,
+      "route": "segment-error",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "global-error",
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "maintenance",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "segment-error",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "global-error",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "maintenance",
+      "violations": []
+    }
+  ],
+  "logs": [
+    {
+      "port": 3109,
+      "text": "▲ Next.js 16.4.0\n"
+    },
+    {
+      "port": 3109,
+      "text": "- Local:         http://127.0.0.1:3109\n- Network:       http://127.0.0.1:3109\n✓ Ready in 268ms\n"
+    },
+    {
+      "port": 3109,
+      "text": "✓ Running next.config.ts took 50ms\n"
+    },
+    {
+      "port": 3110,
+      "text": "▲ Next.js 16.4.0\n"
+    },
+    {
+      "port": 3110,
+      "text": "- Local:         http://127.0.0.1:3110\n- Network:       http://127.0.0.1:3110\n"
+    },
+    {
+      "port": 3110,
+      "text": "✓ Ready in 267ms\n"
+    },
+    {
+      "port": 3110,
+      "text": "✓ Running next.config.ts took 50ms\n"
+    },
+    {
+      "port": 3109,
+      "text": "⨯ Error: QA_SEGMENT_PRIVATE_SENTINEL\n    at f (.next/server/app/fault/page.js:1:1670) {\n  digest: '3247610544'\n}\n"
+    },
+    {
+      "port": 3109,
+      "text": "⨯ Error: QA_ROOT_PRIVATE_SENTINEL\n    at g (.next/server/app/network-error/page.js:1:10613) {\n  digest: '2549812645'\n}\n"
+    },
+    {
+      "port": 3109,
+      "text": "⨯ Error: QA_SEGMENT_PRIVATE_SENTINEL\n    at f (.next/server/app/fault/page.js:1:1670) {\n  digest: '3247610544'\n}\n"
+    },
+    {
+      "port": 3109,
+      "text": "⨯ Error: QA_ROOT_PRIVATE_SENTINEL\n    at g (.next/server/app/network-error/page.js:1:10613) {\n  digest: '2549812645'\n}\n"
+    }
+  ]
+}

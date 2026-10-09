@@ -1,0 +1,1935 @@
+{
+  "caseCount": 68,
+  "cases": [
+    {
+      "id": "tvm-2-12-end-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12886.37716853,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "end",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 12886.37716853,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-end-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12886.37716853,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "end",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-end-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12886.37716853,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "end",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-end-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12886.37716853,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "end",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": 6,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-end-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12886.37716853,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "end",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 18.5,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-end-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15155.217319507936,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "end",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 15155.217319507936,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-end-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15155.217319507936,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "end",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-end-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15155.217319507936,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "end",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-end-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15155.217319507936,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "end",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": 8,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-end-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15155.217319507936,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "end",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 37.25,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-end-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14649.938583913401,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 14649.938583913401,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-end-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14649.938583913401,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-end-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14649.938583913401,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-end-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14649.938583913401,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": -20,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-end-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14649.938583913401,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 99.75,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-beginning-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12895.919364486948,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "beginning",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 12895.919364486948,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-beginning-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12895.919364486948,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "beginning",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-beginning-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12895.919364486948,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "beginning",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-beginning-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12895.919364486948,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "beginning",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": 6,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-2-12-beginning-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 12895.919364486948,
+        "nominalRatePercent": 6,
+        "periods": "18.5",
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "2",
+        "timing": "beginning",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 18.5,
+        "Periodic rate": 0.49386220311969786,
+        "Effective annual rate": 6.09,
+        "Equivalent years": 1.5416666666666667
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-beginning-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15167.361522583578,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "beginning",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 15167.361522583578,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-beginning-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15167.361522583578,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "beginning",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-beginning-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15167.361522583578,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "beginning",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-beginning-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15167.361522583578,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "beginning",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": 8,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-continuous-26-beginning-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 15167.361522583578,
+        "nominalRatePercent": 8,
+        "periods": "37.25",
+        "paymentsPerYear": 26,
+        "compoundsPerYear": "continuous",
+        "timing": "beginning",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 37.25,
+        "Periodic rate": 0.30816616635761707,
+        "Effective annual rate": 8.328706767495856,
+        "Equivalent years": 1.4326923076923077
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-beginning-fv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14615.116504968408,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "beginning",
+        "solve": "fv"
+      },
+      "expected": {
+        "Future cash flow": 14615.116504968408,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-beginning-pv",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14615.116504968408,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "beginning",
+        "solve": "pv"
+      },
+      "expected": {
+        "Present cash flow": -10000,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-beginning-payment",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14615.116504968408,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "beginning",
+        "solve": "payment"
+      },
+      "expected": {
+        "Payment cash flow": -100,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-beginning-nominalRatePercent",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14615.116504968408,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "beginning",
+        "solve": "nominalRatePercent"
+      },
+      "expected": {
+        "Nominal annual rate": -20,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-1-52-beginning-periods",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "pv": -10000,
+        "payment": -100,
+        "fv": 14615.116504968408,
+        "nominalRatePercent": -20,
+        "periods": "99.75",
+        "paymentsPerYear": 52,
+        "compoundsPerYear": "1",
+        "timing": "beginning",
+        "solve": "periods"
+      },
+      "expected": {
+        "Payment periods": 99.75,
+        "Periodic rate": -0.4282028002991622,
+        "Effective annual rate": -20,
+        "Equivalent years": 1.9182692307692308
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Signed TVM identity, using independent payment/compounding frequencies and a fractional analytic term.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-pv-finite-extreme-term",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "solve": "pv",
+        "payment": 1000,
+        "fv": 0,
+        "nominalRatePercent": 1000,
+        "periods": 1200,
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "12",
+        "timing": "end"
+      },
+      "expected": {
+        "Present cash flow": -1200
+      },
+      "absoluteTolerance": 0.0001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Permitted upper-rate, 100-year monthly term. Present-value annuity converges even when future growth exceeds IEEE double range.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "tvm-payment-finite-extreme-term",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "solve": "payment",
+        "pv": -10000,
+        "fv": 0,
+        "nominalRatePercent": 1000,
+        "periods": 1200,
+        "paymentsPerYear": 12,
+        "compoundsPerYear": "12",
+        "timing": "end"
+      },
+      "expected": {
+        "Payment cash flow": 8333.333333333334
+      },
+      "absoluteTolerance": 0.0001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Finite payment should be computed from PV factor without Infinity / Infinity.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "fund-vintage-end-1m-r0",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 1,
+        "grossAnnualReturnPercent": 0,
+        "timing": "end",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 1100,
+        "Front loads": 55,
+        "Ending before exit load": 1034.9335710164469,
+        "Exit load": 20.69867142032894,
+        "Ending after all fees": 1014.234899596118,
+        "No-fee ending balance": 1100,
+        "Total fee impact": 85.76510040388199,
+        "Operating expenses": 10.066428983553052
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "fund-vintage-end-13m-r0",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 13,
+        "grossAnnualReturnPercent": 0,
+        "timing": "end",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 3500,
+        "Front loads": 175,
+        "Ending before exit load": 3114.515044152184,
+        "Exit load": 62.29030088304368,
+        "Ending after all fees": 3052.22474326914,
+        "No-fee ending balance": 3500,
+        "Total fee impact": 447.77525673085967,
+        "Operating expenses": 210.484955847816
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "fund-vintage-end-25m-r7",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 25,
+        "grossAnnualReturnPercent": 7,
+        "timing": "end",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 5900,
+        "Front loads": 295,
+        "Ending before exit load": 5278.181734353727,
+        "Exit load": 105.56363468707454,
+        "Ending after all fees": 5172.618099666653,
+        "No-fee ending balance": 6326.629837317215,
+        "Total fee impact": 1154.0117376505623
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "fund-vintage-beginning-1m-r0",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 1,
+        "grossAnnualReturnPercent": 0,
+        "timing": "beginning",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 2300,
+        "Front loads": 115,
+        "Ending before exit load": 2161.847213337828,
+        "Exit load": 43.23694426675656,
+        "Ending after all fees": 2118.6102690710713,
+        "No-fee ending balance": 2300,
+        "Total fee impact": 181.38973092892857,
+        "Operating expenses": 23.15278666217202
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "fund-vintage-beginning-13m-r0",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 13,
+        "grossAnnualReturnPercent": 0,
+        "timing": "beginning",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 4700,
+        "Front loads": 235,
+        "Ending before exit load": 4094.799049394999,
+        "Exit load": 81.89598098789999,
+        "Ending after all fees": 4012.9030684070995,
+        "No-fee ending balance": 4700,
+        "Total fee impact": 687.0969315929007,
+        "Operating expenses": 370.2009506050007
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "fund-vintage-beginning-25m-r7",
+      "slug": "mutual-fund-calculator",
+      "algorithm": "fund-loads",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 100,
+        "annualContribution": 1200,
+        "months": 25,
+        "grossAnnualReturnPercent": 7,
+        "timing": "beginning",
+        "frontLoadPercent": 5,
+        "expenseRatioPercent": 12,
+        "deferredLoadPercent": 2,
+        "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+      },
+      "expected": {
+        "Gross cash supplied": 7100,
+        "Front loads": 355,
+        "Ending before exit load": 6272.668756690804,
+        "Exit load": 125.45337513381608,
+        "Ending after all fees": 6147.215381556988,
+        "No-fee ending balance": 7723.4152976874675,
+        "Total fee impact": 1576.1999161304793
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Each deposited lot is charged only for months actually invested; annual boundary composition is associative.",
+      "modeId": "loads"
+    },
+    {
+      "id": "refi-zero-no-1m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "no",
+        "comparisonMonths": 1
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15000,
+        "Points": 300,
+        "Upfront net cash": 2500,
+        "New monthly payment": 250,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 11500,
+        "New balance at horizon": 14750
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-zero-no-24m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "no",
+        "comparisonMonths": 24
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15000,
+        "Points": 300,
+        "Upfront net cash": 2500,
+        "New monthly payment": 250,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 0,
+        "New balance at horizon": 9000
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-zero-no-120m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "no",
+        "comparisonMonths": 120
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15000,
+        "Points": 300,
+        "Upfront net cash": 2500,
+        "New monthly payment": 250,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 0,
+        "New balance at horizon": 0
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-zero-yes-1m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "yes",
+        "comparisonMonths": 1
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15500,
+        "Points": 300,
+        "Upfront net cash": 3000,
+        "New monthly payment": 258.3333333333333,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 11500,
+        "New balance at horizon": 15241.666666666666
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-zero-yes-24m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "yes",
+        "comparisonMonths": 24
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15500,
+        "Points": 300,
+        "Upfront net cash": 3000,
+        "New monthly payment": 258.3333333333333,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 0,
+        "New balance at horizon": 9300
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-zero-yes-120m",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 12000,
+        "remainingMonths": 24,
+        "oldNominalAprPercent": 0,
+        "newNominalAprPercent": 0,
+        "newMonths": 60,
+        "cashOut": 3000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 200,
+        "financeFees": "yes",
+        "comparisonMonths": 120
+      },
+      "expected": {
+        "Existing balance": 12000,
+        "New principal": 15500,
+        "Points": 300,
+        "Upfront net cash": 3000,
+        "New monthly payment": 258.3333333333333,
+        "Common-horizon advantage": -500,
+        "Existing balance at horizon": 0,
+        "New balance at horizon": 0
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Cash-out is offset by increased debt at every common horizon; only entered fees change net value when both rates are zero.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-equivalent-input-remaining-balance",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "remaining-balance",
+        "remainingPrincipal": 228494.8825934569,
+        "remainingMonths": 288,
+        "oldPayment": 1498.876312881881,
+        "originalPrincipal": 250000,
+        "originalMonths": 360,
+        "elapsedMonths": 72,
+        "oldNominalAprPercent": 6,
+        "newNominalAprPercent": 4.8,
+        "newMonths": 180,
+        "cashOut": 15000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 3000,
+        "financeFees": "yes",
+        "comparisonMonths": 120
+      },
+      "expected": {
+        "Existing balance": 228494.8825934569,
+        "Existing monthly payment": 1498.876312881881,
+        "New principal": 251364.78024532605,
+        "Upfront net cash": 15000,
+        "New monthly payment": 1961.6870297952692,
+        "Common-horizon advantage": 25093.072651446582,
+        "Existing balance at horizon": 170087.97203487056,
+        "New balance at horizon": 104457.61335381739
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Equivalent current-loan descriptions must produce the same refinance cash-flow and remaining-equity comparison.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-equivalent-input-original-loan",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "original-loan",
+        "remainingPrincipal": 228494.8825934569,
+        "remainingMonths": 288,
+        "oldPayment": 1498.876312881881,
+        "originalPrincipal": 250000,
+        "originalMonths": 360,
+        "elapsedMonths": 72,
+        "oldNominalAprPercent": 6,
+        "newNominalAprPercent": 4.8,
+        "newMonths": 180,
+        "cashOut": 15000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 3000,
+        "financeFees": "yes",
+        "comparisonMonths": 120
+      },
+      "expected": {
+        "Existing balance": 228494.8825934569,
+        "Existing monthly payment": 1498.876312881881,
+        "New principal": 251364.78024532605,
+        "Upfront net cash": 15000,
+        "New monthly payment": 1961.6870297952692,
+        "Common-horizon advantage": 25093.072651446582,
+        "Existing balance at horizon": 170087.97203487056,
+        "New balance at horizon": 104457.61335381739
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Equivalent current-loan descriptions must produce the same refinance cash-flow and remaining-equity comparison.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "refi-equivalent-input-payment-and-remaining-term",
+      "slug": "refinance-calculator",
+      "algorithm": "refinance-horizon",
+      "inputs": {
+        "existingInput": "payment-and-remaining-term",
+        "remainingPrincipal": 228494.8825934569,
+        "remainingMonths": 288,
+        "oldPayment": 1498.876312881881,
+        "originalPrincipal": 250000,
+        "originalMonths": 360,
+        "elapsedMonths": 72,
+        "oldNominalAprPercent": 6,
+        "newNominalAprPercent": 4.8,
+        "newMonths": 180,
+        "cashOut": 15000,
+        "pointsPercent": 2,
+        "otherClosingCosts": 3000,
+        "financeFees": "yes",
+        "comparisonMonths": 120
+      },
+      "expected": {
+        "Existing balance": 228494.8825934569,
+        "Existing monthly payment": 1498.876312881881,
+        "New principal": 251364.78024532605,
+        "Upfront net cash": 15000,
+        "New monthly payment": 1961.6870297952692,
+        "Common-horizon advantage": 25093.072651446582,
+        "Existing balance at horizon": 170087.97203487056,
+        "New balance at horizon": 104457.61335381739
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Equivalent current-loan descriptions must produce the same refinance cash-flow and remaining-equity comparison.",
+      "modeId": "horizon"
+    },
+    {
+      "id": "401k-age-transition-49",
+      "slug": "401k-calculator",
+      "algorithm": "salary-401k",
+      "inputs": {
+        "age": 49,
+        "salary": 1000000,
+        "salaryGrowthPercent": 0,
+        "employeeDeferralPercent": 100,
+        "matchTiers": [
+          {
+            "upperPercent": 100,
+            "matchPercent": 1000
+          }
+        ],
+        "initialBalance": 0,
+        "years": 2,
+        "annualReturnPercent": 0,
+        "limitPolicy": "freeze-2026-limits"
+      },
+      "expected": {
+        "Employee contributions": 57000,
+        "Employer contributions": 95000,
+        "Ending balance": 152000,
+        "First-year employee limit": 24500
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "IRS Notice 2025-67: base deferral 24500, catch-up 8000/11250, additions 72000 excludes catch-up. Employer remainder 47500 each year.",
+      "modeId": "salary-match"
+    },
+    {
+      "id": "401k-age-transition-59",
+      "slug": "401k-calculator",
+      "algorithm": "salary-401k",
+      "inputs": {
+        "age": 59,
+        "salary": 1000000,
+        "salaryGrowthPercent": 0,
+        "employeeDeferralPercent": 100,
+        "matchTiers": [
+          {
+            "upperPercent": 100,
+            "matchPercent": 1000
+          }
+        ],
+        "initialBalance": 0,
+        "years": 2,
+        "annualReturnPercent": 0,
+        "limitPolicy": "freeze-2026-limits"
+      },
+      "expected": {
+        "Employee contributions": 68250,
+        "Employer contributions": 95000,
+        "Ending balance": 163250,
+        "First-year employee limit": 32500
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "IRS Notice 2025-67: base deferral 24500, catch-up 8000/11250, additions 72000 excludes catch-up. Employer remainder 47500 each year.",
+      "modeId": "salary-match"
+    },
+    {
+      "id": "401k-age-transition-63",
+      "slug": "401k-calculator",
+      "algorithm": "salary-401k",
+      "inputs": {
+        "age": 63,
+        "salary": 1000000,
+        "salaryGrowthPercent": 0,
+        "employeeDeferralPercent": 100,
+        "matchTiers": [
+          {
+            "upperPercent": 100,
+            "matchPercent": 1000
+          }
+        ],
+        "initialBalance": 0,
+        "years": 2,
+        "annualReturnPercent": 0,
+        "limitPolicy": "freeze-2026-limits"
+      },
+      "expected": {
+        "Employee contributions": 68250,
+        "Employer contributions": 95000,
+        "Ending balance": 163250,
+        "First-year employee limit": 35750
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "IRS Notice 2025-67: base deferral 24500, catch-up 8000/11250, additions 72000 excludes catch-up. Employer remainder 47500 each year.",
+      "modeId": "salary-match"
+    },
+    {
+      "id": "401k-compensation-match-cap",
+      "slug": "401k-calculator",
+      "algorithm": "salary-401k",
+      "inputs": {
+        "age": 40,
+        "salary": 1000000,
+        "salaryGrowthPercent": 0,
+        "employeeDeferralPercent": 6,
+        "matchTiers": [
+          {
+            "upperPercent": 3,
+            "matchPercent": 100
+          },
+          {
+            "upperPercent": 6,
+            "matchPercent": 50
+          }
+        ],
+        "initialBalance": 0,
+        "years": 1,
+        "annualReturnPercent": 0,
+        "limitPolicy": "freeze-2026-limits"
+      },
+      "expected": {
+        "Employee contributions": 24500,
+        "Employer contributions": 16200,
+        "Ending balance": 40700
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Employer matching slices use 360000 eligible compensation:10800 at100% plus10800 at50%.",
+      "modeId": "salary-match"
+    },
+    {
+      "id": "ira-negative-interest-end",
+      "slug": "ira-calculator",
+      "algorithm": "equal-cost-ira",
+      "inputs": {
+        "annualPretaxBudget": 100,
+        "currentTaxPercent": 0,
+        "retirementTaxPercent": 0,
+        "annualReturnPercent": -50,
+        "years": 2,
+        "initialTraditionalBalance": 0,
+        "initialRothBalance": 0,
+        "taxableAnnualTaxPercent": 50,
+        "timing": "end"
+      },
+      "expected": {
+        "Roth balance": 150,
+        "Taxable account balance": 150
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Only positive interest is taxed in this scenario; no loss deduction/refund model is specified. Negative return retains its full loss.",
+      "modeId": "equal-cost"
+    },
+    {
+      "id": "ira-negative-interest-beginning",
+      "slug": "ira-calculator",
+      "algorithm": "equal-cost-ira",
+      "inputs": {
+        "annualPretaxBudget": 100,
+        "currentTaxPercent": 0,
+        "retirementTaxPercent": 0,
+        "annualReturnPercent": -50,
+        "years": 2,
+        "initialTraditionalBalance": 0,
+        "initialRothBalance": 0,
+        "taxableAnnualTaxPercent": 50,
+        "timing": "beginning"
+      },
+      "expected": {
+        "Roth balance": 75,
+        "Taxable account balance": 75
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Only positive interest is taxed in this scenario; no loss deduction/refund model is specified. Negative return retains its full loss.",
+      "modeId": "equal-cost"
+    },
+    {
+      "id": "student-large-separate-bucket-no",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 1200,
+        "annualBorrowing": 0,
+        "schoolMonths": 240,
+        "graceMonths": 120,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "no",
+        "schoolInterestTreatment": "accrue",
+        "capitalizeAtRepayment": "no",
+        "repaymentMonths": 2
+      },
+      "expected": {
+        "Borrowed principal": 1200,
+        "Unpaid interest at repayment": 4320,
+        "Unpaid interest after capitalization": 4320,
+        "Interest-bearing principal at repayment": 1200,
+        "Total owed at repayment": 5520,
+        "Repayment payment": 2772
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "With uncapitalized bucket, month1 payment2772 leaves bucket1560 and principal1200; month2 adds12 and clears2772. Capitalized schedule uses ordinary annuity.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "student-large-separate-bucket-yes",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 1200,
+        "annualBorrowing": 0,
+        "schoolMonths": 240,
+        "graceMonths": 120,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "no",
+        "schoolInterestTreatment": "accrue",
+        "capitalizeAtRepayment": "yes",
+        "repaymentMonths": 2
+      },
+      "expected": {
+        "Borrowed principal": 1200,
+        "Unpaid interest at repayment": 4320,
+        "Unpaid interest after capitalization": 0,
+        "Interest-bearing principal at repayment": 5520,
+        "Total owed at repayment": 5520,
+        "Repayment payment": 2801.468656716418
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "With uncapitalized bucket, month1 payment2772 leaves bucket1560 and principal1200; month2 adds12 and clears2772. Capitalized schedule uses ordinary annuity.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "student-partial-school-no-no-False",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 100,
+        "annualBorrowing": 1000,
+        "schoolMonths": 13,
+        "graceMonths": 2,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "no",
+        "schoolInterestTreatment": "accrue",
+        "capitalizeAtRepayment": "no",
+        "repaymentMonths": 1
+      },
+      "expected": {
+        "Borrowed principal": 2100,
+        "Interest paid during delay": 0,
+        "Unpaid interest at repayment": 195,
+        "Interest-bearing principal at repayment": 2100,
+        "Total owed at repayment": 2295,
+        "Repayment payment": 2316
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Borrowing at months0and12; existing/first loan accrue15months and second3months. One repayment period independently closes principal and separate interest.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "student-partial-school-no-yes-False",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 100,
+        "annualBorrowing": 1000,
+        "schoolMonths": 13,
+        "graceMonths": 2,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "no",
+        "schoolInterestTreatment": "accrue",
+        "capitalizeAtRepayment": "yes",
+        "repaymentMonths": 1
+      },
+      "expected": {
+        "Borrowed principal": 2100,
+        "Interest paid during delay": 0,
+        "Unpaid interest at repayment": 195,
+        "Interest-bearing principal at repayment": 2295,
+        "Total owed at repayment": 2295,
+        "Repayment payment": 2317.95
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Borrowing at months0and12; existing/first loan accrue15months and second3months. One repayment period independently closes principal and separate interest.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "student-partial-school-yes-no-False",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 100,
+        "annualBorrowing": 1000,
+        "schoolMonths": 13,
+        "graceMonths": 2,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "yes",
+        "schoolInterestTreatment": "accrue",
+        "capitalizeAtRepayment": "no",
+        "repaymentMonths": 1
+      },
+      "expected": {
+        "Borrowed principal": 2100,
+        "Interest paid during delay": 195,
+        "Unpaid interest at repayment": 0,
+        "Interest-bearing principal at repayment": 2100,
+        "Total owed at repayment": 2100,
+        "Repayment payment": 2121
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Borrowing at months0and12; existing/first loan accrue15months and second3months. One repayment period independently closes principal and separate interest.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "student-partial-school-no-no-True",
+      "slug": "student-loan-calculator",
+      "algorithm": "student-borrowing",
+      "inputs": {
+        "existingPrincipal": 100,
+        "annualBorrowing": 1000,
+        "schoolMonths": 13,
+        "graceMonths": 2,
+        "nominalAprPercent": 12,
+        "paySchoolInterest": "no",
+        "schoolInterestTreatment": "hypothetical-interest-waiver",
+        "capitalizeAtRepayment": "no",
+        "repaymentMonths": 1
+      },
+      "expected": {
+        "Borrowed principal": 2100,
+        "Interest paid during delay": 0,
+        "Unpaid interest at repayment": 0,
+        "Interest-bearing principal at repayment": 2100,
+        "Total owed at repayment": 2100,
+        "Repayment payment": 2121
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Borrowing at months0and12; existing/first loan accrue15months and second3months. One repayment period independently closes principal and separate interest.",
+      "modeId": "school-borrowing"
+    },
+    {
+      "id": "xirr-double-10",
+      "slug": "irr-calculator",
+      "algorithm": "dated-irr",
+      "inputs": {
+        "datedFlows": [
+          {
+            "date": "2025-01-01",
+            "amount": -100
+          },
+          {
+            "date": "2026-01-01",
+            "amount": 220
+          },
+          {
+            "date": "2027-01-01",
+            "amount": -121
+          }
+        ]
+      },
+      "expected": {
+        "Solution status": "one-root-in-range",
+        "Annual money-weighted return": 10
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Multiply NPV by (1+r)^2. Expected roots follow exact quadratic factorization with annual365day dates.",
+      "modeId": "dated"
+    },
+    {
+      "id": "xirr-close-10-10_1",
+      "slug": "irr-calculator",
+      "algorithm": "dated-irr",
+      "inputs": {
+        "datedFlows": [
+          {
+            "date": "2025-01-01",
+            "amount": -100
+          },
+          {
+            "date": "2026-01-01",
+            "amount": 220.1
+          },
+          {
+            "date": "2027-01-01",
+            "amount": -121.11
+          }
+        ]
+      },
+      "expected": {
+        "Solution status": "multiple-roots",
+        "Annual return solution 1": 10,
+        "Annual return solution 2": 10.1
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Multiply NPV by (1+r)^2. Expected roots follow exact quadratic factorization with annual365day dates.",
+      "modeId": "dated"
+    },
+    {
+      "id": "xirr-two-separated",
+      "slug": "irr-calculator",
+      "algorithm": "dated-irr",
+      "inputs": {
+        "datedFlows": [
+          {
+            "date": "2025-01-01",
+            "amount": -100
+          },
+          {
+            "date": "2026-01-01",
+            "amount": 230
+          },
+          {
+            "date": "2027-01-01",
+            "amount": -132
+          }
+        ]
+      },
+      "expected": {
+        "Solution status": "multiple-roots",
+        "Annual return solution 1": 10,
+        "Annual return solution 2": 20
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Multiply NPV by (1+r)^2. Expected roots follow exact quadratic factorization with annual365day dates.",
+      "modeId": "dated"
+    },
+    {
+      "id": "xirr-zero-root",
+      "slug": "irr-calculator",
+      "algorithm": "dated-irr",
+      "inputs": {
+        "datedFlows": [
+          {
+            "date": "2025-01-01",
+            "amount": -100
+          },
+          {
+            "date": "2026-01-01",
+            "amount": 100
+          },
+          {
+            "date": "2027-01-01",
+            "amount": 0
+          }
+        ]
+      },
+      "expected": {
+        "Solution status": "one-root-in-range",
+        "Annual money-weighted return": 0
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Multiply NPV by (1+r)^2. Expected roots follow exact quadratic factorization with annual365day dates.",
+      "modeId": "dated"
+    },
+    {
+      "id": "xirr-same-day-cancellation",
+      "slug": "irr-calculator",
+      "algorithm": "dated-irr",
+      "inputs": {
+        "datedFlows": [
+          {
+            "date": "2025-01-01",
+            "amount": -100
+          },
+          {
+            "date": "2025-01-01",
+            "amount": 100
+          },
+          {
+            "date": "2026-01-01",
+            "amount": 0
+          }
+        ]
+      },
+      "expected": {
+        "Solution status": "indeterminate"
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Every distinct date has zero net cash flow, so every rate satisfies zero NPV.",
+      "modeId": "dated"
+    },
+    {
+      "id": "tvm-tangent-rate",
+      "slug": "finance-calculator",
+      "algorithm": "nominal-tvm",
+      "inputs": {
+        "solve": "nominalRatePercent",
+        "pv": -100,
+        "payment": 220,
+        "fv": -341,
+        "periods": 2,
+        "paymentsPerYear": 1,
+        "compoundsPerYear": "1",
+        "timing": "end"
+      },
+      "expected": {
+        "Nominal annual rate": 10
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "TVM cash flows reduce to[-100,220,-121], with a repeated root at10%.",
+      "modeId": "nominal-tvm"
+    },
+    {
+      "id": "rental-loan-paid-before-year1",
+      "slug": "rental-property-calculator",
+      "algorithm": "rental-holding",
+      "inputs": {
+        "purchasePrice": 120000,
+        "downPercent": 50,
+        "closingCosts": 2000,
+        "repairCosts": 5000,
+        "afterRepairValue": 0,
+        "monthlyRent": 2000,
+        "vacancyPercent": 25,
+        "otherMonthlyIncome": 200,
+        "managementPercent": 10,
+        "expenseLines": [
+          {
+            "name": "Expense",
+            "annualAmount": 1000,
+            "growthPercent": 0
+          }
+        ],
+        "rentGrowthPercent": 10,
+        "otherIncomeGrowthPercent": 0,
+        "nominalAprPercent": 12,
+        "loanMonths": 6,
+        "holdingYears": 2,
+        "salePriceMode": "known-price",
+        "salePrice": 150000,
+        "saleCostPercent": 6
+      },
+      "expected": {
+        "Initial cash": 67000,
+        "First-year effective income": 20400,
+        "First-year management fee": 2040,
+        "First-year NOI": 17360,
+        "First-year debt service": 62117.41201591731,
+        "First-year cash flow": -44757.41201591731,
+        "Remaining debt at sale": 0,
+        "Net sale proceeds": 141000,
+        "Total profit": 48222.58798408269,
+        "Total ROI": 71.97401191654133,
+        "Annual IRR": 24.691458196642323
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "Mortgage lasts6months; second-year debt service is zero. Vacancy affects rent only; management includes other income. Terminal sale appears once.",
+      "modeId": "holding"
+    },
+    {
+      "id": "rental-sale-with-remaining-loan",
+      "slug": "rental-property-calculator",
+      "algorithm": "rental-holding",
+      "inputs": {
+        "purchasePrice": 100000,
+        "downPercent": 25,
+        "closingCosts": 0,
+        "repairCosts": 0,
+        "monthlyRent": 1000,
+        "vacancyPercent": 0,
+        "otherMonthlyIncome": 0,
+        "managementPercent": 0,
+        "expenseLines": [],
+        "rentGrowthPercent": 0,
+        "otherIncomeGrowthPercent": 0,
+        "nominalAprPercent": 6,
+        "loanMonths": 360,
+        "holdingYears": 1,
+        "salePriceMode": "known-price",
+        "salePrice": 110000,
+        "saleCostPercent": 0
+      },
+      "expected": {
+        "Initial cash": 25000,
+        "First-year NOI": 12000,
+        "First-year debt service": 5395.954726374772,
+        "Remaining debt at sale": 74078.99121579246,
+        "Net sale proceeds": 35921.00878420754,
+        "Total profit": 17525.054057832767,
+        "Annual IRR": 70.10021623133107
+      },
+      "absoluteTolerance": 0.00001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "One year: IRR equals total ROI after subtracting exact remaining mortgage payoff once.",
+      "modeId": "holding"
+    },
+    {
+      "id": "dual-negative-positive-tax-only",
+      "slug": "investment-calculator",
+      "algorithm": "dual-contributions",
+      "inputs": {
+        "initial": 1000,
+        "monthlyContribution": 0,
+        "annualContribution": 0,
+        "months": 13,
+        "nominalRatePercent": -20,
+        "compoundsPerYear": "1",
+        "timing": "end",
+        "monthlyContributionGrowthPercent": 0,
+        "annualContributionGrowthPercent": 0,
+        "taxRatePercent": 50,
+        "inflationPercent": 0
+      },
+      "expected": {
+        "Ending balance": 785.2612238990014,
+        "Tax paid": 0
+      },
+      "absoluteTolerance": 0.000001,
+      "provenance": "Independent Decimal closed-form or exact cash-flow identity; does not call product formula helpers.",
+      "methodScope": "No tax on negative interest; final partial year must retain losses without refunds.",
+      "modeId": "dual-streams"
+    }
+  ]
+}

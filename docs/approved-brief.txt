@@ -1,0 +1,346 @@
+Act as a senior product designer, Next.js engineer, calculator specialist, and technical SEO strategist. Build Finflo, a production-ready public calculator website for finflo.org.
+
+Deliver a complete, maintainable product with accurate calculators, excellent usability, original content, and strong search foundations. Do not stop at a homepage, a prototype, or a small selection of calculators.
+
+1. PROJECT OBJECTIVE
+
+Build a modern alternative to https://www.calculator.net with equivalent coverage of every publicly available calculator, converter, generator, and relevant regional variant discovered during a thorough audit.
+
+Our primary audience is the United States. Research additional international markets with strong advertiser demand, including the UK, Canada, Australia, and other relevant countries. Treat advertising revenue potential as something to validate, not a guaranteed property of a country.
+
+The website should serve global visitors while accurately distinguishing US-specific rules, regional calculations, currencies, units, and tax years.
+
+Prioritize:
+- Calculation accuracy.
+- Complete calculator coverage.
+- A polished, accessible user experience.
+- SEO: search engine optimization.
+- GEO: generative engine optimization.
+- AEO: answer engine optimization.
+- Fast loading and reliable operation.
+- Modular code and low operating costs.
+
+2. APPROVED DESIGN DIRECTION
+
+Use these three images with strict, separate roles:
+
+Layout reference:
+design-concepts/01-emerald.png
+
+Color reference:
+design-concepts/02-cobalt.png
+
+Logo reference:
+design-concepts/04-midnight.png
+
+Preserve the Emerald design’s overall composition:
+- Clean horizontal header.
+- Large headline and search area on the left.
+- Featured mortgage calculator on the right.
+- Four category sections beneath the hero.
+- Popular calculators.
+- A useful, well-organized footer.
+
+Apply the Cobalt design’s palette:
+- Cobalt blue primary actions and highlights.
+- White and subtle cool-gray backgrounds.
+- Dark navy or near-black primary text.
+- Muted blue-gray secondary text.
+- Restrained pale-blue accents and borders.
+
+Use the Midnight design’s logo shape:
+- Four ascending bars beside the lowercase “finflo” wordmark.
+- Recreate it as a crisp, scalable SVG React component.
+- Recolor the mark cobalt blue and use a dark wordmark on light backgrounds.
+- Create appropriate favicon and monochrome variants.
+
+Use Midnight only as the logo reference. The website must remain a modern public website, with conventional navigation and clear page sections. Avoid persistent dashboard sidebars, analytics workspaces, and excessive metric tiles.
+
+Extract reusable design tokens for colors, typography, spacing, radii, shadows, borders, and interaction states. Verify contrast and adjust colors where necessary for accessibility.
+
+The design direction is already selected. Do not restart broad design exploration.
+
+Reference images establish visual direction, not calculation truth. Verify all example numbers, chart labels, claims, and copy independently.
+
+3. COMPLETE COMPETITOR AUDIT
+
+Before implementing the calculator catalog, inspect:
+- The homepage.
+- The HTML sitemap and available XML sitemaps.
+- Every category and subcategory.
+- Every discovered calculator and utility page.
+- Related-tool links and regional variants.
+- Multiple calculation modes within individual pages.
+- Embeddable calculator offerings, recorded separately.
+
+Do not assume the homepage or an approximate calculator count represents the complete catalog.
+
+Create a version-controlled coverage manifest containing:
+- Competitor URL and tool name.
+- Category and subcategory.
+- Inputs, defaults, units, and validation rules.
+- Calculation modes and advanced options.
+- Outputs, charts, tables, and export capabilities.
+- Applicable country, jurisdiction, or year.
+- Proposed Finflo URL.
+- Formula and data references.
+- Implementation, testing, and content status.
+- Any inaccessible or unresolved behavior.
+
+Record the audit date. Reconcile discoveries across the sitemap, category pages, and related links.
+
+A matching page title does not establish feature parity. Each calculator must reproduce its relevant functionality through an independently implemented calculation engine.
+
+Write original explanations and interface copy. Use independent code and properly licensed assets. Do not copy the competitor’s source code, articles, branding, or page design.
+
+4. TECHNOLOGY AND MODULAR ARCHITECTURE
+
+Use:
+- Next.js with the App Router.
+- TypeScript in strict mode.
+- Tailwind CSS.
+- Compatible, stable dependency versions verified at implementation time.
+
+Use Server Components and static rendering where appropriate for page content. Use Client Components for interactive controls and calculations that need browser state.
+
+Build all interfaces through reusable React components. “No custom HTML” means no standalone hand-written HTML pages, duplicated page templates, or large raw-HTML strings. Components should still render correct semantic HTML for accessibility and search engines.
+
+Create reusable components for:
+- Branding, navigation, mobile menu, and footer.
+- Search, breadcrumbs, category navigation, and tool links.
+- Calculator shells and specialized calculator layouts.
+- Inputs, labels, help text, validation, unit selectors, and buttons.
+- Results, charts, accessible data tables, and explanations.
+- Formulas, worked examples, FAQs, sources, and related tools.
+- Loading, empty, offline, and error states.
+- Advertising placements and consent controls where needed.
+
+Separate:
+- Calculation engines.
+- UI components.
+- Validation and unit conversion.
+- Calculator metadata and routing.
+- Editorial content.
+- External data adapters.
+- Server-only functionality.
+
+Maintain a typed calculator registry as the source for navigation, search, metadata, routing, related tools, and sitemaps.
+
+Share UI patterns without forcing different calculators into an inaccurate generic formula or an unsuitable universal form.
+
+Keep browser bundles small. Load specialized engines, charts, or large datasets only on the routes that need them.
+
+5. CALCULATOR ACCURACY AND FUNCTIONALITY
+
+Implement real, deterministic calculations. Do not use an LLM to produce numerical results.
+
+For every calculator:
+- Validate required inputs and meaningful limits.
+- Handle invalid, empty, zero, negative, and extreme values appropriately.
+- Use suitable numerical precision and documented rounding.
+- Explain assumptions, limitations, and supported use cases.
+- Support relevant units and input modes.
+- Provide readable results and useful interpretation.
+- Add reset, print, comparison, or export features where appropriate.
+
+Verify formulas against authoritative sources. Competitor outputs may be comparison points, but must not be the only evidence of correctness.
+
+Use versioned datasets and explicit effective dates for tax brackets, contribution limits, statutory rules, and other changing data. Show the selected jurisdiction and year.
+
+Changing a currency symbol must not silently change a tax system or mortgage convention.
+
+For live data such as exchange rates, document the provider, timestamp, caching, licensing, and unavailable-data behavior.
+
+Write meaningful automated tests for every calculation engine, covering known examples, boundary conditions, invalid inputs, and relevant mathematical properties. Include independent expected results rather than reproducing the implementation inside the tests.
+
+For financial and health tools, provide clear limitations and appropriate informational disclaimers. Never invent professional review, credentials, or scientific validity.
+
+Identify entertainment-only calculators honestly.
+
+6. STANDARD CALCULATOR PAGE
+
+Build a reusable page structure with:
+- Breadcrumbs.
+- Clear title and concise explanation.
+- Calculator controls near the top.
+- Accessible results.
+- Relevant charts or tables.
+- Instructions.
+- Formula and variable definitions.
+- A worked example.
+- Assumptions and limitations.
+- Useful questions and direct answers.
+- Related calculators.
+- Authoritative references.
+- Accurate review or update information.
+
+Adapt the structure to each calculator. Avoid repetitive filler and arbitrary word-count targets.
+
+Content must be specific enough to help someone understand both the answer and how it was obtained.
+
+7. BACKEND AND COST REQUIREMENTS
+
+First determine which features actually require a backend or database.
+
+Prefer browser-side calculation engines and version-controlled content where suitable. Do not add accounts, a database, or a separate backend merely because they are common in web applications.
+
+If server functionality is necessary, prefer an appropriately simple implementation integrated with Next.js unless a separate service has a clear benefit.
+
+The database pricing requirement is strict:
+- No mandatory monthly subscription or minimum spend.
+- No required $20–$25 starting plan.
+- A usage-based paid path that can start at $0 when no billable usage occurs.
+- Usage billed afterward where supported.
+- A clear explanation of storage, operations, bandwidth, backups, and other charges.
+
+A free tier alone does not satisfy this requirement if the upgrade path introduces an unavoidable monthly base fee.
+
+Before choosing a provider, verify current official pricing, commercial-use terms, production limitations, and billing behavior. Compare suitable options and document the decision.
+
+Evaluate hosting costs separately and disclose any fixed fees.
+
+Provide low-, medium-, and higher-traffic cost estimates with explicit assumptions. Include caching, rate limits, and budget alerts where supported.
+
+Keep sensitive calculator inputs out of analytics, logs, and persistent storage by default. Shareable calculation links should be an explicit user action with an appropriate privacy explanation.
+
+8. SEO, GEO, AND AEO
+
+Treat search visibility as part of the architecture and editorial process.
+
+Implement:
+- Stable, descriptive URLs.
+- Unique titles and useful meta descriptions.
+- Correct canonical URLs.
+- Crawlable internal links and breadcrumbs.
+- XML sitemaps generated from published routes.
+- A useful HTML calculator directory.
+- Appropriate robots and indexing directives.
+- Social sharing metadata and brand assets.
+- Correct HTTP status codes.
+- A deliberate policy for search results, filters, query parameters, and duplicate URLs.
+- Crawlable page explanations and meaningful initial page content.
+
+Use structured data only when it accurately describes visible content and complies with current documentation. Distinguish valid schema vocabulary from eligibility for Google search features.
+
+Verify current search feature support. Do not invent ratings, reviews, authors, credentials, or special “GEO” markup.
+
+For answer and generative search:
+- Give concise, direct explanations.
+- Define terms, formulas, assumptions, and units clearly.
+- Include useful examples and readable comparison tables.
+- Cite primary sources.
+- Make important content available as text.
+- Use clear headings and meaningful section anchors.
+- Keep terminology and organization consistent.
+- Make authorship and editorial responsibility truthful.
+
+Do not treat llms.txt, FAQ markup, structured data, or any single technical feature as a ranking guarantee.
+
+Research search intent, competition, and useful long-tail opportunities. Prioritize implementation and content work intelligently while retaining the full catalog commitment.
+
+Use genuine regional variants where formulas, rules, or content differ. Add hreflang only for real equivalent localized pages. Avoid mass-producing near-identical country pages.
+
+Prepare a practical launch and growth plan covering Search Console, sitemap submission, index monitoring, content maintenance, and measurement.
+
+Aim for the fastest responsible route to discoverability and sustainable traffic. Do not promise first-page rankings, indexing deadlines, AI citations, or advertising income.
+
+9. PERFORMANCE, ACCESSIBILITY, AND ADS
+
+Design mobile-first and verify mobile, tablet, laptop, and large-screen layouts.
+
+Target WCAG 2.2 AA accessibility, including:
+- Keyboard navigation.
+- Visible focus.
+- Proper labels and error messages.
+- Accessible dialogs and menus.
+- Screen-reader-friendly results.
+- Adequate contrast.
+- Reduced-motion support.
+- Text or table alternatives to charts.
+
+Target good Core Web Vitals:
+- LCP at or below 2.5 seconds.
+- INP at or below 200 milliseconds.
+- CLS at or below 0.1.
+
+Treat these as field performance targets at the 75th percentile. Use lab testing before launch and real-user measurements after sufficient traffic exists. Report actual measurements and test conditions.
+
+Optimize fonts, images, JavaScript, caching, and third-party scripts.
+
+Prepare reusable ad placements with reserved space to prevent layout shifts. Ads must not obscure inputs, results, or navigation.
+
+Keep ad integration configurable. Use real publisher identifiers only when supplied, and implement applicable consent and privacy controls based on the actual integrations and target markets.
+
+Do not send calculator values to advertising or analytics services by default.
+
+10. REQUIRED PAGES AND SYSTEM STATES
+
+Build:
+- Homepage.
+- All-calculators directory.
+- Category and useful subcategory pages.
+- Every audited calculator and utility page.
+- Search results and no-results states.
+- Relevant educational guides.
+- About.
+- Contact.
+- Privacy Policy.
+- Terms of Service.
+- Cookie information and preferences where applicable.
+- Financial and medical disclaimers where relevant.
+- Editorial policy and calculation methodology.
+- Accessibility statement.
+- HTML sitemap.
+
+Implement real system behavior for:
+- 404 not found, with a correct 404 response.
+- Route-level and global error boundaries.
+- Unexpected server errors.
+- Network failures with retry.
+- Offline states.
+- Loading and empty states.
+- Maintenance mode with an appropriate 503 response and Retry-After behavior.
+
+Preserve working local calculations when a network request fails. Explain which offline capabilities actually exist; do not claim an uncached first visit works offline.
+
+Legal and company pages must reflect the actual business, data practices, and integrations. Do not invent an address, registered entity, contact channel, certifications, or legal compliance claims. Track missing owner details and request them when necessary to finalize those pages.
+
+11. DELIVERY PROCESS
+
+Work in measurable stages:
+- Audit and coverage manifest.
+- Architecture and design system.
+- Responsive homepage and representative calculator page.
+- Complete calculator implementation by category.
+- Original content and supporting pages.
+- SEO, accessibility, performance, and integration checks.
+- Production build and deployment handoff.
+
+The selected design direction is approved. Make routine implementation decisions independently and keep progress updates concise.
+
+Track each tool through audited, implemented, tested, documented, and verified states. Continue through the complete catalog; do not quietly redefine the scope as an MVP.
+
+If a specific tool is blocked by inaccessible reference behavior, missing licensed data, or unresolved requirements, identify the issue precisely and continue independent work.
+
+Prepare a working preview and deployment instructions. Identify credentials, business details, or external setup steps that still require the owner.
+
+12. ACCEPTANCE CRITERIA
+
+The project is complete only when:
+- Every discovered tool and material calculation mode is accounted for.
+- Every supported tool has working, independently verified logic.
+- The coverage manifest has no unexplained omissions.
+- The chosen layout, palette, and logo direction are implemented consistently.
+- Components are modular and shared appropriately.
+- Required pages and error states work.
+- Calculator engine tests and critical interaction tests pass.
+- Type checking, linting, and the production build pass.
+- Mobile layouts and accessibility have been checked.
+- Internal links, metadata, canonicals, sitemaps, and structured data are validated.
+- No placeholder results, dead controls, invented claims, or unfinished indexed pages remain.
+- Backend and database choices meet the documented cost constraints.
+- Actual performance results, remaining limitations, and deployment steps are documented.
+
+Deliver the source code, setup instructions, environment variable template, coverage manifest, formula references, test results, architecture notes, cost comparison, and launch checklist.
+
+Begin by inspecting the workspace, the three design references, and the competitor catalog. Then implement the complete product according to this specification.

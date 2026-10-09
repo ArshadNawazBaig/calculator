@@ -1,0 +1,50 @@
+{
+  "verified": "2026-10-09",
+  "status": "Independent research fixtures ready; no new historical cancellation product helper existed at inspection",
+  "sources": [
+    {
+      "url": "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf",
+      "section": "III.A.1.k, printed1178\u20131180, last revised2025-11-26",
+      "evidence": "Current indexed primary PDF excerpt. Full local download returned403 and web PDF oversized; explicit source citation verified through search extraction."
+    },
+    {
+      "url": "https://www.hud.gov/sites/documents/13-12mlatch.pdf",
+      "section": "2013Lender Insurance Guide, printed37, Case Query screenshot",
+      "evidence": "Official indexed screenshot transcription: appraised230000, upfront factor1.000%, UPB@78%=181194."
+    },
+    {
+      "url": "https://entp.hud.gov/sfohlp/f17updbal.cfm",
+      "section": "Final Monthly MIP Payment Date",
+      "evidence": "Main text says closing after2000-12-31; top navigation contains2001 typo. Current Handbook controls date."
+    },
+    {
+      "url": "https://www.hud.gov/hud-partners/housing-premium-portfolio-layout-abbrv",
+      "section": "Original Mortgage Amount, Upfront Factor, Percent Financed, UPB@78%",
+      "evidence": "Confirms note mortgage amount includes financed UFMIP and records financed proportion separately."
+    },
+    {
+      "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/40001-hsgh-update15-052024.pdf",
+      "section": "Printed1187, borrower-initiated cancellation/processing",
+      "evidence": "Direct primary text confirms no more than30days delinquent in previous12months; mortgagee FHAC processing."
+    }
+  ],
+  "implementationGuidance": {
+    "scope": "Eligible FHA forward Mutual Mortgage Insurance mortgage; verify program scope, historical dates and vintage rates separately. No automatic historical rate invention.",
+    "eligibility": "Closing on/after2001-01-01 AND case number assigned before2013-06-03. Closing date alone does not classify modern vs historical.",
+    "longTerm": "Original term>180months: historical78% threshold and at least60months paid MIP. Applies even if origination LTV below78%.",
+    "shortTerm": "Term<=180: before2008-07-14 annual MIP at origination LTV>=90%; from2008-07-14 through2011-04-17 only if>90%; from2011-04-18 through2013-06-02 only if>78%. Otherwise no annualMIP. No five-year minimum for charged short-term branch.",
+    "originalValue": "min(original sale price, original appraisal). No new appraisal appreciation.",
+    "normalization": "Use noteToBaseFactor=(basePrincipal+actualFinancedUpfrontPremium)/basePrincipal. Equivalent base balance=noteBalance/factor; threshold=.78*originalValue. Equivalent note threshold=.78*originalValue*factor. This is a mathematical inference validated by the official1% screenshot anchor, not an explicit handbook equation.",
+    "criticalAntiBug": "Do not subtract the original entire financed premium from every subsequent balance, and do not compare raw financed note balance directly with .78*originalValue. Use actual financed share; cash-paid UFMIP meansfactor1.",
+    "paymentTiming": "Normal automatic projection uses original amortization, independent of extra principal. Actual prepayment crossing creates request eligibility only, with seasoning and payment-history checks; servicer supplies actual amortization to HUD and processes cancellation. A threshold date alone is not confirmation billing stopped.",
+    "premiumTiming": "Keep threshold crossing month separate from verified final chargeable MIP month. Existing manual final-month path remains appropriate for billed-date/servicing precision. Do not claim civil14-day scheduling from26equalannual-period comparisons.",
+    "modernLoans": "Case assigned on/after2013-06-03 uses applicable11-year/life-term policy, not78% prepayment cancellation."
+  },
+  "fixtureCount": 26,
+  "fixtureFile": "fixtures.json",
+  "independentGenerator": "reference.py",
+  "productInspection": {
+    "file": "src/lib/calculators/program-composition.ts",
+    "finding": "Current manual historical composition deliberately requires verified last MIP month and says it does not auto-select78%. No numeric defect alleged in that scoped implementation."
+  }
+}

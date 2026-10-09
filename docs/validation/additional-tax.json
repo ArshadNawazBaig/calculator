@@ -1,0 +1,104 @@
+{
+  "verifiedAt": "2026-10-09T15:49:36.266609+00:00",
+  "status": "all numerical findings closed; source/copy follow-up sent to owner",
+  "counts": {
+    "standaloneAdditional": 80,
+    "publishedQbiEitc": 68,
+    "composition": 57,
+    "annualPay": 22,
+    "marriage": 7,
+    "snapshotCases": 234,
+    "snapshotPassed": 234,
+    "snapshotAssertions": 3952,
+    "productTests": 262,
+    "productPassed": 262
+  },
+  "checks": {
+    "targetedVitest": "passed",
+    "typecheck": "passed",
+    "targetedESLint": "passed"
+  },
+  "findings": [
+    {
+      "id": "F41-STUDENT-SSA-MAGI",
+      "severity": "material numerical integration",
+      "status": "closed",
+      "input": {
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "socialSecurityBenefits": 20000,
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500
+      },
+      "initialActual": {
+        "taxableSocialSecurity": 17000,
+        "studentInterestDeduction": 2500,
+        "AGI": 94500
+      },
+      "expected": {
+        "taxableSocialSecurity": 17000,
+        "studentInterestDeduction": 500,
+        "AGI": 96500
+      },
+      "resolution": "Owner now computes taxable Social Security before student-interest MAGI, and includes that taxable amount in student MAGI. Student deduction is explicitly added back for SSA provisional income. Four independent SSA/student cases and the public dispatcher regression pass.",
+      "sources": [
+        "https://www.irs.gov/publications/p970",
+        "https://www.irs.gov/publications/p915"
+      ]
+    }
+  ],
+  "copySourceFollowup": {
+    "status": "owner notified; public-copy pass in progress",
+    "items": [
+      "tax-calculator override note says outputs are not automatically combined despite composed-return mode.",
+      "Public tax/annual/marriage source collections need Schedule1A, Pub970, Pub590A, QBI/OBBBA and Pub596 direct references for new module support.",
+      "The original composed output note requiring externally verified QBI/EITC has already been corrected."
+    ]
+  },
+  "snapshotManifest": "final-snapshot-manifest.json",
+  "snapshotReport": "final-snapshot-execution-report.json",
+  "productReport": "product-execution-report.json",
+  "generators": [
+    "build-composition-edges.py",
+    "build-annual-pay-edges.py"
+  ],
+  "productFilesChanged": [
+    {
+      "path": "tests/tax-additional.test.ts",
+      "sha256": "288c2b4a74ec07a2cef7df1cf458177117e5e4d9b7b92604a643cc596169a949"
+    },
+    {
+      "path": "tests/annual-pay.test.ts",
+      "sha256": "046e8e51392dcb72c2da6dd6e97be162aaa441bad8decec535489fe5bb341c07"
+    },
+    {
+      "path": "tests/fixtures/tax-additional-reference.json",
+      "sha256": "b46c72d2d30ad4454bf406b4c66a59e5d5f1bc4b89b18d7fd1baad0136ca00de"
+    },
+    {
+      "path": "tests/fixtures/tax-additional-qbi-eitc-reference.json",
+      "sha256": "62f716874a1c899a389b1248b3d47ce6231ee59e8273e7b6af8302e3cfe86a80"
+    },
+    {
+      "path": "tests/fixtures/tax-additional-composition-edge.json",
+      "sha256": "cde51d134d16137d9eaccfcaf4b4516ef7e8bb11468e9c9c77063c9f91176fa4"
+    },
+    {
+      "path": "tests/fixtures/annual-pay-reference.json",
+      "sha256": "e5d5c5fb1fe8854f34ba2ba2b09f60ded030ef70b0639bbe25e82604da5e9f62"
+    }
+  ],
+  "scope": [
+    "No product source edits; only expressly authorized test/fixture files added.",
+    "Expected numbers derive from independent Decimal research, not product calculations.",
+    "All29 DRAFT EIC-table cases excluded from product fixtures. EITC remains a published-parameter continuous estimate, not a filing-table calculation.",
+    "QBI active minimum uses explicitly verified active amount and material-participation confirmation.",
+    "Annual model uses federal liability and same-person combined wage cap; three inputs share employment type.",
+    "State/local rates are explicit user scenarios, not state-return implementations.",
+    "ACTC retains fewer-than-three-children scope; IRA-plus-SSA requires coordinated verified adjustment."
+  ]
+}

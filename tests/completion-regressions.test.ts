@@ -1,0 +1,22 @@
+import {describe,it,expect} from 'vitest';
+import fixtureData from './fixtures/completion-regressions.json';
+import {definitionMap} from '@/lib/calculators/registry';
+import {calculate} from '@/lib/calculators/engine';
+import {defaults,type Result,type Values} from '@/lib/calculators/types';
+type Assertion={kind:string;label?:string;row?:number;column?:number;matchColumn?:number;match?:string;valueColumn?:number;expected:unknown};
+type ErrorContract={name:'Error';messagePatterns:string[]};
+type Fixture={id:string;group:string;slug:string;modeId?:string;algorithm?:string;inputs:Record<string,unknown>;category?:'health'|'finance'|'everyday';assertions:Assertion[];expectedError?:ErrorContract;properties?:string[];absoluteTolerance?:number;relativeTolerance?:number};
+async function checkError(calculation:Promise<Result>,contract:ErrorContract){
+ // Reject accidental TypeErrors and unrelated failures, while allowing equivalent validation wording.
+ await expect(calculation).rejects.toBeInstanceOf(Error);
+ const error:unknown=await calculation.catch((cause:unknown)=>cause);
+ expect(error).toHaveProperty('name',contract.name);
+ expect(contract.messagePatterns.length).toBeGreaterThan(0);
+ for(const pattern of contract.messagePatterns)expect(error).toHaveProperty('message',expect.stringMatching(new RegExp(pattern,'i')));
+}
+function check(actual:unknown,expected:unknown,tolerance:number,relative=0){if(Array.isArray(expected)){expect(Array.isArray(actual)).toBe(true);expect((actual as unknown[]).length).toBe(expected.length);expected.forEach((value,index)=>check((actual as unknown[])[index],value,tolerance,relative));}else if(typeof expected==='number'){expect(typeof actual).toBe('number');expect(Math.abs(Number(actual)-expected)).toBeLessThanOrEqual(tolerance+relative*Math.abs(expected));}else expect(actual).toEqual(expected);}
+function read(result:Result,a:Assertion){if(a.kind==='table-match-cell')return result.table?.rows.find(r=>r[a.matchColumn!]===a.match)?.[a.valueColumn!];if(a.kind==='matching-rules')return result.table?.rows.filter(r=>r[1]==='Yes').map(r=>r[0]);if(a.kind==='metric')return result.metrics.find(m=>m.label===a.label)?.value;if(a.kind==='table-column')return result.table?.rows.map(row=>row[a.column!]);if(a.kind==='table-cell')return result.table?.rows[a.row!]?.[a.column!];if(a.kind==='table-row-count')return result.table?.rows.length;if(a.kind==='table-rows')return result.table?.rows;throw Error('Unknown fixture assertion '+a.kind);}
+describe('Independent completion regression fixtures',()=>{for(const c of fixtureData as unknown as Fixture[])it(`${c.group}: ${c.id}`,async()=>{const mode=definitionMap.get(c.slug)!.modes.find(m=>c.modeId?m.id===c.modeId:m.algorithm===c.algorithm)!;expect(mode).toBeDefined();const values:Values=defaults(mode);for(const [key,value]of Object.entries(c.inputs))values[key]=typeof value==='object'?JSON.stringify(value):typeof value==='boolean'?(value?'yes':'no'):String(value);
+ const calculation=calculate(c.category||'finance',mode,values);if(c.expectedError){await checkError(calculation,c.expectedError);return;}const result=await calculation;for(const assertion of c.assertions)check(read(result,assertion),assertion.expected,c.absoluteTolerance||1e-6,c.relativeTolerance);
+ const rows=result.table?.rows||[],metric=(label:string)=>Number(result.metrics.find(m=>m.label===label)?.value);for(const property of c.properties||[]){switch(property){case 'mip132-positive133-zero':expect(rows[131][4]).toBeGreaterThan(0);expect(rows[132][4]).toBe(0);break;case 'mip133-positive':expect(rows[132][4]).toBeGreaterThan(0);break;case 'last-balance-zero':expect(rows.at(-1)![5]).toBe(0);break;case 'final-payment-contractual':expect(Math.abs(Number(rows.at(-1)![1])-metric('Regular principal and interest'))).toBeLessThan(.01);break;case 'mip-only-one-payment':expect(rows).toHaveLength(1);expect(rows[0][4]).toBe(metric('Total mortgage insurance in payoff scenario'));break;case 'compare-original-mip':{const baseline=await calculate('finance',mode,{...values,monthlyExtra:'0'});rows.forEach((row,index)=>expect(row[4]).toBe(baseline.table!.rows[index][4]));break;}case 'second-year-zero':expect(rows[1].slice(1).every(x=>x===0)).toBe(true);break;case 'before-round-half-up':expect(rows[0][2]).toBe(1.01);break;default:throw Error('Unknown property fixture '+property);}}
+ });});

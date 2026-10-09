@@ -1,0 +1,1412 @@
+{
+  "verified": "2026-10-09",
+  "taxYear": 2026,
+  "provenance": "Independent Decimal60 equations and separately extracted primary IRS DRAFT table; no product import.",
+  "fixtures": [
+    {
+      "id": "qbi-simple",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 50000,
+        "taxableBeforeQbiWithoutSection68": 80000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 50000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 16000.0,
+        "normalDeduction": 10000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 10000.0,
+        "taxableAfterQbiWithoutSection68": 70000.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Single verified qualified business; normal 20% and income cap."
+    },
+    {
+      "id": "qbi-capital-gain-income-cap",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 50000,
+        "taxableBeforeQbiWithoutSection68": 30000,
+        "netCapitalGainPlusQualifiedDividends": 12000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 50000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 3600.0,
+        "normalDeduction": 3600.0,
+        "minimumDeduction": 0.0,
+        "deduction": 3600.0,
+        "taxableAfterQbiWithoutSection68": 26400.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Subtract net capital gain including qualified dividends before income cap."
+    },
+    {
+      "id": "qbi-business-tips-exclusion",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 50000,
+        "taxableBeforeQbiWithoutSection68": 80000,
+        "deductibleBusinessTips": 20000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 30000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 6000.0,
+        "incomeLimit": 16000.0,
+        "normalDeduction": 6000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 6000.0,
+        "taxableAfterQbiWithoutSection68": 74000.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Deductible self-employment tips are not QBI a second time."
+    },
+    {
+      "id": "qbi-minimum-0",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 999,
+        "taxableBeforeQbiWithoutSection68": 10000,
+        "verifiedActiveQualifiedQbi": 999
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 999.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 199.8,
+        "incomeLimit": 2000.0,
+        "normalDeduction": 199.8,
+        "minimumDeduction": 0.0,
+        "deduction": 199.8,
+        "taxableAfterQbiWithoutSection68": 9800.2,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-minimum-1",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 1000,
+        "taxableBeforeQbiWithoutSection68": 10000,
+        "verifiedActiveQualifiedQbi": 1000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 1000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 200.0,
+        "incomeLimit": 2000.0,
+        "normalDeduction": 200.0,
+        "minimumDeduction": 400.0,
+        "deduction": 400.0,
+        "taxableAfterQbiWithoutSection68": 9600.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-minimum-2",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 1000,
+        "taxableBeforeQbiWithoutSection68": 1200,
+        "verifiedActiveQualifiedQbi": 1000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 1000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 200.0,
+        "incomeLimit": 240.0,
+        "normalDeduction": 200.0,
+        "minimumDeduction": 400.0,
+        "deduction": 400.0,
+        "taxableAfterQbiWithoutSection68": 800.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-minimum-3",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 1000,
+        "taxableBeforeQbiWithoutSection68": 0,
+        "verifiedActiveQualifiedQbi": 1000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 1000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 200.0,
+        "incomeLimit": 0.0,
+        "normalDeduction": 0.0,
+        "minimumDeduction": 400.0,
+        "deduction": 400.0,
+        "taxableAfterQbiWithoutSection68": 0.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-minimum-4",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 1000,
+        "taxableBeforeQbiWithoutSection68": 10000,
+        "verifiedActiveQualifiedQbi": 0
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 1000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 200.0,
+        "incomeLimit": 2000.0,
+        "normalDeduction": 200.0,
+        "minimumDeduction": 0.0,
+        "deduction": 200.0,
+        "taxableAfterQbiWithoutSection68": 9800.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-minimum-5",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 2000,
+        "taxableBeforeQbiWithoutSection68": 10000,
+        "verifiedActiveQualifiedQbi": 2000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 2000.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 400.0,
+        "incomeLimit": 2000.0,
+        "normalDeduction": 400.0,
+        "minimumDeduction": 400.0,
+        "deduction": 400.0,
+        "taxableAfterQbiWithoutSection68": 9600.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 active-QBI $400 floor overrides normal income limitation; taxable income still floored at0."
+    },
+    {
+      "id": "qbi-phase-single-at",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 201750,
+        "filing": "single",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 16000.0,
+        "incomeLimit": 40350.0,
+        "normalDeduction": 16000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 16000.0,
+        "taxableAfterQbiWithoutSection68": 185750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-single-half",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 239250.0,
+        "filing": "single",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.5,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 13000.0,
+        "incomeLimit": 47850.0,
+        "normalDeduction": 13000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 13000.0,
+        "taxableAfterQbiWithoutSection68": 226250.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-single-top",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 276750,
+        "filing": "single",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 55350.0,
+        "normalDeduction": 10000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 10000.0,
+        "taxableAfterQbiWithoutSection68": 266750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedSeparate-at",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 201775,
+        "filing": "marriedSeparate",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201775.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 16000.0,
+        "incomeLimit": 40355.0,
+        "normalDeduction": 16000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 16000.0,
+        "taxableAfterQbiWithoutSection68": 185775.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedSeparate-half",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 239275.0,
+        "filing": "marriedSeparate",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201775.0,
+        "phaseInFraction": 0.5,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 13000.0,
+        "incomeLimit": 47855.0,
+        "normalDeduction": 13000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 13000.0,
+        "taxableAfterQbiWithoutSection68": 226275.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedSeparate-top",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 276775,
+        "filing": "marriedSeparate",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201775.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 55355.0,
+        "normalDeduction": 10000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 10000.0,
+        "taxableAfterQbiWithoutSection68": 266775.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedJoint-at",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 403500,
+        "filing": "marriedJoint",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 403500.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 16000.0,
+        "incomeLimit": 80700.0,
+        "normalDeduction": 16000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 16000.0,
+        "taxableAfterQbiWithoutSection68": 387500.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedJoint-half",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 478500.0,
+        "filing": "marriedJoint",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 403500.0,
+        "phaseInFraction": 0.5,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 13000.0,
+        "incomeLimit": 95700.0,
+        "normalDeduction": 13000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 13000.0,
+        "taxableAfterQbiWithoutSection68": 465500.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-marriedJoint-top",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 553500,
+        "filing": "marriedJoint",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 403500.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 110700.0,
+        "normalDeduction": 10000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 10000.0,
+        "taxableAfterQbiWithoutSection68": 543500.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-qualifyingSurvivingSpouse-at",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 201750,
+        "filing": "qualifyingSurvivingSpouse",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 16000.0,
+        "incomeLimit": 40350.0,
+        "normalDeduction": 16000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 16000.0,
+        "taxableAfterQbiWithoutSection68": 185750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-qualifyingSurvivingSpouse-half",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 239250.0,
+        "filing": "qualifyingSurvivingSpouse",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.5,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 13000.0,
+        "incomeLimit": 47850.0,
+        "normalDeduction": 13000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 13000.0,
+        "taxableAfterQbiWithoutSection68": 226250.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-phase-qualifyingSurvivingSpouse-top",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 276750,
+        "filing": "qualifyingSurvivingSpouse",
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 10000.0,
+        "incomeLimit": 55350.0,
+        "normalDeduction": 10000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 10000.0,
+        "taxableAfterQbiWithoutSection68": 266750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 precise status thresholds and wage/property limitation phase-in; QSS uses all-other range."
+    },
+    {
+      "id": "qbi-ubia-alternative",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 200000,
+        "taxableBeforeQbiWithoutSection68": 300000,
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 1000000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 200000.0,
+        "wagePropertyLimit": 30000.0,
+        "businessComponent": 30000.0,
+        "incomeLimit": 60000.0,
+        "normalDeduction": 30000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 30000.0,
+        "taxableAfterQbiWithoutSection68": 270000.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "25% wages+2.5% UBIA exceeds50% wages."
+    },
+    {
+      "id": "qbi-sstb-0",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 201750,
+        "SSTB": true,
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 80000.0,
+        "wagePropertyLimit": 10000.0,
+        "businessComponent": 16000.0,
+        "incomeLimit": 40350.0,
+        "normalDeduction": 16000.0,
+        "minimumDeduction": 0.0,
+        "deduction": 16000.0,
+        "taxableAfterQbiWithoutSection68": 185750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "SSTB scales QBI,wages,UBIA before wage limitation; minimum disabled pending separately verified active-qualified input."
+    },
+    {
+      "id": "qbi-sstb-1",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 239250,
+        "SSTB": true,
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.5,
+        "SSTBApplicableFraction": 0.5,
+        "eligibleQBI": 40000.0,
+        "wagePropertyLimit": 5000.0,
+        "businessComponent": 6500.0,
+        "incomeLimit": 47850.0,
+        "normalDeduction": 6500.0,
+        "minimumDeduction": 0.0,
+        "deduction": 6500.0,
+        "taxableAfterQbiWithoutSection68": 232750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "SSTB scales QBI,wages,UBIA before wage limitation; minimum disabled pending separately verified active-qualified input."
+    },
+    {
+      "id": "qbi-sstb-2",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 80000,
+        "taxableBeforeQbiWithoutSection68": 276750,
+        "SSTB": true,
+        "qualifiedBusinessW2Wages": 20000,
+        "qualifiedUBIA": 100000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 1.0,
+        "SSTBApplicableFraction": 0.0,
+        "eligibleQBI": 0.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 0.0,
+        "incomeLimit": 55350.0,
+        "normalDeduction": 0.0,
+        "minimumDeduction": 0.0,
+        "deduction": 0.0,
+        "taxableAfterQbiWithoutSection68": 276750.0,
+        "lossCarryforward": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "SSTB scales QBI,wages,UBIA before wage limitation; minimum disabled pending separately verified active-qualified input."
+    },
+    {
+      "id": "qbi-loss-carry",
+      "function": "qbi",
+      "input": {
+        "adjustedQbiBeforeTips": 50000,
+        "taxableBeforeQbiWithoutSection68": 80000,
+        "priorQbiLoss": 60000
+      },
+      "expected": {
+        "threshold": 201750.0,
+        "phaseInFraction": 0.0,
+        "SSTBApplicableFraction": 1.0,
+        "eligibleQBI": 0.0,
+        "wagePropertyLimit": 0.0,
+        "businessComponent": 0.0,
+        "incomeLimit": 16000.0,
+        "normalDeduction": 0.0,
+        "minimumDeduction": 0.0,
+        "deduction": 0.0,
+        "taxableAfterQbiWithoutSection68": 80000.0,
+        "lossCarryforward": 10000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Normal one-business loss carryforward; active-minimum eligibility explicitly not inferred from current profits."
+    },
+    {
+      "id": "qbi-section68-order",
+      "function": "qbiSection68",
+      "input": {
+        "AGI": 1000000,
+        "itemizedBeforeSection68": 100000,
+        "adjustedQbiBeforeTips": 1000000,
+        "qualifiedBusinessW2Wages": 1000000
+      },
+      "expected": {
+        "qbiDeduction": 180000.0,
+        "itemizedReduction": 5405.405405405405,
+        "itemizedAfterSection68": 94594.5945945946,
+        "finalTaxableIncome": 725405.4054054054
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Compute QBI without overall itemized limitation; then apply section68 with final QBI. Statute70111(b)."
+    },
+    {
+      "id": "eic-estimate-single-0-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 0,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 382.5,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 382.5
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-0-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 664.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-0-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 0,
+        "earnedIncome": 15860,
+        "AGI": 15860
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 281.5,
+        "estimatedCredit": 281.5
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-0-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 0,
+        "earnedIncome": 19540,
+        "AGI": 19540
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-0-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 382.5,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 382.5
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-0-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 664.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-0-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 23140,
+        "AGI": 23140
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 281.5,
+        "estimatedCredit": 281.5
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-0-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 26820,
+        "AGI": 26820
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-1-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 1700.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 1700.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-1-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 4427.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-1-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 28890,
+        "AGI": 28890
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 3628.0,
+        "estimatedCredit": 3628.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-1-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 1,
+        "earnedIncome": 51593,
+        "AGI": 51593
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 0.0606,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-1-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 1,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 1700.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 1700.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-1-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 1,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 4427.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-1-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 1,
+        "earnedIncome": 36160,
+        "AGI": 36160
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 3628.0,
+        "estimatedCredit": 3628.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-1-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 1,
+        "earnedIncome": 58863,
+        "AGI": 58863
+      },
+      "expected": {
+        "phaseInCredit": 4427.0,
+        "phaseoutCapacity": 0.0606,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-2-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 2,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 2000.0,
+        "phaseoutCapacity": 7316.0,
+        "estimatedCredit": 2000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-2-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 2,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 7316.0,
+        "estimatedCredit": 7316.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-2-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 2,
+        "earnedIncome": 28890,
+        "AGI": 28890
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 6263.0,
+        "estimatedCredit": 6263.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-2-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 2,
+        "earnedIncome": 58629,
+        "AGI": 58629
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-2-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 2,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 2000.0,
+        "phaseoutCapacity": 7316.0,
+        "estimatedCredit": 2000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-2-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 2,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 7316.0,
+        "estimatedCredit": 7316.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-2-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 2,
+        "earnedIncome": 36160,
+        "AGI": 36160
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 6263.0,
+        "estimatedCredit": 6263.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-2-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 2,
+        "earnedIncome": 65899,
+        "AGI": 65899
+      },
+      "expected": {
+        "phaseInCredit": 7316.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-3-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 2250.0,
+        "phaseoutCapacity": 8231.0,
+        "estimatedCredit": 2250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-3-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 8231.0,
+        "estimatedCredit": 8231.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-3-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 28890,
+        "AGI": 28890
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 7178.0,
+        "estimatedCredit": 7178.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-single-3-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "single",
+        "children": 3,
+        "earnedIncome": 62974,
+        "AGI": 62974
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-3-phasein",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 3,
+        "earnedIncome": 5000,
+        "AGI": 5000
+      },
+      "expected": {
+        "phaseInCredit": 2250.0,
+        "phaseoutCapacity": 8231.0,
+        "estimatedCredit": 2250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-3-plateau",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 3,
+        "earnedIncome": 20000,
+        "AGI": 20000
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 8231.0,
+        "estimatedCredit": 8231.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-3-phaseout",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 3,
+        "earnedIncome": 36160,
+        "AGI": 36160
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 7178.0,
+        "estimatedCredit": 7178.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-estimate-marriedJoint-3-cutoff",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 3,
+        "earnedIncome": 70244,
+        "AGI": 70244
+      },
+      "expected": {
+        "phaseInCredit": 8231.0,
+        "phaseoutCapacity": 0.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Continuous planning estimate with published rounded maxima, not exact IRS lookup-table credit."
+    },
+    {
+      "id": "eic-earned-agi-two-limits",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "children": 1,
+        "earnedIncome": 5000,
+        "AGI": 50000
+      },
+      "expected": {
+        "phaseInCredit": 1700.0,
+        "phaseoutCapacity": 254.622,
+        "estimatedCredit": 254.622
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Credit=min(phase-in credit, phased-out maximum), not phase-in minus phaseout reduction."
+    },
+    {
+      "id": "eic-investment-at-limit",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "children": 1,
+        "earnedIncome": 10000,
+        "AGI": 22200,
+        "investmentIncome": 12200
+      },
+      "expected": {
+        "phaseInCredit": 3400.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 3400.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Investment income exactly12200 is permitted."
+    },
+    {
+      "id": "eic-investment-exceeds",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "children": 1,
+        "earnedIncome": 10000,
+        "AGI": 22200.01,
+        "investmentIncome": 12200.01
+      },
+      "expected": {
+        "phaseInCredit": 3400.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Investment income greater than12200 disqualifies."
+    },
+    {
+      "id": "eic-age-24-24",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000,
+        "age": 24,
+        "spouseAge": 24
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "No-child age25\u201364 satisfied by either joint spouse."
+    },
+    {
+      "id": "eic-age-24-25",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000,
+        "age": 24,
+        "spouseAge": 25
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 664.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "No-child age25\u201364 satisfied by either joint spouse."
+    },
+    {
+      "id": "eic-age-65-65",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000,
+        "age": 65,
+        "spouseAge": 65
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "No-child age25\u201364 satisfied by either joint spouse."
+    },
+    {
+      "id": "eic-age-65-64",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedJoint",
+        "children": 0,
+        "earnedIncome": 9000,
+        "AGI": 9000,
+        "age": 65,
+        "spouseAge": 64
+      },
+      "expected": {
+        "phaseInCredit": 664.0,
+        "phaseoutCapacity": 664.0,
+        "estimatedCredit": 664.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "No-child age25\u201364 satisfied by either joint spouse."
+    },
+    {
+      "id": "eic-mfs-separated-False",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedSeparate",
+        "children": 1,
+        "earnedIncome": 10000,
+        "AGI": 10000,
+        "separatedSpouseEligibilityConfirmed": false
+      },
+      "expected": {
+        "phaseInCredit": 3400.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Ordinary MFS excluded; verified statutory separated-spouse exception uses other-status limits."
+    },
+    {
+      "id": "eic-mfs-separated-True",
+      "function": "eitcContinuousEstimate",
+      "input": {
+        "filing": "marriedSeparate",
+        "children": 1,
+        "earnedIncome": 10000,
+        "AGI": 10000,
+        "separatedSpouseEligibilityConfirmed": true
+      },
+      "expected": {
+        "phaseInCredit": 3400.0,
+        "phaseoutCapacity": 4427.0,
+        "estimatedCredit": 3400.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Ordinary MFS excluded; verified statutory separated-spouse exception uses other-status limits."
+    }
+  ],
+  "scope": "Published-rule QBI and continuous planning EITC only. All29 draft-table lookup cases intentionally excluded."
+}

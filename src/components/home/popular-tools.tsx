@@ -1,0 +1,5 @@
+import Link from "next/link";
+import {ChevronRight} from "lucide-react";
+import {Icon} from "@/components/ui/icon";
+const tools=[{title:"Compound Interest",slug:"compound-interest-calculator",icon:"investment",text:"Give your savings a longer view."},{title:"Salary",slug:"salary-calculator",icon:"salary",text:"Understand what your time earns."},{title:"Calorie",slug:"calorie-calculator",icon:"calorie",text:"Estimate your daily energy needs."},{title:"Age",slug:"age-calculator",icon:"age",text:"Every year, month, and day."}];
+export function PopularTools(){return <section className="popular-section"><div className="section-heading"><div><span className="eyebrow">A GOOD PLACE TO START</span><h2>Popular calculators</h2></div><Link className="text-link" href="/calculators">Explore all calculators <ChevronRight size={16}/></Link></div><div className="popular-grid">{tools.map(tool=><Link className="popular-card" key={tool.slug} href={`/${tool.slug}`}><span className="tool-icon"><Icon name={tool.icon} size={25}/></span><span><h3>{tool.title}</h3><p>{tool.text}</p></span><ChevronRight size={17}/></Link>)}</div></section>;}

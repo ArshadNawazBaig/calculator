@@ -1,0 +1,1890 @@
+{
+  "checks": 269,
+  "passed": 269,
+  "method": "Fraction/stdmath/base64/Pythoncodec independent reference recomputation. No product imports or execution.",
+  "details": [
+    {
+      "id": "mulch-two-beds-yd-price",
+      "metric": "Area ft2",
+      "pass": true,
+      "actual": 74.0,
+      "expected": 74
+    },
+    {
+      "id": "mulch-two-beds-yd-price",
+      "metric": "Volume ft3",
+      "pass": true,
+      "actual": 18.5,
+      "expected": 18.5
+    },
+    {
+      "id": "mulch-two-beds-yd-price",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 0.523861661952,
+      "expected": 0.523861661952
+    },
+    {
+      "id": "mulch-two-beds-yd-price",
+      "metric": "Volume yd3",
+      "pass": true,
+      "actual": 0.6851851851851852,
+      "expected": 0.6851851851851852
+    },
+    {
+      "id": "mulch-two-beds-yd-price",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 37.0,
+      "expected": 37
+    },
+    {
+      "id": "mulch-whole-bags-after-aggregation",
+      "metric": "Order volume ft3",
+      "pass": true,
+      "actual": 20.35,
+      "expected": 20.35
+    },
+    {
+      "id": "mulch-whole-bags-after-aggregation",
+      "metric": "Order bags",
+      "pass": true,
+      "actual": 11,
+      "expected": 11
+    },
+    {
+      "id": "mulch-whole-bags-after-aggregation",
+      "metric": "Equivalent bags",
+      "pass": true,
+      "actual": 10.175,
+      "expected": 10.175
+    },
+    {
+      "id": "mulch-whole-bags-after-aggregation",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 44.0,
+      "expected": 44
+    },
+    {
+      "id": "mulch-mixed-row-units",
+      "metric": "Area m2",
+      "pass": true,
+      "actual": 15.290304,
+      "expected": 15.290304
+    },
+    {
+      "id": "mulch-mixed-row-units",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 1.5290304,
+      "expected": 1.5290304
+    },
+    {
+      "id": "mulch-mixed-row-units",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 305.80608,
+      "expected": 305.80608
+    },
+    {
+      "id": "mulch-bag-exact-60",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 0.12,
+      "expected": 0.12
+    },
+    {
+      "id": "mulch-bag-exact-60",
+      "metric": "Order bags",
+      "pass": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "mulch-bag-exact-60",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 14.0,
+      "expected": 14
+    },
+    {
+      "id": "mulch-bag-exact-730",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 1.46,
+      "expected": 1.46
+    },
+    {
+      "id": "mulch-bag-exact-730",
+      "metric": "Order bags",
+      "pass": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "mulch-bag-exact-730",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 14.0,
+      "expected": 14
+    },
+    {
+      "id": "mulch-bag-exact-76.9",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 4.3551310058496,
+      "expected": 4.3551310058496
+    },
+    {
+      "id": "mulch-bag-exact-76.9",
+      "metric": "Order bags",
+      "pass": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "mulch-bag-exact-76.9",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 14.0,
+      "expected": 14
+    },
+    {
+      "id": "gravel-known-area-price-kg",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 2.0,
+      "expected": 2
+    },
+    {
+      "id": "gravel-known-area-price-kg",
+      "metric": "Order volume m3",
+      "pass": true,
+      "actual": 2.2,
+      "expected": 2.2
+    },
+    {
+      "id": "gravel-known-area-price-kg",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 3300.0,
+      "expected": 3300
+    },
+    {
+      "id": "gravel-known-area-price-kg",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 330.0,
+      "expected": 330
+    },
+    {
+      "id": "gravel-known-area-price-tonne",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 2.0,
+      "expected": 2
+    },
+    {
+      "id": "gravel-known-area-price-tonne",
+      "metric": "Order volume m3",
+      "pass": true,
+      "actual": 2.2,
+      "expected": 2.2
+    },
+    {
+      "id": "gravel-known-area-price-tonne",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 3300.0,
+      "expected": 3300
+    },
+    {
+      "id": "gravel-known-area-price-tonne",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 264.0,
+      "expected": 264
+    },
+    {
+      "id": "gravel-known-area-price-m3",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 2.0,
+      "expected": 2
+    },
+    {
+      "id": "gravel-known-area-price-m3",
+      "metric": "Order volume m3",
+      "pass": true,
+      "actual": 2.2,
+      "expected": 2.2
+    },
+    {
+      "id": "gravel-known-area-price-m3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 3300.0,
+      "expected": 3300
+    },
+    {
+      "id": "gravel-known-area-price-m3",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 110.0,
+      "expected": 110
+    },
+    {
+      "id": "gravel-known-area-price-L",
+      "metric": "Volume m3",
+      "pass": true,
+      "actual": 2.0,
+      "expected": 2
+    },
+    {
+      "id": "gravel-known-area-price-L",
+      "metric": "Order volume m3",
+      "pass": true,
+      "actual": 2.2,
+      "expected": 2.2
+    },
+    {
+      "id": "gravel-known-area-price-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 3300.0,
+      "expected": 3300
+    },
+    {
+      "id": "gravel-known-area-price-L",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 88.0,
+      "expected": 88
+    },
+    {
+      "id": "gravel-short-ton-price",
+      "metric": "Volume yd3",
+      "pass": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "id": "gravel-short-ton-price",
+      "metric": "Mass lb",
+      "pass": true,
+      "actual": 2000.0000000000002,
+      "expected": 2000
+    },
+    {
+      "id": "gravel-short-ton-price",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 80.0,
+      "expected": 80
+    },
+    {
+      "id": "gravel-mass-bags",
+      "metric": "Order bags",
+      "pass": true,
+      "actual": 132,
+      "expected": 132
+    },
+    {
+      "id": "gravel-mass-bags",
+      "metric": "Material cost",
+      "pass": true,
+      "actual": 792.0,
+      "expected": 792
+    },
+    {
+      "id": "mass-density-kg-m3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.006,
+      "expected": 0.006
+    },
+    {
+      "id": "mass-density-kg-cm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000.0
+    },
+    {
+      "id": "mass-density-g-m3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-06,
+      "expected": 6e-06
+    },
+    {
+      "id": "mass-density-g-cm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6.0,
+      "expected": 6.0
+    },
+    {
+      "id": "mass-density-g-mm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000.0
+    },
+    {
+      "id": "mass-density-mg-m3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-09,
+      "expected": 6e-09
+    },
+    {
+      "id": "mass-density-mg-cm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.006,
+      "expected": 0.006
+    },
+    {
+      "id": "mass-density-mg-mm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6.0,
+      "expected": 6.0
+    },
+    {
+      "id": "mass-density-Eg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000000000000000.0,
+      "expected": 6000000000000000.0
+    },
+    {
+      "id": "mass-density-Pg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000000000000.0,
+      "expected": 6000000000000.0
+    },
+    {
+      "id": "mass-density-Tg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000000000.0,
+      "expected": 6000000000.0
+    },
+    {
+      "id": "mass-density-Gg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000000.0,
+      "expected": 6000000.0
+    },
+    {
+      "id": "mass-density-Mg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000.0
+    },
+    {
+      "id": "mass-density-kg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6.0,
+      "expected": 6.0
+    },
+    {
+      "id": "mass-density-hg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.6,
+      "expected": 0.6
+    },
+    {
+      "id": "mass-density-dag-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.06,
+      "expected": 0.06
+    },
+    {
+      "id": "mass-density-g-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.006,
+      "expected": 0.006
+    },
+    {
+      "id": "mass-density-dg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.0006,
+      "expected": 0.0006
+    },
+    {
+      "id": "mass-density-cg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-05,
+      "expected": 6e-05
+    },
+    {
+      "id": "mass-density-mg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-06,
+      "expected": 6e-06
+    },
+    {
+      "id": "mass-density-ug-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-09,
+      "expected": 6e-09
+    },
+    {
+      "id": "mass-density-ng-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-12,
+      "expected": 6e-12
+    },
+    {
+      "id": "mass-density-pg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-15,
+      "expected": 6e-15
+    },
+    {
+      "id": "mass-density-fg-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-18,
+      "expected": 6e-18
+    },
+    {
+      "id": "mass-density-ag-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 6e-21,
+      "expected": 6e-21
+    },
+    {
+      "id": "mass-density-lb-in3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 166.07942826121874,
+      "expected": 166.07942826121874
+    },
+    {
+      "id": "mass-density-lb-ft3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.09611078024376084,
+      "expected": 0.09611078024376084
+    },
+    {
+      "id": "mass-density-lb-yd3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.0035596585275466976,
+      "expected": 0.0035596585275466976
+    },
+    {
+      "id": "mass-density-lb-US-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.7189585639013798,
+      "expected": 0.7189585639013798
+    },
+    {
+      "id": "mass-density-lb-UK-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.5986582359786102,
+      "expected": 0.5986582359786102
+    },
+    {
+      "id": "mass-density-oz-in3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 10.379964266326171,
+      "expected": 10.379964266326171
+    },
+    {
+      "id": "mass-density-oz-ft3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.006006923765235052,
+      "expected": 0.006006923765235052
+    },
+    {
+      "id": "mass-density-oz-US-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.04493491024383624,
+      "expected": 0.04493491024383624
+    },
+    {
+      "id": "mass-density-oz-UK-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.03741613974866314,
+      "expected": 0.03741613974866314
+    },
+    {
+      "id": "mass-density-grain-US-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.00010270836627162568,
+      "expected": 0.00010270836627162568
+    },
+    {
+      "id": "mass-density-grain-UK-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 8.552260513980145e-05,
+      "expected": 8.552260513980145e-05
+    },
+    {
+      "id": "mass-density-grain-ft3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 1.3730111463394405e-05,
+      "expected": 1.3730111463394405e-05
+    },
+    {
+      "id": "mass-density-short-ton-yd3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 7.119317055093395,
+      "expected": 7.119317055093395
+    },
+    {
+      "id": "mass-density-long-ton-yd3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 7.973635101704603,
+      "expected": 7.973635101704603
+    },
+    {
+      "id": "mass-density-slug-ft3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 3.0922729103591773,
+      "expected": 3.0922729103591773
+    },
+    {
+      "id": "mass-density-psi-1000ft",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.01383995235510156,
+      "expected": 0.01383995235510156
+    },
+    {
+      "id": "mass-volume-m3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 2000.0,
+      "expected": 2000.0
+    },
+    {
+      "id": "mass-volume-ft3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 56.633693184,
+      "expected": 56.633693184
+    },
+    {
+      "id": "mass-volume-yd3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 1529.109715968,
+      "expected": 1529.109715968
+    },
+    {
+      "id": "mass-volume-in3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.032774128,
+      "expected": 0.032774128
+    },
+    {
+      "id": "mass-volume-km3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 2000000000000.0,
+      "expected": 2000000000000.0
+    },
+    {
+      "id": "mass-volume-mi3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 8336363650881.159,
+      "expected": 8336363650881.159
+    },
+    {
+      "id": "mass-volume-cm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "mass-volume-mm3",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 2e-06,
+      "expected": 2e-06
+    },
+    {
+      "id": "mass-volume-L",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 2.0,
+      "expected": 2.0
+    },
+    {
+      "id": "mass-volume-mL",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "mass-volume-US-pt",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.946352946,
+      "expected": 0.946352946
+    },
+    {
+      "id": "mass-volume-US-qt",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 1.892705892,
+      "expected": 1.892705892
+    },
+    {
+      "id": "mass-volume-US-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 7.570823568,
+      "expected": 7.570823568
+    },
+    {
+      "id": "mass-volume-UK-gal",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 9.09218,
+      "expected": 9.09218
+    },
+    {
+      "id": "mass-zero-volume",
+      "metric": "Mass kg",
+      "pass": true,
+      "actual": 0.0,
+      "expected": 0
+    },
+    {
+      "id": "wind-F-mph",
+      "metric": "Wind chill F",
+      "pass": true,
+      "actual": 8.854038235710775,
+      "expected": 8.854038235710771
+    },
+    {
+      "id": "wind-F-mph",
+      "metric": "Wind chill C",
+      "pass": true,
+      "actual": -12.858867646827347,
+      "expected": -12.858867646827349
+    },
+    {
+      "id": "wind-F-mph",
+      "metric": "Wind chill K",
+      "pass": true,
+      "actual": 260.29113235317266,
+      "expected": 260.29113235317266
+    },
+    {
+      "id": "wind-C-km/h",
+      "metric": "Wind chill F",
+      "pass": true,
+      "actual": -0.1048104320910781,
+      "expected": -0.10481043209108022
+    },
+    {
+      "id": "wind-C-km/h",
+      "metric": "Wind chill C",
+      "pass": true,
+      "actual": -17.836005795606155,
+      "expected": -17.836005795606155
+    },
+    {
+      "id": "wind-C-km/h",
+      "metric": "Wind chill K",
+      "pass": true,
+      "actual": 255.31399420439382,
+      "expected": 255.31399420439385
+    },
+    {
+      "id": "wind-K-m/s",
+      "metric": "Wind chill F",
+      "pass": true,
+      "actual": -0.1048104320910781,
+      "expected": -0.10481043209108022
+    },
+    {
+      "id": "wind-K-m/s",
+      "metric": "Wind chill C",
+      "pass": true,
+      "actual": -17.836005795606155,
+      "expected": -17.836005795606155
+    },
+    {
+      "id": "wind-K-m/s",
+      "metric": "Wind chill K",
+      "pass": true,
+      "actual": 255.31399420439382,
+      "expected": 255.31399420439385
+    },
+    {
+      "id": "wind-C-knots",
+      "metric": "Wind chill F",
+      "pass": true,
+      "actual": 23.00220757829552,
+      "expected": 23.00220757829552
+    },
+    {
+      "id": "wind-C-knots",
+      "metric": "Wind chill C",
+      "pass": true,
+      "actual": -4.9987735676136005,
+      "expected": -4.9987735676136005
+    },
+    {
+      "id": "wind-C-knots",
+      "metric": "Wind chill K",
+      "pass": true,
+      "actual": 268.15122643238635,
+      "expected": 268.1512264323864
+    },
+    {
+      "id": "ohm-prefix-vi",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-vi",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-vi",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-vi",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-prefix-vr",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-vr",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-vr",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-vr",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-prefix-ir",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-ir",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-ir",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-ir",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-prefix-vp",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-vp",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-vp",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-vp",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-prefix-ip",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-ip",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-ip",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-ip",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-prefix-rp",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 12.0,
+      "expected": 12
+    },
+    {
+      "id": "ohm-prefix-rp",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.002,
+      "expected": 0.002
+    },
+    {
+      "id": "ohm-prefix-rp",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 6000.0,
+      "expected": 6000
+    },
+    {
+      "id": "ohm-prefix-rp",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.024,
+      "expected": 0.024
+    },
+    {
+      "id": "ohm-power-hp-mechanical",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 120.0,
+      "expected": 120
+    },
+    {
+      "id": "ohm-power-hp-mechanical",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 12.428331193037838,
+      "expected": 12.428331193037836
+    },
+    {
+      "id": "ohm-power-hp-mechanical",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 9.6553590450842,
+      "expected": 9.655359045084202
+    },
+    {
+      "id": "ohm-power-hp-mechanical",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 1491.3997431645405,
+      "expected": 1491.3997431645405
+    },
+    {
+      "id": "ohm-power-BtuIT/h",
+      "metric": "Voltage V",
+      "pass": true,
+      "actual": 120.0,
+      "expected": 120
+    },
+    {
+      "id": "ohm-power-BtuIT/h",
+      "metric": "Current A",
+      "pass": true,
+      "actual": 0.004884517836203704,
+      "expected": 0.004884517836203704
+    },
+    {
+      "id": "ohm-power-BtuIT/h",
+      "metric": "Resistance ohm",
+      "pass": true,
+      "actual": 24567.41975852118,
+      "expected": 24567.41975852118
+    },
+    {
+      "id": "ohm-power-BtuIT/h",
+      "metric": "Power W",
+      "pass": true,
+      "actual": 0.5861421403444445,
+      "expected": 0.5861421403444445
+    },
+    {
+      "id": "grade-letter-percentages",
+      "metric": "Weighted percentage",
+      "pass": true,
+      "actual": 88.16666666666667,
+      "expected": 88.16666666666667
+    },
+    {
+      "id": "grade-letter-percentages",
+      "metric": "Completed weight",
+      "pass": true,
+      "actual": 60.0,
+      "expected": 60
+    },
+    {
+      "id": "grade-letter-relativeweights",
+      "metric": "Weighted percentage",
+      "pass": true,
+      "actual": 92.66666666666667,
+      "expected": 92.66666666666667
+    },
+    {
+      "id": "grade-letter-relativeweights",
+      "metric": "Total weight",
+      "pass": true,
+      "actual": 300.0,
+      "expected": 300
+    },
+    {
+      "id": "grade-letter-custom-scale",
+      "metric": "Weighted percentage",
+      "pass": true,
+      "actual": 88.25,
+      "expected": 88.25
+    },
+    {
+      "id": "grade-final-letters",
+      "metric": "Required final percentage",
+      "pass": true,
+      "actual": 100.0,
+      "expected": 100
+    },
+    {
+      "id": "grade-final-unattainable",
+      "metric": "Required final percentage",
+      "pass": true,
+      "actual": 135.0,
+      "expected": 135
+    },
+    {
+      "id": "base64-binary-0",
+      "metric": "base64",
+      "pass": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "id": "base64-binary-0",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "base64-binary-1",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AA==",
+      "expected": "AA=="
+    },
+    {
+      "id": "base64-binary-1",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "id": "base64-binary-2",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AP8=",
+      "expected": "AP8="
+    },
+    {
+      "id": "base64-binary-2",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "base64-binary-3",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AP8Q",
+      "expected": "AP8Q"
+    },
+    {
+      "id": "base64-binary-3",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "id": "base64-binary-4",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AP8QgA==",
+      "expected": "AP8QgA=="
+    },
+    {
+      "id": "base64-binary-4",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "id": "base64-binary-5",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w==",
+      "expected": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w=="
+    },
+    {
+      "id": "base64-binary-5",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 256,
+      "expected": 256
+    },
+    {
+      "id": "base64-binary-6",
+      "metric": "base64",
+      "pass": true,
+      "actual": "iVBORw0KGgo=",
+      "expected": "iVBORw0KGgo="
+    },
+    {
+      "id": "base64-binary-6",
+      "metric": "byteLength",
+      "pass": true,
+      "actual": 8,
+      "expected": 8
+    },
+    {
+      "id": "base64-charset-utf-8",
+      "metric": "base64",
+      "pass": true,
+      "actual": "QcOp5Lit8J+YgA==",
+      "expected": "QcOp5Lit8J+YgA=="
+    },
+    {
+      "id": "base64-charset-utf-8",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "A\u00e9\u4e2d\ud83d\ude00",
+      "expected": "A\u00e9\u4e2d\ud83d\ude00"
+    },
+    {
+      "id": "base64-charset-ascii",
+      "metric": "base64",
+      "pass": true,
+      "actual": "QX8=",
+      "expected": "QX8="
+    },
+    {
+      "id": "base64-charset-ascii",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "A\u007f",
+      "expected": "A\u007f"
+    },
+    {
+      "id": "base64-charset-utf-16le",
+      "metric": "base64",
+      "pass": true,
+      "actual": "QQA92ADe",
+      "expected": "QQA92ADe"
+    },
+    {
+      "id": "base64-charset-utf-16le",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "A\ud83d\ude00",
+      "expected": "A\ud83d\ude00"
+    },
+    {
+      "id": "base64-charset-utf-16be",
+      "metric": "base64",
+      "pass": true,
+      "actual": "AEHYPd4A",
+      "expected": "AEHYPd4A"
+    },
+    {
+      "id": "base64-charset-utf-16be",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "A\ud83d\ude00",
+      "expected": "A\ud83d\ude00"
+    },
+    {
+      "id": "base64-charset-big5",
+      "metric": "base64",
+      "pass": true,
+      "actual": "pKSk5Q==",
+      "expected": "pKSk5Q=="
+    },
+    {
+      "id": "base64-charset-big5",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u4e2d\u6587",
+      "expected": "\u4e2d\u6587"
+    },
+    {
+      "id": "base64-charset-gb18030",
+      "metric": "base64",
+      "pass": true,
+      "actual": "1tDOxJQ5/DY=",
+      "expected": "1tDOxJQ5/DY="
+    },
+    {
+      "id": "base64-charset-gb18030",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u4e2d\u6587\ud83d\ude00",
+      "expected": "\u4e2d\u6587\ud83d\ude00"
+    },
+    {
+      "id": "base64-charset-gb2312",
+      "metric": "base64",
+      "pass": true,
+      "actual": "1tDOxA==",
+      "expected": "1tDOxA=="
+    },
+    {
+      "id": "base64-charset-gb2312",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u4e2d\u6587",
+      "expected": "\u4e2d\u6587"
+    },
+    {
+      "id": "base64-charset-euc-jp",
+      "metric": "base64",
+      "pass": true,
+      "actual": "xvzL3A==",
+      "expected": "xvzL3A=="
+    },
+    {
+      "id": "base64-charset-euc-jp",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u65e5\u672c",
+      "expected": "\u65e5\u672c"
+    },
+    {
+      "id": "base64-charset-iso-2022-jp",
+      "metric": "base64",
+      "pass": true,
+      "actual": "QRskQkZ8S1wbKEJC",
+      "expected": "QRskQkZ8S1wbKEJC"
+    },
+    {
+      "id": "base64-charset-iso-2022-jp",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "A\u65e5\u672cB",
+      "expected": "A\u65e5\u672cB"
+    },
+    {
+      "id": "base64-charset-shift-jis",
+      "metric": "base64",
+      "pass": true,
+      "actual": "k/qWew==",
+      "expected": "k/qWew=="
+    },
+    {
+      "id": "base64-charset-shift-jis",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u65e5\u672c",
+      "expected": "\u65e5\u672c"
+    },
+    {
+      "id": "base64-charset-euc-kr",
+      "metric": "base64",
+      "pass": true,
+      "actual": "x9GxuQ==",
+      "expected": "x9GxuQ=="
+    },
+    {
+      "id": "base64-charset-euc-kr",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\ud55c\uad6d",
+      "expected": "\ud55c\uad6d"
+    },
+    {
+      "id": "base64-charset-ibm866",
+      "metric": "base64",
+      "pass": true,
+      "actual": "n4E=",
+      "expected": "n4E="
+    },
+    {
+      "id": "base64-charset-ibm866",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u042f\u0411",
+      "expected": "\u042f\u0411"
+    },
+    {
+      "id": "base64-charset-koi8-r",
+      "metric": "base64",
+      "pass": true,
+      "actual": "8eI=",
+      "expected": "8eI="
+    },
+    {
+      "id": "base64-charset-koi8-r",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u042f\u0411",
+      "expected": "\u042f\u0411"
+    },
+    {
+      "id": "base64-charset-koi8-u",
+      "metric": "base64",
+      "pass": true,
+      "actual": "t7Q=",
+      "expected": "t7Q="
+    },
+    {
+      "id": "base64-charset-koi8-u",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0407\u0404",
+      "expected": "\u0407\u0404"
+    },
+    {
+      "id": "base64-charset-macintosh",
+      "metric": "base64",
+      "pass": true,
+      "actual": "jqM=",
+      "expected": "jqM="
+    },
+    {
+      "id": "base64-charset-macintosh",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u00e9\u00a3",
+      "expected": "\u00e9\u00a3"
+    },
+    {
+      "id": "base64-charset-x-mac-cyrillic",
+      "metric": "base64",
+      "pass": true,
+      "actual": "n4E=",
+      "expected": "n4E="
+    },
+    {
+      "id": "base64-charset-x-mac-cyrillic",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u042f\u0411",
+      "expected": "\u042f\u0411"
+    },
+    {
+      "id": "base64-charset-iso-8859-1",
+      "metric": "base64",
+      "pass": true,
+      "actual": "6aM=",
+      "expected": "6aM="
+    },
+    {
+      "id": "base64-charset-iso-8859-1",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u00e9\u00a3",
+      "expected": "\u00e9\u00a3"
+    },
+    {
+      "id": "base64-charset-iso-8859-2",
+      "metric": "base64",
+      "pass": true,
+      "actual": "o7E=",
+      "expected": "o7E="
+    },
+    {
+      "id": "base64-charset-iso-8859-2",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0141\u0105",
+      "expected": "\u0141\u0105"
+    },
+    {
+      "id": "base64-charset-iso-8859-3",
+      "metric": "base64",
+      "pass": true,
+      "actual": "ofU=",
+      "expected": "ofU="
+    },
+    {
+      "id": "base64-charset-iso-8859-3",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0126\u0121",
+      "expected": "\u0126\u0121"
+    },
+    {
+      "id": "base64-charset-iso-8859-4",
+      "metric": "base64",
+      "pass": true,
+      "actual": "q+A=",
+      "expected": "q+A="
+    },
+    {
+      "id": "base64-charset-iso-8859-4",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0122\u0101",
+      "expected": "\u0122\u0101"
+    },
+    {
+      "id": "base64-charset-iso-8859-5",
+      "metric": "base64",
+      "pass": true,
+      "actual": "z7E=",
+      "expected": "z7E="
+    },
+    {
+      "id": "base64-charset-iso-8859-5",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u042f\u0411",
+      "expected": "\u042f\u0411"
+    },
+    {
+      "id": "base64-charset-iso-8859-6",
+      "metric": "base64",
+      "pass": true,
+      "actual": "x8g=",
+      "expected": "x8g="
+    },
+    {
+      "id": "base64-charset-iso-8859-6",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0627\u0628",
+      "expected": "\u0627\u0628"
+    },
+    {
+      "id": "base64-charset-iso-8859-7",
+      "metric": "base64",
+      "pass": true,
+      "actual": "2eE=",
+      "expected": "2eE="
+    },
+    {
+      "id": "base64-charset-iso-8859-7",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u03a9\u03b1",
+      "expected": "\u03a9\u03b1"
+    },
+    {
+      "id": "base64-charset-iso-8859-8",
+      "metric": "base64",
+      "pass": true,
+      "actual": "4OE=",
+      "expected": "4OE="
+    },
+    {
+      "id": "base64-charset-iso-8859-8",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u05d0\u05d1",
+      "expected": "\u05d0\u05d1"
+    },
+    {
+      "id": "base64-charset-iso-8859-10",
+      "metric": "base64",
+      "pass": true,
+      "actual": "ouA=",
+      "expected": "ouA="
+    },
+    {
+      "id": "base64-charset-iso-8859-10",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0112\u0101",
+      "expected": "\u0112\u0101"
+    },
+    {
+      "id": "base64-charset-iso-8859-13",
+      "metric": "base64",
+      "pass": true,
+      "actual": "wsE=",
+      "expected": "wsE="
+    },
+    {
+      "id": "base64-charset-iso-8859-13",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0100\u012e",
+      "expected": "\u0100\u012e"
+    },
+    {
+      "id": "base64-charset-iso-8859-14",
+      "metric": "base64",
+      "pass": true,
+      "actual": "0P4=",
+      "expected": "0P4="
+    },
+    {
+      "id": "base64-charset-iso-8859-14",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0174\u0177",
+      "expected": "\u0174\u0177"
+    },
+    {
+      "id": "base64-charset-iso-8859-15",
+      "metric": "base64",
+      "pass": true,
+      "actual": "pL0=",
+      "expected": "pL0="
+    },
+    {
+      "id": "base64-charset-iso-8859-15",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u20ac\u0153",
+      "expected": "\u20ac\u0153"
+    },
+    {
+      "id": "base64-charset-iso-8859-16",
+      "metric": "base64",
+      "pass": true,
+      "actual": "pKo=",
+      "expected": "pKo="
+    },
+    {
+      "id": "base64-charset-iso-8859-16",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u20ac\u0218",
+      "expected": "\u20ac\u0218"
+    },
+    {
+      "id": "base64-charset-iso-8859-8-i",
+      "metric": "base64",
+      "pass": true,
+      "actual": "4OE=",
+      "expected": "4OE="
+    },
+    {
+      "id": "base64-charset-iso-8859-8-i",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u05d0\u05d1",
+      "expected": "\u05d0\u05d1"
+    },
+    {
+      "id": "base64-charset-windows-874",
+      "metric": "base64",
+      "pass": true,
+      "actual": "oaI=",
+      "expected": "oaI="
+    },
+    {
+      "id": "base64-charset-windows-874",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0e01\u0e02",
+      "expected": "\u0e01\u0e02"
+    },
+    {
+      "id": "base64-charset-windows-1250",
+      "metric": "base64",
+      "pass": true,
+      "actual": "o7k=",
+      "expected": "o7k="
+    },
+    {
+      "id": "base64-charset-windows-1250",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0141\u0105",
+      "expected": "\u0141\u0105"
+    },
+    {
+      "id": "base64-charset-windows-1251",
+      "metric": "base64",
+      "pass": true,
+      "actual": "38E=",
+      "expected": "38E="
+    },
+    {
+      "id": "base64-charset-windows-1251",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u042f\u0411",
+      "expected": "\u042f\u0411"
+    },
+    {
+      "id": "base64-charset-windows-1252",
+      "metric": "base64",
+      "pass": true,
+      "actual": "gOk=",
+      "expected": "gOk="
+    },
+    {
+      "id": "base64-charset-windows-1252",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u20ac\u00e9",
+      "expected": "\u20ac\u00e9"
+    },
+    {
+      "id": "base64-charset-windows-1253",
+      "metric": "base64",
+      "pass": true,
+      "actual": "2eE=",
+      "expected": "2eE="
+    },
+    {
+      "id": "base64-charset-windows-1253",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u03a9\u03b1",
+      "expected": "\u03a9\u03b1"
+    },
+    {
+      "id": "base64-charset-windows-1254",
+      "metric": "base64",
+      "pass": true,
+      "actual": "0P0=",
+      "expected": "0P0="
+    },
+    {
+      "id": "base64-charset-windows-1254",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u011e\u0131",
+      "expected": "\u011e\u0131"
+    },
+    {
+      "id": "base64-charset-windows-1255",
+      "metric": "base64",
+      "pass": true,
+      "actual": "4OE=",
+      "expected": "4OE="
+    },
+    {
+      "id": "base64-charset-windows-1255",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u05d0\u05d1",
+      "expected": "\u05d0\u05d1"
+    },
+    {
+      "id": "base64-charset-windows-1256",
+      "metric": "base64",
+      "pass": true,
+      "actual": "x8g=",
+      "expected": "x8g="
+    },
+    {
+      "id": "base64-charset-windows-1256",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0627\u0628",
+      "expected": "\u0627\u0628"
+    },
+    {
+      "id": "base64-charset-windows-1257",
+      "metric": "base64",
+      "pass": true,
+      "actual": "wsE=",
+      "expected": "wsE="
+    },
+    {
+      "id": "base64-charset-windows-1257",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0100\u012e",
+      "expected": "\u0100\u012e"
+    },
+    {
+      "id": "base64-charset-windows-1258",
+      "metric": "base64",
+      "pass": true,
+      "actual": "0PU=",
+      "expected": "0PU="
+    },
+    {
+      "id": "base64-charset-windows-1258",
+      "metric": "roundTripText",
+      "pass": true,
+      "actual": "\u0110\u01a1",
+      "expected": "\u0110\u01a1"
+    },
+    {
+      "id": "base64-bom-utf-16le",
+      "metric": "base64",
+      "pass": true,
+      "actual": "//5BAA==",
+      "expected": "//5BAA=="
+    },
+    {
+      "id": "base64-bom-utf-16be",
+      "metric": "base64",
+      "pass": true,
+      "actual": "/v8AQQ==",
+      "expected": "/v8AQQ=="
+    },
+    {
+      "id": "molecule-preset-H2O",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 18.015,
+      "expected": 18.015
+    },
+    {
+      "id": "molecule-preset-CO2",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 44.009,
+      "expected": 44.009
+    },
+    {
+      "id": "molecule-preset-NH3",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 17.031,
+      "expected": 17.031
+    },
+    {
+      "id": "molecule-preset-NaCl",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 58.4397693,
+      "expected": 58.4397693
+    },
+    {
+      "id": "molecule-preset-H2SO4",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 98.082,
+      "expected": 98.082
+    },
+    {
+      "id": "molecule-preset-HCl",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 36.458,
+      "expected": 36.458
+    },
+    {
+      "id": "molecule-preset-HNO3",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 63.012,
+      "expected": 63.012
+    },
+    {
+      "id": "molecule-preset-NaHCO3",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 84.0057693,
+      "expected": 84.0057693
+    },
+    {
+      "id": "molecule-preset-CaCO3",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 100.088,
+      "expected": 100.088
+    },
+    {
+      "id": "molecule-preset-KCl",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 74.5483,
+      "expected": 74.5483
+    },
+    {
+      "id": "molecule-preset-[Co(NH3)6]Cl3",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 267.46919,
+      "expected": 267.46919
+    },
+    {
+      "id": "molecule-preset-KMnO4",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 158.03234,
+      "expected": 158.03234
+    },
+    {
+      "id": "molecule-preset-CuSO4\u00b75H2O",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 249.691,
+      "expected": 249.691
+    },
+    {
+      "id": "molecule-preset-CH4",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 16.043,
+      "expected": 16.043
+    },
+    {
+      "id": "molecule-preset-C2H5OH",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 46.069,
+      "expected": 46.069
+    },
+    {
+      "id": "molecule-preset-C2H4O2",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 60.052,
+      "expected": 60.052
+    },
+    {
+      "id": "molecule-preset-C6H12O6",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 180.156,
+      "expected": 180.156
+    },
+    {
+      "id": "molecule-preset-C6H6",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 78.114,
+      "expected": 78.114
+    },
+    {
+      "id": "molecule-preset-C8H18",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 114.232,
+      "expected": 114.232
+    },
+    {
+      "id": "molecule-preset-C12H22O11",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 342.297,
+      "expected": 342.297
+    },
+    {
+      "id": "molecule-preset-C9H8O4",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 180.159,
+      "expected": 180.159
+    },
+    {
+      "id": "molecule-preset-C6H8O7",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 192.123,
+      "expected": 192.123
+    },
+    {
+      "id": "molecule-preset-CH4N2O",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 60.056,
+      "expected": 60.056
+    },
+    {
+      "id": "molecule-bracket-coefficient",
+      "metric": "Molar mass",
+      "pass": true,
+      "actual": 534.93838,
+      "expected": 534.93838
+    }
+  ]
+}

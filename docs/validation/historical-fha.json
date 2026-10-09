@@ -1,0 +1,58 @@
+{
+  "verified": "2026-10-09",
+  "status": "passed",
+  "testCount": 52,
+  "passed": 52,
+  "failed": 0,
+  "coverage": {
+    "primaryHudReferenceCases": 26,
+    "independentCompositionCases": 9,
+    "additionalDomainTimingAndPublicControlsTests": 17
+  },
+  "independentExpectedValueMethods": [
+    "Original 26 fixtures from Python Decimal60 reference.py written before production helper.",
+    "Additional projection/MIP cases from Python Decimal80 build-projection-fixtures.py; no product imports.",
+    "HUD source example verifies proportional UFMIP normalization; final billed month remains a disclosed planning approximation."
+  ],
+  "closedFindings": [
+    {
+      "id": "HUD78-request-after-payoff",
+      "severity": "display",
+      "before": "Payoff before the60-month seasoning minimum still showed a theoretical request month60.",
+      "after": "Root changed public metrics to Paid off before a request is needed; zero-MIP regimes say No annual MIP. Dedicated fixture and regression pass.",
+      "billing": "Premium totals were already correctly capped at payoff; no billing arithmetic defect found."
+    }
+  ],
+  "openFindings": [],
+  "limitations": [
+    "Bounded pure-function and public dispatcher tests, not browser rendering or servicer certification.",
+    "Historical vintage annual/upfront rates remain manually supplied; current-policy rates are not silently substituted.",
+    "Projection threshold month is an estimated final chargeable month. Servicer-confirmed manual schedule remains necessary for exact billing timing.",
+    "26 equal annual periods are a stated model, not a civil14-day payment calendar."
+  ],
+  "filesChanged": [
+    {
+      "path": "tests/historical-fha.test.ts",
+      "sha256": "c664d26c618f90d6ae9be6938ce1c3f680008ce047240f5ccf69239d5e892121"
+    },
+    {
+      "path": "tests/fixtures/historical-fha-reference.json",
+      "sha256": "863fd588c917c32ace6c18f8eae75fc49fd302544fd80904e7893e61a267b9fa"
+    },
+    {
+      "path": "tests/fixtures/historical-fha-projection-reference.json",
+      "sha256": "e213cbc10f21d70b95196c4334b17da1ae5ea859f3d1dc1257a30fef5b7dedac"
+    }
+  ],
+  "productionEdits": "None by this agent; parent owned display correction.",
+  "artifacts": [
+    "test-results.json",
+    "source-snapshot-manifest.json",
+    "source-snapshot/",
+    "fixtures.json",
+    "projection-fixtures.json",
+    "reference.py",
+    "build-projection-fixtures.py",
+    "spec.json"
+  ]
+}

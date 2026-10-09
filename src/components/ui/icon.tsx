@@ -1,0 +1,3 @@
+import {Coins, HeartPulse, Calculator, CalendarDays, TrendingUp, Wallet, Apple, Clock3, House, Percent, ArrowLeftRight, GraduationCap, Landmark, Ruler, Sigma, Wrench, type LucideProps} from "lucide-react";
+const icons={finance:Coins,health:HeartPulse,math:Calculator,everyday:CalendarDays,investment:TrendingUp,salary:Wallet,calorie:Apple,age:Clock3,mortgage:House,percentage:Percent,conversion:ArrowLeftRight,education:GraduationCap,tax:Landmark,geometry:Ruler,statistics:Sigma,construction:Wrench};
+export function Icon({name,...props}:{name:string}&LucideProps){const Component=icons[name as keyof typeof icons] || Calculator;return <Component aria-hidden="true" strokeWidth={1.65} {...props}/>;}

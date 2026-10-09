@@ -1,0 +1,4687 @@
+{
+  "sourceAudit": "2026-10-09 primary state-agency research; all sources recorded per state. Synthetic 10% fixture rates are arithmetic checks, not real local rates.",
+  "baseValues": {
+    "solve": "payment",
+    "price": "50000",
+    "payment": "600",
+    "nominalAprPercent": "0",
+    "promotionalAprPercent": "0",
+    "months": "60",
+    "downType": "amount",
+    "down": "0",
+    "trade": "10000",
+    "tradeDebt": "0",
+    "rebate": "2000",
+    "state": "TX",
+    "taxMethod": "state",
+    "taxYear": "2026",
+    "condition": "new",
+    "scopeConfirmed": "yes",
+    "tradeEligible": "yes",
+    "rebateEligible": "yes",
+    "tradeTaxCredit": "yes",
+    "rebateTaxCredit": "yes",
+    "salesTaxPercent": "10",
+    "quotedTax": "0",
+    "promotionalQuotedTax": "0",
+    "taxableFees": "0",
+    "governmentFees": "0",
+    "financeTaxAndFees": "yes"
+  },
+  "states": [
+    {
+      "state": "AL",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.alabama.gov/wp-content/uploads/2022/06/Automotive_Sales_Use_Lease_Tax_Guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible motor vehicle trade allowance reduces the taxable price. Manufacturer rebates remain taxable. Apply the appropriate user-entered automotive rate and local components."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "AK",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.commerce.alaska.gov/web/dcra/officeofthestateassessor/alaskasalestaxinformation.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no statewide sales tax. Municipalities set their own sales taxes and exemptions. State selection cannot establish a local rate or rebate/trade rule; use a quoted local tax amount."
+      ]
+    },
+    {
+      "state": "AZ",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.azleg.gov/ars/42/05061.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://azdor.gov/model-city-tax-code/articles-and-sections/exclusion-cash-discounts-returns-refunds-trade-values",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.azleg.gov/ars/42/05001.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying trade allowance reduces gross receipts under section 42-5001. A manufacturer rebate reduces the tax base when assigned to the retailer under section 42-5061. Local rates remain user-entered."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "AR",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.dfa.arkansas.gov/wp-content/uploads/et2008_3-1.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.dfa.arkansas.gov/wp-content/uploads/ClaimforSalesTaxRefundCreditUsedMV.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "GR-12 allows eligible trade credit. GR-3(I) includes vehicle manufacturer or dealer rebates in gross receipts. The downloaded 2008 compilation contains old price thresholds; do not use those thresholds for current used-vehicle taxes. Scope this preset to a normal taxable dealer sale."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "CA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.cdtfa.ca.gov/industry/motor-vehicle-dealers/industry-topics.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Trade allowance does not reduce taxable selling price; assigned manufacturer rebates remain taxable. Unreimbursed dealer discounts are different. Taxable dealer documentation charges must be separated from exempt government registration fees."
+      ],
+      "expected": {
+        "taxableBase": 50000,
+        "tax": 5000.0
+      }
+    },
+    {
+      "state": "CO",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://tax.colorado.gov/sites/tax/files/documents/SUTT_Motor_Vehicles_November_2021.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade allowance reduces state and state-administered local tax bases; manufacturer rebates remain taxable. Home-rule municipalities may have different rules, so a single state preset does not establish every local component."
+      ]
+    },
+    {
+      "state": "CT",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://portal.ct.gov/dmv/vehicle-services/sales-tax-registrations/sales-tax-calculator",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade allowance is deducted; manufacturer rebates remain taxable. Vehicle price thresholds can change the applicable rate. Private-sale book-value rules are outside this ordinary dealer preset."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "DE",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://dmv.de.gov/forms/veh_serv_forms/pdfs/ve_frm_dlrmanual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.de.gov/VehicleServices/titles/index.shtml?dc=ve_title_credit",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "This is a vehicle document fee, not general sales tax. One qualifying Delaware-titled trade may reduce the fee base. The dealer manual does not permit manufacturer rebates to reduce total purchase price. Do not default the fee to zero merely because Delaware has no general sales tax."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "DC",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://code.dccouncil.gov/us/dc/council/code/sections/50-2201.03",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv-migrate.dc.gov/book/dmv-fees/dmv-fees-0",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Excise tax depends on DMV fair market value, weight, and fuel efficiency. Ordinary price times a state rate is not sufficient. Use the actual DMV tax amount or a verified DMV taxable value and applicable rate."
+      ]
+    },
+    {
+      "state": "FL",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800030.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://floridarevenue.com/taxes/tips/documents/TIP_03A01-20.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade in the same transaction reduces the base; manufacturer rebates remain taxable. County surtax may apply only to the first $5,000. Use separate components or an actual tax override rather than applying a combined rate to the entire price."
+      ]
+    },
+    {
+      "state": "GA",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://dor.georgia.gov/document/document/motor-vehicle-online-manual/download",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.georgia.gov/document/document/mv-7d-state-and-local-title-ad-valorem-tax-fees/download",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "New-vehicle dealer purchases use TAVT with qualifying trade and rebate deductions. Used vehicles and seller-financed transactions have different valuation rules. Require the vehicle condition and verified TAVT base; do not label this general sales tax."
+      ]
+    },
+    {
+      "state": "HI",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://tax.hawaii.gov/get/exemptions-get/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.hawaii.gov/get/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Official GET guidance treats trade allowance as a price adjustment. GET is a seller tax and may involve a passed-on gross-up. Manufacturer rebate treatment remains unresolved in this research. Use an actual tax amount until the specific transaction is established."
+      ]
+    },
+    {
+      "state": "ID",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://tax.idaho.gov/search-category/sales-tax/page/72/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible property accepted into dealer resale inventory in the same transaction can reduce the base. A manufacturer rebate reduces price only when paid directly to the dealer and deducted from the vehicle price; a cash rebate retained by the buyer does not."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "IL",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://tax.illinois.gov/forms/sales/vehicleusetax/st-556-sales-tax-transaction-return-instructions.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The motor vehicle trade deduction is uncapped from January 1, 2022. Manufacturer rebates remain taxable. Do not apply the historical 2020\u20132021 $10,000 limit to a current transaction."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "IN",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.in.gov/dor/files/sib28s.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Only eligible like-kind owned and titled property qualifies for trade credit. Manufacturer rebates remain taxable. Trade loan payoff affects financing, not the gross eligible trade allowance."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "IA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.legis.iowa.gov/docs/ACO/chapter/701.250.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The fee for new registration allows eligible trade and qualifying manufacturer cash rebate deductions. A manufacturer-issued credit or debit card payment is not a qualifying cash rebate. Use the full eligible trade value, not net equity."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "KS",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.ksrevenue.gov/pdf/pub1526.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.ksrevenue.gov/faqs-taxsales.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The 2025 publication supports qualifying assigned new-vehicle rebates. An older HTML publication still displays a June 2024 sunset; use the newer PDF. Trade must meet resale and transaction requirements. A separate 120-day sale-credit workflow is additional scope."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "KY",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://revenue.ky.gov/Property/Motor-Vehicles/Pages/Motor-Vehicle-Usage-Tax.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=53526",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying new-vehicle trade credit is allowed. Manufacturer or dealer rebates provided and applied at purchase reduce the price. Actual-price documentation and used-vehicle valuation rules remain relevant; do not apply this preset to every vehicle transfer."
+      ]
+    },
+    {
+      "state": "LA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://doa.louisiana.gov/media/yuld4zs0/61v01.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue.louisiana.gov/LawsPolicies/LAC61_I_4301_4.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying trade transfers must occur simultaneously. A new-vehicle manufacturer rebate assigned to the selling dealer and directly reducing price is deductible. A buyer-retained cash rebate does not satisfy that scope."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "ME",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://president.maine.gov/legis/statutes/36/title36sec1765.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.maine.gov/REVENUE/salesuse/Bull24.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade in the same property category reduces the base; manufacturer rebates remain taxable. Maine excise tax is separate from sales tax."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "MD",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://mva.maryland.gov/your-mva-guide/businesses/bulletins-businesses/taxable-price",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The April 23, 2026 MVA bulletin allows eligible non-leased trade allowance, while manufacturer rebates remain taxable. Dealer processing charges are included. The applicable rate remains editable."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "MA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.mass.gov/guides/motor-vehicle-and-trailer-sales-and-use-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible dealer or lessor business sales can deduct a qualifying previously taxed or exempt trade. A manufacturer rebate reduces the base when applied at sale. Later rebates and casual private trades have different treatment."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "MI",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.michigan.gov/taxes/rep-legal/rab/2022-revenue-administrative-bulletins/revenue-administrative-bulletin-2022-17",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/SUW/TY2026/485_11-25.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.michigan.gov/-/media/Project/Websites/sos/01preston/Dealer_Manual_Chapter_8.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "For ordinary motor vehicles, trade deduction is capped at $12,000 in 2026, $11,000 in 2025, $13,000 in 2027, and $14,000 in 2028; the scheduled cap ends in 2029. Manufacturer rebates remain taxable. RV-for-RV rules are different. Require transaction year and eligible vehicle class."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "MN",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.state.mn.us/sites/default/files/2011-11/RN_96-20.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.revenue.state.mn.us/guide/coupons-and-other-discounts",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle purchase price excludes eligible trade and rebate amounts. The current DOR guide continues to reference Revenue Notice 96-20."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "MS",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.dor.ms.gov/business/business-tax-frequently-asked-questions",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.ms.gov/sites/default/files/Business/Part%20IV%20Sales%20and%20Use%20Tax.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade and dealer price reductions reduce the base; manufacturer rebates assigned to a dealer remain taxable."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "MO",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://sa.dor.mo.gov/mv/stc/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.mo.gov/forms/426.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official calculator uses net price after eligible trade and rebate amounts. Qualifying separate sales within 180 days are an additional credit workflow. Do not allow a negative taxable base."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "MT",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://revenue.mt.gov/taxes/general-sales-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no general sales tax. Registration and other vehicle fees can still apply. Rebate and trade sales-tax flags are not meaningful without a relevant tax component."
+      ]
+    },
+    {
+      "state": "NE",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://revenue.nebraska.gov/about/chapter-1-sales-and-use-tax",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue.nebraska.gov/sites/revenue.nebraska.gov/files/doc/info/6-191.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade and a manufacturer rebate transferred to the dealer at sale reduce the base. A later cash rebate does not. An owned trade must meet title and any lease-buyout requirements."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "NV",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://tax.nv.gov/wp-content/uploads/2025/09/Motor-Vehicle-and-Vessel-Dealers-Packet.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.nv.gov/faqs/nevada-national-guard-exemption-faqs/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://tax.nv.gov/wp-content/uploads/2025/10/Nevada-Tax-Notes-October-2025-1.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible vehicle trade credit reduces the taxable amount. Manufacturer-reimbursed rebates remain taxable; an unreimbursed dealer discount reduces price. The current state FAQ independently confirms the trade credit."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "NH",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.revenue.nh.gov/resource-center/frequently-asked-questions/general-information",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "There is no general sales tax. Registration and municipal permit fees are separate and can still be payable."
+      ]
+    },
+    {
+      "state": "NJ",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://nj.gov/treasury/taxation/taxamnesty/treasury/taxation/documents/pdf/guides/New-Jersey-Consumer-Automotive-Tax-Guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade in the purchase transaction reduces price; manufacturer and reimbursed credit-card rebates remain taxable. An unreimbursed dealer discount is different."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "NM",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.mvd.newmexico.gov/chapter-6-fees-penalties-and-excise-tax/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tax.newmexico.gov/2020/10/22/motor-vehicle-excise-tax/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle excise tax price excludes eligible trade and contractually guaranteed rebates, including qualifying rebates paid later. Private-sale valuation rules are outside this preset."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "NY",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.tax.ny.gov/pubs_and_bulls/tg_bulletins/st/taxable_receipt.htm",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "An eligible trade taken for resale and applied to the specific purchase reduces the base. Manufacturer rebates remain taxable whether assigned or paid later."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "NC",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.ncdor.gov/documents/reports/nc-tax-expenditure-report-2017/open",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_105/GS_105-187.3.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Highway use tax allows eligible motor vehicle trade allowance; dealer administrative fees enter the retail value. The vehicle-specific manufacturer rebate treatment remains unresolved. Certain commercial vehicles and RVs have tax caps, which must not be assumed for ordinary passenger cars."
+      ]
+    },
+    {
+      "state": "ND",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.tax.nd.gov/sites/www/files/documents/guidelines/business/sales-use/gl-21963.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The 2025 guideline deducts qualifying manufacturer discounts, incentives, or rebates applied at sale, plus eligible trade and qualifying insurance credits."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "OH",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-5739.01",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Trade credit applies only to a new motor vehicle sold by a licensed new motor vehicle dealer. Used-vehicle purchases do not receive that trade deduction. Manufacturer third-party reimbursements remain taxable; employee or supplier discounts have separate exceptions."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "OK",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://oklahoma.gov/content/dam/service-oklahoma/intranet/sops/g--motor-vehicles/G.01%20-%20Original%20Titles.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://oklahoma.gov/content/dam/service-oklahoma/Documents/LicensedOperatorConference9.2023.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/resources/rules-and-policies/agency-rules/Title710-2021.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Oklahoma has separate vehicle sales and excise taxes. The 2023 operator guidance allows trade credit for sales tax; older excise guidance excludes trade credit and includes valuation conditions. The indexed original-title procedure deducts rebates. Keep an actual tax override while reconciling the current effective excise rule and each separate base."
+      ]
+    },
+    {
+      "state": "OR",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.oregon.gov/dor/programs/businesses/Pages/Vehicle-privilege-and-use-taxes.aspx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.oregon.gov/dor/programs/businesses/Documents/Publication_OR-V-TAX_Oregon_Vehicle_Use_Tax_Information_150-612-005.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Qualifying vehicle privilege/use tax allows rebate and discount reductions, but does not deduct trade allowance or down payment. Dealer, weight, mileage, and title eligibility matter. Oregon having no general sales tax does not make every qualifying vehicle tax-free."
+      ]
+    },
+    {
+      "state": "PA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/use-tax/motor-vehicle-understated-value-program",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue-pa.custhelp.com/app/answers/detail/a_id/1813/kw/sales%20tax%20on%20vehicle%20purchase",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://revenue-pa.custhelp.com/app/answers/detail/a_id/3988/~/how-is-sales-tax-calculated-on-a-sale-where-a-discount-or-coupon-is-applied",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official vehicle FAQ deducts eligible trade. The August 2026 DOR discount FAQ allows rebates and manufacturer coupons to establish a reduced price when the item and allowance appear on the invoice. Actual vehicle price must still satisfy applicable valuation rules."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "RI",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://rules.sos.ri.gov/Regulations/part/280-20-70-28?reg_id=9845",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The trade deduction is limited to eligible private passenger automobile-for-automobile exchanges; the regulation excludes a truck trade in its example. Eligible trade and manufacturer rebates reduce price. Require vehicle classification."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "SC",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.dor.sc.gov/node/1036",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://scdmvonline.com/-/media/Files/DealerConnection_Issue13_Feb2019.ashx",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.scstatehouse.gov/Acts%26JointResolutions/2021/2021Acts%26JointResolutionsVolumeI.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dor.sc.gov/resources-site/lawandpolicy/Documents/SCSalesandUseTaxManual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "For an ordinary dealer purchase first registered in South Carolina, infrastructure maintenance fee is 5% capped at $500. The statute adopts Chapter 36 sales-price definitions, supporting eligible trade deduction and taxable third-party manufacturer rebates. Use the cap; a generic uncapped sales-tax percentage is insufficient."
+      ]
+    },
+    {
+      "state": "SD",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://dor.sd.gov/media/3ejfnthn/2023-mv-procedures-manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible owned trade reduces dealer purchase price; rebates remain taxable. Vehicle excise tax is separate from general sales tax. Lease treatment is outside this preset."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "TN",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://www.tn.gov/content/dam/tn/revenue/documents/tax_manuals/sales-use-tax-manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tn.gov/content/dam/tn/revenue/documents/tax_manuals/June-2024/auto-dealership-guide.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://www.tn.gov/revenue/tax-fraud/out-of-state-llc-registration-scheme.html",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible same-transaction trade reduces the base; manufacturer rebates remain taxable. State sales tax, capped local tax, and additional single-article tax are separate components. Use a component calculation or an actual tax amount."
+      ]
+    },
+    {
+      "state": "TX",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://comptroller.texas.gov/taxes/publications/96-254/total-consideration.php",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://star.comptroller.texas.gov/view/202511005P?q1=legal+action+services",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Use the full eligible direct trade allowance in the same transaction, not trade equity. A separately stated manufacturer rebate passed to the customer reduces consideration. Private-party standard presumptive value and even-trade cases need separate treatment."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "UT",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://tax.utah.gov/forms-pubs/pub-05/",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade must be between the same two parties in the same transaction. Qualifying manufacturer rebates are excluded whether paid to the buyer or retained as a down payment. Leased vehicles must first satisfy owned-trade requirements."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    },
+    {
+      "state": "VT",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://dmv.vermont.gov/registrations/new",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.vermont.gov/tax-title/vehicle-taxation/credits-refunds?order=title&sort=desc",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Purchase and use tax has vehicle valuation and eligible trade rules. A primary vehicle-specific manufacturer rebate rule was not established. General sales-tax or financing disclosure rules are not sufficient substitutes; use manual treatment for the unresolved allowance."
+      ]
+    },
+    {
+      "state": "VA",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://transactions-t.dmv.virginia.gov/commercial/dealer/pdf/dealer_manual.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Motor vehicle sales and use tax includes trade and rebate credits in the taxable amount and has a $75 minimum. Unreimbursed dealer discounts are different. The minimum must be handled separately from the rate."
+      ]
+    },
+    {
+      "state": "WA",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://dor.wa.gov/book/export/html/943",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade reduces retail sales tax; manufacturer rebates remain part of the selling price. B&O tax is separate. Do not apply the expired July 2025 EV exemption as a current default."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "WV",
+      "automaticPreset": false,
+      "sources": [
+        {
+          "url": "https://transportation.wv.gov/DMV/vrs/training/Documents/DMV2024DealerSeminars.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://transportation.wv.gov/dmv/DMVFormSearch/DMV-1-TR_Certificate-for-Title-of-Motor-Vehicle-wf.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        },
+        {
+          "url": "https://dmv.wv.gov/titles",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Eligible trade must meet West Virginia title and tax-paid conditions. Manufacturer rebates remain taxable. A minimum tax can apply to low-price transactions; use explicit minimum handling or a quoted tax amount."
+      ]
+    },
+    {
+      "state": "WI",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://www.revenue.wi.gov/DOR%20Publications/pb202.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "Manufacturer rebates do not reduce dealer taxable receipts. Eligible trade credit is deducted separately."
+      ],
+      "expected": {
+        "taxableBase": 40000,
+        "tax": 4000.0
+      }
+    },
+    {
+      "state": "WY",
+      "automaticPreset": true,
+      "sources": [
+        {
+          "url": "https://dot.state.wy.us/files/live/sites/wydot/files/shared/Motor%20Vehicle%20Services/WYSalesUseTaxStatementForMotorVehicleSales_08.01.22.pdf",
+          "accessed": "2026-10-09",
+          "kind": "primary"
+        }
+      ],
+      "notes": [
+        "The official vehicle sales statement deducts eligible trade and manufacturer rebates assigned at sale. A leased trade must first meet purchase, title, and tax requirements. The competitor calculation contradicts both this form and its own explanatory prose."
+      ],
+      "expected": {
+        "taxableBase": 38000,
+        "tax": 3800.0
+      }
+    }
+  ],
+  "auditFixtures": [
+    {
+      "id": "AUTO-CA",
+      "originalFixture": {
+        "id": "AUTO-CA",
+        "state": "CA",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 50000,
+          "taxAtUserRate": 5000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "CA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 5000.0,
+        "taxableBase": 50000
+      }
+    },
+    {
+      "id": "AUTO-TX",
+      "originalFixture": {
+        "id": "AUTO-TX",
+        "state": "TX",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-MD",
+      "originalFixture": {
+        "id": "AUTO-MD",
+        "state": "MD",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MD",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-ID",
+      "originalFixture": {
+        "id": "AUTO-ID",
+        "state": "ID",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "ID",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-NM",
+      "originalFixture": {
+        "id": "AUTO-NM",
+        "state": "NM",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "NM",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-ND",
+      "originalFixture": {
+        "id": "AUTO-ND",
+        "state": "ND",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "ND",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-WY",
+      "originalFixture": {
+        "id": "AUTO-WY",
+        "state": "WY",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "WY",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-DE",
+      "originalFixture": {
+        "id": "AUTO-DE",
+        "state": "DE",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "DE",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-IL",
+      "originalFixture": {
+        "id": "AUTO-IL",
+        "state": "IL",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "IL",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-IN",
+      "originalFixture": {
+        "id": "AUTO-IN",
+        "state": "IN",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "IN",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-NY",
+      "originalFixture": {
+        "id": "AUTO-NY",
+        "state": "NY",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "NY",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-MA",
+      "originalFixture": {
+        "id": "AUTO-MA",
+        "state": "MA",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-MN",
+      "originalFixture": {
+        "id": "AUTO-MN",
+        "state": "MN",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MN",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-NE",
+      "originalFixture": {
+        "id": "AUTO-NE",
+        "state": "NE",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "NE",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-UT",
+      "originalFixture": {
+        "id": "AUTO-UT",
+        "state": "UT",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "taxAtUserRate": 3800.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "UT",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800.0,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-WI",
+      "originalFixture": {
+        "id": "AUTO-WI",
+        "state": "WI",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "WI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-MS",
+      "originalFixture": {
+        "id": "AUTO-MS",
+        "state": "MS",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MS",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-CO",
+      "originalFixture": {
+        "id": "AUTO-CO",
+        "state": "CO",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "adaptation": "State-administered arithmetic is tested only through an explicitly manual base; separate matrix case rejects automatic CO preset.",
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "CO",
+        "taxMethod": "manual",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "no",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-CT",
+      "originalFixture": {
+        "id": "AUTO-CT",
+        "state": "CT",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "CT",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-AL",
+      "originalFixture": {
+        "id": "AUTO-AL",
+        "state": "AL",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "manufacturerRebate": 2000,
+          "taxRatePercent": 10,
+          "taxableFees": 0,
+          "qualifyingDealerTransaction": true,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "taxAtUserRate": 4000.0
+        },
+        "scope": "The synthetic 10% rate tests arithmetic only; it is not the actual state or local rate. Apply all stated eligibility and exception conditions."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "AL",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000.0,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-MI-CAP",
+      "originalFixture": {
+        "id": "AUTO-MI-CAP",
+        "state": "MI",
+        "input": {
+          "price": 50000,
+          "trade": 20000,
+          "rebate": 0,
+          "year": 2026,
+          "taxRatePercent": 6
+        },
+        "expected": {
+          "tradeDeduction": 12000,
+          "taxableBase": 38000,
+          "tax": 2280
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "20000",
+        "tradeDebt": "0",
+        "rebate": "0",
+        "state": "MI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 2280,
+        "taxableBase": 38000,
+        "tradeCredit": 12000
+      }
+    },
+    {
+      "id": "AUTO-OH-NEW",
+      "originalFixture": {
+        "id": "AUTO-OH-NEW",
+        "state": "OH",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "purchasedCondition": "new",
+          "licensedNewDealer": true,
+          "taxRatePercent": 10
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "tax": 4000
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "OH",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-OH-USED",
+      "originalFixture": {
+        "id": "AUTO-OH-USED",
+        "state": "OH",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "purchasedCondition": "used",
+          "taxRatePercent": 10
+        },
+        "expected": {
+          "taxableBase": 50000,
+          "tax": 5000
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "OH",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "used",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 5000,
+        "taxableBase": 50000
+      }
+    },
+    {
+      "id": "AUTO-TX-PAYOFF",
+      "originalFixture": {
+        "id": "AUTO-TX-PAYOFF",
+        "state": "TX",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "tradeLoanPayoff": 15000,
+          "rebate": 2000,
+          "taxRatePercent": 6.25
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "tax": 2375,
+          "netTradeEquity": -5000
+        },
+        "notes": "Loanpayoff affectsfinanceprincipal, notfulltradecredit."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "15000",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6.25",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 2375,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-OR",
+      "originalFixture": {
+        "id": "AUTO-OR",
+        "state": "OR",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "taxRatePercent": 0.5,
+          "vehicleQualifies": true
+        },
+        "expected": {
+          "taxableBase": 48000,
+          "tax": 240
+        }
+      },
+      "adaptation": "Special levy/minimum/cap is intentionally not automated; test acceptance of the independently established quoted amount. Separate matrix case rejects automatic preset.",
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "OR",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "0.5",
+        "quotedTax": "240",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 240,
+        "taxableBase": null
+      }
+    },
+    {
+      "id": "AUTO-RI-TRUCK",
+      "originalFixture": {
+        "id": "AUTO-RI-TRUCK",
+        "state": "RI",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "tradeClass": "truck",
+          "purchaseClass": "private_passenger_automobile",
+          "taxRatePercent": 7
+        },
+        "expected": {
+          "taxableBase": 48000,
+          "tax": 3360
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "RI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "no",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "7",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3360,
+        "taxableBase": 48000
+      }
+    },
+    {
+      "id": "AUTO-NEGATIVE-BASE",
+      "originalFixture": {
+        "id": "AUTO-NEGATIVE-BASE",
+        "input": {
+          "price": 10000,
+          "eligibleTrade": 12000,
+          "eligibleRebate": 0,
+          "taxRatePercent": 10
+        },
+        "expected": {
+          "taxableBase": 0,
+          "tax": 0
+        },
+        "notes": "No negative sales tax; this fixturedoesnotapplyVAminimumorotherspecialfees."
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "10000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "12000",
+        "tradeDebt": "0",
+        "rebate": "0",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 0,
+        "taxableBase": 0
+      }
+    },
+    {
+      "id": "AUTO-RATE-PRESERVATION",
+      "originalFixture": {
+        "id": "AUTO-RATE-PRESERVATION",
+        "input": {
+          "taxRatePercent": 7.25,
+          "oldState": "CA",
+          "newState": "TX"
+        },
+        "expected": {
+          "taxRatePercent": 7.25
+        }
+      },
+      "kind": "state-change",
+      "input": {
+        "taxRatePercent": 7.25,
+        "oldState": "CA",
+        "newState": "TX"
+      },
+      "expected": {
+        "taxRatePercent": 7.25
+      }
+    },
+    {
+      "id": "AUTO-AK-LOCAL",
+      "originalFixture": {
+        "id": "AUTO-AK-LOCAL",
+        "state": "AK",
+        "expected": {
+          "automaticPreset": false,
+          "manualMunicipalityTaxRequired": true
+        }
+      },
+      "kind": "unsupported-preset",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "AK",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      }
+    },
+    {
+      "id": "AUTO-DC-VALUE",
+      "originalFixture": {
+        "id": "AUTO-DC-VALUE",
+        "state": "DC",
+        "expected": {
+          "automaticPreset": false,
+          "manualDMVTaxOrVerifiedDMVValueRequired": true
+        }
+      },
+      "kind": "unsupported-preset",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "DC",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      }
+    },
+    {
+      "id": "AUTO-AZ",
+      "originalFixture": {
+        "id": "AUTO-AZ",
+        "state": "AZ",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "ratePercent": 10,
+          "rebateAssignedAtSale": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "tax": 3800
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "AZ",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-AR",
+      "originalFixture": {
+        "id": "AUTO-AR",
+        "state": "AR",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "ratePercent": 10
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "tax": 4000
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "AR",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 4000,
+        "taxableBase": 40000
+      }
+    },
+    {
+      "id": "AUTO-PA",
+      "originalFixture": {
+        "id": "AUTO-PA",
+        "state": "PA",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "ratePercent": 10,
+          "rebateShownOnInvoice": true
+        },
+        "expected": {
+          "taxableBase": 38000,
+          "tax": 3800
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "PA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 3800,
+        "taxableBase": 38000
+      }
+    },
+    {
+      "id": "AUTO-MI-REBATE-CAP",
+      "originalFixture": {
+        "id": "AUTO-MI-REBATE-CAP",
+        "state": "MI",
+        "input": {
+          "price": 50000,
+          "trade": 20000,
+          "rebate": 2000,
+          "year": 2026,
+          "ratePercent": 6
+        },
+        "expected": {
+          "tradeDeduction": 12000,
+          "taxableBase": 38000,
+          "tax": 2280
+        }
+      },
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "20000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 2280,
+        "taxableBase": 38000,
+        "tradeCredit": 12000
+      }
+    },
+    {
+      "id": "AUTO-SC-CAP",
+      "originalFixture": {
+        "id": "AUTO-SC-CAP",
+        "state": "SC",
+        "input": {
+          "price": 50000,
+          "trade": 10000,
+          "rebate": 2000,
+          "ordinaryDealerPurchase": true,
+          "firstRegistrationInSC": true
+        },
+        "expected": {
+          "taxableBase": 40000,
+          "IMF": 500
+        }
+      },
+      "adaptation": "Special levy/minimum/cap is intentionally not automated; test acceptance of the independently established quoted amount. Separate matrix case rejects automatic preset.",
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "SC",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "500",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 500,
+        "taxableBase": null
+      }
+    },
+    {
+      "id": "AUTO-SC-BELOW-CAP",
+      "originalFixture": {
+        "id": "AUTO-SC-BELOW-CAP",
+        "state": "SC",
+        "input": {
+          "price": 8000,
+          "trade": 1000,
+          "rebate": 500,
+          "ordinaryDealerPurchase": true,
+          "firstRegistrationInSC": true
+        },
+        "expected": {
+          "taxableBase": 7000,
+          "IMF": 350
+        }
+      },
+      "adaptation": "Special levy/minimum/cap is intentionally not automated; test acceptance of the independently established quoted amount. Separate matrix case rejects automatic preset.",
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "8000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "1000",
+        "tradeDebt": "0",
+        "rebate": "500",
+        "state": "SC",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "350",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 350,
+        "taxableBase": null
+      }
+    },
+    {
+      "id": "AUTO-VA-MINIMUM",
+      "originalFixture": {
+        "id": "AUTO-VA-MINIMUM",
+        "state": "VA",
+        "input": {
+          "price": 1000,
+          "trade": 200,
+          "rebate": 100,
+          "ratePercent": 4.15
+        },
+        "expected": {
+          "taxableBase": 1000,
+          "tax": 75
+        }
+      },
+      "adaptation": "Special levy/minimum/cap is intentionally not automated; test acceptance of the independently established quoted amount. Separate matrix case rejects automatic preset.",
+      "kind": "tax",
+      "values": {
+        "solve": "payment",
+        "price": "1000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "200",
+        "tradeDebt": "0",
+        "rebate": "100",
+        "state": "VA",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "4.15",
+        "quotedTax": "75",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "expected": {
+        "tax": 75,
+        "taxableBase": null
+      }
+    },
+    {
+      "id": "AUTO-OK-SPLIT",
+      "originalFixture": {
+        "id": "AUTO-OK-SPLIT",
+        "state": "OK",
+        "expected": {
+          "automaticCombinedTaxAllowed": false,
+          "actualTaxOverrideAvailable": true
+        }
+      },
+      "kind": "unsupported-preset",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "OK",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      }
+    },
+    {
+      "id": "AUTO-UNKNOWN-REBATE",
+      "originalFixture": {
+        "id": "AUTO-UNKNOWN-REBATE",
+        "state": "VT",
+        "input": {
+          "manufacturerRebate": 2000
+        },
+        "expected": {
+          "silentlyAssumeDeductible": false,
+          "manualTaxTreatmentRequired": true
+        }
+      },
+      "kind": "unsupported-preset",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "VT",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      }
+    }
+  ],
+  "financeFixtures": [
+    {
+      "id": "TX-negative-equity",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "15000",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6.25",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 55375.0,
+        "payment": 922.9166666666666,
+        "tax": 2375,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 55375.0
+      }
+    },
+    {
+      "id": "TX-same-tax-no-trade-debt",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6.25",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 40375.0,
+        "payment": 672.9166666666666,
+        "tax": 2375,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 40375.0
+      }
+    },
+    {
+      "id": "TX-fees-financed-once",
+      "values": {
+        "solve": "payment",
+        "price": "35000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "5000",
+        "trade": "5000",
+        "tradeDebt": "2000",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 35000.0,
+        "principal": 27192.0,
+        "payment": 525.6975391882039,
+        "tax": 1692,
+        "upfront": 5000.0,
+        "interest": 4349.8523512922375,
+        "totalCash": 36541.85235129224
+      }
+    },
+    {
+      "id": "TX-fees-upfront-once",
+      "values": {
+        "solve": "payment",
+        "price": "35000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "5000",
+        "trade": "5000",
+        "tradeDebt": "2000",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "no"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 35000.0,
+        "principal": 25000.0,
+        "payment": 483.32003823569795,
+        "tax": 1692,
+        "upfront": 7192.0,
+        "interest": 3999.2022941418777,
+        "totalCash": 36191.202294141876
+      }
+    },
+    {
+      "id": "CA-fees-taxable-rebate-not-deductible",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "CA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "500",
+        "governmentFees": "300",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 43850.0,
+        "payment": 730.8333333333334,
+        "tax": 5050,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 43850.0
+      }
+    },
+    {
+      "id": "manual-neither-credit",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "manual",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "no",
+        "rebateTaxCredit": "no",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 43000.0,
+        "payment": 716.6666666666666,
+        "tax": 5000,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 43000.0
+      }
+    },
+    {
+      "id": "manual-trade-only",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "manual",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "no",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 42000.0,
+        "payment": 700.0,
+        "tax": 4000,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 42000.0
+      }
+    },
+    {
+      "id": "manual-rebate-only",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "manual",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "no",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 42800.0,
+        "payment": 713.3333333333334,
+        "tax": 4800,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 42800.0
+      }
+    },
+    {
+      "id": "manual-both-credits",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "manual",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 41800.0,
+        "payment": 696.6666666666666,
+        "tax": 3800,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 41800.0
+      }
+    },
+    {
+      "id": "TX-ineligible-trade",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "no",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 42800.0,
+        "payment": 713.3333333333334,
+        "tax": 4800,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 42800.0
+      }
+    },
+    {
+      "id": "TX-ineligible-rebate",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "no",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 42000.0,
+        "payment": 700.0,
+        "tax": 4000,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 42000.0
+      }
+    },
+    {
+      "id": "MI-cap-with-taxable-fee",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "20000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "500",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 30810.0,
+        "payment": 513.5,
+        "tax": 2310,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 30810.0
+      }
+    },
+    {
+      "id": "TX-zero-percent-loan",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "12",
+        "downType": "amount",
+        "down": "10000",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 31800.0,
+        "payment": 2650.0,
+        "tax": 3800,
+        "upfront": 10000.0,
+        "interest": 0.0,
+        "totalCash": 41800.0
+      }
+    },
+    {
+      "id": "TX-one-month-loan",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "12",
+        "promotionalAprPercent": "0",
+        "months": "1",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 41800.0,
+        "payment": 42218.0,
+        "tax": 3800,
+        "upfront": 0.0,
+        "interest": 418.0,
+        "totalCash": 42218.0
+      }
+    },
+    {
+      "id": "TX-percentage-down",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "percent",
+        "down": "20",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 31800.0,
+        "payment": 530.0,
+        "tax": 3800,
+        "upfront": 10000.0,
+        "interest": 0.0,
+        "totalCash": 41800.0
+      }
+    },
+    {
+      "id": "quoted-fees-financed",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "1234.56",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 39734.56,
+        "payment": 768.1803623391454,
+        "tax": 1234.56,
+        "upfront": 0.0,
+        "interest": 6356.261740348723,
+        "totalCash": 46090.82174034872
+      }
+    },
+    {
+      "id": "quoted-fees-upfront",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "1234.56",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "no"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 38000.0,
+        "payment": 734.6464581182609,
+        "tax": 1234.56,
+        "upfront": 1734.56,
+        "interest": 6078.787487095654,
+        "totalCash": 45813.347487095656
+      }
+    },
+    {
+      "id": "quoted-compare-both-taxes",
+      "values": {
+        "solve": "compare",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "2",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "1234.56",
+        "promotionalQuotedTax": "1789.01",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 39734.56,
+        "payment": 768.1803623391454,
+        "tax": 1234.56,
+        "upfront": 0.0,
+        "interest": 6356.261740348723,
+        "totalCash": 46090.82174034872
+      },
+      "expectedPromotional": {
+        "price": 50000.0,
+        "principal": 42289.01,
+        "payment": 741.2316201692522,
+        "tax": 1789.01,
+        "upfront": 0.0,
+        "interest": 2184.8872101551297,
+        "totalCash": 44473.897210155126
+      }
+    },
+    {
+      "id": "quoted-compare-upfront-taxes",
+      "values": {
+        "solve": "compare",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "2",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "1234.56",
+        "promotionalQuotedTax": "1789.01",
+        "taxableFees": "200",
+        "governmentFees": "300",
+        "financeTaxAndFees": "no"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 38000.0,
+        "payment": 734.6464581182609,
+        "tax": 1234.56,
+        "upfront": 1734.56,
+        "interest": 6078.787487095654,
+        "totalCash": 45813.347487095656
+      },
+      "expectedPromotional": {
+        "price": 50000.0,
+        "principal": 40000.0,
+        "payment": 701.1104021297753,
+        "tax": 1789.01,
+        "upfront": 2289.01,
+        "interest": 2066.6241277865142,
+        "totalCash": 44355.634127786514
+      }
+    },
+    {
+      "id": "TX-compare-tax-recalculated",
+      "values": {
+        "solve": "compare",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "2",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 41800.0,
+        "payment": 808.111103930087,
+        "tax": 3800,
+        "upfront": 0.0,
+        "interest": 6686.666235805219,
+        "totalCash": 48486.66623580522
+      },
+      "expectedPromotional": {
+        "price": 50000.0,
+        "principal": 44000.0,
+        "payment": 771.2214423427528,
+        "tax": 4000,
+        "upfront": 0.0,
+        "interest": 2273.286540565166,
+        "totalCash": 46273.28654056517
+      }
+    },
+    {
+      "id": "CA-compare-tax-unchanged",
+      "values": {
+        "solve": "compare",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "6",
+        "promotionalAprPercent": "2",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "CA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 43000.0,
+        "payment": 831.3104657654005,
+        "tax": 5000,
+        "upfront": 0.0,
+        "interest": 6878.6279459240295,
+        "totalCash": 49878.62794592403
+      },
+      "expectedPromotional": {
+        "price": 50000.0,
+        "principal": 45000.0,
+        "payment": 788.7492023959971,
+        "tax": 5000,
+        "upfront": 0.0,
+        "interest": 2324.9521437598287,
+        "totalCash": 47324.95214375983
+      }
+    },
+    {
+      "id": "reverse-TX-dollar-down",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "530",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "10000",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 31800.0,
+        "payment": 530.0,
+        "tax": 3800,
+        "upfront": 10000.0,
+        "interest": 0.0,
+        "totalCash": 41800.0
+      }
+    },
+    {
+      "id": "reverse-TX-percentage-down",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "530",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "percent",
+        "down": "20",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 31800.0,
+        "payment": 530.0,
+        "tax": 3800,
+        "upfront": 10000.0,
+        "interest": 0.0,
+        "totalCash": 41800.0
+      }
+    },
+    {
+      "id": "reverse-MI-cap",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "504.6666666666666666666666666666666666667",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "20000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "MI",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "6",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 30280.0,
+        "payment": 504.6666666666667,
+        "tax": 2280,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 30280.0
+      }
+    },
+    {
+      "id": "reverse-quoted",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "653.3333333333334",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "1200",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 50000.0,
+        "principal": 39200.0,
+        "payment": 653.3333333333334,
+        "tax": 1200,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 39200.0
+      }
+    },
+    {
+      "id": "reverse-tax-floor",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "0",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "expected": {
+        "price": 12000.0,
+        "principal": 0.0,
+        "payment": 0.0,
+        "tax": 0,
+        "upfront": 0.0,
+        "interest": 0.0,
+        "totalCash": 0.0
+      }
+    },
+    {
+      "id": "quoted-promotional-negative-principal",
+      "values": {
+        "solve": "compare",
+        "price": "1000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "1200",
+        "trade": "0",
+        "tradeDebt": "0",
+        "rebate": "0",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "300",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "principal.*(?:nonnegative|negative|at least 0)|(?:nonnegative|negative).*principal"
+    },
+    {
+      "id": "negative-financed-principal",
+      "values": {
+        "solve": "payment",
+        "price": "1000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "2000",
+        "tradeDebt": "0",
+        "rebate": "0",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "principal.*(?:nonnegative|negative|at least 0)|(?:nonnegative|negative).*principal"
+    },
+    {
+      "id": "reverse-budget-below-debt",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "1",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "0",
+        "tradeDebt": "10000",
+        "rebate": "0",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "budget.*(?:debt|fees)"
+    },
+    {
+      "id": "unsupported-price-range",
+      "values": {
+        "solve": "price",
+        "price": "50000",
+        "payment": "1e12",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "0",
+        "tradeDebt": "0",
+        "rebate": "0",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "price.*supported range"
+    },
+    {
+      "id": "fractional-term-rejected",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "12.5",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "whole number|integer"
+    },
+    {
+      "id": "used-AR-manual-required",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "AR",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "used",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "new.vehicle.*manual|manual.*used vehicle"
+    },
+    {
+      "id": "used-KS-manual-required",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "KS",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "used",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "new.vehicle.*manual|manual.*used vehicle"
+    },
+    {
+      "id": "used-LA-manual-required",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "LA",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "used",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "new.vehicle.*manual|manual.*used vehicle"
+    },
+    {
+      "id": "state-confirmation-required",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "no",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "confirm.*dealer|dealer.*confirm"
+    },
+    {
+      "id": "state-year-2025-rejected",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2025",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "2026|another year"
+    },
+    {
+      "id": "negative-governmentFees",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "-1",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    },
+    {
+      "id": "negative-taxableFees",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "-1",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    },
+    {
+      "id": "negative-tradeDebt",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "-1",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    },
+    {
+      "id": "negative-down",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "-1",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    },
+    {
+      "id": "negative-rebate",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "-1",
+        "state": "TX",
+        "taxMethod": "state",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "0",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    },
+    {
+      "id": "negative-quotedTax",
+      "values": {
+        "solve": "payment",
+        "price": "50000",
+        "payment": "600",
+        "nominalAprPercent": "0",
+        "promotionalAprPercent": "0",
+        "months": "60",
+        "downType": "amount",
+        "down": "0",
+        "trade": "10000",
+        "tradeDebt": "0",
+        "rebate": "2000",
+        "state": "TX",
+        "taxMethod": "quoted",
+        "taxYear": "2026",
+        "condition": "new",
+        "scopeConfirmed": "yes",
+        "tradeEligible": "yes",
+        "rebateEligible": "yes",
+        "tradeTaxCredit": "yes",
+        "rebateTaxCredit": "yes",
+        "salesTaxPercent": "10",
+        "quotedTax": "-1",
+        "promotionalQuotedTax": "0",
+        "taxableFees": "0",
+        "governmentFees": "0",
+        "financeTaxAndFees": "yes"
+      },
+      "provenance": "Independent Decimal loan annuity and purchase cash-flow arithmetic; taxes are fixed from the primary-source fixture or explicit manual/quoted input.",
+      "errorPattern": "at least 0|nonnegative|negative"
+    }
+  ]
+}

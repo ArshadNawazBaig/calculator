@@ -1,0 +1,1715 @@
+[
+  {
+    "input_modes": "Expression keypad: trig/inverse trig, deg/rad, powers, logarithms, roots, factorial, memory, random.",
+    "algorithm": "Parse an allowlisted grammar into an AST; standard operator precedence; radians internally. Implement memory and answer as explicit state.",
+    "edge_cases": "No eval/Function; handle trig poles, domain violations, overflow; define unary minus vs exponent precedence.",
+    "independent_fixture": "2+3*4=14; sin(30 degrees)=0.5; log10(1000)=3; 0!=1.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions",
+      "https://www.w3.org/TR/webcrypto/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "scientific-calculator",
+    "title": "Scientific Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/scientific-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Arithmetic fractions; mixed-number arithmetic; simplify; decimal\u2192fraction; fraction\u2192decimal; large integers.",
+    "algorithm": "Exact signed rational BigInt numerator/denominator; reduce via Euclidean gcd; parse decimal strings exactly; mixed -2 3/4 means -11/4.",
+    "edge_cases": "Zero denominator/division by zero; normalize denominator positive; repeating decimals marked recurring or rounded.",
+    "independent_fixture": "2/3+3/4=17/12=1 5/12; 1.375=11/8; -2 3/4=-11/4.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "fraction-calculator",
+    "title": "Fraction Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/fraction-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve any missing of percentage/base/result; phrase shortcuts; percent difference; increase/decrease solve.",
+    "algorithm": "result=base*p/100; p=100*result/base; difference=100*abs(a-b)/((a+b)/2); change=100*(new-old)/old.",
+    "edge_cases": "Zero denominators; restrict percent difference to nonnegative magnitudes or explain signed convention; 100% decrease cannot invert to unique base.",
+    "independent_fixture": "15% of 200=30; 80\u2192100=25% increase; difference 80,100=22.222222%.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "percent-calculator",
+    "title": "Percentage Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/percent-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Any three independent sides/angles with at least one side: SSS,SAS,ASA,AAS,SSA; deg/rad.",
+    "algorithm": "Law of cosines/sines; SSA examine asin(x) and pi-asin(x), retain positive third angle; Heron area; perimeter, altitudes 2A/a, medians sqrt(2b\u00b2+2c\u00b2-a\u00b2)/2, inradius=A/s,circumradius=abc/(4A).",
+    "edge_cases": "Reject degenerate/nonpositive sides and angles, triangle inequality, angles sum>=180. Return both SSA solutions; clamp floating values only within tolerance.",
+    "independent_fixture": "Sides 3,4,5: area6, perimeter12, inradius1, circumradius2.5; A=30\u00b0,a=5,b=8 gives two solutions.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/8-1-non-right-triangles-law-of-sines",
+      "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "triangle-calculator",
+    "title": "Triangle Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/triangle-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Sphere, cone, cube, cylinder, rectangular tank, capsule, spherical cap, conical frustum, ellipsoid, square pyramid, hollow tube; per-field units.",
+    "algorithm": "V: sphere4\u03c0r\u00b3/3; cone\u03c0r\u00b2h/3; cubea\u00b3; cylinder\u03c0r\u00b2h; boxlwh; capsule\u03c0r\u00b2h+4\u03c0r\u00b3/3; cap\u03c0h\u00b2(3R-h)/3; frustum\u03c0h(R\u00b2+Rr+r\u00b2)/3; ellipsoid4\u03c0abc/3; pyramidb\u00b2h/3; tube\u03c0h(Do\u00b2-Di\u00b2)/4.",
+    "edge_cases": "Capsule h=cylindrical portion; ellipsoid a,b,c semiaxes; cap 0<=h<=2R and base\u00b2=2Rh-h\u00b2; outer>inner.",
+    "independent_fixture": "Sphere r=3 \u219236\u03c0; capsule r=1,h=2\u219210\u03c0/3; tube Do=4,Di=2,h=3\u21929\u03c0.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "volume-calculator",
+    "title": "Volume Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/volume-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Raw number list, population or sample.",
+    "algorithm": "Stable Welford algorithm; variance=sum((x-mean)\u00b2)/(n or n-1); SD=sqrt(variance); report count,mean,sum.",
+    "edge_cases": "Sample n>=2; population n>=1; reject nonfinite data and malformed empty tokens; constant data SD0.",
+    "independent_fixture": "[2,4,4,4,5,5,7,9] mean5; population variance4,SD2; sample variance32/7,SD2.138089935.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "standard-deviation-calculator",
+    "title": "Standard Deviation Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/standard-deviation-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Basic integer min/max; multiple integer/decimal values, duplicate policy, order, precision.",
+    "algorithm": "Use crypto.getRandomValues and rejection sampling for unbiased uniform integers; integer scaled grid for fixed-precision decimals; Fisher\u2013Yates/selection without replacement.",
+    "edge_cases": "Inclusive integer endpoints; validate count<=unique range; BigInt needed for high precision; cap count/digits without silent precision loss.",
+    "independent_fixture": "min=max=7 yields7; unique count5 range1..5 sorted=[1,2,3,4,5]; repeated randomized trials test range/properties, not exact values.",
+    "primary_references": [
+      "https://www.w3.org/TR/webcrypto/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "random-number-generator",
+    "title": "Random Number Generator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/random-number-generator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Arithmetic first/difference/n; geometric first/ratio/n; Fibonacci nth index.",
+    "algorithm": "Arithmetic an=a1+(n-1)d,Sn=n*(2a1+(n-1)d)/2; geometric an=a1*r^(n-1),Sn=a1*(r^n-1)/(r-1),special r=1; Fibonacci F0=0,F1=1 via fast doubling.",
+    "edge_cases": "Integer n>=1 for sequences; label Fibonacci indexing; negative/zero ratios valid; use BigInt or decimal on overflow.",
+    "independent_fixture": "Arithmetic a1=2,d=3,n=5:an14,sum40; geometric 2,3,4:an54,sum80; F10=55.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "number-sequence-calculator",
+    "title": "Number Sequence Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/number-sequence-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Observed and reference value; show absolute and signed relative error.",
+    "algorithm": "Absolute percent error=100*abs(observed-reference)/abs(reference); signed=100*(observed-reference)/reference.",
+    "edge_cases": "Reference0 undefined; distinguish percent error from percentage change.",
+    "independent_fixture": "Observed98,reference100: absolute2%,signed-2%.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "percent-error-calculator",
+    "title": "Percent Error Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/percent-error-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Base and exponent; optional solve missing base/result where unambiguous.",
+    "algorithm": "a^b using precision-appropriate exponentiation; integer powers by squaring.",
+    "edge_cases": "Negative base fractional exponents require rational-domain handling; 0 negative exponent undefined; explicitly define 0^0.",
+    "independent_fixture": "2^10=1024; (-2)^3=-8; 9^0.5=3.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "exponent-calculator",
+    "title": "Exponent Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/exponent-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Add/subtract/multiply/divide; binary\u2192decimal; decimal\u2192binary.",
+    "algorithm": "Parse signed base2 integers into BigInt; exact arithmetic. Division output quotient/remainder and optional repeating binary fraction.",
+    "edge_cases": "Reject nonbinary digits; never use 32-bit bitwise math for arbitrary integers; divide by0.",
+    "independent_fixture": "1010+11=1101; 1101 decimal13; decimal255\u219211111111; 101/10 quotient10 remainder1.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "binary-calculator",
+    "title": "Binary Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/binary-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Hex arithmetic; hex\u2192decimal; decimal\u2192hex.",
+    "algorithm": "BigInt base16, uppercase output; optional 0x prefix; division as exact quotient/remainder.",
+    "edge_cases": "Signed syntax, invalid digits, divide0; avoid Number precision loss.",
+    "independent_fixture": "FF+1=100; ABC decimal2748; 100/3 hex quotient55 remainder1.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "hex-calculator",
+    "title": "Hex Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/hex-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve missing initial amount,remaining,time,half-life; convert half-life/lifetime/decay constant.",
+    "algorithm": "N=N0*exp(-\u03bbt); \u03bb=ln2/h; \u03c4=1/\u03bb; t=ln(N0/N)/\u03bb; h=t*ln2/ln(N0/N).",
+    "edge_cases": "Nonnegative time; positive h,\u03bb,N0; N=0 asymptotic, N=N0 at t=0 underdetermined h; reject growth when decay requested.",
+    "independent_fixture": "N0=100,h=10,t=30\u219212.5; h10\u2192\u03bb0.0693147181,\u03c414.4269504.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "half-life-calculator",
+    "title": "Half-Life Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/half-life-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "a,b,c including rational inputs.",
+    "algorithm": "Discriminant D=b\u00b2-4ac; real roots via cancellation-resistant q=-0.5*(b+sign(b)*sqrt(D)), roots q/a,c/q; complex conjugates for D<0.",
+    "edge_cases": "a=0 becomes linear; a=b=0 either none or all; D=0 double root; handle b=0 sign.",
+    "independent_fixture": "x\u00b2-5x+6 roots2,3; x\u00b2+1 roots\u00b1i; 2x-4=0 root2.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "quadratic-formula-calculator",
+    "title": "Quadratic Formula Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/quadratic-formula-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Two coordinates; point plus length and slope or incline angle.",
+    "algorithm": "m=dy/dx; distance=hypot(dx,dy); inclination=atan2(dy,dx); point\u00b1d*(1,m)/sqrt(1+m\u00b2) or point+d*(cos\u03b8,sin\u03b8).",
+    "edge_cases": "Vertical slope undefined but valid line; identical points cannot define slope; point+slope+distance gives two directions unless chosen.",
+    "independent_fixture": "(1,2),(4,6):slope4/3,distance5; point(0,0),m=3/4,d=5 \u2192 \u00b1(4,3).",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "slope-calculator",
+    "title": "Slope Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/slope-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve log base b of x; missing x/base/result.",
+    "algorithm": "y=ln(x)/ln(b); x=b^y; b=x^(1/y) when valid.",
+    "edge_cases": "x>0,b>0,b!=1; y=0 with x=1 does not uniquely define base.",
+    "independent_fixture": "log2(8)=3; ln(e)=1; 10^2=100.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "log-calculator",
+    "title": "Log Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/log-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Rectangle,triangle from 3 sides,trapezoid,circle,sector,ellipse,parallelogram; input units.",
+    "algorithm": "Areas lw; Heron sqrt(s(s-a)(s-b)(s-c));(a+b)h/2;\u03c0r\u00b2;\u03b8r\u00b2/2 radians;\u03c0ab semiaxes;bh.",
+    "edge_cases": "Triangle inequality; sector angle bounds; distinguish ellipse semiaxis vs full axis in labels; nonnegative sizes.",
+    "independent_fixture": "3-4-5 triangle6; circle r2\u21924\u03c0; sector r2,90\u00b0\u2192\u03c0; ellipse semiaxes3,2\u21926\u03c0.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "area-calculator",
+    "title": "Area Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/area-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Required sample n from confidence,margin,p,optional population; margin from n.",
+    "algorithm": "z=normal inverse((1+C)/2); n0=z\u00b2*p*(1-p)/e\u00b2; finite n=n0/(1+(n0-1)/N); round n up. Margin=z*sqrt(p*(1-p)/n)*sqrt((N-n)/(N-1)) when finite N.",
+    "edge_cases": "p in[0,1],confidence(0,1),e>0,N>=n; normal approximation unreliable near extremes or small counts; assumes simple random independent sample.",
+    "independent_fixture": "95%,p=.5,e=.05,infinite population \u2192385; N1000\u2192278.",
+    "primary_references": [
+      "https://itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "sample-size-calculator",
+    "title": "Sample Size Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/sample-size-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Independent pair; general two-event solver; repeated independent events; normal intervals.",
+    "algorithm": "Union=A+B-intersection; independent intersection=A*B; xor=A+B-2intersection; neither=1-union; repeated success p^n,at least one1-(1-p)^n; normal intervals \u03a6((hi-\u03bc)/\u03c3)-\u03a6((lo-\u03bc)/\u03c3).",
+    "edge_cases": "Validate Fr\u00e9chet bounds max(0,A+B-1)<=intersection<=min(A,B); do not assume independence in general solver; underdetermined input must ask for more.",
+    "independent_fixture": "Independent A=.5,B=.4:intersection.2,union.7,xor.5,neither.3; at least1 head in3 tosses=.875.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "probability-calculator",
+    "title": "Probability Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/probability-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Keypad add/remove data and raw list.",
+    "algorithm": "Count,sum,sum of squares,mean,min,max; population/sample variance; geometric mean=exp(mean(log x)).",
+    "edge_cases": "Sample n>=2; geometric mean positive x only (allow zero output only if convention documented); stable variance.",
+    "independent_fixture": "[1,2,3] mean2,sum6,sumSquares14,popVariance2/3,sampleVariance1; [1,4] geometricMean2.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "statistics-calculator",
+    "title": "Statistics Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/statistics-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Raw list.",
+    "algorithm": "Sort numerical values; median midpoint average; all tied modes; range=max-min; mean=sum/n.",
+    "edge_cases": "Report no mode when all unique rather than claiming every item; handle multimodal lists,negatives,one value.",
+    "independent_fixture": "[1,2,2,3,4]:mean2.4,median2,mode2,range3.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "mean-median-mode-range-calculator",
+    "title": "Mean, Median, Mode, Range Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/mean-median-mode-range-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Integer n,r; ordered/unordered selections without replacement.",
+    "algorithm": "P(n,r)=n!/(n-r)!; C(n,r)=n!/(r!(n-r)!); multiplicative BigInt with r=min(r,n-r).",
+    "edge_cases": "0<=r<=n; C(0,0)=P(0,0)=1; resource bounds for huge n.",
+    "independent_fixture": "n10,r3:P720,C120.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "permutation-and-combination-calculator",
+    "title": "Permutation and Combination Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/permutation-and-combination-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Raw x,mean,sd; z\u2194left/right/center/between/two-tail probability; probability between two z.",
+    "algorithm": "z=(x-\u03bc)/\u03c3; left\u03a6(z),right\u03a6(-z),center abs(\u03a6(z)-.5),central2\u03a6(abs z)-1,twoTail2\u03a6(-abs z); inverse normal for probabilities.",
+    "edge_cases": "\u03c3>0; center in[0,.5]; central/two-tail determine |z| only; extremes lead \u00b1Infinity; use survival function not 1-CDF in tails.",
+    "independent_fixture": "x85,\u03bc70,\u03c310\u2192z1.5; z1.95996398454\u2192left.975,twoTail.05; [-1,1] probability.682689492.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "z-score-calculator",
+    "title": "Z-score Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/z-score-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "n,mean,sd,confidence; add explicit known population SD vs estimated sample SD mode.",
+    "algorithm": "Known \u03c3:mean\u00b1z*\u03c3/sqrt(n); unknown \u03c3:mean\u00b1t(1-\u03b1/2,n-1)*s/sqrt(n). Report standard error and margin.",
+    "edge_cases": "z mode is competitor parity; never imply exact small-sample validity for unknown \u03c3; require n>=2 for t; C(0,1),sd>=0.",
+    "independent_fixture": "n100,mean50,\u03c310,95% \u2192[48.0400360155,51.9599639845]; n10,mean20,s2,95% t margin1.4307138119.",
+    "primary_references": [
+      "https://itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "confidence-interval-calculator",
+    "title": "Confidence Interval Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/confidence-interval-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve fourth term of a:b=c:d; scale pair up/down.",
+    "algorithm": "Cross products ad=bc; reduce integer ratios gcd; multiply or divide both by scale.",
+    "edge_cases": "Zero denominators/underdetermined ratios; preserve dimensional labels; positive scale for resize.",
+    "independent_fixture": "3:4=600:800; 250:280 enlarged2.5\u2192625:700.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "ratio-calculator",
+    "title": "Ratio Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/ratio-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "2D/3D coordinates; latitude/longitude decimal or DMS; map pair.",
+    "algorithm": "Euclidean hypot; spherical great circle haversine with declared R,or verified WGS84 inverse geodesic; DMS to signed decimal.",
+    "edge_cases": "Latitude[-90,90],longitude[-180,180]; antipodes; normalize longitude wrap; never label straight-line distance driving mileage. Map provider/tiles licensed separately.",
+    "independent_fixture": "(0,0) to(3,4)\u21925; (0,0,0) to(1,2,2)\u21923; spherical R6371,quarter equator\u219210007.543398 km.",
+    "primary_references": [
+      "https://geographiclib.sourceforge.io/html/js/tutorial-3-examples.html",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Interactive maps need a selected tile provider and attribution; official GeographicLib JavaScript examples located for independent geodesic verification.",
+    "slug": "distance-calculator",
+    "title": "Distance Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/distance-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Any one radius,diameter,circumference,area.",
+    "algorithm": "d=2r,C=2\u03c0r,A=\u03c0r\u00b2; invert the chosen input.",
+    "edge_cases": "Nonnegative values; exactly one independent value or consistency checks.",
+    "independent_fixture": "r3\u2192d6,C6\u03c0,A9\u03c0.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "circle-calculator",
+    "title": "Circle Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/circle-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Sphere,cone,cube,cylinder,box,capsule,spherical cap,frustum,ellipsoid,square pyramid.",
+    "algorithm": "Total areas4\u03c0r\u00b2;\u03c0r(r+sqrt(r\u00b2+h\u00b2));6a\u00b2;2\u03c0r(r+h);2(lw+lh+wh);2\u03c0rh+4\u03c0r\u00b2;cap curved2\u03c0Rh plus base\u03c0a\u00b2;frustum\u03c0(R+r)sqrt((R-r)\u00b2+h\u00b2)+\u03c0(R\u00b2+r\u00b2);ellipsoid Thomsen approximation4\u03c0[((ab)^p+(ac)^p+(bc)^p)/3]^(1/p),p1.6075;pyramidb\u00b2+2b*sqrt(h\u00b2+b\u00b2/4).",
+    "edge_cases": "Label closed vs lateral surfaces; cap includes base only in total; ellipsoid approximation must be disclosed.",
+    "independent_fixture": "Sphere r3\u219236\u03c0; cylinder r2,h3 total20\u03c0,lateral12\u03c0; cube a2\u219224.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "surface-area-calculator",
+    "title": "Surface Area Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/surface-area-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve missing side from two sides; radical-style input where supplied.",
+    "algorithm": "c=hypot(a,b); a=sqrt((c-b)*(c+b)); output exact radical when feasible.",
+    "edge_cases": "c greater than each known positive leg; reject degenerate.",
+    "independent_fixture": "a3,b4\u2192c5; c13,a5\u2192b12.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "pythagorean-theorem-calculator",
+    "title": "Pythagorean Theorem Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/pythagorean-theorem-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Any independent pair among legs,hypotenuse,acute angles,altitude,area,perimeter.",
+    "algorithm": "a\u00b2+b\u00b2=c\u00b2; A=ab/2;h=ab/c;P=a+b+c; angles atan2(a,b); solve algebraic constraints and enumerate orientation ambiguity.",
+    "edge_cases": "Two angles alone give shape but no size; angle+dependent angle invalid; A+P may need quadratic; preserve both swapped-leg solutions.",
+    "independent_fixture": "a3,c5\u2192b4,A6,P12,h2.4,opposite-a angle36.86989765\u00b0.",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/8-1-non-right-triangles-law-of-sines",
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "right-triangle-calculator",
+    "title": "Right Triangle Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/right-triangle-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Square,cube,nth root.",
+    "algorithm": "nth root of positive x=exp(ln x/n); negative x real only for odd integer n; zero positive root0.",
+    "edge_cases": "n!=0; negative n reciprocal; avoid silently returning NaN; square root negative needs explicit complex mode.",
+    "independent_fixture": "sqrt144=12;cuberoot(-27)=-3;4thRoot81=3.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "root-calculator",
+    "title": "Root Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/root-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Integer list.",
+    "algorithm": "lcm(a,b)=abs((a/gcd(a,b))*b); reduce across BigInt inputs.",
+    "edge_cases": "Negative signs ignored; lcm involving0=0; empty list invalid.",
+    "independent_fixture": "LCM(12,18,30)=180.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "lcm-calculator",
+    "title": "Least Common Multiple Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/lcm-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Integer list.",
+    "algorithm": "Euclidean gcd on magnitudes; reduce across inputs.",
+    "edge_cases": "gcd(a,0)=abs(a); convention gcd(0,0)=0; no fractional inputs.",
+    "independent_fixture": "GCF(48,18,30)=6.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "gcf-calculator",
+    "title": "Greatest Common Factor Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/gcf-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "One integer.",
+    "algorithm": "Enumerate divisor pairs to integer sqrt; for large integers use bounded factorization algorithm.",
+    "edge_cases": "0 has infinitely many integer divisors; \u00b11 special; clarify positive vs signed factors.",
+    "independent_fixture": "12 positive factors[1,2,3,4,6,12]; prime13\u2192[1,13].",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "factor-calculator",
+    "title": "Factor Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/factor-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Decimal digits including negative digits; fractional increments; rounding modes nearest,half-up/down/even/odd,ceiling,floor,half-away/toward0.",
+    "algorithm": "Decimal string/rational arithmetic; divide by step,round integer using selected tie rule,multiply step.",
+    "edge_cases": "Define half-up meaning at negative ties explicitly; binary floating point cannot reliably test decimal ties; preserve requested trailing zeros.",
+    "independent_fixture": "2.5 half-even\u21922;3.5 half-even\u21924;-2.5 half-away\u2192-3;-2.5 ceiling\u2192-2;1.13 nearest1/4\u21921.25.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "rounding-calculator",
+    "title": "Rounding Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/rounding-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Two editable rectangular matrices; add,subtract,multiply,scalar multiply,power,transpose,determinant,inverse.",
+    "algorithm": "Dimension-checked loops; LU/Gaussian elimination with partial pivoting for determinant/inverse; exponentiation by squaring for integer powers.",
+    "edge_cases": "Square matrix for determinant/inverse/power; singular inverse error; dimension mismatch; numerical conditioning notice.",
+    "independent_fixture": "A=[[1,2],[3,4]] det=-2,inverse=[[-2,1],[1.5,-.5]],A\u00b2=[[7,10],[15,22]].",
+    "primary_references": [
+      "https://openstax.org/books/precalculus-2e/pages/1-introduction-to-functions"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "matrix-calculator",
+    "title": "Matrix Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/matrix-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Convert decimal/scientific/E notation; operations on mantissa-exponent pairs; precision.",
+    "algorithm": "Normalize nonzero mantissa to1<=abs(m)<10; engineering exponent multiple3; exact decimal parse and arbitrary precision operations.",
+    "edge_cases": "Zero special; negative numbers; exponent resource bounds; rounding can carry mantissa10 and must renormalize.",
+    "independent_fixture": "1568938\u21921.568938e6;1.2e3+3.4e2=1.54e3;engineering0.00012=120e-6.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "scientific-notation-calculator",
+    "title": "Scientific Notation Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/scientific-notation-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Arbitrary decimal X,Y,precision; +,-,*,/,power,sqrt,square,factorial,mod,gcd,lcm.",
+    "algorithm": "Use arbitrary precision decimal library and BigInt integer operations; exact strings until output rounding.",
+    "edge_cases": "Factorial/gcd/lcm require integers; divisor0; finite resource limits; do not coerce to Number.",
+    "independent_fixture": "9007199254740993+1=9007199254740994;25!=15511210043330985984000000;0.1+0.2=0.3.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "big-number-calculator",
+    "title": "Big Number Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/big-number-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Positive integer.",
+    "algorithm": "Trial division for small inputs; deterministic bounded primality + Pollard Rho for larger supported domain; sorted prime powers.",
+    "edge_cases": "0 undefined;1 has empty prime factorization; negatives separate -1; time budget and abort.",
+    "independent_fixture": "360=2\u00b3*3\u00b2*5;97 prime.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "prime-factorization-calculator",
+    "title": "Prime Factorization Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/prime-factorization-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Integer list.",
+    "algorithm": "Compute gcd then enumerate its divisors.",
+    "edge_cases": "If all0 infinitely many; a zero alongside nonzero does not constrain common divisors.",
+    "independent_fixture": "12,18\u2192[1,2,3,6].",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "common-factor-calculator",
+    "title": "Common Factor Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/common-factor-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Arithmetic keypad,memory,percent,square root.",
+    "algorithm": "Safe parser or explicit calculator state; document immediate-vs-precedence evaluation and percent-key semantics.",
+    "edge_cases": "Division0,empty expression,keyboard accessibility.",
+    "independent_fixture": "Standard precedence2+3*4=14;memory store7,recall7; sqrt81=9.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "basic-calculator",
+    "title": "Basic Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/basic-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Dividend/divisor; remainder or decimal quotient with steps.",
+    "algorithm": "Digitwise long division; exact integer quotient/remainder; decimal expansion tracking remainder detects recurring digits.",
+    "edge_cases": "Divisor0; signed remainder convention; zeros and leading zeros; recurring output bound.",
+    "independent_fixture": "100/7 quotient14 remainder2; decimal14.(285714).",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "long-division-calculator",
+    "title": "Long Division Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/long-division-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Raw list.",
+    "algorithm": "Arithmetic mean=sum/n with compensated sum; count,total,min,max where useful.",
+    "edge_cases": "At least one finite value; invalid tokens not silently omitted.",
+    "independent_fixture": "[2,4,6,8] mean5,sum20,count4.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "average-calculator",
+    "title": "Average Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/average-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "z or one of left,right,center,central,two-tail probabilities.",
+    "algorithm": "Same normal CDF/inverse engine as z-score. Two-tail=erfc(abs(z)/sqrt2),not 1-CDF subtraction.",
+    "edge_cases": "This page is normal-z only; label it explicitly. p is not probability null is true; center/central inversion has sign ambiguity.",
+    "independent_fixture": "z0\u2192left.5,right.5,center0,central0,twoTail1;z1.95996398454\u2192twoTail.05.",
+    "primary_references": [
+      "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "p-value-calculator",
+    "title": "P-value Calculator",
+    "category": "math",
+    "competitor_url": "https://www.calculator.net/p-value-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Birth date and comparison date; years/months/days plus total days/weeks/hours.",
+    "algorithm": "Use Gregorian PlainDate calendar difference with explicit month-end constrain convention; total days by civil-day ordinal.",
+    "edge_cases": "No 365-day approximation; leap births and month-end borrowing; total hours derived from days is nominal unless timezone/instant supplied; future birth invalid for age.",
+    "independent_fixture": "2000-02-29\u21922024-02-29=24 years,8766 civil days.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "age-calculator",
+    "title": "Age Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/age-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Difference inclusive/exclusive; add/subtract years,months,weeks,days; business days and selected US/custom holidays.",
+    "algorithm": "Civil-date arithmetic; years/months constrain to end of month; business-day loop excluding configured weekends and holiday set; distinguish actual vs observed holiday.",
+    "edge_cases": "Invalid dates; leap years divisible4 except centuries unless divisible400; cross-year observed holidays; document endpoints and add order.",
+    "independent_fixture": "2024-02-28+2 days=2024-03-01;2024-01-31+1 month=2024-02-29;2026-07-03 is observed US Independence Day.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html",
+      "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "date-calculator",
+    "title": "Date Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/date-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Add/subtract durations; date-time plus duration; expression of named time units.",
+    "algorithm": "Parse durations into signed integer/fractional seconds; normalize output; civil-date mode separate from elapsed instant mode; safe AST for expressions.",
+    "edge_cases": "Negative durations and rollover; months/years not fixed seconds; no eval; 24-hour days are nominal.",
+    "independent_fixture": "1h45m+2h30m=4h15m;23:30+90m=next-day01:00.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "time-calculator",
+    "title": "Time Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/time-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Clock interval; date+clock interval.",
+    "algorithm": "Convert time-of-day to minutes; explicit next-day rollover for end earlier; real zoned date-times use instant difference.",
+    "edge_cases": "12AM=00:00,12PM=12:00; equal times0 unless next-day explicit; DST day may23/25h.",
+    "independent_fixture": "08:30\u219217:30=9h;22:00\u2192next-day06:30=8.5h.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "hours-calculator",
+    "title": "Hours Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/hours-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Courses credits and letter/percentage/numeric grades; prior GPA/credits; future target planner; grouping.",
+    "algorithm": "GPA=sum(credit*gradePoint)/sum(eligibleCredits); cumulative includes prior grade points; needed future GPA=(target*(priorCredits+futureCredits)-priorPoints)/futureCredits.",
+    "edge_cases": "Grade scales vary; user-select/custom scale; exclude pass/fail per named institution policy; no-credit denominator; required GPA may exceed scale.",
+    "independent_fixture": "3-credit A4 and1-credit B3\u21923.75;prior30credits3.0+next30credits4.0\u21923.5.",
+    "primary_references": [
+      "https://www.registrar.berkeley.edu/academic-records/grades-grading/"
+    ],
+    "blockers_or_limitations": "One reference university is evidence of a policy, not a universal grade conversion; expose mappings.",
+    "slug": "gpa-calculator",
+    "title": "GPA Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/gpa-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Weighted assignments in points or percentage; letter mapping; target grade and final exam requirement.",
+    "algorithm": "weightedGrade=sum(score_i*weight_i)/sum(weights); finalRequired=(target-current*(1-finalWeight))/finalWeight.",
+    "edge_cases": "Weights0 invalid; distinguish graded-so-far normalization vs full-course weights; target>100 impossible unless extra credit allowed; missing scores not zero silently.",
+    "independent_fixture": "Current80%,final weight20%,target85%\u2192required105%;assignments80@40%,90@60%\u219286%.",
+    "primary_references": [
+      "https://www.registrar.berkeley.edu/academic-records/grades-grading/",
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "grade-calculator",
+    "title": "Grade Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/grade-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Child age/sex/current height/weight,parent heights; parents-only estimate; height units.",
+    "algorithm": "Khamis\u2013Roche is age/sex-specific regression with current stature,weight,mid-parent height; coefficients required. Parents-only boys=(mother+father+13cm)/2,girls=(mother+father-13cm)/2; height inch\u2194cm exact2.54.",
+    "edge_cases": "Do not substitute midpoint as Khamis\u2013Roche; model population/age limits; no deterministic individual prediction.",
+    "independent_fixture": "Parents160cm,180cm\u2192boys176.5cm,girls163.5cm;5ft10in=177.8cm.",
+    "primary_references": [
+      "https://pubmed.ncbi.nlm.nih.gov/7936860/",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Age/sex coefficient table plus erratum must be obtained from primary paper before full prediction mode; original population was healthy white US children and applicability cannot be generalized uncritically.",
+    "slug": "height-calculator",
+    "title": "Height Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/height-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Slabs/footings/walls; cylinders; annular slabs/tubes; curb+gutter cross-section; solid stairs; quantities and units.",
+    "algorithm": "Volume of each cross-section times length; slab=lwt; cylinder=\u03c0d\u00b2h/4;tube=\u03c0(Do\u00b2-Di\u00b2)h/4; solid steps of N risers,rise r,tread d,width w: w*d*r*N(N+1)/2 plus separately defined platform. Bags=ceil(volume/manufacturerYield).",
+    "edge_cases": "Dimensions and waste explicit; avoid overlap in curb/gutter; no density-based bag estimate masquerading as yield; distinguish solid staircase from waist slab.",
+    "independent_fixture": "Slab10ft*10ft*4in=33.333333ft\u00b3=1.2345679yd\u00b3;solid3steps,r=.2m,d=.3m,w1m\u2192.36m\u00b3.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "concrete-calculator",
+    "title": "Concrete Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/concrete-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "IPv4 address with CIDR/netmask; IPv6 compressed address and prefix; classes display only for historical info.",
+    "algorithm": "Parse IPv4 to unsigned32/BigInt,mask p high bits;network=ip&mask,broadcast=network|hostmask,addresses=2^(32-p). IPv6 use128-bit BigInt and RFC5952 canonical text;range network..network+2^(128-p)-1.",
+    "edge_cases": "p0..32/128; contiguous masks only; IPv4 /31 point-to-point2 usable,/32 one; IPv6 has no broadcast and do not subtract2; :: only once; embedded IPv4 supported or explicitly rejected.",
+    "independent_fixture": "192.168.1.130/26\u2192network.128,broadcast.191,hosts.129-.190,count62;2001:db8::1/64\u21922001:db8::..2001:db8::ffff:ffff:ffff:ffff.",
+    "primary_references": [
+      "https://www.rfc-editor.org/rfc/rfc4632",
+      "https://datatracker.ietf.org/doc/html/rfc3021.html",
+      "https://www.rfc-editor.org/rfc/rfc4291",
+      "https://www.rfc-editor.org/rfc/rfc5952"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "ip-subnet-calculator",
+    "title": "IP Subnet Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/ip-subnet-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Bust and underbust in inches/cm; measurement\u2192size and regional conversion; optional legacy +4 method explicitly separate.",
+    "algorithm": "Use a named sizing chart,band rounding and region-specific cup sequence. Keep band/cup table relationships separate; conversion is lookup,not universal exact arithmetic.",
+    "edge_cases": "US cup names vary by brand; UK double letters differ; EU2cm cup increments differ from1in; never assert perfect fit from two measurements.",
+    "independent_fixture": "For explicitly chosen direct-band inch convention:underbust34,bust38\u219234D;cross-region lookup must use named table fixtures.",
+    "primary_references": [
+      "https://wacoal-america.com/pages/bra-fit-calculator",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "EN13402 table/text rights and manufacturer chart terms need checking before republication. No single standardized global fit algorithm.",
+    "slug": "bra-size-calculator",
+    "title": "Bra Size Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/bra-size-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Length; lower/upper/digits/symbols; exclude ambiguous/similar characters; unique characters.",
+    "algorithm": "Browser crypto.getRandomValues with unbiased rejection sampling; guarantee each selected group if requested via whole-string rejection or documented sampling; no-repeat sampling; copy only on click.",
+    "edge_cases": "No selected alphabet error; length<=alphabet when unique; do not persist/transmit password; never Math.random; avoid guarantee about cracking time.",
+    "independent_fixture": "Property fixtures:length16,all chars permitted,required sets represented;unique10 has10distinct;alphabetA,length1\u2192A.",
+    "primary_references": [
+      "https://www.w3.org/TR/webcrypto/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "password-generator",
+    "title": "Password Generator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/password-generator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Standard six-sided dice count; custom side count/count; repeat rolling control.",
+    "algorithm": "Unbiased crypto integer in[1,sides] independently each die; sum and frequencies.",
+    "edge_cases": "Sides>=2,count>=1 integers; reasonable caps; accessible text; reduced-motion.",
+    "independent_fixture": "One die with6sides always1..6;3dice each1..6 total3..18;inject deterministic RNG in tests for[1,6,3] total10.",
+    "primary_references": [
+      "https://www.w3.org/TR/webcrypto/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "dice-roller",
+    "title": "Dice Roller",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/dice-roller.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Length,temperature,area,volume,mass,time plus any linked converter families found in audit.",
+    "algorithm": "Convert via dimension-specific SI base; temperature affine T_C=(T_F-32)*5/9,T_K=T_C+273.15. Distinguish US liquid vs imperial,dry volumes and ton variants.",
+    "edge_cases": "Only compatible dimensions; below0K invalid physical temperature; prefixes\u00b2 or\u00b3 for areas/volumes; historical survey-foot variants labeled.",
+    "independent_fixture": "1in=.0254m;1USgal=3.785411784L;1imperialgal=4.54609L;32\u00b0F=0\u00b0C=273.15K.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Competitor embeds some menus dynamically; inspect interactive category/unit coverage before marking complete.",
+    "slug": "conversion-calculator",
+    "title": "Conversion Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/conversion-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Trip distance,fuel economy and fuel price; distance/volume/currency units.",
+    "algorithm": "US gallons=mi/mpg;L=km*Lper100km/100;cost=fuel*pricePerUnit.",
+    "edge_cases": "Fuel economy>0; US/UK mpg differ; currencies labeling only,no FX implied; trip distance0 valid.",
+    "independent_fixture": "300mi,30mpgUS,$3.50/gal\u219210gal,$35.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "fuel-cost-calculator",
+    "title": "Fuel Cost Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/fuel-cost-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Wire material/gauge and conduit/PF; estimated wire resistance; custom impedance/resistance; DC/1\u03c6/3\u03c6; parallel conductors.",
+    "algorithm": "Per-length R/X converted to\u03a9/m;DCdrop=2LI R/n;single AC\u22482LI(Rcos\u03c6+Xsin\u03c6)/n;3\u03c6\u221a3LI(Rcos\u03c6+Xsin\u03c6)/n;percent=100drop/V;R=\u03c1/A if estimating. AWG diameter=.127mm*92^((36-AWG)/39).",
+    "edge_cases": "PF0..1; positive length,voltage,n; lead vs lag sign explicit; resistivity temperature dependence; voltage drop alone does not establish ampacity/compliance.",
+    "independent_fixture": "CustomR=.01\u03a9/m,L10m,I5A,DC\u2192drop1V;at120V=.833333%;two parallels\u2192.5V.",
+    "primary_references": [
+      "https://www.southwire.com/calculator-vdrop",
+      "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "NEC lookup tables require verified edition/data rights. Never silently call estimated copper data NEC data. Conduit reactance and conductor temperature affect AC results.",
+    "slug": "voltage-drop-calculator",
+    "title": "Voltage Drop Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/voltage-drop-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Room AC by area,height,occupants,type,insulation,sun,climate; general heating/cooling by volume and temperature change.",
+    "algorithm": "Evidence-backed room sizing: ENERGY STAR area bands in BTU/h,\u00b110% shade/sun,kitchen+4000; occupants above two add600BTU/h each. General physical heat-loss engine needs UA\u0394T + air-change load; volume\u00d7\u0394T alone lacks heat-transfer coefficient/time.",
+    "edge_cases": "BTU energy vs BTU/h power; sizing table is room AC estimate; arbitrary insulation/climate multipliers are not authoritative; do not claim Manual J replacement.",
+    "independent_fixture": "200sqft average room\u21926000BTU/h table;sunny\u21926600;1ton refrigeration=12000BTU/h\u22483.51685kW.",
+    "primary_references": [
+      "https://www.energystar.gov/sites/default/files/tools/ES_RoomAC_FactSheet_23.pdf",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+      "https://www.energystar.gov/most-efficient/me-certified-room-ac/results?is_most_efficient_filter=Most+Efficient&page_number=1"
+    ],
+    "blockers_or_limitations": "Competitor empirical multiplier constants not documented. For full comparable modes implement transparent labeled heuristic with source validation,or ask for UA/air-change inputs; cannot claim exact parity yet.",
+    "slug": "btu-calculator",
+    "title": "BTU Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/btu-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Rectangle,border,circle,ring,triangle sides/base-height,trapezoid,sector,parallelogram; quantity,cost.",
+    "algorithm": "Share geometry engine; rectangle border=(L+2w)(W+2w)-LW when dimensions inner;ring=\u03c0(R\u00b2-r\u00b2);sum quantity*area;cost=area*unitPrice.",
+    "edge_cases": "State inside/outside border convention; radius vs diameter; overlapping items not auto-deducted; consistent units.",
+    "independent_fixture": "10ft*12ft=120sqft=11.1483648m\u00b2;ringR3,r2\u21925\u03c0sq units.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "square-footage-calculator",
+    "title": "Square Footage Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/square-footage-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Daily in/out,break,labels,rounding; weekly report; rate; none/daily/weekly overtime rules.",
+    "algorithm": "Integer minutes per shift minus break; apply disclosed rounding to punches,not hidden result; daily or weekly overtime threshold,rate multiplier; sum regular+OT pay.",
+    "edge_cases": "Overnight shifts; break<=shift; missing pairs; configurable workweek; DST choice; no claim of universal payroll legal compliance.",
+    "independent_fixture": "5days08:30\u201317:00 with30min break\u219240h;45h at$20 weekly40 threshold1.5\u2192$950.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "Labor rules vary by jurisdiction/exemption; user-defined estimate only until statutory logic separately verified.",
+    "slug": "time-card-calculator",
+    "title": "Time Card Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/time-card-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Local date/time,from and to named zones; offsets and next/previous date.",
+    "algorithm": "Use IANA IDs and current tzdb/Temporal to map local time\u2192instant\u2192target zoned time.",
+    "edge_cases": "DST gap nonexistent time reject or explicit shift; fold requires earlier/later choice; UTC offsets are date-dependent; half/quarter-hour zones; avoid ambiguous abbreviations like CST.",
+    "independent_fixture": "2026-01-15 12:00 America/New_York\u219217:00 Europe/London;2026-07-15\u219217:00 London;2026-03-15\u219216:00 London;UTC12:00\u2192Asia/Kathmandu17:45.",
+    "primary_references": [
+      "https://www.iana.org/time-zones",
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "Verify runtime tzdb freshness; audited IANA page reports2026e. Historical pre1970 records may be approximate.",
+    "slug": "time-zone-calculator",
+    "title": "Time Zone Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/time-zone-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Two names.",
+    "algorithm": "Create an original documented deterministic amusement algorithm: NFC+trim+casefold,sort names for symmetry,hash joined names,reduce0..100.",
+    "edge_cases": "Pure entertainment,no relationship prediction or psychological validity; no demographic inference; never persist names by default.",
+    "independent_fixture": "Name order must not change result; whitespace/case normalization stable;score integer0..100;fixed fixtures depend on chosen published hash.",
+    "primary_references": [
+      "https://www.w3.org/TR/webcrypto/"
+    ],
+    "blockers_or_limitations": "Competitor scoring is undocumented and not scientifically meaningful; independent scoring may differ deliberately. Do not replicate celebrity examples or claim accuracy.",
+    "slug": "love-calculator",
+    "title": "Love Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/love-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Expenditure components; resource/income components.",
+    "algorithm": "ExpenditureGDP=C+I+G+X-M. Income/GDI=sum compensation+taxes less subsidies+gross operating surplus; tutorial detailed components require clear net foreign income sign and depreciation handling.",
+    "edge_cases": "Same currency,period,current/constant-price basis; no live GDP data implied; GDP/GDI measured estimates differ statistically.",
+    "independent_fixture": "C100,I20,G30,X10,M15\u2192GDP145.",
+    "primary_references": [
+      "https://www.bea.gov/help/glossary/expenditures-approach",
+      "https://www.bea.gov/resources/methodologies/nipa-handbook"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "gdp-calculator",
+    "title": "GDP Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/gdp-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Start/end odometer,distance units,fuel added,cost; economy conversions.",
+    "algorithm": "Distance=end-start;mpg=dMi/gallonsUS;km/L=dKm/L;L/100km=100L/dKm;costPerDistance=totalCost/distance.",
+    "edge_cases": "End>=start; fuel>0,distance>0; full-tank method uncertainty; no US/imperial conflation.",
+    "independent_fixture": "300mi on10USgal\u219230mpgUS\u22487.840486L/100km.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "gas-mileage-calculator",
+    "title": "Gas Mileage Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/gas-mileage-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Definition work/time; horsepower and power unit converter.",
+    "algorithm": "P=force*distance/time in SI watts;mechanicalHP=P/745.6998715822702;metricPS=P/735.49875;electricalHP=P/746.",
+    "edge_cases": "ForceN vs masskg,lbf vs lbm; zero time invalid; horsepower type explicit.",
+    "independent_fixture": "550ft\u00b7lbf/s=1mechanicalhp;1000W\u22481.34102209hp.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "horsepower-calculator",
+    "title": "Horsepower Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/horsepower-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Vehicle weight+quarter-mile elapsed time;weight+trap speed.",
+    "algorithm": "Empirical ET estimate hp=weight_lb/(ET_seconds/5.825)^3;speed estimate hp=weight_lb*(mph/234)^3.",
+    "edge_cases": "Empirical performance estimates,not dynamometer readings; drivetrain/traction/weather differences; weight includes driver; never encourage public-road tests.",
+    "independent_fixture": "Weight3000lb,ET11.65s\u2192375hp;speed117mph\u2192375hp by stated heuristics.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Constants5.825 and234 are observed competitor formulas but primary derivation/validation not located; label heuristics and do not claim verified engine power.",
+    "slug": "engine-horsepower-calculator",
+    "title": "Engine Horsepower Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/engine-horsepower-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "One run vs total run;total rise;fixed target rise or step count;tread thickness;headroom/floor opening;standard/flush mount.",
+    "algorithm": "Choose integer risers N (e.g.ceil(totalRise/maxRise));actualRise=H/N;usual floor landing treads=N-1;run=(N-1)*going;incline=atan(rise/going). Stringer geometry must follow explicit mounting diagram.",
+    "edge_cases": "Distinguish risers/treads;fixed rise that does not divide total leaves residual and must not silently violate uniformity;headroom based on ceiling intersection; floor finish affects first/last step.",
+    "independent_fixture": "H105in,N15\u2192rise7in;treads14,going10\u2192totalrun140in;pitchatan(.7)=34.992\u00b0.",
+    "primary_references": [
+      "https://codes.iccsafe.org/content/IRC2024P2/chapter-3-building-planning",
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Code compliance depends on adopted edition/local amendments; avoid generic safe/compliant badge. Full mounting/headroom outputs need diagram-based verification; dimensional geometry is not structural design.",
+    "slug": "stair-calculator",
+    "title": "Stair Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/stair-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "3/4/5/6 band decoder;parallel and series lists;conductor length/diameter/conductivity.",
+    "algorithm": "Color significant digits\u00d710^multiplier;gold multiplier.1,silver.01;4band2digits,5/6band3digits;last tolerance,TCR separate;series\u03a3R;parallel1/\u03a3(1/R);conductorR=L/(\u03c3\u03c0d\u00b2/4).",
+    "edge_cases": "Band combinations allowed by standard; no-bands tolerance20%; zero parallel resistor shorts; positive \u03c3,diameter.",
+    "independent_fixture": "Brown-black-red-gold=1000\u03a9\u00b15%;100\u03a9||100\u03a9=50\u03a9;100+200=300\u03a9.",
+    "primary_references": [
+      "https://www.vishay.com/docs/49411/resistor_color_code_calculator.pdf",
+      "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "resistor-calculator",
+    "title": "Resistor Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/resistor-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Any two independent values from V,I,R,P with unit prefixes.",
+    "algorithm": "V=IR;P=VI=I\u00b2R=V\u00b2/R;solve all six input pairs.",
+    "edge_cases": "Zero pairs may be underdetermined;nonnegative magnitude convention;resistor-only/DC or equivalent resistive AC assumption.",
+    "independent_fixture": "V12,R6\u2192I2A,P24W;I2,P24\u2192V12,R6.",
+    "primary_references": [
+      "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "ohms-law-calculator",
+    "title": "Ohms Law Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/ohms-law-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Appliance power,hours/day,days,energy price.",
+    "algorithm": "kWh=(W/1000)*hours*days;cost=kWh*price.",
+    "edge_cases": "Hours/day0..24; watts vs kWh; flat tariff excludes tiers,fixed charges,taxes,demand costs.",
+    "independent_fixture": "1000W*2h/day*30days=60kWh;$.15/kWh\u2192$9.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "electricity-calculator",
+    "title": "Electricity Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/electricity-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Adult/kids/infant sizing across US men/women,UK,EU,Japan/China;foot length input.",
+    "algorithm": "Use source-labeled region/brand lookup with length base and explicit last allowance; offer Mondopoint actual foot mm.",
+    "edge_cases": "Not universal sizing; child size rollover,half sizes,rounding and width variation; do not assume manufacturer exact fit.",
+    "independent_fixture": "Foot254mm=25.4cm=10in; any US/EU expected output must name the specific chart and version.",
+    "primary_references": [
+      "https://brannock.com/pages/instructions-fitting-tips",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Competitor publicly states its own interpretation of sizing,not global standard. Independent table validation required; ISO standard content may require access/license.",
+    "slug": "shoe-size-conversion",
+    "title": "Shoe Size Conversion",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/shoe-size-conversion.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Bill and tip%;shared bill with people;optional inclusive/exclusive tax choice.",
+    "algorithm": "tip=bill*rate/100;total=bill+tip;split total in currency minor units and distribute remainder.",
+    "edge_cases": "People positive integer;nonnegative money;round once and preserve sum of shares; locale currency decimals.",
+    "independent_fixture": "Bill100,tip18%,4people\u2192tip18,total118,each29.50;100/3\u219233.34,33.33,33.33.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "tip-calculator",
+    "title": "Tip Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/tip-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Origin and destination place/address;route map,mileage,driving time.",
+    "algorithm": "Geocode user-selected places; request actual routing service route distances/durations; convert meters and seconds;label traffic assumptions and provider timestamp.",
+    "edge_cases": "Ambiguous locations need selection;no route across disconnected roads;do not replace unavailable routing with straight-line route;external provider outage state.",
+    "independent_fixture": "Mock route distance160934.4m,duration7200s\u2192100mi,2h;invalid/unreachable destination handled.",
+    "primary_references": [
+      "https://project-osrm.org/docs/v5.24.0/api/",
+      "https://operations.osmfoundation.org/policies/nominatim/"
+    ],
+    "blockers_or_limitations": "Production geocoder/routing API or self-hosted dataset necessary. OSM public endpoints not unlimited production services; comply with provider terms,attribution,rate limits. Static local math cannot fulfill this mode.",
+    "slug": "mileage-calculator",
+    "title": "Mileage Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/mileage-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Mass and volume in selectable units;option solve third of density,mass,volume.",
+    "algorithm": "\u03c1=m/V;normalize SI kg,m\u00b3;report useful units.",
+    "edge_cases": "Volume>0;mass>=0;density condition depends on temperature/pressure/material.",
+    "independent_fixture": "Mass1kg,volume1L\u21921000kg/m\u00b3=1g/cm\u00b3.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "density-calculator",
+    "title": "Density Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/density-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Density and volume with many compound units.",
+    "algorithm": "m=\u03c1V;normalize dimension-aware units.",
+    "edge_cases": "Positive volume,density;avoid converting volume to mass without density;mass\u2260weight force.",
+    "independent_fixture": "\u03c1800kg/m\u00b3,V2m\u00b3\u21921600kg.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "mass-calculator",
+    "title": "Mass Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/mass-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Mass-unit conversion:kg,g,mg,metric ton,lb,oz,carat,u,grain,regional quarter/stone.",
+    "algorithm": "Convert mass via kg;avoirdupois lb=.45359237kg;oz=lb/16;UKstone=14lb;carat=.0002kg.",
+    "edge_cases": "Page uses colloquial weight but output mass units;do not silently compute gravitational force;ambiguous ton/stone historical labels.",
+    "independent_fixture": "1lb=.45359237kg;1UKstone=6.35029318kg;1carat=.2g.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "weight-calculator",
+    "title": "Weight Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/weight-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve speed/distance/time;speed unit converter.",
+    "algorithm": "v=d/t;d=vt;t=d/v;parse hh:mm:ss;SI m/s then conversions.",
+    "edge_cases": "Zero time invalid;zero speed with nonzero distance infinite/no finite duration;nonnegative magnitudes;light-year uses stated year convention.",
+    "independent_fixture": "100m/20s=5m/s=18km/h\u224811.18468mph.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "speed-calculator",
+    "title": "Speed Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/speed-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve mass,molar mass,solution volume,molar concentration;also mass concentrations.",
+    "algorithm": "M=(mass_g/molarMass_gMol)/volume_L;invert for selected missing field;mass concentration=M*molarMass.",
+    "edge_cases": "Solution volume,not solvent volume;positive molar mass/volume;ppm=mg/L only for specified dilute water density approximation,not universally.",
+    "independent_fixture": "58.44g NaCl,58.44g/mol,2L\u2192.5mol/L=500mM=29.22g/L.",
+    "primary_references": [
+      "https://openstax.org/books/chemistry-2e/pages/3-3-molarity",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "molarity-calculator",
+    "title": "Molarity Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/molarity-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Chemical formula including nested()/[],hydrates dot,stoichiometric coefficients;common molecule presets.",
+    "algorithm": "Recursive descent case-sensitive element tokens+integer counts;hydrate segments with leading coefficients;sum elementCount*CIAAW abridged atomicWeight;report elemental mass percentages.",
+    "edge_cases": "Unknown symbols,unbalanced delimiters,zero/negative counts,excess nesting;Co vs CO;distinguish isotope mass and standard atomic weights;radioactive elements lacking standard weight need explicit isotope data.",
+    "independent_fixture": "H2O18.015g/mol;CO244.009;Ca(OH)2\u224874.092;CuSO4\u00b75H2O\u2248249.68 using versioned table.",
+    "primary_references": [
+      "https://ciaaw.org/abridged-atomic-weights.htm",
+      "https://openstax.org/books/chemistry-2e/pages/3-3-molarity"
+    ],
+    "blockers_or_limitations": "Version atomic dataset2024 or latest verified. Isotope-specific notation requires separate NIST isotope data;do not invent masses for all118 elements.",
+    "slug": "molecular-weight-calculator",
+    "title": "Molecular Weight Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/molecular-weight-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Roman\u2194integer;date converted componentwise.",
+    "algorithm": "Canonical greedy subtractive pairs M,CM,D,CD,C,XC,L,XL,X,IX,V,IV,I;parse and roundtrip validation.",
+    "edge_cases": "Standard range1..3999;extended overbar notation must be explicitly implemented;no zero/negatives;reject IIV,IC;date order explicit.",
+    "independent_fixture": "1994=MCMXCIV;2026=MMXXVI;IX=9.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction"
+    ],
+    "blockers_or_limitations": "Ancient usage varied; modern canonical convention chosen. Extended notation is product-specific,not unique standard.",
+    "slug": "roman-numeral-converter",
+    "title": "Roman Numeral Converter",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/roman-numeral-converter.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Course handicap from index,rating,slope,par;index estimate from3..20 adjusted rounds incl18/9hole,PCC.",
+    "algorithm": "UnroundedCourse=index*slope/113+rating-par; whole-course display rounds, but playing handicap uses the unrounded course value times allowance before final rounding;18hole differential=113/slope*(adjustedGross-rating-PCC),rounded. Index uses lowest:3\u21921minus2;4\u21921minus1;5\u21921;6\u21922minus1;7\u20138\u21922;9\u201311\u21923;12\u201314\u21924;15\u201316\u21925;17\u201318\u21926;19\u21927;20\u21928;round to.1,max54.",
+    "edge_cases": "Need adjusted gross score/net-double-bogey;PCC-1..3;caps and exceptional-score reductions matter;9holes now expected-score completion,not simply double or combine pairs.",
+    "independent_fixture": "Index10,slope113,rating72,par72\u2192course10;AG90,rating72,slope113,PCC0\u2192diff18;20diffs1..20 lowest8mean4.5.",
+    "primary_references": [
+      "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%202a%20For%20Fewer%20Than%2020%20Scores.htm",
+      "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/topics/treatment-of-9-hole-scores.html",
+      "https://www.usga.org/content/dam/usga/pdf/2024-revision/2024-Rules-of-Handicapping-USGA.pdf",
+      "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/world-handicap-system-usga-golf-faqs/faqs---calculate-course-handicap-and-playing-handicap.html"
+    ],
+    "blockers_or_limitations": "Official Handicap Index is administered by authorized association. 9-hole expected-score data/PCC calculation and low-index history are external;label limited estimate or accept authorized completed differentials instead.",
+    "slug": "golf-handicap-calculator",
+    "title": "Golf Handicap Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/golf-handicap-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Desired wake/bed time;cycle length;fall-asleep latency;fixed sleep duration mode.",
+    "algorithm": "Arithmetic schedule:bed=wake-latency-n*cycle;wake=bed+latency+n*cycle;fixed duration direct addition/subtraction.",
+    "edge_cases": "Cycles vary;90min is convenience default,not individual REM prediction;cross midnight/date explicit;do not prescribe medically optimal sleep from cycle arithmetic.",
+    "independent_fixture": "Wake07:00,5*90min cycles,15min latency\u2192bed23:15 previous day.",
+    "primary_references": [
+      "https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep",
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "sleep-calculator",
+    "title": "Sleep Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/sleep-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Widthmm/aspect%/rimin;comparison;alternative rim keeping diameter.",
+    "algorithm": "Sidewall=width*aspect/100;D=rim*25.4+2sidewall;circumference=\u03c0D;revPerMile=1609344/(\u03c0D);actualSpeed=indicated*Dnew/Dold;newAspect=100*(Dold-rimNew*25.4)/(2widthNew).",
+    "edge_cases": "Nominal dimensions,not measured loaded rolling radius;negative aspect reject;no automatic fitment/load/speed-rating approval.",
+    "independent_fixture": "205/55R16:sidewall112.75mm,D631.9mm,circumference\u22481985.1724mm;Dnew/Dold1.05 at60mph\u219263mph.",
+    "primary_references": [
+      "https://www.tirerack.com/upgrade-garage/how-do-i-calculate-tire-dimensions",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "tire-size-calculator",
+    "title": "Tire Size Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/tire-size-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Base footprint area,pitch or angle,eaves,cost;material quantity by roof area.",
+    "algorithm": "RoofArea=horizontalProjection*sqrt(1+(rise/run)\u00b2)=projection/cos\u03b8. If only area and eave width,shape assumption needed;prefer length,width:projection=(L+2e)(W+2e). Squares=areaSqft/100;bundles per manufacturer+explicit waste.",
+    "edge_cases": "Complex roofs summed by sections;area alone cannot determine perimeter/eaves contribution;pitch angle<90;bundles per square product-specific.",
+    "independent_fixture": "Projection1000sqft,pitch6/12\u21921118.03399sqft before waste;20x30ft footprint,1ft eaves projection704sqft.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "Competitor area-only eaves calculation implicitly assumes shape;do not present exact geometry. Material package yields need manufacturer data.",
+    "slug": "roofing-calculator",
+    "title": "Roofing Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/roofing-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Tile dimensions;room dimensions or total area;grout gap;box count;price units.",
+    "algorithm": "Grid layout nL=ceil((L+gap)/(tileL+gap)),nW similarly;count=nL*nW if no cut reuse. Area-only estimate ceil(area/((tileL+gap)*(tileW+gap))) plus explicit waste. Boxes=ceil(count/tilesPerBox).",
+    "edge_cases": "Grid exact counts differ from area estimate;cut reuse,pattern and perimeters matter;grout>=0;rotation choice;do not claim procurement exactness from area alone.",
+    "independent_fixture": "10x12ft area,1x1ft tile,no gap,waste0\u2192120tiles;12/box\u219210boxes.",
+    "primary_references": [
+      "https://openstax.org/books/elementary-algebra-2e/pages/1-introduction",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "tile-calculator",
+    "title": "Tile Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/tile-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Total area or multiple rectangles;depth;bag/bulk cost.",
+    "algorithm": "V=sum(area)*depth;convert cubic yards,m\u00b3,liters;bags=ceil(V/bagVolume);cost according to unit.",
+    "edge_cases": "Depth must convert inches to feet;no double-count overlaps;bulk vs bag rounding separate.",
+    "independent_fixture": "100sqft at3in\u219225cuft=.92592593cuyd;2cuft bags\u219213.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "mulch-calculator",
+    "title": "Mulch Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/mulch-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Area/rectangle/circle;depth;material/custom bulk density;bulk or bag cost.",
+    "algorithm": "V=area*depth;mass=V*bulkDensity;bag counts by mass or volume;cost basis explicit.",
+    "edge_cases": "Bulk density depends on grade/moisture/compaction;default is estimate;short ton vs metric tonne;waste/compaction separately stated.",
+    "independent_fixture": "10m\u00b2*.1m\u21921m\u00b3;\u03c11600kg/m\u00b3\u21921600kg=1.6tonnes;20kg bags80.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "gravel-calculator",
+    "title": "Gravel Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/gravel-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Air temperature and wind speed with units.",
+    "algorithm": "NWS\u00b0F:35.74+.6215T-35.75v^.16+.4275Tv^.16,v mph.",
+    "edge_cases": "Valid forT<=50\u00b0F andv>3mph;outside show actual air temperature or unsupported model,not extrapolated danger;wind chill not object temperature.",
+    "independent_fixture": "T30\u00b0F,v10mph\u219221.2482933\u00b0F.",
+    "primary_references": [
+      "https://www.weather.gov/media/epz/wxcalc/windChill.pdf",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "wind-chill-calculator",
+    "title": "Wind Chill Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/wind-chill-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Temperature+RH%;temperature+dewpoint.",
+    "algorithm": "NWS Rothfusz polynomial with low/high RH adjustments and low-temperature preliminary formula;dewpoint\u2192RH through stated vapor-pressure formula before heat index.",
+    "edge_cases": "See dedicated algorithms.json for coefficients and branch logic;shaded/light-wind estimate;RH0..100;do not extrapolate to extreme outside validation.",
+    "independent_fixture": "90\u00b0F,RH70%\u2192105.9220206\u00b0F;80\u00b0F,RH40% gives preliminary79.79\u00b0F and does not use full regression.",
+    "primary_references": [
+      "https://www.weather.gov/tbw/heatindex",
+      "https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf",
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "heat-index-calculator",
+    "title": "Heat Index Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/heat-index-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Solve dewpoint,airtemperature,orRH from other two;temperature units.",
+    "algorithm": "Use consistent vapor relation e_s(T)=6.11*10^(7.5T/(237.3+T)),RH=100e_s(Td)/e_s(T). Let\u03b3=log10(RH/100)+7.5T/(237.3+T);Td=237.3\u03b3/(7.5-\u03b3).",
+    "edge_cases": "RH>0..100;RH0 dewpoint\u2212\u221e;dewpoint<=T;validity over liquid water;subfreezing frost-point is different.",
+    "independent_fixture": "T20\u00b0C,RH50%\u2192Td\u22489.269\u00b0C with stated coefficients;RH100%\u2192Td=T.",
+    "primary_references": [
+      "https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "dew-point-calculator",
+    "title": "Dew Point Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/dew-point-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Data units;download/upload duration;website views\u00d7page size\u00d7headroom;monthly transfer\u2194average rate.",
+    "algorithm": "8bits=1byte;decimal prefixes1000,binary1024 only IEC labels;durationSeconds=bytes*8/bps;transfer=views*pageBytes*factor;avgBps=monthlyBytes*8/periodSeconds.",
+    "edge_cases": "Bandwidth0 invalid;month length explicit (30day estimate vs chosen dates);protocol overhead not zero unless ideal model disclosed.",
+    "independent_fixture": "100MB at20Mbps ideal40sec;1TB decimal/30days\u22483.08641975Mbps.",
+    "primary_references": [
+      "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "bandwidth-calculator",
+    "title": "Bandwidth Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/bandwidth-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Text encode/decode with character encodings;file/image encode/decode and download.",
+    "algorithm": "RFC4648 encode bytes in6bit groups with=padding;UTF8 via TextEncoder;TextDecoder chosen charset for decoding;binary file bytes independent of text.",
+    "edge_cases": "Unicode must not btoa(rawString);invalid alphabet/padding reject;UTF16BE explicit support;legacy encoding requires library for encoding;size limits;decoded HTML/SVG never executed.",
+    "independent_fixture": "UTF8 hello\u2192aGVsbG8=;UTF8 \u2713\u21924pyT;bytes00FF\u2192AP8=.",
+    "primary_references": [
+      "https://www.rfc-editor.org/rfc/rfc4648",
+      "https://encoding.spec.whatwg.org/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "base64-encode-decode",
+    "title": "Base64 Encode / Decode",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/base64-encode-decode.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Percent-encode/decode text;component vs full-URL modes clearly distinguished.",
+    "algorithm": "UTF8 bytes percent encoded per RFC3986;unreserved[A-Za-z0-9-._~];full URI preserves appropriate delimiters;form mode space+ separate.",
+    "edge_cases": "Malformed% orinvalidUTF8 errors;literal+ is not space except form mode;avoid double encoding;no automatic navigation to decoded text.",
+    "independent_fixture": "Component hello world\u2192hello%20world;a+b\u2192a%2Bb;\u2713\u2192%E2%9C%93.",
+    "primary_references": [
+      "https://www.rfc-editor.org/rfc/rfc3986",
+      "https://encoding.spec.whatwg.org/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "url-encode-decode",
+    "title": "URL Encode / Decode",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/url-encode-decode.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Clock times with seconds;two dates+times.",
+    "algorithm": "Duration in signed seconds or explicit overnight mode;normalize d/h/m/s;zoned option uses instants.",
+    "edge_cases": "End-before-start handling explicit;DST23/25hour days;avoid silently taking abs.",
+    "independent_fixture": "23:59:30\u2192next-day00:00:15=45sec;2024-02-28T00\u21922024-03-01T00 nominal48h.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "time-duration-calculator",
+    "title": "Time Duration Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/time-duration-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Days between dates with include-end/business/holiday options;count forward/backward days.",
+    "algorithm": "Same civil calendar and holiday engine as date calculator;document start excluded/end included or inclusive mode.",
+    "edge_cases": "Custom weekends;holidays on weekends deduplicated;zero interval inclusivity;cross-year holidays.",
+    "independent_fixture": "2024-02-28\u21922024-03-01 difference2,inclusive3;Friday2026-10-09+1weekday without holidays\u2192MondayOct12.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html",
+      "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "day-counter",
+    "title": "Day Counter",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/day-counter.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  },
+  {
+    "input_modes": "Gregorian date;weekday and ISO week info if exposed.",
+    "algorithm": "Civil ordinal modulo7;ISO week Monday start,week1 containsJan4;use vetted date library.",
+    "edge_cases": "Year0/BCE unsupported unless astronomical numbering specified;Gregorian before adoption is proleptic;ISO week year may differ from calendar year.",
+    "independent_fixture": "2000-01-01 Saturday;2026-10-09 Friday;2021-01-01 ISO2020-W53-5.",
+    "primary_references": [
+      "https://tc39.es/proposal-temporal/docs/timezone.html"
+    ],
+    "blockers_or_limitations": "",
+    "slug": "day-of-the-week-calculator",
+    "title": "Day of the Week Calculator",
+    "category": "everyday",
+    "competitor_url": "https://www.calculator.net/day-of-the-week-calculator.html",
+    "audit_date": "2026-10-09",
+    "evidence_status": "page fetched and visible inputs audited; not all submitted modes exercised",
+    "implementation_status": "research-only"
+  }
+]

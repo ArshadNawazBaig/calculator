@@ -1,0 +1,651 @@
+{
+  "verified": "2026-10-09",
+  "scope": "Historical eligible forward MMI scenario helper; not a servicing determination.",
+  "fixtures": [
+    {
+      "id": "hud-official-query-upb-anchor",
+      "function": "normalization",
+      "input": {
+        "baseLoan": 221950,
+        "originalPrice": 230000,
+        "originalAppraisal": 230000,
+        "financedUpfrontAmount": 2219.5,
+        "noteBalance": 181194
+      },
+      "expected": {
+        "originalValue": 230000.0,
+        "noteToBaseFactor": 1.01,
+        "baseEquivalentBalance": 179400.0,
+        "baseThreshold": 179400.0,
+        "noteThreshold": 181194.0,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Official2013 Lender Insurance Guide Case Query screenshot:230000 original value,1%UFMIP,UPB@78%=181194. Ratio normalization is inference supported by exact official anchor."
+    },
+    {
+      "id": "hud-no-financed-upfront",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 0,
+        "noteBalance": 78000,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 78000.0,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Cash-paid UFMIP never inflates note threshold."
+    },
+    {
+      "id": "hud-financed-upfront-78-exact",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Financed note factor1.0175 makes79365 equivalent to78000 base balance."
+    },
+    {
+      "id": "hud-financed-upfront-one-cent-above",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365.01,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.00982800983,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Do not round LTV to78.00% before threshold comparison."
+    },
+    {
+      "id": "hud-original-value-is-lower",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 125000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Subsequent/new appraisals cannot inflate the historical threshold; use lesser origination price/appraisal."
+    },
+    {
+      "id": "hud-original-appraisal-lower",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 125000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Original appraisal can be lower than price."
+    },
+    {
+      "id": "hud-partial-financing-ratio",
+      "function": "normalization",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 844.38,
+        "noteBalance": 78682.5,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0087500518134715,
+        "baseEquivalentBalance": 77999.99599360538,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 78682.50404145078,
+        "atOrBelow78": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Research proportional factor includes only actual cent-rounded financed share, not full assessed premium; verified servicing terms govern."
+    },
+    {
+      "id": "hud-regime-pre2001",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2000-12-31",
+        "caseAssignedDate": "2000-12-01",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "outside-historical-cancellation",
+        "minimumMipMonths": null
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-close2001",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2001-01-01",
+        "caseAssignedDate": "2000-12-01",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-case20130602",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2013-07-01",
+        "caseAssignedDate": "2013-06-02",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-case20130603",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2013-07-01",
+        "caseAssignedDate": "2013-06-03",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "modern-duration",
+        "minimumMipMonths": null
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20080713-at90",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2008-07-13",
+        "termMonths": 180,
+        "baseLoan": 90000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20080713-below90",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2008-07-13",
+        "termMonths": 180,
+        "baseLoan": 89999.99,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "no-annual-mip",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20080714-at90",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2008-07-14",
+        "termMonths": 180,
+        "baseLoan": 90000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "no-annual-mip",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20080714-above90",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2008-07-14",
+        "termMonths": 180,
+        "baseLoan": 90000.01,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20110417-at90",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2011-04-17",
+        "termMonths": 180,
+        "baseLoan": 90000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "no-annual-mip",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20110418-at78",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2011-04-18",
+        "termMonths": 180,
+        "baseLoan": 78000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "no-annual-mip",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-short-20110418-above78",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2011-04-18",
+        "termMonths": 180,
+        "baseLoan": 78000.01,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-long-even-below78",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 181,
+        "baseLoan": 70000,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-regime-eligibility-unconfirmed",
+      "function": "regime",
+      "input": {
+        "verifiedEligibleMMI": false,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "eligibility-unverified",
+        "minimumMipMonths": null
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Current Handbook4000.1 III.A.1.k historical eligibility and short-term vintage boundary."
+    },
+    {
+      "id": "hud-request-59months",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 59
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": false,
+        "cancellationProcessed": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    },
+    {
+      "id": "hud-request-60months",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": true,
+        "cancellationProcessed": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    },
+    {
+      "id": "hud-request-60months-approved",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60,
+        "servicerCancellationConfirmed": true
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": true,
+        "cancellationProcessed": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    },
+    {
+      "id": "hud-request-delinquency-blocks-request",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60,
+        "over30DaysLateInPast12Months": true
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 60,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": false,
+        "cancellationProcessed": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    },
+    {
+      "id": "hud-request-short-no-five-year",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2012-03-20",
+        "caseAssignedDate": "2012-02-17",
+        "termMonths": 180,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 1
+      },
+      "expected": {
+        "regime": "historical-78",
+        "minimumMipMonths": 0,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": true,
+        "cancellationProcessed": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    },
+    {
+      "id": "hud-request-modern-no-78",
+      "function": "request",
+      "input": {
+        "verifiedEligibleMMI": true,
+        "closingDate": "2013-07-01",
+        "caseAssignedDate": "2013-06-03",
+        "termMonths": 360,
+        "baseLoan": 96500,
+        "originalPrice": 100000,
+        "originalAppraisal": 100000,
+        "financedUpfrontAmount": 1688.75,
+        "noteBalance": 79365,
+        "paidMipMonths": 60
+      },
+      "expected": {
+        "regime": "modern-duration",
+        "minimumMipMonths": null,
+        "originalValue": 100000.0,
+        "noteToBaseFactor": 1.0175,
+        "baseEquivalentBalance": 78000.0,
+        "baseThreshold": 78000.0,
+        "noteThreshold": 79365.0,
+        "atOrBelow78": true,
+        "eligibleToRequest": false,
+        "cancellationProcessed": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Request eligibility is separate from lender/HUD processing; initial scheduled cancellation and accelerated request are different paths."
+    }
+  ]
+}

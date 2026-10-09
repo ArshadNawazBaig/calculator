@@ -1,0 +1,2105 @@
+[
+  {
+    "gap": "F04",
+    "id": "F04-01",
+    "name": "Annual end-payment FV",
+    "inputs": {
+      "pv": -1000,
+      "payment": -100,
+      "periods": 3,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 10,
+      "timing": "end",
+      "solve": "fv"
+    },
+    "expected": {
+      "fv": 1662.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-02",
+    "name": "Inverse pv",
+    "inputs": {
+      "payment": -100,
+      "periods": 3,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 10,
+      "timing": "end",
+      "fv": 1662.0,
+      "solve": "pv"
+    },
+    "expected": {
+      "pv": -1000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-03",
+    "name": "Inverse payment",
+    "inputs": {
+      "pv": -1000,
+      "periods": 3,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 10,
+      "timing": "end",
+      "fv": 1662.0,
+      "solve": "payment"
+    },
+    "expected": {
+      "payment": -100
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-04",
+    "name": "Inverse nominalRatePercent",
+    "inputs": {
+      "pv": -1000,
+      "payment": -100,
+      "periods": 3,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "timing": "end",
+      "fv": 1662.0,
+      "solve": "nominalRatePercent"
+    },
+    "expected": {
+      "nominalRatePercent": 10
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-05",
+    "name": "Inverse periods",
+    "inputs": {
+      "pv": -1000,
+      "payment": -100,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 10,
+      "timing": "end",
+      "fv": 1662.0,
+      "solve": "periods"
+    },
+    "expected": {
+      "periods": 3
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-06",
+    "name": "Beginning-period payment",
+    "inputs": {
+      "pv": -1000,
+      "payment": -100,
+      "periods": 3,
+      "paymentsPerYear": 1,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 10,
+      "timing": "beginning",
+      "solve": "fv"
+    },
+    "expected": {
+      "fv": 1695.1
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-07",
+    "name": "Independent compounding 1",
+    "inputs": {
+      "solve": "fv",
+      "pv": -1000,
+      "payment": 0,
+      "periods": 12,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 1,
+      "nominalRatePercent": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "fv": 1120.0,
+      "periodicRatePercent": 0.9488792934582975
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-08",
+    "name": "Independent compounding 2",
+    "inputs": {
+      "solve": "fv",
+      "pv": -1000,
+      "payment": 0,
+      "periods": 12,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 2,
+      "nominalRatePercent": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "fv": 1123.6,
+      "periodicRatePercent": 0.9758794179192246
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-09",
+    "name": "Independent compounding 12",
+    "inputs": {
+      "solve": "fv",
+      "pv": -1000,
+      "payment": 0,
+      "periods": 12,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 12,
+      "nominalRatePercent": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "fv": 1126.8250301319697,
+      "periodicRatePercent": 1.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-10",
+    "name": "Independent compounding 24",
+    "inputs": {
+      "solve": "fv",
+      "pv": -1000,
+      "payment": 0,
+      "periods": 12,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 24,
+      "nominalRatePercent": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "fv": 1127.1597762053918,
+      "periodicRatePercent": 1.0025
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-11",
+    "name": "Independent compounding 26",
+    "inputs": {
+      "solve": "fv",
+      "pv": -1000,
+      "payment": 0,
+      "periods": 12,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 26,
+      "nominalRatePercent": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "fv": 1127.185622039258,
+      "periodicRatePercent": 1.0026929973649503
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F04",
+    "id": "F04-12",
+    "name": "Zero-rate duration",
+    "inputs": {
+      "solve": "periods",
+      "pv": -1000,
+      "payment": -100,
+      "fv": 1600,
+      "nominalRatePercent": 0,
+      "paymentsPerYear": 12,
+      "compoundsPerYear": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "periods": 6
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-01",
+    "name": "Simultaneous streams end",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 120,
+      "monthlyContribution": 10,
+      "months": 24,
+      "nominalRatePercent": 12,
+      "compoundsPerYear": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "endingBalance": 1794.6883006796654,
+      "totalContributions": 480.0,
+      "netInvestmentGain": 314.6883006796653
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-02",
+    "name": "Simultaneous streams beginning",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 120,
+      "monthlyContribution": 10,
+      "months": 24,
+      "nominalRatePercent": 12,
+      "compoundsPerYear": 12,
+      "timing": "beginning"
+    },
+    "expected": {
+      "endingBalance": 1829.7538049888142,
+      "totalContributions": 480.0,
+      "netInvestmentGain": 349.7538049888142
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-03",
+    "name": "Independent stream increases",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 100,
+      "monthlyContribution": 10,
+      "annualContributionGrowthPercent": 10,
+      "monthlyContributionGrowthPercent": 10,
+      "months": 24,
+      "nominalRatePercent": 0,
+      "timing": "end"
+    },
+    "expected": {
+      "endingBalance": 1462.0,
+      "totalContributions": 462.0,
+      "netInvestmentGain": 0.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-04",
+    "name": "Partial-year annual event end",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 100,
+      "monthlyContribution": 10,
+      "months": 6,
+      "nominalRatePercent": 0,
+      "timing": "end"
+    },
+    "expected": {
+      "endingBalance": 1060.0,
+      "totalContributions": 60.0,
+      "netInvestmentGain": 0.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-05",
+    "name": "Partial-year annual event beginning",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 100,
+      "monthlyContribution": 10,
+      "months": 6,
+      "nominalRatePercent": 0,
+      "timing": "beginning"
+    },
+    "expected": {
+      "endingBalance": 1160.0,
+      "totalContributions": 160.0,
+      "netInvestmentGain": 0.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F06",
+    "id": "F06-06",
+    "name": "Annual tax settlement with inflation",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 0,
+      "monthlyContribution": 0,
+      "months": 24,
+      "nominalRatePercent": 10,
+      "compoundsPerYear": 1,
+      "taxRatePercent": 20,
+      "inflationPercent": 3,
+      "timing": "end"
+    },
+    "expected": {
+      "endingBalance": 1166.4,
+      "taxPaid": 41.6,
+      "realEndingBalance": 1099.443868413611
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F07",
+    "id": "F07-01",
+    "name": "SEC-style lesser-value exit base 12000",
+    "inputs": {
+      "mode": "exit-load-only",
+      "netInvestedLot": 10000,
+      "redemptionBeforeLoad": 12000,
+      "deferredLoadPercent": 5,
+      "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+    },
+    "expected": {
+      "exitLoads": 500.0,
+      "endingAfterAllFees": 11500.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "sec-fund-fees",
+        "annuities"
+      ]
+    },
+    "notes": [
+      "Original transcription of SEC numerical example for this isolated fee rule; not an endorsement of universal fund terms."
+    ]
+  },
+  {
+    "gap": "F07",
+    "id": "F07-02",
+    "name": "SEC-style lesser-value exit base 8000",
+    "inputs": {
+      "mode": "exit-load-only",
+      "netInvestedLot": 10000,
+      "redemptionBeforeLoad": 8000,
+      "deferredLoadPercent": 5,
+      "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+    },
+    "expected": {
+      "exitLoads": 400.0,
+      "endingAfterAllFees": 7600.0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "sec-fund-fees",
+        "annuities"
+      ]
+    },
+    "notes": [
+      "Original transcription of SEC numerical example for this isolated fee rule; not an endorsement of universal fund terms."
+    ]
+  },
+  {
+    "gap": "F07",
+    "id": "F07-03",
+    "name": "One-year complete fee ledger",
+    "inputs": {
+      "initial": 10000,
+      "annualContribution": 0,
+      "monthlyContribution": 0,
+      "months": 12,
+      "grossAnnualReturnPercent": 10,
+      "frontLoadPercent": 5,
+      "expenseRatioPercent": 1,
+      "deferredLoadPercent": 2,
+      "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption",
+      "timing": "end"
+    },
+    "expected": {
+      "frontLoads": 500,
+      "operatingExpenses": 104.5,
+      "endingBeforeExitLoad": 10345.5,
+      "exitLoads": 190,
+      "endingAfterAllFees": 10155.5,
+      "directFees": 794.5,
+      "noFeeEndingBalance": 11000,
+      "totalFeeImpact": 844.5
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "sec-fund-fees",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F07",
+    "id": "F07-04",
+    "name": "Front loads apply to both streams",
+    "inputs": {
+      "initial": 1000,
+      "annualContribution": 120,
+      "monthlyContribution": 10,
+      "months": 12,
+      "grossAnnualReturnPercent": 0,
+      "frontLoadPercent": 5,
+      "expenseRatioPercent": 0,
+      "deferredLoadPercent": 0,
+      "timing": "end"
+    },
+    "expected": {
+      "grossCashSupplied": 1240,
+      "frontLoads": 62,
+      "endingAfterAllFees": 1178
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "sec-fund-fees",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F08",
+    "id": "F08-01",
+    "name": "Financed taxes and trade debt",
+    "inputs": {
+      "price": 30000,
+      "down": 3000,
+      "trade": 5000,
+      "tradeDebt": 2000,
+      "rebate": 1000,
+      "salesTaxPercent": 6,
+      "tradeTaxCredit": true,
+      "rebateTaxCredit": false,
+      "fees": 500,
+      "nominalAprPercent": 0,
+      "months": 50,
+      "solve": "payment",
+      "financeTaxAndFees": true
+    },
+    "expected": {
+      "salesTax": 1500,
+      "financedPrincipal": 25000,
+      "payment": 500,
+      "upfrontCash": 3000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F08",
+    "id": "F08-02",
+    "name": "Reverse same price",
+    "inputs": {
+      "down": 3000,
+      "trade": 5000,
+      "tradeDebt": 2000,
+      "rebate": 1000,
+      "salesTaxPercent": 6,
+      "tradeTaxCredit": true,
+      "rebateTaxCredit": false,
+      "fees": 500,
+      "nominalAprPercent": 0,
+      "months": 50,
+      "solve": "price",
+      "financeTaxAndFees": true,
+      "payment": 500
+    },
+    "expected": {
+      "sellingPrice": 30000,
+      "financedPrincipal": 25000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F08",
+    "id": "F08-03",
+    "name": "Taxes and fees paid upfront",
+    "inputs": {
+      "price": 30000,
+      "down": 3000,
+      "trade": 5000,
+      "tradeDebt": 2000,
+      "rebate": 1000,
+      "salesTaxPercent": 6,
+      "tradeTaxCredit": true,
+      "rebateTaxCredit": false,
+      "fees": 500,
+      "nominalAprPercent": 0,
+      "months": 50,
+      "solve": "payment",
+      "financeTaxAndFees": false
+    },
+    "expected": {
+      "salesTax": 1500,
+      "financedPrincipal": 23000,
+      "payment": 460,
+      "upfrontCash": 5000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F08",
+    "id": "F08-04",
+    "name": "Reverse positive-rate loan",
+    "inputs": {
+      "down": 3000,
+      "trade": 5000,
+      "tradeDebt": 2000,
+      "rebate": 1000,
+      "salesTaxPercent": 6,
+      "tradeTaxCredit": true,
+      "rebateTaxCredit": false,
+      "fees": 500,
+      "nominalAprPercent": 6,
+      "months": 60,
+      "solve": "price",
+      "financeTaxAndFees": true,
+      "payment": 483.32003823569795
+    },
+    "expected": {
+      "sellingPrice": 30000,
+      "financedPrincipal": 25000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F08",
+    "id": "F08-05",
+    "name": "Reverse monthly-taxed money-factor lease",
+    "inputs": {
+      "solve": "lease-price",
+      "payment": 443.6666666666667,
+      "down": 5000,
+      "trade": 0,
+      "residual": 8000,
+      "months": 36,
+      "moneyFactor": 0.0025,
+      "salesTaxPercent": 10
+    },
+    "expected": {
+      "sellingPrice": 25000,
+      "leaseAdjustedCapCost": 20000,
+      "preTaxPayment": 403.3333333333333
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F10",
+    "id": "F10-01",
+    "name": "Delayed monthly + annual + one-time extras",
+    "inputs": {
+      "principal": 1200,
+      "nominalAprPercent": 0,
+      "months": 12,
+      "firstPaymentMonth": "2026-01",
+      "monthlyExtra": {
+        "amount": 100,
+        "startMonth": "2026-04"
+      },
+      "annualExtra": {
+        "amount": 50,
+        "firstMonth": "2026-06"
+      },
+      "oneTimeExtras": [
+        {
+          "month": "2026-02",
+          "amount": 100
+        }
+      ]
+    },
+    "expected": {
+      "scheduledPayment": 100.0,
+      "payoffMonths": 7,
+      "actualFinalPayment": 150.0,
+      "totalInterest": 0.0,
+      "totalPayments": 1200.0,
+      "rows": [
+        {
+          "period": 1,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 0.0,
+          "endingBalance": 1100.0
+        },
+        {
+          "period": 2,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 100.0,
+          "endingBalance": 900.0
+        },
+        {
+          "period": 3,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 0.0,
+          "endingBalance": 800.0
+        },
+        {
+          "period": 4,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 100.0,
+          "endingBalance": 600.0
+        },
+        {
+          "period": 5,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 100.0,
+          "endingBalance": 400.0
+        },
+        {
+          "period": 6,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 150.0,
+          "endingBalance": 150.0
+        },
+        {
+          "period": 7,
+          "interest": 0.0,
+          "regularPayment": 100.0,
+          "extraPayment": 50.0,
+          "endingBalance": 0.0
+        }
+      ]
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F10",
+    "id": "F10-02",
+    "name": "Interest-bearing delayed extras",
+    "inputs": {
+      "principal": 1200,
+      "nominalAprPercent": 12,
+      "months": 12,
+      "firstPaymentMonth": "2026-10",
+      "monthlyExtra": {
+        "amount": 20,
+        "startMonth": "2027-01"
+      },
+      "oneTimeExtras": [
+        {
+          "month": "2027-03",
+          "amount": 200
+        }
+      ]
+    },
+    "expected": {
+      "scheduledPayment": 106.61854641401005,
+      "payoffMonths": 9,
+      "actualFinalPayment": 111.08161303257108,
+      "totalInterest": 64.02998434465147,
+      "totalPayments": 1264.0299843446514,
+      "rows": [
+        {
+          "period": 1,
+          "interest": 12.0,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 0.0,
+          "endingBalance": 1105.38145358599
+        },
+        {
+          "period": 2,
+          "interest": 11.0538145358599,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 0.0,
+          "endingBalance": 1009.8167217078397
+        },
+        {
+          "period": 3,
+          "interest": 10.098167217078398,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 0.0,
+          "endingBalance": 913.2963425109082
+        },
+        {
+          "period": 4,
+          "interest": 9.132963425109082,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 20.0,
+          "endingBalance": 795.8107595220072
+        },
+        {
+          "period": 5,
+          "interest": 7.9581075952200715,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 20.0,
+          "endingBalance": 677.1503207032172
+        },
+        {
+          "period": 6,
+          "interest": 6.771503207032172,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 220.0,
+          "endingBalance": 357.30327749623933
+        },
+        {
+          "period": 7,
+          "interest": 3.5730327749623934,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 20.0,
+          "endingBalance": 234.25776385719166
+        },
+        {
+          "period": 8,
+          "interest": 2.3425776385719166,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 20.0,
+          "endingBalance": 109.98179508175355
+        },
+        {
+          "period": 9,
+          "interest": 1.0998179508175354,
+          "regularPayment": 106.61854641401005,
+          "extraPayment": 4.4630666185610295,
+          "endingBalance": 0.0
+        }
+      ],
+      "interestSaved": 15.392572623469118
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F10",
+    "id": "F10-03",
+    "name": "Duplicate one-off months aggregate and cap payoff",
+    "inputs": {
+      "principal": 1200,
+      "nominalAprPercent": 0,
+      "months": 12,
+      "firstPaymentMonth": "2026-01",
+      "oneTimeExtras": [
+        {
+          "month": "2026-01",
+          "amount": 700
+        },
+        {
+          "month": "2026-01",
+          "amount": 700
+        }
+      ]
+    },
+    "expected": {
+      "payoffMonths": 1,
+      "actualFinalPayment": 1200,
+      "totalPayments": 1200,
+      "totalInterest": 0,
+      "actualExtraPayment": 1100
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F18",
+    "id": "F18-01",
+    "name": "Zero-rate original inference and financed cash-out costs",
+    "inputs": {
+      "existingInput": "original-loan",
+      "originalPrincipal": 30000,
+      "originalMonths": 36,
+      "elapsedMonths": 12,
+      "oldNominalAprPercent": 0,
+      "cashOut": 2000,
+      "pointsPercent": 1,
+      "otherClosingCosts": 500,
+      "financeFees": true,
+      "newNominalAprPercent": 0,
+      "newMonths": 24,
+      "comparisonMonths": 24
+    },
+    "expected": {
+      "oldBalance": 20000,
+      "oldPayment": 833.3333333333334,
+      "points": 220,
+      "newPrincipal": 22720,
+      "newPayment": 946.6666666666666,
+      "upfrontNetCash": 2000,
+      "commonHorizonAdvantage": -720
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F18",
+    "id": "F18-02",
+    "name": "Same-term lower-rate refinance, upfront fee",
+    "inputs": {
+      "existingInput": "remaining-balance",
+      "remainingPrincipal": 100000,
+      "remainingMonths": 120,
+      "oldNominalAprPercent": 6,
+      "cashOut": 0,
+      "pointsPercent": 0,
+      "otherClosingCosts": 2000,
+      "financeFees": false,
+      "newNominalAprPercent": 4,
+      "newMonths": 120,
+      "comparisonMonths": 120
+    },
+    "expected": {
+      "oldPayment": 1110.2050194164947,
+      "newPayment": 1012.4513816488148,
+      "monthlyPaymentDifference": 97.75363776767979,
+      "simpleBreakEvenMonths": 20.459596652077316,
+      "commonHorizonAdvantage": 9730.436532121574
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F18",
+    "id": "F18-03",
+    "name": "Original loan balance after five years",
+    "inputs": {
+      "existingInput": "original-loan",
+      "originalPrincipal": 100000,
+      "originalMonths": 360,
+      "elapsedMonths": 60,
+      "oldNominalAprPercent": 6
+    },
+    "expected": {
+      "oldBalance": 93054.35682281957,
+      "oldPayment": 599.5505251527524
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F25",
+    "id": "F25-01",
+    "name": "Two-year salary and match projection",
+    "inputs": {
+      "age": 40,
+      "salary": 100000,
+      "salaryGrowthPercent": 10,
+      "employeeDeferralPercent": 6,
+      "matchTiers": [
+        {
+          "upperPercent": 3,
+          "matchPercent": 100
+        },
+        {
+          "upperPercent": 6,
+          "matchPercent": 50
+        }
+      ],
+      "initialBalance": 50000,
+      "years": 2,
+      "annualReturnPercent": 10,
+      "contributionTiming": "year-end",
+      "limitPolicy": "manual-scenario"
+    },
+    "expected": {
+      "employeeYear1": 6000,
+      "employerYear1": 4500,
+      "endingYear1": 65500,
+      "employeeYear2": 6600,
+      "employerYear2": 4950,
+      "endingYear2": 83600,
+      "totalEmployee": 12600,
+      "totalEmployer": 9450
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F25",
+    "id": "F25-02",
+    "name": "Compensation cap and employee cap",
+    "inputs": {
+      "age": 40,
+      "salary": 500000,
+      "employeeDeferralPercent": 10,
+      "matchTiers": [
+        {
+          "upperPercent": 3,
+          "matchPercent": 100
+        },
+        {
+          "upperPercent": 6,
+          "matchPercent": 50
+        }
+      ],
+      "initialBalance": 0,
+      "years": 1,
+      "annualReturnPercent": 0,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "eligibleCompensation": 360000,
+      "employeeYear1": 24500,
+      "employerYear1": 16200,
+      "endingYear1": 40700
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F25",
+    "id": "F25-03",
+    "name": "2026 age boundary 49",
+    "inputs": {
+      "mode": "employee-limit",
+      "age": 49,
+      "salary": 200000,
+      "employeeDeferralPercent": 100,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "employeeLimit": 24500,
+      "employeeContribution": 24500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": [
+      "Assumes eligible plan and compensation. Contribution type/pretax treatment is a separate determination."
+    ]
+  },
+  {
+    "gap": "F25",
+    "id": "F25-04",
+    "name": "2026 age boundary 50",
+    "inputs": {
+      "mode": "employee-limit",
+      "age": 50,
+      "salary": 200000,
+      "employeeDeferralPercent": 100,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "employeeLimit": 32500,
+      "employeeContribution": 32500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": [
+      "Assumes eligible plan and compensation. Contribution type/pretax treatment is a separate determination."
+    ]
+  },
+  {
+    "gap": "F25",
+    "id": "F25-05",
+    "name": "2026 age boundary 60",
+    "inputs": {
+      "mode": "employee-limit",
+      "age": 60,
+      "salary": 200000,
+      "employeeDeferralPercent": 100,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "employeeLimit": 35750,
+      "employeeContribution": 35750
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": [
+      "Assumes eligible plan and compensation. Contribution type/pretax treatment is a separate determination."
+    ]
+  },
+  {
+    "gap": "F25",
+    "id": "F25-06",
+    "name": "2026 age boundary 63",
+    "inputs": {
+      "mode": "employee-limit",
+      "age": 63,
+      "salary": 200000,
+      "employeeDeferralPercent": 100,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "employeeLimit": 35750,
+      "employeeContribution": 35750
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": [
+      "Assumes eligible plan and compensation. Contribution type/pretax treatment is a separate determination."
+    ]
+  },
+  {
+    "gap": "F25",
+    "id": "F25-07",
+    "name": "2026 age boundary 64",
+    "inputs": {
+      "mode": "employee-limit",
+      "age": 64,
+      "salary": 200000,
+      "employeeDeferralPercent": 100,
+      "limitPolicy": "freeze-2026-limits"
+    },
+    "expected": {
+      "employeeLimit": 32500,
+      "employeeContribution": 32500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67",
+        "irs-contributions"
+      ]
+    },
+    "notes": [
+      "Assumes eligible plan and compensation. Contribution type/pretax treatment is a separate determination."
+    ]
+  },
+  {
+    "gap": "F27",
+    "id": "F27-01",
+    "name": "Equal pretax cost, lower retirement bracket",
+    "inputs": {
+      "annualPretaxBudget": 7500,
+      "currentTaxPercent": 25,
+      "retirementTaxPercent": 15,
+      "annualReturnPercent": 10,
+      "years": 2,
+      "initialTraditionalBalance": 0,
+      "initialRothBalance": 0,
+      "taxableAnnualTaxPercent": 25,
+      "timing": "end",
+      "limitPolicy": "manual"
+    },
+    "expected": {
+      "annualTraditionalContribution": 7500,
+      "annualRothContribution": 5625,
+      "pretaxTraditionalFV": 15750,
+      "afterTaxTraditionalFV": 13387.5,
+      "RothFV": 11812.5,
+      "taxableFV": 11671.875
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F27",
+    "id": "F27-02",
+    "name": "Equal tax-rate equivalence",
+    "inputs": {
+      "annualPretaxBudget": 7500,
+      "currentTaxPercent": 25,
+      "retirementTaxPercent": 25,
+      "annualReturnPercent": 10,
+      "years": 2,
+      "initialTraditionalBalance": 0,
+      "initialRothBalance": 0,
+      "taxableAnnualTaxPercent": 25,
+      "timing": "end",
+      "limitPolicy": "manual"
+    },
+    "expected": {
+      "afterTaxTraditionalFV": 11812.5,
+      "RothFV": 11812.5,
+      "difference": 0
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F27",
+    "id": "F27-03",
+    "name": "2026 IRA age limit 49",
+    "inputs": {
+      "mode": "contribution-limit",
+      "age": 49,
+      "earnedCompensation": 100000,
+      "limitPolicy": "verified-2026"
+    },
+    "expected": {
+      "contributionLimit": 7500
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F27",
+    "id": "F27-04",
+    "name": "2026 IRA age limit 50",
+    "inputs": {
+      "mode": "contribution-limit",
+      "age": 50,
+      "earnedCompensation": 100000,
+      "limitPolicy": "verified-2026"
+    },
+    "expected": {
+      "contributionLimit": 8600
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities",
+        "irs-limits-2026",
+        "irs-notice-2025-67"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F28",
+    "id": "F28-01",
+    "name": "Joint survival extends ten years",
+    "inputs": {
+      "retirementAge": 65,
+      "lifeExpectancyAge": 75,
+      "spouseAgeAtRetirement": 60,
+      "spouseLifeExpectancyAge": 80,
+      "singleMonthly": 1000,
+      "jointMonthly": 800,
+      "survivorPercent": 100,
+      "colaPercent": 0,
+      "annualDiscountPercent": 0
+    },
+    "expected": {
+      "singleTotal": 120000,
+      "jointTotal": 192000,
+      "jointMinusSingle": 72000,
+      "ownPaymentMonths": 120,
+      "additionalSurvivorMonths": 120
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F28",
+    "id": "F28-02",
+    "name": "Half survivor continuation",
+    "inputs": {
+      "retirementAge": 65,
+      "lifeExpectancyAge": 75,
+      "spouseAgeAtRetirement": 60,
+      "spouseLifeExpectancyAge": 80,
+      "singleMonthly": 1000,
+      "jointMonthly": 800,
+      "survivorPercent": 50,
+      "colaPercent": 0,
+      "annualDiscountPercent": 0
+    },
+    "expected": {
+      "singleTotal": 120000,
+      "jointTotal": 144000,
+      "jointMinusSingle": 24000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F28",
+    "id": "F28-03",
+    "name": "Later retirement includes five years foregone payments",
+    "inputs": {
+      "valuationAge": 60,
+      "retirementAge": 60,
+      "lifeExpectancyAge": 75,
+      "singleMonthly": 1000,
+      "alternativeRetirementAge": 65,
+      "alternativeMonthly": 1600,
+      "colaPercent": 0,
+      "annualDiscountPercent": 0
+    },
+    "expected": {
+      "earlyTotal": 180000,
+      "lateTotal": 192000,
+      "monthsAfterLateStartToNominalBreakEven": 100,
+      "nominalBreakEvenAgeYears": 73.33333333333333
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F28",
+    "id": "F28-04",
+    "name": "Annual COLA with effective discount",
+    "inputs": {
+      "retirementAge": 65,
+      "lifeExpectancyAge": 67,
+      "singleMonthly": 1000,
+      "colaPercent": 2,
+      "annualDiscountPercent": 4
+    },
+    "expected": {
+      "singleTotal": 24240,
+      "singlePV": 23271.07131938654
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F32",
+    "id": "F32-01",
+    "name": "Distinct principal and unpaid interest",
+    "inputs": {
+      "existingPrincipal": 20000,
+      "annualBorrowing": 10000,
+      "schoolMonths": 24,
+      "graceMonths": 6,
+      "nominalAprPercent": 6,
+      "paySchoolInterest": false,
+      "schoolInterestTreatment": "accrue",
+      "capitalizeAtRepayment": false,
+      "accrualConvention": "monthly-simple-1/12-year"
+    },
+    "expected": {
+      "borrowedPrincipal": 40000,
+      "interestPaidDuringDelay": 0,
+      "unpaidInterestAtRepayment": 5400,
+      "interestBearingPrincipalAtRepayment": 40000,
+      "totalOwedAtRepayment": 45400,
+      "trancheInterest": [
+        3000,
+        1500,
+        900
+      ]
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "simple-interest",
+        "amortization",
+        "fsa-interest",
+        "fsa-repayment"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F32",
+    "id": "F32-02",
+    "name": "Explicit hypothetical capitalization",
+    "inputs": {
+      "existingPrincipal": 20000,
+      "annualBorrowing": 10000,
+      "schoolMonths": 24,
+      "graceMonths": 6,
+      "nominalAprPercent": 6,
+      "paySchoolInterest": false,
+      "schoolInterestTreatment": "accrue",
+      "capitalizeAtRepayment": true,
+      "accrualConvention": "monthly-simple-1/12-year",
+      "repaymentMonths": 120
+    },
+    "expected": {
+      "interestBearingPrincipalAtRepayment": 45400,
+      "unpaidInterestAfterCapitalization": 0,
+      "totalOwedAtRepayment": 45400,
+      "repaymentPayment": 504.0330788150886
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "simple-interest",
+        "amortization",
+        "fsa-interest",
+        "fsa-repayment"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F32",
+    "id": "F32-03",
+    "name": "Interest paid during school and grace",
+    "inputs": {
+      "existingPrincipal": 20000,
+      "annualBorrowing": 10000,
+      "schoolMonths": 24,
+      "graceMonths": 6,
+      "nominalAprPercent": 6,
+      "paySchoolInterest": true,
+      "schoolInterestTreatment": "accrue",
+      "capitalizeAtRepayment": false,
+      "accrualConvention": "monthly-simple-1/12-year"
+    },
+    "expected": {
+      "borrowedPrincipal": 40000,
+      "interestPaidDuringDelay": 5400,
+      "unpaidInterestAtRepayment": 0,
+      "interestBearingPrincipalAtRepayment": 40000,
+      "totalOwedAtRepayment": 40000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "simple-interest",
+        "amortization",
+        "fsa-interest",
+        "fsa-repayment"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F32",
+    "id": "F32-04",
+    "name": "Hypothetical interest waiver",
+    "inputs": {
+      "existingPrincipal": 20000,
+      "annualBorrowing": 10000,
+      "schoolMonths": 24,
+      "graceMonths": 6,
+      "nominalAprPercent": 6,
+      "paySchoolInterest": false,
+      "schoolInterestTreatment": "hypothetical-interest-waiver",
+      "capitalizeAtRepayment": false,
+      "accrualConvention": "monthly-simple-1/12-year"
+    },
+    "expected": {
+      "borrowedPrincipal": 40000,
+      "interestPaidDuringDelay": 0,
+      "unpaidInterestAtRepayment": 0,
+      "totalOwedAtRepayment": 40000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "simple-interest",
+        "amortization",
+        "fsa-interest",
+        "fsa-repayment"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F32",
+    "id": "F32-05",
+    "name": "No extra draw at exact school end",
+    "inputs": {
+      "existingPrincipal": 0,
+      "annualBorrowing": 10000,
+      "schoolMonths": 12,
+      "graceMonths": 0,
+      "nominalAprPercent": 0,
+      "paySchoolInterest": false,
+      "capitalizeAtRepayment": false,
+      "accrualConvention": "monthly-simple-1/12-year"
+    },
+    "expected": {
+      "borrowedPrincipal": 10000,
+      "unpaidInterestAtRepayment": 0,
+      "totalOwedAtRepayment": 10000
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "simple-interest",
+        "amortization",
+        "fsa-interest",
+        "fsa-repayment"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-01",
+    "name": "365-day single investment",
+    "inputs": {
+      "mode": "dated-money-weighted-return",
+      "datedFlows": [
+        {
+          "date": "2026-01-01",
+          "amount": -1000
+        },
+        {
+          "date": "2027-01-01",
+          "amount": 1100
+        }
+      ]
+    },
+    "expected": {
+      "annualReturnPercent": 10,
+      "dayCount": 365
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-02",
+    "name": "Leap-year actual365 convention",
+    "inputs": {
+      "mode": "dated-roi",
+      "cost": 1000,
+      "proceeds": 1100,
+      "beginningDate": "2024-01-01",
+      "endDate": "2025-01-01"
+    },
+    "expected": {
+      "roiPercent": 10,
+      "annualizedReturnPercent": 9.971358593414124,
+      "dayCount": 366
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-03",
+    "name": "Dated midyear additional investment",
+    "inputs": {
+      "mode": "dated-money-weighted-return",
+      "datedFlows": [
+        {
+          "date": "2026-01-01",
+          "amount": -1000
+        },
+        {
+          "date": "2026-07-02",
+          "amount": -100
+        },
+        {
+          "date": "2027-01-01",
+          "amount": 1204.8945791575368
+        }
+      ]
+    },
+    "expected": {
+      "annualReturnPercent": 10,
+      "terminalValue": 1204.8945791575368,
+      "daysLastContributionInvested": 183
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-04",
+    "name": "Two economically admissible return roots",
+    "inputs": {
+      "mode": "dated-money-weighted-return",
+      "datedFlows": [
+        {
+          "date": "2025-01-01",
+          "amount": -100
+        },
+        {
+          "date": "2026-01-01",
+          "amount": 230
+        },
+        {
+          "date": "2027-01-01",
+          "amount": -132
+        }
+      ]
+    },
+    "expected": {
+      "status": "multiple-roots",
+      "annualReturnPercentRoots": [
+        10,
+        20
+      ]
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-05",
+    "name": "Same-date zero sum is indeterminate",
+    "inputs": {
+      "mode": "dated-money-weighted-return",
+      "datedFlows": [
+        {
+          "date": "2026-01-01",
+          "amount": -1000
+        },
+        {
+          "date": "2026-01-01",
+          "amount": 1000
+        }
+      ]
+    },
+    "expected": {
+      "status": "indeterminate"
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-06",
+    "name": "Growing annual cashflow payback",
+    "inputs": {
+      "mode": "growing-payback-generator",
+      "initialInvestment": 1000,
+      "firstAnnualCashflow": 400,
+      "annualCashflowGrowthPercent": 10,
+      "periodCount": 4,
+      "discountPercent": 10
+    },
+    "expected": {
+      "cashflows": [
+        -1000,
+        400,
+        440,
+        484,
+        532.4
+      ],
+      "simplePaybackYears": 2.330578512396694,
+      "discountedPaybackYears": 2.75
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F35",
+    "id": "F35-07",
+    "name": "Regular monthly IRR annualization",
+    "inputs": {
+      "mode": "regular-irr-generator",
+      "initialInvestment": 1000,
+      "periodicAmount": 0,
+      "terminalProceeds": 1100,
+      "periodsPerYear": 12,
+      "periodCount": 12,
+      "timing": "end"
+    },
+    "expected": {
+      "effectiveAnnualReturnPercent": 10,
+      "periodicReturnPercent": 0.7974140428903741
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "microsoft-xirr",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F38",
+    "id": "F38-01",
+    "name": "All-cash repair and operating/sale model",
+    "inputs": {
+      "purchasePrice": 100000,
+      "downPercent": 100,
+      "closingCosts": 5000,
+      "repairCosts": 10000,
+      "afterRepairValue": 125000,
+      "monthlyRent": 1000,
+      "vacancyPercent": 10,
+      "otherMonthlyIncome": 100,
+      "managementPercent": 10,
+      "expenseLines": [
+        {
+          "annualAmount": 2000,
+          "growthPercent": 0
+        }
+      ],
+      "rentGrowthPercent": 0,
+      "otherIncomeGrowthPercent": 0,
+      "holdingYears": 2,
+      "salePriceMode": "known-price",
+      "salePrice": 125000,
+      "saleCostPercent": 4
+    },
+    "expected": {
+      "initialCash": 115000,
+      "effectiveAnnualIncome": 12000,
+      "annualManagementFee": 1200,
+      "annualNOI": 8800,
+      "netSaleProceeds": 120000,
+      "cashflows": [
+        -115000,
+        8800,
+        128800
+      ],
+      "totalProfit": 22600,
+      "totalROIPercent": 19.652173913043477,
+      "annualIRRPercent": 9.725279311321433,
+      "firstYearCapRatePercent": 8.8,
+      "firstYearCashOnCashPercent": 7.6521739130434785
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F38",
+    "id": "F38-02",
+    "name": "Mortgage principal is recovered once through exit equity",
+    "inputs": {
+      "purchasePrice": 100000,
+      "downPercent": 20,
+      "closingCosts": 5000,
+      "repairCosts": 0,
+      "monthlyRent": 1000,
+      "vacancyPercent": 0,
+      "otherMonthlyIncome": 0,
+      "managementPercent": 0,
+      "expenseLines": [
+        {
+          "annualAmount": 2000,
+          "growthPercent": 0
+        }
+      ],
+      "nominalAprPercent": 0,
+      "loanMonths": 120,
+      "holdingYears": 2,
+      "salePriceMode": "known-price",
+      "salePrice": 100000,
+      "saleCostPercent": 0
+    },
+    "expected": {
+      "initialCash": 25000,
+      "annualNOI": 10000,
+      "annualDebtService": 8000,
+      "annualCashflow": 2000,
+      "remainingDebtAtSale": 64000,
+      "netSaleProceeds": 36000,
+      "cashflows": [
+        -25000,
+        2000,
+        38000
+      ],
+      "totalProfit": 15000,
+      "totalROIPercent": 60,
+      "annualIRRPercent": 27.353151560874196
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  },
+  {
+    "gap": "F38",
+    "id": "F38-03",
+    "name": "Separate rent and expense escalations",
+    "inputs": {
+      "purchasePrice": 100000,
+      "downPercent": 100,
+      "closingCosts": 0,
+      "repairCosts": 0,
+      "monthlyRent": 1000,
+      "vacancyPercent": 0,
+      "otherMonthlyIncome": 0,
+      "managementPercent": 0,
+      "expenseLines": [
+        {
+          "annualAmount": 2000,
+          "growthPercent": 10
+        }
+      ],
+      "rentGrowthPercent": 5,
+      "holdingYears": 2,
+      "salePriceMode": "appreciation",
+      "appreciationPercent": 3,
+      "saleCostPercent": 0
+    },
+    "expected": {
+      "NOIYear1": 10000,
+      "NOIYear2": 10400,
+      "salePrice": 106090,
+      "cashflows": [
+        -100000,
+        10000,
+        116490
+      ]
+    },
+    "absoluteTolerance": "0.000001",
+    "provenance": {
+      "method": "Original independent Decimal arithmetic / finite cashflow summation; no product engine imported.",
+      "sourceIds": [
+        "amortization",
+        "annuities"
+      ]
+    },
+    "notes": []
+  }
+]

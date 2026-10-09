@@ -1,0 +1,50 @@
+[
+  {
+    "from": "1913-01",
+    "to": "2026-08",
+    "amount": "100",
+    "expectedAdjustedAmount": "3418.163265306122448979591837",
+    "tolerance": 1e-06,
+    "expectedCumulativeInflationPercent": "3318.163265306122448979591837",
+    "provenance": "Decimal arithmetic using BLS published index values; independent of site implementation."
+  },
+  {
+    "from": "2025-08",
+    "to": "2026-08",
+    "amount": "1000",
+    "expectedAdjustedAmount": "1033.965478924364767760574857",
+    "tolerance": 1e-06,
+    "expectedCumulativeInflationPercent": "3.396547892436476776057485700",
+    "provenance": "Decimal arithmetic using BLS published index values; independent of site implementation."
+  },
+  {
+    "from": "2026-08",
+    "to": "2026-08",
+    "amount": "123.45",
+    "expectedAdjustedAmount": "123.45",
+    "tolerance": 1e-06,
+    "expectedCumulativeInflationPercent": "0",
+    "provenance": "Decimal arithmetic using BLS published index values; independent of site implementation."
+  },
+  {
+    "from": "2026-08",
+    "to": "1913-01",
+    "amount": "100",
+    "expectedAdjustedAmount": "2.925547793898143172726729954",
+    "tolerance": 1e-06,
+    "expectedCumulativeInflationPercent": "-97.07445220610185682727327005",
+    "provenance": "Decimal arithmetic using BLS published index values; independent of site implementation."
+  },
+  {
+    "from": "2025-10",
+    "to": "2026-08",
+    "amount": "100",
+    "expected": "unavailable-source-data"
+  },
+  {
+    "from": "2026-08",
+    "to": "2026-09",
+    "amount": "100",
+    "expected": "not-yet-published"
+  }
+]

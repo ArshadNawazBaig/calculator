@@ -1,0 +1,1507 @@
+[
+  {
+    "group": "power-unit-converter",
+    "slug": "horsepower-calculator",
+    "id": "power-metric-two",
+    "proposedModeId": "converter",
+    "inputs": {
+      "value": 2,
+      "from": "hp-metric",
+      "to": "W"
+    },
+    "independentDerivation": "2*75 kgf m/s * 9.80665 = 1470.9975 W.",
+    "expected": {
+      "value": 1470.9975
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "power-unit-converter",
+    "slug": "horsepower-calculator",
+    "id": "power-boiler-two",
+    "proposedModeId": "converter",
+    "inputs": {
+      "value": 2,
+      "from": "hp-boiler-NIST",
+      "to": "kW"
+    },
+    "independentDerivation": "2*9809.50/1000 under the stated rounded table convention.",
+    "expected": {
+      "value": 19.619
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "power-unit-converter",
+    "slug": "horsepower-calculator",
+    "id": "power-btu-hour",
+    "proposedModeId": "converter",
+    "inputs": {
+      "value": 3600,
+      "from": "BTU-IT/h",
+      "to": "W"
+    },
+    "independentDerivation": "3600 units cancel the hour-to-second divisor.",
+    "expected": {
+      "value": 1055.05585262
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "power-unit-converter",
+    "slug": "horsepower-calculator",
+    "id": "power-work-us",
+    "proposedModeId": "work",
+    "inputs": {
+      "force": 100,
+      "forceUnit": "lbf",
+      "distance": 10,
+      "distanceUnit": "yd",
+      "time": 1,
+      "timeUnit": "min"
+    },
+    "independentDerivation": "100 lbf*30 ft/60 s=50 ft lbf/s; mechanical hp=50/550.",
+    "expected": {
+      "mechanicalHp": 0.09090909090909091,
+      "watts": 67.79089741657002
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-mg-milliliters",
+    "proposedModeId": "concentration",
+    "inputs": {
+      "mass": 250,
+      "massUnit": "mg",
+      "molarMass": 50,
+      "molarMassUnit": "g/mol",
+      "volume": 100,
+      "volumeUnit": "mL",
+      "outputUnit": "mM"
+    },
+    "independentDerivation": ".250/(50*.100)=.05 mol/L.",
+    "expected": {
+      "molarityM": 0.05,
+      "concentration": 50,
+      "massConcentrationGL": 2.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-kgmol-mass",
+    "proposedModeId": "mass",
+    "inputs": {
+      "concentration": 250,
+      "concentrationUnit": "mM",
+      "molarMass": 0.04,
+      "molarMassUnit": "kg/mol",
+      "volume": 500,
+      "volumeUnit": "mL",
+      "outputMassUnit": "g"
+    },
+    "independentDerivation": ".25 mol/L*40 g/mol*.5 L=5 g.",
+    "expected": {
+      "massG": 5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-ppm-density",
+    "proposedModeId": "concentration-transform",
+    "inputs": {
+      "concentration": 1000,
+      "concentrationUnit": "ppm-mass",
+      "solutionDensity": 1.2,
+      "molarMass": 60,
+      "molarMassUnit": "g/mol",
+      "outputUnit": "mM"
+    },
+    "independentDerivation": "1000 mg/kg*1.2 kg/L=1200 mg/L=1.2 g/L; /60=.02 M.",
+    "expected": {
+      "massConcentrationGL": 1.2,
+      "concentration": 20
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-mol-per-cubic-meter",
+    "proposedModeId": "concentration-transform",
+    "inputs": {
+      "concentration": 20,
+      "concentrationUnit": "mol/m3",
+      "molarMass": 50,
+      "outputUnit": "g/L"
+    },
+    "independentDerivation": "20 mol/m3=.02 mol/L; *.50e2 g/mol=1 g/L.",
+    "expected": {
+      "concentration": 1
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-volume-mass-basis",
+    "proposedModeId": "volume",
+    "inputs": {
+      "mass": 100,
+      "massUnit": "mg",
+      "concentration": 2,
+      "concentrationUnit": "g/L",
+      "outputVolumeUnit": "mL"
+    },
+    "independentDerivation": ".1 g / (2 g/L)=.05 L.",
+    "expected": {
+      "volumeML": 50
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-ppm-missing-density",
+    "proposedModeId": "concentration-transform",
+    "inputs": {
+      "concentration": 100,
+      "concentrationUnit": "ppm-mass",
+      "molarMass": 58.44,
+      "outputUnit": "M"
+    },
+    "independentDerivation": "",
+    "expectedError": "Enter solution density for mass-fraction conversion."
+  },
+  {
+    "group": "molarity-concentration-units",
+    "slug": "molarity-calculator",
+    "id": "molarity-unidentifiable-mw",
+    "proposedModeId": "molarMass",
+    "inputs": {
+      "mass": 5,
+      "massUnit": "g",
+      "volume": 1,
+      "volumeUnit": "L",
+      "concentration": 5,
+      "concentrationUnit": "g/L"
+    },
+    "independentDerivation": "",
+    "expectedError": "These mass-concentration inputs do not determine molar mass."
+  },
+  {
+    "group": "gdp-income",
+    "slug": "gdp-calculator",
+    "id": "income-domestic-components",
+    "proposedModeId": "income",
+    "inputs": {
+      "componentBasis": "domestic-income",
+      "compensation": 500,
+      "proprietors": 80,
+      "rents": 20,
+      "profits": 70,
+      "netInterest": 30,
+      "otherIncome": 0,
+      "taxesLessSubsidies": 50,
+      "capitalConsumption": 100,
+      "statisticalDiscrepancy": 0
+    },
+    "independentDerivation": "500+80+20+70+30=700; +50+100=850.",
+    "expected": {
+      "factorIncome": 700,
+      "grossDomesticIncome": 850,
+      "gdpEstimate": 850
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "gdp-income",
+    "slug": "gdp-calculator",
+    "id": "income-national-bridge",
+    "proposedModeId": "income",
+    "inputs": {
+      "componentBasis": "national-factor-income",
+      "compensation": 500,
+      "proprietors": 80,
+      "rents": 20,
+      "profits": 70,
+      "netInterest": 30,
+      "otherIncome": 0,
+      "taxesLessSubsidies": 50,
+      "capitalConsumption": 100,
+      "netPaymentsAbroad": 30,
+      "statisticalDiscrepancy": -5
+    },
+    "independentDerivation": "GDI=GNI+payments-receipts=850+30. GDP=880-5.",
+    "expected": {
+      "factorIncome": 700,
+      "grossNationalIncome": 850,
+      "grossDomesticIncome": 880,
+      "gdpEstimate": 875
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "gdp-income",
+    "slug": "gdp-calculator",
+    "id": "income-negative-foreign-net",
+    "proposedModeId": "income-aggregate",
+    "inputs": {
+      "componentBasis": "national-factor-income",
+      "compensation": 100,
+      "netOperatingSurplus": 40,
+      "taxesLessSubsidies": 10,
+      "capitalConsumption": 20,
+      "netPaymentsAbroad": -15,
+      "statisticalDiscrepancy": 2
+    },
+    "independentDerivation": "National minus net receipts abroad:170-15=155; +2 discrepancy.",
+    "expected": {
+      "grossNationalIncome": 170,
+      "grossDomesticIncome": 155,
+      "gdpEstimate": 157
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-nepal-fixed",
+    "proposedModeId": "fixed-offsets",
+    "inputs": {
+      "date": "2026-01-01",
+      "time": "12:00",
+      "fromOffset": "+05:45",
+      "toOffset": "+00:00"
+    },
+    "independentDerivation": "12:00-5h45m.",
+    "expected": {
+      "destination": "2026-01-01T06:15:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-date-line",
+    "proposedModeId": "fixed-offsets",
+    "inputs": {
+      "date": "2026-01-01",
+      "time": "00:30",
+      "fromOffset": "+14:00",
+      "toOffset": "-12:00"
+    },
+    "independentDerivation": "Destination clock is 26 hours earlier.",
+    "expected": {
+      "destination": "2025-12-30T22:30:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-honolulu-kathmandu",
+    "proposedModeId": "zone",
+    "inputs": {
+      "date": "2026-01-01",
+      "time": "12:00",
+      "from": "Pacific/Honolulu",
+      "to": "Asia/Kathmandu",
+      "ambiguity": "earlier"
+    },
+    "independentDerivation": "At this instant Honolulu is -10:00, Kathmandu +05:45; add15h45.",
+    "expected": {
+      "destination": "2026-01-02T03:45:00",
+      "sourceOffsetMinutes": -600,
+      "destinationOffsetMinutes": 345
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-lord-howe-earlier",
+    "proposedModeId": "zone",
+    "inputs": {
+      "date": "2026-04-05",
+      "time": "01:45",
+      "from": "Australia/Lord_Howe",
+      "to": "UTC",
+      "ambiguity": "earlier"
+    },
+    "independentDerivation": "Earlier fold occurrence has offset +11:00.",
+    "expected": {
+      "destination": "2026-04-04T14:45:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-lord-howe-later",
+    "proposedModeId": "zone",
+    "inputs": {
+      "date": "2026-04-05",
+      "time": "01:45",
+      "from": "Australia/Lord_Howe",
+      "to": "UTC",
+      "ambiguity": "later"
+    },
+    "independentDerivation": "Later fold occurrence has offset +10:30, a 30-minute difference.",
+    "expected": {
+      "destination": "2026-04-04T15:15:00"
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-lord-howe-gap",
+    "proposedModeId": "zone",
+    "inputs": {
+      "date": "2026-10-04",
+      "time": "02:15",
+      "from": "Australia/Lord_Howe",
+      "to": "UTC",
+      "ambiguity": "earlier"
+    },
+    "independentDerivation": "",
+    "expectedError": "This local time does not exist during the half-hour transition."
+  },
+  {
+    "group": "timezone-coverage",
+    "slug": "time-zone-calculator",
+    "id": "zone-bounds",
+    "proposedModeId": "fixed-offsets",
+    "inputs": {
+      "date": "0001-01-01",
+      "time": "00:00",
+      "fromOffset": "+14:00",
+      "toOffset": "-12:00"
+    },
+    "independentDerivation": "",
+    "expectedError": "Converted date lies outside supported years."
+  },
+  {
+    "group": "floor-cost-units",
+    "slug": "square-footage-calculator",
+    "id": "floor-mixed-units-cost",
+    "proposedModeId": "rectangle",
+    "inputs": {
+      "length": 10,
+      "lengthUnit": "ft",
+      "width": 3.048,
+      "widthUnit": "m",
+      "quantity": 1,
+      "price": 20,
+      "priceAreaUnit": "m2"
+    },
+    "independentDerivation": "Both dimensions3.048m; square=9.290304; *20.",
+    "expected": {
+      "areaM2": 9.290304,
+      "areaFt2": 100,
+      "cost": 185.80608
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "floor-cost-units",
+    "slug": "square-footage-calculator",
+    "id": "floor-ring-metric",
+    "proposedModeId": "shapes",
+    "inputs": {
+      "shape": "ring",
+      "outerDiameter": 2,
+      "outerDiameterUnit": "m",
+      "border": 10,
+      "borderUnit": "cm",
+      "quantity": 2,
+      "price": 100,
+      "priceAreaUnit": "m2"
+    },
+    "independentDerivation": "2*pi*(1^2-.9^2)=.38pi.",
+    "expected": {
+      "areaM2": 1.1938052083641213,
+      "cost": 119.38052083641213
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "floor-cost-units",
+    "slug": "square-footage-calculator",
+    "id": "floor-invalid-border",
+    "proposedModeId": "shapes",
+    "inputs": {
+      "shape": "border",
+      "length": 1,
+      "lengthUnit": "m",
+      "width": 100,
+      "widthUnit": "cm",
+      "border": 60,
+      "borderUnit": "cm"
+    },
+    "independentDerivation": "",
+    "expectedError": "Twice the inward border cannot exceed either outer dimension."
+  },
+  {
+    "group": "concrete-stairs",
+    "slug": "concrete-calculator",
+    "id": "concrete-stairs-metric",
+    "proposedModeId": "stairs",
+    "inputs": {
+      "risers": 4,
+      "riser": 15,
+      "riserUnit": "cm",
+      "run": 300,
+      "runUnit": "mm",
+      "platform": 1,
+      "platformUnit": "m",
+      "width": 100,
+      "widthUnit": "cm"
+    },
+    "independentDerivation": "1*.15*(.3*4*3/2+1*4)=.87.",
+    "expected": {
+      "volumeM3": 0.87
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-stairs",
+    "slug": "concrete-calculator",
+    "id": "concrete-one-riser",
+    "proposedModeId": "stairs",
+    "inputs": {
+      "risers": 1,
+      "riser": 0.2,
+      "run": 0.3,
+      "platform": 0.8,
+      "width": 1,
+      "unit": "m"
+    },
+    "independentDerivation": "One platform prism:1*.2*.8.",
+    "expected": {
+      "volumeM3": 0.16
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-curb",
+    "slug": "concrete-calculator",
+    "id": "curb-above-flag",
+    "proposedModeId": "curb",
+    "inputs": {
+      "curbDepth": 0.15,
+      "gutterWidth": 0.5,
+      "flagThickness": 0.1,
+      "curbHeight": 0.2,
+      "length": 10,
+      "quantity": 1,
+      "unit": "m",
+      "waste": 0
+    },
+    "independentDerivation": "(.15+.5)*.1+.15*.2=.095; times10=.95.",
+    "expected": {
+      "crossSectionM2": 0.095,
+      "netVolumeM3": 0.95,
+      "orderVolumeM3": 0.95
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-curb",
+    "slug": "concrete-calculator",
+    "id": "curb-repeat-waste",
+    "proposedModeId": "curb",
+    "inputs": {
+      "curbDepth": 6,
+      "gutterWidth": 18,
+      "flagThickness": 6,
+      "curbHeight": 6,
+      "crossSectionUnit": "in",
+      "length": 30,
+      "lengthUnit": "ft",
+      "quantity": 2,
+      "waste": 10
+    },
+    "independentDerivation": "[(.5+1.5)*.5+.5*.5]*30*2=75 ft3.",
+    "expected": {
+      "netVolumeFt3": 75,
+      "netVolumeYd3": 2.7777777777777777,
+      "orderVolumeFt3": 82.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-curb",
+    "slug": "concrete-calculator",
+    "id": "curb-base-only",
+    "proposedModeId": "curb",
+    "inputs": {
+      "curbDepth": 0.2,
+      "gutterWidth": 0.8,
+      "flagThickness": 0.1,
+      "curbHeight": 0,
+      "length": 5,
+      "quantity": 1,
+      "unit": "m",
+      "waste": 0
+    },
+    "independentDerivation": "1m-wide .1m-thick 5m slab.",
+    "expected": {
+      "netVolumeM3": 0.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-quantity-units",
+    "slug": "concrete-calculator",
+    "id": "slab-quantity-one-yard",
+    "proposedModeId": "slab",
+    "inputs": {
+      "length": 9,
+      "lengthUnit": "ft",
+      "width": 3,
+      "widthUnit": "ft",
+      "depth": 4,
+      "depthUnit": "in",
+      "quantity": 3,
+      "waste": 0
+    },
+    "independentDerivation": "9*3*(4/12)*3=27 ft3=1yd3.",
+    "expected": {
+      "netVolumeFt3": 27,
+      "netVolumeYd3": 1,
+      "netVolumeM3": 0.764554857984
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "concrete-quantity-units",
+    "slug": "concrete-calculator",
+    "id": "slab-metric-mm",
+    "proposedModeId": "slab",
+    "inputs": {
+      "length": 2,
+      "lengthUnit": "m",
+      "width": 150,
+      "widthUnit": "cm",
+      "depth": 100,
+      "depthUnit": "mm",
+      "quantity": 2,
+      "waste": 5,
+      "price": 150,
+      "priceVolumeUnit": "m3",
+      "priceBasis": "ordered"
+    },
+    "independentDerivation": "2*1.5*.1*2=.6; *1.05=.63; *150=94.5.",
+    "expected": {
+      "netVolumeM3": 0.6,
+      "orderVolumeM3": 0.63,
+      "cost": 94.5
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-footprint-angle",
+    "slug": "roofing-calculator",
+    "id": "roof-angle-direct-area",
+    "proposedModeId": "area-angle",
+    "inputs": {
+      "planInput": "known-horizontal-area",
+      "planArea": 100,
+      "areaUnit": "m2",
+      "slopeInput": "degrees",
+      "pitch": 30,
+      "waste": 0
+    },
+    "independentDerivation": "100/cos30=200/sqrt3.",
+    "expected": {
+      "netRoofAreaM2": 115.47005383792516
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-footprint-angle",
+    "slug": "roofing-calculator",
+    "id": "roof-rectangle-eaves-flat",
+    "proposedModeId": "area-angle",
+    "inputs": {
+      "planInput": "rectangle-dimensions",
+      "length": 10,
+      "width": 8,
+      "eaves": 0.5,
+      "unit": "m",
+      "slopeInput": "degrees",
+      "pitch": 0,
+      "waste": 0
+    },
+    "independentDerivation": "(10+1)*(8+1)=99.",
+    "expected": {
+      "planAreaM2": 99,
+      "netRoofAreaM2": 99
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-footprint-angle",
+    "slug": "roofing-calculator",
+    "id": "roof-345-slope-price",
+    "proposedModeId": "area-angle",
+    "inputs": {
+      "planInput": "rectangle-dimensions",
+      "length": 20,
+      "width": 10,
+      "eaves": 1,
+      "unit": "ft",
+      "slopeInput": "rise-per12",
+      "pitch": 9,
+      "waste": 10,
+      "price": 2,
+      "priceAreaUnit": "ft2",
+      "priceBasis": "with-allowance"
+    },
+    "independentDerivation": "22*12=264; sqrt(1+.75\u00b2)=1.25; net330; *1.1=363.",
+    "expected": {
+      "planAreaFt2": 264,
+      "netRoofAreaFt2": 330,
+      "orderAreaFt2": 363,
+      "cost": 726
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-footprint-angle",
+    "slug": "roofing-calculator",
+    "id": "roof-vertical-invalid",
+    "proposedModeId": "area-angle",
+    "inputs": {
+      "planInput": "known-horizontal-area",
+      "planArea": 100,
+      "areaUnit": "m2",
+      "slopeInput": "degrees",
+      "pitch": 90
+    },
+    "independentDerivation": "",
+    "expectedError": "Roof slope angle must be below90 degrees."
+  },
+  {
+    "group": "roof-material",
+    "slug": "roofing-calculator",
+    "id": "roof-material-three-per-square",
+    "proposedModeId": "materials",
+    "inputs": {
+      "area": 1500,
+      "areaUnit": "ft2",
+      "waste": 10,
+      "coverageMode": "packages-per-square",
+      "packagesPerSquare": 3,
+      "pricePerPackage": 40
+    },
+    "independentDerivation": "1650/100*3=49.5; ceil50.",
+    "expected": {
+      "orderAreaFt2": 1650,
+      "roofingSquares": 16.5,
+      "packages": 50,
+      "cost": 2000
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-material",
+    "slug": "roofing-calculator",
+    "id": "roof-material-exact-boundary",
+    "proposedModeId": "materials",
+    "inputs": {
+      "area": 100,
+      "areaUnit": "ft2",
+      "waste": 0,
+      "coverageMode": "packages-per-square",
+      "packagesPerSquare": 3,
+      "pricePerPackage": 25
+    },
+    "independentDerivation": "Avoidceil(100/33.33)=4 from premature coverage rounding.",
+    "expected": {
+      "packages": 3,
+      "cost": 75
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "roof-material",
+    "slug": "roofing-calculator",
+    "id": "roof-material-metric-package",
+    "proposedModeId": "materials",
+    "inputs": {
+      "area": 85,
+      "areaUnit": "m2",
+      "waste": 5,
+      "coverageMode": "area-per-package",
+      "packageCoverage": 2.5,
+      "packageCoverageUnit": "m2",
+      "pricePerPackage": 30
+    },
+    "independentDerivation": "85*1.05=89.25; /2.5=35.7;ceil36.",
+    "expected": {
+      "orderAreaM2": 89.25,
+      "packages": 36,
+      "purchasedAreaM2": 90,
+      "cost": 1080
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "stairs-mount-headroom",
+    "slug": "stair-calculator",
+    "id": "stairs-standard-clearance",
+    "proposedModeId": "comprehensive",
+    "inputs": {
+      "totalRise": 105,
+      "riserCount": 15,
+      "treadRun": 10,
+      "mount": "standard",
+      "treadThickness": 1,
+      "floorThickness": 6,
+      "headroomMode": "from-opening",
+      "floorOpening": 130,
+      "unit": "in"
+    },
+    "independentDerivation": "r=105/15=7; C=130*.7-6=85.",
+    "expected": {
+      "riserHeight": 7,
+      "treads": 14,
+      "totalRun": 140,
+      "headroom": 85,
+      "topTreadHeight": 98,
+      "topSupportHeight": 97,
+      "firstRoughRise": 6
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "stairs-mount-headroom",
+    "slug": "stair-calculator",
+    "id": "stairs-flush-clearance",
+    "proposedModeId": "comprehensive",
+    "inputs": {
+      "totalRise": 105,
+      "riserCount": 15,
+      "treadRun": 10,
+      "mount": "flush",
+      "treadThickness": 1,
+      "floorThickness": 6,
+      "headroomMode": "from-opening",
+      "floorOpening": 130,
+      "unit": "in"
+    },
+    "independentDerivation": "C=(130-10)*.7-6=78; top tread level with landing.",
+    "expected": {
+      "riserHeight": 7,
+      "treads": 15,
+      "totalRun": 150,
+      "headroom": 78,
+      "topTreadHeight": 105,
+      "topSupportHeight": 104,
+      "firstRoughRise": 6
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "stairs-mount-headroom",
+    "slug": "stair-calculator",
+    "id": "stairs-required-opening",
+    "proposedModeId": "comprehensive",
+    "inputs": {
+      "totalRise": 105,
+      "riserCount": 15,
+      "treadRun": 10,
+      "mount": "standard",
+      "floorThickness": 6,
+      "headroomMode": "required-opening",
+      "targetHeadroom": 80,
+      "treadThickness": 1,
+      "unit": "in"
+    },
+    "independentDerivation": "(80+6)*10/7=122.857142857...in.",
+    "expected": {
+      "requiredOpening": 122.85714285714286
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "stairs-mount-headroom",
+    "slug": "stair-calculator",
+    "id": "stairs-required-opening-flush",
+    "proposedModeId": "comprehensive",
+    "inputs": {
+      "totalRise": 105,
+      "riserCount": 15,
+      "treadRun": 10,
+      "mount": "flush",
+      "floorThickness": 6,
+      "headroomMode": "required-opening",
+      "targetHeadroom": 80,
+      "treadThickness": 1,
+      "unit": "in"
+    },
+    "independentDerivation": "10+(80+6)*10/7=132.857142857...in.",
+    "expected": {
+      "requiredOpening": 132.85714285714286
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "stairs-mount-headroom",
+    "slug": "stair-calculator",
+    "id": "stairs-impossible-tread-thickness",
+    "proposedModeId": "comprehensive",
+    "inputs": {
+      "totalRise": 105,
+      "riserCount": 15,
+      "treadRun": 10,
+      "treadThickness": 8,
+      "unit": "in"
+    },
+    "independentDerivation": "",
+    "expectedError": "Tread thickness must be below riser height in this support model."
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-dc-parallel",
+    "proposedModeId": "custom",
+    "inputs": {
+      "system": "dc",
+      "voltage": 120,
+      "current": 10,
+      "length": 30,
+      "lengthUnit": "m",
+      "parallel": 2,
+      "impedanceMode": "resistance-only",
+      "resistance": 0.01,
+      "coefficientUnit": "ohm/m"
+    },
+    "independentDerivation": "2*10*30*.01/2=3V.",
+    "expected": {
+      "dropV": 3,
+      "dropPercent": 2.5,
+      "receivingVoltage": 117
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-single-rx",
+    "proposedModeId": "custom",
+    "inputs": {
+      "system": "ac-single",
+      "voltage": 230,
+      "current": 10,
+      "length": 100,
+      "lengthUnit": "m",
+      "parallel": 1,
+      "impedanceMode": "r-and-x",
+      "resistance": 0.01,
+      "reactance": 0.002,
+      "coefficientUnit": "ohm/m",
+      "powerFactor": 0.8,
+      "loadType": "lagging"
+    },
+    "independentDerivation": "sinphi=.6;R*.8+X*.6=.0092;2*10*100*.0092=18.4.",
+    "expected": {
+      "effectiveOhmPerM": 0.0092,
+      "dropV": 18.4,
+      "dropPercent": 8,
+      "receivingVoltage": 211.6
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-three-rx-parallel",
+    "proposedModeId": "custom",
+    "inputs": {
+      "system": "ac-three-balanced",
+      "voltage": 400,
+      "current": 20,
+      "length": 100,
+      "lengthUnit": "m",
+      "parallel": 2,
+      "impedanceMode": "r-and-x",
+      "resistance": 0.01,
+      "reactance": 0.002,
+      "coefficientUnit": "ohm/m",
+      "powerFactor": 0.8,
+      "loadType": "lagging"
+    },
+    "independentDerivation": "sqrt3*20*100*.0092/2=9.2sqrt3.",
+    "expected": {
+      "dropV": 15.93486742963367,
+      "receivingVoltage": 384.06513257036636
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-ohms-per1000ft",
+    "proposedModeId": "custom",
+    "inputs": {
+      "system": "dc",
+      "voltage": 120,
+      "current": 10,
+      "length": 500,
+      "lengthUnit": "ft",
+      "parallel": 1,
+      "impedanceMode": "resistance-only",
+      "resistance": 2,
+      "coefficientUnit": "ohm/1000ft"
+    },
+    "independentDerivation": "2*10*(500/1000)*2=20.",
+    "expected": {
+      "dropV": 20,
+      "receivingVoltage": 100
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-leading-rise",
+    "proposedModeId": "custom",
+    "inputs": {
+      "system": "ac-single",
+      "voltage": 120,
+      "current": 10,
+      "length": 10,
+      "lengthUnit": "m",
+      "parallel": 1,
+      "impedanceMode": "r-and-x",
+      "resistance": 0.001,
+      "reactance": 0.01,
+      "coefficientUnit": "ohm/m",
+      "powerFactor": 0.8,
+      "loadType": "leading"
+    },
+    "independentDerivation": "2*10*10*(.0008-.006)=-1.04.",
+    "expected": {
+      "dropV": -1.04,
+      "receivingVoltage": 121.04
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-custom-ac-parallel",
+    "slug": "voltage-drop-calculator",
+    "id": "voltage-zero-parallel",
+    "proposedModeId": "custom",
+    "inputs": {
+      "parallel": 0
+    },
+    "independentDerivation": "",
+    "expectedError": "Parallel conductor count must be a positive integer."
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "awg36-endpoint",
+    "proposedModeId": "wire-size",
+    "inputs": {
+      "sizeInput": "AWG",
+      "awg": 36
+    },
+    "independentDerivation": "Exponentzero gives.127mm exactly; area=pi*d\u00b2/4.",
+    "expected": {
+      "diameterMm": 0.127,
+      "areaMm2": 0.012667686977437444
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "awg4zero-endpoint",
+    "proposedModeId": "wire-size",
+    "inputs": {
+      "sizeInput": "AWG",
+      "awg": "4/0"
+    },
+    "independentDerivation": "g=-3 =>exponent1;.127*92=11.684mm=.460in.",
+    "expected": {
+      "diameterMm": 11.684,
+      "areaMm2": 107.2193025770305
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "kcmil500-area",
+    "proposedModeId": "wire-size",
+    "inputs": {
+      "sizeInput": "kcmil",
+      "kcmil": 500
+    },
+    "independentDerivation": "500000 circles each diameter.001in.",
+    "expected": {
+      "areaMm2": 253.35373954874885
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "silver-dc",
+    "proposedModeId": "dc",
+    "inputs": {
+      "material": "silver-nominal",
+      "temperature": 20,
+      "area": 2,
+      "areaUnit": "mm2",
+      "length": 30,
+      "lengthUnit": "m",
+      "current": 10,
+      "voltage": 120
+    },
+    "independentDerivation": "rho=.0159ohm mm2/m;loopR=.0159*60/2=.477.",
+    "expected": {
+      "loopResistanceOhm": 0.477,
+      "dropV": 4.77,
+      "receivingVoltage": 115.23
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "gold-temperature",
+    "proposedModeId": "dc",
+    "inputs": {
+      "material": "gold-nominal",
+      "temperature": 40,
+      "area": 2,
+      "areaUnit": "mm2",
+      "length": 30,
+      "lengthUnit": "m",
+      "current": 10,
+      "voltage": 120
+    },
+    "independentDerivation": "rho=.0244*(1+.0034*20)=.0260592ohm mm2/m;drop=rho*60/2*10.",
+    "expected": {
+      "rhoOhmM": 2.60592e-08,
+      "dropV": 7.81776,
+      "receivingVoltage": 112.18224
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "voltage-wire-gauge",
+    "slug": "voltage-drop-calculator",
+    "id": "awg-fraction-invalid",
+    "proposedModeId": "wire-size",
+    "inputs": {
+      "sizeInput": "AWG",
+      "awg": 12.5
+    },
+    "independentDerivation": "",
+    "expectedError": "AWG gauge must be an available integer/aught size."
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-binary-mebibyte",
+    "proposedModeId": "data-converter",
+    "inputs": {
+      "value": 1,
+      "from": "MiB",
+      "to": "Mb"
+    },
+    "independentDerivation": "2^20bytes*8/1e6bits.",
+    "expected": {
+      "value": 8.388608
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-binary-transfer",
+    "proposedModeId": "transfer-units",
+    "inputs": {
+      "size": 2,
+      "sizeUnit": "GiB",
+      "rate": 100,
+      "rateUnit": "Mbit/s"
+    },
+    "independentDerivation": "2*2^30*8/1e8.",
+    "expected": {
+      "seconds": 171.79869184
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-per-minute",
+    "proposedModeId": "website-units",
+    "inputs": {
+      "pageviews": 120,
+      "viewPeriod": "minute",
+      "pageSize": 250,
+      "pageSizeUnit": "kB",
+      "redundancyMode": "multiplier",
+      "redundancy": 2,
+      "outputDays": 30
+    },
+    "independentDerivation": "2views/s*250000B*8*2=8e6bit/s;30days =>2592e9B.",
+    "expected": {
+      "averageMbps": 8,
+      "transferGB": 2592
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-calendar-feb-leap",
+    "proposedModeId": "website-units",
+    "inputs": {
+      "pageviews": 100,
+      "viewPeriod": "day",
+      "pageSize": 1,
+      "pageSizeUnit": "MB",
+      "redundancyMode": "extra-percent",
+      "redundancy": 0,
+      "outputStart": "2028-02-01",
+      "outputEnd": "2028-03-01"
+    },
+    "independentDerivation": "29*100*1e6B=2.9e9B.",
+    "expected": {
+      "days": 29,
+      "transferGB": 2.9
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-byte-rate",
+    "proposedModeId": "transfer-units",
+    "inputs": {
+      "size": 1,
+      "sizeUnit": "GB",
+      "rate": 10,
+      "rateUnit": "MB/s"
+    },
+    "independentDerivation": "1e9bytes/1e7bytes/s.",
+    "expected": {
+      "seconds": 100
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "bandwidth-unit-time-options",
+    "slug": "bandwidth-calculator",
+    "id": "bandwidth-zero-rate",
+    "proposedModeId": "transfer-units",
+    "inputs": {
+      "size": 1,
+      "sizeUnit": "GB",
+      "rate": 0,
+      "rateUnit": "Mbit/s"
+    },
+    "independentDerivation": "",
+    "expectedError": "Transfer rate must be positive."
+  },
+  {
+    "group": "tire-single-alt-rim",
+    "slug": "tire-size-calculator",
+    "id": "tire-single-nominal",
+    "proposedModeId": "single",
+    "inputs": {
+      "width": 195,
+      "aspect": 65,
+      "rim": 15
+    },
+    "independentDerivation": "195*.65=126.75;15*25.4+2*126.75=634.5.",
+    "expected": {
+      "sidewallMm": 126.75,
+      "diameterMm": 634.5,
+      "circumferenceMm": 1993.3405387027237,
+      "revolutionsPerKm": 501.67042739762127
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tire-single-alt-rim",
+    "slug": "tire-size-calculator",
+    "id": "tire-alt-rim-target",
+    "proposedModeId": "alternative-rim",
+    "inputs": {
+      "width": 225,
+      "aspect": 50,
+      "rim": 17,
+      "alternativeRim": 18,
+      "alternativeWidth": 225
+    },
+    "independentDerivation": "D=431.8+225=656.8;h2=(656.8-457.2)/2=99.8;100h2/225.",
+    "expected": {
+      "originalDiameterMm": 656.8,
+      "targetSidewallMm": 99.8,
+      "targetAspectPercent": 44.355555555555554
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tire-single-alt-rim",
+    "slug": "tire-size-calculator",
+    "id": "tire-alt-candidate",
+    "proposedModeId": "alternative-rim",
+    "inputs": {
+      "width": 225,
+      "aspect": 50,
+      "rim": 17,
+      "alternativeRim": 18,
+      "alternativeWidth": 225,
+      "candidateAspect": 45,
+      "indicatedSpeed": 60
+    },
+    "independentDerivation": "225/45R18 yields457.2+202.5=659.7; not exact target.",
+    "expected": {
+      "candidateDiameterMm": 659.7,
+      "diameterDifferencePercent": 0.44153471376370285,
+      "actualSpeed": 60.26492082825823
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "tire-single-alt-rim",
+    "slug": "tire-size-calculator",
+    "id": "tire-alt-rim-too-large",
+    "proposedModeId": "alternative-rim",
+    "inputs": {
+      "width": 225,
+      "aspect": 50,
+      "rim": 17,
+      "alternativeRim": 26,
+      "alternativeWidth": 225
+    },
+    "independentDerivation": "",
+    "expectedError": "New rim diameter leaves no positive sidewall at the target diameter."
+  },
+  {
+    "group": "height-units",
+    "slug": "height-calculator",
+    "id": "height-feet-fraction",
+    "proposedModeId": "converter",
+    "inputs": {
+      "direction": "feet-inches-to-cm",
+      "feet": 5,
+      "inches": 9.5
+    },
+    "independentDerivation": "69.5in*2.54=176.53.",
+    "expected": {
+      "centimeters": 176.53
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "height-units",
+    "slug": "height-calculator",
+    "id": "height-exact-six-feet",
+    "proposedModeId": "converter",
+    "inputs": {
+      "direction": "cm-to-feet-inches",
+      "centimeters": 182.88
+    },
+    "independentDerivation": "182.88/2.54=72in.",
+    "expected": {
+      "feet": 6,
+      "inches": 0
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "height-units",
+    "slug": "height-calculator",
+    "id": "height-parental-imperial",
+    "proposedModeId": "parental",
+    "inputs": {
+      "parentUnit": "feet-inches",
+      "motherFeet": 5,
+      "motherInches": 2,
+      "fatherFeet": 5,
+      "fatherInches": 10,
+      "sex": "male"
+    },
+    "independentDerivation": "(62*2.54+70*2.54+13)/2=174.14.",
+    "expected": {
+      "motherCm": 157.48,
+      "fatherCm": 177.8,
+      "predictedCm": 174.14
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "height-units",
+    "slug": "height-calculator",
+    "id": "height-inches-range",
+    "proposedModeId": "converter",
+    "inputs": {
+      "direction": "feet-inches-to-cm",
+      "feet": 5,
+      "inches": 12
+    },
+    "independentDerivation": "",
+    "expectedError": "Inches must be below12 under the chosen input convention."
+  },
+  {
+    "group": "engine-quartermile",
+    "slug": "engine-horsepower-calculator",
+    "id": "engine-et-independent",
+    "proposedModeId": "quarter-mile-et",
+    "inputs": {
+      "raceWeight": 3200,
+      "massUnit": "lb",
+      "elapsed": 11.65,
+      "timeUnit": "s"
+    },
+    "independentDerivation": "ET=2*5.825;3200/2^3=400.",
+    "expected": {
+      "estimatedHp": 400
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "engine-quartermile",
+    "slug": "engine-horsepower-calculator",
+    "id": "engine-trap-independent",
+    "proposedModeId": "quarter-mile-trap-speed",
+    "inputs": {
+      "raceWeight": 3200,
+      "massUnit": "lb",
+      "trapSpeed": 117,
+      "speedUnit": "mph"
+    },
+    "independentDerivation": "117/234=.5;3200*.5^3=400.",
+    "expected": {
+      "estimatedHp": 400
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "engine-quartermile",
+    "slug": "engine-horsepower-calculator",
+    "id": "engine-units-et",
+    "proposedModeId": "quarter-mile-et",
+    "inputs": {
+      "raceWeight": 1451.495584,
+      "massUnit": "kg",
+      "elapsed": 0.19416666666666665,
+      "timeUnit": "min"
+    },
+    "independentDerivation": "1451.495584/.45359237=3200lb;11.65s/60min.",
+    "expected": {
+      "estimatedHp": 400
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "engine-quartermile",
+    "slug": "engine-horsepower-calculator",
+    "id": "engine-trap-kph",
+    "proposedModeId": "quarter-mile-trap-speed",
+    "inputs": {
+      "raceWeight": 1.6,
+      "massUnit": "US-short-ton",
+      "trapSpeed": 188.293248,
+      "speedUnit": "km/h"
+    },
+    "independentDerivation": "117mph*1.609344=188.293248km/h;1.6shorttons=3200lb.",
+    "expected": {
+      "estimatedHp": 400
+    },
+    "absoluteTolerance": 1e-10,
+    "relativeTolerance": 1e-12
+  },
+  {
+    "group": "engine-quartermile",
+    "slug": "engine-horsepower-calculator",
+    "id": "engine-zero-et",
+    "proposedModeId": "quarter-mile-et",
+    "inputs": {
+      "raceWeight": 3200,
+      "massUnit": "lb",
+      "elapsed": 0,
+      "timeUnit": "s"
+    },
+    "independentDerivation": "",
+    "expectedError": "Elapsed time must be positive."
+  }
+]

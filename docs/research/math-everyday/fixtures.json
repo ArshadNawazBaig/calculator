@@ -1,0 +1,331 @@
+[
+  {
+    "engine": "triangle",
+    "input": {
+      "sides": [
+        3,
+        4,
+        5
+      ]
+    },
+    "expected": {
+      "area": 6,
+      "perimeter": 12,
+      "inradius": 1,
+      "circumradius": 2.5
+    }
+  },
+  {
+    "engine": "triangle-ssa",
+    "input": {
+      "a": 5,
+      "b": 8,
+      "A_degrees": 30
+    },
+    "expected": {
+      "solutionCount": 2,
+      "B_degrees": [
+        53.13010235415598,
+        126.86989764584402
+      ]
+    }
+  },
+  {
+    "engine": "normal-tail",
+    "input": {
+      "z": 1.959963984540054
+    },
+    "expected": {
+      "left": 0.975,
+      "right": 0.025,
+      "twoTail": 0.05
+    }
+  },
+  {
+    "engine": "normal-tail",
+    "input": {
+      "z": 8
+    },
+    "expected": {
+      "right": 6.220960574271784e-16,
+      "twoTail": 1.2441921148543568e-15
+    }
+  },
+  {
+    "engine": "confidence",
+    "input": {
+      "mode": "z",
+      "n": 100,
+      "mean": 50,
+      "sd": 10,
+      "confidence": 0.95
+    },
+    "expected": {
+      "lower": 48.04003601545995,
+      "upper": 51.95996398454005
+    }
+  },
+  {
+    "engine": "confidence",
+    "input": {
+      "mode": "t",
+      "n": 10,
+      "mean": 20,
+      "sd": 2,
+      "confidence": 0.95
+    },
+    "expected": {
+      "margin": 1.4307138119051444
+    }
+  },
+  {
+    "engine": "sample-size",
+    "input": {
+      "confidence": 0.95,
+      "p": 0.5,
+      "margin": 0.05
+    },
+    "expected": {
+      "ceilN": 385
+    }
+  },
+  {
+    "engine": "sample-size",
+    "input": {
+      "confidence": 0.95,
+      "p": 0.5,
+      "margin": 0.05,
+      "population": 1000
+    },
+    "expected": {
+      "ceilN": 278
+    }
+  },
+  {
+    "engine": "age",
+    "input": {
+      "birth": "2000-02-29",
+      "asOf": "2024-02-29"
+    },
+    "expected": {
+      "years": 24,
+      "months": 0,
+      "days": 0,
+      "totalCivilDays": 8766
+    }
+  },
+  {
+    "engine": "timezone",
+    "input": {
+      "local": "2026-03-15T12:00",
+      "from": "America/New_York",
+      "to": "Europe/London"
+    },
+    "expected": {
+      "local": "2026-03-15T16:00"
+    }
+  },
+  {
+    "engine": "timezone",
+    "input": {
+      "local": "2026-03-08T02:30",
+      "from": "America/New_York"
+    },
+    "expected": {
+      "error": "nonexistent-local-time"
+    }
+  },
+  {
+    "engine": "timezone",
+    "input": {
+      "local": "2026-11-01T01:30",
+      "from": "America/New_York"
+    },
+    "expected": {
+      "ambiguousUTC": [
+        "2026-11-01T05:30:00Z",
+        "2026-11-01T06:30:00Z"
+      ]
+    }
+  },
+  {
+    "engine": "subnet4",
+    "input": {
+      "address": "192.168.1.130",
+      "prefix": 26
+    },
+    "expected": {
+      "network": "192.168.1.128",
+      "broadcast": "192.168.1.191",
+      "usable": 62
+    }
+  },
+  {
+    "engine": "subnet4",
+    "input": {
+      "address": "192.0.2.0",
+      "prefix": 31,
+      "pointToPoint": true
+    },
+    "expected": {
+      "usable": 2,
+      "firstHost": "192.0.2.0",
+      "lastHost": "192.0.2.1"
+    }
+  },
+  {
+    "engine": "subnet6",
+    "input": {
+      "address": "2001:db8::1",
+      "prefix": 64
+    },
+    "expected": {
+      "network": "2001:db8::",
+      "count": "18446744073709551616",
+      "broadcast": null
+    }
+  },
+  {
+    "engine": "molar-mass",
+    "input": {
+      "formula": "H2O",
+      "dataset": "CIAAW-2024-abridged"
+    },
+    "expected": {
+      "gramsPerMol": 18.015
+    }
+  },
+  {
+    "engine": "molar-mass",
+    "input": {
+      "formula": "CuSO4.5H2O",
+      "dataset": "CIAAW-2024-abridged"
+    },
+    "expected": {
+      "counts": {
+        "Cu": 1,
+        "S": 1,
+        "O": 9,
+        "H": 10
+      }
+    }
+  },
+  {
+    "engine": "windchill",
+    "input": {
+      "fahrenheit": 30,
+      "mph": 10
+    },
+    "expected": {
+      "fahrenheit": 21.248293255649617
+    }
+  },
+  {
+    "engine": "heatindex",
+    "input": {
+      "fahrenheit": 90,
+      "RH": 70
+    },
+    "expected": {
+      "fahrenheit": 105.92202060000027
+    }
+  },
+  {
+    "engine": "dewpoint",
+    "input": {
+      "celsius": 20,
+      "RH": 50,
+      "formula": "NWS-base10-7.5-237.3"
+    },
+    "expected": {
+      "celsius": 9.269264346300414
+    }
+  },
+  {
+    "engine": "voltage-drop",
+    "input": {
+      "oneWayMeters": 10,
+      "amps": 5,
+      "ohmsPerMeter": 0.01,
+      "parallel": 1,
+      "phase": "dc",
+      "voltage": 120
+    },
+    "expected": {
+      "dropVolts": 1,
+      "percent": 0.8333333333333334
+    }
+  },
+  {
+    "engine": "golf-index-limited",
+    "input": {
+      "differentials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    "expected": {
+      "index": 4.5
+    }
+  },
+  {
+    "engine": "roof",
+    "input": {
+      "projectedSquareFeet": 1000,
+      "pitchRise": 6,
+      "pitchRun": 12
+    },
+    "expected": {
+      "squareFeet": 1118.033988749895
+    }
+  },
+  {
+    "engine": "tire",
+    "input": {
+      "widthMM": 205,
+      "aspectPercent": 55,
+      "rimInches": 16
+    },
+    "expected": {
+      "diameterMM": 631.9,
+      "circumferenceMM": 1985.1723978033901
+    }
+  },
+  {
+    "engine": "base64",
+    "input": {
+      "text": "\u2713",
+      "encoding": "utf-8"
+    },
+    "expected": {
+      "base64": "4pyT"
+    }
+  },
+  {
+    "engine": "url-component",
+    "input": {
+      "text": "a+b \u2713"
+    },
+    "expected": {
+      "encoded": "a%2Bb%20%E2%9C%93"
+    }
+  }
+]

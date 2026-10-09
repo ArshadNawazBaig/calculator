@@ -1,0 +1,357 @@
+{
+  "verifiedOn": "2026-10-09",
+  "status": "Ready bounded arithmetic spec; actual eligibility and special forms remain supplied inputs.",
+  "years": [
+    2025,
+    2026
+  ],
+  "primarySources": [
+    {
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf",
+      "locator": "2025 Schedule8812 page2, lines16\u201327",
+      "supports": "Alternative payroll branch, refundable cap, ordering"
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i1040s8",
+      "locator": "Additional Medicare Tax and RRTA Tax Worksheet; Earned Income Chart; Credit Limit WorksheetsA/B",
+      "supports": "Line21 correction, earned-income definition, credit interactions"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/pdf/USCODE-2024-title26-subtitleA-chap1-subchapA-partIV-subpartA-sec24.pdf",
+      "locator": "26USC24(d)(1)\u2013(2)",
+      "supports": "Three-child alternative and social-security-tax definition; read with2025amendment"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+      "locator": "section70104",
+      "supports": "2025childcredit amendments; no repeal of three-child alternative"
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "locator": "section4.05",
+      "supports": "2026refundmaximum remains1700"
+    }
+  ],
+  "algorithm": [
+    "line16a=max(0,preliminaryDependentCredit\u2212nonrefundableDependentCredit)",
+    "line16b=1700*qualifyingChildren",
+    "line17=min(line16a,line16b)",
+    "line20=.15*max(0,ACTCEarnedIncome\u22122500)",
+    "line21=verifiedAdjustedPayrollTaxesLine21",
+    "line22=deductibleHalfBaseSE+verifiedUnreportedPayrollTaxesLine22",
+    "line23=line21+line22",
+    "line24=actualEITC+excessSocialSecurityCredit",
+    "line25=max(0,line23\u2212line24)",
+    "For ordinary non-PuertoRico scope: ACTC=min(line17,qualifyingChildren>=3?max(line20,line25):line20)"
+  ],
+  "lineMappings": {
+    "line21": "W2Box4+W2Box6+Form8959line7\u2212Form8959line22+0.5*Form8959line13, plus adjusted RRTA components when eligible. A single verified adjusted line21 amount is the safest bounded input; do not collect W2documents or identifiers.",
+    "line22": "Schedule1line15 deductible half of regularSE tax + Schedule2line5 unreported socialsecurity/Medicare on tips + Schedule2line6 uncollected socialsecurity/Medicare on wages + Schedule2line13 uncollected socialsecurity/Medicare orRRTA on tips/grouptermlife fromW2box12.",
+    "line24": "1040line27a EIC plus Schedule3line11 excessSS/tier1RRTA withheld; EIC is not an income tax withholding amount.",
+    "earnedIncome": "Follow IRS earned-income chart. Basic wages+businessProfit\u2212halfSE is usable only within existing regular nonfarm/common scope. Excluded treatyincome, optionalSE methods, combatpay/clergy require a separately verified earned amount."
+  },
+  "integration": [
+    "Increase qualifyingChildren ceiling to a reasonable integer bound; arbitrary2 cap is not a tax rule.",
+    "Compute EITC before payroll alternative. Do not accidentally subtract refundable AOTC or the full bundle of other verified refundable credits as EIC.",
+    "If EITC remains a continuous estimate, label the combined ACTC calculation as an estimate or accept a separately verified actualEITC for this interaction. Neither zero omission nor double-subtracting EIC is correct.",
+    "For computed common payroll input, keep spouseSS caps separate. Adjust AdditionalMedicare withholding to actual wage liability and add half SE AdditionalMedicare. Existing composed persons already distinguish ssWages and medicareWages; use them.",
+    "For an independently verified payroll amount, accept only nonnegative finite amount and explain included taxes. Do not add computed taxes again.",
+    "NonrefundableDependentCredit must not exceed preliminaryDependentCredit. No ACTC without qualifying child. FilingForm2555 disqualifies ACTC and should be excluded by eligibility gate, including cases where no computed2555mode exists.",
+    "Keep PuertoRico resident exception and RRTA as explicit separate verified-input scope unless fully modeled. No need to invent their support to implement the captured three-plus dependent count.",
+    "CreditLimitWorksheetB coordination with mortgageinterest/adoption/residentialcleanenergy/DCfirsthomebuyer credits remains separately verified, not implicitly covered by a generic preCTCcredit total."
+  ],
+  "fixtures": [
+    {
+      "id": "actc-three-payroll-wins",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 153.0,
+        "ACTC": 153.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-two-payroll-not-available",
+      "inputs": {
+        "qualifyingChildren": 2,
+        "preliminaryDependentCredit": 4400,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 3400.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 153.0,
+        "ACTC": 0.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-earned-wins",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 10000,
+        "verifiedAdjustedPayrollTaxesLine21": 765,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 1125.0,
+        "payrollAlternativeLine25": 765.0,
+        "ACTC": 1125.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-eic-removes-alternative",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 200,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 0.0,
+        "ACTC": 0.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-refundable-cap",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 7000,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 7000.0,
+        "ACTC": 5100.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-unused-credit-cap",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 6500,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 100.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 153.0,
+        "ACTC": 100.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-four-summed-alternative-lines",
+      "inputs": {
+        "qualifyingChildren": 4,
+        "preliminaryDependentCredit": 8800,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 0,
+        "verifiedAdjustedPayrollTaxesLine21": 1000,
+        "deductibleHalfBaseSE": 200,
+        "verifiedUnreportedPayrollTaxesLine22": 300,
+        "actualEITC": 100,
+        "excessSocialSecurityCredit": 50
+      },
+      "expected": {
+        "refundableCapLine17": 6800.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 1350.0,
+        "ACTC": 1350.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-excess-ss-removes-alternative",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 153
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 0.0,
+        "ACTC": 0.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-basic-at-limit",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 36500,
+        "verifiedAdjustedPayrollTaxesLine21": 765,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 5100.0,
+        "earnedIncomeAmountLine20": 5100.0,
+        "payrollAlternativeLine25": 765.0,
+        "ACTC": 5100.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-zero-children-zero-credit",
+      "inputs": {
+        "qualifyingChildren": 0,
+        "preliminaryDependentCredit": 500,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 20000,
+        "verifiedAdjustedPayrollTaxesLine21": 1530,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 0.0,
+        "earnedIncomeAmountLine20": 2625.0,
+        "payrollAlternativeLine25": 1530.0,
+        "ACTC": 0.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-phaseout-reduces-unused",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 50,
+        "nonrefundableDependentCredit": 0,
+        "ACTCEarnedIncome": 2000,
+        "verifiedAdjustedPayrollTaxesLine21": 153,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 50.0,
+        "earnedIncomeAmountLine20": 0.0,
+        "payrollAlternativeLine25": 153.0,
+        "ACTC": 50.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    },
+    {
+      "id": "actc-three-zero-unused",
+      "inputs": {
+        "qualifyingChildren": 3,
+        "preliminaryDependentCredit": 6600,
+        "nonrefundableDependentCredit": 6600,
+        "ACTCEarnedIncome": 20000,
+        "verifiedAdjustedPayrollTaxesLine21": 1530,
+        "deductibleHalfBaseSE": 0,
+        "verifiedUnreportedPayrollTaxesLine22": 0,
+        "actualEITC": 0,
+        "excessSocialSecurityCredit": 0
+      },
+      "expected": {
+        "refundableCapLine17": 0.0,
+        "earnedIncomeAmountLine20": 2625.0,
+        "payrollAlternativeLine25": 1530.0,
+        "ACTC": 0.0
+      },
+      "absoluteTolerance": 1e-08,
+      "derivedIndependently": true
+    }
+  ],
+  "adjustedPayrollWorksheetFixtures": [
+    {
+      "id": "actc-adjusted-payroll-additional-medicare",
+      "inputs": {
+        "W2Box4": 10918.2,
+        "W2Box6": 3805,
+        "finalWageAdditionalMedicare": 450,
+        "additionalMedicareWithheld": 180,
+        "finalSEAdditionalMedicare": 90,
+        "RRTAComponents": 0
+      },
+      "expectedLine21": 15038.2,
+      "derivation": "10918.2+3805+450\u2212180+.5*90"
+    },
+    {
+      "id": "actc-adjusted-payroll-no-additional",
+      "inputs": {
+        "W2Box4": 1240,
+        "W2Box6": 290,
+        "finalWageAdditionalMedicare": 0,
+        "additionalMedicareWithheld": 0,
+        "finalSEAdditionalMedicare": 0,
+        "RRTAComponents": 0
+      },
+      "expectedLine21": 1530,
+      "derivation": "1240+290"
+    }
+  ]
+}

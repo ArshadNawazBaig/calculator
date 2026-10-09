@@ -1,0 +1,71 @@
+{
+  "heat_index": {
+    "units": {
+      "T": "degrees Fahrenheit",
+      "R": "relative humidity in percent0..100"
+    },
+    "steps": [
+      "simple=.5*(T+61+1.2*(T-68)+.094*R); preliminary=(simple+T)/2",
+      "If preliminary<80, return preliminary as limited low-temperature estimate. Otherwise compute Rothfusz regression.",
+      "HI=-42.379+2.04901523*T+10.14333127*R-.22475541*T*R-.00683783*T*T-.05481717*R*R+.00122874*T*T*R+.00085282*T*R*R-.00000199*T*T*R*R",
+      "If R<13 and80<=T<=112, subtract((13-R)/4)*sqrt((17-abs(T-95))/17).",
+      "If R>85 and80<=T<=87, add((R-85)/10)*((87-T)/5)."
+    ],
+    "source": "https://www.weather.gov/tbw/heatindex",
+    "caveat": "Not a universal apparent-temperature model; shade and light wind assumptions; reject nonsensical temperatures/RH. Source says extreme conditions lie outside regression validation."
+  },
+  "normal_probabilities": {
+    "definitions": [
+      "Phi(z)=.5*erfc(-z/sqrt2)",
+      "Survival(z)=.5*erfc(z/sqrt2)",
+      "twoTail(z)=erfc(abs(z)/sqrt2)",
+      "between(lo,hi)=Phi(hi)-Phi(lo), but use differences of survival functions for same positive tail to avoid cancellation"
+    ],
+    "inverse": "Use tested rational approximation with refinement or a vetted statistical library; test central,tail and roundtrip accuracy. Do not linearly interpolate a two-decimal lookup table for arbitrary input.",
+    "ambiguity": "Center/central/two-tail inputs determine |z|, so return \u00b1 or explicit nonnegative convention. Left-tail p does determine signed z.",
+    "p_value_interpretation": "Tail area is calculated under a specified normal null model. It is not the probability that the null hypothesis is true."
+  },
+  "student_t_confidence": {
+    "distribution": "t degreesOfFreedom=n-1; quantile((1+confidence)/2); interval=mean\u00b1quantile*s/sqrt(n)",
+    "numerics": "Compute t CDF via regularized incomplete beta and invert monotonically, or use a validated stats library. Require n>=2,0<C<1,s>=0.",
+    "fixtures": "df9 at.975\u21922.2621571627409915;df1 at.975\u219212.706204736432095;large df converges to normal."
+  },
+  "triangle_ssa": {
+    "algorithm": [
+      "Given a,b,A with known angle opposite a:sinB=b*sin(A)/a. Reject sinB>1 beyond tolerance.",
+      "Candidate B1=asin(sinB),B2=pi-B1;retain only B>0 and C=pi-A-B>0;deduplicate right-angle case.",
+      "Each candidate c=a*sin(C)/sin(A); verify original constraints.",
+      "SSS: acos((b\u00b2+c\u00b2-a\u00b2)/(2bc)); Heron should use a stable rearrangement for very skinny triangles."
+    ],
+    "fixture": "A30\u00b0,a5,b8 gives B53.130102354\u00b0 or126.869897646\u00b0,C96.869897646\u00b0 or23.130102354\u00b0."
+  },
+  "right_triangle_extra_modes": {
+    "area_perimeter": "s=a+b=P-c;ab=2A; c\u00b2=s\u00b2-4A \u21d2 c=(P\u00b2-4A)/(2P);s=P-c; legs roots of u\u00b2-su+2A=0.",
+    "altitude_hypotenuse": "ab=h*c;a\u00b2+b\u00b2=c\u00b2;sqrt((a+b)\u00b2)=sqrt(c\u00b2+2hc); legs solve u\u00b2-s*u+h*c=0. Require0<h<=c/2.",
+    "altitude_area": "c=2A/h, then use altitude+hypotenuse; symmetric a/b ambiguity must be retained.",
+    "perimeter_hypotenuse": "s=P-c,ab=(s\u00b2-c\u00b2)/2; solve quadratic;validate positive roots and triangle constraints.",
+    "two_angles": "No length scale, so no unique size. Reject as underdetermined."
+  },
+  "date_time": {
+    "policy": "Use calendar dates for age/days; time instants only when timezone selected. Do not treat 1month=30days or1year=365days.",
+    "add_order": "Document years then months then weeks then days; constrain invalid month-end day or explicitly reject.",
+    "dst_gap": "2026-03-08T02:30 America/New_York does not exist; reject or require explicit shift policy.",
+    "dst_fold": "2026-11-01T01:30 America/New_York has two instants05:30Z and06:30Z; require earlier/later choice.",
+    "holiday": "Observed dates can fall in neighboring year; calculate holidays for neighboring years then filter interval. Custom/US federal presets must not imply every employer is closed."
+  },
+  "molecular_formula": {
+    "grammar": "formula:=segment((\".\"|\"\u00b7\")segment)*;segment:=positiveInteger? group+;group:=element positiveInteger? | \"(\"group+\")\"positiveInteger? | \"[\"group+\"]\"positiveInteger?;element:=uppercase lowercase? validated against dataset",
+    "notes": "Periods mean hydration separator in this grammar,not decimal counts; no isotope syntax unless explicitly added; charges can be rejected with explanation; case sensitive.",
+    "limits": "Cap input length,depth,counts and total atoms; detect unbalanced groups and trailing garbage."
+  },
+  "secure_uniform_integer": {
+    "algorithm": "For rangeSizeN, choose byte/word width coveringN; limit=floor(2^bits/N)*N; repeatedly draw cryptographic integerX untilX<limit; returnlo+(X mod N). BigInt supports ranges>2^53.",
+    "without_replacement": "Use partial Fisher\u2013Yates for bounded list or Floyd sampling for huge integer ranges; do not keep drawing forever near saturation.",
+    "password_groups": "Sampling one from each group then shuffling ensures coverage but is not uniform over all allowed strings. If claiming uniform conditional sampling, generate uniformly over the full alphabet and reject until all groups represented."
+  },
+  "ipv6": {
+    "algorithm": "Expand one :: to correct number of groups,handling embedded IPv4 if supported; parse8x16-bit groups to128-bit BigInt. mask=((1n<<prefix)-1n)<<(128-prefix).",
+    "compression": "RFC5952 chooses longest zero run,first tie; do not compress a single zero group. Lowercase output;zone identifier is interface scope,not part of address bits.",
+    "range": "addresses=1n<<(128-prefix); first=ip&mask,last=first+addresses-1n;no broadcast."
+  }
+}

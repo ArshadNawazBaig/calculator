@@ -1,0 +1,241 @@
+{
+  "auditDate": "2026-10-09",
+  "slug": "bra-size-calculator",
+  "readyGenericMode": {
+    "name": "Legacy +4/+5 band estimate",
+    "primarySource": "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size",
+    "formula": "u=round(underbustIn); b=u+(u%2==0?4:5); d=round(bustIn)-b. Cup difference1=A,2=B. Extend the cup ladder only under an explicitly declared size convention.",
+    "rounding": "For positive half-inch ties, round up; that tie convention is an implementation choice. Round measurements separately before subtracting.",
+    "limits": "An alternative traditional fitting convention; not universal or guaranteed fit. Negative difference is unsupported, never silently clamp to AA. Preserve direct-band estimate as a separate named method.",
+    "fixtures": [
+      {
+        "id": "bra-legacy-even",
+        "inputs": {
+          "underbustIn": 30,
+          "bustIn": 36
+        },
+        "expected": {
+          "band": 34,
+          "difference": 2,
+          "cup": "B"
+        }
+      },
+      {
+        "id": "bra-legacy-odd",
+        "inputs": {
+          "underbustIn": 29,
+          "bustIn": 35
+        },
+        "expected": {
+          "band": 34,
+          "difference": 1,
+          "cup": "A"
+        }
+      },
+      {
+        "id": "bra-legacy-round-inputs",
+        "inputs": {
+          "underbustIn": 30.4,
+          "bustIn": 35.6
+        },
+        "expected": {
+          "band": 34,
+          "difference": 2,
+          "cup": "B"
+        }
+      },
+      {
+        "id": "bra-legacy-negative",
+        "inputs": {
+          "underbustIn": 34,
+          "bustIn": 36
+        },
+        "expectedError": "negative bust-minus-band unsupported"
+      }
+    ]
+  },
+  "importantSourceDisagreement": {
+    "source": "https://www.fhft.nhs.uk/patients-and-visitors/patient-information-library/bra-measurement",
+    "finding": "NHS Frimley uses the same +4/+5 band arithmetic but labels its example 29-inch underbust/36-inch bust as 34C (difference2), while Triumph uses difference2=B. Do not merge their cup conventions into one attributed system."
+  },
+  "namedChartCandidate": {
+    "name": "Freya international size guide, retrieved 2026-10-09",
+    "source": "https://www.freyalingerie.com/us/en/size-guide/",
+    "data": {
+      "band": {
+        "ukUs": [
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40,
+          42,
+          44
+        ],
+        "euJp": [
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100
+        ],
+        "fr": [
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115
+        ],
+        "auNz": [
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22
+        ]
+      },
+      "cup": {
+        "ukAuNz": [
+          "B",
+          "C",
+          "D",
+          "DD",
+          "E",
+          "F",
+          "FF",
+          "G",
+          "GG",
+          "H",
+          "HH",
+          "J",
+          "JJ",
+          "K"
+        ],
+        "euFr": [
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O"
+        ],
+        "us": [
+          "B",
+          "C",
+          "D",
+          "DD",
+          "DDD",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O"
+        ],
+        "jp": [
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P"
+        ]
+      }
+    },
+    "dataUseStatus": "Research reference only; permission/reuse basis unresolved. Do not silently bundle as a licensed manufacturer chart.",
+    "rightsSource": "https://www.freyalingerie.com/us/en/privacy-policy/",
+    "rightsFinding": "Sections2.1/2.2 restrict automated extraction and nonpersonal content reuse without express consent. No open data licence was found. This records source terms, not a legal conclusion about factual size relationships.",
+    "lookup": "Band and cup rows share independent positions within each array; never convert an arbitrary letter through ASCII arithmetic or label all brands equivalent.",
+    "domain": "UK/US bands28..44 step2; supported cups startB. A/AA and bands outside the table must return unavailable, not extrapolate.",
+    "fixtures": [
+      {
+        "id": "freya-34E",
+        "input": {
+          "system": "UK",
+          "band": 34,
+          "cup": "E"
+        },
+        "expected": {
+          "US": "34DDD",
+          "EU": "75F",
+          "FR": "90F",
+          "AU_NZ": "12E",
+          "JP": "75G"
+        }
+      },
+      {
+        "id": "freya-28B",
+        "input": {
+          "system": "UK",
+          "band": 28,
+          "cup": "B"
+        },
+        "expected": {
+          "US": "28B",
+          "EU": "60B",
+          "FR": "75B",
+          "AU_NZ": "6B",
+          "JP": "60C"
+        }
+      },
+      {
+        "id": "freya-44K",
+        "input": {
+          "system": "UK",
+          "band": 44,
+          "cup": "K"
+        },
+        "expected": {
+          "US": "44O",
+          "EU": "100O",
+          "FR": "115O",
+          "AU_NZ": "22K",
+          "JP": "100P"
+        }
+      },
+      {
+        "id": "freya-no-A",
+        "input": {
+          "system": "UK",
+          "band": 34,
+          "cup": "A"
+        },
+        "expectedError": "outside verified chart"
+      }
+    ]
+  },
+  "safeUserInputAlternative": "Allow user-entered band and cup mapping rows, show the source name/date, and return exact chart matches. No regional conversion exists until a row is entered. Link the manufacturer guide for fit confirmation. This does not establish full built-in chart parity."
+}

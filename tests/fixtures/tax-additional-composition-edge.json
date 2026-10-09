@@ -1,0 +1,3010 @@
+{
+  "verified": "2026-10-09",
+  "provenance": "Independent Decimal60 research equations; no product code imported. SSA is computed before student-interest MAGI, per Pub970/Pub915 worksheet interaction.",
+  "fixtures": [
+    {
+      "id": "compose-student-ssa-80000",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "socialSecurityBenefits": 20000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 17000.0,
+        "AGI": 96500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 80400.0,
+        "regularTax": 12400.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 12400.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 12400.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 12400.0,
+        "refund": 0.0,
+        "amountDue": 12400.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student-interest MAGI includes taxable SSA computed before student deduction; student deduction added back to provisional income."
+    },
+    {
+      "id": "compose-student-ssa-83000",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 83000
+          }
+        ],
+        "socialSecurityBenefits": 20000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 17000.0,
+        "AGI": 100000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 83900.0,
+        "regularTax": 13170.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 13170.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 13170.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 13170.0,
+        "refund": 0.0,
+        "amountDue": 13170.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student-interest MAGI includes taxable SSA computed before student deduction; student deduction added back to provisional income."
+    },
+    {
+      "id": "compose-student-ssa-84000",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 84000
+          }
+        ],
+        "socialSecurityBenefits": 20000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 17000.0,
+        "AGI": 101000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 84900.0,
+        "regularTax": 13390.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 13390.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 13390.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 13390.0,
+        "refund": 0.0,
+        "amountDue": 13390.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student-interest MAGI includes taxable SSA computed before student deduction; student deduction added back to provisional income."
+    },
+    {
+      "id": "compose-student-ssa-joint",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "filing": "marriedJoint",
+        "persons": [
+          {
+            "wages": 100000
+          },
+          {
+            "wages": 60000
+          }
+        ],
+        "socialSecurityBenefits": 40000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 916.6666666666666,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 34000.0,
+        "AGI": 193083.33333333334,
+        "selectedDeduction": 32200.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 160883.33333333334,
+        "regularTax": 24818.333333333332,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 24818.333333333332,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 24818.333333333332,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 24818.333333333332,
+        "refund": 0.0,
+        "amountDue": 24818.333333333332
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Joint student-interest phaseout after taxable SSA, not just wage income."
+    },
+    {
+      "id": "compose-ira-before-student",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 90000
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": false,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 7500.0,
+        "studentInterestDeduction": 2500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 80000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 63900.0,
+        "regularTax": 8770.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 8770.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 8770.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 8770.0,
+        "refund": 0.0,
+        "amountDue": 8770.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "IRA reduces student-interest MAGI; student interest adds back to IRA MAGI."
+    },
+    {
+      "id": "compose-covered-ira-before-student",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 86000
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": true,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 3750.0,
+        "studentInterestDeduction": 2500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 79750.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 63650.0,
+        "regularTax": 8715.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 8715.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 8715.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 8715.0,
+        "refund": 0.0,
+        "amountDue": 8715.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Covered IRA phaseout ceiling first, then student interest."
+    },
+    {
+      "id": "compose-joint-distinct-ira-caps",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "filing": "marriedJoint",
+        "persons": [
+          {
+            "wages": 100000
+          },
+          {
+            "wages": 39000
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": true,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          },
+          {
+            "name": "B",
+            "age": 40,
+            "covered": false,
+            "contribution": 7500,
+            "compensationAvailable": 39000,
+            "spouseCovered": true
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 11250.0,
+        "studentInterestDeduction": 2500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 125250.0,
+        "selectedDeduction": 32200.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 93050.0,
+        "regularTax": 10670.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10670.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 10670.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 10670.0,
+        "refund": 0.0,
+        "amountDue": 10670.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Distinct contributor workplace coverage and joint compensation allocation."
+    },
+    {
+      "id": "compose-mfs-ira-apart-student-zero",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "filing": "marriedSeparate",
+        "persons": [
+          {
+            "wages": 86000
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": true,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          }
+        ],
+        "iraLivedApart": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 3750.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 82250.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 66150.0,
+        "regularTax": 9265.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 9265.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 9265.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 9265.0,
+        "refund": 0.0,
+        "amountDue": 9265.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "MFS lived-apart IRA uses single limits; student-interest deduction remains disallowed."
+    },
+    {
+      "id": "compose-schedule-keeps-payroll-and-niit",
+      "input": {
+        "persons": [
+          {
+            "wages": 200500
+          }
+        ],
+        "ordinaryOther": 10000,
+        "eligibleNII": 10000,
+        "tipsEnabled": true,
+        "tipsEligible": true,
+        "tipsEmployee": 20000,
+        "overtimeEnabled": true,
+        "overtimeEligible": true,
+        "overtimePremium": 10000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 14000.0,
+        "overtimeDeduction": 4000.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 210500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 176400.0,
+        "regularTax": 34934.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 34934.0,
+        "additionalMedicare": 4.5,
+        "NIIT": 380.0,
+        "modeledReturnTax": 35318.5,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 35318.5,
+        "refund": 0.0,
+        "amountDue": 35318.5
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Tips and overtime reduce taxable income but not AGI, Medicare wage base or NIIT threshold."
+    },
+    {
+      "id": "compose-ira-before-car",
+      "input": {
+        "persons": [
+          {
+            "wages": 102500
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": false,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          }
+        ],
+        "carEnabled": true,
+        "carEligible": true,
+        "carLoans": [
+          {
+            "qualifiedInterest": 5000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 7500.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 5000.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 95000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 73900.0,
+        "regularTax": 10970.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10970.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 10970.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 10970.0,
+        "refund": 0.0,
+        "amountDue": 10970.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "IRA deduction lowers car MAGI before ceiling phaseout."
+    },
+    {
+      "id": "compose-student-before-education",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 87500
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 2083.3333333333335,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 687.5,
+        "refundableEducation": 458.3333333333333,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 85416.66666666667,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 69316.66666666667,
+        "regularTax": 9961.666666666666,
+        "preCTCNonrefundableCredits": 687.5,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 9274.166666666666,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 9274.166666666666,
+        "refundableCredits": 458.3333333333333,
+        "payments": 0.0,
+        "netFederalBurden": 8815.833333333334,
+        "refund": 0.0,
+        "amountDue": 8815.833333333334
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student-interest deduction changes AGI used by education phaseout."
+    },
+    {
+      "id": "compose-care-education-ctc-order",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 30000
+          }
+        ],
+        "qualifyingChildren": 1,
+        "care": {
+          "qualifyingPeople": 1,
+          "unreimbursedEligibleExpenses": 3000,
+          "earnedIncomeA": 30000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 160.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 30000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 13900.0,
+        "regularTax": 1420.0,
+        "preCTCNonrefundableCredits": 1420.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 1700.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 2700.0,
+        "payments": 0.0,
+        "netFederalBurden": -2700.0,
+        "refund": 2700.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Care precedes education nonrefundable; education precedes CTC; refundable AOTC and ACTC counted once."
+    },
+    {
+      "id": "compose-education-never-spends-se",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "businessProfit": 10000
+          }
+        ],
+        "qualifyingChildren": 1
+      },
+      "expected": {
+        "baseSETax": 1412.955,
+        "halfSEDeduction": 706.4775,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 9293.5225,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 1019.028375,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 1412.955,
+        "refundableCredits": 2019.028375,
+        "payments": 0.0,
+        "netFederalBurden": -606.073375,
+        "refund": 606.073375,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Nonrefundable credits cannot consume SE tax; refundable credits offset net burden once."
+    },
+    {
+      "id": "compose-young-claimant-entire-nonrefundable",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 20,
+        "persons": [
+          {
+            "wages": 35000
+          }
+        ],
+        "educationClaimantFullTimeStudent": true,
+        "educationEarnedIncome": 1000,
+        "educationSupport": 30000,
+        "educationParentAlive": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 2020.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 35000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 18900.0,
+        "regularTax": 2020.0,
+        "preCTCNonrefundableCredits": 2020.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 0.0,
+        "refund": 0.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Under24 restriction moves full AOTC to nonrefundable pool."
+    },
+    {
+      "id": "compose-parent-not-dependent-age",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 45,
+        "persons": [
+          {
+            "wages": 35000
+          }
+        ],
+        "educationParentAlive": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 1500.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 35000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 18900.0,
+        "regularTax": 2020.0,
+        "preCTCNonrefundableCredits": 1500.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 520.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 520.0,
+        "refundableCredits": 1000.0,
+        "payments": 0.0,
+        "netFederalBurden": -480.0,
+        "refund": 480.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Parent claiming dependent student credit uses parent age, not dependent age."
+    },
+    {
+      "id": "compose-mixed-education-joint",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          },
+          {
+            "credit": "llc",
+            "adjustedQualifiedExpenses": 10000
+          }
+        ],
+        "educationClaimantAge": 40,
+        "filing": "marriedJoint",
+        "persons": [
+          {
+            "wages": 100000
+          },
+          {
+            "wages": 70000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 1750.0,
+        "refundableEducation": 500.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 170000.0,
+        "selectedDeduction": 32200.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 137800.0,
+        "regularTax": 19740.0,
+        "preCTCNonrefundableCredits": 1750.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 17990.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 17990.0,
+        "refundableCredits": 500.0,
+        "payments": 0.0,
+        "netFederalBurden": 17490.0,
+        "refund": 0.0,
+        "amountDue": 17490.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Different students, one return LLC cap, joint phaseout."
+    },
+    {
+      "id": "compose-education-amt-capacity",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 10000
+          }
+        ],
+        "verifiedAdditionalAMT": 700
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 700.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 10000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 700.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 1000.0,
+        "payments": 0.0,
+        "netFederalBurden": -1000.0,
+        "refund": 1000.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Eligible tax capacity includes incremental AMT but no SE/NIIT."
+    },
+    {
+      "id": "compose-ineligible-student-before-education",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": false,
+        "studentQualifiedInterest": 2500,
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 87500
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 375.0,
+        "refundableEducation": 250.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 87500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 71400.0,
+        "regularTax": 10420.0,
+        "preCTCNonrefundableCredits": 375.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10045.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 10045.0,
+        "refundableCredits": 250.0,
+        "payments": 0.0,
+        "netFederalBurden": 9795.0,
+        "refund": 0.0,
+        "amountDue": 9795.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Failed deduction eligibility does not silently lower education MAGI."
+    },
+    {
+      "id": "compose-mfs-schedule-differences",
+      "input": {
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "filing": "marriedSeparate",
+        "tipsEnabled": true,
+        "tipsEmployee": 10000,
+        "tipsEligible": true,
+        "overtimeEnabled": true,
+        "overtimePremium": 4000,
+        "overtimeEligible": true,
+        "carEnabled": true,
+        "carEligible": true,
+        "carLoans": [
+          {
+            "qualifiedInterest": 3000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 3000.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 60000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 40900.0,
+        "regularTax": 4660.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 4660.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 4660.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 4660.0,
+        "refund": 0.0,
+        "amountDue": 4660.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Tips/OT require joint for married; car does not."
+    },
+    {
+      "id": "compose-senior-ira-student",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 85000
+          }
+        ],
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 65,
+            "covered": false,
+            "contribution": 8600,
+            "compensationAvailable": 90000
+          }
+        ],
+        "ageBlindConditions": 1,
+        "seniorCount": 1
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 8600.0,
+        "studentInterestDeduction": 2500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 73900.0,
+        "selectedDeduction": 18150.0,
+        "seniorDeduction": 6000.0,
+        "taxableIncome": 49750.0,
+        "regularTax": 5722.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 5722.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 5722.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 5722.0,
+        "refund": 0.0,
+        "amountDue": 5722.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Above-AGI deductions precede senior phaseout; extra standard amount and senior deduction separate."
+    },
+    {
+      "id": "compose-student-specific-addback",
+      "input": {
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "studentMAGIAddback": 12500
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 1250.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 78750.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 62650.0,
+        "regularTax": 8495.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 8495.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 8495.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 8495.0,
+        "refund": 0.0,
+        "amountDue": 8495.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student-specific addback changes only its MAGI, not AGI gross income."
+    },
+    {
+      "id": "compose-education-specific-addback",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 75000
+          }
+        ],
+        "educationMAGIAddback": 10000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 750.0,
+        "refundableEducation": 500.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 75000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 58900.0,
+        "regularTax": 7670.0,
+        "preCTCNonrefundableCredits": 750.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 6920.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 6920.0,
+        "refundableCredits": 500.0,
+        "payments": 0.0,
+        "netFederalBurden": 6420.0,
+        "refund": 0.0,
+        "amountDue": 6420.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Education addback changes phaseout without adding taxable income."
+    },
+    {
+      "id": "compose-business-tips-income-once",
+      "input": {
+        "persons": [
+          {
+            "businessProfit": 100000
+          }
+        ],
+        "tipsEnabled": true,
+        "tipsEligible": true,
+        "tipsBusinesses": [
+          {
+            "qualifiedTips": 5000,
+            "netIncomeAfterAllocableDeductions": 92935.225
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 14129.55,
+        "halfSEDeduction": 7064.775,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 5000.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 92935.225,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 71835.225,
+        "regularTax": 10515.7495,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10515.7495,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 24645.2995,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 24645.2995,
+        "refund": 0.0,
+        "amountDue": 24645.2995
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Business tips already inside profits: do not add income or subtract income again before SE."
+    },
+    {
+      "id": "compose-car-allocation-once",
+      "input": {
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ],
+        "otherAdjustments": 1500,
+        "carEnabled": true,
+        "carEligible": true,
+        "carLoans": [
+          {
+            "qualifiedInterest": 5000,
+            "deductedElsewhere": 1500
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 3500.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 58500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 38900.0,
+        "regularTax": 4420.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 4420.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 4420.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 4420.0,
+        "refund": 0.0,
+        "amountDue": 4420.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Qualified interest allocated once between verified above-line adjustment and Schedule1-A."
+    },
+    {
+      "id": "compose-joint-young-claimant-refundable",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 20,
+        "filing": "marriedJoint",
+        "persons": [
+          {
+            "wages": 20000
+          },
+          {
+            "wages": 10000
+          }
+        ],
+        "educationClaimantFullTimeStudent": true,
+        "educationEarnedIncome": 1000,
+        "educationSupport": 30000,
+        "educationParentAlive": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 30000.0,
+        "selectedDeduction": 32200.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 1000.0,
+        "payments": 0.0,
+        "netFederalBurden": -1000.0,
+        "refund": 1000.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Joint filing removes this specific under24 AOTC refundability restriction."
+    },
+    {
+      "id": "compose-ineligible-student-row",
+      "input": {
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": false
+          },
+          {
+            "credit": "llc",
+            "adjustedQualifiedExpenses": 5000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 60000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 1000.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 60000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 43900.0,
+        "regularTax": 5020.0,
+        "preCTCNonrefundableCredits": 1000.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 4020.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 4020.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 4020.0,
+        "refund": 0.0,
+        "amountDue": 4020.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Per-student qualification is distinct from global confirmation."
+    },
+    {
+      "id": "compose-schedule1a-overall-itemization",
+      "input": {
+        "persons": [
+          {
+            "wages": 650600
+          }
+        ],
+        "deductionChoice": "itemized",
+        "itemized": {
+          "otherVerifiedItemized": 50000
+        },
+        "verifiedOtherSchedule1A": 5000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 650600.0,
+        "selectedDeduction": 49729.72972972973,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 595870.2702702703,
+        "regularTax": 177323.8445945946,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 177323.8445945946,
+        "additionalMedicare": 4055.4,
+        "NIIT": 0.0,
+        "modeledReturnTax": 181379.24459459458,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 181379.24459459458,
+        "refund": 0.0,
+        "amountDue": 181379.24459459458
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Overall itemization reduces only excess after Schedule1-A."
+    },
+    {
+      "id": "compose-inactive-modules-ignore-stale-values",
+      "input": {
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "tipsEnabled": false,
+        "tipsBusinesses": [
+          {
+            "qualifiedTips": -1
+          }
+        ],
+        "carEnabled": false,
+        "carLoans": [
+          {
+            "qualifiedInterest": -1
+          }
+        ],
+        "iraEnabled": false,
+        "iraContributors": [
+          {
+            "contribution": -1
+          }
+        ],
+        "educationEnabled": false,
+        "educationStudents": [
+          {
+            "credit": "invalid",
+            "adjustedQualifiedExpenses": -1
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 80000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 63900.0,
+        "regularTax": 8770.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 8770.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 8770.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 8770.0,
+        "refund": 0.0,
+        "amountDue": 8770.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Disabled optional modules do not validate unrelated stale branch data."
+    },
+    {
+      "id": "compose-qbi-standard-income-cap",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 30000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 2780.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 30000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 11120.0,
+        "regularTax": 1112.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 1112.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 1112.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 1112.0,
+        "refund": 0.0,
+        "amountDue": 1112.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Common QBI income limitation after standard deduction."
+    },
+    {
+      "id": "compose-qbi-capital-gains-limit",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 30000
+          }
+        ],
+        "qualifiedDividends": 12000,
+        "netEligibleLTCG": 18000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 2780.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 60000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 41120.0,
+        "regularTax": 1112.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 1112.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 1112.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 1112.0,
+        "refund": 0.0,
+        "amountDue": 1112.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exclude all net preferential income from QBI income cap; preferential brackets still stack after QBI."
+    },
+    {
+      "id": "compose-qbi-schedule1a-before-income-cap",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 40000
+          }
+        ],
+        "tipsEnabled": true,
+        "tipsEligible": true,
+        "tipsEmployee": 12000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 12000.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 2380.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 40000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 9520.0,
+        "regularTax": 952.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 952.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 952.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 952.0,
+        "refund": 0.0,
+        "amountDue": 952.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Schedule1A tips reduce the QBI income-limit base but not AGI/payroll."
+    },
+    {
+      "id": "compose-qbi-business-tips-once",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 37174.09,
+        "persons": [
+          {
+            "businessProfit": 40000
+          }
+        ],
+        "qbiDeductibleBusinessTips": 10000,
+        "tipsEnabled": true,
+        "tipsEligible": true,
+        "tipsBusinesses": [
+          {
+            "qualifiedTips": 10000,
+            "netIncomeAfterAllocableDeductions": 37174.09
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 5651.82,
+        "halfSEDeduction": 2825.91,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 10000.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 2214.818,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 37174.09,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 8859.272,
+        "regularTax": 885.9272,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 885.9272,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 6537.7472,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 6537.7472,
+        "refund": 0.0,
+        "amountDue": 6537.7472
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Business tips are included in profit once, excluded from QBI once, and deducted below AGI once."
+    },
+    {
+      "id": "compose-qbi-section68-statutory-order",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 1000000,
+        "persons": [
+          {
+            "wages": 1000000
+          }
+        ],
+        "qbiQualifiedBusinessW2Wages": 1000000,
+        "deductionChoice": "itemized",
+        "itemized": {
+          "otherVerifiedItemized": 100000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 180000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 1000000.0,
+        "selectedDeduction": 94594.5945945946,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 725405.4054054054,
+        "regularTax": 224357.25,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 224357.25,
+        "additionalMedicare": 7200.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 231557.25,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 231557.25,
+        "refund": 0.0,
+        "amountDue": 231557.25
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "QBI180000 before Section68 reduction5405.405405; final taxable725405.405405."
+    },
+    {
+      "id": "compose-qbi-section68-schedule1a",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 1000000,
+        "persons": [
+          {
+            "wages": 1000000
+          }
+        ],
+        "qbiQualifiedBusinessW2Wages": 1000000,
+        "deductionChoice": "itemized",
+        "itemized": {
+          "otherVerifiedItemized": 100000
+        },
+        "verifiedOtherSchedule1A": 25000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 175000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 1000000.0,
+        "selectedDeduction": 94594.5945945946,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 705405.4054054054,
+        "regularTax": 216957.25,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 216957.25,
+        "additionalMedicare": 7200.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 224157.25,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 224157.25,
+        "refund": 0.0,
+        "amountDue": 224157.25
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Schedule1A changes both pre-QBI taxable base and Section68 excess, never AGI."
+    },
+    {
+      "id": "compose-qbi-auto-deduction-15000",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 100000
+          }
+        ],
+        "deductionChoice": "auto",
+        "itemized": {
+          "otherVerifiedItemized": 15000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 10000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 100000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 73900.0,
+        "regularTax": 10970.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10970.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 10970.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 10970.0,
+        "refund": 0.0,
+        "amountDue": 10970.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Evaluate deduction election with its own QBI base; respect explicit itemization."
+    },
+    {
+      "id": "compose-qbi-auto-deduction-17000",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 100000
+          }
+        ],
+        "deductionChoice": "auto",
+        "itemized": {
+          "otherVerifiedItemized": 17000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 10000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 100000.0,
+        "selectedDeduction": 17000.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 73000.0,
+        "regularTax": 10772.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 10772.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 10772.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 10772.0,
+        "refund": 0.0,
+        "amountDue": 10772.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Evaluate deduction election with its own QBI base; respect explicit itemization."
+    },
+    {
+      "id": "compose-qbi-itemized-deduction-15000",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 100000
+          }
+        ],
+        "deductionChoice": "itemized",
+        "itemized": {
+          "otherVerifiedItemized": 15000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 10000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 100000.0,
+        "selectedDeduction": 15000.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 75000.0,
+        "regularTax": 11212.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 11212.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 11212.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 11212.0,
+        "refund": 0.0,
+        "amountDue": 11212.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Evaluate deduction election with its own QBI base; respect explicit itemization."
+    },
+    {
+      "id": "compose-qbi-auto-standard-ineligible",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 100000
+          }
+        ],
+        "deductionChoice": "auto",
+        "standardIneligible": true,
+        "itemized": {
+          "otherVerifiedItemized": 5000
+        },
+        "eligibleNonitemizerCashCharity": 1000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 10000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 100000.0,
+        "selectedDeduction": 5000.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 85000.0,
+        "regularTax": 13412.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 13412.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 13412.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 13412.0,
+        "refund": 0.0,
+        "amountDue": 13412.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Unavailable standard deduction and nonitemizer charity cannot enter auto election."
+    },
+    {
+      "id": "compose-qbi-auto-high-income",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 100000,
+        "persons": [
+          {
+            "wages": 260000
+          }
+        ],
+        "qbiSSTB": true,
+        "qbiQualifiedBusinessW2Wages": 40000,
+        "deductionChoice": "auto",
+        "itemized": {
+          "otherVerifiedItemized": 50000
+        }
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 17800.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 260000.0,
+        "selectedDeduction": 50000.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 192200.0,
+        "regularTax": 38726.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 38726.0,
+        "additionalMedicare": 540.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 39266.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 39266.0,
+        "refund": 0.0,
+        "amountDue": 39266.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Larger itemization changes SSTB fraction and wage-limit phase-in before selecting taxable result."
+    },
+    {
+      "id": "compose-qbi-active-floor-1000",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 1000,
+        "persons": [
+          {
+            "wages": 1000
+          }
+        ],
+        "qbiVerifiedActiveQualifiedQbi": 1000,
+        "qbiMaterialParticipationConfirmed": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 400.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 1000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 0.0,
+        "refund": 0.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Verified active-business400 floor may exceed normal income cap; final taxable income stays nonnegative."
+    },
+    {
+      "id": "compose-qbi-active-floor-16500",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 1000,
+        "persons": [
+          {
+            "wages": 16500
+          }
+        ],
+        "qbiVerifiedActiveQualifiedQbi": 1000,
+        "qbiMaterialParticipationConfirmed": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 400.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 16500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 0.0,
+        "refund": 0.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Verified active-business400 floor may exceed normal income cap; final taxable income stays nonnegative."
+    },
+    {
+      "id": "compose-qbi-verified-mutually-exclusive",
+      "input": {
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "verifiedQBI": 9000,
+        "qbiMethod": "verified",
+        "qbiAdjustedQbiBeforeTips": 50000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 9000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 80000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 54900.0,
+        "regularTax": 6790.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 6790.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 6790.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 6790.0,
+        "refund": 0.0,
+        "amountDue": 6790.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Verified QBI path ignores the inactive computed-QBI base."
+    },
+    {
+      "id": "compose-qbi-computed-ignores-verified",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 50000,
+        "persons": [
+          {
+            "wages": 80000
+          }
+        ],
+        "verifiedQBI": 9000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 10000.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 80000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 53900.0,
+        "regularTax": 6570.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 6570.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 6570.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 6570.0,
+        "refund": 0.0,
+        "amountDue": 6570.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Computed QBI replaces verified deduction rather than adding it."
+    },
+    {
+      "id": "compose-qbi-passive-floor-not-inferred",
+      "input": {
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 1000,
+        "persons": [
+          {
+            "wages": 40000
+          }
+        ],
+        "qbiVerifiedActiveQualifiedQbi": 1000,
+        "qbiMaterialParticipationConfirmed": false
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 200.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 40000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 23700.0,
+        "regularTax": 2596.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 2596.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 2596.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 2596.0,
+        "refund": 0.0,
+        "amountDue": 2596.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Passive or unverified material participation cannot claim active minimum."
+    },
+    {
+      "id": "compose-eitc-agi-vs-earned",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 5000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 5000
+          }
+        ],
+        "ordinaryOther": 45000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 254.622,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 50000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 33900.0,
+        "regularTax": 3820.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 3820.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 3820.0,
+        "refundableCredits": 254.622,
+        "payments": 0.0,
+        "netFederalBurden": 3565.378,
+        "refund": 0.0,
+        "amountDue": 3565.378
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "EITC limited by higher composed AGI while phase-in uses verified earned income."
+    },
+    {
+      "id": "compose-eitc-refund-se-tax",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 9293.5225,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "businessProfit": 10000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 1412.955,
+        "halfSEDeduction": 706.4775,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 3159.79765,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 9293.5225,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 1412.955,
+        "refundableCredits": 3159.79765,
+        "payments": 0.0,
+        "netFederalBurden": -1746.84265,
+        "refund": 1746.84265,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundable EITC offsets SE tax once; worksheet earned amount is profit minus half-SE."
+    },
+    {
+      "id": "compose-eitc-distinct-child-counts",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 3,
+        "eitcEarnedIncome": 30000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 30000
+          }
+        ],
+        "qualifyingChildren": 2
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 6944.234,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 30000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 13900.0,
+        "regularTax": 1420.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 1420.0,
+        "ACTC": 2980.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 9924.234,
+        "payments": 0.0,
+        "netFederalBurden": -9924.234,
+        "refund": 9924.234,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Three verified EITC children do not change separately entered two-child basic ACTC branch."
+    },
+    {
+      "id": "compose-eitc-investment-equality",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 10000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 10000
+          }
+        ],
+        "ordinaryOther": 12200,
+        "eitcInvestmentIncome": 12200
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 3400.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 22200.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 6100.0,
+        "regularTax": 610.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 610.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 610.0,
+        "refundableCredits": 3400.0,
+        "payments": 0.0,
+        "netFederalBurden": -2790.0,
+        "refund": 2790.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Published investment-income ceiling is inclusive."
+    },
+    {
+      "id": "compose-eitc-investment-one-cent-over",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 10000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 10000
+          }
+        ],
+        "ordinaryOther": 12200.01,
+        "eitcInvestmentIncome": 12200.01
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 22200.01,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 6100.01,
+        "regularTax": 610.001,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 610.001,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 610.001,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 610.001,
+        "refund": 0.0,
+        "amountDue": 610.001
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "One cent over investment ceiling disqualifies, even if AGI eligible."
+    },
+    {
+      "id": "compose-eitc-student-lowers-agi-not-earned",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "studentInterestEnabled": true,
+        "studentInterestEligible": true,
+        "studentQualifiedInterest": 2500,
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "ordinaryOther": 25000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 2500.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 1453.122,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 42500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 26400.0,
+        "regularTax": 2920.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 2920.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 2920.0,
+        "refundableCredits": 1453.122,
+        "payments": 0.0,
+        "netFederalBurden": 1466.878,
+        "refund": 0.0,
+        "amountDue": 1466.878
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Student deduction reduces high-AGI EITC phaseout; worksheet earned income stays unchanged."
+    },
+    {
+      "id": "compose-eitc-ira-lowers-agi-not-earned",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "ordinaryOther": 25000,
+        "iraEnabled": true,
+        "iraContributors": [
+          {
+            "name": "A",
+            "age": 40,
+            "covered": false,
+            "contribution": 7500,
+            "compensationAvailable": 90000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 7500.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 2252.122,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 37500.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 21400.0,
+        "regularTax": 2320.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 2320.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 2320.0,
+        "refundableCredits": 2252.122,
+        "payments": 0.0,
+        "netFederalBurden": 67.878,
+        "refund": 0.0,
+        "amountDue": 67.878
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "IRA deduction changes AGI EITC limit without removing earned wages."
+    },
+    {
+      "id": "compose-eitc-schedule-qbi-dont-reduce-agi",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 5000,
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "ordinaryOther": 25000,
+        "tipsEnabled": true,
+        "tipsEligible": true,
+        "tipsEmployee": 10000
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 10000.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 1000.0,
+        "estimatedEITC": 1053.622,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 45000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 17900.0,
+        "regularTax": 1900.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 1900.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 1900.0,
+        "refundableCredits": 1053.622,
+        "payments": 0.0,
+        "netFederalBurden": 846.378,
+        "refund": 0.0,
+        "amountDue": 846.378
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Below-AGI Schedule1A/QBI deductions do not change EITC phaseout."
+    },
+    {
+      "id": "compose-eitc-aotc-actc-payments-once",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "qbiMethod": "computed",
+        "qbiAdjustedQbiBeforeTips": 5000,
+        "educationEnabled": true,
+        "educationEligible": true,
+        "educationStudents": [
+          {
+            "identifier": "Student A",
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000,
+            "eligible": true
+          }
+        ],
+        "educationClaimantAge": 40,
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "qualifyingChildren": 1,
+        "federalIncomeTaxWithheld": 2000,
+        "estimatedPayments": 500,
+        "verifiedOtherRefundableCredits": 250
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 780.0,
+        "estimatedEITC": 4427.0,
+        "nonrefundableEducation": 312.0,
+        "refundableEducation": 1000.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 20000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 3120.0,
+        "regularTax": 312.0,
+        "preCTCNonrefundableCredits": 312.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 1700.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 7377.0,
+        "payments": 2500.0,
+        "netFederalBurden": -7377.0,
+        "refund": 9877.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Computed QBI, nonrefundable AOTC, CTC, ACTC, refundable AOTC, EITC and payments reconcile once each."
+    },
+    {
+      "id": "compose-eitc-failed-confirmation",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": false,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ]
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 20000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 3900.0,
+        "regularTax": 390.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 390.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 390.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 390.0,
+        "refund": 0.0,
+        "amountDue": 390.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Eligibility confirmation false must award no EITC."
+    },
+    {
+      "id": "compose-eitc-joint-either-spouse-age",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 0,
+        "eitcEarnedIncome": 9000,
+        "eitcAge": 24,
+        "filing": "marriedJoint",
+        "persons": [
+          {
+            "wages": 9000
+          },
+          {
+            "wages": 0
+          }
+        ],
+        "eitcSpouseAge": 25
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 664.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 9000.0,
+        "selectedDeduction": 32200.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 0.0,
+        "regularTax": 0.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 0.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 0.0,
+        "refundableCredits": 664.0,
+        "payments": 0.0,
+        "netFederalBurden": -664.0,
+        "refund": 664.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Either spouse can satisfy no-child25\u201364 age condition; other conditions explicitly confirmed."
+    },
+    {
+      "id": "compose-eitc-mfs-separated-child",
+      "input": {
+        "eitcEnabled": true,
+        "eitcEligible": true,
+        "eitcChildren": 1,
+        "eitcEarnedIncome": 20000,
+        "eitcAge": 30,
+        "filing": "marriedSeparate",
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "eitcSeparatedSpouseEligibilityConfirmed": true
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 4427.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 20000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 3900.0,
+        "regularTax": 390.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 390.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 390.0,
+        "refundableCredits": 4427.0,
+        "payments": 0.0,
+        "netFederalBurden": -4037.0,
+        "refund": 4037.0,
+        "amountDue": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Verified separated-spouse exception uses other-status EITC thresholds."
+    },
+    {
+      "id": "compose-eitc-disabled-ignores-values",
+      "input": {
+        "persons": [
+          {
+            "wages": 20000
+          }
+        ],
+        "eitcEnabled": false,
+        "eitcChildren": 1.5,
+        "eitcEarnedIncome": -10
+      },
+      "expected": {
+        "baseSETax": 0.0,
+        "halfSEDeduction": 0.0,
+        "iraDeduction": 0.0,
+        "studentInterestDeduction": 0.0,
+        "tipDeduction": 0.0,
+        "overtimeDeduction": 0.0,
+        "vehicleInterestDeduction": 0.0,
+        "qbiDeduction": 0.0,
+        "estimatedEITC": 0.0,
+        "nonrefundableEducation": 0.0,
+        "refundableEducation": 0.0,
+        "taxableSocialSecurity": 0.0,
+        "AGI": 20000.0,
+        "selectedDeduction": 16100.0,
+        "seniorDeduction": 0.0,
+        "taxableIncome": 3900.0,
+        "regularTax": 390.0,
+        "preCTCNonrefundableCredits": 0.0,
+        "nonrefundableCTC": 0.0,
+        "ACTC": 0.0,
+        "incomeTaxAfterCredits": 390.0,
+        "additionalMedicare": 0.0,
+        "NIIT": 0.0,
+        "modeledReturnTax": 390.0,
+        "refundableCredits": 0.0,
+        "payments": 0.0,
+        "netFederalBurden": 390.0,
+        "refund": 0.0,
+        "amountDue": 390.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Disabled EITC does not validate hidden stale inputs."
+    }
+  ]
+}

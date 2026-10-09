@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd(),build=path.join(root,'.open-next/sites-wrapped-bundle'),dist=path.join(root,'dist');
+const entry=path.join(build,'sites-entry.js'),assets=path.join(root,'.open-next/assets'),manifest=path.join(root,'.openai/hosting.json');
+for(const required of [entry,assets,manifest])if(!fs.existsSync(required))throw Error('Missing required build artifact: '+required);
+const config=JSON.parse(fs.readFileSync(manifest,'utf8'));
+if(!config.project_id||config.static)throw Error('Expected existing Worker Sites manifest with project_id and no static export.');
+const wasm=fs.readdirSync(build).filter(f=>f.endsWith('.wasm'));
+if(wasm.length!==2)throw Error('Expected two verified WASM modules; inspect changed output before staging.');
+fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(path.join(dist,'server'),{recursive:true});
+fs.copyFileSync(entry,path.join(dist,'server/index.js'));
+for(const name of wasm)fs.copyFileSync(path.join(build,name),path.join(dist,'server',name));
+fs.cpSync(assets,path.join(dist,'client'),{recursive:true});
+fs.mkdirSync(path.join(dist,'.openai'));fs.copyFileSync(manifest,path.join(dist,'.openai/hosting.json'));
+console.log('Staged default fetch Worker, two WASM modules, client assets and existing Sites manifest.');

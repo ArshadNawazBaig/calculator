@@ -1,0 +1,7 @@
+vi.mock('@/lib/data/global-rates-client',()=>({getGlobalRates:async()=>({retrievedAt:'2026-10-09T00:00:00Z',quotes:{USD:{code:'USD',usdPerUnit:'1',date:'2026-10-09',kind:'daily-reference',source:'Test identity',contributors:[],pegDerived:false},EUR:{code:'EUR',usdPerUnit:'1.1',date:'2026-10-09',kind:'daily-reference',source:'Independent test fixture',contributors:[],pegDerived:false}},missing:[]})}));
+vi.mock('@/lib/data/reference-rates-client',()=>({getReferenceRates:async()=>({provider:'European Central Bank',date:'2026-10-08',retrievedAt:'2026-10-09T00:00:00Z',base:'EUR',rates:{EUR:1,USD:1.1186}})}));
+import {describe,it,expect,vi} from 'vitest';
+import {catalog,definitions,toolMap} from '@/lib/calculators/registry';
+import {defaults} from '@/lib/calculators/types';
+import {calculate} from '@/lib/calculators/engine';
+describe('Catalog execution',()=>{it('has 204 audited entries and unique registered definitions',()=>{expect(catalog).toHaveLength(204);expect(new Set(definitions.map(d=>d.slug)).size).toBe(definitions.length);expect(definitions.every(d=>toolMap.has(d.slug))).toBe(true);});for(const d of definitions)for(const mode of d.modes)it(`${d.slug}: ${mode.id}`,async()=>{const result=await calculate(toolMap.get(d.slug)!.category,mode,defaults(mode));expect(result.metrics.length).toBeGreaterThan(0);for(const m of result.metrics)if(typeof m.value==='number')expect(Number.isFinite(m.value)).toBe(true);});});

@@ -1,0 +1,2648 @@
+{
+  "artifact": "Remaining17 everyday P1 families: original implementable specifications",
+  "createdAtUtc": "2026-10-09T13:35:14.688783+00:00",
+  "scope": "Research only; no product edits. Covers all17 otherP1Families from remaining-everyday-specs.json. Concrete stairs core is already resolved. Proposed keys/mode IDs are contracts to map during integration, not assertions that modes exist.",
+  "sourceSnapshotSha256": {
+    "everyday-definitions.ts": "9d84a981247a0e32417eeed3cabe7f988e338fe8b31b221781d809f14504af4a",
+    "everyday-extra-definitions.ts": "0b3ee2c677822ad450e92db999bacc9bbe413b7f282bb8c67101d00d1e0f8427",
+    "everyday-engine.ts": "c4aec6dd1c13043670551cba792f5d102d59f05234dea2a6e62aba81394e11ed",
+    "everyday-extra-engine.ts": "44e453331c9b899982f794c33749d4e496e99163839443272a7f4b37d93217f9"
+  },
+  "summary": {
+    "families": 17,
+    "fixtures": 74,
+    "resultFixtures": 61,
+    "validationFixtures": 13,
+    "paidRuntimeDependencies": 0,
+    "alreadyResolvedCoreFamilies": [
+      "concrete-stairs"
+    ]
+  },
+  "sharedImplementationGuidance": [
+    "Use shared measured-value controls and central exact decimal unit registries; validate only active fields.",
+    "Keep original explanatory copy/diagrams and user-controlled assumptions. Captures and reference PDFs are private research materials, not assets to ship.",
+    "Preserve raw precision through unit transforms; round only display/procurement units as explicitly stated.",
+    "Approximate or empirical formulas are supported with named assumptions; distinguish them from official standards, approval or measurement.",
+    "None of these17 requires a paid API. Separate NEC table reuse rights, routing datasets, official golf expected-score data and Khamis\u2013Roche coefficient review remain outside this batch."
+  ],
+  "references": {
+    "units": {
+      "title": "NIST Handbook 44, 2026, Appendix C",
+      "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+    },
+    "power": {
+      "title": "NIST SP 811: SI conversion factors",
+      "url": "https://www.nist.gov/pml/special-publication-811"
+    },
+    "boiler": {
+      "title": "NASA technical publication: power conversion table",
+      "url": "https://ntrs.nasa.gov/api/citations/19800011820/downloads/19800011820.pdf",
+      "fact": "Boiler horsepower factor is tabulated as 9.80950e3 W, rounded rather than an exact fundamental constant."
+    },
+    "iupac": {
+      "title": "IUPAC Gold Book: amount concentration",
+      "url": "https://goldbook.iupac.org/terms/view/A00295"
+    },
+    "codata": {
+      "title": "NIST 2022 CODATA complete constants",
+      "url": "https://physics.nist.gov/cuu/pdf/all.pdf",
+      "fact": "Atomic mass constant 1.66053906892e-27 kg; relative standard uncertainty 3.1e-10."
+    },
+    "gdi": {
+      "title": "BEA: Gross domestic income",
+      "url": "https://www.bea.gov/help/glossary/gross-domestic-income-gdi"
+    },
+    "gni": {
+      "title": "BEA: Gross national income",
+      "url": "https://www.bea.gov/help/glossary/gross-national-income-gni"
+    },
+    "nipa": {
+      "title": "BEA NIPA Handbook",
+      "url": "https://www.bea.gov/sites/default/files/methodologies/nipa-handbook-all-chapters.pdf"
+    },
+    "iana": {
+      "title": "IANA Time Zone Database",
+      "url": "https://www.iana.org/time-zones"
+    },
+    "intl": {
+      "title": "ECMA-402: Intl.supportedValuesOf",
+      "url": "https://tc39.es/ecma402/#sec-intl.supportedvaluesof"
+    },
+    "offset": {
+      "title": "IETF RFC 3339: numeric UTC offsets",
+      "url": "https://www.rfc-editor.org/rfc/rfc3339.txt"
+    },
+    "roof": {
+      "title": "GAF: Roofing squares and shingles",
+      "url": "https://www.gaf.com/en-us/roofing-materials/residential-roofing-materials/shingles",
+      "fact": "A roofing square is 100 square feet. Shingle quantity per square varies by product."
+    },
+    "stairs": {
+      "title": "OSHA 1910.25: Stairways",
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.25",
+      "scope": "Supports vertical tread-clearance terminology only. Proposed geometry does not assert compliance with this or any residential code."
+    },
+    "voltage": {
+      "title": "Schneider Electric: voltage drop in steady load conditions",
+      "url": "https://www.electrical-installation.org/enwiki/Calculation_of_voltage_drop_in_steady_load_conditions"
+    },
+    "awg": {
+      "title": "NBS Handbook 100: Copper wire tables",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook100.pdf"
+    },
+    "awg-equation": {
+      "title": "NLR TP 2011-469: AWG diameter equation",
+      "url": "https://reports.nlr.nl/server/api/core/bitstreams/918226f2-467e-4b8f-8ed6-4c3c29e22ff4/content"
+    },
+    "resistivity": {
+      "title": "OpenStax University Physics Volume 2, 9.3",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance"
+    },
+    "binary": {
+      "title": "NIST: prefixes for binary multiples",
+      "url": "https://physics.nist.gov/cuu/Units/binary.html"
+    },
+    "decimal": {
+      "title": "NIST SP 330: SI prefixes",
+      "url": "https://www.nist.gov/pml/special-publication-330/sp-330-section-3"
+    },
+    "tire": {
+      "title": "Michelin: choosing tire size",
+      "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/find-your-tire-size"
+    },
+    "fitment": {
+      "title": "Michelin: performance upgrades and plus sizing",
+      "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/performance-upgrade"
+    },
+    "mopar": {
+      "title": "Mopar Performance Parts: Jeep Engines, 3rd edition, printed page 495",
+      "url": "https://oljeep.com/JeepEngines.pdf",
+      "authors": "Larry S. Shepard and Michael J. Gingerella",
+      "verification": "Primary-authored manufacturer manual hosted by a third-party archive. Title, authors and formula page visually/textually verified; formula page is PDF page 514. No calibration dataset, error bounds or universal crank/wheel classification established."
+    }
+  },
+  "specifications": [
+    {
+      "id": "power-unit-converter",
+      "slug": "horsepower-calculator",
+      "observedCapability": "Power conversion among W, kW, mechanical/metric/electrical/boiler horsepower, and BTU/h",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/horsepower-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/horsepower-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "convertamount",
+          "convertfrom",
+          "convertto"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Horsepower Converter",
+            "rawTextLines": [
+              31
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Torque and force/work modes exist; direct converter and several named horsepower units remain absent.",
+      "proposedInputs": {
+        "mode": "converter",
+        "value": "finite numeric quantity",
+        "from": "named power unit",
+        "to": "named power unit",
+        "optionalWorkUnits": {
+          "force": [
+            "N",
+            "kN",
+            "lbf",
+            "kgf"
+          ],
+          "distance": [
+            "m",
+            "km",
+            "mi",
+            "yd"
+          ],
+          "time": [
+            "s",
+            "min",
+            "h",
+            "day"
+          ]
+        }
+      },
+      "implementationSteps": [
+        "Convert through watts: out=value*factor[from]/factor[to]. Keep mechanical, metric, electrical and boiler horsepower distinct.",
+        "Use the tabulated rounded boiler convention explicitly; label BTU as International Table BTU, not an unspecified thermochemical value.",
+        "Share this registry with the general converter. For work inputs first normalize force, distance and time; P=F_parallel*d/t."
+      ],
+      "validation": [
+        "Reject unknown units and nonfinite results. Work elapsed time must be positive. Converter may accept signed values as a unit transform; generation/consumption sign has no physical inference."
+      ],
+      "independentFixtures": [
+        {
+          "id": "power-metric-two",
+          "proposedModeId": "converter",
+          "inputs": {
+            "value": 2,
+            "from": "hp-metric",
+            "to": "W"
+          },
+          "independentDerivation": "2*75 kgf m/s * 9.80665 = 1470.9975 W.",
+          "expected": {
+            "value": 1470.9975
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "power-boiler-two",
+          "proposedModeId": "converter",
+          "inputs": {
+            "value": 2,
+            "from": "hp-boiler-NIST",
+            "to": "kW"
+          },
+          "independentDerivation": "2*9809.50/1000 under the stated rounded table convention.",
+          "expected": {
+            "value": 19.619
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "power-btu-hour",
+          "proposedModeId": "converter",
+          "inputs": {
+            "value": 3600,
+            "from": "BTU-IT/h",
+            "to": "W"
+          },
+          "independentDerivation": "3600 units cancel the hour-to-second divisor.",
+          "expected": {
+            "value": 1055.05585262
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "power-work-us",
+          "proposedModeId": "work",
+          "inputs": {
+            "force": 100,
+            "forceUnit": "lbf",
+            "distance": 10,
+            "distanceUnit": "yd",
+            "time": 1,
+            "timeUnit": "min"
+          },
+          "independentDerivation": "100 lbf*30 ft/60 s=50 ft lbf/s; mechanical hp=50/550.",
+          "expected": {
+            "mechanicalHp": 0.09090909090909091,
+            "watts": 67.79089741657002
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "power",
+        "boiler",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "powerFactorsToWatts": {
+        "W": 1,
+        "kW": 1000,
+        "hp-mechanical": 745.6998715822702,
+        "hp-metric": 735.49875,
+        "hp-electric": 746,
+        "hp-boiler-NIST": 9809.5,
+        "BTU-IT/h": 0.2930710701722222
+      }
+    },
+    {
+      "id": "molarity-concentration-units",
+      "slug": "molarity-calculator",
+      "observedCapability": "Molar concentration prefixes and mass-concentration unit modes",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/molarity-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/molarity-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "cconcentrationunit",
+          "cmassunit",
+          "cvolumeunit",
+          "cmwunit"
+        ],
+        "visibleLabelAnchors": []
+      },
+      "currentStatus": "Four algebraic solve directions now exist, but fixed g, g/mol, L and mol/L input units remain.",
+      "proposedInputs": {
+        "solve": [
+          "concentration",
+          "mass",
+          "volume",
+          "molarMass"
+        ],
+        "mass": "value + observed mass unit",
+        "molarMass": "value + g/mol or kg/mol",
+        "volume": "value + observed volume unit",
+        "concentration": "value + concentrationUnit",
+        "concentrationUnit": [
+          "M",
+          "mM",
+          "uM",
+          "nM",
+          "mol/m3",
+          "kg/L",
+          "g/L",
+          "mg/L",
+          "kg/m3",
+          "g/m3",
+          "ppm-mass",
+          "ppb-mass"
+        ],
+        "solutionDensity": "kg/L; required for mass-fraction ppm/ppb"
+      },
+      "implementationSteps": [
+        "Normalize solute mass to g, molar mass to g/mol and final solution volume to L. Molar family concentration normalizes to mol/L with M=1, mM=1e-3, uM=1e-6, nM=1e-9, mol/m3=1e-3.",
+        "Molar concentration c=m/(MW*V); inverse forms are m=c*MW*V, V=m/(MW*c), MW=m/(c*V).",
+        "Mass concentration q=m/V in g/L. Unit-to-g/L factors: kg/L=1000, g/L=1, mg/L=.001, kg/m3=1, g/m3=.001. Convert between q and molarity by q=c*MW.",
+        "For ppm by mass p and solution density rho kg/L, q_g/L=p*rho/1000. For ppb by mass, q=p*rho/1e6. Reverse accordingly. Never silently assume every solution has water density.",
+        "When the selected concentration is a mass-concentration or mass-fraction quantity, mass and volume can be solved without MW; MW cannot be inferred from mass and mass concentration alone. Disable that solve combination with a useful explanation.",
+        "Da as a mass input uses the CODATA atomic mass constant, not g/mol. Scientific notation must remain readable for tiny masses."
+      ],
+      "validation": [
+        "MW, volume, density and concentrations used as divisors must be positive. Solute mass may be zero when finding concentration, but zero/zero and an unknown MW with zero concentration are indeterminate.",
+        "Use final solution volume. Label US volume units explicitly; ppm-mass is not a gas volume fraction. Do not infer a solution density from composition without data."
+      ],
+      "independentFixtures": [
+        {
+          "id": "molarity-mg-milliliters",
+          "proposedModeId": "concentration",
+          "inputs": {
+            "mass": 250,
+            "massUnit": "mg",
+            "molarMass": 50,
+            "molarMassUnit": "g/mol",
+            "volume": 100,
+            "volumeUnit": "mL",
+            "outputUnit": "mM"
+          },
+          "independentDerivation": ".250/(50*.100)=.05 mol/L.",
+          "expected": {
+            "molarityM": 0.05,
+            "concentration": 50,
+            "massConcentrationGL": 2.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "molarity-kgmol-mass",
+          "proposedModeId": "mass",
+          "inputs": {
+            "concentration": 250,
+            "concentrationUnit": "mM",
+            "molarMass": 0.04,
+            "molarMassUnit": "kg/mol",
+            "volume": 500,
+            "volumeUnit": "mL",
+            "outputMassUnit": "g"
+          },
+          "independentDerivation": ".25 mol/L*40 g/mol*.5 L=5 g.",
+          "expected": {
+            "massG": 5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "molarity-ppm-density",
+          "proposedModeId": "concentration-transform",
+          "inputs": {
+            "concentration": 1000,
+            "concentrationUnit": "ppm-mass",
+            "solutionDensity": 1.2,
+            "molarMass": 60,
+            "molarMassUnit": "g/mol",
+            "outputUnit": "mM"
+          },
+          "independentDerivation": "1000 mg/kg*1.2 kg/L=1200 mg/L=1.2 g/L; /60=.02 M.",
+          "expected": {
+            "massConcentrationGL": 1.2,
+            "concentration": 20
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "molarity-mol-per-cubic-meter",
+          "proposedModeId": "concentration-transform",
+          "inputs": {
+            "concentration": 20,
+            "concentrationUnit": "mol/m3",
+            "molarMass": 50,
+            "outputUnit": "g/L"
+          },
+          "independentDerivation": "20 mol/m3=.02 mol/L; *.50e2 g/mol=1 g/L.",
+          "expected": {
+            "concentration": 1
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "molarity-volume-mass-basis",
+          "proposedModeId": "volume",
+          "inputs": {
+            "mass": 100,
+            "massUnit": "mg",
+            "concentration": 2,
+            "concentrationUnit": "g/L",
+            "outputVolumeUnit": "mL"
+          },
+          "independentDerivation": ".1 g / (2 g/L)=.05 L.",
+          "expected": {
+            "volumeML": 50
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "molarity-ppm-missing-density",
+          "proposedModeId": "concentration-transform",
+          "inputs": {
+            "concentration": 100,
+            "concentrationUnit": "ppm-mass",
+            "molarMass": 58.44,
+            "outputUnit": "M"
+          },
+          "independentDerivation": "",
+          "expectedError": "Enter solution density for mass-fraction conversion."
+        },
+        {
+          "id": "molarity-unidentifiable-mw",
+          "proposedModeId": "molarMass",
+          "inputs": {
+            "mass": 5,
+            "massUnit": "g",
+            "volume": 1,
+            "volumeUnit": "L",
+            "concentration": 5,
+            "concentrationUnit": "g/L"
+          },
+          "independentDerivation": "",
+          "expectedError": "These mass-concentration inputs do not determine molar mass."
+        }
+      ],
+      "referenceIds": [
+        "iupac",
+        "codata",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "massFactorsToGrams": {
+        "t": 1000000.0,
+        "kg": 1000,
+        "g": 1,
+        "mg": 0.001,
+        "ug": 1e-06,
+        "Da": 1.66053906892e-24,
+        "lb": 453.59237,
+        "oz": 28.349523125
+      },
+      "volumeFactorsToLiters": {
+        "m3": 1000,
+        "cm3": 0.001,
+        "mm3": 1e-06,
+        "L": 1,
+        "mL": 0.001,
+        "US-gal": 3.785411784,
+        "US-qt": 0.946352946,
+        "US-pt": 0.473176473,
+        "US-cup": 0.2365882365,
+        "US-fl-oz": 0.0295735295625,
+        "yd3": 764.554857984,
+        "ft3": 28.316846592,
+        "in3": 0.016387064
+      }
+    },
+    {
+      "id": "gdp-income",
+      "slug": "gdp-calculator",
+      "observedCapability": "Income/resource-cost calculation with explicit national-to-domestic bridge",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/gdp-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/gdp-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "employeecompensation",
+          "proprietorsincome",
+          "rents",
+          "corporateprofits",
+          "interestincome",
+          "indirectbusinesstaxes",
+          "depreciation",
+          "netincomeofforeigners"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Resource Cost-Income Approach",
+            "rawTextLines": [
+              19
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Expenditure mode exists; no income/composition mode.",
+      "proposedInputs": {
+        "componentBasis": [
+          "domestic-income",
+          "national-factor-income"
+        ],
+        "compensation": "employee compensation",
+        "proprietors": "net proprietors income",
+        "rents": "net rental income",
+        "profits": "corporate profits with required valuation adjustments",
+        "netInterest": "net interest, not gross interest receipts",
+        "otherIncome": "other nonoverlapping income adjustments, default 0",
+        "taxesLessSubsidies": "production/import taxes net of subsidies",
+        "capitalConsumption": "consumption of fixed capital",
+        "netPaymentsAbroad": "payments abroad minus receipts from abroad; active only for national basis",
+        "statisticalDiscrepancy": "GDP minus GDI, optional; default 0"
+      },
+      "implementationSteps": [
+        "For a pedagogical component decomposition, sum nonoverlapping net factor-income components. Explicitly distinguish domestic basis from national basis so foreign earnings are not adjusted twice.",
+        "Domestic GDI estimate = factor-income sum + production/import taxes less subsidies + capital consumption.",
+        "National-factor basis first produces a gross national income estimate, then domestic GDI = national gross estimate + netPaymentsAbroad. Positive netPaymentsAbroad means payments to foreign residents exceed resident receipts from abroad.",
+        "GDP reconciled estimate = GDI + statisticalDiscrepancy. If discrepancy is not known, label GDI/income-based estimate rather than asserting measured equality to GDP.",
+        "Support a simpler aggregate alternative: compensation + net operating surplus + taxesLessSubsidies + capitalConsumption. Do not add interest/rent/profit rows again when net operating surplus already includes them."
+      ],
+      "validation": [
+        "All amounts must share currency, scaling, period and compatible net/gross definitions. Permit negative profit/net-flow components.",
+        "Do not call the five income rows GNP; a full official NIPA calculation has adjustments not implied by casual accounting labels. Current government data retrieval is not required for this user-input arithmetic."
+      ],
+      "independentFixtures": [
+        {
+          "id": "income-domestic-components",
+          "proposedModeId": "income",
+          "inputs": {
+            "componentBasis": "domestic-income",
+            "compensation": 500,
+            "proprietors": 80,
+            "rents": 20,
+            "profits": 70,
+            "netInterest": 30,
+            "otherIncome": 0,
+            "taxesLessSubsidies": 50,
+            "capitalConsumption": 100,
+            "statisticalDiscrepancy": 0
+          },
+          "independentDerivation": "500+80+20+70+30=700; +50+100=850.",
+          "expected": {
+            "factorIncome": 700,
+            "grossDomesticIncome": 850,
+            "gdpEstimate": 850
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "income-national-bridge",
+          "proposedModeId": "income",
+          "inputs": {
+            "componentBasis": "national-factor-income",
+            "compensation": 500,
+            "proprietors": 80,
+            "rents": 20,
+            "profits": 70,
+            "netInterest": 30,
+            "otherIncome": 0,
+            "taxesLessSubsidies": 50,
+            "capitalConsumption": 100,
+            "netPaymentsAbroad": 30,
+            "statisticalDiscrepancy": -5
+          },
+          "independentDerivation": "GDI=GNI+payments-receipts=850+30. GDP=880-5.",
+          "expected": {
+            "factorIncome": 700,
+            "grossNationalIncome": 850,
+            "grossDomesticIncome": 880,
+            "gdpEstimate": 875
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "income-negative-foreign-net",
+          "proposedModeId": "income-aggregate",
+          "inputs": {
+            "componentBasis": "national-factor-income",
+            "compensation": 100,
+            "netOperatingSurplus": 40,
+            "taxesLessSubsidies": 10,
+            "capitalConsumption": 20,
+            "netPaymentsAbroad": -15,
+            "statisticalDiscrepancy": 2
+          },
+          "independentDerivation": "National minus net receipts abroad:170-15=155; +2 discrepancy.",
+          "expected": {
+            "grossNationalIncome": 170,
+            "grossDomesticIncome": 155,
+            "gdpEstimate": 157
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "gdi",
+        "gni",
+        "nipa"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "timezone-coverage",
+      "slug": "time-zone-calculator",
+      "observedCapability": "Fixed UTC-offset conversion and broader named-zone choices",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/time-zone-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/time-zone-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "tctime"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "(UTC+05:45) Nepal",
+            "rawTextLines": [
+              37,
+              68
+            ]
+          },
+          {
+            "label": "(UTC-10) Hawaii",
+            "rawTextLines": [
+              18,
+              49
+            ]
+          }
+        ]
+      },
+      "currentStatus": "IANA-aware conversion exists for 19 zones; fixed offset input and broader coverage remain.",
+      "proposedInputs": {
+        "mode": [
+          "named-zones",
+          "fixed-offsets"
+        ],
+        "date": "YYYY-MM-DD",
+        "time": "HH:MM[:SS]",
+        "fromZone": "searchable IANA identifier",
+        "toZone": "searchable IANA identifier",
+        "fromOffset": "signed HH:MM or integer minutes",
+        "toOffset": "signed HH:MM or integer minutes",
+        "ambiguity": [
+          "earlier",
+          "later"
+        ]
+      },
+      "implementationSteps": [
+        "Keep named zones distinct from fixed offsets: an offset has no DST history. Convert fixed-offset source civil time to UTC by subtracting source minutes, then add destination minutes.",
+        "Use Intl.supportedValuesOf(\"timeZone\") where available, plus a checked fallback list; accept UTC and normalize aliases without breaking saved links. Search labels may show cities but should retain the IANA identifier.",
+        "Reuse existing nonexistent/repeated-local-time resolution; do not assume every DST change is exactly one hour. Show source and destination offset for the actual instant.",
+        "Use date-only/UTC construction avoiding JS year 0\u201399 remapping. Validate the destination year after offset arithmetic. Do not import old competitor geographical offset groups as named-zone rules."
+      ],
+      "validation": [
+        "Offsets must have minutes 0\u201359 and an explicit sign when nonzero; define a product range such as -14:00 to +14:00 instead of calling it the full RFC range.",
+        "Reject unsupported zone IDs, invalid local dates and nonexistent wall times. Require a selected occurrence for repeated times; runtime tzdb versions may differ for historical/future rules."
+      ],
+      "independentFixtures": [
+        {
+          "id": "zone-nepal-fixed",
+          "proposedModeId": "fixed-offsets",
+          "inputs": {
+            "date": "2026-01-01",
+            "time": "12:00",
+            "fromOffset": "+05:45",
+            "toOffset": "+00:00"
+          },
+          "independentDerivation": "12:00-5h45m.",
+          "expected": {
+            "destination": "2026-01-01T06:15:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "zone-date-line",
+          "proposedModeId": "fixed-offsets",
+          "inputs": {
+            "date": "2026-01-01",
+            "time": "00:30",
+            "fromOffset": "+14:00",
+            "toOffset": "-12:00"
+          },
+          "independentDerivation": "Destination clock is 26 hours earlier.",
+          "expected": {
+            "destination": "2025-12-30T22:30:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "zone-honolulu-kathmandu",
+          "proposedModeId": "zone",
+          "inputs": {
+            "date": "2026-01-01",
+            "time": "12:00",
+            "from": "Pacific/Honolulu",
+            "to": "Asia/Kathmandu",
+            "ambiguity": "earlier"
+          },
+          "independentDerivation": "At this instant Honolulu is -10:00, Kathmandu +05:45; add15h45.",
+          "expected": {
+            "destination": "2026-01-02T03:45:00",
+            "sourceOffsetMinutes": -600,
+            "destinationOffsetMinutes": 345
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "zone-lord-howe-earlier",
+          "proposedModeId": "zone",
+          "inputs": {
+            "date": "2026-04-05",
+            "time": "01:45",
+            "from": "Australia/Lord_Howe",
+            "to": "UTC",
+            "ambiguity": "earlier"
+          },
+          "independentDerivation": "Earlier fold occurrence has offset +11:00.",
+          "expected": {
+            "destination": "2026-04-04T14:45:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "zone-lord-howe-later",
+          "proposedModeId": "zone",
+          "inputs": {
+            "date": "2026-04-05",
+            "time": "01:45",
+            "from": "Australia/Lord_Howe",
+            "to": "UTC",
+            "ambiguity": "later"
+          },
+          "independentDerivation": "Later fold occurrence has offset +10:30, a 30-minute difference.",
+          "expected": {
+            "destination": "2026-04-04T15:15:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "zone-lord-howe-gap",
+          "proposedModeId": "zone",
+          "inputs": {
+            "date": "2026-10-04",
+            "time": "02:15",
+            "from": "Australia/Lord_Howe",
+            "to": "UTC",
+            "ambiguity": "earlier"
+          },
+          "independentDerivation": "",
+          "expectedError": "This local time does not exist during the half-hour transition."
+        },
+        {
+          "id": "zone-bounds",
+          "proposedModeId": "fixed-offsets",
+          "inputs": {
+            "date": "0001-01-01",
+            "time": "00:00",
+            "fromOffset": "+14:00",
+            "toOffset": "-12:00"
+          },
+          "independentDerivation": "",
+          "expectedError": "Converted date lies outside supported years."
+        }
+      ],
+      "referenceIds": [
+        "iana",
+        "intl",
+        "offset"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "additionalNamedZones": [
+        "Pacific/Honolulu",
+        "America/Anchorage",
+        "America/Halifax",
+        "America/St_Johns",
+        "America/Mexico_City",
+        "America/Sao_Paulo",
+        "America/Argentina/Buenos_Aires",
+        "Europe/Dublin",
+        "Europe/Zurich",
+        "Europe/Stockholm",
+        "Europe/Helsinki",
+        "Europe/Athens",
+        "Africa/Johannesburg",
+        "Africa/Cairo",
+        "Africa/Nairobi",
+        "Asia/Jerusalem",
+        "Asia/Riyadh",
+        "Asia/Tehran",
+        "Asia/Kathmandu",
+        "Asia/Dhaka",
+        "Asia/Yangon",
+        "Asia/Bangkok",
+        "Asia/Hong_Kong",
+        "Asia/Shanghai",
+        "Asia/Seoul",
+        "Australia/Adelaide",
+        "Australia/Darwin",
+        "Australia/Brisbane",
+        "Australia/Hobart",
+        "Australia/Lord_Howe",
+        "Pacific/Chatham",
+        "Pacific/Apia",
+        "Pacific/Kiritimati"
+      ]
+    },
+    {
+      "id": "floor-cost-units",
+      "slug": "square-footage-calculator",
+      "observedCapability": "Per-shape unit selectors and optional area-based cost",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/square-footage-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/square-footage-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "recprice",
+          "recpriceunit",
+          "reclengthunit",
+          "recheightunit"
+        ],
+        "visibleLabelAnchors": []
+      },
+      "currentStatus": "Rectangle, circle and additional shape algorithms exist; dimensions still fixed in feet, no integrated price basis.",
+      "proposedInputs": {
+        "shape": "existing shape selector",
+        "dimensions": "independent value/unit for each required dimension",
+        "quantity": "positive integer",
+        "price": "optional nonnegative value",
+        "priceAreaUnit": [
+          "ft2",
+          "m2",
+          "yd2",
+          "acre",
+          "hectare"
+        ]
+      },
+      "implementationSteps": [
+        "Normalize every length separately before evaluating existing geometry. Apply quantity once to area.",
+        "Area units scale by length-factor squared. Price multiplies area expressed in its own area unit, not the raw numeric area in another unit.",
+        "Reuse current dimension semantics: ring uses outer diameter and inward border; sector uses radius and angle; triangle uses stated sides or perpendicular height. Show only relevant fields.",
+        "Use a stable triangle-area method for extreme aspect ratios and keep existing degeneracy checks."
+      ],
+      "validation": [
+        "Positive lengths and integer quantity; nonnegative unit price. Retain triangle inequalities, inner-radius and border-fit checks after unit conversion."
+      ],
+      "independentFixtures": [
+        {
+          "id": "floor-mixed-units-cost",
+          "proposedModeId": "rectangle",
+          "inputs": {
+            "length": 10,
+            "lengthUnit": "ft",
+            "width": 3.048,
+            "widthUnit": "m",
+            "quantity": 1,
+            "price": 20,
+            "priceAreaUnit": "m2"
+          },
+          "independentDerivation": "Both dimensions3.048m; square=9.290304; *20.",
+          "expected": {
+            "areaM2": 9.290304,
+            "areaFt2": 100,
+            "cost": 185.80608
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "floor-ring-metric",
+          "proposedModeId": "shapes",
+          "inputs": {
+            "shape": "ring",
+            "outerDiameter": 2,
+            "outerDiameterUnit": "m",
+            "border": 10,
+            "borderUnit": "cm",
+            "quantity": 2,
+            "price": 100,
+            "priceAreaUnit": "m2"
+          },
+          "independentDerivation": "2*pi*(1^2-.9^2)=.38pi.",
+          "expected": {
+            "areaM2": 1.1938052083641213,
+            "cost": 119.38052083641213
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "floor-invalid-border",
+          "proposedModeId": "shapes",
+          "inputs": {
+            "shape": "border",
+            "length": 1,
+            "lengthUnit": "m",
+            "width": 100,
+            "widthUnit": "cm",
+            "border": 60,
+            "borderUnit": "cm"
+          },
+          "independentDerivation": "",
+          "expectedError": "Twice the inward border cannot exceed either outer dimension."
+        }
+      ],
+      "referenceIds": [
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "concrete-stairs",
+      "slug": "concrete-calculator",
+      "observedCapability": "Solid concrete stairs with a platform",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/concrete-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/concrete-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "stairrun",
+          "stairrise",
+          "stairwidth",
+          "stairpdepth",
+          "stairquantity"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Stairs",
+            "rawTextLines": [
+              100
+            ]
+          },
+          {
+            "label": "Platform Depth",
+            "rawTextLines": [
+              119
+            ]
+          },
+          {
+            "label": "Number of Risers",
+            "rawTextLines": [
+              125
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Resolved in everyday-extra-definitions.ts as concrete-stairs. Retain this row to account for all17 original families; only unit wrappers/optional procurement remain.",
+      "proposedInputs": {
+        "risers": "integer N>=1",
+        "riser": "height with unit",
+        "run": "regular tread run with unit",
+        "platform": "top platform depth with unit",
+        "width": "stair width with unit",
+        "optionalQuantity": "integer repeated stair blocks; distinct from risers"
+      },
+      "implementationSteps": [
+        "Preserve existing solid-to-ground model: V=width*riser*(run*N*(N-1)/2+platform*N).",
+        "N is riser count, not repeated staircase quantity. If an optional number of identical stair blocks is added, multiply with a separately labeled field.",
+        "Top platform sits at full height N*riser; this is not a thin sloping waist slab. Normalize dimensions before formula evaluation."
+      ],
+      "validation": [
+        "All dimensions positive; N positive integer. With N=1 the regular-run sum is zero and the platform block remains."
+      ],
+      "independentFixtures": [
+        {
+          "id": "concrete-stairs-metric",
+          "proposedModeId": "stairs",
+          "inputs": {
+            "risers": 4,
+            "riser": 15,
+            "riserUnit": "cm",
+            "run": 300,
+            "runUnit": "mm",
+            "platform": 1,
+            "platformUnit": "m",
+            "width": 100,
+            "widthUnit": "cm"
+          },
+          "independentDerivation": "1*.15*(.3*4*3/2+1*4)=.87.",
+          "expected": {
+            "volumeM3": 0.87
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "concrete-one-riser",
+          "proposedModeId": "stairs",
+          "inputs": {
+            "risers": 1,
+            "riser": 0.2,
+            "run": 0.3,
+            "platform": 0.8,
+            "width": 1,
+            "unit": "m"
+          },
+          "independentDerivation": "One platform prism:1*.2*.8.",
+          "expected": {
+            "volumeM3": 0.16
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "status": "already implemented core formula"
+    },
+    {
+      "id": "concrete-curb",
+      "slug": "concrete-calculator",
+      "observedCapability": "Curb-and-gutter section volume",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/concrete-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/concrete-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "curbdepth",
+          "curbgwidth",
+          "curbheight",
+          "curbfthick",
+          "curblength",
+          "curbquantity"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Curb and Gutter Barrier",
+            "rawTextLines": [
+              68
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Absent. Captured SVG now resolves height/width semantics, removing prior geometry-definition uncertainty.",
+      "proposedInputs": {
+        "curbDepth": "horizontal curb width c",
+        "gutterWidth": "exposed gutter width g, excluding curb",
+        "flagThickness": "base slab thickness t",
+        "curbHeight": "curb height h above the slab top",
+        "length": "extrusion length L",
+        "quantity": "positive integer",
+        "waste": "optional allowance percent"
+      },
+      "implementationSteps": [
+        "Use an original L-shaped cross-section with total base width c+g, base thickness t, and extra curb rectangle c*h above that base.",
+        "Cross-section=(c+g)*t+c*h. Net volume=section*L*quantity; order volume=net*(1+waste/100).",
+        "Equivalent alternative convention is g*t+c*curbTotalHeight, where curbTotalHeight=t+h. Never add the flag underneath the curb twice.",
+        "Draw your own labeled section; the captured diagram is private scope evidence only and should not ship."
+      ],
+      "validation": [
+        "c,t,L positive; gutter width and curb height may be zero if reducing to a slab. Quantity positive integer; waste nonnegative.",
+        "Model is a sharp-corner rectangular section; no undocumented battered face, chamfer or reinforcement subtraction."
+      ],
+      "independentFixtures": [
+        {
+          "id": "curb-above-flag",
+          "proposedModeId": "curb",
+          "inputs": {
+            "curbDepth": 0.15,
+            "gutterWidth": 0.5,
+            "flagThickness": 0.1,
+            "curbHeight": 0.2,
+            "length": 10,
+            "quantity": 1,
+            "unit": "m",
+            "waste": 0
+          },
+          "independentDerivation": "(.15+.5)*.1+.15*.2=.095; times10=.95.",
+          "expected": {
+            "crossSectionM2": 0.095,
+            "netVolumeM3": 0.95,
+            "orderVolumeM3": 0.95
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "curb-repeat-waste",
+          "proposedModeId": "curb",
+          "inputs": {
+            "curbDepth": 6,
+            "gutterWidth": 18,
+            "flagThickness": 6,
+            "curbHeight": 6,
+            "crossSectionUnit": "in",
+            "length": 30,
+            "lengthUnit": "ft",
+            "quantity": 2,
+            "waste": 10
+          },
+          "independentDerivation": "[(.5+1.5)*.5+.5*.5]*30*2=75 ft3.",
+          "expected": {
+            "netVolumeFt3": 75,
+            "netVolumeYd3": 2.7777777777777777,
+            "orderVolumeFt3": 82.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "curb-base-only",
+          "proposedModeId": "curb",
+          "inputs": {
+            "curbDepth": 0.2,
+            "gutterWidth": 0.8,
+            "flagThickness": 0.1,
+            "curbHeight": 0,
+            "length": 5,
+            "quantity": 1,
+            "unit": "m",
+            "waste": 0
+          },
+          "independentDerivation": "1m-wide .1m-thick 5m slab.",
+          "expected": {
+            "netVolumeM3": 0.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "additionalObservedEvidence": {
+        "diagramUrl": "https://d26tpo4cm8sb6k.cloudfront.net/img/concrete/curb-shape.svg",
+        "privateCapture": "/tmp/finflo-research-math-everyday/curb-shape.svg",
+        "interpretation": "Curb height above flag top; gutter width between curb face and gutter edge. This interpretation follows the labeled section."
+      }
+    },
+    {
+      "id": "concrete-quantity-units",
+      "slug": "concrete-calculator",
+      "observedCapability": "Slab quantity and mixed measurement units",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/concrete-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/concrete-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "slabquantity",
+          "slablengthunit",
+          "slabwidthunit",
+          "slabthickunit"
+        ],
+        "visibleLabelAnchors": []
+      },
+      "currentStatus": "Slab lacks quantity; existing shapes have fixed mixed foot/inch fields.",
+      "proposedInputs": {
+        "dimensions": "value/unit for each active dimension",
+        "quantity": "positive integer count of identical objects",
+        "waste": "percent applied after net volume",
+        "optionalPrice": "unit price with explicit m3, ft3 or yd3 basis"
+      },
+      "implementationSteps": [
+        "Normalize every length to meters; evaluate geometry then multiply quantity exactly once. Convert cubic output using cubed length factors.",
+        "Net volume and volume including allowance must both be visible. A user-entered unit price must state whether it prices net or ordered volume.",
+        "The optional integrated price control is an original requested convenience, not asserted as observed in captured concrete forms."
+      ],
+      "validation": [
+        "Positive active dimensions and integer quantity; reject tube inner diameter >=outer. Waste and unit price nonnegative."
+      ],
+      "independentFixtures": [
+        {
+          "id": "slab-quantity-one-yard",
+          "proposedModeId": "slab",
+          "inputs": {
+            "length": 9,
+            "lengthUnit": "ft",
+            "width": 3,
+            "widthUnit": "ft",
+            "depth": 4,
+            "depthUnit": "in",
+            "quantity": 3,
+            "waste": 0
+          },
+          "independentDerivation": "9*3*(4/12)*3=27 ft3=1yd3.",
+          "expected": {
+            "netVolumeFt3": 27,
+            "netVolumeYd3": 1,
+            "netVolumeM3": 0.764554857984
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "slab-metric-mm",
+          "proposedModeId": "slab",
+          "inputs": {
+            "length": 2,
+            "lengthUnit": "m",
+            "width": 150,
+            "widthUnit": "cm",
+            "depth": 100,
+            "depthUnit": "mm",
+            "quantity": 2,
+            "waste": 5,
+            "price": 150,
+            "priceVolumeUnit": "m3",
+            "priceBasis": "ordered"
+          },
+          "independentDerivation": "2*1.5*.1*2=.6; *1.05=.63; *150=94.5.",
+          "expected": {
+            "netVolumeM3": 0.6,
+            "orderVolumeM3": 0.63,
+            "cost": 94.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "roof-footprint-angle",
+      "slug": "roofing-calculator",
+      "observedCapability": "Known footprint area, pitch angle, explicit eaves geometry, and area price",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/roofing-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/roofing-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "acarea",
+          "angle",
+          "eaves",
+          "price",
+          "priceunit"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Roof Angle",
+            "rawTextLines": [
+              14
+            ]
+          },
+          {
+            "label": "Eaves Stick Out",
+            "rawTextLines": [
+              47
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Existing plan length/width plus rise-per12 calculation; direct area, angle, eaves and prices absent.",
+      "proposedInputs": {
+        "planInput": [
+          "rectangle-dimensions",
+          "known-horizontal-area"
+        ],
+        "length": "horizontal building length",
+        "width": "horizontal building width",
+        "planArea": "known horizontal projected area",
+        "eaves": "horizontal overhang on each of four rectangle sides",
+        "slopeInput": [
+          "rise-per12",
+          "degrees"
+        ],
+        "pitch": "nonnegative rise per12 or angle",
+        "price": "optional unit price",
+        "priceAreaUnit": [
+          "ft2",
+          "m2",
+          "roofing-square"
+        ],
+        "priceBasis": [
+          "net-roof",
+          "with-allowance"
+        ],
+        "waste": "percent"
+      },
+      "implementationSteps": [
+        "For rectangle mode, projected area=(L+2e)*(W+2e). The same e applies to all four sides under this declared model.",
+        "For known area mode, entered area must already include overhangs. A single area number cannot determine overhang area; require dimensions before enabling eaves addition.",
+        "Uniform pitch slope factor=sqrt(1+(rise/12)^2)=1/cos(angle). Net roof surface=projectedArea*slopeFactor; order area=net*(1+waste/100).",
+        "Convert area into the price unit before multiplication; a roofing square=100 ft2. A hip/gable roof with a common slope is supported through projected area; different slopes require separate sections."
+      ],
+      "validation": [
+        "Plan area/dimensions positive; eaves and allowance nonnegative; 0<=angle<90 degrees. Reject 90 rather than emit a huge finite approximation.",
+        "Do not silently assume square footprint from area. Show excluded dormers, valleys/extra faces or any user-input simplification."
+      ],
+      "independentFixtures": [
+        {
+          "id": "roof-angle-direct-area",
+          "proposedModeId": "area-angle",
+          "inputs": {
+            "planInput": "known-horizontal-area",
+            "planArea": 100,
+            "areaUnit": "m2",
+            "slopeInput": "degrees",
+            "pitch": 30,
+            "waste": 0
+          },
+          "independentDerivation": "100/cos30=200/sqrt3.",
+          "expected": {
+            "netRoofAreaM2": 115.47005383792516
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "roof-rectangle-eaves-flat",
+          "proposedModeId": "area-angle",
+          "inputs": {
+            "planInput": "rectangle-dimensions",
+            "length": 10,
+            "width": 8,
+            "eaves": 0.5,
+            "unit": "m",
+            "slopeInput": "degrees",
+            "pitch": 0,
+            "waste": 0
+          },
+          "independentDerivation": "(10+1)*(8+1)=99.",
+          "expected": {
+            "planAreaM2": 99,
+            "netRoofAreaM2": 99
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "roof-345-slope-price",
+          "proposedModeId": "area-angle",
+          "inputs": {
+            "planInput": "rectangle-dimensions",
+            "length": 20,
+            "width": 10,
+            "eaves": 1,
+            "unit": "ft",
+            "slopeInput": "rise-per12",
+            "pitch": 9,
+            "waste": 10,
+            "price": 2,
+            "priceAreaUnit": "ft2",
+            "priceBasis": "with-allowance"
+          },
+          "independentDerivation": "22*12=264; sqrt(1+.75\u00b2)=1.25; net330; *1.1=363.",
+          "expected": {
+            "planAreaFt2": 264,
+            "netRoofAreaFt2": 330,
+            "orderAreaFt2": 363,
+            "cost": 726
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "roof-vertical-invalid",
+          "proposedModeId": "area-angle",
+          "inputs": {
+            "planInput": "known-horizontal-area",
+            "planArea": 100,
+            "areaUnit": "m2",
+            "slopeInput": "degrees",
+            "pitch": 90
+          },
+          "independentDerivation": "",
+          "expectedError": "Roof slope angle must be below90 degrees."
+        }
+      ],
+      "referenceIds": [
+        "units",
+        "roof"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "roof-material",
+      "slug": "roofing-calculator",
+      "observedCapability": "Roof-material quantities from an already measured roof area",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/roofing-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/roofing-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "mcarea",
+          "mcareaunit"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Roofing Material Calculator",
+            "rawTextLines": [
+              59,
+              68,
+              73
+            ]
+          }
+        ]
+      },
+      "currentStatus": "No direct measured-roof material procurement mode.",
+      "proposedInputs": {
+        "area": "measured roof surface area, not horizontal footprint",
+        "areaUnit": [
+          "ft2",
+          "m2",
+          "roofing-square"
+        ],
+        "waste": "percent",
+        "coverageMode": [
+          "area-per-package",
+          "packages-per-square"
+        ],
+        "packageCoverage": "actual installed coverage",
+        "packagesPerSquare": "user-entered positive quantity",
+        "pricePerPackage": "optional"
+      },
+      "implementationSteps": [
+        "Order area=measured roof area*(1+waste/100). Squares=orderAreaFt2/100.",
+        "Packages=ceil(orderArea/packageCoverage). If using packages-per-square, packages=ceil(orderAreaFt2*packagesPerSquare/100), avoiding a rounded33.33ft2 default.",
+        "Calculate price from whole packages and show purchased coverage. Separate field/ridge/starter/underlayment materials instead of assuming all have the same coverage.",
+        "Package facts are user inputs; a three-bundles-per-square example is labeled, not universal."
+      ],
+      "validation": [
+        "Area and package coverage positive; allowance/price nonnegative. Exact decimal ceiling at whole-package boundaries.",
+        "No roof slope multiplier on already measured roof area. Coverage means installed coverage after overlap, according to product specifications."
+      ],
+      "independentFixtures": [
+        {
+          "id": "roof-material-three-per-square",
+          "proposedModeId": "materials",
+          "inputs": {
+            "area": 1500,
+            "areaUnit": "ft2",
+            "waste": 10,
+            "coverageMode": "packages-per-square",
+            "packagesPerSquare": 3,
+            "pricePerPackage": 40
+          },
+          "independentDerivation": "1650/100*3=49.5; ceil50.",
+          "expected": {
+            "orderAreaFt2": 1650,
+            "roofingSquares": 16.5,
+            "packages": 50,
+            "cost": 2000
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "roof-material-exact-boundary",
+          "proposedModeId": "materials",
+          "inputs": {
+            "area": 100,
+            "areaUnit": "ft2",
+            "waste": 0,
+            "coverageMode": "packages-per-square",
+            "packagesPerSquare": 3,
+            "pricePerPackage": 25
+          },
+          "independentDerivation": "Avoidceil(100/33.33)=4 from premature coverage rounding.",
+          "expected": {
+            "packages": 3,
+            "cost": 75
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "roof-material-metric-package",
+          "proposedModeId": "materials",
+          "inputs": {
+            "area": 85,
+            "areaUnit": "m2",
+            "waste": 5,
+            "coverageMode": "area-per-package",
+            "packageCoverage": 2.5,
+            "packageCoverageUnit": "m2",
+            "pricePerPackage": 30
+          },
+          "independentDerivation": "85*1.05=89.25; /2.5=35.7;ceil36.",
+          "expected": {
+            "orderAreaM2": 89.25,
+            "packages": 36,
+            "purchasedAreaM2": 90,
+            "cost": 1080
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        }
+      ],
+      "referenceIds": [
+        "roof",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "stairs-mount-headroom",
+      "slug": "stair-calculator",
+      "observedCapability": "Tread thickness, headroom/floor opening, and standard versus flush mounting",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/stair-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/stair-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "treadsetting",
+          "treadthickness2",
+          "headroomsetting",
+          "flooropen",
+          "floorthickness",
+          "headroom",
+          "mountsetting"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Comprehensive Version",
+            "rawTextLines": [
+              28
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Basic rise/run solvers exist; mounting/tread-thickness/headroom options absent.",
+      "proposedInputs": {
+        "totalRise": "finished lower floor to finished upper floor H",
+        "riserCount": "integer N or derive ceil(H/preferredMaxRiser)",
+        "treadRun": "horizontal distance t between successive noses; or derive from totalRun/treadCount",
+        "mount": [
+          "standard-top-tread-one-riser-below-landing",
+          "flush-top-tread-level-with-landing"
+        ],
+        "treadThickness": "uniform finish tread board thickness b",
+        "floorThickness": "upper floor underside to finished upper floor f",
+        "headroomMode": [
+          "from-opening",
+          "required-opening"
+        ],
+        "floorOpening": "horizontal opening O measured back from upper landing edge",
+        "targetHeadroom": "vertical clearance C above the modeled nose line"
+      },
+      "implementationSteps": [
+        "Choose N vertical rises and set r=H/N. Standard mount has N-1 physical treads; flush has N with the top tread level with the upper landing. The latter extends one full tread before the landing edge under this declared model.",
+        "Set the upper landing edge at x=0,y=H; descending x is negative. Standard nose line passes (0,H) and (-t,H-r). Flush nose line passes (-t,H) and (-2t,H-r). This is the original coordinate contract to draw in the UI.",
+        "Let offset=0 for standard or t for flush. At opening edge x=-O, nose-line height=H-(O-offset)*r/t. Floor underside=H-f, so vertical clearance C=(O-offset)*r/t-f.",
+        "Required opening for target C is O=offset+(C+f)*t/r. If the opening reaches beyond the bottom nose, report that the edge is outside the modeled flight rather than extrapolating an unbounded headroom result.",
+        "Total horizontal run=t*(N-1) standard or t*N flush. Top finished tread height is H-r standard or H flush. Top tread support elevation is that height minus b. First rough rise r-b applies only when lower finished floor is the reference and no additional finish offset exists.",
+        "Do not apply thickness to finished rise spacing: tread thickness changes support elevations, not floor-to-floor rise. Do not export this simple layout as a structural stringer cutting plan."
+      ],
+      "validation": [
+        "N>=2 integer; H,t positive;0<=b<r;floor thickness>=0. For headroom edge require offset<=O<=totalRun within this simple flight contract.",
+        "A requested opening beyond total run can be shown as a requirement exceeding the available flight; never silently clip it and claim target clearance is achieved.",
+        "This geometry is a planning model. Nosing projections, landing lips, headers, floor finishes, attachment hardware, structural design and jurisdiction-specific code checks need additional dimensions."
+      ],
+      "independentFixtures": [
+        {
+          "id": "stairs-standard-clearance",
+          "proposedModeId": "comprehensive",
+          "inputs": {
+            "totalRise": 105,
+            "riserCount": 15,
+            "treadRun": 10,
+            "mount": "standard",
+            "treadThickness": 1,
+            "floorThickness": 6,
+            "headroomMode": "from-opening",
+            "floorOpening": 130,
+            "unit": "in"
+          },
+          "independentDerivation": "r=105/15=7; C=130*.7-6=85.",
+          "expected": {
+            "riserHeight": 7,
+            "treads": 14,
+            "totalRun": 140,
+            "headroom": 85,
+            "topTreadHeight": 98,
+            "topSupportHeight": 97,
+            "firstRoughRise": 6
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "stairs-flush-clearance",
+          "proposedModeId": "comprehensive",
+          "inputs": {
+            "totalRise": 105,
+            "riserCount": 15,
+            "treadRun": 10,
+            "mount": "flush",
+            "treadThickness": 1,
+            "floorThickness": 6,
+            "headroomMode": "from-opening",
+            "floorOpening": 130,
+            "unit": "in"
+          },
+          "independentDerivation": "C=(130-10)*.7-6=78; top tread level with landing.",
+          "expected": {
+            "riserHeight": 7,
+            "treads": 15,
+            "totalRun": 150,
+            "headroom": 78,
+            "topTreadHeight": 105,
+            "topSupportHeight": 104,
+            "firstRoughRise": 6
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "stairs-required-opening",
+          "proposedModeId": "comprehensive",
+          "inputs": {
+            "totalRise": 105,
+            "riserCount": 15,
+            "treadRun": 10,
+            "mount": "standard",
+            "floorThickness": 6,
+            "headroomMode": "required-opening",
+            "targetHeadroom": 80,
+            "treadThickness": 1,
+            "unit": "in"
+          },
+          "independentDerivation": "(80+6)*10/7=122.857142857...in.",
+          "expected": {
+            "requiredOpening": 122.85714285714286
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "stairs-required-opening-flush",
+          "proposedModeId": "comprehensive",
+          "inputs": {
+            "totalRise": 105,
+            "riserCount": 15,
+            "treadRun": 10,
+            "mount": "flush",
+            "floorThickness": 6,
+            "headroomMode": "required-opening",
+            "targetHeadroom": 80,
+            "treadThickness": 1,
+            "unit": "in"
+          },
+          "independentDerivation": "10+(80+6)*10/7=132.857142857...in.",
+          "expected": {
+            "requiredOpening": 132.85714285714286
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "stairs-impossible-tread-thickness",
+          "proposedModeId": "comprehensive",
+          "inputs": {
+            "totalRise": 105,
+            "riserCount": 15,
+            "treadRun": 10,
+            "treadThickness": 8,
+            "unit": "in"
+          },
+          "independentDerivation": "",
+          "expectedError": "Tread thickness must be below riser height in this support model."
+        }
+      ],
+      "referenceIds": [
+        "stairs",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "additionalObservedEvidence": {
+        "diagramUrl": "https://d26tpo4cm8sb6k.cloudfront.net/img/stair/stair-full.svg",
+        "privateCapture": "/tmp/finflo-research-math-everyday/stair-full.svg",
+        "interpretation": "Standard diagram has top tread below landing; flush diagram aligns top tread with landing. Headroom coordinate formulas are original derivations for an explicit model, not extracted competitor code."
+      }
+    },
+    {
+      "id": "voltage-custom-ac-parallel",
+      "slug": "voltage-drop-calculator",
+      "observedCapability": "Custom per-length resistance/impedance; AC single/three phase; parallel conductors",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/voltage-drop-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/voltage-drop-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "resistance",
+          "resistanceunit",
+          "phase",
+          "noofconductor",
+          "necpf"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Wire impendence",
+            "rawTextLines": [
+              98
+            ]
+          },
+          {
+            "label": "Number of conductors",
+            "rawTextLines": [
+              111
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Physical-dimension DC mode exists; entered resistance/impedance and AC modes remain absent.",
+      "proposedInputs": {
+        "system": [
+          "dc",
+          "ac-single",
+          "ac-three-balanced"
+        ],
+        "voltage": "DC or single-phase supply V; three-phase line-to-line supply V",
+        "current": "total line/load A before equal split",
+        "length": "one-way length with unit",
+        "parallel": "integer identical conductors per phase/leg",
+        "impedanceMode": [
+          "resistance-only",
+          "r-and-x",
+          "effective-longitudinal"
+        ],
+        "resistance": "per-conductor R per chosen length unit",
+        "reactance": "per-conductor X in same units",
+        "effective": "entered effective longitudinal drop coefficient, NOT absolute magnitude |Z|",
+        "powerFactor": "0<PF<=1",
+        "loadType": [
+          "lagging",
+          "leading"
+        ],
+        "coefficientUnit": [
+          "ohm/m",
+          "ohm/km",
+          "milliohm/m",
+          "ohm/ft",
+          "ohm/1000ft",
+          "milliohm/ft"
+        ]
+      },
+      "implementationSteps": [
+        "Normalize one-way L to meters and per-length coefficients to ohm/m. Divide impedance by parallel count only under identical-conductor/equal-current-sharing assumption.",
+        "DC uses k=2 and coefficient R. AC single phase uses k=2; balanced three-phase line-to-line uses k=sqrt(3). Do not double the three-phase factor.",
+        "For R/X mode coefficient=R*PF+s*X*sqrt(1-PF\u00b2), with s=+1 lagging and -1 leading. Effective mode uses the entered coefficient once; do not multiply it by PF again.",
+        "Estimated longitudinal drop=k*I*L*coefficient/parallel. Percent=100*drop/supply. Approximate receiving voltage=supply-drop. Leading loads can give voltage rise; preserve the sign.",
+        "This is the usual small-drop/steady-load approximation, not an exact phasor magnitude or distributed network solution. No NEC lookup, conduit table or ampacity claim is needed."
+      ],
+      "validation": [
+        "Supply voltage positive; current/length/R/X nonnegative; parallel positive integer; PF in(0,1].",
+        "If approximation yields receiving voltage<=0, report that the specified load/line lies outside a physically meaningful result for this model rather than displaying an ordinary usable output.",
+        "User R/X must match operating temperature/frequency and conductor layout. Paralleled conductors with unequal impedances or mutual coupling need a more detailed model."
+      ],
+      "independentFixtures": [
+        {
+          "id": "voltage-dc-parallel",
+          "proposedModeId": "custom",
+          "inputs": {
+            "system": "dc",
+            "voltage": 120,
+            "current": 10,
+            "length": 30,
+            "lengthUnit": "m",
+            "parallel": 2,
+            "impedanceMode": "resistance-only",
+            "resistance": 0.01,
+            "coefficientUnit": "ohm/m"
+          },
+          "independentDerivation": "2*10*30*.01/2=3V.",
+          "expected": {
+            "dropV": 3,
+            "dropPercent": 2.5,
+            "receivingVoltage": 117
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "voltage-single-rx",
+          "proposedModeId": "custom",
+          "inputs": {
+            "system": "ac-single",
+            "voltage": 230,
+            "current": 10,
+            "length": 100,
+            "lengthUnit": "m",
+            "parallel": 1,
+            "impedanceMode": "r-and-x",
+            "resistance": 0.01,
+            "reactance": 0.002,
+            "coefficientUnit": "ohm/m",
+            "powerFactor": 0.8,
+            "loadType": "lagging"
+          },
+          "independentDerivation": "sinphi=.6;R*.8+X*.6=.0092;2*10*100*.0092=18.4.",
+          "expected": {
+            "effectiveOhmPerM": 0.0092,
+            "dropV": 18.4,
+            "dropPercent": 8,
+            "receivingVoltage": 211.6
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "voltage-three-rx-parallel",
+          "proposedModeId": "custom",
+          "inputs": {
+            "system": "ac-three-balanced",
+            "voltage": 400,
+            "current": 20,
+            "length": 100,
+            "lengthUnit": "m",
+            "parallel": 2,
+            "impedanceMode": "r-and-x",
+            "resistance": 0.01,
+            "reactance": 0.002,
+            "coefficientUnit": "ohm/m",
+            "powerFactor": 0.8,
+            "loadType": "lagging"
+          },
+          "independentDerivation": "sqrt3*20*100*.0092/2=9.2sqrt3.",
+          "expected": {
+            "dropV": 15.93486742963367,
+            "receivingVoltage": 384.06513257036636
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "voltage-ohms-per1000ft",
+          "proposedModeId": "custom",
+          "inputs": {
+            "system": "dc",
+            "voltage": 120,
+            "current": 10,
+            "length": 500,
+            "lengthUnit": "ft",
+            "parallel": 1,
+            "impedanceMode": "resistance-only",
+            "resistance": 2,
+            "coefficientUnit": "ohm/1000ft"
+          },
+          "independentDerivation": "2*10*(500/1000)*2=20.",
+          "expected": {
+            "dropV": 20,
+            "receivingVoltage": 100
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "voltage-leading-rise",
+          "proposedModeId": "custom",
+          "inputs": {
+            "system": "ac-single",
+            "voltage": 120,
+            "current": 10,
+            "length": 10,
+            "lengthUnit": "m",
+            "parallel": 1,
+            "impedanceMode": "r-and-x",
+            "resistance": 0.001,
+            "reactance": 0.01,
+            "coefficientUnit": "ohm/m",
+            "powerFactor": 0.8,
+            "loadType": "leading"
+          },
+          "independentDerivation": "2*10*10*(.0008-.006)=-1.04.",
+          "expected": {
+            "dropV": -1.04,
+            "receivingVoltage": 121.04
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "voltage-zero-parallel",
+          "proposedModeId": "custom",
+          "inputs": {
+            "parallel": 0
+          },
+          "independentDerivation": "",
+          "expectedError": "Parallel conductor count must be a positive integer."
+        }
+      ],
+      "referenceIds": [
+        "voltage"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "coefficientFactorsToOhmPerMeter": {
+        "ohm/m": 1,
+        "ohm/km": 0.001,
+        "milliohm/m": 0.001,
+        "ohm/ft": 3.280839895013123,
+        "ohm/1000ft": 0.0032808398950131233,
+        "milliohm/ft": 0.0032808398950131233
+      },
+      "separateLicenseConcern": "Replicating NEC edition-specific impedance tables is separate scope and requires checking reuse rights. These entered-value equations do not require that dataset."
+    },
+    {
+      "id": "voltage-wire-gauge",
+      "slug": "voltage-drop-calculator",
+      "observedCapability": "AWG/kcmil selectors and additional materials",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/voltage-drop-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/voltage-drop-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "material"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Wire size",
+            "rawTextLines": [
+              15,
+              47,
+              132
+            ]
+          },
+          {
+            "label": "Silver",
+            "rawTextLines": [
+              45,
+              131
+            ]
+          },
+          {
+            "label": "Gold",
+            "rawTextLines": [
+              46
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Area input and copper/aluminum exist. AWG/kcmil plus silver/gold material choices absent.",
+      "proposedInputs": {
+        "sizeInput": [
+          "area-mm2",
+          "AWG",
+          "kcmil"
+        ],
+        "awg": "integer0..40 plus1/0,2/0,3/0,4/0",
+        "kcmil": "positive number",
+        "material": [
+          "existing-copper",
+          "existing-aluminum",
+          "silver-nominal",
+          "gold-nominal",
+          "custom"
+        ],
+        "rho20": "ohm*m at20C if custom",
+        "alpha": "1/C if custom",
+        "temperature": "C"
+      },
+      "implementationSteps": [
+        "Map1/0 to g=0,2/0 to-1,3/0 to-2,4/0 to-3. Diameter_mm=.127*92^((36-g)/39); area_mm2=pi*diameter\u00b2/4. This gives equivalent solid conductor geometry, not outer stranded/insulated diameter.",
+        "One circular mil is area of a circle with diameter.001in=.0254mm. area_mm2=kcmil*1000*pi*(.0254\u00b2)/4.",
+        "Feed converted area into the existing resistive model. Add stated nominal silver20C rho=1.59e-8ohm*m,alpha=.0038/C; gold rho=2.44e-8,alpha=.0034/C. Permit custom values for actual materials.",
+        "rho(T)=rho20*(1+alpha*(T-20)). Do not claim nominal material constants are an NEC or manufacturer cable resistance table."
+      ],
+      "validation": [
+        "Reject fractional AWG and unrecognized labels, nonpositive area and temperature corrections producing rho<=0.",
+        "No inference of ampacity, insulation rating or approval of silver/gold wiring; this is a property calculation. Large stranded cable resistance differs from ideal solid geometry."
+      ],
+      "independentFixtures": [
+        {
+          "id": "awg36-endpoint",
+          "proposedModeId": "wire-size",
+          "inputs": {
+            "sizeInput": "AWG",
+            "awg": 36
+          },
+          "independentDerivation": "Exponentzero gives.127mm exactly; area=pi*d\u00b2/4.",
+          "expected": {
+            "diameterMm": 0.127,
+            "areaMm2": 0.012667686977437444
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "awg4zero-endpoint",
+          "proposedModeId": "wire-size",
+          "inputs": {
+            "sizeInput": "AWG",
+            "awg": "4/0"
+          },
+          "independentDerivation": "g=-3 =>exponent1;.127*92=11.684mm=.460in.",
+          "expected": {
+            "diameterMm": 11.684,
+            "areaMm2": 107.2193025770305
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "kcmil500-area",
+          "proposedModeId": "wire-size",
+          "inputs": {
+            "sizeInput": "kcmil",
+            "kcmil": 500
+          },
+          "independentDerivation": "500000 circles each diameter.001in.",
+          "expected": {
+            "areaMm2": 253.35373954874885
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "silver-dc",
+          "proposedModeId": "dc",
+          "inputs": {
+            "material": "silver-nominal",
+            "temperature": 20,
+            "area": 2,
+            "areaUnit": "mm2",
+            "length": 30,
+            "lengthUnit": "m",
+            "current": 10,
+            "voltage": 120
+          },
+          "independentDerivation": "rho=.0159ohm mm2/m;loopR=.0159*60/2=.477.",
+          "expected": {
+            "loopResistanceOhm": 0.477,
+            "dropV": 4.77,
+            "receivingVoltage": 115.23
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "gold-temperature",
+          "proposedModeId": "dc",
+          "inputs": {
+            "material": "gold-nominal",
+            "temperature": 40,
+            "area": 2,
+            "areaUnit": "mm2",
+            "length": 30,
+            "lengthUnit": "m",
+            "current": 10,
+            "voltage": 120
+          },
+          "independentDerivation": "rho=.0244*(1+.0034*20)=.0260592ohm mm2/m;drop=rho*60/2*10.",
+          "expected": {
+            "rhoOhmM": 2.60592e-08,
+            "dropV": 7.81776,
+            "receivingVoltage": 112.18224
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "awg-fraction-invalid",
+          "proposedModeId": "wire-size",
+          "inputs": {
+            "sizeInput": "AWG",
+            "awg": 12.5
+          },
+          "independentDerivation": "",
+          "expectedError": "AWG gauge must be an available integer/aught size."
+        }
+      ],
+      "referenceIds": [
+        "awg",
+        "awg-equation",
+        "resistivity",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "bandwidth-unit-time-options",
+      "slug": "bandwidth-calculator",
+      "observedCapability": "Data-unit converter, selectable size/rate units, and page-view periods",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/bandwidth-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/bandwidth-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "convertamount",
+          "convertunit",
+          "downloadsize2unit",
+          "bandwidth2unit",
+          "pageviewsunit",
+          "pagesizeunit"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Data Unit Converter",
+            "rawTextLines": [
+              10
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Transfer, monthly website total and hosting rate/transfer algorithms exist; flexible units and page-view periods absent.",
+      "proposedInputs": {
+        "dataUnits": [
+          "b",
+          "kb",
+          "Mb",
+          "Gb",
+          "Tb",
+          "B",
+          "kB",
+          "MB",
+          "GB",
+          "TB",
+          "KiB",
+          "MiB",
+          "GiB",
+          "TiB"
+        ],
+        "rateUnits": [
+          "bit/s",
+          "kbit/s",
+          "Mbit/s",
+          "Gbit/s",
+          "Tbit/s",
+          "B/s",
+          "kB/s",
+          "MB/s"
+        ],
+        "pageviews": "count per selected period",
+        "viewPeriod": [
+          "second",
+          "minute",
+          "hour",
+          "day",
+          "week",
+          "month",
+          "year"
+        ],
+        "periodBasis": [
+          "explicit-days",
+          "calendar-dates"
+        ],
+        "monthDays": "explicit report-month days, default30",
+        "yearDays": "explicit annual days, default365",
+        "redundancyMode": [
+          "extra-percent",
+          "multiplier"
+        ],
+        "redundancy": "nonnegative percent or multiplier>=1"
+      },
+      "implementationSteps": [
+        "Normalize data to bits. Decimal prefixes are powers1000; binary prefixes are powers1024. One byte is8bits. Do not silently label1024bytes as kB.",
+        "Transfer seconds=dataBits/rateBitsPerSecond. Display theoretical duration; protocol overhead needs a separate user allowance if included.",
+        "View rate=pageviews/periodSeconds; transferred bits per second=viewRate*pageSizeBits*redundancyMultiplier. A2x multiplier is100% extra, not2% extra.",
+        "For monthly/annual input define the report duration explicitly or derive elapsed days from start/end civil dates. Do not silently treat month as30days while labeling an arbitrary calendar month.",
+        "For a desired output interval, transfer=averageBitsPerSecond*intervalSeconds. Reuse hosting conversion rather than independent duplicated arithmetic."
+      ],
+      "validation": [
+        "Nonnegative data/pageviews; positive transfer rate and reporting duration. Reject undefined unit-case variants rather than confuse Mb/MB.",
+        "Above Number.MAX_SAFE_INTEGER bits use Decimal/BigInt for unit conversion or clearly validate supported precision. Rate/duration need decimal arithmetic; no binary-bitwise coercion."
+      ],
+      "independentFixtures": [
+        {
+          "id": "bandwidth-binary-mebibyte",
+          "proposedModeId": "data-converter",
+          "inputs": {
+            "value": 1,
+            "from": "MiB",
+            "to": "Mb"
+          },
+          "independentDerivation": "2^20bytes*8/1e6bits.",
+          "expected": {
+            "value": 8.388608
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "bandwidth-binary-transfer",
+          "proposedModeId": "transfer-units",
+          "inputs": {
+            "size": 2,
+            "sizeUnit": "GiB",
+            "rate": 100,
+            "rateUnit": "Mbit/s"
+          },
+          "independentDerivation": "2*2^30*8/1e8.",
+          "expected": {
+            "seconds": 171.79869184
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "bandwidth-per-minute",
+          "proposedModeId": "website-units",
+          "inputs": {
+            "pageviews": 120,
+            "viewPeriod": "minute",
+            "pageSize": 250,
+            "pageSizeUnit": "kB",
+            "redundancyMode": "multiplier",
+            "redundancy": 2,
+            "outputDays": 30
+          },
+          "independentDerivation": "2views/s*250000B*8*2=8e6bit/s;30days =>2592e9B.",
+          "expected": {
+            "averageMbps": 8,
+            "transferGB": 2592
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "bandwidth-calendar-feb-leap",
+          "proposedModeId": "website-units",
+          "inputs": {
+            "pageviews": 100,
+            "viewPeriod": "day",
+            "pageSize": 1,
+            "pageSizeUnit": "MB",
+            "redundancyMode": "extra-percent",
+            "redundancy": 0,
+            "outputStart": "2028-02-01",
+            "outputEnd": "2028-03-01"
+          },
+          "independentDerivation": "29*100*1e6B=2.9e9B.",
+          "expected": {
+            "days": 29,
+            "transferGB": 2.9
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "bandwidth-byte-rate",
+          "proposedModeId": "transfer-units",
+          "inputs": {
+            "size": 1,
+            "sizeUnit": "GB",
+            "rate": 10,
+            "rateUnit": "MB/s"
+          },
+          "independentDerivation": "1e9bytes/1e7bytes/s.",
+          "expected": {
+            "seconds": 100
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "bandwidth-zero-rate",
+          "proposedModeId": "transfer-units",
+          "inputs": {
+            "size": 1,
+            "sizeUnit": "GB",
+            "rate": 0,
+            "rateUnit": "Mbit/s"
+          },
+          "independentDerivation": "",
+          "expectedError": "Transfer rate must be positive."
+        }
+      ],
+      "referenceIds": [
+        "binary",
+        "decimal"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "tire-single-alt-rim",
+      "slug": "tire-size-calculator",
+      "observedCapability": "Single-tire dimensions and alternative rim target",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/tire-size-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/tire-size-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "ctw",
+          "car",
+          "cws",
+          "cc",
+          "cnws"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Change to a new wheel size?",
+            "rawTextLines": [
+              13
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Two-tire comparison exists; single dimensions and target rim input absent.",
+      "proposedInputs": {
+        "width": "section width mm",
+        "aspect": "sidewall height as percent of width",
+        "rim": "rim bead-seat diameter inches",
+        "alternativeRim": "desired new rim inches",
+        "alternativeWidth": "optional desired width mm; default current width",
+        "candidateTire": "optional user-supplied available size for comparison"
+      },
+      "implementationSteps": [
+        "Nominal sidewall h=width*aspect/100; unloaded nominal diameter D=25.4*rim+2h; circumference C=pi*D; revolutions/km=1e6/C; revolutions/mile=1609344/C with D/C in mm.",
+        "For a new rim r2 and entered new width w2, same-diameter target aspect A2=100*(D-25.4*r2)/(2*w2). Return the unrounded mathematical target, not a fabricated available tire size.",
+        "If a user enters an actual candidate size, compute its nominal diameter and percent difference using existing comparison logic. Actual speed=indicatedSpeed*newDiameter/oldDiameter under the circumference-only model.",
+        "Do not call a derived target approved fitment: load/speed ratings, rim-width compatibility, clearance, rolling radius and manufacturer approval need separate data. No licensed tire catalog is necessary to provide nominal geometry."
+      ],
+      "validation": [
+        "Positive width/rim and aspect; alternative rim outer diameter must be below target total diameter to leave positive sidewalls.",
+        "Display percentage target precision honestly. Do not imply every5% aspect-ratio increment or every width exists for the selected rim."
+      ],
+      "independentFixtures": [
+        {
+          "id": "tire-single-nominal",
+          "proposedModeId": "single",
+          "inputs": {
+            "width": 195,
+            "aspect": 65,
+            "rim": 15
+          },
+          "independentDerivation": "195*.65=126.75;15*25.4+2*126.75=634.5.",
+          "expected": {
+            "sidewallMm": 126.75,
+            "diameterMm": 634.5,
+            "circumferenceMm": 1993.3405387027237,
+            "revolutionsPerKm": 501.67042739762127
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tire-alt-rim-target",
+          "proposedModeId": "alternative-rim",
+          "inputs": {
+            "width": 225,
+            "aspect": 50,
+            "rim": 17,
+            "alternativeRim": 18,
+            "alternativeWidth": 225
+          },
+          "independentDerivation": "D=431.8+225=656.8;h2=(656.8-457.2)/2=99.8;100h2/225.",
+          "expected": {
+            "originalDiameterMm": 656.8,
+            "targetSidewallMm": 99.8,
+            "targetAspectPercent": 44.355555555555554
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tire-alt-candidate",
+          "proposedModeId": "alternative-rim",
+          "inputs": {
+            "width": 225,
+            "aspect": 50,
+            "rim": 17,
+            "alternativeRim": 18,
+            "alternativeWidth": 225,
+            "candidateAspect": 45,
+            "indicatedSpeed": 60
+          },
+          "independentDerivation": "225/45R18 yields457.2+202.5=659.7; not exact target.",
+          "expected": {
+            "candidateDiameterMm": 659.7,
+            "diameterDifferencePercent": 0.44153471376370285,
+            "actualSpeed": 60.26492082825823
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tire-alt-rim-too-large",
+          "proposedModeId": "alternative-rim",
+          "inputs": {
+            "width": 225,
+            "aspect": 50,
+            "rim": 17,
+            "alternativeRim": 26,
+            "alternativeWidth": 225
+          },
+          "independentDerivation": "",
+          "expectedError": "New rim diameter leaves no positive sidewall at the target diameter."
+        }
+      ],
+      "referenceIds": [
+        "tire",
+        "fitment",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "height-units",
+      "slug": "height-calculator",
+      "observedCapability": "Standalone height converter and imperial measurement entry",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/height-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/height-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "convertfeet",
+          "convertinch",
+          "convertcm",
+          "mcheightfeet2",
+          "mcheightinch2"
+        ],
+        "visibleLabelAnchors": [
+          {
+            "label": "Height Converter",
+            "rawTextLines": [
+              51
+            ]
+          }
+        ]
+      },
+      "currentStatus": "Mid-parental mode uses fixed cm; standalone conversion and imperial fields absent.",
+      "proposedInputs": {
+        "mode": [
+          "height-converter",
+          "parental"
+        ],
+        "direction": [
+          "feet-inches-to-cm",
+          "cm-to-feet-inches"
+        ],
+        "feet": "nonnegative integer",
+        "inches": "0<=inches<12; decimal allowed",
+        "centimeters": "nonnegative",
+        "parentUnit": [
+          "cm",
+          "feet-inches"
+        ],
+        "motherFeet": "integer",
+        "motherInches": "decimal",
+        "fatherFeet": "integer",
+        "fatherInches": "decimal"
+      },
+      "implementationSteps": [
+        "Total inches=12*feet+inches; cm=totalInches*2.54. For reverse output feet=floor(cm/30.48), remainingInches=cm/2.54-12*feet.",
+        "If formatting remaining inches rounds to12, carry one foot and show0in; do not show5ft12in.",
+        "Convert parent inputs before calling the existing mid-parental formula. Retain its13cm coefficient across unit systems; do not silently substitute5in=12.7cm in imperial mode.",
+        "This feature is independent of Khamis\u2013Roche prediction and its coefficient/data review."
+      ],
+      "validation": [
+        "Require integer feet and an explicit0<=inch<12 input convention; either reject12in or normalize with a stated rule. Do not mix negative inches with positive feet.",
+        "Keep existing parental plausibility bounds after conversion; standalone converter need not inherit those medical-model limits."
+      ],
+      "independentFixtures": [
+        {
+          "id": "height-feet-fraction",
+          "proposedModeId": "converter",
+          "inputs": {
+            "direction": "feet-inches-to-cm",
+            "feet": 5,
+            "inches": 9.5
+          },
+          "independentDerivation": "69.5in*2.54=176.53.",
+          "expected": {
+            "centimeters": 176.53
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "height-exact-six-feet",
+          "proposedModeId": "converter",
+          "inputs": {
+            "direction": "cm-to-feet-inches",
+            "centimeters": 182.88
+          },
+          "independentDerivation": "182.88/2.54=72in.",
+          "expected": {
+            "feet": 6,
+            "inches": 0
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "height-parental-imperial",
+          "proposedModeId": "parental",
+          "inputs": {
+            "parentUnit": "feet-inches",
+            "motherFeet": 5,
+            "motherInches": 2,
+            "fatherFeet": 5,
+            "fatherInches": 10,
+            "sex": "male"
+          },
+          "independentDerivation": "(62*2.54+70*2.54+13)/2=174.14.",
+          "expected": {
+            "motherCm": 157.48,
+            "fatherCm": 177.8,
+            "predictedCm": 174.14
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "height-inches-range",
+          "proposedModeId": "converter",
+          "inputs": {
+            "direction": "feet-inches-to-cm",
+            "feet": 5,
+            "inches": 12
+          },
+          "independentDerivation": "",
+          "expectedError": "Inches must be below12 under the chosen input convention."
+        }
+      ],
+      "referenceIds": [
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references."
+    },
+    {
+      "id": "engine-quartermile",
+      "slug": "engine-horsepower-calculator",
+      "observedCapability": "Quarter-mile elapsed-time and trap-speed power estimates",
+      "observedEvidence": {
+        "competitorUrl": "https://www.calculator.net/engine-horsepower-calculator.html",
+        "capturePath": "/tmp/finflo-research-math-everyday/raw/engine-horsepower-calculator.txt",
+        "capturedInputOrSelectNames": [
+          "v1weight",
+          "v1time",
+          "v2weight",
+          "v2speed"
+        ],
+        "visibleLabelAnchors": []
+      },
+      "currentStatus": "Only torque/RPM mode exists. ET and trap-speed methods absent; these are now source-verified empirical formulas, not blocked.",
+      "proposedInputs": {
+        "method": [
+          "quarter-mile-et",
+          "quarter-mile-trap-speed"
+        ],
+        "raceWeight": "total vehicle plus occupants/load at the timed run",
+        "massUnit": [
+          "lb",
+          "kg",
+          "US-short-ton"
+        ],
+        "elapsed": "elapsed time, excluding reaction time",
+        "timeUnit": [
+          "s",
+          "min",
+          "h",
+          "day"
+        ],
+        "trapSpeed": "measured quarter-mile trap speed",
+        "speedUnit": [
+          "mph",
+          "km/h",
+          "m/s"
+        ]
+      },
+      "implementationSteps": [
+        "Normalize race weight to pounds, elapsed time to seconds, and trap speed to mph. A US short ton is2000lb; never leave ton ambiguous.",
+        "Elapsed-time empirical hp=W_lb*(5.825/ET_s)^3. Trap-speed empirical hp=W_lb*(V_mph/234)^3.",
+        "These are performance-equivalent horsepower estimates under historical empirical calibrations. Do not assert exact crank hp, measured wheel hp or a universal drivetrain-loss adjustment from these inputs.",
+        "Use only quarter-mile runs. ET is not reaction time; trap speed is not average distance/time speed. Traction, gearing, aerodynamics, slope, weather and launch affect the relationship.",
+        "Show methodology and coefficients beside results. Do not invent confidence intervals or prohibit implementation merely because the model is approximate."
+      ],
+      "validation": [
+        "Race weight, elapsed time and trap speed must be positive and finite. Reject an eighth-mile label rather than quietly applying quarter-mile coefficients.",
+        "Cube safely and reject numeric overflow; no track-driving instructions or road-racing recommendation is necessary."
+      ],
+      "independentFixtures": [
+        {
+          "id": "engine-et-independent",
+          "proposedModeId": "quarter-mile-et",
+          "inputs": {
+            "raceWeight": 3200,
+            "massUnit": "lb",
+            "elapsed": 11.65,
+            "timeUnit": "s"
+          },
+          "independentDerivation": "ET=2*5.825;3200/2^3=400.",
+          "expected": {
+            "estimatedHp": 400
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "engine-trap-independent",
+          "proposedModeId": "quarter-mile-trap-speed",
+          "inputs": {
+            "raceWeight": 3200,
+            "massUnit": "lb",
+            "trapSpeed": 117,
+            "speedUnit": "mph"
+          },
+          "independentDerivation": "117/234=.5;3200*.5^3=400.",
+          "expected": {
+            "estimatedHp": 400
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "engine-units-et",
+          "proposedModeId": "quarter-mile-et",
+          "inputs": {
+            "raceWeight": 1451.495584,
+            "massUnit": "kg",
+            "elapsed": 0.19416666666666665,
+            "timeUnit": "min"
+          },
+          "independentDerivation": "1451.495584/.45359237=3200lb;11.65s/60min.",
+          "expected": {
+            "estimatedHp": 400
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "engine-trap-kph",
+          "proposedModeId": "quarter-mile-trap-speed",
+          "inputs": {
+            "raceWeight": 1.6,
+            "massUnit": "US-short-ton",
+            "trapSpeed": 188.293248,
+            "speedUnit": "km/h"
+          },
+          "independentDerivation": "117mph*1.609344=188.293248km/h;1.6shorttons=3200lb.",
+          "expected": {
+            "estimatedHp": 400
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "engine-zero-et",
+          "proposedModeId": "quarter-mile-et",
+          "inputs": {
+            "raceWeight": 3200,
+            "massUnit": "lb",
+            "elapsed": 0,
+            "timeUnit": "s"
+          },
+          "independentDerivation": "",
+          "expectedError": "Elapsed time must be positive."
+        }
+      ],
+      "referenceIds": [
+        "mopar",
+        "units"
+      ],
+      "dependency": "No paid runtime dependency; implement original formulas/geometry and cite references.",
+      "primarySourceVerification": {
+        "localReferenceOnly": "/tmp/finflo-research-math-everyday/jeep-engines.pdf",
+        "privateFormulaScreenshot": "/tmp/finflo-research-math-everyday/jeep-formula-page.png",
+        "printedPage": 495,
+        "pdfPageOneBased": 514,
+        "doNotShip": "Do not copy or bundle manual pages, images or prose; independently implement the mathematical relationships."
+      }
+    }
+  ],
+  "verification": {
+    "evidenceAnchors": "All referenced text anchors checked against captures. Curb/stair diagram semantics inspected directly from labeled SVGs.",
+    "independentExpectations": "Original Decimal/stdlib arithmetic and explicit equations; IANA transition fixtures cross-checked with Python zoneinfo. No captured competitor result or product implementation used.",
+    "quarterMilePrimarySource": "Manufacturer-authored manual and formula page visually verified; source attribution does not claim a validated universal error model.",
+    "independentResultChecks": "All61 numeric/exact fixtures passed independent reference recomputation; see remaining-other-p1-reference-checks.json."
+  }
+}

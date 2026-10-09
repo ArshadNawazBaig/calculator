@@ -1,0 +1,604 @@
+{
+  "verified": "2026-10-09",
+  "status": "Proposed text and source arrays only; no product edits",
+  "integration": "Merge override notes/source entries without deleting unrelated existing sources. Apply description replacements separately; registry currency/composed-tax mutation order must not restore stale text.",
+  "calculatorOverrides": {
+    "tax-calculator": {
+      "notes": [
+        "Select 2025 or 2026 in the combined federal calculation. It combines supported income, deductions, credits and additional federal taxes; specialist worksheets retain the tax year stated in their controls.",
+        "QBI supports a verified deduction or one-business calculation. EITC supports a verified amount or a continuous planning estimate that can differ from the IRS income-bin table. The child-credit calculation includes the three-or-more-child payroll alternative with its stated inputs.",
+        "Eligibility and worksheet-specific modified income must be confirmed. Enter AMT and unsupported special-return amounts separately, and exclude any amount already calculated here from other deductions or credits.",
+        "State/local comparisons use your own flat-rate assumptions and tax base. Federal bracket arithmetic can differ from tax-table rounding; these scenarios do not prepare or file a return."
+      ],
+      "sources": [
+        {
+          "title": "IRS: 2025 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        },
+        {
+          "title": "IRS: 2026 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "title": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        },
+        {
+          "title": "IRS: Form 1040 instructions",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        },
+        {
+          "title": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        },
+        {
+          "title": "IRS: 2025 tips and overtime transition guidance",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf"
+        },
+        {
+          "title": "IRS: final qualified-tips regulations",
+          "url": "https://www.irs.gov/irb/2026-18_IRB"
+        },
+        {
+          "title": "IRS: qualified overtime questions and answers",
+          "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf"
+        },
+        {
+          "title": "IRS: education tax benefits",
+          "url": "https://www.irs.gov/publications/p970"
+        },
+        {
+          "title": "IRS: education-credit instructions",
+          "url": "https://www.irs.gov/instructions/i8863"
+        },
+        {
+          "title": "IRS: contributions to traditional and Roth IRAs",
+          "url": "https://www.irs.gov/publications/p590a"
+        },
+        {
+          "title": "IRS: 2025 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf"
+        },
+        {
+          "title": "IRS: 2026 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "title": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        },
+        {
+          "title": "IRS: qualified business income deduction instructions",
+          "url": "https://www.irs.gov/instructions/i8995a"
+        },
+        {
+          "title": "IRS: earned income credit eligibility and worksheets",
+          "url": "https://www.irs.gov/publications/p596"
+        },
+        {
+          "title": "IRS: child and additional child tax credit instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        },
+        {
+          "title": "IRS: dependent-care credit instructions",
+          "url": "https://www.irs.gov/instructions/i2441"
+        },
+        {
+          "title": "IRS: self-employment tax instructions",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        },
+        {
+          "title": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        },
+        {
+          "title": "IRS: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        },
+        {
+          "title": "IRS: Net Investment Income Tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        },
+        {
+          "title": "IRS: alternative minimum tax instructions",
+          "url": "https://www.irs.gov/instructions/i6251"
+        }
+      ],
+      "removeSources": []
+    },
+    "take-home-pay-calculator": {
+      "notes": [
+        "The annual cash estimate supports 2025 and 2026 federal planning. Its three earned-income entries belong to one taxpayer and share the selected employee or self-employed treatment; joint filing assumes no earned income for the spouse.",
+        "Employee deductions affect federal and FICA wage bases according to the selected treatment. Self-employed expenses and verified retirement contributions are applied once; self-employment tax remains inside the federal calculation.",
+        "The separate paycheck and W-4 worksheets use the stated 2026 withholding method for 2020-or-later W-4 forms. Annual tax liability and employer withholding can differ.",
+        "State and city taxes use entered rates and an explicit base. Investment income, net gains and full Social Security benefits count as available cash; actual cash flows and deductions should be checked against your records."
+      ],
+      "sources": [
+        {
+          "title": "IRS: 2025 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        },
+        {
+          "title": "IRS: 2026 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "title": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        },
+        {
+          "title": "IRS: Form 1040 instructions",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        },
+        {
+          "title": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        },
+        {
+          "title": "IRS: 2025 tips and overtime transition guidance",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf"
+        },
+        {
+          "title": "IRS: final qualified-tips regulations",
+          "url": "https://www.irs.gov/irb/2026-18_IRB"
+        },
+        {
+          "title": "IRS: qualified overtime questions and answers",
+          "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf"
+        },
+        {
+          "title": "IRS: education tax benefits",
+          "url": "https://www.irs.gov/publications/p970"
+        },
+        {
+          "title": "IRS: education-credit instructions",
+          "url": "https://www.irs.gov/instructions/i8863"
+        },
+        {
+          "title": "IRS: contributions to traditional and Roth IRAs",
+          "url": "https://www.irs.gov/publications/p590a"
+        },
+        {
+          "title": "IRS: 2025 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf"
+        },
+        {
+          "title": "IRS: 2026 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "title": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        },
+        {
+          "title": "IRS: qualified business income deduction instructions",
+          "url": "https://www.irs.gov/instructions/i8995a"
+        },
+        {
+          "title": "IRS: earned income credit eligibility and worksheets",
+          "url": "https://www.irs.gov/publications/p596"
+        },
+        {
+          "title": "IRS: child and additional child tax credit instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        },
+        {
+          "title": "IRS: dependent-care credit instructions",
+          "url": "https://www.irs.gov/instructions/i2441"
+        },
+        {
+          "title": "IRS: self-employment tax instructions",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        },
+        {
+          "title": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        },
+        {
+          "title": "IRS: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        },
+        {
+          "title": "IRS: Net Investment Income Tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        },
+        {
+          "title": "IRS: alternative minimum tax instructions",
+          "url": "https://www.irs.gov/instructions/i6251"
+        },
+        {
+          "title": "IRS: employer payroll tax guide",
+          "url": "https://www.irs.gov/publications/p15"
+        },
+        {
+          "title": "IRS: 2026 federal withholding methods",
+          "url": "https://www.irs.gov/publications/p15t"
+        }
+      ],
+      "removeSources": []
+    },
+    "marriage-calculator": {
+      "notes": [
+        "Choose the ordinary-income comparison or the combined 2025/2026 federal scenarios. The combined mode compares eligible single, head-of-household or qualifying-surviving-spouse scenarios with a hypothetical joint scenario.",
+        "The combined mode recalculates supported income, Social Security taxation, deductions, dependent credits, self-employment tax, Additional Medicare and NIIT. Enter other qualified deductions and credits separately for each scenario; joint eligibility is not inferred by adding the separate amounts.",
+        "Each dependent is entered once, and each taxpayer retains a separate Social Security wage cap. Refundable credits are included in the federal difference; withholding is a payment rather than a change in liability.",
+        "Optional state/local results use separate entered rates and bases. They are shown separately from the federal difference. The comparison does not establish filing-status eligibility or a recommendation to marry."
+      ],
+      "sources": [
+        {
+          "title": "IRS: 2025 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        },
+        {
+          "title": "IRS: 2026 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "title": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        },
+        {
+          "title": "IRS: Form 1040 instructions",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        },
+        {
+          "title": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        },
+        {
+          "title": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        },
+        {
+          "title": "IRS: child and additional child tax credit instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        },
+        {
+          "title": "IRS: self-employment tax instructions",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        },
+        {
+          "title": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        },
+        {
+          "title": "IRS: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        },
+        {
+          "title": "IRS: Net Investment Income Tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        }
+      ],
+      "removeSources": []
+    },
+    "currency-calculator": {
+      "notes": [
+        "Choose an entered exchange rate, the ECB daily reference, or the broader dated-reference mode. The broader mode uses Frankfurter provider blends, a Coinbase Bitcoin spot snapshot and the SII daily UF value crossed through CLP.",
+        "Observation dates can differ between currencies and underlying providers. Provider attribution, excluded contributors, peg-derived references and retrieval time are shown where available.",
+        "Reference and spot snapshots exclude transaction fees, bank spreads and convertibility restrictions. Unavailable or obsolete instruments require an explicitly dated manual rate.",
+        "Conversion runs locally. Only generic rate snapshots are requested from the server; the amount and selected currencies are not sent to rate providers."
+      ],
+      "sources": [
+        {
+          "title": "ECB: euro foreign-exchange reference rates",
+          "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+        },
+        {
+          "title": "Frankfurter: blended rates and provider attribution",
+          "url": "https://frankfurter.dev/"
+        },
+        {
+          "title": "Coinbase: public spot-price endpoint",
+          "url": "https://docs.cdp.coinbase.com/coinbase-app/track-apis/prices"
+        },
+        {
+          "title": "Chile SII: daily Unidad de Fomento values",
+          "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm"
+        }
+      ],
+      "removeSources": []
+    },
+    "auto-loan-calculator": {
+      "notes": [
+        "Calculate a payment, a vehicle-price budget, or rebate-versus-rate offers using the entered price, down payment, gross trade allowance, trade debt, taxes and fees.",
+        "The state-tax mode includes scoped 2026 guidance for all 50 states and DC. Automatic taxable-base presets are available only where the listed dealer-purchase conditions are satisfied; other cases use a verified base or quoted tax amount.",
+        "State selection does not determine a local rate. Confirm transaction eligibility, taxable fees, rebate treatment and trade allowance using the selected state’s primary sources.",
+        "Tax, fees and trade debt are counted once in the selected cash/financed treatment. Private sales, exemptions, special vehicle classes and other transactions outside the preset need separately verified tax treatment."
+      ],
+      "sources": [
+        {
+          "title": "CFPB: comparing auto loans",
+          "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/"
+        }
+      ],
+      "removeSources": []
+    },
+    "cash-back-or-low-interest-calculator": {
+      "notes": [
+        "Compare eligible rebate and promotional-rate offers using the same vehicle price, term, down payment, trade, debt payoff and fees. The promotional offer removes the manufacturer rebate and recalculates purchase tax, or uses your separate verified tax quotes.",
+        "Use scoped 2026 state taxable-base treatment, your verified base assumptions, or separate quoted taxes for the two offers. State selection does not guess a combined local tax rate.",
+        "The comparison includes entered cash costs and loan interest. Early payoff, future resale value and the opportunity cost of cash are outside the calculation."
+      ],
+      "sources": [
+        {
+          "title": "CFPB: comparing auto loans",
+          "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/"
+        }
+      ],
+      "removeSources": []
+    }
+  },
+  "descriptionReplacements": {
+    "tax-calculator": "Estimate 2025 or 2026 US federal tax with combined income, deduction and credit scenarios, plus focused tax worksheets.",
+    "take-home-pay-calculator": "Estimate annual take-home cash for 2025 or 2026, or calculate 2026 paycheck withholding with separate tax wage bases.",
+    "marriage-calculator": "Compare supported 2025 or 2026 federal filing scenarios and separate state/local assumptions, including income, deductions and credits.",
+    "currency-calculator": "Convert currencies using an entered rate, dated ECB reference rates, or broader reference and spot snapshots with source attribution.",
+    "auto-loan-calculator": "Calculate auto-loan payments and price budgets with trade debt, rebates, fees and scoped US state tax treatment.",
+    "cash-back-or-low-interest-calculator": "Compare a vehicle rebate with promotional financing, recalculating taxes, financed costs and total cash for each offer."
+  },
+  "modeTextReplacements": [
+    {
+      "algorithm": "tax-federal-composed",
+      "field": "explanation",
+      "replacement": "A planning estimate for the selected 2025 or 2026 tax year combining supported federal income, deductions and credits. QBI uses a verified deduction or one-business worksheet. EITC uses a verified credit or a continuous estimate. The additional child-credit calculation includes the three-or-more-child payroll alternative. AMT, special-return amounts and eligibility require the stated verified inputs. State/local calculations use separate entered assumptions.",
+      "reason": "registry.ts currently overwrites the newer definition with2026-only/fewer-than-three wording."
+    },
+    {
+      "algorithm": "tax-tips-2026",
+      "field": "explanation",
+      "replacement": "Enter qualified voluntary cash or card tips after confirming the selected year’s occupation, reporting and identification rules. MFS is ineligible. Each business has its own net-income ceiling. Mandatory service charges do not qualify, and the deduction does not remove tips from wage or payroll-tax income.",
+      "reason": "2025 transition reporting differs from2026; avoid hardcoded2026 qualification language."
+    },
+    {
+      "algorithm": "tax-education-2026",
+      "field": "explanation",
+      "replacement": "Supports distinct AOTC and LLC students with one shared LLC expense cap. Confirm student, institution, reporting and identification requirements for the selected year. Refundability uses the claimant’s age and support facts. MFS is ineligible; no identifiers are collected.",
+      "reason": "Existing2026-only eligibility phrase is misleading when2025selected."
+    },
+    {
+      "algorithm": "tax-qbi-2026",
+      "field": "formula",
+      "replacement": "Apply the selected-year SSTB fraction, phased wage/property limit and taxable-income limit. The verified active-business minimum applies only in 2026.",
+      "reason": "Active minimum does not apply2025."
+    },
+    {
+      "algorithm": "tax-qbi-section68",
+      "field": "formula",
+      "replacement": "For 2026, calculate QBI before the Section 68 overall itemized reduction, then calculate that reduction using QBI. For 2025, no Section 68 overall reduction applies.",
+      "reason": "Current unconditional2/37 formula contradicts selected2025."
+    },
+    {
+      "algorithm": "tax-eitc-estimate-2026",
+      "field": "explanation",
+      "replacement": "Continuous planning estimate using published parameters for the selected year. It can differ from the IRS income-bin table. Confirm residency, identification, dependency, qualifying-child, foreign-income and prior-disallowance rules separately. EITC children can differ from child-tax-credit children.",
+      "reason": "Current description says final2026 parameters for bothyears."
+    },
+    {
+      "algorithm": "tax-qbi-2026 and tax-qbi-section68",
+      "field": "outputNote",
+      "replacement": "QBI reduces taxable income, not AGI, self-employment tax or payroll taxes. For 2026, an eligible active-business minimum may exceed the ordinary taxable-income cap. Final taxable income remains at least zero.",
+      "reason": "Unconditional active-minimum output note is wrong context for2025."
+    },
+    {
+      "algorithm": "tax-federal-composed and inherited annual-tax-pay",
+      "field": "verifiedOtherRefundableCredits.label",
+      "replacement": "Other verified refundable credits, excluding computed ACTC, AOTC and entered or computed EITC",
+      "reason": "registry relabel currently dropsEITC despite new verified/continuous inclusion."
+    }
+  ],
+  "sourceCatalog": {
+    "rp25": {
+      "title": "IRS: 2025 indexed tax parameters",
+      "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+      "supports": "2025 ordinary/gain brackets and indexed limits; later law supersedes the originally published basic standard deduction.",
+      "checked": "2026-10-09",
+      "edition": "2024-40, with enacted2025 amendments applied separately"
+    },
+    "rp26": {
+      "title": "IRS: 2026 indexed tax parameters",
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "supports": "2026 ordinary/gain brackets, EITC, QBI and other indexed limits.",
+      "checked": "2026-10-09",
+      "edition": "2025-32"
+    },
+    "law": {
+      "title": "Public Law 119-21: tax changes and effective dates",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+      "supports": "Post-enactment2025 standard deduction and child credit; Schedule1A;2026 care-credit, QBI, charity and Section68 changes; identification rules.",
+      "checked": "2026-10-09"
+    },
+    "1040": {
+      "title": "IRS: Form 1040 instructions",
+      "url": "https://www.irs.gov/instructions/i1040gi",
+      "supports": "Return structure, deductions, gains and filing-status rules.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions;2026 indexed/statutory changes sourced separately"
+    },
+    "s1a": {
+      "title": "IRS: Schedule 1-A additional deductions",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf",
+      "supports": "Tips, qualified overtime, eligible vehicle-interest and senior deduction worksheets.",
+      "checked": "2026-10-09",
+      "edition": "Final2025 form; common monetary formulas continue2026"
+    },
+    "tips25": {
+      "title": "IRS: 2025 tips and overtime transition guidance",
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf",
+      "supports": "2025 reporting transition methods are not a declaration of identical qualification/reporting rules in2026.",
+      "checked": "2026-10-09",
+      "edition": "Notice2025-69"
+    },
+    "tips26": {
+      "title": "IRS: final qualified-tips regulations",
+      "url": "https://www.irs.gov/irb/2026-18_IRB",
+      "supports": "Qualified tips/occupation rules; independent confirmation of eligibility remains required.",
+      "checked": "2026-10-09",
+      "edition": "T.D.10044"
+    },
+    "overtime": {
+      "title": "IRS: qualified overtime questions and answers",
+      "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf",
+      "supports": "FLSA premium amount, qualification and reporting explanations.",
+      "checked": "2026-10-09",
+      "edition": "Updated2026"
+    },
+    "education": {
+      "title": "IRS: education tax benefits",
+      "url": "https://www.irs.gov/publications/p970",
+      "supports": "AOTC, LLC and student-interest methods and coordination.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 publication;2026 indexed/law changes sourced separately"
+    },
+    "8863": {
+      "title": "IRS: education-credit instructions",
+      "url": "https://www.irs.gov/instructions/i8863",
+      "supports": "Credit allocation, claimant refundability and tax limitation.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions"
+    },
+    "ira": {
+      "title": "IRS: contributions to traditional and Roth IRAs",
+      "url": "https://www.irs.gov/publications/p590a",
+      "supports": "IRA deduction ceilings and coordinated IRA/Social Security worksheet.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 publication"
+    },
+    "ret25": {
+      "title": "IRS: 2025 retirement-plan and IRA limits",
+      "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+      "supports": "2025 IRA capacity and workplace-plan phaseouts.",
+      "checked": "2026-10-09",
+      "edition": "Notice2024-80"
+    },
+    "ret26": {
+      "title": "IRS: 2026 retirement-plan and IRA limits",
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+      "supports": "2026 IRA capacity and workplace-plan phaseouts.",
+      "checked": "2026-10-09",
+      "edition": "Notice2025-67"
+    },
+    "ssaBenefits": {
+      "title": "IRS: taxation of Social Security benefits",
+      "url": "https://www.irs.gov/publications/p915",
+      "supports": "Provisional-income inclusion and deduction addbacks.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 publication; these thresholds are unchanged"
+    },
+    "qbi": {
+      "title": "IRS: qualified business income deduction instructions",
+      "url": "https://www.irs.gov/instructions/i8995a",
+      "supports": "Normal one-business SSTB/wage/property/income-limit mechanics.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions;2026 minimum/limits sourced from law and RP2025-32"
+    },
+    "eitc": {
+      "title": "IRS: earned income credit eligibility and worksheets",
+      "url": "https://www.irs.gov/publications/p596",
+      "supports": "Eligibility, earned income and the IRS income-bin table method. Product continuous estimate is a disclosed alternative.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 publication; no draft2026 table imported"
+    },
+    "child": {
+      "title": "IRS: child and additional child tax credit instructions",
+      "url": "https://www.irs.gov/instructions/i1040s8",
+      "supports": "Dependent credit, credit limit and three-or-more-child payroll alternative.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions"
+    },
+    "care": {
+      "title": "IRS: dependent-care credit instructions",
+      "url": "https://www.irs.gov/instructions/i2441",
+      "supports": "Expense and earned-income ceilings;2026 rate change supported separately by law.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions"
+    },
+    "se": {
+      "title": "IRS: self-employment tax instructions",
+      "url": "https://www.irs.gov/instructions/i1040sse",
+      "supports": "SE earnings fraction, per-person wage base, regular SE tax and half-tax deduction.",
+      "checked": "2026-10-09",
+      "edition": "Current final2025 instructions;selected-year wage base sourced from SSA"
+    },
+    "payroll": {
+      "title": "IRS: employer payroll tax guide",
+      "url": "https://www.irs.gov/publications/p15",
+      "supports": "Employee FICA and deduction wage-base guidance.",
+      "checked": "2026-10-09",
+      "edition": "Current2026 publication"
+    },
+    "withholding": {
+      "title": "IRS: 2026 federal withholding methods",
+      "url": "https://www.irs.gov/publications/p15t",
+      "supports": "W-4 Worksheet1A for2020-or-later W-4 forms; this engine remains2026-only.",
+      "checked": "2026-10-09",
+      "edition": "2026"
+    },
+    "wageBase": {
+      "title": "SSA: annual contribution and benefit bases",
+      "url": "https://www.ssa.gov/oact/cola/cbb.html",
+      "supports": "2025 and2026 Social Security wage caps.",
+      "checked": "2026-10-09"
+    },
+    "medicare": {
+      "title": "IRS: Additional Medicare Tax",
+      "url": "https://www.irs.gov/taxtopics/tc560",
+      "supports": "Final liability thresholds differ from employer withholding threshold.",
+      "checked": "2026-10-09"
+    },
+    "niit": {
+      "title": "IRS: Net Investment Income Tax",
+      "url": "https://www.irs.gov/taxtopics/tc559",
+      "supports": "3.8% NIIT and filing-status thresholds.",
+      "checked": "2026-10-09"
+    },
+    "amt": {
+      "title": "IRS: alternative minimum tax instructions",
+      "url": "https://www.irs.gov/instructions/i6251",
+      "supports": "AMT scope and separately verified incremental AMT input; no full-return AMT automation claimed.",
+      "checked": "2026-10-09"
+    },
+    "ecb": {
+      "title": "ECB: euro foreign-exchange reference rates",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "supports": "ECB-only mode and dated informational reference rates.",
+      "checked": "2026-10-09"
+    },
+    "frankfurter": {
+      "title": "Frankfurter: blended rates and provider attribution",
+      "url": "https://frankfurter.dev/",
+      "supports": "Global mode uses a provider blend, source attribution and separately identified pegs; it is not an ECB-only feed.",
+      "checked": "2026-10-09"
+    },
+    "coinbase": {
+      "title": "Coinbase: public spot-price endpoint",
+      "url": "https://docs.cdp.coinbase.com/coinbase-app/track-apis/prices",
+      "supports": "BTC/USD spot snapshot; retrieval timestamp is not an exchange execution guarantee.",
+      "checked": "2026-10-09"
+    },
+    "sii": {
+      "title": "Chile SII: daily Unidad de Fomento values",
+      "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+      "supports": "Dated UF in CLP; CLF/USD derives through a separately dated CLP reference.",
+      "checked": "2026-10-09"
+    },
+    "auto": {
+      "title": "CFPB: comparing auto loans",
+      "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/",
+      "supports": "Loan cost, terms and financed-cost context; state tax authority references supplied separately per jurisdiction.",
+      "checked": "2026-10-09"
+    }
+  },
+  "vehicleSourcePresentation": "Attach the selected state’s source array from vehicle-state-sources.json beside that state’s scope notes. Do not imply CFPB or another state supports the selected jurisdiction. Existing dataset has51jurisdictions and34automatic presets; avoid permanent counts in public prose.",
+  "sourceValidation": "IRS/SSA/ECB/Frankfurter/Coinbase/SII sources checked directly or already snapshotted in prior primary-rule research. Vehicle87sourceURLs retained from the owner dataset verified2026-10-09; this bounded copy audit did not re-audit all51legal treatments. CA/TX were spot-checked directly.",
+  "sourceHashes": {
+    "src/data/calculator-overrides.json": "48394f118e2549d4b5b89b80c4f702eedbdb54ce4b8ee39da92ff21cb1b7769d",
+    "src/data/tool-descriptions.json": "6b113cb8109cc97804639e4ba5298310d2c2bcf1b8efecd8a23b23071c8b585e",
+    "src/lib/calculators/registry.ts": "fe63f2042c15af663ccc70c5ec28d4a3c7194d0d8c69ef58738ed366144eaa63",
+    "src/lib/calculators/tax-composition.ts": "8734c8b13ddf1b2c9bea993472ff6adbb0da92704ec130fe51c706fdd7aaa048",
+    "src/lib/calculators/tax-additional-definitions.ts": "90bb0558ea8c7d9b8d91b738095b4dc7206e47598c54b2ebcd6e6a15ebb8d07b",
+    "src/lib/calculators/annual-pay.ts": "2b3f8f237b401b1dd84aef16a63173850f6e4ea673a80015653159ae301c92f7",
+    "src/lib/calculators/vehicle-tax.ts": "476b40b21eb5c29480b534ee66293eda6a4ad8c24ab199f453f693d4088a1459",
+    "src/lib/data/global-rates.ts": "87eb817b9adecc5bf4d8787f60acc1417c981172bcf6791c7e866826812dc5f4"
+  }
+}

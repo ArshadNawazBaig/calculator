@@ -1,0 +1,355 @@
+{
+  "about": {
+    "title": "A little clarity goes a long way.",
+    "description": "About Finflo — practical calculators with visible methods, clear assumptions, and results you can understand.",
+    "sections": [
+      {
+        "title": "Built for everyday decisions",
+        "paragraphs": [
+          "Finflo brings money, health, math, and everyday calculations into one place. Our aim is simple: make the calculation easy to use and the reasoning easy to inspect.",
+          "Choose a tool, enter your own values, and explore the formula and assumptions beside the result. Calculations run in your browser without an account."
+        ]
+      },
+      {
+        "title": "Our approach",
+        "paragraphs": [
+          "A useful answer needs context. We identify units, distinguish estimates from exact arithmetic, and explain the supported model. When a tool depends on regional rules or a particular year, that scope belongs on the page.",
+          "Finflo is an independent project. It is not affiliated with Calculator.net, WeightWatchers, government agencies, or the organizations cited as references."
+        ]
+      },
+      {
+        "title": "Editorial responsibility",
+        "paragraphs": [
+          "Finflo is responsible for the site and its explanations. We do not claim that every page has been reviewed by a licensed professional. The methodology page describes the calculation and verification process."
+        ],
+        "links": [
+          {
+            "label": "How our calculations work",
+            "href": "/methodology"
+          },
+          {
+            "label": "Editorial policy",
+            "href": "/editorial-policy"
+          },
+          {
+            "label": "Contact Finflo",
+            "href": "/contact"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let’s make the numbers clearer.",
+    "description": "Contact Finflo with a question, calculation issue, accessibility problem, or correction.",
+    "sections": [
+      {
+        "title": "Contact Finflo",
+        "paragraphs": [
+          "Email the address below with questions, feedback, or a problem using Finflo."
+        ],
+        "links": [
+          {
+            "label": "{contactEmail}",
+            "href": "mailto:{contactEmail}"
+          }
+        ]
+      },
+      {
+        "title": "Report a calculation issue",
+        "paragraphs": [
+          "Include the tool name, selected calculation mode, expected result, and the formula or source you used. An example with fictional inputs is usually enough to reproduce the issue.",
+          "Please avoid sending medical records, financial account details, passwords, or other sensitive personal information. We cannot provide individual financial, tax, legal, or medical advice."
+        ]
+      },
+      {
+        "title": "Accessibility feedback",
+        "paragraphs": [
+          "Tell us which page or control caused a problem, your browser, and any assistive technology involved. We welcome reproducible reports and suggestions."
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "description": "How Finflo handles calculator inputs, reference-data requests, local files, contact messages, and browser tools.",
+    "sections": [
+      {
+        "title": "Calculator inputs and results",
+        "paragraphs": [
+          "Finflo performs calculations in your browser without an account. When you use the page controls, Finflo does not send the values you enter to an application database, advertisers, or analytics services. Finflo does not save your calculator inputs between visits. Your browser may restore form entries according to its own settings.",
+          "Copy tool link copies the page address without your calculator values. CSV downloads are created in your browser. If you copy, download, print, email, or otherwise share a result, the destination you choose may receive it."
+        ]
+      },
+      {
+        "title": "Currency reference data",
+        "paragraphs": [
+          "Some currency modes request a shared reference-data snapshot from Finflo’s server. The server obtains public data from sources including the European Central Bank, Frankfurter, Coinbase, and Chile’s Servicio de Impuestos Internos. Your amount and selected currency pair are used locally and are not included in these reference-data requests.",
+          "Reference snapshots may be cached by the server, your browser, or hosting infrastructure. The calculator shows available source dates and identifies reference or spot values. Manual-rate calculations do not need a reference-data request."
+        ]
+      },
+      {
+        "title": "Local files and text utilities",
+        "paragraphs": [
+          "The Base64 file tool reads only a file you select. Finflo converts its contents in your browser and creates a local download; the tool does not upload the file or its filename to Finflo. Text encoding, decoding, and password generation also run locally.",
+          "Downloaded files remain wherever you save them until you remove them. Your browser, extensions, operating system, and any application you use to open or share a file operate under their own settings and policies."
+        ]
+      },
+      {
+        "title": "Optional browser-assistant tools",
+        "paragraphs": [
+          "A compatible browser or assistant may offer tools that interact with Finflo’s calculators. When you invoke a supported calculation through that service, it can supply inputs, update the visible form, and receive the calculation’s result and notes. That browser or assistant’s own privacy practices apply to information it handles.",
+          "Finflo does not require this integration. Ordinary calculator controls work without it. Finflo does not register password generation, Base64, or URL encoding and decoding as assistant tools."
+        ]
+      },
+      {
+        "title": "Website requests and hosting",
+        "paragraphs": [
+          "Opening pages and requesting reference data sends ordinary connection information to the hosting infrastructure, such as your IP address, browser details, requested URL, and request time. Search terms entered in the site’s search are included in the search-page URL. Hosting providers may process request and security logs to deliver and protect the service.",
+          "Finflo does not currently provide visitor accounts or store calculator inputs in an application database."
+        ]
+      },
+      {
+        "title": "Cookies, advertising, and analytics",
+        "paragraphs": [
+          "Finflo currently loads no advertising networks, marketing analytics, or optional tracking cookies. Your browser may cache pages, code, and public reference data so they can load again more quickly.",
+          "If these practices change, we will update this notice and provide any relevant preferences before enabling the new service."
+        ],
+        "links": [
+          {
+            "label": "Cookies and preferences",
+            "href": "/cookies"
+          }
+        ]
+      },
+      {
+        "title": "Contact messages",
+        "paragraphs": [
+          "If you email Finflo, your email provider and ours process the message. We use the information you send to respond to your request or investigate the reported issue. Please use fictional examples when reporting a calculation problem and avoid including unnecessary personal information.",
+          "For privacy questions or requests about information you have sent to us, use the contact details on our Contact page. We cannot retrieve calculator inputs that were never sent to or saved by Finflo."
+        ],
+        "links": [
+          {
+            "label": "Contact Finflo",
+            "href": "/contact"
+          }
+        ]
+      },
+      {
+        "title": "External links and updates",
+        "paragraphs": [
+          "External sources and services linked from Finflo have their own privacy practices. This notice describes Finflo’s current functionality.",
+          "Last updated October 9, 2026."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of service",
+    "description": "Terms for using Finflo’s calculators, explanations, and utilities.",
+    "sections": [
+      {
+        "title": "Using the site",
+        "paragraphs": [
+          "Finflo provides general calculation tools and educational explanations. Use the tools within their documented inputs, supported models, and limitations. You remain responsible for checking whether those assumptions fit your situation.",
+          "Do not disrupt the service, probe it without authorization, introduce malicious content, or use it to violate applicable law."
+        ]
+      },
+      {
+        "title": "Estimates and professional advice",
+        "paragraphs": [
+          "A mathematically correct output can still be an unsuitable estimate when its assumptions do not match reality. Tax, lending, medical, building, and other consequential decisions may require a qualified professional and current authoritative information.",
+          "Finflo does not create a financial advisory, healthcare, legal, or other professional relationship. Outputs do not guarantee outcomes, eligibility, safety, compliance, or returns."
+        ],
+        "links": [
+          {
+            "label": "Read our disclaimers",
+            "href": "/disclaimer"
+          }
+        ]
+      },
+      {
+        "title": "Availability and corrections",
+        "paragraphs": [
+          "We may update formulas, explanations, features, and availability. We aim to correct reported defects, but do not warrant uninterrupted access or that every result is free of error.",
+          "These terms do not exclude rights or remedies that cannot lawfully be excluded."
+        ]
+      },
+      {
+        "title": "Content and attribution",
+        "paragraphs": [
+          "Finflo’s original interface and explanations are provided for use with the site. External trademarks and sources belong to their respective owners. References do not imply endorsement.",
+          "Last updated October 9, 2026. Contact Finflo with questions about these terms."
+        ],
+        "links": [
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Cookies and preferences",
+    "description": "Finflo’s current cookie and tracking practices.",
+    "sections": [
+      {
+        "title": "Cookies and tracking",
+        "paragraphs": [
+          "Finflo currently uses no advertising networks, marketing analytics, or optional tracking cookies.",
+          "Your browser may cache pages, code, and public currency reference data. Caching helps resources load again; it is separate from an advertising profile. Finflo does not save calculator inputs between visits."
+        ]
+      },
+      {
+        "title": "Changes to these practices",
+        "paragraphs": [
+          "We will update this page and provide relevant preferences before adding optional tracking."
+        ],
+        "links": [
+          {
+            "label": "Privacy policy",
+            "href": "/privacy"
+          }
+        ]
+      }
+    ]
+  },
+  "disclaimer": {
+    "title": "Understand what an estimate can tell you.",
+    "description": "Financial, medical, engineering, and general limitations of Finflo’s calculation tools.",
+    "sections": [
+      {
+        "title": "Financial and tax tools",
+        "paragraphs": [
+          "Results use the values and assumptions shown. Rates, fees, taxes, eligibility, and local rules can change. Estimates are not a quote, a tax return, investment advice, or an assurance of future performance.",
+          "Federal wage-tax estimates do not constitute a complete tax computation. Historical or assumed investment returns do not predict future returns."
+        ]
+      },
+      {
+        "title": "Health and fitness tools",
+        "paragraphs": [
+          "Health outputs are estimates or screening references, not diagnoses or individual treatment instructions. Population formulas may not apply to children, pregnancy, athletes, or people with particular conditions unless a specific method says otherwise.",
+          "Discuss medical interpretation with a qualified clinician. Do not use a BAC estimate to decide whether to drive, or a calendar-based fertility estimate as contraception."
+        ]
+      },
+      {
+        "title": "Construction, electrical, and other tools",
+        "paragraphs": [
+          "Material quantities and physical models omit conditions identified on each page. Outputs do not certify structural integrity, electrical safety, code compliance, or a complete project specification.",
+          "For safety-critical work, use current standards and a qualified professional. Entertainment utilities, including the name-match game, have no predictive validity."
+        ]
+      }
+    ]
+  },
+  "editorial-policy": {
+    "title": "Editorial policy",
+    "description": "How Finflo selects references, writes explanations, and handles corrections.",
+    "sections": [
+      {
+        "title": "Original, useful explanations",
+        "paragraphs": [
+          "We write for the person trying to understand a result. Explanations should identify what the output means, the units involved, the formula used, and the conditions where the calculation is useful.",
+          "Finflo’s explanations and interface are original. References support the calculation methods and help you check their assumptions."
+        ]
+      },
+      {
+        "title": "Sources and expertise",
+        "paragraphs": [
+          "We prioritize original papers, official government and statistical sources, recognized standards, and primary technical documentation. A citation supports the stated method; it does not imply that the source endorses Finflo.",
+          "We do not invent named reviewers, professional credentials, ratings, or customer testimonials. If professional review is commissioned, the actual reviewer and scope should be disclosed."
+        ]
+      },
+      {
+        "title": "Corrections and updates",
+        "paragraphs": [
+          "Changes to formulas and data should include tests of the affected behavior. Year-dependent tools need a stated year and a documented update process. A page should not imply a fresh expert review merely because its build date changed.",
+          "Report a possible error through Contact with a reproducible example. When a tool depends on unavailable data, a licensed service, or an unverified method, its page explains the limitation."
+        ],
+        "links": [
+          {
+            "label": "Calculation methodology",
+            "href": "/methodology"
+          },
+          {
+            "label": "Report an issue",
+            "href": "/contact"
+          }
+        ]
+      }
+    ]
+  },
+  "methodology": {
+    "title": "The method matters as much as the answer.",
+    "description": "Finflo’s approach to formulas, input validation, numerical precision, and verification.",
+    "sections": [
+      {
+        "title": "Visible assumptions",
+        "paragraphs": [
+          "Each tool identifies its supported calculation modes and units. Formula descriptions and source links are available as page text, alongside illustrative inputs and results. A financial model, a biological estimate, and exact arithmetic carry different uncertainty."
+        ]
+      },
+      {
+        "title": "Calculation and precision",
+        "paragraphs": [
+          "Most engines use JavaScript numerical arithmetic. Fractions, large integers, address ranges, and selected decimal operations use appropriate exact or higher-precision representations. Display rounding is separate from internal arithmetic where practical.",
+          "Inputs are checked for missing values, invalid units, impossible dates, division by zero, and model-specific restrictions. Extreme cases can exceed a method’s supported numerical range; those should return a useful error rather than a plausible-looking invalid answer."
+        ]
+      },
+      {
+        "title": "Verification and coverage",
+        "paragraphs": [
+          "We check representative calculations against independently derived examples and source references, and test edge cases such as invalid dates, boundary values, and unit conversions. These checks reduce errors but cannot prove that every possible input is correct.",
+          "A calculator’s page describes the implemented methods and their limitations. A matching name does not mean it reproduces every feature of another service. Methods that rely on unavailable data or proprietary rules are identified where relevant."
+        ]
+      },
+      {
+        "title": "Privacy by design",
+        "paragraphs": [
+          "Calculations run in your browser without an account. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools."
+        ],
+        "links": [
+          {
+            "label": "Privacy practices",
+            "href": "/privacy"
+          },
+          {
+            "label": "Browse calculators",
+            "href": "/calculators"
+          }
+        ]
+      }
+    ]
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "description": "Finflo’s accessibility approach and how to report a barrier.",
+    "sections": [
+      {
+        "title": "A practical, usable website",
+        "paragraphs": [
+          "We aim for WCAG 2.2 AA. The interface uses semantic headings, labeled controls, keyboard focus indicators, status announcements, and text or table alternatives to charts.",
+          "We have not claimed accessibility certification or a completed independent audit. Automated checks help find problems, but they cannot verify every interaction or assistive-technology combination."
+        ]
+      },
+      {
+        "title": "Using the calculators",
+        "paragraphs": [
+          "Use the skip link to move to the page content. Calculator modes use a standard select control. Results can be read as text, and detailed data is available in tables. Layouts adapt to narrow screens and reduced-motion preferences."
+        ]
+      },
+      {
+        "title": "Tell us about a barrier",
+        "paragraphs": [
+          "Email {contactEmail} with the page, browser, assistive technology, and a short description of the task that was difficult."
+        ],
+        "links": [
+          {
+            "label": "Contact Finflo",
+            "href": "/contact"
+          }
+        ]
+      }
+    ]
+  }
+}

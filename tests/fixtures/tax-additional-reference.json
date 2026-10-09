@@ -1,0 +1,1568 @@
+{
+  "version": 1,
+  "taxYear": 2026,
+  "verified": "2026-10-09",
+  "provenance": "Independent Python Decimal60 arithmetic from cited IRS/statutory equations; no product code imported.",
+  "fixtures": [
+    {
+      "id": "tips-floor-0",
+      "function": "tips",
+      "input": {
+        "MAGI": 150000,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 25000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-1",
+      "function": "tips",
+      "input": {
+        "MAGI": 150000.01,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 25000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-2",
+      "function": "tips",
+      "input": {
+        "MAGI": 150999.99,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 25000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-3",
+      "function": "tips",
+      "input": {
+        "MAGI": 151000,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 100.0,
+        "deduction": 24900.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-4",
+      "function": "tips",
+      "input": {
+        "MAGI": 151999.99,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 100.0,
+        "deduction": 24900.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-5",
+      "function": "tips",
+      "input": {
+        "MAGI": 152000,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 200.0,
+        "deduction": 24800.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-6",
+      "function": "tips",
+      "input": {
+        "MAGI": 274999.99,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 12400.0,
+        "deduction": 12600.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-floor-7",
+      "function": "tips",
+      "input": {
+        "MAGI": 400000,
+        "employeeTips": 25000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 25000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 25000.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Completed-$1,000 phaseout boundaries; final Schedule 1-A line 10."
+    },
+    {
+      "id": "tips-joint-cap-once",
+      "function": "tips",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 300000,
+        "employeeTips": 50000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 50000.0,
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 25000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Joint return still has one $25,000 tips cap."
+    },
+    {
+      "id": "tips-business-separate-caps",
+      "function": "tips",
+      "input": {
+        "MAGI": 60000,
+        "employeeTips": 4000,
+        "businesses": [
+          {
+            "qualifiedTips": 10000,
+            "netIncomeAfterAllocableDeductions": 7000
+          },
+          {
+            "qualifiedTips": 2000,
+            "netIncomeAfterAllocableDeductions": -1000
+          },
+          {
+            "qualifiedTips": 4000,
+            "netIncomeAfterAllocableDeductions": 10000
+          }
+        ]
+      },
+      "expected": {
+        "eligibleBusinessTips": 11000.0,
+        "eligibleEmployeeTips": 4000.0,
+        "cappedBase": 15000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 15000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Business net-income ceiling applies separately before aggregation."
+    },
+    {
+      "id": "tips-status-marriedSeparate",
+      "function": "tips",
+      "input": {
+        "filing": "marriedSeparate",
+        "MAGI": 200000,
+        "employeeTips": 20000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 20000.0,
+        "cappedBase": 0.0,
+        "phaseoutReduction": 5000.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Only MFJ receives joint threshold; MFS cannot deduct."
+    },
+    {
+      "id": "tips-status-qualifyingSurvivingSpouse",
+      "function": "tips",
+      "input": {
+        "filing": "qualifyingSurvivingSpouse",
+        "MAGI": 200000,
+        "employeeTips": 20000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 20000.0,
+        "cappedBase": 20000.0,
+        "phaseoutReduction": 5000.0,
+        "deduction": 15000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Only MFJ receives joint threshold; MFS cannot deduct."
+    },
+    {
+      "id": "tips-eligibility-false",
+      "function": "tips",
+      "input": {
+        "eligible": false,
+        "MAGI": 30000,
+        "employeeTips": 20000
+      },
+      "expected": {
+        "eligibleBusinessTips": 0.0,
+        "eligibleEmployeeTips": 20000.0,
+        "cappedBase": 0.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Raw tips alone do not establish eligibility."
+    },
+    {
+      "id": "overtime-floor-0",
+      "function": "overtime",
+      "input": {
+        "MAGI": 150000,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 12500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-floor-1",
+      "function": "overtime",
+      "input": {
+        "MAGI": 150000.01,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 12500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-floor-2",
+      "function": "overtime",
+      "input": {
+        "MAGI": 150999.99,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 12500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-floor-3",
+      "function": "overtime",
+      "input": {
+        "MAGI": 151000,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 100.0,
+        "deduction": 12400.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-floor-4",
+      "function": "overtime",
+      "input": {
+        "MAGI": 274999.99,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 12400.0,
+        "deduction": 100.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-floor-5",
+      "function": "overtime",
+      "input": {
+        "MAGI": 275000,
+        "qualifiedPremium": 20000
+      },
+      "expected": {
+        "cappedBase": 12500.0,
+        "phaseoutReduction": 12500.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "FLSA qualifying premium capped before completed-$1,000 phaseout."
+    },
+    {
+      "id": "overtime-joint-cap",
+      "function": "overtime",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 310000,
+        "qualifiedPremium": 40000
+      },
+      "expected": {
+        "cappedBase": 25000.0,
+        "phaseoutReduction": 1000.0,
+        "deduction": 24000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Joint cap and joint threshold."
+    },
+    {
+      "id": "overtime-mfs",
+      "function": "overtime",
+      "input": {
+        "filing": "marriedSeparate",
+        "MAGI": 40000,
+        "qualifiedPremium": 2000
+      },
+      "expected": {
+        "cappedBase": 0.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "MFS disallowed."
+    },
+    {
+      "id": "overtime-premium-only",
+      "function": "overtime",
+      "input": {
+        "MAGI": 70000,
+        "qualifiedPremium": 3000
+      },
+      "expected": {
+        "cappedBase": 3000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 3000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Example $9,000 of exactly 1.5x qualifying overtime contains $3,000 premium; input is premium, not $9,000."
+    },
+    {
+      "id": "car-ceiling-0",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 100000,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 10000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-1",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 100000.01,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 200.0,
+        "deduction": 9800.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-2",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 100999.99,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 200.0,
+        "deduction": 9800.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-3",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 101000,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 200.0,
+        "deduction": 9800.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-4",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 101000.01,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 400.0,
+        "deduction": 9600.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-5",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 149000,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 9800.0,
+        "deduction": 200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-6",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 149000.01,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 10000.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-ceiling-7",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 150000,
+        "loans": [
+          {
+            "qualifiedInterest": 12000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 12000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 10000.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Every commenced-$1,000 phaseout boundaries; Schedule 1-A line 28."
+    },
+    {
+      "id": "car-mfs-allowed",
+      "function": "carInterest",
+      "input": {
+        "filing": "marriedSeparate",
+        "MAGI": 110000,
+        "loans": [
+          {
+            "qualifiedInterest": 6000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 6000.0,
+        "cappedBase": 6000.0,
+        "phaseoutReduction": 2000.0,
+        "deduction": 4000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Car interest has no blanket married-joint requirement."
+    },
+    {
+      "id": "car-joint-cap-once",
+      "function": "carInterest",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 200000,
+        "loans": [
+          {
+            "qualifiedInterest": 7000
+          },
+          {
+            "qualifiedInterest": 7000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 14000.0,
+        "cappedBase": 10000.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 10000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "One $10,000 return cap across all eligible vehicles."
+    },
+    {
+      "id": "car-deducted-elsewhere",
+      "function": "carInterest",
+      "input": {
+        "MAGI": 105001,
+        "loans": [
+          {
+            "qualifiedInterest": 5000,
+            "deductedElsewhere": 1800
+          },
+          {
+            "qualifiedInterest": 2000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 5200.0,
+        "cappedBase": 5200.0,
+        "phaseoutReduction": 1200.0,
+        "deduction": 4000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Subtract C/E/F deductions before cap; do not count interest twice."
+    },
+    {
+      "id": "car-not-qualified",
+      "function": "carInterest",
+      "input": {
+        "eligible": false,
+        "MAGI": 90000,
+        "loans": [
+          {
+            "qualifiedInterest": 6000
+          }
+        ]
+      },
+      "expected": {
+        "availableInterest": 6000.0,
+        "cappedBase": 0.0,
+        "phaseoutReduction": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Verified vehicle/loan requirements must hold."
+    },
+    {
+      "id": "education-refundability-0",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 17,
+        "claimantFullTimeStudent": false,
+        "earnedIncome": 50000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-1",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 18,
+        "claimantFullTimeStudent": false,
+        "earnedIncome": 14999,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-2",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 18,
+        "claimantFullTimeStudent": false,
+        "earnedIncome": 15000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-3",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 23,
+        "claimantFullTimeStudent": true,
+        "earnedIncome": 1000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": false
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-4",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 23,
+        "claimantFullTimeStudent": false,
+        "earnedIncome": 1000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-5",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 24,
+        "claimantFullTimeStudent": true,
+        "earnedIncome": 1000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-6",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 20,
+        "claimantFullTimeStudent": true,
+        "earnedIncome": 1000,
+        "support": 30000,
+        "parentAlive": false,
+        "filing": "single"
+      },
+      "expected": {
+        "refundEligible": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-refundability-7",
+      "function": "educationRefundability",
+      "input": {
+        "claimantAge": 20,
+        "claimantFullTimeStudent": true,
+        "earnedIncome": 1000,
+        "support": 30000,
+        "parentAlive": true,
+        "filing": "marriedJoint"
+      },
+      "expected": {
+        "refundEligible": true
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundability tests claimant, not dependent student; exactly half support passes earnings test."
+    },
+    {
+      "id": "education-aotc-phaseout-0",
+      "function": "education",
+      "input": {
+        "MAGI": 80000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 5000
+      },
+      "expected": {
+        "phaseoutRatio": 1.0,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 2500.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 1000.0,
+        "potentialNonrefundable": 1500.0,
+        "allowedNonrefundable": 1500.0,
+        "totalCredit": 2500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exact phaseout ratio satisfies form instruction to retain at least three decimal places."
+    },
+    {
+      "id": "education-aotc-phaseout-1",
+      "function": "education",
+      "input": {
+        "MAGI": 80000.01,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 5000
+      },
+      "expected": {
+        "phaseoutRatio": 0.999999,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 2499.9975,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 999.999,
+        "potentialNonrefundable": 1499.9985,
+        "allowedNonrefundable": 1499.9985,
+        "totalCredit": 2499.9975
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exact phaseout ratio satisfies form instruction to retain at least three decimal places."
+    },
+    {
+      "id": "education-aotc-phaseout-2",
+      "function": "education",
+      "input": {
+        "MAGI": 85000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 5000
+      },
+      "expected": {
+        "phaseoutRatio": 0.5,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 1250.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 500.0,
+        "potentialNonrefundable": 750.0,
+        "allowedNonrefundable": 750.0,
+        "totalCredit": 1250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exact phaseout ratio satisfies form instruction to retain at least three decimal places."
+    },
+    {
+      "id": "education-aotc-phaseout-3",
+      "function": "education",
+      "input": {
+        "MAGI": 89999,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 5000
+      },
+      "expected": {
+        "phaseoutRatio": 0.0001,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 0.25,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 0.1,
+        "potentialNonrefundable": 0.15,
+        "allowedNonrefundable": 0.15,
+        "totalCredit": 0.25
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exact phaseout ratio satisfies form instruction to retain at least three decimal places."
+    },
+    {
+      "id": "education-aotc-phaseout-4",
+      "function": "education",
+      "input": {
+        "MAGI": 90000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 5000
+      },
+      "expected": {
+        "phaseoutRatio": 0.0,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 0.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 0.0,
+        "potentialNonrefundable": 0.0,
+        "allowedNonrefundable": 0.0,
+        "totalCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Exact phaseout ratio satisfies form instruction to retain at least three decimal places."
+    },
+    {
+      "id": "education-parent-two-students",
+      "function": "education",
+      "input": {
+        "MAGI": 120000,
+        "filing": "marriedJoint",
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          },
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 3000
+          }
+        ],
+        "availableNonrefundableTax": 10000
+      },
+      "expected": {
+        "phaseoutRatio": 1.0,
+        "aotcBeforePhaseout": 4750.0,
+        "aotcAfterPhaseout": 4750.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 1900.0,
+        "potentialNonrefundable": 2850.0,
+        "allowedNonrefundable": 2850.0,
+        "totalCredit": 4750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "AOTC cap per student; parent refundability facts control."
+    },
+    {
+      "id": "education-llc-shared-cap",
+      "function": "education",
+      "input": {
+        "MAGI": 60000,
+        "students": [
+          {
+            "credit": "llc",
+            "adjustedQualifiedExpenses": 8000
+          },
+          {
+            "credit": "llc",
+            "adjustedQualifiedExpenses": 8000
+          }
+        ],
+        "availableNonrefundableTax": 4000
+      },
+      "expected": {
+        "phaseoutRatio": 1.0,
+        "aotcBeforePhaseout": 0.0,
+        "aotcAfterPhaseout": 0.0,
+        "llcAfterPhaseout": 2000.0,
+        "refundableAotc": 0.0,
+        "potentialNonrefundable": 2000.0,
+        "allowedNonrefundable": 2000.0,
+        "totalCredit": 2000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "LLC cap once per return."
+    },
+    {
+      "id": "education-mixed",
+      "function": "education",
+      "input": {
+        "MAGI": 170000,
+        "filing": "marriedJoint",
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          },
+          {
+            "credit": "llc",
+            "adjustedQualifiedExpenses": 10000
+          }
+        ],
+        "availableNonrefundableTax": 2000
+      },
+      "expected": {
+        "phaseoutRatio": 0.5,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 1250.0,
+        "llcAfterPhaseout": 1000.0,
+        "refundableAotc": 500.0,
+        "potentialNonrefundable": 1750.0,
+        "allowedNonrefundable": 1750.0,
+        "totalCredit": 2250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Different students may receive different credits; tax capacity applies to aggregate nonrefundable amount."
+    },
+    {
+      "id": "education-all-nonrefundable",
+      "function": "education",
+      "input": {
+        "MAGI": 20000,
+        "refundEligible": false,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 2200
+      },
+      "expected": {
+        "phaseoutRatio": 1.0,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 2500.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 0.0,
+        "potentialNonrefundable": 2500.0,
+        "allowedNonrefundable": 2200.0,
+        "totalCredit": 2200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Under-24 restriction redirects entire AOTC to nonrefundable pool, not just 60%."
+    },
+    {
+      "id": "education-low-tax",
+      "function": "education",
+      "input": {
+        "MAGI": 20000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ],
+        "availableNonrefundableTax": 200
+      },
+      "expected": {
+        "phaseoutRatio": 1.0,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 2500.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 1000.0,
+        "potentialNonrefundable": 1500.0,
+        "allowedNonrefundable": 200.0,
+        "totalCredit": 1200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Refundable portion survives exhausted ordinary income tax."
+    },
+    {
+      "id": "education-mfs",
+      "function": "education",
+      "input": {
+        "filing": "marriedSeparate",
+        "MAGI": 20000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ]
+      },
+      "expected": {
+        "phaseoutRatio": 0.0,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 0.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 0.0,
+        "potentialNonrefundable": 0.0,
+        "allowedNonrefundable": 0.0,
+        "totalCredit": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "MFS disallowed."
+    },
+    {
+      "id": "education-qss-not-joint",
+      "function": "education",
+      "input": {
+        "filing": "qualifyingSurvivingSpouse",
+        "MAGI": 85000,
+        "students": [
+          {
+            "credit": "aotc",
+            "adjustedQualifiedExpenses": 4000
+          }
+        ]
+      },
+      "expected": {
+        "phaseoutRatio": 0.5,
+        "aotcBeforePhaseout": 2500.0,
+        "aotcAfterPhaseout": 1250.0,
+        "llcAfterPhaseout": 0.0,
+        "refundableAotc": 500.0,
+        "potentialNonrefundable": 750.0,
+        "allowedNonrefundable": 750.0,
+        "totalCredit": 1250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "QSS uses $80k\u2013$90k credit phaseout, not MFJ range."
+    },
+    {
+      "id": "student-interest-0",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "single",
+        "MAGI": 85000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 1.0,
+        "deduction": 2500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-1",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "single",
+        "MAGI": 92500,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 0.5,
+        "deduction": 1250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-2",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "single",
+        "MAGI": 99999,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 6.666666666666667e-05,
+        "deduction": 0.16666666666666666
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-3",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "single",
+        "MAGI": 100000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-4",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 175000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 1.0,
+        "deduction": 2500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-5",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 190000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 0.5,
+        "deduction": 1250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-6",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "marriedJoint",
+        "MAGI": 205000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-7",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "marriedSeparate",
+        "MAGI": 30000,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 0.0,
+        "phaseoutRatio": 1.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-8",
+      "function": "studentLoanInterest",
+      "input": {
+        "filing": "qualifyingSurvivingSpouse",
+        "MAGI": 92500,
+        "qualifiedInterest": 5000
+      },
+      "expected": {
+        "cappedInterest": 2500.0,
+        "phaseoutRatio": 0.5,
+        "deduction": 1250.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 indexed limits; $2,500 per return, precise planning arithmetic."
+    },
+    {
+      "id": "student-interest-smaller-base",
+      "function": "studentLoanInterest",
+      "input": {
+        "MAGI": 92500,
+        "qualifiedInterest": 1000
+      },
+      "expected": {
+        "cappedInterest": 1000.0,
+        "phaseoutRatio": 0.5,
+        "deduction": 500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Phaseout applies to actual capped eligible interest, not flat $2,500 reduction."
+    },
+    {
+      "id": "ira-single-phaseout-0",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 81000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 7500.0,
+        "deduction": 7500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-single-phaseout-1",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 81000.01
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 7500.0,
+        "deduction": 7500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-single-phaseout-2",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 86000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-single-phaseout-3",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 90900
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 200.0,
+        "deduction": 200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-single-phaseout-4",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 90999.99
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 200.0,
+        "deduction": 200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-single-phaseout-5",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 91000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 0.0,
+        "deduction": 0.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 phaseout, deduction allowance rounded up to $10 with $200 minimum below upper limit."
+    },
+    {
+      "id": "ira-catch-up",
+      "function": "traditionalIra",
+      "input": {
+        "age": 50,
+        "covered": true,
+        "contribution": 8600,
+        "compensationAvailable": 80000,
+        "MAGI": 86000
+      },
+      "expected": {
+        "annualContributionLimit": 8600.0,
+        "availableContributionCapacity": 8600.0,
+        "phaseoutDeductionLimit": 4300.0,
+        "deduction": 4300.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "2026 age-50 total $8,600; indexed catch-up $1,100."
+    },
+    {
+      "id": "ira-joint-own-covered",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 139000,
+        "filing": "marriedJoint"
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Covered contributor uses $129k\u2013$149k."
+    },
+    {
+      "id": "ira-joint-spouse-covered",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": false,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 247000,
+        "filing": "marriedJoint",
+        "spouseCovered": true
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Uncovered contributor uses $242k\u2013$252k when spouse covered."
+    },
+    {
+      "id": "ira-no-coverage",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": false,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 1000000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 7500.0,
+        "deduction": 7500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "No workplace coverage means no income deduction phaseout."
+    },
+    {
+      "id": "ira-mfs-cohabit",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 5000,
+        "filing": "marriedSeparate"
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "MFS who lived together uses $0\u2013$10k range."
+    },
+    {
+      "id": "ira-mfs-apart",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 86000,
+        "filing": "marriedSeparate",
+        "livedApartEntireYear": true
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Lived apart entire year uses own single limits."
+    },
+    {
+      "id": "ira-qss",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 7500,
+        "compensationAvailable": 80000,
+        "MAGI": 139000,
+        "filing": "qualifyingSurvivingSpouse"
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 3750.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "QSS workplace-covered IRA deduction uses joint range unlike education/QBI."
+    },
+    {
+      "id": "ira-small-contribution",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 1000,
+        "compensationAvailable": 80000,
+        "MAGI": 86000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 7500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 1000.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Phaseout sets a deduction ceiling rather than prorating actual contribution."
+    },
+    {
+      "id": "ira-roth-sharing",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": true,
+        "contribution": 2500,
+        "compensationAvailable": 80000,
+        "MAGI": 86000,
+        "otherIraContributions": 5000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 2500.0,
+        "phaseoutDeductionLimit": 3750.0,
+        "deduction": 2500.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Annual traditional/Roth contribution pool shared; do not subtract Roth again from phaseout ceiling."
+    },
+    {
+      "id": "ira-compensation-ceiling",
+      "function": "traditionalIra",
+      "input": {
+        "age": 40,
+        "covered": false,
+        "contribution": 7500,
+        "compensationAvailable": 1200,
+        "MAGI": 50000
+      },
+      "expected": {
+        "annualContributionLimit": 7500.0,
+        "availableContributionCapacity": 1200.0,
+        "phaseoutDeductionLimit": 7500.0,
+        "deduction": 1200.0
+      },
+      "absoluteTolerance": 1e-06,
+      "scope": "Only verified eligible available compensation supports annual contribution."
+    }
+  ]
+}

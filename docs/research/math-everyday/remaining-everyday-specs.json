@@ -1,0 +1,2840 @@
+{
+  "artifact": "Remaining everyday P1 implementation specifications and independent fixtures",
+  "createdAtUtc": "2026-10-09T13:18:40.479989+00:00",
+  "scope": "Research only. Nine requested feature families checked against current files. No checkout edits or product execution for future modes. Proposed keys/mode IDs require mapping during implementation.",
+  "sourceSnapshot": {
+    "everyday-definitions.ts": "2f4093e216635320bcaaa63a3791a835f4a8f5b81f3c86fd23d81dbf7876b3ab",
+    "everyday-extra-definitions.ts": "0b3ee2c677822ad450e92db999bacc9bbe413b7f282bb8c67101d00d1e0f8427",
+    "everyday-engine.ts": "8fc4da0ac4029f719b5c86dccdeaace64ded8fbbc3b3eccfb5c94e8a5bd64e50",
+    "everyday-extra-engine.ts": "44e453331c9b899982f794c33749d4e496e99163839443272a7f4b37d93217f9",
+    "types.ts": "7e60485faffbff1ee959992767940a7d01b4e6420efcf43279b43def6cc3f4a0"
+  },
+  "summary": {
+    "featureFamilies": 9,
+    "affectedSlugs": 10,
+    "fixtures": 57,
+    "observedParityGapGroupsCovered": 10,
+    "externalPaidDependenciesRequired": 0
+  },
+  "integrationNotes": [
+    "Preserve current modes/defaults where practical; add field-dependent visibility and validate only relevant fields.",
+    "Structured rows below are UI/domain shapes. The current flat string input schema can serialize rows, but labeled row components should be the public interface.",
+    "Fixtures are expectations for the stated proposed contracts, not claims about existing product output or undocumented competitor algorithms.",
+    "Primary sources support factual units/rules. Original mathematical derivations and proposed UI policies are identified as such; no competitor prose, source code or artwork belongs in product.",
+    "These features do not close all remaining coverage gaps. Other P1 families are separately listed rather than claimed implemented."
+  ],
+  "specifications": [
+    {
+      "id": "gpa-letter-percentage-semesters",
+      "slugs": [
+        "gpa-calculator"
+      ],
+      "parityGapIds": [
+        "gpa-grade-formats"
+      ],
+      "currentSnapshotAssessment": "Existing gpa mode accepts numeric points/credits and previous GPA/credits; target planner exists. Letter/percentage transforms and term rows remain absent.",
+      "evidence": [
+        {
+          "gapId": "gpa-grade-formats",
+          "competitorUrl": "https://www.calculator.net/gpa-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/gpa-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "format",
+            "group",
+            "la1",
+            "ca1"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Grade Format:",
+              "rawTextLines": [
+                101
+              ]
+            },
+            {
+              "label": "Group courses into semesters",
+              "rawTextLines": [
+                106
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "gradeFormat",
+          "type": "enum",
+          "label": "Grade format",
+          "options": [
+            "points",
+            "letter",
+            "percentage"
+          ]
+        },
+        {
+          "key": "courses",
+          "type": "rows",
+          "label": "Courses",
+          "rowFields": [
+            "courseName",
+            "semester",
+            "grade",
+            "credits",
+            "includeInGpa"
+          ]
+        },
+        {
+          "key": "gradeScale",
+          "type": "editable-map",
+          "label": "Letter grade points",
+          "default": {
+            "A+": 4,
+            "A": 4,
+            "A-": 3.7,
+            "B+": 3.3,
+            "B": 3,
+            "B-": 2.7,
+            "C+": 2.3,
+            "C": 2,
+            "C-": 1.7,
+            "D+": 1.3,
+            "D": 1,
+            "D-": 0.7,
+            "F": 0,
+            "P": null,
+            "NP": null
+          }
+        },
+        {
+          "key": "percentScale",
+          "type": "editable-threshold-rows",
+          "label": "Percentage grade points",
+          "default": [
+            {
+              "minimumPercent": 90,
+              "points": 4
+            },
+            {
+              "minimumPercent": 80,
+              "points": 3
+            },
+            {
+              "minimumPercent": 70,
+              "points": 2
+            },
+            {
+              "minimumPercent": 60,
+              "points": 1
+            },
+            {
+              "minimumPercent": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "key": "previousGpa",
+          "type": "number",
+          "label": "Previous cumulative GPA",
+          "minimum": 0
+        },
+        {
+          "key": "previousCredits",
+          "type": "number",
+          "label": "Previous graded credits",
+          "minimum": 0
+        }
+      ],
+      "algorithmSteps": [
+        "Label the default mapping Example 4.0 scale (editable); F is zero and P/NP are excluded in that specific example. Do not present it as a universal US or U-M policy.",
+        "Transform each included grade to numeric points. Percentage mode selects the row with largest minimumPercent <= grade; supplied thresholds, not a universal national scale, determine the result.",
+        "For each term compute qualityPoints=sum(points*credits), gradedCredits=sum(credits), termGpa=qualityPoints/gradedCredits. Excluded rows contribute to neither quantity.",
+        "Across terms sum quality points and graded credits before dividing. Add previousGpa*previousCredits to quality points and previousCredits to denominator. Never take an unweighted average of semester GPAs.",
+        "Keep full decimal precision until output formatting. Empty term GPA is unavailable, not zero; require some graded credit to calculate a cumulative result."
+      ],
+      "validation": [
+        "Reject unknown grade symbols, negative credits, nonfinite values, an included row with zero credits, or points outside the configured maximum.",
+        "Require unique percentage cutoffs in [0,100], a zero cutoff, and finite points within scale maximum. Percentages above 100 need a separate explicit extra-credit policy.",
+        "Do not silently exclude failing grades, repeated courses, or transferred courses; these are institution-specific choices."
+      ],
+      "independentFixtures": [
+        {
+          "id": "gpa-two-semesters-prior",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "letter",
+            "gradeScale": {
+              "A+": 4,
+              "A": 4,
+              "A-": 3.7,
+              "B+": 3.3,
+              "B": 3,
+              "B-": 2.7,
+              "C+": 2.3,
+              "C": 2,
+              "C-": 1.7,
+              "D+": 1.3,
+              "D": 1,
+              "D-": 0.7,
+              "F": 0,
+              "P": null,
+              "NP": null
+            },
+            "courses": [
+              {
+                "semester": "Fall",
+                "grade": "A",
+                "credits": 3
+              },
+              {
+                "semester": "Fall",
+                "grade": "B",
+                "credits": 1
+              },
+              {
+                "semester": "Spring",
+                "grade": "B+",
+                "credits": 2
+              },
+              {
+                "semester": "Spring",
+                "grade": "C",
+                "credits": 2
+              },
+              {
+                "semester": "Spring",
+                "grade": "P",
+                "credits": 3
+              }
+            ],
+            "previousGpa": 3,
+            "previousCredits": 12
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "termGpas": {
+              "Fall": 3.75,
+              "Spring": 2.65
+            },
+            "newGradedCredits": 8,
+            "newQualityPoints": 25.6,
+            "totalGradedCredits": 20,
+            "cumulativeGpa": 3.08
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12,
+          "derivation": "(15 + 10.6 + 3*12)/(4+4+12)=3.08; the P course does not enter the GPA denominator."
+        },
+        {
+          "id": "gpa-unequal-term-credits",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "letter",
+            "courses": [
+              {
+                "semester": "Fall",
+                "grade": "A",
+                "credits": 3
+              },
+              {
+                "semester": "Fall",
+                "grade": "B",
+                "credits": 1
+              },
+              {
+                "semester": "Spring",
+                "grade": "B",
+                "credits": 2
+              }
+            ],
+            "gradeScale": {
+              "A+": 4,
+              "A": 4,
+              "A-": 3.7,
+              "B+": 3.3,
+              "B": 3,
+              "B-": 2.7,
+              "C+": 2.3,
+              "C": 2,
+              "C-": 1.7,
+              "D+": 1.3,
+              "D": 1,
+              "D-": 0.7,
+              "F": 0,
+              "P": null,
+              "NP": null
+            },
+            "previousGpa": 0,
+            "previousCredits": 0
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "cumulativeGpa": 3.5,
+            "newQualityPoints": 21,
+            "newGradedCredits": 6
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "gpa-fail-counts",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "letter",
+            "gradeScale": {
+              "A+": 4,
+              "A": 4,
+              "A-": 3.7,
+              "B+": 3.3,
+              "B": 3,
+              "B-": 2.7,
+              "C+": 2.3,
+              "C": 2,
+              "C-": 1.7,
+              "D+": 1.3,
+              "D": 1,
+              "D-": 0.7,
+              "F": 0,
+              "P": null,
+              "NP": null
+            },
+            "courses": [
+              {
+                "grade": "F",
+                "credits": 3
+              },
+              {
+                "grade": "A",
+                "credits": 1
+              }
+            ],
+            "previousGpa": 0,
+            "previousCredits": 0
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "cumulativeGpa": 1,
+            "newGradedCredits": 4
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "gpa-percent-boundary",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "percentage",
+            "percentScale": [
+              {
+                "minimumPercent": 90,
+                "points": 4
+              },
+              {
+                "minimumPercent": 80,
+                "points": 3
+              },
+              {
+                "minimumPercent": 70,
+                "points": 2
+              },
+              {
+                "minimumPercent": 60,
+                "points": 1
+              },
+              {
+                "minimumPercent": 0,
+                "points": 0
+              }
+            ],
+            "courses": [
+              {
+                "grade": 89,
+                "credits": 3
+              },
+              {
+                "grade": 90,
+                "credits": 3
+              }
+            ],
+            "previousGpa": 0,
+            "previousCredits": 0
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "cumulativeGpa": 3.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "gpa-all-excluded",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "letter",
+            "gradeScale": {
+              "A+": 4,
+              "A": 4,
+              "A-": 3.7,
+              "B+": 3.3,
+              "B": 3,
+              "B-": 2.7,
+              "C+": 2.3,
+              "C": 2,
+              "C-": 1.7,
+              "D+": 1.3,
+              "D": 1,
+              "D-": 0.7,
+              "F": 0,
+              "P": null,
+              "NP": null
+            },
+            "courses": [
+              {
+                "grade": "P",
+                "credits": 3
+              }
+            ],
+            "previousGpa": 0,
+            "previousCredits": 0
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "No graded credits."
+        },
+        {
+          "id": "gpa-unknown-symbol",
+          "proposedModeId": "semester-grades",
+          "inputs": {
+            "gradeFormat": "letter",
+            "gradeScale": {
+              "A+": 4,
+              "A": 4,
+              "A-": 3.7,
+              "B+": 3.3,
+              "B": 3,
+              "B-": 2.7,
+              "C+": 2.3,
+              "C": 2,
+              "C-": 1.7,
+              "D+": 1.3,
+              "D": 1,
+              "D-": 0.7,
+              "F": 0,
+              "P": null,
+              "NP": null
+            },
+            "courses": [
+              {
+                "grade": "Z",
+                "credits": 3
+              }
+            ]
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Choose a defined grade or edit the grade scale."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "University of Michigan LSA: Grade Point Average",
+          "url": "https://lsa.umich.edu/lsa/academics/lsa-academic-policies-and-procedures/grade-point-average.html",
+          "supports": "Credit-weighted term and cumulative GPA."
+        },
+        {
+          "title": "University of Michigan LSA: Grades and Grading",
+          "url": "https://lsa.umich.edu/lsa/academics/lsa-academic-policies-and-procedures/grades-and-transcript-notations.html",
+          "supports": "A published institutional example; demonstrates that symbols and exclusions vary. It is not the proposed generic example preset."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "semester-grades"
+      ],
+      "accessibleComponents": [
+        "CourseRows with labeled course, term, grade and credit controls; add/remove buttons with row names.",
+        "GradeScaleEditor and SemesterResults table; retain optional paste/import as a convenience, not the sole interface."
+      ],
+      "institutionPolicyNote": "U-M LSA uses E as its zero-point failure grade and excludes its P/F grades. The generic example here deliberately uses F=0 and is not attributed to U-M."
+    },
+    {
+      "id": "business-calendar-options",
+      "slugs": [
+        "date-calculator",
+        "day-counter"
+      ],
+      "parityGapIds": [
+        "holiday-presets-date-calculator",
+        "holiday-presets-day-counter"
+      ],
+      "currentSnapshotAssessment": "Count and add business days already exist with Mon\u2013Fri plus one-off YYYY-MM-DD exclusions; recurring rules and selectable weekdays are absent.",
+      "evidence": [
+        {
+          "gapId": "holiday-presets-date-calculator",
+          "competitorUrl": "https://www.calculator.net/date-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/date-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "hdny",
+            "hdml",
+            "hdpd",
+            "hdmd",
+            "hdjd",
+            "hdid",
+            "hdld",
+            "hdcd",
+            "hdvd",
+            "hdtx",
+            "hdbf",
+            "hdxe",
+            "hdxm",
+            "hdne",
+            "m0",
+            "d0"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Holiday Settings",
+              "rawTextLines": [
+                14
+              ]
+            }
+          ]
+        },
+        {
+          "gapId": "holiday-presets-day-counter",
+          "competitorUrl": "https://www.calculator.net/day-counter.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/day-counter.txt",
+          "capturedInputOrSelectNames": [
+            "hdny",
+            "hdml",
+            "hdpd",
+            "hdmd",
+            "hdjd",
+            "hdid",
+            "hdld",
+            "hdcd",
+            "hdvd",
+            "hdtx",
+            "hdbf",
+            "hdxe",
+            "hdxm",
+            "hdne",
+            "m0",
+            "d0"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Holiday Settings",
+              "rawTextLines": [
+                13
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "workdays",
+          "type": "weekday-set",
+          "label": "Working weekdays",
+          "default": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "convention": "ISO 1=Monday through 7=Sunday"
+        },
+        {
+          "key": "holidayPreset",
+          "type": "enum",
+          "label": "Holiday preset",
+          "options": [
+            "none",
+            "us-federal-current"
+          ]
+        },
+        {
+          "key": "holidayObservation",
+          "type": "enum",
+          "label": "Holiday date rule",
+          "options": [
+            "actual",
+            "observed-mon-fri"
+          ]
+        },
+        {
+          "key": "selectedHolidayRules",
+          "type": "set",
+          "label": "Included holidays",
+          "options": [
+            "new-year",
+            "mlk",
+            "washington",
+            "memorial",
+            "juneteenth",
+            "independence",
+            "labor",
+            "columbus",
+            "veterans",
+            "thanksgiving",
+            "christmas"
+          ]
+        },
+        {
+          "key": "holidays",
+          "type": "date-list",
+          "label": "One-off excluded dates"
+        },
+        {
+          "key": "recurringHolidays",
+          "type": "month-day-rows",
+          "label": "Annual excluded dates",
+          "rowFields": [
+            "name",
+            "month",
+            "day"
+          ]
+        }
+      ],
+      "algorithmSteps": [
+        "Represent Gregorian civil dates as date-only values; no local timezone or DST arithmetic.",
+        "Generate selected fixed/nth-weekday/last-weekday rules for the range and adjacent years so a next-year New Year observation can fall in the previous December.",
+        "For observed-mon-fri fixed holidays move Saturday to Friday and Sunday to Monday. Label this fixed federal convention; it does not adapt automatically to a custom workweek.",
+        "Union and deduplicate generated exclusions, one-off dates and custom month/day dates. Invalid recurring Feb 29 is skipped in a nonleap year. Skip nonworking weekdays once, even if also holidays.",
+        "For counting preserve the existing signed start-inclusive/end-exclusive contract, with include-end available. For addition, do not count the starting date; zero leaves it unchanged; negative counts walk backward.",
+        "Apply current nationwide rules only for a clearly labeled supported range, suggested 2021\u20132099. Future dates are projections of rules verified in 2026; outside this range retain custom dates without implying historical federal accuracy."
+      ],
+      "validation": [
+        "Require at least one working weekday. Validate every full date and month/day combination; reject Feb 30, permit recurring Feb 29.",
+        "Keep existing overall year/result bounds and span limits; never emit year 0 or malformed year 10000.",
+        "Do not default to including DC-only Inauguration Day; do not label Black Friday, Christmas Eve or New Year\u2019s Eve nationwide federal holidays. They can be user-defined extras."
+      ],
+      "independentFixtures": [
+        {
+          "id": "federal-observed-2026",
+          "proposedModeId": "holiday-generation",
+          "inputs": {
+            "year": 2026,
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "observed-mon-fri"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "dates": [
+              "2026-01-01",
+              "2026-01-19",
+              "2026-02-16",
+              "2026-05-25",
+              "2026-06-19",
+              "2026-07-03",
+              "2026-09-07",
+              "2026-10-12",
+              "2026-11-11",
+              "2026-11-26",
+              "2026-12-25"
+            ]
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-july-observed",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2026-07-02",
+            "days": 1,
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "observed-mon-fri"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2026-07-06"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-july-actual",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2026-07-02",
+            "days": 1,
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "actual"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2026-07-03"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-next-year-holiday",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2021-12-30",
+            "days": 1,
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "observed-mon-fri"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2022-01-03"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12,
+          "derivation": "New Year 2022 falls Saturday, observed Friday 2021-12-31."
+        },
+        {
+          "id": "business-custom-week",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2026-10-08",
+            "days": 1,
+            "workdays": [
+              7,
+              1,
+              2,
+              3,
+              4
+            ],
+            "holidayPreset": "none"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2026-10-11"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-custom-week-inclusive",
+          "proposedModeId": "business",
+          "inputs": {
+            "start": "2026-10-11",
+            "end": "2026-10-15",
+            "inclusive": "yes",
+            "workdays": [
+              7,
+              1,
+              2,
+              3,
+              4
+            ],
+            "holidayPreset": "none"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "businessDays": 5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-custom-recurring",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2026-12-23",
+            "days": 1,
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "observed-mon-fri",
+            "recurringHolidays": [
+              {
+                "month": 12,
+                "day": 24
+              }
+            ]
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2026-12-28"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-leap-recurring-skip",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2027-02-28",
+            "days": 1,
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "none",
+            "recurringHolidays": [
+              {
+                "month": 2,
+                "day": 29
+              }
+            ]
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "date": "2027-03-01"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-duplicate-holiday",
+          "proposedModeId": "business",
+          "inputs": {
+            "start": "2026-07-02",
+            "end": "2026-07-07",
+            "inclusive": "no",
+            "workdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "holidayPreset": "us-federal-current",
+            "holidayObservation": "observed-mon-fri",
+            "holidays": [
+              "2026-07-03",
+              "2026-07-03"
+            ]
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "businessDays": 2
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "business-empty-workweek",
+          "proposedModeId": "business-add",
+          "inputs": {
+            "start": "2026-10-08",
+            "days": 1,
+            "workdays": []
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Select at least one working weekday."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "US OPM: Federal Holidays",
+          "url": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/",
+          "supports": "Nationwide federal holiday dates and ordinary Monday\u2013Friday observance; geographic exception for Inauguration Day."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "business",
+        "business-add"
+      ],
+      "holidayRules": [
+        {
+          "id": "new-year",
+          "month": 1,
+          "day": 1
+        },
+        {
+          "id": "mlk",
+          "month": 1,
+          "weekdayIso": 1,
+          "occurrence": 3
+        },
+        {
+          "id": "washington",
+          "month": 2,
+          "weekdayIso": 1,
+          "occurrence": 3
+        },
+        {
+          "id": "memorial",
+          "month": 5,
+          "weekdayIso": 1,
+          "occurrence": "last"
+        },
+        {
+          "id": "juneteenth",
+          "month": 6,
+          "day": 19,
+          "firstYear": 2021
+        },
+        {
+          "id": "independence",
+          "month": 7,
+          "day": 4
+        },
+        {
+          "id": "labor",
+          "month": 9,
+          "weekdayIso": 1,
+          "occurrence": 1
+        },
+        {
+          "id": "columbus",
+          "month": 10,
+          "weekdayIso": 1,
+          "occurrence": 2
+        },
+        {
+          "id": "veterans",
+          "month": 11,
+          "day": 11
+        },
+        {
+          "id": "thanksgiving",
+          "month": 11,
+          "weekdayIso": 4,
+          "occurrence": 4
+        },
+        {
+          "id": "christmas",
+          "month": 12,
+          "day": 25
+        }
+      ],
+      "requestedExtensionNotCaptured": "Custom weekday selection is explicitly requested by parent; not established by the captured competitor form.",
+      "accessibleComponents": [
+        "WeekdayCheckboxGroup with full labels.",
+        "HolidayPreset selector and visible list of applied dates/reasons.",
+        "CustomHolidayRows with date controls."
+      ]
+    },
+    {
+      "id": "timecard-overtime-rounding",
+      "slugs": [
+        "time-card-calculator"
+      ],
+      "parityGapIds": [
+        "timecard-daily-rounding"
+      ],
+      "currentSnapshotAssessment": "Current timesheet totals shifts then applies one weekly threshold; daily grouping, no-overtime selector and punch rounding are absent.",
+      "evidence": [
+        {
+          "gapId": "timecard-daily-rounding",
+          "competitorUrl": "https://www.calculator.net/time-card-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/time-card-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "crt",
+            "cpo",
+            "oth3",
+            "oth4",
+            "oth1",
+            "oth2"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Round Time:",
+              "rawTextLines": [
+                17
+              ]
+            },
+            {
+              "label": "Overtime Pay:",
+              "rawTextLines": [
+                29
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "shifts",
+          "type": "rows",
+          "label": "Shifts",
+          "rowFields": [
+            "workDate",
+            "start",
+            "end",
+            "breakMinutes"
+          ]
+        },
+        {
+          "key": "overtimeMode",
+          "type": "enum",
+          "label": "Overtime estimate",
+          "options": [
+            "none",
+            "daily",
+            "weekly"
+          ]
+        },
+        {
+          "key": "threshold",
+          "type": "number",
+          "label": "Overtime threshold in hours",
+          "minimum": 0
+        },
+        {
+          "key": "roundMinutes",
+          "type": "enum",
+          "label": "Round each clock punch to nearest",
+          "options": [
+            0,
+            5,
+            10,
+            15,
+            30,
+            60
+          ]
+        },
+        {
+          "key": "rate",
+          "type": "number",
+          "label": "Hourly rate",
+          "minimum": 0
+        },
+        {
+          "key": "multiplier",
+          "type": "number",
+          "label": "Overtime multiplier",
+          "minimum": 1
+        }
+      ],
+      "algorithmSteps": [
+        "Parse times to integer seconds. An end earlier than the start belongs to the next day. Identical clock times mean a zero shift unless an explicit next-day flag is later added.",
+        "Round each absolute civil punch separately: rounded=q*floor((seconds+q/2)/q), q=roundMinutes*60. q=0 keeps it unchanged. A half-way tie moves to the later time. Preserve any midnight date carry.",
+        "Subtract the entered unpaid break duration after punch rounding; do not silently round the break itself. Retain raw and rounded net shift durations for comparison.",
+        "Aggregate net seconds by workDate before daily overtime. For this simple estimate, assign an overnight shift to its starting workDate and disclose that convention; it is not a legal payroll workday definition.",
+        "none: overtime=0. daily: sum(max(0,dayHours-threshold)). weekly: max(0,totalHours-threshold). regular=total-overtime. Do not sum daily and weekly overtime or double-count the same hours.",
+        "Pay=regular*rate+overtime*rate*multiplier; retain seconds/decimal precision until final pay formatting."
+      ],
+      "validation": [
+        "Require an explicit day/date identifier for daily mode. Aggregate multiple rows belonging to the same day before applying threshold.",
+        "Reject negative breaks and breaks exceeding the rounded span; reject overlapping rows on the same civil timeline to avoid accidental double-counting.",
+        "Do not treat these configurable arithmetic modes as a complete wage-law engine; paid-break rules, exemptions, state rules, DST shifts and split overnight workdays require more inputs."
+      ],
+      "independentFixtures": [
+        {
+          "id": "timecard-rounding-daily",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-06",
+                "start": "08:07",
+                "end": "17:08",
+                "breakMinutes": 30
+              }
+            ],
+            "overtimeMode": "daily",
+            "threshold": 8,
+            "roundMinutes": 15,
+            "rate": 20,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "rawHours": 8.516666666666667,
+            "totalHours": 8.75,
+            "regularHours": 8,
+            "overtimeHours": 0.75,
+            "grossPay": 182.5,
+            "roundedPunches": [
+              "2026-10-06T08:00:00",
+              "2026-10-06T17:15:00"
+            ]
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-daily-not-weekly",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-05",
+                "start": "08:00",
+                "end": "18:00",
+                "breakMinutes": 0
+              },
+              {
+                "workDate": "2026-10-06",
+                "start": "08:00",
+                "end": "14:00",
+                "breakMinutes": 0
+              }
+            ],
+            "overtimeMode": "daily",
+            "threshold": 8,
+            "roundMinutes": 0,
+            "rate": 20,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "totalHours": 16,
+            "regularHours": 14,
+            "overtimeHours": 2,
+            "grossPay": 340
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-weekly-same-shifts",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-05",
+                "start": "08:00",
+                "end": "18:00",
+                "breakMinutes": 0
+              },
+              {
+                "workDate": "2026-10-06",
+                "start": "08:00",
+                "end": "14:00",
+                "breakMinutes": 0
+              }
+            ],
+            "overtimeMode": "weekly",
+            "threshold": 40,
+            "roundMinutes": 0,
+            "rate": 20,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "totalHours": 16,
+            "regularHours": 16,
+            "overtimeHours": 0,
+            "grossPay": 320
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-overnight-rounding",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-05",
+                "start": "22:58",
+                "end": "06:07",
+                "breakMinutes": 30
+              }
+            ],
+            "overtimeMode": "none",
+            "threshold": 8,
+            "roundMinutes": 15,
+            "rate": 20,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "totalHours": 6.5,
+            "regularHours": 6.5,
+            "overtimeHours": 0,
+            "grossPay": 130,
+            "roundedPunches": [
+              "2026-10-05T23:00:00",
+              "2026-10-06T06:00:00"
+            ]
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-multiple-shifts-same-day",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-06",
+                "start": "08:00",
+                "end": "12:00",
+                "breakMinutes": 0
+              },
+              {
+                "workDate": "2026-10-06",
+                "start": "13:00",
+                "end": "18:00",
+                "breakMinutes": 0
+              }
+            ],
+            "overtimeMode": "daily",
+            "threshold": 8,
+            "roundMinutes": 0,
+            "rate": 20,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "totalHours": 9,
+            "regularHours": 8,
+            "overtimeHours": 1,
+            "grossPay": 190
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-half-way-rounds-later",
+          "proposedModeId": "round-punch",
+          "inputs": {
+            "time": "08:05:00",
+            "roundMinutes": 10
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "time": "08:10:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "timecard-rounded-break-exceeds-span",
+          "proposedModeId": "timesheet",
+          "inputs": {
+            "shifts": [
+              {
+                "workDate": "2026-10-06",
+                "start": "08:01",
+                "end": "08:06",
+                "breakMinutes": 5
+              }
+            ],
+            "overtimeMode": "none",
+            "roundMinutes": 15,
+            "rate": 20,
+            "threshold": 8,
+            "multiplier": 1.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Unpaid break exceeds the rounded shift length."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "US Department of Labor: FLSA Hours Worked Advisor",
+          "url": "https://webapps.dol.gov/elaws/whd/flsa/hoursworked/screenEr29.asp",
+          "supports": "Rounding guidance describes nearest five minutes, one-tenth hour, or quarter-hour, subject to accurate compensation over time; this does not authorize arbitrary rounding in all jurisdictions."
+        },
+        {
+          "title": "US Department of Labor: Fact Sheet 53",
+          "url": "https://www.dol.gov/agencies/whd/fact-sheets/53-healthcare-hours-worked",
+          "supports": "Rounding examples and hours-worked limitations; not a complete payroll-law model."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "timesheet"
+      ],
+      "accessibleComponents": [
+        "ShiftRows with work date, clock controls and separately labeled unpaid break.",
+        "OvertimePolicyControls that update threshold labels.",
+        "Raw-versus-rounded shift table with announced totals."
+      ],
+      "roundingScope": "Observed competitor intervals are captured functionality; inclusion is not a recommendation that each interval is legally appropriate. Default remains no rounding."
+    },
+    {
+      "id": "tile-layout-boxes-price",
+      "slugs": [
+        "tile-calculator"
+      ],
+      "parityGapIds": [
+        "tile-area-grout-boxes"
+      ],
+      "currentSnapshotAssessment": "Existing mode is room-area/tile-area with waste and cost per tile. No direct area, grout, box or price-basis fields.",
+      "evidence": [
+        {
+          "gapId": "tile-area-grout-boxes",
+          "competitorUrl": "https://www.calculator.net/tile-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/tile-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "areasetting",
+            "totalarea",
+            "gapsize",
+            "boxsize",
+            "priceunit"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Gap Size",
+              "rawTextLines": [
+                44,
+                68
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "areaInput",
+          "type": "enum",
+          "label": "Area input",
+          "options": [
+            "room-dimensions",
+            "known-area"
+          ]
+        },
+        {
+          "key": "layoutModel",
+          "type": "enum",
+          "label": "Counting model",
+          "options": [
+            "area-estimate",
+            "straight-grid-no-offcut-reuse"
+          ]
+        },
+        {
+          "key": "length",
+          "type": "length",
+          "label": "Room length"
+        },
+        {
+          "key": "width",
+          "type": "length",
+          "label": "Room width"
+        },
+        {
+          "key": "area",
+          "type": "area",
+          "label": "Known coverage area"
+        },
+        {
+          "key": "tileLength",
+          "type": "length",
+          "label": "Tile length"
+        },
+        {
+          "key": "tileWidth",
+          "type": "length",
+          "label": "Tile width"
+        },
+        {
+          "key": "gap",
+          "type": "length",
+          "label": "Grout joint width",
+          "minimum": 0
+        },
+        {
+          "key": "waste",
+          "type": "number",
+          "label": "Extra allowance %",
+          "minimum": 0
+        },
+        {
+          "key": "tilesPerBox",
+          "type": "integer",
+          "label": "Tiles per box",
+          "minimum": 1
+        },
+        {
+          "key": "purchaseBasis",
+          "type": "enum",
+          "label": "Buy by",
+          "options": [
+            "tile",
+            "box"
+          ]
+        },
+        {
+          "key": "priceBasis",
+          "type": "enum",
+          "label": "Price basis",
+          "options": [
+            "tile",
+            "box",
+            "purchased-material-area"
+          ]
+        },
+        {
+          "key": "price",
+          "type": "number",
+          "label": "Unit price",
+          "minimum": 0
+        }
+      ],
+      "algorithmSteps": [
+        "Convert all lengths to the same exact decimal unit. Tile orientation follows the entered length/width; do not imply optimal rotation or reuse of cut pieces.",
+        "Straight-grid mode with only internal joints: columns=ceil((roomLength+gap)/(tileLength+gap)), rows=ceil((roomWidth+gap)/(tileWidth+gap)), baseTiles=rows*columns. This is a stated layout model, not an inferred competitor algorithm.",
+        "Area-estimate mode with zero grout uses equivalentTiles=coverageArea/(tileLength*tileWidth). With nonzero grout it may offer equivalentTiles=coverageArea/((tileLength+gap)*(tileWidth+gap)), explicitly labeled periodic-module approximation; it cannot determine exact edge cuts from area alone.",
+        "Grid ordering: orderTiles=ceil(baseTiles*(1+waste/100)). Area ordering: orderTiles=ceil(equivalentTiles*(1+waste/100)); do not round equivalentTiles before applying waste.",
+        "boxes=ceil(orderTiles/tilesPerBox), purchasedTiles=boxes*tilesPerBox. Box-based purchasing applies these quantities; individual-tile purchasing can use orderTiles directly.",
+        "Price basis tile: purchased tile count*price; box: boxes*price; purchased-material-area: purchasedTileCount*tileLength*tileWidth*pricePerNormalizedArea. Show needed versus purchased quantities and package surplus."
+      ],
+      "validation": [
+        "Lengths/tile dimensions must be positive, grout/waste/price nonnegative, box size a positive integer.",
+        "For known area, do not label the periodic grout estimate an exact layout count. Reject straight-grid mode without room dimensions.",
+        "Use decimal/rational ceiling to preserve exact-fit boundaries; an arbitrary floating epsilon can undercount genuinely larger rooms.",
+        "No default construction-code claims or guaranteed coverage for diagonal patterns, irregular rooms, lippage, damaged tiles or contractor cut plans."
+      ],
+      "independentFixtures": [
+        {
+          "id": "tile-grid-joint-exact-fit",
+          "proposedModeId": "procurement",
+          "inputs": {
+            "areaInput": "room-dimensions",
+            "layoutModel": "straight-grid-no-offcut-reuse",
+            "length": 2010,
+            "width": 1000,
+            "tileLength": 1000,
+            "tileWidth": 1000,
+            "gap": 10,
+            "lengthUnit": "mm",
+            "waste": 10,
+            "tilesPerBox": 2,
+            "purchaseBasis": "box",
+            "priceBasis": "box",
+            "price": 20
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "columns": 2,
+            "rows": 1,
+            "baseTiles": 2,
+            "orderTiles": 3,
+            "boxes": 2,
+            "purchasedTiles": 4,
+            "packageSurplus": 1,
+            "materialCost": 40
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tile-area-boxes",
+          "proposedModeId": "procurement",
+          "inputs": {
+            "areaInput": "known-area",
+            "layoutModel": "area-estimate",
+            "area": 10,
+            "areaUnit": "m2",
+            "tileLength": 0.25,
+            "tileWidth": 0.25,
+            "lengthUnit": "m",
+            "gap": 0,
+            "waste": 10,
+            "tilesPerBox": 12,
+            "purchaseBasis": "box",
+            "priceBasis": "box",
+            "price": 18
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "equivalentTiles": 160,
+            "orderTiles": 176,
+            "boxes": 15,
+            "purchasedTiles": 180,
+            "materialCost": 270
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tile-area-single-rounding",
+          "proposedModeId": "procurement",
+          "inputs": {
+            "areaInput": "known-area",
+            "layoutModel": "area-estimate",
+            "area": 0.21,
+            "areaUnit": "m2",
+            "tileLength": 0.5,
+            "tileWidth": 0.2,
+            "lengthUnit": "m",
+            "gap": 0,
+            "waste": 10,
+            "tilesPerBox": 1,
+            "purchaseBasis": "tile",
+            "priceBasis": "tile",
+            "price": 4
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "equivalentTiles": 2.1,
+            "orderTiles": 3,
+            "materialCost": 12
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12,
+          "derivation": "ceil(2.1*1.1)=3. Rounding 2.1 first and then adding allowance incorrectly produces 4 under this area-estimate contract."
+        },
+        {
+          "id": "tile-grid-no-reuse",
+          "proposedModeId": "procurement",
+          "inputs": {
+            "areaInput": "room-dimensions",
+            "layoutModel": "straight-grid-no-offcut-reuse",
+            "length": 1500,
+            "width": 1500,
+            "tileLength": 1000,
+            "tileWidth": 1000,
+            "gap": 0,
+            "lengthUnit": "mm",
+            "waste": 0,
+            "tilesPerBox": 1,
+            "purchaseBasis": "tile",
+            "priceBasis": "tile",
+            "price": 1
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "rows": 2,
+            "columns": 2,
+            "baseTiles": 4,
+            "orderTiles": 4,
+            "materialCost": 4
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "tile-invalid-box",
+          "proposedModeId": "procurement",
+          "inputs": {
+            "tilesPerBox": 2.5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Tiles per box must be a positive integer."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c",
+          "supports": "International length and liquid-volume unit relationships; does not supply application-specific fuel or tile formulas."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "procurement"
+      ],
+      "derivationSource": "Counting geometry and procurement formulas are original, with explicit boundary/rounding conventions; no copyrighted industry standard or competitor formula is assumed.",
+      "accessibleComponents": [
+        "MeasuredValueInput combining value and unit.",
+        "AreaInputSelector and TileLayoutFields.",
+        "ProcurementSummary with needed, ordered, purchased and surplus quantities."
+      ]
+    },
+    {
+      "id": "resistor-band-count-options",
+      "slugs": [
+        "resistor-calculator"
+      ],
+      "parityGapIds": [
+        "resistor-band-counts"
+      ],
+      "currentSnapshotAssessment": "Existing colors mode decodes four bands with limited tolerance options; conductor and network modes already exist.",
+      "evidence": [
+        {
+          "gapId": "resistor-band-counts",
+          "competitorUrl": "https://www.calculator.net/resistor-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/resistor-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "bandnum",
+            "band3",
+            "temperatureCoefficient"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "Number of Bands:",
+              "rawTextLines": [
+                12
+              ]
+            },
+            {
+              "label": "Temperature Coefficient Color:",
+              "rawTextLines": [
+                80
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "bandCount",
+          "type": "enum",
+          "label": "Number of bands",
+          "options": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "key": "a",
+          "type": "color-name",
+          "label": "First digit"
+        },
+        {
+          "key": "b",
+          "type": "color-name",
+          "label": "Second digit"
+        },
+        {
+          "key": "c",
+          "type": "color-name",
+          "label": "Third digit",
+          "visibleWhen": "bandCount >= 5"
+        },
+        {
+          "key": "multiplier",
+          "type": "color-name",
+          "label": "Multiplier"
+        },
+        {
+          "key": "tolerance",
+          "type": "color-name",
+          "label": "Tolerance",
+          "visibleWhen": "bandCount >= 4"
+        },
+        {
+          "key": "temperatureCoefficient",
+          "type": "color-name",
+          "label": "Temperature coefficient",
+          "visibleWhen": "bandCount == 6"
+        }
+      ],
+      "algorithmSteps": [
+        "Use two significant digits for 3/4 bands and three for 5/6 bands; resistance=significand*multiplier.",
+        "Three bands imply the absent tolerance band, \u00b120%. Four/five/six read the chosen verified tolerance color.",
+        "Minimum and maximum resistance are nominal*(1\u00b1tolerance/100). Six-band output adds the selected temperature-coefficient class in ppm/K.",
+        "Temperature coefficient is a magnitude/class label, not a measured signed linear response. Do not infer exact resistance at temperature from the band alone."
+      ],
+      "validation": [
+        "Validate each role against its own allowed color table; digits cannot be gold or silver.",
+        "The lookup alone does not prove a physical marking convention. Do not invent a universal ban on a leading black digit; allow mathematical decoding with a manufacturer-check note for unusual leading-zero/all-zero markings. A single black-band zero-ohm link is a separate marking.",
+        "Do not decode a military failure-rate band as temperature coefficient. Do not invent tolerance values for unsupported orange/yellow/white colors."
+      ],
+      "independentFixtures": [
+        {
+          "id": "resistor-three-band",
+          "proposedModeId": "colors",
+          "inputs": {
+            "bandCount": 3,
+            "a": "brown",
+            "b": "black",
+            "multiplier": "orange"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "resistanceOhm": 10000,
+            "tolerancePercent": 20,
+            "minimumOhm": 8000,
+            "maximumOhm": 12000
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "resistor-four-band-fractional",
+          "proposedModeId": "colors",
+          "inputs": {
+            "bandCount": 4,
+            "a": "yellow",
+            "b": "violet",
+            "multiplier": "gold",
+            "tolerance": "gold"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "resistanceOhm": 4.7,
+            "tolerancePercent": 5,
+            "minimumOhm": 4.465,
+            "maximumOhm": 4.935
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "resistor-five-band",
+          "proposedModeId": "colors",
+          "inputs": {
+            "bandCount": 5,
+            "a": "red",
+            "b": "violet",
+            "c": "brown",
+            "multiplier": "orange",
+            "tolerance": "brown"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "resistanceOhm": 271000,
+            "tolerancePercent": 1,
+            "minimumOhm": 268290,
+            "maximumOhm": 273710
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "resistor-six-band",
+          "proposedModeId": "colors",
+          "inputs": {
+            "bandCount": 6,
+            "a": "red",
+            "b": "green",
+            "c": "black",
+            "multiplier": "red",
+            "tolerance": "brown",
+            "temperatureCoefficient": "blue"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "resistanceOhm": 25000,
+            "tolerancePercent": 1,
+            "minimumOhm": 24750,
+            "maximumOhm": 25250,
+            "temperatureCoefficientPpmPerK": 10
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "resistor-invalid-tolerance",
+          "proposedModeId": "colors",
+          "inputs": {
+            "bandCount": 4,
+            "a": "red",
+            "b": "red",
+            "multiplier": "brown",
+            "tolerance": "orange"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Tolerance color is not in the supported reference table."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "Texas Instruments: Analog Engineer\u2019s Pocket Reference, Rev. D, Table 8",
+          "url": "https://www.ti.com/seclit/eb/slyw038d/slyw038d.pdf",
+          "supports": "Digit, multiplier, tolerance, and temperature-coefficient color facts. Search-indexed primary PDF was readable; direct download currently redirects to TI login."
+        },
+        {
+          "title": "Vishay Dale: Resistor Color Code Chart",
+          "url": "https://www.vishay.com/docs/49478/_dale_resistor_color_code_chart_vmn_ms0002_1612.pdf",
+          "supports": "Manufacturer reference for three/four/five bands and omitted tolerance band."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "colors"
+      ],
+      "lookupTables": {
+        "digit": {
+          "black": 0,
+          "brown": 1,
+          "red": 2,
+          "orange": 3,
+          "yellow": 4,
+          "green": 5,
+          "blue": 6,
+          "violet": 7,
+          "gray": 8,
+          "white": 9
+        },
+        "multiplier": {
+          "black": 1,
+          "brown": 10,
+          "red": 100,
+          "orange": 1000,
+          "yellow": 10000,
+          "green": 100000,
+          "blue": 1000000,
+          "violet": 10000000,
+          "gray": 100000000,
+          "white": 1000000000,
+          "gold": 0.1,
+          "silver": 0.01
+        },
+        "tolerancePercent": {
+          "brown": 1,
+          "red": 2,
+          "green": 0.5,
+          "blue": 0.25,
+          "violet": 0.1,
+          "gray": 0.05,
+          "gold": 5,
+          "silver": 10,
+          "none": 20
+        },
+        "temperatureCoefficientPpmPerK": {
+          "black": 250,
+          "brown": 100,
+          "red": 50,
+          "orange": 15,
+          "yellow": 25,
+          "green": 20,
+          "blue": 10,
+          "violet": 5,
+          "gray": 1
+        }
+      },
+      "accessibleComponents": [
+        "Every swatch must include its written color name and role/value.",
+        "Band diagram is supplemental to labeled selects and a text result."
+      ],
+      "licensingNote": "Reimplement numeric facts and an original diagram; do not embed or copy manufacturer charts, competitor graphics, or licensed IEC standard text."
+    },
+    {
+      "id": "fuel-independent-units",
+      "slugs": [
+        "fuel-cost-calculator"
+      ],
+      "parityGapIds": [
+        "fuel-economy-units"
+      ],
+      "currentSnapshotAssessment": "Current metric and US tabs couple distance, consumption and price units; km/L and L/mile are absent.",
+      "evidence": [
+        {
+          "gapId": "fuel-economy-units",
+          "competitorUrl": "https://www.calculator.net/fuel-cost-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/fuel-cost-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "fuelefficiencyunit",
+            "tripdistanceunit",
+            "gaspriceunit"
+          ],
+          "visibleLabelAnchors": []
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "distance",
+          "type": "number",
+          "label": "Trip distance",
+          "minimum": 0
+        },
+        {
+          "key": "distanceUnit",
+          "type": "enum",
+          "label": "Distance unit",
+          "options": [
+            "km",
+            "mi"
+          ]
+        },
+        {
+          "key": "economy",
+          "type": "number",
+          "label": "Fuel consumption/economy",
+          "exclusiveMinimum": 0
+        },
+        {
+          "key": "economyUnit",
+          "type": "enum",
+          "label": "Economy unit",
+          "options": [
+            "L/100km",
+            "km/L",
+            "US-mpg",
+            "L/mi"
+          ]
+        },
+        {
+          "key": "price",
+          "type": "number",
+          "label": "Fuel unit price",
+          "minimum": 0
+        },
+        {
+          "key": "priceUnit",
+          "type": "enum",
+          "label": "Price unit",
+          "options": [
+            "per-L",
+            "per-US-gal"
+          ]
+        },
+        {
+          "key": "currency",
+          "type": "currency-code",
+          "label": "Display currency only"
+        }
+      ],
+      "algorithmSteps": [
+        "Normalize distanceKm=distance for km or distance*1.609344 for miles.",
+        "Normalize litersPerKm: L/100km => economy/100; km/L => 1/economy; US-mpg => 3.785411784/(1.609344*economy); L/mi => economy/1.609344.",
+        "Normalize pricePerLiter: per-L => price; per-US-gal => price/3.785411784.",
+        "fuelLiters=distanceKm*litersPerKm, cost=fuelLiters*pricePerLiter, fuelUsGallons=fuelLiters/3.785411784. Currency changes the display label only; no exchange-rate conversion is performed."
+      ],
+      "validation": [
+        "Reject nonpositive economy even if distance is zero, to keep mode transformations defined; distance and price may be zero.",
+        "Always distinguish US gallons from imperial gallons. UK mpg would be an explicitly added option, not a reinterpretation of the observed US-mpg field."
+      ],
+      "independentFixtures": [
+        {
+          "id": "fuel-km-per-liter",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 600,
+            "distanceUnit": "km",
+            "economy": 15,
+            "economyUnit": "km/L",
+            "price": 1.6,
+            "priceUnit": "per-L"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "liters": 40,
+            "cost": 64
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "fuel-liters-per-mile-price-gallon",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 50,
+            "distanceUnit": "mi",
+            "economy": 0.08,
+            "economyUnit": "L/mi",
+            "price": 3.785411784,
+            "priceUnit": "per-US-gal"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "liters": 4,
+            "cost": 4
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "fuel-us-mpg-independent",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 300,
+            "distanceUnit": "mi",
+            "economy": 20,
+            "economyUnit": "US-mpg",
+            "price": 4,
+            "priceUnit": "per-US-gal"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "usGallons": 15,
+            "liters": 56.78117676,
+            "cost": 60
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "fuel-metric-price-gallon",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 400,
+            "distanceUnit": "km",
+            "economy": 8,
+            "economyUnit": "L/100km",
+            "price": 4,
+            "priceUnit": "per-US-gal"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "liters": 32,
+            "cost": 33.814022701842994
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "fuel-zero-distance",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 0,
+            "distanceUnit": "mi",
+            "economy": 20,
+            "economyUnit": "US-mpg",
+            "price": 4,
+            "priceUnit": "per-US-gal"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "liters": 0,
+            "cost": 0
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "fuel-zero-economy",
+          "proposedModeId": "trip",
+          "inputs": {
+            "distance": 50,
+            "distanceUnit": "km",
+            "economy": 0,
+            "economyUnit": "km/L",
+            "price": 1,
+            "priceUnit": "per-L"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Fuel economy must be positive."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c",
+          "supports": "International length and liquid-volume unit relationships; does not supply application-specific fuel or tile formulas."
+        },
+        {
+          "title": "NIST Handbook 44, 2024, Appendix C",
+          "url": "https://www.nist.gov/system/files/documents/2024/04/09/NIST%20HB44%202024%20Appendix%20C.pdf",
+          "supports": "US liquid gallon = 3.785411784 liters."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "trip"
+      ],
+      "accessibleComponents": [
+        "Independent unit selects beside each value; recalculate labels when economy direction changes.",
+        "Results show both liters and explicitly labeled US gallons."
+      ]
+    },
+    {
+      "id": "speed-duration-and-units",
+      "slugs": [
+        "speed-calculator"
+      ],
+      "parityGapIds": [
+        "speed-converter"
+      ],
+      "currentSnapshotAssessment": "Existing solve mode uses fixed km, km/h and decimal hours. Generic converter already has speed; direct speed page lacks these controls.",
+      "evidence": [
+        {
+          "gapId": "speed-converter",
+          "competitorUrl": "https://www.calculator.net/speed-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/speed-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "fromVal",
+            "ctimeh",
+            "ctimem",
+            "ctimes"
+          ],
+          "visibleLabelAnchors": []
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "solve",
+          "type": "enum",
+          "label": "Find",
+          "options": [
+            "speed",
+            "distance",
+            "time",
+            "convert"
+          ]
+        },
+        {
+          "key": "distance",
+          "type": "measured-length",
+          "label": "Distance"
+        },
+        {
+          "key": "speed",
+          "type": "number",
+          "label": "Speed",
+          "minimum": 0
+        },
+        {
+          "key": "speedUnit",
+          "type": "enum",
+          "label": "Speed unit",
+          "options": [
+            "m/s",
+            "km/h",
+            "mph",
+            "knots",
+            "ft/s",
+            "cm/s"
+          ]
+        },
+        {
+          "key": "durationFormat",
+          "type": "enum",
+          "label": "Time format",
+          "options": [
+            "decimal-hours",
+            "hms"
+          ]
+        },
+        {
+          "key": "duration",
+          "type": "duration",
+          "label": "Duration HH:MM:SS"
+        },
+        {
+          "key": "outputSpeedUnit",
+          "type": "enum",
+          "label": "Result unit",
+          "options": [
+            "m/s",
+            "km/h",
+            "mph",
+            "knots",
+            "ft/s",
+            "cm/s"
+          ]
+        }
+      ],
+      "algorithmSteps": [
+        "Parse HH:MM:SS as elapsed duration: h*3600+m*60+s, hours may exceed 23; minutes and seconds must each be in [0,60). Do not pass a duration through Date/timezone APIs.",
+        "Convert input distance to meters and speed using shared SI conversion factors. Solve v=d/t, d=v*t, or t=d/v.",
+        "Direct conversion uses speed*inputFactor/outputFactor. Reuse the generic converter registry instead of maintaining conflicting factors.",
+        "Keep seconds unrounded internally and show both decimal duration and a suitably formatted elapsed duration."
+      ],
+      "validation": [
+        "Distance and time may be zero where not divisors; reject time<=0 when finding speed and speed<=0 when finding travel time.",
+        "Reject negative speed/distance, malformed durations and HH:MM:SS with minutes or seconds >=60."
+      ],
+      "independentFixtures": [
+        {
+          "id": "speed-mile-two-thirty",
+          "proposedModeId": "solve",
+          "inputs": {
+            "solve": "speed",
+            "distance": 1,
+            "distanceUnit": "mi",
+            "durationFormat": "hms",
+            "duration": "00:02:30",
+            "outputSpeedUnit": "mph"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "metersPerSecond": 10.72896,
+            "speed": 24
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "speed-distance-hms",
+          "proposedModeId": "solve",
+          "inputs": {
+            "solve": "distance",
+            "speed": 72,
+            "speedUnit": "km/h",
+            "durationFormat": "hms",
+            "duration": "01:15:00",
+            "outputDistanceUnit": "km"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "distance": 90,
+            "distanceMeters": 90000
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "speed-time-si",
+          "proposedModeId": "solve",
+          "inputs": {
+            "solve": "time",
+            "distance": 1500,
+            "distanceUnit": "m",
+            "speed": 5,
+            "speedUnit": "m/s"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "durationSeconds": 300,
+            "durationHms": "00:05:00"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "speed-knots-conversion",
+          "proposedModeId": "convert",
+          "inputs": {
+            "speed": 10,
+            "speedUnit": "knots",
+            "outputSpeedUnit": "km/h"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "speed": 18.52
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "speed-over-day",
+          "proposedModeId": "solve",
+          "inputs": {
+            "solve": "distance",
+            "speed": 5,
+            "speedUnit": "km/h",
+            "durationFormat": "hms",
+            "duration": "25:30:00",
+            "outputDistanceUnit": "km"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "distance": 127.5
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "speed-bad-duration",
+          "proposedModeId": "solve",
+          "inputs": {
+            "solve": "speed",
+            "distance": 10,
+            "distanceUnit": "km",
+            "durationFormat": "hms",
+            "duration": "01:60:00"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Duration minutes must be less than 60."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c",
+          "supports": "International length and liquid-volume unit relationships; does not supply application-specific fuel or tile formulas."
+        },
+        {
+          "title": "NIST: Special Publication 811",
+          "url": "https://www.nist.gov/pml/special-publication-811",
+          "supports": "SI use and conversion relationships."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "solve",
+        "convert"
+      ],
+      "speedFactorsToMetersPerSecond": {
+        "m/s": 1,
+        "km/h": 0.2777777777777778,
+        "mph": 0.44704,
+        "knots": 0.5144444444444445,
+        "ft/s": 0.3048,
+        "cm/s": 0.01
+      },
+      "accessibleComponents": [
+        "DurationInput with labeled hours/minutes/seconds and equivalent text entry.",
+        "Shared MeasuredValueInput and solve-dependent fields."
+      ]
+    },
+    {
+      "id": "password-character-options",
+      "slugs": [
+        "password-generator"
+      ],
+      "parityGapIds": [
+        "password-class-options"
+      ],
+      "currentSnapshotAssessment": "Current mode forces lower/upper/digits and optionally symbols. Existing inject-one-per-class then shuffle meets class membership but is not uniform over all class-valid strings.",
+      "evidence": [
+        {
+          "gapId": "password-class-options",
+          "competitorUrl": "https://www.calculator.net/password-generator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/password-generator.txt",
+          "capturedInputOrSelectNames": [
+            "ilower",
+            "iupper",
+            "inumber",
+            "isymbol",
+            "iexcludeb",
+            "iunique"
+          ],
+          "visibleLabelAnchors": [
+            {
+              "label": "No Repeated Characters",
+              "rawTextLines": [
+                20
+              ]
+            }
+          ]
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "lowercase",
+          "type": "boolean",
+          "label": "Lowercase letters"
+        },
+        {
+          "key": "uppercase",
+          "type": "boolean",
+          "label": "Uppercase letters"
+        },
+        {
+          "key": "digits",
+          "type": "boolean",
+          "label": "Digits"
+        },
+        {
+          "key": "symbols",
+          "type": "boolean",
+          "label": "Symbols"
+        },
+        {
+          "key": "excludeBrackets",
+          "type": "boolean",
+          "label": "Exclude brackets: () [] {} <>"
+        },
+        {
+          "key": "ambiguous",
+          "type": "enum",
+          "label": "Ambiguous characters",
+          "options": [
+            "include",
+            "exclude-0O1Il"
+          ]
+        },
+        {
+          "key": "unique",
+          "type": "boolean",
+          "label": "No repeated characters"
+        },
+        {
+          "key": "length",
+          "type": "integer",
+          "label": "Password length",
+          "minimum": 8,
+          "maximum": 128
+        },
+        {
+          "key": "count",
+          "type": "integer",
+          "label": "Number of passwords",
+          "minimum": 1,
+          "maximum": 20
+        }
+      ],
+      "algorithmSteps": [
+        "Define disjoint ASCII pools for each selected class and state the exact symbol/ambiguous sets. Apply exclusions to pools before validation. Require each selected class to appear in a returned password, preserving existing behavior.",
+        "Use crypto.getRandomValues and rejection sampling for an unbiased integer index. For byte sampling and pool size n<=256, accept byte b < floor(256/n)*n, then index=b%n.",
+        "Without uniqueness, draw the whole candidate uniformly from the combined pool. Reject and regenerate candidates missing a required class; conditional on acceptance this is uniform over all permitted strings.",
+        "With uniqueness, securely Fisher\u2013Yates shuffle the pool, take the required prefix, then reject candidates missing required classes. This is uniform over permitted ordered distinct-character strings.",
+        "Use a bounded retry cap and report an explicit failure if exceeded; never fall back to Math.random. Do not substitute mandatory-character injection while claiming uniform valid-password sampling.",
+        "Never derive an exact password fixture from product output. Test lengths, allowed sets, uniqueness and required class membership, plus deterministic random-index boundary tests with an injected test-only byte source."
+      ],
+      "validation": [
+        "At least one class must remain selected and nonempty after exclusions. Length must be at least the number of required nonempty classes.",
+        "For no-repeat mode require length <= total available characters. Bound count and length as current mode does.",
+        "Do not log, persist, send to analytics, URL-encode or auto-copy generated secrets. Render as text, not markup."
+      ],
+      "independentFixtures": [
+        {
+          "id": "password-unique-digits",
+          "proposedModeId": "password",
+          "inputs": {
+            "lowercase": false,
+            "uppercase": false,
+            "digits": true,
+            "symbols": false,
+            "ambiguous": "include",
+            "excludeBrackets": false,
+            "unique": true,
+            "length": 10,
+            "count": 3
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "properties": [
+            {
+              "eachPasswordLength": 10
+            },
+            {
+              "eachPasswordSortedEquals": "0123456789"
+            },
+            {
+              "passwordCount": 3
+            }
+          ]
+        },
+        {
+          "id": "password-unique-unambiguous-digits",
+          "proposedModeId": "password",
+          "inputs": {
+            "lowercase": false,
+            "uppercase": false,
+            "digits": true,
+            "symbols": false,
+            "ambiguous": "exclude-0O1Il",
+            "excludeBrackets": false,
+            "unique": true,
+            "length": 8,
+            "count": 2
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "properties": [
+            {
+              "eachPasswordSortedEquals": "23456789"
+            },
+            {
+              "passwordCount": 2
+            }
+          ]
+        },
+        {
+          "id": "password-unique-impossible",
+          "proposedModeId": "password",
+          "inputs": {
+            "lowercase": false,
+            "uppercase": false,
+            "digits": true,
+            "symbols": false,
+            "ambiguous": "exclude-0O1Il",
+            "unique": true,
+            "length": 9,
+            "count": 1
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Only 8 different characters remain; shorten the password or allow repetition."
+        },
+        {
+          "id": "password-exclude-brackets",
+          "proposedModeId": "password",
+          "inputs": {
+            "lowercase": true,
+            "uppercase": true,
+            "digits": true,
+            "symbols": true,
+            "ambiguous": "exclude-0O1Il",
+            "excludeBrackets": true,
+            "unique": false,
+            "length": 24,
+            "count": 5
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "properties": [
+            {
+              "eachPasswordLength": 24
+            },
+            {
+              "eachPasswordExcludes": "0O1Il()[]{}<>"
+            },
+            {
+              "eachPasswordHasClasses": [
+                "lowercase",
+                "uppercase",
+                "digits",
+                "symbols"
+              ]
+            },
+            {
+              "passwordCount": 5
+            }
+          ]
+        },
+        {
+          "id": "password-no-class",
+          "proposedModeId": "password",
+          "inputs": {
+            "lowercase": false,
+            "uppercase": false,
+            "digits": false,
+            "symbols": false,
+            "length": 20,
+            "count": 1
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Select at least one character class."
+        },
+        {
+          "id": "random-index-rejection-boundary",
+          "proposedModeId": "random-index",
+          "inputs": {
+            "poolSize": 10,
+            "testByteSequence": [
+              255,
+              250,
+              249
+            ]
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "index": 9,
+            "bytesConsumed": 3
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12,
+          "derivation": "Limit is floor(256/10)*10=250. Reject bytes 255 and 250, accept 249 => 9."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "W3C Web Cryptography API",
+          "url": "https://www.w3.org/TR/webcrypto/",
+          "supports": "Cryptographic random-byte generation with getRandomValues. Constrained uniform-sampling derivation below is original."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "password"
+      ],
+      "characterPools": {
+        "lowercase": "abcdefghijklmnopqrstuvwxyz",
+        "uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "digits": "0123456789",
+        "symbols": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+        "ambiguousExclusion": "0O1Il",
+        "bracketExclusion": "()[]{}<>"
+      },
+      "distributionProof": "Unconditional candidates have equal probability. Rejecting candidates outside a predicate preserves equal probability among accepted candidates. A uniform shuffle followed by a length-k prefix similarly samples all ordered k-tuples of distinct characters equally.",
+      "accessibleComponents": [
+        "CharacterClassCheckboxGroup and clearly named exclusion controls.",
+        "Password rows with explicit reveal/copy actions, status announcements and no secret value in an accessible button name."
+      ]
+    },
+    {
+      "id": "ipv4-dotted-mask-input",
+      "slugs": [
+        "ip-subnet-calculator"
+      ],
+      "parityGapIds": [
+        "units-ip-subnet-calculator"
+      ],
+      "currentSnapshotAssessment": "IPv4 and IPv6 CIDR modes exist. IPv4 accepts prefix integer only; equivalent dotted-decimal mask input is absent.",
+      "evidence": [
+        {
+          "gapId": "units-ip-subnet-calculator",
+          "competitorUrl": "https://www.calculator.net/ip-subnet-calculator.html",
+          "capturePath": "/tmp/finflo-research-math-everyday/raw/ip-subnet-calculator.txt",
+          "capturedInputOrSelectNames": [
+            "csubnet"
+          ],
+          "visibleLabelAnchors": []
+        }
+      ],
+      "proposedFields": [
+        {
+          "key": "maskInput",
+          "type": "enum",
+          "label": "Subnet mask format",
+          "options": [
+            "prefix",
+            "dotted-mask"
+          ]
+        },
+        {
+          "key": "prefix",
+          "type": "integer",
+          "label": "Prefix length",
+          "minimum": 0,
+          "maximum": 32
+        },
+        {
+          "key": "mask",
+          "type": "ipv4",
+          "label": "Subnet mask"
+        },
+        {
+          "key": "address",
+          "type": "ipv4",
+          "label": "IPv4 address"
+        }
+      ],
+      "algorithmSteps": [
+        "Strictly parse address and dotted mask as exactly four decimal octets from 0 to 255. Reject signs, empty components, exponents and hex. Leading-zero policy should be explicit; strict unambiguous decimal without leading zeros is suggested.",
+        "As unsigned 32-bit BigInt M, let H=(~M)&0xffffffffn. A contiguous mask satisfies (H & (H+1n))===0n, including /0 and /32.",
+        "Obtain hostBits as bit length of H; prefix=32-hostBits. Reuse the existing IPv4 engine with that prefix instead of duplicating network arithmetic.",
+        "Return both prefix and dotted mask with network, total range, broadcast where meaningful and usable endpoints under the existing /31 point-to-point and /32 single-host convention."
+      ],
+      "validation": [
+        "Reject discontiguous masks and invalid octets. Do not use signed JS bitwise values directly in displayed addresses.",
+        "Keep /31 point-to-point semantics explicitly labeled; a host count is a convention, not a guarantee that every address is routable or assignable in all networks."
+      ],
+      "independentFixtures": [
+        {
+          "id": "ipv4-non-octet-mask",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "172.16.5.23",
+            "maskInput": "dotted-mask",
+            "mask": "255.255.254.0"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "prefix": 23,
+            "network": "172.16.4.0",
+            "broadcast": "172.16.5.255",
+            "totalAddresses": 512,
+            "usableAddresses": 510,
+            "firstUsable": "172.16.4.1",
+            "lastUsable": "172.16.5.254"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "ipv4-mask-point-to-point",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "192.0.2.3",
+            "maskInput": "dotted-mask",
+            "mask": "255.255.255.254"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "prefix": 31,
+            "network": "192.0.2.2",
+            "totalAddresses": 2,
+            "usableAddresses": 2,
+            "firstUsable": "192.0.2.2",
+            "lastUsable": "192.0.2.3"
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "ipv4-all-ones-mask",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "203.0.113.9",
+            "maskInput": "dotted-mask",
+            "mask": "255.255.255.255"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "prefix": 32,
+            "network": "203.0.113.9",
+            "totalAddresses": 1,
+            "usableAddresses": 1
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "ipv4-zero-mask",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "203.0.113.9",
+            "maskInput": "dotted-mask",
+            "mask": "0.0.0.0"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expected": {
+            "prefix": 0,
+            "network": "0.0.0.0",
+            "broadcast": "255.255.255.255",
+            "totalAddresses": 4294967296,
+            "usableAddresses": 4294967294
+          },
+          "absoluteTolerance": 1e-10,
+          "relativeTolerance": 1e-12
+        },
+        {
+          "id": "ipv4-discontiguous-mask",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "192.0.2.1",
+            "maskInput": "dotted-mask",
+            "mask": "255.0.255.0"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Subnet mask must have contiguous leading one bits."
+        },
+        {
+          "id": "ipv4-invalid-mask-octet",
+          "proposedModeId": "ipv4",
+          "inputs": {
+            "address": "192.0.2.1",
+            "maskInput": "dotted-mask",
+            "mask": "255.255.256.0"
+          },
+          "provenance": "Independent arithmetic, calendar enumeration, or explicitly declared model; never captured product output.",
+          "expectedError": "Each mask octet must be between 0 and 255."
+        }
+      ],
+      "primaryReferences": [
+        {
+          "title": "IETF RFC 4632: CIDR",
+          "url": "https://www.rfc-editor.org/rfc/rfc4632",
+          "supports": "IPv4 prefix-based network addressing."
+        },
+        {
+          "title": "IETF RFC 3021: 31-Bit Prefixes on IPv4 Point-to-Point Links",
+          "url": "https://www.rfc-editor.org/rfc/rfc3021",
+          "supports": "Two usable endpoints for the specifically labeled /31 point-to-point convention."
+        }
+      ],
+      "externalDependencies": "None: local deterministic math/date operations, except password CSPRNG supplied by the runtime.",
+      "proposedModeIds": [
+        "ipv4"
+      ],
+      "requestedExtensionNotCaptured": "Captured csubnet selection establishes a subnet selector, not a free-text mask field. Dotted-mask entry is an explicit parent-requested equivalent-input extension.",
+      "accessibleComponents": [
+        "MaskFormatSelector that preserves the equivalent value when toggled.",
+        "Readable network results with CIDR and dotted mask shown together."
+      ]
+    }
+  ],
+  "otherP1Families": [
+    {
+      "id": "power-unit-converter",
+      "slug": "horsepower-calculator",
+      "capability": "Power conversion among W, kW, mechanical/metric/electrical/boiler horsepower, and BTU/h",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "molarity-concentration-units",
+      "slug": "molarity-calculator",
+      "capability": "Molar concentration prefixes and mass-concentration unit modes",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "gdp-income",
+      "slug": "gdp-calculator",
+      "capability": "Income/resource-cost calculation with explicit national-to-domestic bridge",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "timezone-coverage",
+      "slug": "time-zone-calculator",
+      "capability": "Fixed UTC-offset conversion and broader named-zone choices",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "floor-cost-units",
+      "slug": "square-footage-calculator",
+      "capability": "Per-shape unit selectors and optional area-based cost",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "concrete-stairs",
+      "slug": "concrete-calculator",
+      "capability": "Solid concrete stairs with a platform",
+      "status": "resolved: everyday-extra-definitions.ts contains concrete-stairs with riser count, riser, run, platform and width",
+      "dependency": "none"
+    },
+    {
+      "id": "concrete-curb",
+      "slug": "concrete-calculator",
+      "capability": "Curb-and-gutter section volume",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "geometry-definition"
+    },
+    {
+      "id": "concrete-quantity-units",
+      "slug": "concrete-calculator",
+      "capability": "Slab quantity and mixed measurement units",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "roof-footprint-angle",
+      "slug": "roofing-calculator",
+      "capability": "Known footprint area, pitch angle, explicit eaves geometry, and area price",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "roof-material",
+      "slug": "roofing-calculator",
+      "capability": "Roof-material quantities from an already measured roof area",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "stairs-mount-headroom",
+      "slug": "stair-calculator",
+      "capability": "Tread thickness, headroom/floor opening, and standard versus flush mounting",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "geometry-definition"
+    },
+    {
+      "id": "voltage-custom-ac-parallel",
+      "slug": "voltage-drop-calculator",
+      "capability": "Custom per-length resistance/impedance; AC single/three phase; parallel conductors",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "voltage-wire-gauge",
+      "slug": "voltage-drop-calculator",
+      "capability": "AWG/kcmil selectors and additional materials",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "bandwidth-unit-time-options",
+      "slug": "bandwidth-calculator",
+      "capability": "Data-unit converter, selectable size/rate units, and page-view periods",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "tire-single-alt-rim",
+      "slug": "tire-size-calculator",
+      "capability": "Single-tire dimensions and alternative rim target",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "height-units",
+      "slug": "height-calculator",
+      "capability": "Standalone height converter and imperial measurement entry",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "none"
+    },
+    {
+      "id": "engine-quartermile",
+      "slug": "engine-horsepower-calculator",
+      "capability": "Quarter-mile elapsed-time and trap-speed power estimates",
+      "status": "not reassessed in this bounded specification; previous evidence remains in everyday-parity-gaps.json",
+      "dependency": "primary-model-provenance-review"
+    }
+  ],
+  "externalOrLicensedBlockersUnchanged": [
+    "Routing/geocoding for road distance requires a provider or licensed road dataset.",
+    "Official NEC impedance/table parity needs edition and reuse-rights decisions; simple entered impedance can be calculated independently.",
+    "Official nine-hole expected score inputs and some handicap services need governing-system data or an explicit unsupported scope.",
+    "Khamis\u2013Roche height prediction needs verified corrected coefficients and permitted data use."
+  ],
+  "validation": {
+    "jsonSerialization": "validated",
+    "evidenceAnchors": "all referenced capture lines checked",
+    "independentArithmetic": "42 numeric/exact fixtures independently recomputed with Python Decimal, datetime, math and ipaddress; all passed. No product functions or captured output used.",
+    "referenceCheckReport": "/tmp/finflo-research-math-everyday/remaining-everyday-reference-checks.json",
+    "existingImplementationFixtures": "See executable-everyday/everyday-executable-fixtures.json for mapped executable cases against existing modes."
+  }
+}

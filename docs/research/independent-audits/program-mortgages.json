@@ -1,0 +1,34 @@
+{
+  "scope": "Read-only isolated-snapshot audit of FHA/VA program-mortgage definitions and engine through actual registry + calculate().",
+  "referenceFixtureCount": 15,
+  "referenceFixturesPassed": 15,
+  "additionalBoundaryCases": 43,
+  "additionalBoundaryCasesPassed": 43,
+  "registeredDefaults": 3,
+  "registeredDefaultsPassed": 3,
+  "numericalFindingsRemaining": 0,
+  "contentFindingsRemaining": [
+    "F40-Q2: Verify exact FHA policy/method source links and revise stale global manual-model note."
+  ],
+  "originalFindings": "findings.json",
+  "sources": "sources.json",
+  "snapshotHashes": "snapshot/hashes.json",
+  "adapter": "adapter.mjs",
+  "mappedFixtures": "mapped-fixtures.json",
+  "reportFiles": [
+    "fixture-report.json",
+    "edge-report.json",
+    "integration-report.json"
+  ],
+  "initialFailuresPreserved": true,
+  "sharedLedgerRegression": "Following Decimal256 loanLedger change, household 32 fixtures +41 boundary cases +75 ledger assertions +18 default routes all rerun and pass.",
+  "policyLimits": [
+    "Tests verify stated standard-forward FHA and selected VA fee arithmetic, not eligibility/underwriting decisions.",
+    "HUD HTML knowledge-base link returned CSS error, so exact rates independently checked against official Mortgagee Letter 2023-05 PDF and official announcement.",
+    "Latest full HUD handbook was not freshly re-downloaded in this bounded audit; earlier independent research recorded the August 2026 handbook appendix date."
+  ],
+  "numericalLimits": [
+    "The program inherits a bounded conditioning check for unsupported extreme monetary/date/rate combinations.",
+    "Mortgage policy dates are explicitly bounded through 2026-10-09; later dates need renewed policy verification."
+  ]
+}

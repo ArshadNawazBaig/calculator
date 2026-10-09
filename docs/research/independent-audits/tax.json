@@ -1,0 +1,68 @@
+{
+  "verifiedOn": "2026-10-09",
+  "scope": "Read-only audit of tax-modules.ts and tax-module-definitions.ts through isolated snapshot of actual registry and calculate dispatcher. All fixtures have independent expected values. This is bounded numerical/module verification, not certification of complete tax return parity.",
+  "referenceResults": {
+    "cases": 26,
+    "assertions": 83,
+    "passed": 26,
+    "failed": 0
+  },
+  "edgeResults": {
+    "cases": 16,
+    "assertions": 41,
+    "expectedScopeRejections": 2,
+    "passed": 16,
+    "failed": 0
+  },
+  "confirmedNumericDefects": [],
+  "edgeCoverage": [
+    "Head-of-household distinct32% bracket boundary",
+    "Income row aggregation and entered deduction",
+    "Qualified-gain ordinary-rate cap",
+    "Self-employment SS cap exhausted with Medicare remaining",
+    "Wage+SE Additional Medicare threshold coordination",
+    "Surviving-spouse Medicare200000 vsNIIT250000 thresholds",
+    "Other-dependent-only credit nonrefundability",
+    "Basic ACTC earned-income threshold",
+    "Eligibility affirmation and three-child unsupported branch rejection",
+    "MFS AMT26/28% boundary and joint exemption phaseout start",
+    "JointW4 schedule boundary",
+    "Graduated estate tentative tax plus gifts/DSUE/verified-credit arithmetic"
+  ],
+  "sourceModelReview": {
+    "parameters": "Stored2026 parameters match the cited IRS Revenue Procedure2025-32 and independently researched SSA/IRS materials used by the fixture package.",
+    "childCredit": "Current publicly retrieved Schedule8812 form is2025. Its documented arithmetic supports the basic branch;2026credit/refund amounts separately come from2026inflation parameters. Do not relabel the2025form as2026.",
+    "payroll": "Uses actual2026Publication15-T Worksheet1A parameters rather than final tax brackets divided by pay count.",
+    "estate": "Uses the full graduated tentative-tax schedule and separately entered verified adjustments; it does not establish deduction/DSUE eligibility.",
+    "publicSourceGap": "Current public links provide2026 parameter PDF and SSAwagebase, but do not yet link several newly implemented module methods. recommended-public-source-additions.json supplies exactprimarylinks.",
+    "globalNoteGap": "Tax page global note still says self-employment/capital gains/AMT/NIIT are excluded even though bounded modes now implement them. Qualify that note as describing only the original wage-only mode or replace with module-specific scope."
+  },
+  "declaredLimitsVerified": [
+    "Ordinary income basic standard deduction excludes automatic age/blind/dependency/special-deduction determination; verified entered deduction available.",
+    "SE regular nonfarm nonnegative profit branch excludes optional methods and specialized losses; AdditionalMedicare separate.",
+    "Preferentialgains excludes collectibles/unrecaptured1250/lossnetting/foreign/kiddie branches.",
+    "ACTC supports fewer than3qualifyingchildren and excludes PuertoRico/Form2555/specialcreditinteractions; UImax2andeligibilityguardareenforced.",
+    "AMT requires already-computed ordinaryAMTI and adjusted regular-tax comparison; preferentialgains/foreigncredits/specialMFSadjustments excluded.",
+    "Payroll2026W4from2020+ worksheet scope; taxablepay differsfromgross/FICAwages; withholdingisnotfinalannualtax.",
+    "Estate UScitizen/resident scope and entered verified amounts; no stateestate,GST,specialvaluation ornonresident determination."
+  ],
+  "artifacts": [
+    "mapped-reference-cases.json",
+    "mapped-edge-cases.json",
+    "build-fixture-adapter.cjs",
+    "build-edge-cases.py",
+    "run-fixtures.cjs",
+    "reference-execution-report.json",
+    "edge-execution-report.json",
+    "snapshot-manifest.json",
+    "public-source-assessment-input.json",
+    "recommended-public-source-additions.json"
+  ],
+  "reproduction": [
+    "node make-snapshot.cjs",
+    "node build-fixture-adapter.cjs",
+    "python3 build-edge-cases.py",
+    "node run-fixtures.cjs mapped-reference-cases.json reference-execution-report.json",
+    "node run-fixtures.cjs mapped-edge-cases.json edge-execution-report.json"
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "scope": "Actual full staged Worker using Miniflare outboundService fixtures; all internet access replaced. Original synthetic rates, same-date independent expected arithmetic; no provider quote claims.",
+  "date": "2026-10-09",
+  "results": [
+    {
+      "id": "concurrent-global-requests-coalesce-and-keep-independent-quotes",
+      "status": "pass",
+      "actual": {
+        "quotes": {
+          "USD": {
+            "code": "USD",
+            "usdPerUnit": "1",
+            "date": "2026-10-09",
+            "kind": "daily-reference",
+            "source": "USD reference identity",
+            "contributors": [],
+            "pegDerived": false
+          },
+          "EUR": {
+            "code": "EUR",
+            "usdPerUnit": "1.25",
+            "date": "2026-10-09",
+            "kind": "daily-reference",
+            "source": "Frankfurter · blended official reference sources",
+            "contributors": [
+              {
+                "key": "ECB",
+                "date": "2026-10-09",
+                "rate": 0.8
+              }
+            ],
+            "pegDerived": false,
+            "inverseQuote": true
+          },
+          "CLP": {
+            "code": "CLP",
+            "usdPerUnit": "0.001",
+            "date": "2026-10-09",
+            "kind": "daily-reference",
+            "source": "Frankfurter · blended official reference sources",
+            "contributors": [
+              {
+                "key": "BCCH",
+                "date": "2026-10-09",
+                "rate": 1000
+              }
+            ],
+            "pegDerived": false
+          },
+          "BTC": {
+            "code": "BTC",
+            "usdPerUnit": "80000",
+            "date": "2026-10-09",
+            "kind": "spot",
+            "source": "Coinbase public BTC/USD spot; timestamp is retrieval time",
+            "contributors": [],
+            "pegDerived": false
+          },
+          "CLF": {
+            "code": "CLF",
+            "usdPerUnit": "41.13094",
+            "date": "2026-10-09",
+            "kind": "daily-reference",
+            "source": "SII: 41130.94 CLP per UF on 2026-10-09; CLP cross observed 2026-10-09",
+            "contributors": [
+              {
+                "key": "BCCH",
+                "date": "2026-10-09",
+                "rate": 1000
+              }
+            ],
+            "pegDerived": false
+          }
+        },
+        "upstreamRequests": 4,
+        "clientResponses": 5
+      }
+    },
+    {
+      "id": "global-cache-hit-preserves-observation-and-ages",
+      "status": "pass",
+      "actual": {
+        "age": "1",
+        "additionalOutbound": 0
+      }
+    },
+    {
+      "id": "reference-cache-independent-and-coalesced",
+      "status": "pass",
+      "actual": {
+        "clientResponses": 3,
+        "additionalOutbound": 1
+      }
+    },
+    {
+      "id": "outbound-requests-do-not-contain-visitor-inputs",
+      "status": "pass",
+      "actual": [
+        {
+          "mode": "success",
+          "url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+          "method": "GET",
+          "body": ""
+        },
+        {
+          "mode": "success",
+          "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+          "method": "GET",
+          "body": ""
+        },
+        {
+          "mode": "success",
+          "url": "https://api.frankfurter.dev/v2/rates?base=USD&expand=providers",
+          "method": "GET",
+          "body": ""
+        },
+        {
+          "mode": "success",
+          "url": "https://api.frankfurter.dev/v2/rate/eur/usd?expand=providers",
+          "method": "GET",
+          "body": ""
+        },
+        {
+          "mode": "success",
+          "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+          "method": "GET",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "id": "reference-outage-stays-503-with-no-store-and-short-cooldown",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "httpCache": "no-store",
+        "perIsolateFailureCooldownSeconds": 5,
+        "reloadedAfterCooldown": true
+      }
+    },
+    {
+      "id": "global-outage-retains-503-and-does-not-reuse-reference-cache",
+      "status": "pass",
+      "actual": {
+        "status": 503,
+        "additionalOutbound": 3
+      }
+    },
+    {
+      "id": "maintenance-api-wrapper-does-not-fetch-upstream",
+      "status": "fail",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n500 !== 503\n\n    at /private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:19:165\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (/private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:3:69)\n    at async /private/tmp/finflo-research-math-everyday/opennext-build-trial/test-worker-rates.cjs:19:35"
+    }
+  ],
+  "outbound": [
+    {
+      "mode": "success",
+      "url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "success",
+      "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "success",
+      "url": "https://api.frankfurter.dev/v2/rates?base=USD&expand=providers",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "success",
+      "url": "https://api.frankfurter.dev/v2/rate/eur/usd?expand=providers",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "success",
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "failure",
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "failure",
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "failure",
+      "url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "failure",
+      "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "failure",
+      "url": "https://api.frankfurter.dev/v2/rates?base=USD&expand=providers",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "mode": "maintenance",
+      "url": "http://localhost:59700/maintenance",
+      "method": "GET",
+      "body": ""
+    }
+  ]
+}

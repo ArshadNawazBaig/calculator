@@ -1,0 +1,804 @@
+{
+  "verifiedOn": "2026-10-09",
+  "status": "Primary-source parameter and rule specification, not product implementation or tax-return certification",
+  "currency": "USD",
+  "years": {
+    "2025": {
+      "ordinaryIncomeRates": [
+        0.1,
+        0.12,
+        0.22,
+        0.24,
+        0.32,
+        0.35,
+        0.37
+      ],
+      "ordinaryIncomeBracketUpperBounds": {
+        "single": [
+          11925,
+          48475,
+          103350,
+          197300,
+          250525,
+          626350,
+          null
+        ],
+        "marriedJoint": [
+          23850,
+          96950,
+          206700,
+          394600,
+          501050,
+          751600,
+          null
+        ],
+        "marriedSeparate": [
+          11925,
+          48475,
+          103350,
+          197300,
+          250525,
+          375800,
+          null
+        ],
+        "headOfHousehold": [
+          17000,
+          64850,
+          103350,
+          197300,
+          250500,
+          626350,
+          null
+        ],
+        "qualifyingSurvivingSpouse": [
+          23850,
+          96950,
+          206700,
+          394600,
+          501050,
+          751600,
+          null
+        ]
+      },
+      "standardDeduction": {
+        "single": 15750,
+        "marriedJoint": 31500,
+        "marriedSeparate": 15750,
+        "headOfHousehold": 23625,
+        "qualifyingSurvivingSpouse": 31500
+      },
+      "additionalStandardDeductionPerAgeOrBlindCondition": {
+        "unmarriedNotSurvivingSpouse": 2000,
+        "other": 1600
+      },
+      "dependentStandardDeduction": {
+        "minimum": 1350,
+        "earnedIncomeAddition": 450,
+        "cap": "status basic standard deduction, before age/blind addition"
+      },
+      "longTermCapitalGainsUpperBounds": {
+        "single": [
+          48350,
+          533400,
+          null
+        ],
+        "marriedJoint": [
+          96700,
+          600050,
+          null
+        ],
+        "marriedSeparate": [
+          48350,
+          300000,
+          null
+        ],
+        "headOfHousehold": [
+          64750,
+          566700,
+          null
+        ],
+        "qualifyingSurvivingSpouse": [
+          96700,
+          600050,
+          null
+        ]
+      },
+      "socialSecurityWageBase": 176100,
+      "childCredit": {
+        "qualifiedChildMax": 2200,
+        "otherDependentMax": 500,
+        "refundMaxPerChild": 1700,
+        "phaseoutJoint": 400000,
+        "phaseoutOther": 200000,
+        "reductionPerStarted1000": 50,
+        "basicEarnedIncomeThreshold": 2500,
+        "basicRefundEarnedIncomeFraction": 0.15,
+        "threeOrMorePayrollAlternative": true
+      },
+      "careCredit": {
+        "onePersonExpenseCap": 3000,
+        "twoPlusExpenseCap": 6000,
+        "initialRate": 0.35,
+        "firstPhaseoutAGI": 15000,
+        "firstStepAGI": 2000,
+        "stepRate": 0.01,
+        "minimumRate": 0.2,
+        "secondPhaseoutEnabled": false,
+        "formula": "max(.20,.35-.01*ceil(max(0,AGI-15000)/2000))",
+        "dependentCareAssistanceExclusionJointOrOther": 5000,
+        "dependentCareAssistanceExclusionMFS": 2500
+      },
+      "itemized": {
+        "medicalAGIFloor": 0.075,
+        "saltCap": 40000,
+        "saltCapMFS": 20000,
+        "saltMAGIStart": 500000,
+        "saltMAGIStartMFS": 250000,
+        "saltPhaseoutRate": 0.3,
+        "saltFloor": 10000,
+        "saltFloorMFS": 5000,
+        "cashCharityAGICap": 0.6,
+        "charityAGIFloor": 0,
+        "section68Enabled": false,
+        "nonitemizerCharityCap": 0,
+        "nonitemizerCharityCapJoint": 0
+      },
+      "traditionalIra": {
+        "contributionLimitUnder50": 7000,
+        "catchUp50Plus": 1000,
+        "coveredSingleHOH": [
+          79000,
+          89000
+        ],
+        "coveredJointOrQSS": [
+          126000,
+          146000
+        ],
+        "uncoveredJointSpouseCovered": [
+          236000,
+          246000
+        ],
+        "mfsCohabitingEitherCovered": [
+          0,
+          10000
+        ],
+        "partialDeductionRounding": "ceil to next multiple of $10; at least $200 while MAGI strictly inside phaseout; contribution/compensation caps still apply"
+      },
+      "studentLoanInterest": {
+        "maximum": 2500,
+        "singleHOHQSS": [
+          85000,
+          100000
+        ],
+        "joint": [
+          170000,
+          200000
+        ],
+        "mfsEligible": false
+      },
+      "qbi": {
+        "threshold": {
+          "single": 197300,
+          "marriedJoint": 394600,
+          "marriedSeparate": 197300,
+          "headOfHousehold": 197300,
+          "qualifyingSurvivingSpouse": 197300
+        },
+        "phaseInRangeJoint": 100000,
+        "phaseInRangeOther": 50000,
+        "activeMinimumEnabled": false,
+        "activeMinimum": 0,
+        "activeQBIMinimum": null,
+        "section68ExcludedInTaxableIncomeLimit": false
+      },
+      "eitc": {
+        "investmentIncomeLimit": 11950,
+        "rows": [
+          {
+            "children": 0,
+            "creditRate": 0.0765,
+            "phaseoutRate": 0.0765,
+            "earnedIncomeAmount": 8490,
+            "maxCredit": 649,
+            "otherStart": 10620,
+            "jointStart": 17730,
+            "otherEnd": 19104,
+            "jointEnd": 26214
+          },
+          {
+            "children": 1,
+            "creditRate": 0.34,
+            "phaseoutRate": 0.1598,
+            "earnedIncomeAmount": 12730,
+            "maxCredit": 4328,
+            "otherStart": 23350,
+            "jointStart": 30470,
+            "otherEnd": 50434,
+            "jointEnd": 57554
+          },
+          {
+            "children": 2,
+            "creditRate": 0.4,
+            "phaseoutRate": 0.2106,
+            "earnedIncomeAmount": 17880,
+            "maxCredit": 7152,
+            "otherStart": 23350,
+            "jointStart": 30470,
+            "otherEnd": 57310,
+            "jointEnd": 64430
+          },
+          {
+            "children": 3,
+            "creditRate": 0.45,
+            "phaseoutRate": 0.2106,
+            "earnedIncomeAmount": 17880,
+            "maxCredit": 8046,
+            "otherStart": 23350,
+            "jointStart": 30470,
+            "otherEnd": 61555,
+            "jointEnd": 68675
+          }
+        ]
+      },
+      "amtReferenceOnly": {
+        "singleExemption": 88100,
+        "jointQSSExemption": 137000,
+        "mfsExemption": 68500,
+        "singleMFSPhaseoutStart": 626350,
+        "jointQSSPhaseoutStart": 1252700,
+        "phaseoutRate": 0.25,
+        "rate28StartOther": 239100,
+        "rate28StartMFS": 119550
+      }
+    },
+    "2026": {
+      "ordinaryIncomeRates": [
+        0.1,
+        0.12,
+        0.22,
+        0.24,
+        0.32,
+        0.35,
+        0.37
+      ],
+      "ordinaryIncomeBracketUpperBounds": {
+        "single": [
+          12400,
+          50400,
+          105700,
+          201775,
+          256225,
+          640600,
+          null
+        ],
+        "marriedJoint": [
+          24800,
+          100800,
+          211400,
+          403550,
+          512450,
+          768700,
+          null
+        ],
+        "marriedSeparate": [
+          12400,
+          50400,
+          105700,
+          201775,
+          256225,
+          384350,
+          null
+        ],
+        "headOfHousehold": [
+          17700,
+          67450,
+          105700,
+          201750,
+          256200,
+          640600,
+          null
+        ],
+        "qualifyingSurvivingSpouse": [
+          24800,
+          100800,
+          211400,
+          403550,
+          512450,
+          768700,
+          null
+        ]
+      },
+      "standardDeduction": {
+        "single": 16100,
+        "marriedJoint": 32200,
+        "marriedSeparate": 16100,
+        "headOfHousehold": 24150,
+        "qualifyingSurvivingSpouse": 32200
+      },
+      "additionalStandardDeductionPerAgeOrBlindCondition": {
+        "unmarriedNotSurvivingSpouse": 2050,
+        "other": 1650
+      },
+      "dependentStandardDeduction": {
+        "minimum": 1350,
+        "earnedIncomeAddition": 450,
+        "cap": "otherwise applicable basic standard deduction"
+      },
+      "longTermCapitalGainsUpperBounds": {
+        "single": [
+          49450,
+          545500,
+          null
+        ],
+        "marriedJoint": [
+          98900,
+          613700,
+          null
+        ],
+        "marriedSeparate": [
+          49450,
+          306850,
+          null
+        ],
+        "headOfHousehold": [
+          66200,
+          579600,
+          null
+        ],
+        "qualifyingSurvivingSpouse": [
+          98900,
+          613700,
+          null
+        ]
+      },
+      "socialSecurityWageBase": 184500,
+      "childCredit": {
+        "qualifiedChildMax": 2200,
+        "otherDependentMax": 500,
+        "refundMaxPerChild": 1700,
+        "phaseoutJoint": 400000,
+        "phaseoutOther": 200000,
+        "reductionPerStarted1000": 50,
+        "basicEarnedIncomeThreshold": 2500,
+        "basicRefundEarnedIncomeFraction": 0.15,
+        "threeOrMorePayrollAlternative": true
+      },
+      "careCredit": {
+        "onePersonExpenseCap": 3000,
+        "twoPlusExpenseCap": 6000,
+        "initialRate": 0.5,
+        "firstPhaseoutAGI": 15000,
+        "firstStepAGI": 2000,
+        "stepRate": 0.01,
+        "minimumRate": 0.2,
+        "secondPhaseoutEnabled": true,
+        "formula": "max(.20,max(.35,.50-.01*ceil(max(0,AGI-15000)/2000))-.01*ceil(max(0,AGI-(joint?150000:75000))/(joint?4000:2000)))",
+        "dependentCareAssistanceExclusionJointOrOther": 7500,
+        "dependentCareAssistanceExclusionMFS": 3750,
+        "firstPhaseoutMinimumRate": 0.35,
+        "secondPhaseoutOther": 75000,
+        "secondPhaseoutJoint": 150000,
+        "secondStepOther": 2000,
+        "secondStepJoint": 4000
+      },
+      "itemized": {
+        "medicalAGIFloor": 0.075,
+        "saltCap": 40400,
+        "saltCapMFS": 20200,
+        "saltMAGIStart": 505000,
+        "saltMAGIStartMFS": 252500,
+        "saltPhaseoutRate": 0.3,
+        "saltFloor": 10000,
+        "saltFloorMFS": 5000,
+        "cashCharityAGICap": 0.6,
+        "charityAGIFloor": 0.005,
+        "section68Enabled": true,
+        "nonitemizerCharityCap": 1000,
+        "nonitemizerCharityCapJoint": 2000,
+        "section68FractionNumerator": 2,
+        "section68FractionDenominator": 37
+      },
+      "traditionalIra": {
+        "contributionLimitUnder50": 7500,
+        "catchUp50Plus": 1100,
+        "coveredSingleHOH": [
+          81000,
+          91000
+        ],
+        "coveredJointOrQSS": [
+          129000,
+          149000
+        ],
+        "uncoveredJointSpouseCovered": [
+          242000,
+          252000
+        ],
+        "mfsCohabitingEitherCovered": [
+          0,
+          10000
+        ],
+        "partialDeductionRounding": "ceil to next multiple of $10; at least $200 while MAGI strictly inside phaseout; contribution/compensation caps still apply"
+      },
+      "studentLoanInterest": {
+        "maximum": 2500,
+        "singleHOHQSS": [
+          85000,
+          100000
+        ],
+        "joint": [
+          175000,
+          205000
+        ],
+        "mfsEligible": false
+      },
+      "qbi": {
+        "threshold": {
+          "single": 201750,
+          "marriedJoint": 403500,
+          "marriedSeparate": 201775,
+          "headOfHousehold": 201750,
+          "qualifyingSurvivingSpouse": 201750
+        },
+        "phaseInRangeJoint": 150000,
+        "phaseInRangeOther": 75000,
+        "activeMinimumEnabled": true,
+        "activeMinimum": 400,
+        "activeQBIMinimum": 1000,
+        "section68ExcludedInTaxableIncomeLimit": true
+      },
+      "eitc": {
+        "investmentIncomeLimit": 12200,
+        "rows": [
+          {
+            "children": 0,
+            "creditRate": 0.0765,
+            "phaseoutRate": 0.0765,
+            "earnedIncomeAmount": 8680,
+            "maxCredit": 664,
+            "otherStart": 10860,
+            "jointStart": 18140,
+            "otherEnd": 19540,
+            "jointEnd": 26820
+          },
+          {
+            "children": 1,
+            "creditRate": 0.34,
+            "phaseoutRate": 0.1598,
+            "earnedIncomeAmount": 13020,
+            "maxCredit": 4427,
+            "otherStart": 23890,
+            "jointStart": 31160,
+            "otherEnd": 51593,
+            "jointEnd": 58863
+          },
+          {
+            "children": 2,
+            "creditRate": 0.4,
+            "phaseoutRate": 0.2106,
+            "earnedIncomeAmount": 18290,
+            "maxCredit": 7316,
+            "otherStart": 23890,
+            "jointStart": 31160,
+            "otherEnd": 58629,
+            "jointEnd": 65899
+          },
+          {
+            "children": 3,
+            "creditRate": 0.45,
+            "phaseoutRate": 0.2106,
+            "earnedIncomeAmount": 18290,
+            "maxCredit": 8231,
+            "otherStart": 23890,
+            "jointStart": 31160,
+            "otherEnd": 62974,
+            "jointEnd": 70244
+          }
+        ]
+      }
+    }
+  },
+  "unchanged": {
+    "years": [
+      2025,
+      2026
+    ],
+    "selfEmployment": {
+      "netEarningsFraction": 0.9235,
+      "filingThreshold": 400,
+      "ssRate": 0.124,
+      "medicareRate": 0.029,
+      "halfBaseTaxDeduction": 0.5,
+      "individualWageCaps": true
+    },
+    "employeePayroll": {
+      "ssRate": 0.062,
+      "medicareRate": 0.0145,
+      "additionalMedicareRate": 0.009,
+      "employerAdditionalMedicareWithholdingTrigger": 200000
+    },
+    "additionalMedicareThreshold": {
+      "single": 200000,
+      "headOfHousehold": 200000,
+      "marriedJoint": 250000,
+      "marriedSeparate": 125000,
+      "qualifyingSurvivingSpouse": 200000
+    },
+    "niit": {
+      "rate": 0.038,
+      "thresholdJointOrQSS": 250000,
+      "thresholdMFS": 125000,
+      "thresholdOther": 200000
+    },
+    "socialSecurityBenefits": "Existing provisional-income bands and formulas do not change; marriedJoint gets 32000/44000 bands, QSS uses other-filer 25000/34000 bands.",
+    "tips": {
+      "deductionCapPerReturn": 25000,
+      "phaseoutJoint": 300000,
+      "phaseoutOther": 150000,
+      "reduction": 100,
+      "incomeStep": 1000,
+      "stepRounding": "floor",
+      "mfsEligible": false,
+      "selfEmployedLimit": "qualified tips limited separately to net income after allocable deductions for each business"
+    },
+    "overtime": {
+      "deductionCapJoint": 25000,
+      "deductionCapOther": 12500,
+      "phaseoutJoint": 300000,
+      "phaseoutOther": 150000,
+      "reduction": 100,
+      "incomeStep": 1000,
+      "stepRounding": "floor",
+      "mfsEligible": false,
+      "qualifiedAmount": "Only verified FLSA premium over regular pay; not entire overtime wages."
+    },
+    "carInterest": {
+      "deductionCap": 10000,
+      "phaseoutJoint": 200000,
+      "phaseoutOther": 100000,
+      "reduction": 200,
+      "incomeStep": 1000,
+      "stepRounding": "ceil",
+      "mfsEligible": true,
+      "netInput": "Qualified interest less interest already deducted elsewhere"
+    },
+    "senior": {
+      "deductionPerEligiblePerson": 6000,
+      "phaseoutJoint": 150000,
+      "phaseoutOther": 75000,
+      "phaseoutRatePerEligiblePerson": 0.06,
+      "mfsEligible": false,
+      "maximumEligiblePeopleJoint": 2,
+      "maximumEligiblePeopleOther": 1
+    },
+    "schedule1A": {
+      "effectiveTaxYears": [
+        2025,
+        2026,
+        2027,
+        2028
+      ],
+      "deducts": "taxable income, not AGI, payroll or SE tax",
+      "MAGI": "AGI plus excluded Puerto Rico/section911/section931 income using Schedule1-A PartI",
+      "eligibilityVsArithmetic": "Monetary formulas unchanged. 2025 reporting transition methods in Notice2025-69 are not a declaration that qualification/documentation is identical every year. Accept verified qualified amounts; do not infer eligibility from a generic occupation or entire pay amount."
+    },
+    "education": {
+      "AOTCFirstExpenseBand": 2000,
+      "AOTCFirstRate": 1,
+      "AOTCNextExpenseBand": 2000,
+      "AOTCNextRate": 0.25,
+      "AOTCMaxPerStudent": 2500,
+      "AOTCRefundableFractionIfEligible": 0.4,
+      "LLCExpenseCapPerReturn": 10000,
+      "LLCRate": 0.2,
+      "MAGISingleHOHQSS": [
+        80000,
+        90000
+      ],
+      "MAGIJoint": [
+        160000,
+        180000
+      ],
+      "mfsEligible": false
+    }
+  },
+  "integrationContracts": [
+    {
+      "target": "federalComposition / expandedStandard / gainTax / itemizedDeduction / careCredit / traditionalIra / studentLoanInterest / qbi / eitcContinuousEstimate",
+      "change": "Validate taxYear in {2025,2026}; select one parameter object once and thread that year into every helper. Retain default2026 for backward compatibility."
+    },
+    {
+      "target": "tax-modules",
+      "change": "bracketTax and standardDeduction already support2025. gainTax currently hardcodes2026; self-employment uses184500; child branch caps children2. Any standalone mode newly exposing year must actually propagate it."
+    },
+    {
+      "target": "itemizedDeduction",
+      "change": "2025 charity floor0 and section68 reduction0. Do not let2025 nonitemizer donation silently reduce income. Existing cash<=60%-AGI-only simplification stays explicit."
+    },
+    {
+      "target": "qbi",
+      "change": "2025 thresholds/ranges differ, no$400 minimum.2026 joint QBI threshold403500 intentionally differs from ordinary24% bracket boundary403550; do not derive it from ordinary brackets."
+    },
+    {
+      "target": "gainTax",
+      "change": "2025 MFS15%-band top is300000, not half of MFJ600050. Use explicit table."
+    },
+    {
+      "target": "EITC",
+      "change": "Keep continuous-estimate label; published max/rates are rounded so continuous formula can differ from actual IRS $50 income-bin EIC table. Separate actual verified EIC used by ACTC payroll alternative from a planning estimate, or label combined result estimate."
+    },
+    {
+      "target": "QSS",
+      "change": "Do not alias QSS to joint globally. QSS uses joint ordinary/gains/basic deduction and IRA-covered phaseout, but other-filer QBI/EITC/tips/OT/car/senior/CTC/AddMedicare thresholds, unless specific statutory rule says otherwise."
+    },
+    {
+      "target": "paycheckComposition",
+      "change": "Keep2026 W-4 withholding mode explicitly2026 unless importing actual2025 Pub15-T tables. Captured tax-calculator2025 toggle does not require changing independent2026 payroll mode."
+    }
+  ],
+  "sources": {
+    "rp24-40": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary",
+      "sections": [
+        "2.01 ordinary brackets",
+        "2.03 gains",
+        "2.05 ACTC",
+        "2.06 EITC",
+        "2.11 AMT",
+        "2.15 dependent/age/blind; basic standard superseded",
+        "2.27 QBI",
+        "2.30 student interest"
+      ]
+    },
+    "rp25-32": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary",
+      "sections": [
+        "amended 2025 basic standard deduction",
+        "2026 ordinary/gains/standard/CTC/EITC/QBI/student interest"
+      ]
+    },
+    "schedule8812-2025": {
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "schedule1a-2025": {
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "i8812": {
+      "url": "https://www.irs.gov/instructions/i1040s8",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "i2441": {
+      "url": "https://www.irs.gov/instructions/i2441",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "pub590a": {
+      "url": "https://www.irs.gov/publications/p590a",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "pub970": {
+      "url": "https://www.irs.gov/publications/p970",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "schedule-a": {
+      "url": "https://www.irs.gov/instructions/i1040sca",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "pub505": {
+      "url": "https://www.irs.gov/publications/p505",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "irs-cola": {
+      "url": "https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "ssa-base": {
+      "url": "https://www.ssa.gov/oact/cola/cbb.html",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "web verified; local HTTP403"
+    },
+    "i8995a": {
+      "url": "https://www.irs.gov/instructions/i8995a",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "law119-21": {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary",
+      "sections": [
+        "70102 standard deduction",
+        "70103 senior deduction",
+        "70104 child credit",
+        "70105 QBI (2026 effective)",
+        "70111 section68 (2026 effective)",
+        "70120 SALT",
+        "70201 tips",
+        "70202 overtime",
+        "70203 vehicle interest",
+        "70404 dependent care benefits (2026 effective)",
+        "70405 care credit (2026 effective)",
+        "70424 nonitemizer charity (2026 effective)",
+        "70425 charitable floor (2026 effective)"
+      ]
+    },
+    "i1040": {
+      "url": "https://www.irs.gov/instructions/i1040gi",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    },
+    "notice2025-69": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf",
+      "verifiedOn": "2026-10-09",
+      "retrievalStatus": "verified primary"
+    }
+  },
+  "sourceMap": {
+    "ordinary,gains,dependent,ageblind2025": [
+      "rp24-40"
+    ],
+    "amendedBasicStandard2025": [
+      "rp25-32",
+      "law119-21"
+    ],
+    "CTC/ACTC2025": [
+      "schedule8812-2025",
+      "i8812",
+      "law119-21"
+    ],
+    "care2025": [
+      "i2441"
+    ],
+    "care2026": [
+      "law119-21"
+    ],
+    "SALT2025": [
+      "schedule-a",
+      "law119-21"
+    ],
+    "charity/overall2026": [
+      "law119-21",
+      "pub505"
+    ],
+    "IRA": [
+      "pub590a",
+      "irs-cola"
+    ],
+    "studentInterest": [
+      "pub970",
+      "rp24-40",
+      "rp25-32"
+    ],
+    "QBI": [
+      "i8995a",
+      "rp24-40",
+      "rp25-32",
+      "law119-21"
+    ],
+    "EITC": [
+      "rp24-40",
+      "rp25-32"
+    ],
+    "Schedule1A": [
+      "schedule1a-2025",
+      "law119-21",
+      "notice2025-69"
+    ],
+    "SSbase": [
+      "ssa-base"
+    ]
+  }
+}

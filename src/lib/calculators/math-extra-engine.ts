@@ -1,0 +1,18 @@
+import {num,positive,integer,result} from './helpers';
+import {normalCdf,normalSf,inverseNormalCdf} from './normal';
+import {metric as m,type Values,type Result} from './types';
+import {ambiguousTriangle,rightTrianglePair} from './geometry';
+export const extraMathAlgorithms=new Set(['triangle-ssa','right-pair','percent-base','percent-reverse-change','log-inverse','half-life-inverse','decay-constants','nth-sequence','margin-error','normal-inverse']);
+export function runExtraMath(op:string,v:Values):Result{const n=(key:string)=>num(v,key);
+ if(op==='triangle-ssa')return ambiguousTriangle(n('a'),n('b'),n('A'));
+ if(op==='right-pair')return rightTrianglePair(v.pair,n('first'),n('second'));
+ if(op==='percent-base'){if(n('percent')===0)throw Error('The percentage cannot be zero when solving the whole.');return result(m('Whole',n('part')*100/n('percent')));}
+ if(op==='percent-reverse-change'){const factor=1+n('change')/100;if(factor===0)throw Error('A 100% decrease cannot determine a unique original value.');return result(m('Original value',n('final')/factor));}
+ if(op==='log-inverse'){if(v.solve==='argument'){const base=positive(n('base'),'Base');if(base===1)throw Error('Base cannot equal one.');return result(m('Argument',base**n('exponent')));}const value=positive(n('value'),'Argument'),exponent=n('exponent');if(exponent===0||value===1)throw Error('These inputs do not determine a unique valid logarithm base.');return result(m('Base',value**(1/exponent)));}
+ if(op==='half-life-inverse'){const half=positive(n('half'),'Half-life');if(v.solve==='initial')return result(m('Initial quantity',n('remaining')*2**(n('time')/half)));const initial=positive(n('initial'),'Initial quantity'),remaining=positive(n('remaining'),'Remaining quantity');if(remaining>initial)throw Error('Remaining quantity cannot exceed the initial quantity in a decay model.');return result(m('Elapsed time',half*Math.log(initial/remaining)/Math.LN2));}
+ if(op==='decay-constants'){const input=positive(n('value'),'Value'),lambda=v.known==='half'?Math.LN2/input:v.known==='lifetime'?1/input:input;return result(m('Half-life',Math.LN2/lambda),m('Mean lifetime',1/lambda),m('Decay constant',lambda));}
+ if(op==='nth-sequence'){const index=integer(n('index'),0,v.kind==='fibonacci'?10000:1000000);if(v.kind==='fibonacci'){function fib(k:number):[bigint,bigint]{if(k===0)return [0n,1n];const [a,b]=fib(Math.floor(k/2)),c=a*(2n*b-a),d=a*a+b*b;return k%2?[d,c+d]:[c,d];}return result(m(`Fibonacci F${index}`,fib(index)[0].toString()),m(`Sum F0 through F${index}`,(fib(index+2)[0]-1n).toString()));}if(index===0)throw Error('Arithmetic and geometric sequences use an index starting at one.');const first=n('first'),step=n('step'),term=v.kind==='arithmetic'?first+(index-1)*step:first*step**(index-1),sum=v.kind==='arithmetic'?index*(first+term)/2:step===1?first*index:first*(1-step**index)/(1-step);return result(m('Nth term',term),m('Sum through nth term',sum));}
+ if(op==='margin-error'){const z=inverseNormalCdf(.5+n('confidence')/200),size=integer(n('size'),1,1e12),p=n('proportion')/100,pop=integer(n('population'),0,1e12);if(pop&&size>pop)throw Error('Sample size cannot exceed the population.');const fpc=pop===size?0:pop>1?Math.sqrt((pop-size)/(pop-1)):1;return result(m('Margin of error',100*z*Math.sqrt(p*(1-p)/size)*fpc,'percent'));}
+ if(op==='normal-inverse'){const p=n('probability')/100,mean=n('mean'),sd=positive(n('sd'),'Standard deviation');const z=inverseNormalCdf(v.tail==='right'?1-p:p),value=mean+sd*z;return result(m('Boundary value',value),m('Z-score',z),m('Probability below',normalCdf(z)*100,'percent'),m('Probability above',normalSf(z)*100,'percent'));}
+ throw Error('Unsupported extended math mode.');
+}

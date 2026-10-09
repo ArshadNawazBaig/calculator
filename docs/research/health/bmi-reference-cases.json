@@ -1,0 +1,83 @@
+{
+  "provenance": "CDC full source CSV with independent Python math.erfc (not Finflo normal implementation).",
+  "cases": [
+    {
+      "id": "cdc-sex2-months114",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "height": "150",
+        "weight": "47.699999999999996",
+        "ageYears": "9",
+        "ageMonths": "6"
+      },
+      "expectedBmi": 21.2,
+      "expectedPercentile": 92.24144441924041
+    },
+    {
+      "id": "cdc-sex1-months50",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "height": "150",
+        "weight": "50.85",
+        "ageYears": "4",
+        "ageMonths": "2"
+      },
+      "expectedBmi": 22.6,
+      "expectedPercentile": 99.76830714225628
+    },
+    {
+      "id": "cdc-sex1-months24",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "height": "150",
+        "weight": "36.0",
+        "ageYears": "2",
+        "ageMonths": "0"
+      },
+      "expectedBmi": 16,
+      "expectedPercentile": 33.19800663527473
+    },
+    {
+      "id": "cdc-sex2-months239",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "height": "150",
+        "weight": "67.5",
+        "ageYears": "19",
+        "ageMonths": "11"
+      },
+      "expectedBmi": 30,
+      "expectedPercentile": 93.10608263605312
+    },
+    {
+      "id": "cdc-sex1-months114",
+      "inputs": {
+        "sex": "male",
+        "units": "metric",
+        "height": "150",
+        "weight": "36.89113311",
+        "ageYears": "9",
+        "ageMonths": "6"
+      },
+      "expectedBmi": 16.39605916,
+      "expectedPercentile": 50.0
+    },
+    {
+      "id": "cdc-sex2-months24",
+      "inputs": {
+        "sex": "female",
+        "units": "metric",
+        "height": "150",
+        "weight": "56.25",
+        "ageYears": "2",
+        "ageMonths": "0"
+      },
+      "expectedBmi": 25,
+      "expectedPercentile": 99.99909730550486
+    }
+  ]
+}

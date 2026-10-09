@@ -1,0 +1,52 @@
+{
+  "scope": "Independent read-only audit of household-finance definitions and engine through calculate(), using isolated transpiled snapshot. No product edits.",
+  "fixtureGroups": [
+    "F05",
+    "F11",
+    "F12",
+    "F17",
+    "F19",
+    "F24",
+    "F33",
+    "F37",
+    "F39"
+  ],
+  "originalFixtureCount": 32,
+  "originalFixturesPassed": 32,
+  "boundaryCases": 41,
+  "boundaryCasesAccepted": 41,
+  "boundaryCaseNote": "40 ordinary/error/indeterminate boundary cases pass; the extreme personal-loan root is now explicitly rejected as outside supported range rather than returning an incorrect capped root.",
+  "independentLedgerCases": 3,
+  "independentLedgerCasesPassed": 3,
+  "ledgerAssertions": 75,
+  "registeredDefaultCases": 18,
+  "registeredDefaultCasesPassed": 18,
+  "legacyRateRegression": "Fixed; original compound-interest equivalent mode now runs and returns 6.1677811864499565% for default 6% nominal/monthly.",
+  "resolvedFindings": [
+    "Household equivalent-rate algorithm collision",
+    "Unregistered biweekly-mortgage calculator slug",
+    "Discount original=0 savings=0 inverse indeterminacy",
+    "Negative inverse gross-margin profit produces invalid negative cost/revenue",
+    "Zero inverse profit cannot satisfy positive gross margin",
+    "Unverified upper bracket silently returned incorrect personal-loan cashflow rate"
+  ],
+  "remainingFindings": [],
+  "snapshotHashes": "snapshot/hashes.json",
+  "initialReportsPreserved": true,
+  "sourceIndependentFixtureFile": "/tmp/finflo-research-finance-health/next-tier-finance-specs.json",
+  "artifacts": {
+    "adapter": "adapter.mjs",
+    "mappedFixtures": "mapped-fixtures.json",
+    "fixturesReport": "fixture-report.json",
+    "boundaries": "edge-report.json",
+    "ledgerFixtures": "ledger-fixtures.json",
+    "ledgerReport": "ledger-report.json",
+    "integrationReport": "integration-report.json"
+  },
+  "limits": [
+    "Bounded mathematical audit; does not establish complete competitor input parity.",
+    "No legal or regulatory APR determination.",
+    "Large unsupported rates are intentionally rejected.",
+    "Most test expectations use original independent Python Decimal fixtures; additional ledger fixtures use new Decimal calculations without product imports."
+  ]
+}

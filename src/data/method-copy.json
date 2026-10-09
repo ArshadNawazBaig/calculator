@@ -1,0 +1,38 @@
+[
+  {
+    "algorithm": "tax-federal-composed",
+    "field": "explanation",
+    "replacement": "A planning estimate for the selected 2025 or 2026 tax year combining supported federal income, deductions and credits. QBI uses a verified deduction or one-business worksheet. EITC uses a verified credit or a continuous estimate. The additional child-credit calculation includes the three-or-more-child payroll alternative. AMT, special-return amounts and eligibility require the stated verified inputs. State/local calculations use separate entered assumptions.",
+    "reason": "registry.ts currently overwrites the newer definition with2026-only/fewer-than-three wording."
+  },
+  {
+    "algorithm": "tax-tips-2026",
+    "field": "explanation",
+    "replacement": "Enter qualified voluntary cash or card tips after confirming the selected year’s occupation, reporting and identification rules. MFS is ineligible. Each business has its own net-income ceiling. Mandatory service charges do not qualify, and the deduction does not remove tips from wage or payroll-tax income.",
+    "reason": "2025 transition reporting differs from2026; avoid hardcoded2026 qualification language."
+  },
+  {
+    "algorithm": "tax-education-2026",
+    "field": "explanation",
+    "replacement": "Supports distinct AOTC and LLC students with one shared LLC expense cap. Confirm student, institution, reporting and identification requirements for the selected year. Refundability uses the claimant’s age and support facts. MFS is ineligible; no identifiers are collected.",
+    "reason": "Existing2026-only eligibility phrase is misleading when2025selected."
+  },
+  {
+    "algorithm": "tax-qbi-2026",
+    "field": "formula",
+    "replacement": "Apply the selected-year SSTB fraction, phased wage/property limit and taxable-income limit. The verified active-business minimum applies only in 2026.",
+    "reason": "Active minimum does not apply2025."
+  },
+  {
+    "algorithm": "tax-qbi-section68",
+    "field": "formula",
+    "replacement": "For 2026, calculate QBI before the Section 68 overall itemized reduction, then calculate that reduction using QBI. For 2025, no Section 68 overall reduction applies.",
+    "reason": "Current unconditional2/37 formula contradicts selected2025."
+  },
+  {
+    "algorithm": "tax-eitc-estimate-2026",
+    "field": "explanation",
+    "replacement": "Continuous planning estimate using published parameters for the selected year. It can differ from the IRS income-bin table. Confirm residency, identification, dependency, qualifying-child, foreign-income and prior-disallowance rules separately. EITC children can differ from child-tax-credit children.",
+    "reason": "Current description says final2026 parameters for bothyears."
+  }
+]

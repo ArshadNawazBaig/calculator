@@ -1,0 +1,2743 @@
+{
+  "age-calculator": {
+    "description": "Find calendar age in years, months and days, plus elapsed days between a birth date and a selected comparison date.",
+    "faqs": [
+      {
+        "question": "Why is calendar age different from total days divided by 365?",
+        "answer": "Calendar years and months have different lengths. The calculator counts completed calendar periods before the remaining days."
+      },
+      {
+        "question": "How are month-end anniversaries handled?",
+        "answer": "If the matching day does not exist in a target month, the anniversary is clamped to that month's final day."
+      }
+    ]
+  },
+  "date-calculator": {
+    "description": "Add or subtract calendar intervals, compare dates, and count or move through business days using chosen workdays and holidays.",
+    "faqs": [
+      {
+        "question": "Does adding one month mean adding 30 days?",
+        "answer": "No. Calendar-month arithmetic changes the month and clamps an unavailable day to month end before adding weeks or days."
+      },
+      {
+        "question": "Are public holidays excluded automatically?",
+        "answer": "The business-day modes exclude the holiday dates you supply. Custom modes also let you choose which weekdays count as working days."
+      }
+    ]
+  },
+  "day-counter": {
+    "description": "Count elapsed calendar or business days between dates, with an end-date option and custom working-day and holiday controls.",
+    "faqs": [
+      {
+        "question": "Are both dates included in the count?",
+        "answer": "Calendar differences count the interval between dates; the include-end option adds a day. Business counts include the start and exclude the end unless selected."
+      },
+      {
+        "question": "What happens when the end date precedes the start?",
+        "answer": "The result is signed to show a reverse interval, rather than silently changing the dates into forward order."
+      }
+    ]
+  },
+  "day-of-the-week-calculator": {
+    "description": "Find a date's weekday, day number within the year and ISO week, using Gregorian calendar and Monday-based ISO conventions.",
+    "faqs": [
+      {
+        "question": "Why can an early-January date belong to the previous ISO year?",
+        "answer": "ISO week 1 is the week containing January 4. Dates near New Year can belong to a different ISO week-year."
+      },
+      {
+        "question": "Do ISO weeks begin on Sunday?",
+        "answer": "No. This calculator's ISO week convention starts each week on Monday."
+      }
+    ]
+  },
+  "hours-calculator": {
+    "description": "Calculate work or activity hours between clock times, subtract a break and view decimal hours for same-day or overnight intervals.",
+    "faqs": [
+      {
+        "question": "What happens if the end clock time is earlier than the start?",
+        "answer": "The clock-time mode treats it as the following day. Use dated inputs when the actual calendar dates matter."
+      },
+      {
+        "question": "Does an overnight result account for a daylight-saving change?",
+        "answer": "No. This civil-time calculation treats days as 24 hours and does not resolve timezone transitions."
+      }
+    ]
+  },
+  "time-duration-calculator": {
+    "description": "Measure elapsed civil time between clock times or dated timestamps, with break subtraction and clear overnight assumptions.",
+    "faqs": [
+      {
+        "question": "Which mode should I use for an interval spanning several dates?",
+        "answer": "Use Between two dates and times. The clock-time mode represents a single interval of up to 24 hours."
+      },
+      {
+        "question": "Is civil-time duration always the elapsed time between zoned instants?",
+        "answer": "No. Daylight-saving transitions can change actual elapsed time. This mode does not apply timezone offsets or transition rules."
+      }
+    ]
+  },
+  "time-calculator": {
+    "description": "Add and subtract durations, evaluate supported time expressions or shift a civil date and time by an entered duration.",
+    "faqs": [
+      {
+        "question": "Is a duration of 36 hours valid even though a clock stops at 23?",
+        "answer": "Yes. Durations measure elapsed quantities rather than a time of day, so they can exceed 24 hours."
+      },
+      {
+        "question": "Does adding a duration apply daylight-saving rules?",
+        "answer": "No. Duration arithmetic has no timezone, and date-time addition is civil arithmetic rather than a conversion between zoned instants."
+      }
+    ]
+  },
+  "time-card-calculator": {
+    "description": "Total dated or weekly shifts, unpaid breaks and estimated pay, with configurable overtime and clock-punch rounding.",
+    "faqs": [
+      {
+        "question": "Does the estimate apply every local overtime rule?",
+        "answer": "No. Overtime thresholds and multipliers are configurable assumptions. Legal exemptions, break requirements and other employment rules are not determined automatically."
+      },
+      {
+        "question": "How does rounding affect dated shifts?",
+        "answer": "Rounding is applied separately to each clock punch. Break durations remain unrounded, and daily overtime groups shifts by their starting work date."
+      }
+    ]
+  },
+  "time-zone-calculator": {
+    "description": "Convert dates and times using named-zone daylight-saving rules or explicit fixed UTC offsets, with repeated-time handling.",
+    "faqs": [
+      {
+        "question": "Why can a named-zone spring-forward time be rejected?",
+        "answer": "Some local times never occur when clocks jump forward. A repeated fall-back time instead requires choosing which occurrence is intended."
+      },
+      {
+        "question": "Does a fixed UTC offset follow daylight-saving changes?",
+        "answer": "No. It represents only the entered offset. Use a named IANA zone when location-specific transition rules are required."
+      }
+    ]
+  },
+  "conversion-calculator": {
+    "description": "Convert length, area, volume, mass, speed, energy, data and temperature units, with US, imperial and binary distinctions made explicit.",
+    "faqs": [
+      {
+        "question": "Are US and imperial gallons interchangeable?",
+        "answer": "No. They are different volume units. Select the intended gallon explicitly before converting fuel, liquid or other volume quantities."
+      },
+      {
+        "question": "Why do decimal and binary data units give different results?",
+        "answer": "Decimal units use powers of 1,000, while binary units use powers of 1,024. The selected unit determines the conversion factor."
+      }
+    ]
+  },
+  "density-calculator": {
+    "description": "Find density from mass and volume, or solve for mass or volume using the labeled SI-unit relationship.",
+    "faqs": [
+      {
+        "question": "How does density relate mass to volume?",
+        "answer": "Density equals mass divided by volume. Rearranging gives mass = density \u00d7 volume and volume = mass \u00f7 density."
+      },
+      {
+        "question": "Can I divide kilograms by cubic centimeters without converting?",
+        "answer": "Only if the resulting unit is intended. Use the calculator's labeled units consistently; mixing volume scales changes the numerical density."
+      }
+    ]
+  },
+  "mass-calculator": {
+    "description": "Calculate mass from density and volume using the stated units, while distinguishing mass from gravitational weight.",
+    "faqs": [
+      {
+        "question": "Why does doubling volume double mass at the same density?",
+        "answer": "The model uses mass = density \u00d7 volume. Holding density constant makes mass directly proportional to volume."
+      },
+      {
+        "question": "Is the mass result a force in newtons?",
+        "answer": "No. Mass and gravitational weight are different quantities. Calculating force also requires gravitational acceleration."
+      }
+    ]
+  },
+  "weight-calculator": {
+    "description": "Convert mass units or calculate gravitational weight from mass and an entered local acceleration, keeping mass and force distinct.",
+    "faqs": [
+      {
+        "question": "Why is gravitational weight measured in newtons?",
+        "answer": "Weight is a force: mass in kilograms multiplied by acceleration in meters per second squared produces newtons."
+      },
+      {
+        "question": "Can the same mass have a different weight elsewhere?",
+        "answer": "Yes. Mass can remain unchanged while gravitational force changes with the local acceleration entered in the model."
+      }
+    ]
+  },
+  "speed-calculator": {
+    "description": "Calculate speed, distance or travel time, including speed from independently selected distance units and an elapsed-duration input.",
+    "faqs": [
+      {
+        "question": "Is average speed the same as speed at every instant?",
+        "answer": "No. Distance divided by total time gives an average. The calculation does not describe acceleration, stops or moment-to-moment speed changes."
+      },
+      {
+        "question": "Can the elapsed duration exceed one day?",
+        "answer": "Yes. Duration hours can exceed 23. The input is elapsed time, not a clock time or timezone-aware timestamp."
+      }
+    ]
+  },
+  "molarity-calculator": {
+    "description": "Calculate molarity, solute mass or solution volume, and convert concentration units with explicit density for mass-fraction ppm or ppb.",
+    "faqs": [
+      {
+        "question": "Should I enter solvent volume before dissolving the solute?",
+        "answer": "No. Molarity uses the final solution volume, which need not equal the starting solvent volume."
+      },
+      {
+        "question": "Why is solution density required for mass-fraction ppm or ppb?",
+        "answer": "A mass fraction relates solute mass to solution mass. Density connects solution mass with volume; the tool does not assume water density."
+      },
+      {
+        "question": "Can a mass concentration alone identify molar mass?",
+        "answer": "No. Converting mass to moles needs molar mass or independent molar-concentration information. Mass concentration alone does not identify the substance."
+      }
+    ]
+  },
+  "molecular-weight-calculator": {
+    "description": "Calculate molar mass and an element-by-element mass breakdown from a supported chemical formula and versioned atomic-mass data.",
+    "faqs": [
+      {
+        "question": "Does the formula parser support isotopic labels or charged species?",
+        "answer": "No. Those notations are outside the supported formula model and should not be treated as ordinary neutral-formula entries."
+      },
+      {
+        "question": "Why might a listed molar mass differ slightly from another table?",
+        "answer": "The result depends on the atomic-mass values and rounding used. This tool identifies the versioned reference table behind its calculation."
+      }
+    ]
+  },
+  "gdp-calculator": {
+    "description": "Calculate expenditure-based GDP or reconcile entered income components, capital consumption and statistical discrepancy to a domestic total.",
+    "faqs": [
+      {
+        "question": "Why must all national-account components use compatible definitions?",
+        "answer": "Mixing net and gross amounts, overlapping income categories or different periods can double-count values or omit required adjustments."
+      },
+      {
+        "question": "How does the income mode distinguish national from domestic income?",
+        "answer": "National-basis inputs are adjusted using entered payments abroad minus receipts. The statistical discrepancy then reconciles the modeled domestic income with expenditure GDP."
+      }
+    ]
+  },
+  "gpa-calculator": {
+    "description": "Calculate credit-weighted course or semester GPA and estimate the future GPA needed to reach a cumulative target.",
+    "faqs": [
+      {
+        "question": "Why is cumulative GPA weighted by credits?",
+        "answer": "A course or semester with more graded credits contributes more quality points. Averaging GPA figures without their credit weights can give the wrong result."
+      },
+      {
+        "question": "What if the required future GPA exceeds my school's maximum?",
+        "answer": "The target is unattainable under the entered credit plan and scale. Changing future credits or the target changes the scenario."
+      }
+    ]
+  },
+  "grade-calculator": {
+    "description": "Calculate weighted or points-based grades and estimate the final-assessment score needed to reach a chosen course result.",
+    "faqs": [
+      {
+        "question": "What does a weighted result mean when weights total less than 100%?",
+        "answer": "The calculator normalizes the entered weights. The result is the average of the included completed work, not necessarily the final course grade."
+      },
+      {
+        "question": "What does a required final score above 100% mean?",
+        "answer": "The target cannot be reached under the entered assumptions without extra credit or another change permitted by the course rules."
+      }
+    ]
+  },
+  "tip-calculator": {
+    "description": "Calculate a tip from a chosen percentage and divide the bill plus tip evenly among a selected number of people.",
+    "faqs": [
+      {
+        "question": "Is the tip calculated before or after tax?",
+        "answer": "It uses the bill amount you enter. Choose a pre-tax or tax-inclusive amount according to the convention you want to apply."
+      },
+      {
+        "question": "Does splitting a bill change the total tip?",
+        "answer": "No. The tip is calculated on the entered bill first, then the combined amount is divided equally among the people."
+      }
+    ]
+  },
+  "fuel-cost-calculator": {
+    "description": "Estimate trip fuel and cost using metric, US or independently selected units for distance, fuel economy and pump price.",
+    "faqs": [
+      {
+        "question": "Can the distance unit differ from the fuel-price unit?",
+        "answer": "Yes. Mixed-units mode converts the distance, economy and pump-price units independently before calculating fuel use and cost."
+      },
+      {
+        "question": "Does choosing a currency convert the fuel price?",
+        "answer": "No. Currency is a label in this tool. Enter a pump price expressed in the currency you want the cost to use."
+      }
+    ]
+  },
+  "gas-mileage-calculator": {
+    "description": "Measure observed fuel economy from distance and fuel used, or compare odometer readings and fuel cost with consistent fill-up assumptions.",
+    "faqs": [
+      {
+        "question": "How can inconsistent fill-ups distort mileage?",
+        "answer": "Fuel added is a useful estimate of fuel used only when the tank starts and ends at a comparable fill level."
+      },
+      {
+        "question": "Why do lower L/100 km and higher mpg both indicate better economy?",
+        "answer": "L/100 km measures fuel used for a distance, while mpg measures distance traveled per unit of fuel. Their directions are opposite."
+      }
+    ]
+  },
+  "horsepower-calculator": {
+    "description": "Calculate power from torque or work, and convert mechanical, metric, electric and boiler horsepower with explicit unit definitions.",
+    "faqs": [
+      {
+        "question": "Must torque and RPM come from the same operating point?",
+        "answer": "Yes. Combining peak torque with an unrelated RPM does not describe the power at either actual operating point."
+      },
+      {
+        "question": "Are all units called horsepower identical?",
+        "answer": "No. Mechanical, metric, electric and boiler horsepower have different watt definitions. Select the intended definition before converting."
+      },
+      {
+        "question": "What does the work-based power calculation assume?",
+        "answer": "It assumes a constant force parallel to the displacement and divides that work by elapsed time after converting the selected units."
+      }
+    ]
+  },
+  "engine-horsepower-calculator": {
+    "description": "Calculate power from torque and RPM, or explore empirical quarter-mile horsepower estimates from elapsed time or measured trap speed.",
+    "faqs": [
+      {
+        "question": "Does a quarter-mile estimate measure exact engine or wheel horsepower?",
+        "answer": "No. It is a historical empirical relationship, not a dynamometer measurement or a precise distinction between crank and wheel power."
+      },
+      {
+        "question": "Should reaction time be included in quarter-mile elapsed time?",
+        "answer": "No. Use elapsed time excluding reaction time. In the other mode, use measured trap speed rather than the run's average speed."
+      }
+    ]
+  },
+  "tire-size-calculator": {
+    "description": "Compare nominal tire dimensions and speedometer effects, or estimate the aspect ratio needed for a different rim at the same diameter.",
+    "faqs": [
+      {
+        "question": "Does a calculated same-diameter tire size guarantee a suitable replacement?",
+        "answer": "No. The derived aspect ratio may not be manufactured, and the calculation does not establish clearance, load rating or vehicle approval."
+      },
+      {
+        "question": "Why can a larger tire change the indicated speed?",
+        "answer": "A larger circumference travels farther per revolution. A speedometer calibrated for the original circumference can differ from the modeled actual speed."
+      }
+    ]
+  },
+  "square-footage-calculator": {
+    "description": "Calculate floor areas, borders and other supported shapes with mixed measurement units, repeated quantities and area-based costs.",
+    "faqs": [
+      {
+        "question": "Does circular-area mode use radius or diameter?",
+        "answer": "The circular modes use diameter, while sector mode uses radius. Follow the selected shape's field labels."
+      },
+      {
+        "question": "Can each dimension and the area price use different units?",
+        "answer": "Yes. Mixed-unit mode converts dimensions independently and converts the price's area unit separately before applying quantity and cost."
+      }
+    ]
+  },
+  "concrete-calculator": {
+    "description": "Estimate concrete for slabs, columns, tubes, solid stairs or curb-and-gutter sections, with mixed units, allowance and volume-based pricing.",
+    "faqs": [
+      {
+        "question": "How does net concrete volume differ from ordered volume?",
+        "answer": "Net volume comes from the geometry and quantity. Ordered volume adds the entered allowance; pricing can use either selected basis."
+      },
+      {
+        "question": "What does the curb-and-gutter section include?",
+        "answer": "It combines the flag slab under curb and exposed gutter with the curb height above that slab, avoiding an overlapping volume."
+      },
+      {
+        "question": "What shape does the stair-volume mode assume?",
+        "answer": "A solid block to ground with N risers, N \u2212 1 regular treads and a top platform at full height."
+      }
+    ]
+  },
+  "mulch-calculator": {
+    "description": "Estimate mulch volume and cost from bed dimensions or a known area, with depth and editable bulk-density assumptions.",
+    "faqs": [
+      {
+        "question": "Can I combine several irregular planting beds?",
+        "answer": "Measure and add their areas, then use the known-area mode with the intended uniform depth. Separate different depths into separate calculations."
+      },
+      {
+        "question": "Why is the estimated mulch weight uncertain?",
+        "answer": "Weight depends on bulk density, which varies with material, moisture and compaction. The density input is an estimate."
+      }
+    ]
+  },
+  "gravel-calculator": {
+    "description": "Estimate gravel volume, weight and cost for rectangular or circular beds, including bag counts from entered density and bag weight.",
+    "faqs": [
+      {
+        "question": "Why can the same gravel volume have different weights?",
+        "answer": "Bulk density depends on stone type, size, moisture and compaction. Enter a density appropriate to the material being ordered."
+      },
+      {
+        "question": "How is the bag count rounded?",
+        "answer": "The required modeled weight is divided by bag weight and rounded up to a whole bag, so purchased quantity may exceed the estimate."
+      }
+    ]
+  },
+  "tile-calculator": {
+    "description": "Estimate tile quantities, boxes and cost using area or layout assumptions, with grout gaps and an allowance for cuts and waste.",
+    "faqs": [
+      {
+        "question": "Why can box ordering exceed the estimated tile count?",
+        "answer": "Procurement rounds up to complete boxes after the allowance is applied, so the purchased quantity can include additional surplus."
+      },
+      {
+        "question": "Does a simple area estimate predict every cut in a pattern?",
+        "answer": "No. Area mode does not fully reproduce pattern-specific cuts. Grid layout, grout spacing and actual room geometry affect procurement."
+      }
+    ]
+  },
+  "roofing-calculator": {
+    "description": "Estimate roof surface from footprint, pitch or angle, then calculate allowance, area cost or whole material packages from coverage.",
+    "faqs": [
+      {
+        "question": "Should known horizontal area already include overhangs?",
+        "answer": "Yes. In rectangle mode the entered overhang is added on both sides; known-area mode expects those overhangs already included."
+      },
+      {
+        "question": "Is package coverage based on horizontal footprint?",
+        "answer": "No. Package mode starts from measured roof surface area, adds the allowance and rounds up using installed coverage per package."
+      }
+    ]
+  },
+  "stair-calculator": {
+    "description": "Explore straight-stair geometry, standard or flush mounting and headroom using finished-floor dimensions and explicit layout assumptions.",
+    "faqs": [
+      {
+        "question": "Is there always one fewer tread than risers?",
+        "answer": "The standard layout has N \u2212 1 treads. The flush-mount option adds a tread at landing height, giving N modeled treads."
+      },
+      {
+        "question": "Does the headroom result certify a safe or compliant staircase?",
+        "answer": "No. It describes clearance over the modeled nose line. Structural design, cutting details and local building requirements need separate verification."
+      }
+    ]
+  },
+  "btu-calculator": {
+    "description": "Estimate room cooling capacity from the ENERGY STAR floor-area guide, with entered sun, shade, occupancy and kitchen adjustments.",
+    "faqs": [
+      {
+        "question": "Is this a complete HVAC load calculation?",
+        "answer": "No. It is a room-sizing guide. Insulation, climate, windows, air leakage and other building factors need a fuller load assessment."
+      },
+      {
+        "question": "Why do occupancy and kitchen use change the estimate?",
+        "answer": "Those inputs apply the stated adjustments to the floor-area baseline to account for additional room heat under the guide's assumptions."
+      }
+    ]
+  },
+  "electricity-calculator": {
+    "description": "Estimate appliance energy use and cost from wattage, operating time and tariff, with an optional average-load factor.",
+    "faqs": [
+      {
+        "question": "How do watts differ from kilowatt-hours?",
+        "answer": "Watts describe power at a moment. Kilowatt-hours measure energy used over time: kilowatts multiplied by operating hours."
+      },
+      {
+        "question": "Will the result match my entire electricity bill?",
+        "answer": "No. It estimates energy charges and excludes fixed fees, demand charges, tiered tariffs and other account-specific charges."
+      }
+    ]
+  },
+  "ohms-law-calculator": {
+    "description": "Solve voltage, current, resistance and power from two supported known quantities in a DC or purely resistive model.",
+    "faqs": [
+      {
+        "question": "Does Ohm's law mode calculate AC impedance?",
+        "answer": "No. It uses the DC/resistive relationships V = IR and P = VI, without phase angle or reactive impedance."
+      },
+      {
+        "question": "In what order should I enter the two known values?",
+        "answer": "Follow the labels for the selected pair. The first and second quantities change with the chosen relationship."
+      }
+    ]
+  },
+  "resistor-calculator": {
+    "description": "Find series or parallel resistance, decode supported color bands, or estimate conductor resistance from dimensions and conductivity.",
+    "faqs": [
+      {
+        "question": "Why is parallel resistance lower than any individual positive branch resistance?",
+        "answer": "Parallel branches add conductance. Taking the reciprocal of total conductance yields an equivalent resistance below each branch value."
+      },
+      {
+        "question": "What does the sixth resistor color band represent?",
+        "answer": "In the supported six-band code, it indicates a temperature-coefficient class; it is not an additional significant resistance digit."
+      }
+    ]
+  },
+  "voltage-drop-calculator": {
+    "description": "Estimate DC or simplified AC voltage drop from conductor data, or convert AWG and kcmil sizes to nominal wire geometry.",
+    "faqs": [
+      {
+        "question": "Should cable length include the out-and-back path?",
+        "answer": "Enter one-way length. The model applies its two-wire or balanced three-phase circuit factor separately."
+      },
+      {
+        "question": "What is the difference between R/X and an effective coefficient?",
+        "answer": "R/X mode combines resistance and reactance with power factor and load direction. An entered effective longitudinal coefficient is used directly."
+      },
+      {
+        "question": "Does the result determine safe ampacity or code compliance?",
+        "answer": "No. Nominal geometry and voltage-drop estimates do not replace manufacturer cable data, ampacity assessment or the applicable installation requirements."
+      }
+    ]
+  },
+  "wind-chill-calculator": {
+    "description": "Calculate National Weather Service wind chill for temperatures at or below 50\u00b0F and wind speeds above 3 mph.",
+    "faqs": [
+      {
+        "question": "Why is the calculation restricted to cold and windy conditions?",
+        "answer": "The stated NWS formula has a defined validity range. Applying it to warmer temperatures or insufficient wind would misrepresent the model."
+      },
+      {
+        "question": "Is wind chill a replacement for the measured air temperature?",
+        "answer": "No. It is an apparent-cold estimate under the model, not a change to the thermometer's air-temperature reading."
+      }
+    ]
+  },
+  "heat-index-calculator": {
+    "description": "Estimate NWS apparent heat from air temperature and humidity, or infer humidity from a supplied dew point.",
+    "faqs": [
+      {
+        "question": "Does the heat index include direct sunshine?",
+        "answer": "The model assumes shade and light wind. Direct sun and other conditions can increase heat stress beyond the displayed estimate."
+      },
+      {
+        "question": "Can the dew point be higher than the air temperature?",
+        "answer": "Not in this supported input model. A dew point above the air temperature is rejected rather than used as a valid humidity estimate."
+      }
+    ]
+  },
+  "dew-point-calculator": {
+    "description": "Estimate dew point, relative humidity or air temperature with the liquid-water Magnus approximation and explicit input ranges.",
+    "faqs": [
+      {
+        "question": "What does the dew point describe?",
+        "answer": "It is the temperature at which the modeled air reaches saturation when cooled at the assumed moisture content."
+      },
+      {
+        "question": "Does the same approximation apply in every atmospheric condition?",
+        "answer": "No. This implementation uses the stated liquid-water Magnus coefficients within its displayed range, rather than every possible ice or pressure condition."
+      }
+    ]
+  },
+  "bandwidth-calculator": {
+    "description": "Convert data units and estimate transfer time, website traffic or average bandwidth with explicit reporting periods and allowance formats.",
+    "faqs": [
+      {
+        "question": "Why can actual transfer time exceed the calculated duration?",
+        "answer": "The transfer mode divides data bits by rate and excludes protocol overhead or changing throughput. The result is a theoretical estimate."
+      },
+      {
+        "question": "Does a 2\u00d7 allowance mean 200% extra traffic?",
+        "answer": "No. A total multiplier of 2 means 100% extra. In percentage mode, 200% extra means three times the baseline."
+      },
+      {
+        "question": "Is monthly average bandwidth enough to choose peak capacity?",
+        "answer": "No. Average transfer rates can hide short periods of much higher traffic; the tool does not predict peak demand."
+      }
+    ]
+  },
+  "ip-subnet-calculator": {
+    "description": "Calculate IPv4 or IPv6 subnet ranges from CIDR prefixes, or validate a contiguous IPv4 dotted mask and its address capacity.",
+    "faqs": [
+      {
+        "question": "Why does an IPv4 /31 show two usable addresses?",
+        "answer": "The tool explicitly uses the point-to-point convention for /31. A /32 represents a single host address."
+      },
+      {
+        "question": "Does an IPv6 subnet have a broadcast address?",
+        "answer": "No. IPv6 does not use a broadcast address. Some address meanings, including subnet-router anycast, need separate interpretation."
+      }
+    ]
+  },
+  "base64-encode-decode": {
+    "description": "Encode UTF-8 text as Base64 or decode Base64 locally in the browser, without treating the encoded output as encryption.",
+    "faqs": [
+      {
+        "question": "Does Base64 protect confidential text?",
+        "answer": "No. Base64 is a reversible encoding, not encryption. Anyone with the encoded value can decode it."
+      },
+      {
+        "question": "Is this an arbitrary binary-file converter?",
+        "answer": "This tool is a UTF-8 text encoder and decoder. Binary data that is not valid UTF-8 is outside that text interpretation."
+      }
+    ]
+  },
+  "url-encode-decode": {
+    "description": "Percent-encode or decode a UTF-8 URL component locally, keeping component encoding distinct from encrypting or validating a full URL.",
+    "faqs": [
+      {
+        "question": "Should I encode an entire URL as one component?",
+        "answer": "Usually the component is a single value, such as a query parameter. Encoding a whole URL can also encode its structural separators."
+      },
+      {
+        "question": "Does percent-encoding make text secret or make a destination safe?",
+        "answer": "No. It only represents characters for a URL component. It does not encrypt the text or assess a destination's trustworthiness."
+      }
+    ]
+  },
+  "password-generator": {
+    "description": "Generate passwords locally with cryptographic randomness, chosen character classes and optional unique-character constraints.",
+    "faqs": [
+      {
+        "question": "Will every selected character class appear in a generated password?",
+        "answer": "The generator requires each selected class to appear, subject to the supported length and character-pool constraints."
+      },
+      {
+        "question": "Does unique-character mode work at any password length?",
+        "answer": "No. A password cannot contain more unique characters than the available selected pool. Repetition limits constrain the permitted length."
+      }
+    ]
+  },
+  "dice-roller": {
+    "description": "Roll a selected number of dice with equally likely sides using cryptographic random selection, and view each roll and total.",
+    "faqs": [
+      {
+        "question": "Does a previous roll change the probability of the next one?",
+        "answer": "No. Each new selection uses fresh randomness with equally likely sides; a streak does not make a particular next face due."
+      },
+      {
+        "question": "Will changing a field silently reroll the dice?",
+        "answer": "No. Results are generated when you select Calculate, so editing inputs alone does not produce a new set of rolls."
+      }
+    ]
+  },
+  "roman-numeral-converter": {
+    "description": "Convert integers and standard Roman numerals from 1 to 3,999, or express the components of a validated date in Roman notation.",
+    "faqs": [
+      {
+        "question": "Can this mode represent zero or negative numbers?",
+        "answer": "No. Its standard Roman notation covers integers from 1 to 3,999 without a zero or negative representation."
+      },
+      {
+        "question": "Why is 4 written IV rather than IIII here?",
+        "answer": "This converter uses standard subtractive pairs, including IV, IX, XL, XC, CD and CM."
+      }
+    ]
+  },
+  "sleep-calculator": {
+    "description": "Plan a bedtime or wake time from a chosen sleep duration, or explore illustrative cycle times with a sleep-onset allowance.",
+    "faqs": [
+      {
+        "question": "Are real sleep cycles always 90 minutes long?",
+        "answer": "No. The cycle planner uses that illustrative interval, but actual cycle lengths vary and the tool does not measure sleep stages."
+      },
+      {
+        "question": "Does a suggested cycle time guarantee I will wake refreshed?",
+        "answer": "No. Total sleep, individual needs and sleep quality matter. A clock-time estimate cannot guarantee how someone will feel on waking."
+      }
+    ]
+  },
+  "height-calculator": {
+    "description": "Convert centimeters and feet/inches, or estimate adult height from parental measurements using the same mid-parental reference in either unit system.",
+    "faqs": [
+      {
+        "question": "Is the family-based estimate the Khamis\u2013Roche method?",
+        "answer": "No. It is a simpler mid-parental relationship and does not use the child measurements and verified coefficients required by Khamis\u2013Roche."
+      },
+      {
+        "question": "Does choosing feet and inches change the prediction formula?",
+        "answer": "No. Parent measurements are converted before applying the same 13 cm sex coefficient. The result remains a broad reference, not a growth assessment."
+      }
+    ]
+  },
+  "bra-size-calculator": {
+    "description": "Estimate a US bra starting size from underbust and bust measurements using a direct-underbust convention, with fit limits explained.",
+    "faqs": [
+      {
+        "question": "Is the suggested size a universal international conversion?",
+        "answer": "No. The tool uses a US starting-size convention. Regional cup lettering, brands and styles can differ."
+      },
+      {
+        "question": "Why might a different size fit better than the estimate?",
+        "answer": "Measurements, garment construction, shape and personal fit preferences affect the result. A calculated starting size does not replace trying the bra on."
+      }
+    ]
+  },
+  "shoe-size-conversion": {
+    "description": "Convert foot length to Mondopoint millimeters and an approximate US adult size using a stated allowance and sizing model.",
+    "faqs": [
+      {
+        "question": "What does Mondopoint length represent?",
+        "answer": "It expresses foot length in millimeters. It should not be confused with an unlabeled brand's size number."
+      },
+      {
+        "question": "Does foot length alone guarantee a shoe will fit?",
+        "answer": "No. Width, brand lasts, socks and design affect fit. The US result is an approximation rather than an official brand conversion."
+      }
+    ]
+  },
+  "golf-handicap-calculator": {
+    "description": "Estimate an 18-hole index from adjusted differentials, calculate a course handicap or derive a score differential from entered course data.",
+    "faqs": [
+      {
+        "question": "Should I enter raw scores in the handicap-index mode?",
+        "answer": "No. Enter adjusted score differentials. The separate differential mode uses adjusted gross score, course rating, slope and a supplied PCC."
+      },
+      {
+        "question": "Is the result an official Handicap Index?",
+        "answer": "No. Official processing includes adjustments, caps and committee procedures outside this estimate; nine-hole expected-score processing is also excluded."
+      }
+    ]
+  },
+  "love-calculator": {
+    "description": "Try a fictional name-match score for entertainment, with a repeatable result that makes no claim about relationship compatibility.",
+    "faqs": [
+      {
+        "question": "Does the score measure romantic compatibility?",
+        "answer": "No. It is a fictional result generated from names and has no scientific or predictive meaning."
+      },
+      {
+        "question": "Why do the same names produce the same score?",
+        "answer": "The game uses a deterministic name-based calculation rather than measuring a relationship or drawing a new random score each time."
+      }
+    ]
+  },
+  "mortgage-calculator": {
+    "description": "Estimate US fixed-rate mortgage payments and ownership costs, and compare monthly, annual or dated extra principal payments.",
+    "faqs": [
+      {
+        "question": "Is the mortgage payment the same as my total housing cost?",
+        "answer": "Principal and interest repay the loan. The ownership-cost worksheet separately accepts annual or monthly costs and percentages of original purchase price, with independent growth assumptions."
+      },
+      {
+        "question": "Will an extra payment automatically lower future monthly payments?",
+        "answer": "The schedule applies extra money to principal and shortens repayment. It does not model a lender-approved recast of the scheduled payment."
+      },
+      {
+        "question": "Can I compare dated extras and a biweekly schedule?",
+        "answer": "Use Calendar-based extra payments for dated principal additions. The accelerated biweekly mode instead uses 26 equal interest periods, which may differ from your lender\u2019s actual posting schedule."
+      }
+    ]
+  },
+  "mortgage-amortization-calculator": {
+    "description": "See how mortgage payments divide between principal and interest, and how extra payments change the balance and payoff schedule.",
+    "faqs": [
+      {
+        "question": "Why does the interest share fall over time?",
+        "answer": "Interest is calculated on the remaining balance. As principal falls, less of a fixed payment goes toward interest."
+      },
+      {
+        "question": "Does the schedule predict future changes in mortgage rates?",
+        "answer": "No. It uses the entered fixed rate throughout the term; variable-rate adjustments and refinancing require a different scenario."
+      }
+    ]
+  },
+  "canadian-mortgage-calculator": {
+    "description": "Estimate Canadian mortgage payments using nominal semiannual compounding, with ownership costs and optional extra principal payments.",
+    "faqs": [
+      {
+        "question": "How is the Canadian quoted rate converted to a monthly rate?",
+        "answer": "The model uses (1 + annual rate/2)^(1/6) \u2212 1, reflecting nominal semiannual compounding before calculating monthly payments."
+      },
+      {
+        "question": "Does the projection include mortgage renewals?",
+        "answer": "No. It holds the rate constant over the amortization period. A renewal rate or changed payment requires another calculation."
+      }
+    ]
+  },
+  "mortgage-calculator-uk": {
+    "description": "Compare UK repayment and interest-only mortgage estimates in pounds, including entered ownership costs and extra repayments.",
+    "faqs": [
+      {
+        "question": "What happens to the balance on an interest-only mortgage?",
+        "answer": "Monthly interest payments do not repay principal. The original balance remains due unless you arrange and make separate capital repayments."
+      },
+      {
+        "question": "Does the UK estimate include every purchase cost?",
+        "answer": "No. Use the fields for costs the model supports; stamp duty, product fees and lender-specific conditions are not automatically determined."
+      }
+    ]
+  },
+  "loan-calculator": {
+    "description": "Compare fixed loan payments, deferred balances and zero-coupon borrowing, with separate payment and compounding frequency options.",
+    "faqs": [
+      {
+        "question": "Which mode fits a loan with no payments until maturity?",
+        "answer": "Use Deferred payment to grow a starting balance, or Zero-coupon borrowing to discount a known maturity payment to today's value."
+      },
+      {
+        "question": "Can payment frequency differ from compounding frequency?",
+        "answer": "Yes. The frequency mode converts the quoted nominal rate to an equivalent rate for each payment period."
+      }
+    ]
+  },
+  "amortization-calculator": {
+    "description": "Build a loan amortization schedule and compare monthly, annual or dated extra payments against an unchanged-payment baseline.",
+    "faqs": [
+      {
+        "question": "What does an amortization schedule show?",
+        "answer": "Each row separates the payment into interest and principal and shows the balance after any extra payments."
+      },
+      {
+        "question": "Can I add a one-time payment in a specific month?",
+        "answer": "Yes. Calendar-based extras combine dated one-time payments with monthly and annual extras, capping the final payment at the debt owed."
+      }
+    ]
+  },
+  "personal-loan-calculator": {
+    "description": "Estimate personal-loan payments, origination fees, monthly insurance and the resulting borrowing cash-flow cost.",
+    "faqs": [
+      {
+        "question": "Where do I include an origination fee?",
+        "answer": "Use Origination fee, insurance & cash cost. The fee can be a percentage or dollar amount and can be withheld from disbursement or paid separately upfront."
+      },
+      {
+        "question": "Does the cash-flow cost equal the lender\u2019s disclosed APR?",
+        "answer": "Not necessarily. It includes the insurance amount you enter. Regulatory APR depends on which charges must be included under the transaction\u2019s rules."
+      },
+      {
+        "question": "Why is the payment based on more money than I receive?",
+        "answer": "An origination fee can reduce net proceeds while the contractual payment still repays the full note principal."
+      }
+    ]
+  },
+  "boat-loan-calculator": {
+    "description": "Estimate fixed monthly boat-loan payments, interest and payoff timing, including optional extra payments toward principal.",
+    "faqs": [
+      {
+        "question": "Does the payment include the cost of owning a boat?",
+        "answer": "No. Storage, insurance, maintenance, fuel and registration are separate from the principal-and-interest loan estimate."
+      },
+      {
+        "question": "What changes if I make extra principal payments?",
+        "answer": "The modeled balance falls faster, reducing later interest and shortening repayment. Contractual prepayment charges are not automatically included."
+      }
+    ]
+  },
+  "business-loan-calculator": {
+    "description": "Compare business-loan payment schedules and compounding frequencies, with optional extra principal and modeled upfront financing fees.",
+    "faqs": [
+      {
+        "question": "Can I compare monthly and less frequent business-loan payments?",
+        "answer": "Yes. The frequency mode supports separate compounding and payment schedules, provided the term contains a whole number of payments."
+      },
+      {
+        "question": "Is the result a business-loan approval or legal APR disclosure?",
+        "answer": "No. It models entered cash flows; underwriting, variable pricing, security requirements and jurisdiction-specific APR rules are outside its scope."
+      }
+    ]
+  },
+  "home-equity-loan-calculator": {
+    "description": "Estimate a home-equity loan payment and available borrowing capacity from property value, existing debt and a chosen combined LTV limit.",
+    "faqs": [
+      {
+        "question": "How is additional borrowing capacity estimated?",
+        "answer": "Multiply home value by the maximum combined loan-to-value ratio, then subtract existing secured debt. The result cannot be less than zero."
+      },
+      {
+        "question": "Does available equity guarantee I can borrow that amount?",
+        "answer": "No. The capacity model does not assess credit, income, property valuation or lender eligibility requirements."
+      }
+    ]
+  },
+  "payment-calculator": {
+    "description": "Find the payment for a fixed-rate loan or estimate payoff time from a monthly payment amount you choose.",
+    "faqs": [
+      {
+        "question": "Should I enter a repayment term or a payment amount?",
+        "answer": "Use Loan & schedule when the term is known. Use Fixed-payment payoff when you want to test a chosen monthly payment."
+      },
+      {
+        "question": "Why must the chosen payment exceed monthly interest?",
+        "answer": "Otherwise the payment does not reduce principal, so this fixed-rate model cannot reach a finite payoff date."
+      }
+    ]
+  },
+  "repayment-calculator": {
+    "description": "Plan fixed-rate debt repayment by term or payment budget, with a schedule showing the balance, interest and final installment.",
+    "faqs": [
+      {
+        "question": "Why is the last repayment sometimes smaller?",
+        "answer": "Once the remaining balance and interest are below the normal payment, the model reduces the final installment to the amount due."
+      },
+      {
+        "question": "Does the repayment estimate include new borrowing?",
+        "answer": "No. It assumes a fixed starting balance and rate, with no new charges or late fees during the schedule."
+      }
+    ]
+  },
+  "mortgage-payoff-calculator": {
+    "description": "Estimate mortgage payoff and interest, infer a remaining balance from loan history, or compare an accelerated biweekly scenario.",
+    "faqs": [
+      {
+        "question": "Should I enter the original loan amount or the remaining balance?",
+        "answer": "Use the remaining balance in the standard payoff modes. Accelerated biweekly with balance inference can also start from original terms and completed payments, or a known payment and remaining term."
+      },
+      {
+        "question": "Can I use my full escrow-inclusive mortgage payment?",
+        "answer": "Use principal and interest only. Taxes, insurance and other escrow charges do not reduce mortgage principal."
+      },
+      {
+        "question": "Does the biweekly result reproduce my lender\u2019s exact payment dates?",
+        "answer": "No. It models 26 equal interest periods per year and half the contractual monthly payment. Actual collection dates, fees and principal-credit timing depend on the lender."
+      }
+    ]
+  },
+  "credit-card-calculator": {
+    "description": "Estimate payoff time or a target payment for a credit-card balance using a fixed rate and no new purchases.",
+    "faqs": [
+      {
+        "question": "Does this reproduce a credit-card statement exactly?",
+        "answer": "No. It uses a monthly fixed-rate model. Daily balance methods, changing APRs, fees and issuer minimum-payment rules can differ."
+      },
+      {
+        "question": "What happens if I keep making new purchases?",
+        "answer": "New charges are not modeled. The estimated payoff time assumes the starting balance receives no additional borrowing."
+      }
+    ]
+  },
+  "auto-loan-calculator": {
+    "description": "Estimate an auto-loan payment or vehicle-price budget after down payment, trade-in debt, rebates, entered taxes and financing fees.",
+    "faqs": [
+      {
+        "question": "How does an outstanding trade-in loan affect financing?",
+        "answer": "Trade-in value reduces the amount financed, while debt still owed on that vehicle is added back to the financing calculation."
+      },
+      {
+        "question": "Does the calculator choose my local vehicle sales-tax rules?",
+        "answer": "No. Enter the applicable rate and trade-in tax treatment. Local exemptions, fee treatment and rebate rules need separate verification."
+      }
+    ]
+  },
+  "cash-back-or-low-interest-calculator": {
+    "description": "Compare a vehicle cash rebate with a lower financing rate, and explore the purchase price supported by a payment budget.",
+    "faqs": [
+      {
+        "question": "How are the rebate and low-rate offers compared?",
+        "answer": "The comparison adds the down payment and scheduled loan payments for each offer over its entered term."
+      },
+      {
+        "question": "Does the cheaper offer remain cheaper after early payoff?",
+        "answer": "Not necessarily. The main comparison assumes scheduled repayment and excludes taxes, fees, early payoff and eligibility differences."
+      }
+    ]
+  },
+  "auto-lease-calculator": {
+    "description": "Estimate a vehicle lease payment from cost, residual value and money factor, or work backward from a monthly payment budget.",
+    "faqs": [
+      {
+        "question": "What makes up the modeled lease payment?",
+        "answer": "It combines depreciation over the lease term with a rent charge based on adjusted cost, residual value and the money factor."
+      },
+      {
+        "question": "Is residual value the same as the amount I pay each month?",
+        "answer": "No. Residual value is the modeled vehicle value at lease end. It helps determine depreciation and may affect an end-of-lease purchase."
+      }
+    ]
+  },
+  "lease-calculator": {
+    "description": "Calculate an asset-financing lease payment or implied rate from asset value, term and residual, with a separate vehicle-lease model.",
+    "faqs": [
+      {
+        "question": "What does the residual mean in an asset-financing lease?",
+        "answer": "The residual is an amount remaining at the end. The model discounts it alongside the monthly payments when valuing the lease."
+      },
+      {
+        "question": "When are financing-lease payments assumed to occur?",
+        "answer": "At month end. Taxes, contract fees and alternative payment timing are excluded from that model."
+      }
+    ]
+  },
+  "heloc-calculator": {
+    "description": "Estimate HELOC draw-period interest, later repayment payments and home-equity borrowing capacity under a constant-rate scenario.",
+    "faqs": [
+      {
+        "question": "Why does the payment rise after an interest-only draw period?",
+        "answer": "The repayment phase begins paying down principal as well as interest, over the remaining amortization term."
+      },
+      {
+        "question": "Does the model track changing draws and variable HELOC rates?",
+        "answer": "No. It assumes a fully drawn, constant balance during the draw period and an unchanged interest rate."
+      }
+    ]
+  },
+  "fha-loan-calculator": {
+    "description": "Estimate standard FHA fees, mortgage-insurance schedules and extra-payment payoff, or enter rates in a manual premium worksheet.",
+    "faqs": [
+      {
+        "question": "Are FHA insurance rates selected automatically?",
+        "answer": "The verified-policy mode selects the supported standard forward rates from base loan, original LTV, term and policy date. Manual modes use entered rates. Neither determines borrower or property eligibility."
+      },
+      {
+        "question": "Do extra principal payments lower each future monthly MIP amount?",
+        "answer": "The policy mode calculates scheduled MIP from original contractual amortization. Extra payments shorten actual payoff, which ends modeled coverage, but do not rewrite the original premium schedule."
+      },
+      {
+        "question": "How does financing the upfront premium change the result?",
+        "answer": "The premium increases note principal. The HUD worksheet also applies the financed-upfront adjustment when deriving periodic insurance charges."
+      }
+    ]
+  },
+  "va-mortgage-calculator": {
+    "description": "Estimate VA purchase or refinance funding fees and payments, using the selected fee tier, financing choice and verified exemption assumptions.",
+    "faqs": [
+      {
+        "question": "Does the calculator choose a funding-fee tier?",
+        "answer": "Verified-policy mode uses the selected loan type, first or later use, down-payment tier and entered verified exemption. It does not independently confirm service eligibility or supporting evidence."
+      },
+      {
+        "question": "Does VA mortgage insurance add a monthly premium?",
+        "answer": "The VA policy mode assigns zero monthly mortgage insurance. The funding fee is a separate upfront charge that can be financed in the scenario."
+      },
+      {
+        "question": "Does ordinary retirement pay prove a funding-fee exemption?",
+        "answer": "No. Select an exemption only when the applicable qualifying status has been verified; receiving retirement pay alone does not establish it."
+      }
+    ]
+  },
+  "down-payment-calculator": {
+    "description": "Calculate down-payment cash, a purchase-price budget or a savings timeline while allowing for entered closing costs.",
+    "faqs": [
+      {
+        "question": "Is the down payment the only cash needed to buy?",
+        "answer": "Not in this model. Estimated closing costs are added to the down payment when calculating the cash needed."
+      },
+      {
+        "question": "Does the savings timeline include investment growth?",
+        "answer": "No. It divides the remaining cash target by monthly savings, without interest, investment returns or changing contributions."
+      }
+    ]
+  },
+  "house-affordability-calculator": {
+    "description": "Estimate a home-price budget from income and debt limits, or from an entered monthly housing payment allowance.",
+    "faqs": [
+      {
+        "question": "How do other monthly debts affect the income-based estimate?",
+        "answer": "They reduce the amount available under the total debt-to-income limit, which can lower the modeled housing budget."
+      },
+      {
+        "question": "Does an affordable-price estimate mean a lender will approve it?",
+        "answer": "No. Credit history, loan limits, underwriting, local costs and personal spending needs are not fully assessed."
+      }
+    ]
+  },
+  "rent-calculator": {
+    "description": "Estimate a monthly rent budget from gross income, a chosen spending percentage and the utilities you expect to pay.",
+    "faqs": [
+      {
+        "question": "Why are utilities deducted from the rent allowance?",
+        "answer": "The model treats the chosen income share as a housing budget, then reserves the entered utility amount before estimating rent."
+      },
+      {
+        "question": "Is the suggested percentage suitable for every household?",
+        "answer": "No. Debts, savings goals, household needs and local housing costs can make a percentage rule unsuitable."
+      }
+    ]
+  },
+  "debt-ratio-calculator": {
+    "description": "Calculate debt-to-income ratio from gross income and debt payments entered as monthly totals or mixed annual and monthly lines.",
+    "faqs": [
+      {
+        "question": "Should I use income before or after tax for DTI?",
+        "answer": "Use gross income before tax. The mixed-period budget\u2019s spendable-income result is separate from the gross-income denominator used for DTI."
+      },
+      {
+        "question": "Can I enter annual debt or income amounts?",
+        "answer": "Yes. The mixed-period mode normalizes each annual amount to one-twelfth before calculating the ratio."
+      },
+      {
+        "question": "Does the result establish loan eligibility?",
+        "answer": "No. Lenders may count income and obligations differently; use the debts relevant to the comparison."
+      }
+    ]
+  },
+  "refinance-calculator": {
+    "description": "Compare refinancing payments, interest and simple break-even, or evaluate payments and remaining debt over the same holding period.",
+    "faqs": [
+      {
+        "question": "What does simple refinance break-even measure?",
+        "answer": "It divides upfront costs by the monthly payment reduction. That payment-only measure does not account for different balances at a later date."
+      },
+      {
+        "question": "Why compare remaining balances over the same horizon?",
+        "answer": "A lower payment can leave more debt outstanding. The horizon mode compares payment differences, upfront net cash and both ending balances together."
+      }
+    ]
+  },
+  "interest-calculator": {
+    "description": "Project compound interest with regular deposits, optional monthly and annual contribution streams, and entered tax and inflation assumptions.",
+    "faqs": [
+      {
+        "question": "Are monthly and annual contributions alternatives?",
+        "answer": "In the dual-stream mode they are additive: the annual contribution is extra to the twelve monthly contributions."
+      },
+      {
+        "question": "How is tax on interest modeled?",
+        "answer": "Tax is applied to positive interest under the stated settlement convention. Account-specific tax treatment and fees are not determined."
+      },
+      {
+        "question": "Are semimonthly and biweekly compounding the same?",
+        "answer": "No. Equivalent nominal rates uses 24 semimonthly periods or 26 biweekly periods per year. It compares equal annual growth, not exact calendar posting dates."
+      }
+    ]
+  },
+  "savings-calculator": {
+    "description": "Estimate savings growth from an opening balance and regular deposits, including contribution timing, tax and inflation scenarios.",
+    "faqs": [
+      {
+        "question": "Does depositing at the start of a period change the result?",
+        "answer": "Yes. Beginning-of-period deposits earn interest for that period; end-of-period deposits begin earning afterward."
+      },
+      {
+        "question": "Is the inflation-adjusted balance a separate account value?",
+        "answer": "No. It expresses the projected nominal balance in purchasing-power terms using the inflation assumption you enter."
+      }
+    ]
+  },
+  "future-value-calculator": {
+    "description": "Estimate the future value of savings and recurring deposits, including separate monthly and annual contributions and assumed purchasing power.",
+    "faqs": [
+      {
+        "question": "What is the difference between future value and purchasing power?",
+        "answer": "Future value is the projected nominal balance. The inflation-adjusted figure discounts that balance using the assumed change in prices."
+      },
+      {
+        "question": "Can contributions increase over time?",
+        "answer": "The dual-stream mode supports separate increases for monthly and annual contributions. Returns and inflation remain modeled assumptions."
+      }
+    ]
+  },
+  "cd-calculator": {
+    "description": "Estimate CD-style deposit growth under a fixed rate, compounding schedule and optional tax assumptions, with a projected ending balance.",
+    "faqs": [
+      {
+        "question": "Can I assume my CD allows recurring deposits?",
+        "answer": "No. Some CDs restrict additions. Set recurring contributions to zero unless the actual deposit product permits them."
+      },
+      {
+        "question": "Does the estimate deduct an early-withdrawal penalty?",
+        "answer": "Not automatically. Penalties, promotional terms and product-specific interest rules must be checked against the CD agreement."
+      }
+    ]
+  },
+  "mutual-fund-calculator": {
+    "description": "Project fund contributions and growth, compare entry loads and annual expenses, or estimate a single-lot redemption charge.",
+    "faqs": [
+      {
+        "question": "How are front-end loads different from ongoing expenses?",
+        "answer": "A front load reduces each invested deposit. The expense assumption reduces asset value over time under the modeled settlement schedule."
+      },
+      {
+        "question": "Does the calculator determine a fund's exit-load rules?",
+        "answer": "No. Enter the applicable rate and charge basis from the prospectus; holding periods, waivers and lot treatment are product-specific."
+      }
+    ]
+  },
+  "compound-interest-calculator": {
+    "description": "Compare equivalent interest rates and compounding frequencies, then project growth with regular deposits and optional contribution increases.",
+    "faqs": [
+      {
+        "question": "Why do equivalent nominal rates differ?",
+        "answer": "Changing compounding frequency changes the nominal quote needed to preserve the same effective annual growth. The extended rate mode includes 24-period, 26-period and continuous conventions."
+      },
+      {
+        "question": "Can I add both monthly and yearly deposits?",
+        "answer": "Yes. The dual-stream mode adds both streams and allows their annual increase assumptions to be entered separately."
+      }
+    ]
+  },
+  "simple-interest-calculator": {
+    "description": "Calculate simple interest and total balance, or solve for missing principal, annual rate or time without compounding.",
+    "faqs": [
+      {
+        "question": "How does simple interest differ from compound interest?",
+        "answer": "Simple interest is calculated only on the original principal. Compound interest also earns interest on previously accumulated interest."
+      },
+      {
+        "question": "What time unit should I use with the annual rate?",
+        "answer": "Use years, including a fractional year when appropriate. The inverse model also treats the rate as an annual rate."
+      }
+    ]
+  },
+  "finance-calculator": {
+    "description": "Solve time-value-of-money problems for present value, future value, payment, rate or periods, with explicit cash-flow conventions.",
+    "faqs": [
+      {
+        "question": "Why are some cash-flow entries negative?",
+        "answer": "In signed TVM mode, payments made and money received have opposite signs. The savings mode instead uses positive contributions."
+      },
+      {
+        "question": "Does payment timing affect the answer?",
+        "answer": "Yes. A beginning-of-period payment has one additional period of growth or discounting compared with an end-of-period payment."
+      }
+    ]
+  },
+  "investment-calculator": {
+    "description": "Explore investment targets, required contributions and assumed returns, including signed TVM and separate monthly and annual deposit scenarios.",
+    "faqs": [
+      {
+        "question": "Does solving for a return predict what an investment will earn?",
+        "answer": "No. It finds the constant modeled return needed to connect the entered cash flows and target; it is not a forecast."
+      },
+      {
+        "question": "Which mode should I use for extra yearly contributions?",
+        "answer": "Use Monthly + annual contributions when a yearly deposit is additional to the monthly savings stream."
+      }
+    ]
+  },
+  "present-value-calculator": {
+    "description": "Discount a future lump sum and regular payments to today's value, with payment-frequency and beginning-or-end timing options.",
+    "faqs": [
+      {
+        "question": "Why does a higher discount rate reduce present value?",
+        "answer": "Future payments are divided by larger growth factors, so their equivalent value today becomes smaller."
+      },
+      {
+        "question": "Are annual and monthly payments treated the same way?",
+        "answer": "No. The timing mode converts the effective annual rate to the selected payment interval and uses the corresponding number of periods."
+      }
+    ]
+  },
+  "interest-rate-calculator": {
+    "description": "Find the implied fixed annual loan rate from a principal balance, monthly payment and repayment term, excluding financing fees.",
+    "faqs": [
+      {
+        "question": "Is the solved interest rate the same as APR?",
+        "answer": "Not necessarily. This mode excludes fees and irregular payment dates, so it solves an implied rate rather than a fee-inclusive APR."
+      },
+      {
+        "question": "What if the payment is too small for the entered term?",
+        "answer": "The inputs may not support a nonnegative amortizing rate. Review the principal, payment and term instead of treating an invalid scenario as a quote."
+      }
+    ]
+  },
+  "apr-calculator": {
+    "description": "Estimate a loan's fee-inclusive borrowing rate by comparing net proceeds with scheduled payments and selected payment frequencies.",
+    "faqs": [
+      {
+        "question": "Why can APR exceed the stated interest rate?",
+        "answer": "Upfront financing charges reduce the cash received while scheduled repayments remain based on the loan, increasing the modeled borrowing rate."
+      },
+      {
+        "question": "Is this a legally compliant APR disclosure for every loan?",
+        "answer": "No. Required fees, timing conventions and disclosure rules vary. This is a stated cash-flow estimate, not a jurisdiction-specific disclosure."
+      }
+    ]
+  },
+  "inflation-calculator": {
+    "description": "Compare US purchasing power with versioned BLS CPI-U data, or explore future price changes using an inflation rate you choose.",
+    "faqs": [
+      {
+        "question": "Does the historical mode use my assumed inflation rate?",
+        "answer": "No. It uses the included BLS CPI-U series. Your chosen constant rate applies only to the forward scenario."
+      },
+      {
+        "question": "Why is a historical month unavailable?",
+        "answer": "The tool only uses published data included in its versioned dataset. Missing observations are not replaced with guessed CPI values."
+      }
+    ]
+  },
+  "annuity-payout-calculator": {
+    "description": "Estimate a fixed withdrawal from savings or how long a balance lasts under a constant return and monthly drawdown scenario.",
+    "faqs": [
+      {
+        "question": "Does this estimate a lifetime insurance annuity payment?",
+        "answer": "No. It models withdrawals from a balance. Insurer pricing, mortality, guarantees and contract fees are outside the calculation."
+      },
+      {
+        "question": "Why can the projected balance last longer at a higher return?",
+        "answer": "More assumed growth offsets withdrawals. Actual returns vary, so a constant-return result does not guarantee the balance will last that long."
+      }
+    ]
+  },
+  "annuity-calculator": {
+    "description": "Estimate the future value of an initial balance and equal recurring contributions under a constant-return annuity model.",
+    "faqs": [
+      {
+        "question": "What does annuity mean in this calculator?",
+        "answer": "It means a regular stream of equal cash flows. The result is not a quote for an insurance annuity product."
+      },
+      {
+        "question": "Are fees and insurance guarantees included?",
+        "answer": "No. The calculation covers the entered cash flows and return assumptions, without mortality pricing, product guarantees or contract charges."
+      }
+    ]
+  },
+  "retirement-calculator": {
+    "description": "Model retirement savings, salary-based contributions and inflation-linked spending, with a year-by-year withdrawal scenario.",
+    "faqs": [
+      {
+        "question": "Does an income-based retirement need use my final salary?",
+        "answer": "In Salary growth & income-based retirement, the need is a share of current income, inflated to retirement once. Savings based on salary grow separately with each year\u2019s modeled income."
+      },
+      {
+        "question": "What does a negative projected retirement balance mean?",
+        "answer": "It marks spending the modeled resources cannot fund. It is not a prediction that an investment account can continue making those withdrawals."
+      },
+      {
+        "question": "Does the target include market volatility?",
+        "answer": "No. Constant return assumptions do not model volatility or sequence-of-returns risk."
+      }
+    ]
+  },
+  "401k-calculator": {
+    "description": "Project 401(k)-style savings, salary-based deferrals and tiered employer matching, with optional frozen 2026 caps and withdrawal estimates.",
+    "faqs": [
+      {
+        "question": "Are contribution limits always applied to the projection?",
+        "answer": "No. The salary-based mode offers uncapped scenarios or frozen 2026 limits. Future limits and plan eligibility are not predicted."
+      },
+      {
+        "question": "How are employer matching tiers applied?",
+        "answer": "Each tier matches the employee contribution slice up to its cumulative salary threshold. Contributions and the match enter at year end."
+      },
+      {
+        "question": "How does the dated distribution mode handle the additional tax?",
+        "answer": "It tests age 59\u00bd, the specified employer-plan separation-year rule and entered verified exceptions against the taxable portion. An exception to additional tax does not remove ordinary income tax."
+      }
+    ]
+  },
+  "ira-calculator": {
+    "description": "Explore IRA growth and withdrawals, compare traditional and Roth savings from equal pretax resources, or estimate a 2026 contribution ceiling.",
+    "faqs": [
+      {
+        "question": "Does the IRA ceiling determine deductibility or full eligibility?",
+        "answer": "No. It compares eligible compensation with the age-based combined ceiling, before MAGI restrictions, deductibility and other eligibility rules."
+      },
+      {
+        "question": "What does an equal pretax-budget comparison change?",
+        "answer": "It reduces the Roth contribution by the assumed current tax, then compares it with traditional savings after the assumed withdrawal tax."
+      },
+      {
+        "question": "Does leaving an employer at age 55 create an IRA exception?",
+        "answer": "The dated mode applies its separation-year exception only to the relevant qualified employer plan, not to an IRA. Other exceptions must be separately established."
+      }
+    ]
+  },
+  "roth-ira-calculator": {
+    "description": "Compare Roth, traditional and taxable scenarios using qualified-distribution assumptions, equal pretax resources and a separate 2026 ceiling.",
+    "faqs": [
+      {
+        "question": "Why is Roth growth treated as tax-free in the comparison?",
+        "answer": "The scenario assumes qualified distributions. It does not establish contribution eligibility or decide whether an actual withdrawal qualifies."
+      },
+      {
+        "question": "Why can equal pretax resources mean a smaller Roth contribution?",
+        "answer": "Roth funding uses after-tax money in this model, so the entered current tax reduces the amount invested from the same pretax budget."
+      },
+      {
+        "question": "Does the 2026 ceiling account for every income restriction?",
+        "answer": "No. It is an age-and-compensation ceiling before MAGI restrictions, deductibility and other eligibility rules."
+      }
+    ]
+  },
+  "pension-calculator": {
+    "description": "Compare pension present values, lump sums and single-life or joint-survivor payment streams using explicit timing and lifetime assumptions.",
+    "faqs": [
+      {
+        "question": "What does the pension present value represent?",
+        "answer": "It discounts the modeled payments over the entered horizon. It is not a guaranteed transfer value or an insurer's quote."
+      },
+      {
+        "question": "Does the survivor comparison predict either person's lifespan?",
+        "answer": "No. The cash-flow streams use the lifetime assumptions you enter. They compare scenarios rather than probabilities of surviving to particular ages."
+      }
+    ]
+  },
+  "rmd-calculator": {
+    "description": "Estimate owner RMDs with distribution-year rules, applicable lifetime tables and return-based projections, within the stated account scope.",
+    "faqs": [
+      {
+        "question": "Which balance and table does the calendar mode use?",
+        "answer": "Enter the prior December 31 balance. It uses the Uniform Lifetime Table or the Joint table when the entered sole-beneficiary spouse is more than ten years younger and within the verified dataset."
+      },
+      {
+        "question": "Does this determine a first distribution year?",
+        "answer": "Calendar mode reports one for supported birth cohorts and account assumptions, with first-year deadline information. It stops for policy verification on the unresolved 1959 cohort."
+      },
+      {
+        "question": "Does a zero owner RMD mean every withdrawal rule is satisfied?",
+        "answer": "No. Owner Roth exemptions and eligible current-employer deferral are limited branches. Inherited accounts and other account-specific obligations are outside this model."
+      }
+    ]
+  },
+  "social-security-calculator": {
+    "description": "Compare Social Security claiming ages, full-retirement-age cohorts and two benefit streams under shared COLA and discount assumptions.",
+    "faqs": [
+      {
+        "question": "Where does the starting benefit come from?",
+        "answer": "Enter an FRA benefit from your SSA estimate or supply the two scenario benefits. The calculator does not reconstruct benefits from your earnings history."
+      },
+      {
+        "question": "What is held constant in a two-stream comparison?",
+        "answer": "Both streams use a common valuation age, lifespan, COLA and discount assumption. Candidate-age rows use the entered FRA benefit even when the two comparison amounts are supplied manually."
+      },
+      {
+        "question": "Does waiting beyond age 70 add delayed credits?",
+        "answer": "No. The model caps age-based delayed credits at 70; later changes in an actual benefit can have other causes."
+      }
+    ]
+  },
+  "college-cost-calculator": {
+    "description": "Project college costs and a chosen funded share, then estimate monthly savings with optional annual tax on investment interest.",
+    "faqs": [
+      {
+        "question": "Does the model assume savings keep growing during college?",
+        "answer": "No. It aims to hold all modeled nominal study costs at enrollment and assumes no investment gains during the study years."
+      },
+      {
+        "question": "How does the taxable-savings mode apply tax?",
+        "answer": "It taxes positive accumulated interest at each saving year-end. Monthly contributions are not interest, and the model does not establish 529 or other account tax eligibility."
+      },
+      {
+        "question": "How do I model partial funding?",
+        "answer": "Enter the share of projected costs to fund from these savings. Scholarships, grants and financial-aid awards are not selected automatically."
+      }
+    ]
+  },
+  "debt-payoff-calculator": {
+    "description": "Compare avalanche and snowball debt repayment schedules, with fixed minimum payments and extra cash rolled into remaining balances.",
+    "faqs": [
+      {
+        "question": "How do avalanche and snowball ordering differ?",
+        "answer": "Avalanche prioritizes higher interest rates; snowball prioritizes smaller balances. Both pay entered minimums before allocating extra cash."
+      },
+      {
+        "question": "What happens after one debt is paid off?",
+        "answer": "Its freed payment is redirected to remaining debts. The model assumes no new borrowing and fixed minimum-payment amounts until payoff."
+      }
+    ]
+  },
+  "credit-card-payoff-calculator": {
+    "description": "Plan payoff across multiple credit cards using avalanche or snowball ordering, entered minimum payments and a monthly extra-payment budget.",
+    "faqs": [
+      {
+        "question": "Does the schedule recalculate card minimums as balances fall?",
+        "answer": "No. Entered minimum payments remain fixed until payoff, unlike issuer formulas that may change the minimum each statement."
+      },
+      {
+        "question": "Does monthly APR divided by 12 match every card statement?",
+        "answer": "No. This schedule uses that monthly approximation; daily interest methods, fees, rate changes and new purchases can produce different statement amounts."
+      }
+    ]
+  },
+  "debt-consolidation-calculator": {
+    "description": "Compare current debt obligations with a consolidation loan, including financed fees, the new payment and repayment-term effects.",
+    "faqs": [
+      {
+        "question": "Are consolidation fees added to the new loan?",
+        "answer": "The modeled financed fees are added to the combined debt balance before calculating the new loan payment."
+      },
+      {
+        "question": "Is a lower monthly payment necessarily a cheaper consolidation?",
+        "answer": "No. A longer repayment term can reduce payments while increasing total interest. Compare fees, interest and time in debt together."
+      }
+    ]
+  },
+  "student-loan-calculator": {
+    "description": "Model standard student-loan repayment or annual borrowing during school, with explicit delay-interest and capitalization choices.",
+    "faqs": [
+      {
+        "question": "Is unpaid school interest always added to principal?",
+        "answer": "In the school-borrowing mode, it stays separate unless hypothetical capitalization is selected. The standard deferment mode uses its stated one-time capitalization assumption."
+      },
+      {
+        "question": "Does this determine federal income-driven payments or forgiveness?",
+        "answer": "No. Interest treatment is a scenario choice, not an inference about program eligibility. Income-driven plans and forgiveness require current program-specific guidance."
+      },
+      {
+        "question": "When is new school borrowing assumed to occur?",
+        "answer": "The model adds the annual borrowing at the start of each school year, then tracks each amount over its time outstanding."
+      }
+    ]
+  },
+  "bond-calculator": {
+    "description": "Calculate regular-coupon bond price or yield, including dated settlement, accrued interest and selectable day-count conventions.",
+    "faqs": [
+      {
+        "question": "Is accrued interest included in the bond price?",
+        "answer": "The dated mode reports clean price, accrued interest and dirty price separately. Its cash settlement amount includes accrued interest. The basic years-to-maturity mode assumes coupon-date valuation."
+      },
+      {
+        "question": "Why does the day-count convention change the answer?",
+        "answer": "The convention determines the accrued portion of a coupon and the time to the next payment. US-NASD and European 30/360 can differ at month ends."
+      },
+      {
+        "question": "Does the yield account for default or early redemption?",
+        "answer": "No. These modes assume the scheduled regular coupons and redemption amount are paid."
+      }
+    ]
+  },
+  "average-return-calculator": {
+    "description": "Compare arithmetic and geometric period returns, or estimate annual money-weighted return from dated deposits and receipts.",
+    "faqs": [
+      {
+        "question": "Which average reflects compound growth across equal periods?",
+        "answer": "The geometric average links the period growth factors. The arithmetic average adds percentage returns and divides by their count."
+      },
+      {
+        "question": "What if my deposits and withdrawals occur on irregular dates?",
+        "answer": "Use the dated money-weighted mode with negative investor payments and positive receipts. It accounts for unequal intervals using elapsed days."
+      }
+    ]
+  },
+  "roi-calculator": {
+    "description": "Calculate ROI and annualized return from a holding period or exact dates, or use dated cash flows for money-weighted return.",
+    "faqs": [
+      {
+        "question": "How does exact-date annualized ROI handle time?",
+        "answer": "It uses the actual elapsed calendar days and a 365-day annualization convention between the initial cost and final proceeds."
+      },
+      {
+        "question": "Which mode fits several deposits and withdrawals?",
+        "answer": "Use dated money-weighted return with signed cash flows. Simple ROI annualization assumes one initial investment and one final receipt."
+      }
+    ]
+  },
+  "irr-calculator": {
+    "description": "Estimate periodic or dated internal rates of return, including recurring cash-flow scenarios and detected multiple solutions.",
+    "faqs": [
+      {
+        "question": "Is every IRR result automatically an annual rate?",
+        "answer": "No. Periodic IRR uses the cash-flow interval. Dated IRR uses elapsed days with a 365-day annualization convention; recurring mode also shows annual conversion."
+      },
+      {
+        "question": "Can the same cash flows have more than one IRR?",
+        "answer": "Yes. Multiple sign changes can create multiple roots. The calculator reports detected solutions within its supported search range."
+      }
+    ]
+  },
+  "payback-period-calculator": {
+    "description": "Estimate simple or discounted payback from entered periodic cash flows or an annual return stream with assumed growth.",
+    "faqs": [
+      {
+        "question": "How is a fractional payback period calculated?",
+        "answer": "The model interpolates cash within the recovery period. Actual receipts arriving only at period end can produce a different practical recovery date."
+      },
+      {
+        "question": "Does the shortest payback always identify the best investment?",
+        "answer": "No. Payback alone does not value all later cash flows or fully describe risk. Discounted payback also depends on the chosen discount rate."
+      }
+    ]
+  },
+  "depreciation-calculator": {
+    "description": "Compare book-depreciation schedules, including fiscal dates, partial-year conventions and an optional switch to straight-line expense.",
+    "faqs": [
+      {
+        "question": "Is this a complete tax-depreciation calculation?",
+        "answer": "No. These are book-depreciation scenarios. MACRS, bonus depreciation and section 179 eligibility are not determined."
+      },
+      {
+        "question": "What does the fiscal-year mode add?",
+        "answer": "It accepts a service date, fiscal-year start, declining factor and partial-year convention. It can switch permanently to straight-line when that gives the higher annual rate."
+      },
+      {
+        "question": "Will every declining-balance schedule reach salvage value?",
+        "answer": "Not necessarily. With the straight-line switch disabled, the model leaves unused basis rather than forcing a final writeoff."
+      }
+    ]
+  },
+  "margin-calculator": {
+    "description": "Calculate profit margin and markup, solve a target selling price, or explore simplified stock and currency margin requirements.",
+    "faqs": [
+      {
+        "question": "Why are margin and markup different percentages?",
+        "answer": "Margin divides profit by revenue; markup divides profit by cost. The profit-and-margin inverse requires positive profit and positive margin in this model."
+      },
+      {
+        "question": "Do the stock and FX modes apply my broker\u2019s exact requirements?",
+        "answer": "No. They use entered ratios, leverage and exchange rates. Broker rules, financing charges and instrument requirements can differ."
+      }
+    ]
+  },
+  "commission-calculator": {
+    "description": "Calculate flat or tiered sales commission, total compensation, or the sales and rate needed for a target commission.",
+    "faqs": [
+      {
+        "question": "Do tiered rates apply to all sales once a threshold is reached?",
+        "answer": "No. This is a marginal schedule: each rate applies only to sales within its tier, rather than retroactively to all sales."
+      },
+      {
+        "question": "What happens above the highest entered tier?",
+        "answer": "The final tier's rate continues above its upper limit. Confirm that this matches the actual commission agreement."
+      }
+    ]
+  },
+  "discount-calculator": {
+    "description": "Calculate sale price and savings, combine a percentage and fixed reduction, or recover the original price from a known pair.",
+    "faqs": [
+      {
+        "question": "In what order are a percentage and fixed discount applied?",
+        "answer": "The main calculation applies the percentage reduction first, then subtracts the fixed amount. The known-pair mode solves one discount relationship from the selected inputs."
+      },
+      {
+        "question": "Can a zero final price determine the original price?",
+        "answer": "At 100% off, every original price produces zero. That inverse case is indeterminate; a positive final price with 100% off is inconsistent."
+      },
+      {
+        "question": "Is sales tax included in the discounted price?",
+        "answer": "No. This tool does not decide how a discount or coupon affects the taxable amount."
+      }
+    ]
+  },
+  "percent-off-calculator": {
+    "description": "Calculate percent-off savings and final prices, or combine two successive percentage discounts without simply adding them.",
+    "faqs": [
+      {
+        "question": "Do discounts of 20% and then 10% equal 30% off?",
+        "answer": "No. Each percentage acts on the current price, so a $100 item falls to $80 and then $72, for a 28% combined reduction."
+      },
+      {
+        "question": "Can I recover an original price from the sale price?",
+        "answer": "Use the known-pair mode with final price and percent off. A zero final price at 100% off cannot identify one original price."
+      }
+    ]
+  },
+  "sales-tax-calculator": {
+    "description": "Calculate net price, sales tax, gross price or an implied tax rate from a selected pair of known values.",
+    "faqs": [
+      {
+        "question": "How do I remove tax already included in a total?",
+        "answer": "Divide the total by one plus the tax rate. The known-pair mode also solves from net and gross prices or from tax amount and a positive rate."
+      },
+      {
+        "question": "Does the calculator find the sales-tax rate for my address?",
+        "answer": "No. You supply the rate and determine whether the transaction is taxable or exempt."
+      }
+    ]
+  },
+  "vat-calculator": {
+    "description": "Calculate VAT, net or gross amounts, or an implied VAT rate from the values you already know.",
+    "faqs": [
+      {
+        "question": "How is VAT extracted from a tax-inclusive price?",
+        "answer": "Net equals gross divided by one plus the entered rate. VAT is the difference. The known-pair mode can also start from tax amount and a positive rate."
+      },
+      {
+        "question": "Does this decide which VAT rate or exemption applies?",
+        "answer": "No. Rate selection, place of supply, exemptions and recoverability are outside this arithmetic model."
+      }
+    ]
+  },
+  "salary-calculator": {
+    "description": "Convert gross salary across hourly through annual pay periods, including quarterly pay, and compare unpaid-day adjustments.",
+    "faqs": [
+      {
+        "question": "Why do biweekly and semimonthly pay differ?",
+        "answer": "Annualization uses 26 biweekly periods and 24 semimonthly periods. Quarterly pay uses four periods."
+      },
+      {
+        "question": "Do holidays and vacation automatically reduce annual salary?",
+        "answer": "Only the separate unpaid-day scenario reduces earnings. Paid leave does not automatically reduce a fixed annual salary."
+      },
+      {
+        "question": "Is the converted salary my take-home pay?",
+        "answer": "No. These are gross-pay conversions before taxes, benefits and payroll deductions."
+      }
+    ]
+  },
+  "budget-calculator": {
+    "description": "Build a monthly budget from take-home totals or mixed-period gross-income lines, with pretax savings, assumed tax and debt payments.",
+    "faqs": [
+      {
+        "question": "Should I enter gross salary or take-home income?",
+        "answer": "Use take-home income in the simple budget. In Mixed-period budget & debt ratio, use gross income; that mode separately subtracts pretax saving and the entered flat tax."
+      },
+      {
+        "question": "Can I combine annual and monthly amounts?",
+        "answer": "Yes. Each mixed-period line has its own annual or monthly selector; annual amounts are divided by twelve."
+      },
+      {
+        "question": "How can I avoid counting a debt payment twice?",
+        "answer": "Enter a payment in either living expenses or debt payments, not both. The mixed-period model deducts the two groups separately."
+      }
+    ]
+  },
+  "tax-calculator": {
+    "description": "Explore US federal ordinary-income tax and separate 2026 self-employment, investment-income, credit and AMT worksheets.",
+    "faqs": [
+      {
+        "question": "Does this produce one complete federal tax result?",
+        "answer": "No. The ordinary-income, self-employment, investment-income, credit and AMT modules are separate bounded worksheets. Some totals overlap, so do not add every displayed metric together."
+      },
+      {
+        "question": "Which years and income rules are covered?",
+        "answer": "The detailed ordinary-income mode offers 2025 and 2026. Other modes state their own scope; qualified-gain, dependent-credit and AMT branches exclude the special cases listed with their results."
+      },
+      {
+        "question": "Does the dependent-credit worksheet establish eligibility?",
+        "answer": "No. Eligibility is supplied as an assumption. The basic refundable branch is limited to at most two qualifying children and excludes the special Schedule 8812 branches."
+      }
+    ]
+  },
+  "take-home-pay-calculator": {
+    "description": "Estimate take-home wages, 2026 W-4 federal withholding and paycheck FICA, with separate wage bases and year-to-date inputs.",
+    "faqs": [
+      {
+        "question": "Can I estimate withholding for one paycheck?",
+        "answer": "Yes. The W-4 mode uses taxable wages for that pay, pay frequency and the entered W-4 Step 2, 3 and 4 amounts. It is separate from the annual wage-tax estimate."
+      },
+      {
+        "question": "Are gross wages and payroll-tax wages always identical?",
+        "answer": "No. Federal withholding, Social Security and Medicare can use different taxable wage amounts. Enter the wage base requested by each mode."
+      },
+      {
+        "question": "Does Additional Medicare withholding use my filing status?",
+        "answer": "The paycheck FICA branch uses the employer\u2019s $200,000 withholding trigger. Final Additional Medicare liability uses a separate filing-status calculation."
+      }
+    ]
+  },
+  "marriage-calculator": {
+    "description": "Compare 2025 or 2026 ordinary-income tax for two eligible single-filer scenarios and one joint scenario, with selected deductions.",
+    "faqs": [
+      {
+        "question": "What does the year-based comparison include?",
+        "answer": "It compares the selected year\u2019s ordinary-income brackets using basic standard deductions or the deduction amounts you enter."
+      },
+      {
+        "question": "Does it decide whether a married couple should file separately?",
+        "answer": "No. It compares two eligible single-filer scenarios with one joint scenario. Married-filing-separately rules, credits and other taxes require a separate analysis."
+      }
+    ]
+  },
+  "estate-tax-calculator": {
+    "description": "Estimate a 2026 federal estate-tax scenario from asset and deduction lines, adjusted gifts, exclusion and entered credit assumptions.",
+    "faqs": [
+      {
+        "question": "Do both estate modes use only a flat 40% rate?",
+        "answer": "No. The legacy approximation uses the top rate above its entered exclusion. The detailed assets-and-gifts mode uses the graduated tentative-tax schedule and applicable exclusion credit."
+      },
+      {
+        "question": "Can I enter a deceased spouse\u2019s unused exclusion?",
+        "answer": "The detailed mode accepts a valid elected DSUE amount as an assumption. It does not determine portability eligibility or make the required election."
+      },
+      {
+        "question": "Are state inheritance taxes and all gift adjustments included?",
+        "answer": "State and generation-skipping taxes are excluded. Adjusted taxable gifts, gift tax payable, deductions and other credits must be supplied after separate verification."
+      }
+    ]
+  },
+  "rental-property-calculator": {
+    "description": "Estimate rental cash flow and returns, or model a holding period with growing expenses, mortgage payoff and sale proceeds.",
+    "faqs": [
+      {
+        "question": "Should mortgage payments be included in operating expenses?",
+        "answer": "No. Operating expenses exclude debt service and depreciation. The model deducts mortgage payments separately when calculating cash flow."
+      },
+      {
+        "question": "How does a sale affect holding-period return?",
+        "answer": "Final cash flow includes the sale proceeds after selling costs and remaining mortgage debt. It is counted once in the investor-return stream."
+      }
+    ]
+  },
+  "rent-vs-buy-calculator": {
+    "description": "Compare renting and buying through housing cash flows, refundable deposits, mortgage equity and a common investment-return assumption.",
+    "faqs": [
+      {
+        "question": "How does the detailed mode treat a refundable deposit?",
+        "answer": "It records the deposit as an upfront renter outflow and the selected refund at exit. A full refund removes its nominal cost but can still have a present-value opportunity cost."
+      },
+      {
+        "question": "Is mortgage principal counted as an expense twice?",
+        "answer": "No. The detailed mode includes payments in cash outflows and subtracts remaining loan debt from sale proceeds to calculate equity at exit."
+      },
+      {
+        "question": "What does the terminal buying advantage measure?",
+        "answer": "In the detailed mode it grows the same present-value cost difference to the comparison end date. It is not an additional benefit to add to that difference."
+      }
+    ]
+  },
+  "currency-calculator": {
+    "description": "Convert currencies with an entered rate or dated ECB daily reference rates, keeping transaction fees and bank spreads separate.",
+    "faqs": [
+      {
+        "question": "Are ECB reference rates live transaction quotes?",
+        "answer": "No. They are dated informational reference rates. Banks and payment providers may use different rates, spreads, fees or settlement times."
+      },
+      {
+        "question": "Are my amount and currency choices sent to the rate provider?",
+        "answer": "No. The site fetches a generic reference-rate feed; your selected currencies and amount are used for conversion in the browser."
+      }
+    ]
+  },
+  "bmi-calculator": {
+    "description": "Calculate adult BMI or CDC BMI-for-age percentiles for ages 2 to under 20, with the screening limits of each method explained.",
+    "faqs": [
+      {
+        "question": "Should a child's BMI use adult categories?",
+        "answer": "No. The child mode uses sex-specific CDC references and age in completed months. Adult categories are used from age 20."
+      },
+      {
+        "question": "Does a BMI result measure body fat or diagnose a condition?",
+        "answer": "No. BMI relates weight to height. Body composition, pregnancy and individual health circumstances can limit its interpretation."
+      }
+    ]
+  },
+  "anorexic-bmi-calculator": {
+    "description": "Understand adult BMI and why it cannot diagnose anorexia, assess an eating disorder or establish an underweight target.",
+    "faqs": [
+      {
+        "question": "Can BMI tell me whether someone has anorexia?",
+        "answer": "No. Eating disorders can occur at any body size. BMI cannot establish a diagnosis or determine someone's treatment needs."
+      },
+      {
+        "question": "Why does this page not calculate an anorexic target weight?",
+        "answer": "A target based on becoming underweight would misuse the measure. The page provides screening context rather than a weight-loss goal."
+      }
+    ]
+  },
+  "overweight-calculator": {
+    "description": "Explore adult BMI screening categories from height and weight, with clear limits on what the result can say about individual health.",
+    "faqs": [
+      {
+        "question": "Does an adult BMI category describe my overall health?",
+        "answer": "No. It is a population screening reference. Individual assessment needs more information than weight and height."
+      },
+      {
+        "question": "Can a muscular person receive a higher BMI category?",
+        "answer": "Yes. BMI does not distinguish muscle from fat, so body composition matters when interpreting the number."
+      }
+    ]
+  },
+  "bmr-calculator": {
+    "description": "Estimate adult resting energy expenditure using the available equations, and convert food energy between kilocalories and kilojoules.",
+    "faqs": [
+      {
+        "question": "How is resting energy different from daily maintenance energy?",
+        "answer": "Resting energy estimates basic energy expenditure. The activity multiplier produces a broader daily estimate that includes activity assumptions."
+      },
+      {
+        "question": "Is the equation a measured metabolic rate?",
+        "answer": "No. It is a population estimate from body measurements and age, not a direct test of an individual's metabolism."
+      }
+    ]
+  },
+  "calorie-calculator": {
+    "description": "Estimate adult daily maintenance calories from body measurements and activity assumptions, with food-energy unit conversion.",
+    "faqs": [
+      {
+        "question": "Does the displayed calorie estimate prescribe how much I should eat?",
+        "answer": "No. It is an adult maintenance-energy estimate. Individual needs can differ, and the model excludes pregnancy, breastfeeding and growing children."
+      },
+      {
+        "question": "What is the difference between a food Calorie and a kilocalorie?",
+        "answer": "They refer to the same food-energy unit. One kilocalorie equals 4.184 kilojoules."
+      }
+    ]
+  },
+  "tdee-calculator": {
+    "description": "Estimate total daily energy expenditure by combining an adult resting-energy equation with your selected activity factor.",
+    "faqs": [
+      {
+        "question": "Why does changing activity level change TDEE?",
+        "answer": "TDEE multiplies the estimated resting expenditure by an activity factor. The result therefore depends on that activity assumption."
+      },
+      {
+        "question": "Does TDEE stay constant every day?",
+        "answer": "Not necessarily. This model gives a single scenario estimate; actual activity, health and other circumstances can change daily expenditure."
+      }
+    ]
+  },
+  "macro-calculator": {
+    "description": "Convert a daily energy target into protein, carbohydrate and fat grams, or explore adult reference ranges from body measurements.",
+    "faqs": [
+      {
+        "question": "Why must my selected macro percentages total 100%?",
+        "answer": "Together they allocate the entered energy target. Protein and carbohydrate use about 4 kcal per gram, and fat uses about 9."
+      },
+      {
+        "question": "Can I combine every upper endpoint of the reference ranges?",
+        "answer": "No. The adult reference ranges are independent. Their upper endpoints are not intended to form one 100% dietary split."
+      }
+    ]
+  },
+  "carbohydrate-calculator": {
+    "description": "Estimate carbohydrate grams from a calorie target and percentage, or explore adult energy-based carbohydrate reference ranges.",
+    "faqs": [
+      {
+        "question": "How are carbohydrate calories converted to grams?",
+        "answer": "The model divides energy allocated to carbohydrate by approximately 4 kcal per gram."
+      },
+      {
+        "question": "Is the calculated carbohydrate amount an individual dietary prescription?",
+        "answer": "No. It is a planning quantity or adult reference range, not individualized advice for medical conditions, pregnancy or growing children."
+      }
+    ]
+  },
+  "fat-intake-calculator": {
+    "description": "Convert a selected share of daily calories into fat grams and compare adult energy-based fat-intake reference ranges.",
+    "faqs": [
+      {
+        "question": "Why does fat produce fewer grams for the same calories?",
+        "answer": "The calculation uses about 9 kcal per gram of fat, compared with about 4 for protein or carbohydrate."
+      },
+      {
+        "question": "Does this tell me which types of dietary fat to choose?",
+        "answer": "No. It estimates total fat grams from energy assumptions and does not evaluate food quality or an individual's dietary needs."
+      }
+    ]
+  },
+  "protein-calculator": {
+    "description": "Estimate daily protein grams from body weight and a chosen g/kg target, or compare adult energy-based protein reference ranges.",
+    "faqs": [
+      {
+        "question": "What does the grams-per-kilogram target mean?",
+        "answer": "It is the daily protein amount assigned to each kilogram of body weight. The calculator multiplies the two values."
+      },
+      {
+        "question": "Is the default protein target right for everyone?",
+        "answer": "No. It reflects the stated adult reference assumption. Activity, age and medical or reproductive circumstances can change individual requirements."
+      }
+    ]
+  },
+  "body-fat-calculator": {
+    "description": "Estimate body-fat percentage using historical circumference equations or the age- and sex-adjusted BMI study model.",
+    "faqs": [
+      {
+        "question": "Is circumference-based body fat a direct body-composition measurement?",
+        "answer": "No. It is an equation-based estimate whose result depends on measurement accuracy and the population assumptions of the method."
+      },
+      {
+        "question": "Is this the current Army one-site assessment?",
+        "answer": "No. The historical Navy circumference equations and the Army one-site equation are different models with different inputs."
+      },
+      {
+        "question": "Does the BMI estimate measure body fat?",
+        "answer": "No. Deurenberg\u2019s equations combine BMI, age and sex statistically. The adult and child equations are separate, and individual error can be several percentage points."
+      }
+    ]
+  },
+  "army-body-fat-calculator": {
+    "description": "Compare the 2026 Army waist-to-height threshold using recorded measurements, or explore the historical 2023 body-fat equation.",
+    "faqs": [
+      {
+        "question": "Is waist-to-height ratio a body-fat percentage?",
+        "answer": "No. The ratio divides recorded waist circumference by recorded height. The 2026 Army method truncates it to three decimals and compares it with 0.550. The older one-site equation estimates body-fat percentage and is shown separately as historical."
+      },
+      {
+        "question": "Does this result count as an official assessment?",
+        "answer": "No. It calculates from your recorded inputs. Official measurement, confirmation, exemption and administrative procedures require the applicable Army guidance."
+      }
+    ]
+  },
+  "lean-body-mass-calculator": {
+    "description": "Compare lean-mass estimates from entered body fat, Boer, James, Hume or the pediatric Peters method, with equation-specific limits.",
+    "faqs": [
+      {
+        "question": "Why can the body-fat and equation methods disagree?",
+        "answer": "One subtracts an entered fat fraction from body weight; regression equations infer lean mass from other measurements and population relationships."
+      },
+      {
+        "question": "Is the pediatric estimate suitable for calculating a medication dose?",
+        "answer": "No. The Peters mode is an educational body-composition estimate. Clinical interpretation and medication dosing require a clinician."
+      }
+    ]
+  },
+  "body-surface-area-calculator": {
+    "description": "Estimate body surface area with eight named equations, age-specific branches and metric or US area units.",
+    "faqs": [
+      {
+        "question": "What measurements does the Mosteller formula use?",
+        "answer": "It takes height in centimeters and weight in kilograms, then calculates the square root of their product divided by 3,600."
+      },
+      {
+        "question": "Can I use the result to choose a medication dose?",
+        "answer": "No. Body surface area is only an estimate, and medication dosing requires clinical instructions and supervision."
+      },
+      {
+        "question": "Why do the eight equations give different estimates?",
+        "answer": "They were fitted to different populations and use different mathematical relationships. The named method and its study limits are part of the result; Finflo does not average them into a clinical assessment."
+      }
+    ]
+  },
+  "ideal-weight-calculator": {
+    "description": "Compare historical adult reference-weight equations or use CDC child BMI-for-age references without setting a personal target weight.",
+    "faqs": [
+      {
+        "question": "Why do the adult reference equations give different weights?",
+        "answer": "Devine, Robinson, Miller and Hamwi use different historical coefficients. They do not fully account for body composition or individual clinical needs."
+      },
+      {
+        "question": "Does the child mode prescribe an ideal weight?",
+        "answer": "No. It shows age- and sex-specific BMI reference information, not a weight-loss target or diagnosis."
+      }
+    ]
+  },
+  "healthy-weight-calculator": {
+    "description": "Explore the adult BMI-based reference weight interval for a height, including the exclusive upper boundary and screening limitations.",
+    "faqs": [
+      {
+        "question": "Why is the upper reference weight shown as exclusive?",
+        "answer": "The interval uses BMI from 18.5 up to, but not including, 25. The corresponding upper weight is therefore a boundary."
+      },
+      {
+        "question": "Is every weight in this interval personally appropriate?",
+        "answer": "Not necessarily. This population screening interval does not account for pregnancy, muscle mass or individual medical circumstances."
+      }
+    ]
+  },
+  "body-type-calculator": {
+    "description": "Calculate waist-to-hip and waist-to-height proportions from measurements, without assigning unvalidated body-shape categories.",
+    "faqs": [
+      {
+        "question": "Why does this tool show ratios rather than a body-shape label?",
+        "answer": "Ratios describe measured proportions. Informal labels such as apple or hourglass are not medical diagnoses and are not assigned here."
+      },
+      {
+        "question": "Must waist, hip and height use the same unit?",
+        "answer": "Measurements in each ratio must be expressed consistently. Mixing centimeters and inches would distort the ratio unless converted first."
+      }
+    ]
+  },
+  "calories-burned-calculator": {
+    "description": "Estimate activity calories using METs, selected Compendium activities or a distance-and-speed approximation, with gross and net energy shown.",
+    "faqs": [
+      {
+        "question": "What is the difference between gross and net activity calories?",
+        "answer": "Gross energy includes resting expenditure during the activity. Net energy subtracts one MET for the same duration."
+      },
+      {
+        "question": "Does distance mode interpolate a personalized calorie equation?",
+        "answer": "No. It selects the nearest listed level-ground reference pace. Terrain, wind, fitness and other individual differences are excluded."
+      },
+      {
+        "question": "Do wheelchair METs use the same calorie conversion?",
+        "answer": "No. Wheelchair references use the Compendium baseline of 0.992 kcal per kilogram per hour for one MET_WC. Adult oxygen-based MET references use their own baseline."
+      }
+    ]
+  },
+  "one-rep-max-calculator": {
+    "description": "Estimate a one-repetition maximum from a submaximal lift using Epley, Brzycki and supported Lombardi comparisons.",
+    "faqs": [
+      {
+        "question": "Is the predicted one-rep maximum a weight I should attempt?",
+        "answer": "No. It is an estimate, not a safety assessment. Technique, fatigue, training experience and the exercise affect actual capacity."
+      },
+      {
+        "question": "Why do estimates become less reliable with more repetitions?",
+        "answer": "Predictive equations extrapolate from repetitions to a maximum. Their assumptions become less dependable as the repetition count increases."
+      }
+    ]
+  },
+  "target-heart-rate-calculator": {
+    "description": "Compare estimated maximum heart rates and target ranges, including measured-maximum and heart-rate-reserve methods.",
+    "faqs": [
+      {
+        "question": "How does heart-rate reserve differ from a percentage of maximum?",
+        "answer": "Reserve targets add resting heart rate to a fraction of the difference between maximum and resting heart rate."
+      },
+      {
+        "question": "Does an age-based target fit every person?",
+        "answer": "No. Predicted maxima vary between people, and medication or medical conditions can change appropriate exercise intensity."
+      }
+    ]
+  },
+  "pace-calculator": {
+    "description": "Calculate pace, speed, time and distance, review cumulative splits, or project a finish from the average pace so far.",
+    "faqs": [
+      {
+        "question": "Should I enter 5.30 for a pace of 5 minutes 30 seconds?",
+        "answer": "In decimal-minute fields, enter 5.5. The value 5.30 means 5 minutes 18 seconds, not 5 minutes 30 seconds."
+      },
+      {
+        "question": "Does the finish projection account for slowing down later?",
+        "answer": "No. It assumes the average pace over the completed distance continues unchanged for the remaining distance."
+      }
+    ]
+  },
+  "pregnancy-calculator": {
+    "description": "Estimate pregnancy dates from menstrual history, conception, ultrasound, IVF transfer or a known due date, with dating assumptions explained.",
+    "faqs": [
+      {
+        "question": "Why does gestational age start before the estimated conception date?",
+        "answer": "Conventional gestational dating counts from the last menstrual period, rather than from conception itself."
+      },
+      {
+        "question": "Can the calculated due date change after a clinical assessment?",
+        "answer": "Yes. Ultrasound and clinical information can revise an estimate. A due date does not predict the exact day of delivery."
+      }
+    ]
+  },
+  "due-date-calculator": {
+    "description": "Estimate a due date from the last period, conception date, IVF transfer or ultrasound dating, using the selected method's inputs.",
+    "faqs": [
+      {
+        "question": "How does embryo age affect IVF due-date calculation?",
+        "answer": "The model adds 266 days to the transfer date, then subtracts the embryo's age in days at transfer."
+      },
+      {
+        "question": "What should I enter for ultrasound dating?",
+        "answer": "Use the scan date and gestational age reported by the clinical ultrasound assessment, rather than estimating fetal age yourself."
+      }
+    ]
+  },
+  "pregnancy-conception-calculator": {
+    "description": "Estimate conception timing from a known due date or other pregnancy-dating information, while keeping the uncertainty of dates explicit.",
+    "faqs": [
+      {
+        "question": "Does subtracting 266 days from a due date give an exact conception date?",
+        "answer": "No. It reverses a standard dating convention and produces an estimate, not proof of the exact date of conception."
+      },
+      {
+        "question": "Can this establish which sexual encounter led to pregnancy?",
+        "answer": "No. Dating uncertainty and the biological timing involved prevent this calendar estimate from establishing a specific encounter or parentage."
+      }
+    ]
+  },
+  "conception-calculator": {
+    "description": "Estimate a possible fertile window from cycle history and explore menstrual, conception, ultrasound or IVF pregnancy-dating methods.",
+    "faqs": [
+      {
+        "question": "How is the estimated fertile window positioned?",
+        "answer": "The cycle model estimates ovulation from the next period and luteal phase, then includes the five days before ovulation and that day."
+      },
+      {
+        "question": "Can the calendar window confirm ovulation or prevent pregnancy?",
+        "answer": "No. Cycle timing varies, and the estimate does not confirm ovulation. Do not use it alone to prevent pregnancy."
+      }
+    ]
+  },
+  "ovulation-calculator": {
+    "description": "Estimate ovulation timing and a possible fertile window from cycle length and luteal-phase assumptions, without confirming ovulation.",
+    "faqs": [
+      {
+        "question": "Why does changing the luteal phase move the ovulation estimate?",
+        "answer": "The model subtracts the entered luteal-phase length from the estimated next period date."
+      },
+      {
+        "question": "Will this identify ovulation accurately for an irregular cycle?",
+        "answer": "It cannot reliably establish ovulation from a fixed calendar assumption. Variable cycles can shift the actual timing substantially."
+      }
+    ]
+  },
+  "period-calculator": {
+    "description": "Project a next-period date from menstrual history and assumed cycle length, with associated cycle estimates and their limitations.",
+    "faqs": [
+      {
+        "question": "How is the next period date calculated?",
+        "answer": "The model adds the entered cycle length to the period start date. It assumes that cycle length repeats."
+      },
+      {
+        "question": "Does a predicted date explain a late or missed period?",
+        "answer": "No. The calculator projects dates and cannot determine the reason for a change in menstrual timing."
+      }
+    ]
+  },
+  "pregnancy-weight-gain-calculator": {
+    "description": "Compare pregnancy weight gain with BMI-specific singleton or twin reference guidance, without prescribing an exact week-by-week target.",
+    "faqs": [
+      {
+        "question": "Is the result a required weight for my exact pregnancy week?",
+        "answer": "No. It separates full-pregnancy reference totals from average later-trimester rates and does not prescribe an exact daily weight."
+      },
+      {
+        "question": "Are twin-pregnancy ranges the same as singleton ranges?",
+        "answer": "No. Twin ranges are provisional references and do not have a universal weekly trajectory. Clinical context remains necessary."
+      }
+    ]
+  },
+  "gfr-calculator": {
+    "description": "Estimate eGFR with adult race-free CKD-EPI 2021 or pediatric bedside Schwartz equations, using creatinine and model-specific inputs.",
+    "faqs": [
+      {
+        "question": "Does one eGFR result diagnose kidney disease?",
+        "answer": "No. Interpretation requires clinical context and evidence over time. A calculator result should not be used alone to change treatment."
+      },
+      {
+        "question": "Can I use the adult equation for a child?",
+        "answer": "No. The pediatric mode uses the bedside Schwartz relationship with height and creatinine, under clinical supervision rather than the adult equation."
+      }
+    ]
+  },
+  "bac-calculator": {
+    "description": "Explore a rough Widmark blood-alcohol estimate from one drink input or multiple beverages, with major safety limitations made explicit.",
+    "faqs": [
+      {
+        "question": "Does a zero estimate mean it is safe or legal to drive?",
+        "answer": "No. A zero result does not establish sobriety. Never use this estimate to decide whether to drive or operate machinery."
+      },
+      {
+        "question": "Why can measured alcohol levels differ from the estimate?",
+        "answer": "Absorption and elimination vary substantially. The single-beverage mode uses hours since drinking began; the multiple-beverage mode assumes simultaneous absorption. Neither timing convention describes everyone accurately."
+      }
+    ]
+  },
+  "average-calculator": {
+    "description": "Calculate the mean of a number list and compare it with the median, range and other measures of the dataset's spread.",
+    "faqs": [
+      {
+        "question": "Can one unusually large value change the average?",
+        "answer": "Yes. The mean uses every value, so an extreme value can shift it substantially. Comparing the median helps reveal that effect."
+      },
+      {
+        "question": "Is this a weighted average?",
+        "answer": "No. Each entered value contributes equally. A weighted mean requires explicit weights and a different calculation."
+      }
+    ]
+  },
+  "mean-median-mode-range-calculator": {
+    "description": "Find mean, median, mode and range from a dataset and compare what each measure reveals about its center and spread.",
+    "faqs": [
+      {
+        "question": "Why can the mean and median be different?",
+        "answer": "The mean uses the sum of all values; the median uses their sorted middle. Skewed or extreme values can separate them."
+      },
+      {
+        "question": "Can a dataset have more than one mode?",
+        "answer": "Yes. Several values can tie for the highest frequency. A mode describes frequency, not necessarily the center of the data."
+      }
+    ]
+  },
+  "statistics-calculator": {
+    "description": "Summarize a numeric dataset with measures of center, spread and distribution, including sample and population variance.",
+    "faqs": [
+      {
+        "question": "Should I use the sample or population variance?",
+        "answer": "Use population variance when the list is the full population of interest; use sample variance when estimating spread from a sample."
+      },
+      {
+        "question": "Do these summary statistics establish that data are normally distributed?",
+        "answer": "No. Mean, median and standard deviation describe features of a dataset; they do not by themselves demonstrate a normal distribution."
+      }
+    ]
+  },
+  "standard-deviation-calculator": {
+    "description": "Calculate sample and population standard deviation and variance from a number list, with the different denominators explained.",
+    "faqs": [
+      {
+        "question": "Why is sample standard deviation usually larger?",
+        "answer": "Sample variance divides squared deviations by n \u2212 1 instead of n. Taking the square root preserves that difference."
+      },
+      {
+        "question": "Does standard deviation use the same units as my data?",
+        "answer": "Yes. Variance uses squared units, while standard deviation takes the square root and returns to the original unit."
+      }
+    ]
+  },
+  "percent-calculator": {
+    "description": "Find a percentage, percentage change or difference, adjust a value, and reverse a change to recover the original amount.",
+    "faqs": [
+      {
+        "question": "How is percentage difference different from percentage change?",
+        "answer": "Change uses an original value as its base. Difference compares two nonnegative values using their average as the base."
+      },
+      {
+        "question": "Can I reverse a 100% decrease to find the original value?",
+        "answer": "No. Every original value becomes zero after a 100% decrease, so the final value does not identify a unique original."
+      }
+    ]
+  },
+  "percent-error-calculator": {
+    "description": "Compare an observed value with a nonzero accepted value to calculate absolute percentage error and signed error.",
+    "faqs": [
+      {
+        "question": "Why must the accepted value be nonzero?",
+        "answer": "Percentage error divides by the magnitude of the accepted value. A zero reference makes that relative comparison undefined."
+      },
+      {
+        "question": "What does signed error add to absolute percentage error?",
+        "answer": "Absolute percentage error describes the size of the discrepancy. Signed error also preserves whether the observation lies above or below the reference."
+      }
+    ]
+  },
+  "scientific-calculator": {
+    "description": "Evaluate mathematical expressions with powers, logarithms and trigonometric functions, using an explicit degree or radian setting.",
+    "faqs": [
+      {
+        "question": "What is the difference between log and ln?",
+        "answer": "In this expression calculator, log means base 10 and ln means the natural logarithm with base e."
+      },
+      {
+        "question": "How should I write multiplication next to parentheses?",
+        "answer": "Use an explicit multiplication sign, such as 2 * (3 + 4). Select the angle unit before evaluating trigonometric functions."
+      }
+    ]
+  },
+  "basic-calculator": {
+    "description": "Calculate arithmetic expressions with parentheses and standard operation order, using explicit multiplication and readable results.",
+    "faqs": [
+      {
+        "question": "Are operations evaluated strictly from left to right?",
+        "answer": "No. Parentheses and functions are evaluated first, followed by powers, multiplication and division, then addition and subtraction."
+      },
+      {
+        "question": "How do parentheses change an arithmetic result?",
+        "answer": "They group operations to be performed first. For example, 2 * (3 + 4) gives 14, while 2 * 3 + 4 gives 10."
+      }
+    ]
+  },
+  "big-number-calculator": {
+    "description": "Work with exact integer operations, bounded high-precision decimals and mathematical expressions, choosing the mode suited to the numbers.",
+    "faqs": [
+      {
+        "question": "Which mode should I use for precise decimal arithmetic?",
+        "answer": "Use Decimal arithmetic & precision for the supported basic operations and choose the displayed decimal places, up to 100."
+      },
+      {
+        "question": "Are all modes unlimited exact arithmetic?",
+        "answer": "No. Exact integer operations, higher-precision decimal operations and ordinary expressions have different capabilities and explicit size or precision limits."
+      }
+    ]
+  },
+  "fraction-calculator": {
+    "description": "Add, subtract, multiply, divide, simplify and compare fractions, with mixed-number and decimal input support.",
+    "faqs": [
+      {
+        "question": "Can I enter a mixed number such as one and a half?",
+        "answer": "Yes. Enter 1 1/2. Fraction and supported decimal inputs are interpreted as rational values for the selected operation."
+      },
+      {
+        "question": "Why is comparing fractions better than rounding them first?",
+        "answer": "Cross multiplication compares the rational values directly. Rounding both to decimals can hide a small difference."
+      }
+    ]
+  },
+  "ratio-calculator": {
+    "description": "Simplify whole-number ratios, solve any missing proportion term, or enlarge and shrink both parts by a scale factor.",
+    "faqs": [
+      {
+        "question": "Does scaling a ratio change the relationship between its parts?",
+        "answer": "No. Multiplying or dividing both parts by the same nonzero factor preserves their proportion."
+      },
+      {
+        "question": "Why can some proportions not be solved uniquely?",
+        "answer": "A zero denominator is invalid, and some combinations reduce to an identity with infinitely many possible values rather than one answer."
+      }
+    ]
+  },
+  "quadratic-formula-calculator": {
+    "description": "Solve quadratic equations, inspect the discriminant and find real or complex roots, with linear handling when the quadratic term is zero.",
+    "faqs": [
+      {
+        "question": "What does the discriminant tell me?",
+        "answer": "A positive discriminant gives two real roots, zero gives a repeated real root, and a negative value gives complex roots."
+      },
+      {
+        "question": "What happens if the coefficient of x squared is zero?",
+        "answer": "The equation is no longer quadratic. The calculator treats the remaining expression as a linear or degenerate equation."
+      }
+    ]
+  },
+  "exponent-calculator": {
+    "description": "Raise a real number to a positive, negative or fractional power within the supported real-number domain.",
+    "faqs": [
+      {
+        "question": "What does a negative exponent mean?",
+        "answer": "For a nonzero base, a negative exponent takes the reciprocal of the corresponding positive power; for example, 2^\u22123 is 1/8."
+      },
+      {
+        "question": "Will a fractional power of a negative base return a complex value?",
+        "answer": "No. This mode is restricted to supported real-number results and does not calculate complex powers."
+      }
+    ]
+  },
+  "root-calculator": {
+    "description": "Find square roots, cube roots and other integer-index roots, including supported real odd roots of negative numbers.",
+    "faqs": [
+      {
+        "question": "Can a negative number have a real root?",
+        "answer": "It has real odd roots, such as the cube root of \u22128 being \u22122. Even roots of negative values are not real."
+      },
+      {
+        "question": "Does the calculator list every complex root?",
+        "answer": "No. This mode returns the supported real root rather than the full set of complex roots."
+      }
+    ]
+  },
+  "log-calculator": {
+    "description": "Calculate logarithms in a valid positive base, or solve for a missing argument or base from a known logarithm.",
+    "faqs": [
+      {
+        "question": "Why can the logarithm base not equal one?",
+        "answer": "Every power of one is one, so base one cannot provide the one-to-one relationship required for a logarithm."
+      },
+      {
+        "question": "How do I solve for the argument from a logarithm?",
+        "answer": "If log base b of x equals y, then x = b^y. The base must be positive and different from one."
+      }
+    ]
+  },
+  "half-life-calculator": {
+    "description": "Model exponential decay, solve for remaining or initial quantity and elapsed time, or convert half-life and decay constants.",
+    "faqs": [
+      {
+        "question": "Is half-life the same as mean lifetime?",
+        "answer": "No. Half-life is ln(2) divided by the decay constant; mean lifetime is one divided by that constant."
+      },
+      {
+        "question": "Which units should I use for time?",
+        "answer": "Use the same unit for elapsed time and half-life. The decay constant then has the reciprocal of that time unit."
+      }
+    ]
+  },
+  "lcm-calculator": {
+    "description": "Find the least common multiple of whole numbers and use it to identify a shared repeating interval or denominator.",
+    "faqs": [
+      {
+        "question": "How does the least common multiple differ from the greatest common factor?",
+        "answer": "The LCM is a shared multiple of the numbers. The GCF is a number that divides all of them."
+      },
+      {
+        "question": "What is the LCM of 6 and 8?",
+        "answer": "It is 24: the smallest positive integer divisible by both 6 and 8."
+      }
+    ]
+  },
+  "gcf-calculator": {
+    "description": "Find the greatest common factor of a set of whole numbers using the Euclidean greatest-common-divisor relationship.",
+    "faqs": [
+      {
+        "question": "How can GCF help simplify a fraction?",
+        "answer": "Divide the numerator and denominator by their greatest common factor. For 18/24, dividing both by 6 gives 3/4."
+      },
+      {
+        "question": "Is greatest common divisor different from greatest common factor?",
+        "answer": "No. GCD and GCF are two names for the same whole-number relationship."
+      }
+    ]
+  },
+  "common-factor-calculator": {
+    "description": "List the positive factors shared by all entered whole numbers and identify their greatest common factor.",
+    "faqs": [
+      {
+        "question": "How are common factors related to the GCF?",
+        "answer": "Every common positive factor divides the greatest common factor. Listing the divisors of the GCF identifies the shared factors."
+      },
+      {
+        "question": "What are the common factors of 12 and 18?",
+        "answer": "They are 1, 2, 3 and 6. The greatest common factor is 6."
+      }
+    ]
+  },
+  "factor-calculator": {
+    "description": "List the positive factors of an integer and its prime decomposition, with inputs capped to keep trial division responsive.",
+    "faqs": [
+      {
+        "question": "What is the difference between factors and prime factors?",
+        "answer": "Factors divide the number without a remainder. Prime factors are prime numbers whose repeated product reconstructs it."
+      },
+      {
+        "question": "Why is the input limited to one trillion?",
+        "answer": "This implementation uses bounded trial division. The limit keeps the calculation responsive rather than implying that larger integers lack factors."
+      }
+    ]
+  },
+  "prime-factorization-calculator": {
+    "description": "Break a positive integer into prime factors and repeated powers, within the supported one-trillion input limit.",
+    "faqs": [
+      {
+        "question": "How are repeated prime factors shown mathematically?",
+        "answer": "Repeated factors can be written as powers. For example, 72 = 2^3 \u00d7 3^2."
+      },
+      {
+        "question": "Does the number 1 have a prime factorization?",
+        "answer": "No. One is neither prime nor a product of primes; it has no prime factors."
+      }
+    ]
+  },
+  "long-division-calculator": {
+    "description": "Divide integers to find a quotient and remainder, or inspect digit-by-digit long-division steps for supported inputs.",
+    "faqs": [
+      {
+        "question": "How can I check a quotient and remainder?",
+        "answer": "Multiply the divisor by the quotient and add the remainder. The result should equal the original dividend."
+      },
+      {
+        "question": "What does the steps mode show?",
+        "answer": "It shows each partial dividend, quotient digit, multiplication and subtraction, followed by the resulting remainder."
+      }
+    ]
+  },
+  "rounding-calculator": {
+    "description": "Round decimal numbers by places or significant figures, or use a chosen increment and explicit halfway-value rule.",
+    "faqs": [
+      {
+        "question": "Are decimal places and significant figures the same?",
+        "answer": "No. Decimal places count positions after the decimal point; significant figures count meaningful digits from the first nonzero digit."
+      },
+      {
+        "question": "Why might two rounding rules disagree at a halfway value?",
+        "answer": "Tie rules choose different directions. The increment mode names the selected behavior explicitly so that halfway cases can be interpreted correctly."
+      }
+    ]
+  },
+  "scientific-notation-calculator": {
+    "description": "Convert decimal numbers to scientific notation and perform supported arithmetic on coefficients and powers of ten.",
+    "faqs": [
+      {
+        "question": "What makes scientific notation normalized?",
+        "answer": "For a nonzero number, the coefficient's magnitude is at least 1 and below 10, with the scale represented by an integer power of ten."
+      },
+      {
+        "question": "Do square and square-root operations use both input values?",
+        "answer": "No. They use only the first value. Power uses a whole-number exponent within the mode's stated bounds."
+      }
+    ]
+  },
+  "binary-calculator": {
+    "description": "Perform exact binary integer arithmetic and convert signed integers between base 2 and decimal without floating-point conversion.",
+    "faqs": [
+      {
+        "question": "Should I include a 0b prefix with a binary input?",
+        "answer": "No. Enter the binary digits directly. The selected mode already establishes the base."
+      },
+      {
+        "question": "Does binary division return a repeating fractional expansion?",
+        "answer": "No. The arithmetic mode returns an integer quotient and remainder rather than a fractional binary expansion."
+      }
+    ]
+  },
+  "hex-calculator": {
+    "description": "Calculate exact hexadecimal integer operations and convert signed values between base 16 and decimal, using digits 0\u20139 and A\u2013F.",
+    "faqs": [
+      {
+        "question": "Are uppercase and lowercase hexadecimal letters different?",
+        "answer": "No. A\u2013F and a\u2013f represent the same digits. Enter the digits without a base prefix."
+      },
+      {
+        "question": "Why does hexadecimal division show a remainder?",
+        "answer": "The integer arithmetic mode separates the quotient and remainder instead of producing a fractional hexadecimal result."
+      }
+    ]
+  },
+  "number-sequence-calculator": {
+    "description": "Generate arithmetic, geometric and Fibonacci sequences or find a selected term and series sum with explicit index conventions.",
+    "faqs": [
+      {
+        "question": "Does the first term always have index one?",
+        "answer": "Arithmetic and geometric sequences start at index one. Fibonacci uses F0 = 0 and F1 = 1."
+      },
+      {
+        "question": "Do first-term and difference inputs change the Fibonacci sequence?",
+        "answer": "No. Fibonacci uses its fixed starting values and recurrence. Those controls apply to the other sequence types."
+      }
+    ]
+  },
+  "permutation-and-combination-calculator": {
+    "description": "Count ordered selections and unordered groups of distinct objects without replacement, using permutation and combination formulas.",
+    "faqs": [
+      {
+        "question": "When should I use a permutation instead of a combination?",
+        "answer": "Use permutations when order matters. Use combinations when the same selected objects form one group regardless of their order."
+      },
+      {
+        "question": "Can the same object be selected more than once?",
+        "answer": "Not in this model. It assumes distinct objects sampled without replacement, so the selection size cannot exceed the available count."
+      }
+    ]
+  },
+  "random-number-generator": {
+    "description": "Generate random whole numbers or fixed-precision decimals within bounds, with unique-value and sorting options using exact sampling.",
+    "faqs": [
+      {
+        "question": "Are the minimum and maximum included?",
+        "answer": "Integer bounds are inclusive. Decimal mode samples the permitted fixed-precision grid within the bounds, so an endpoint must lie on that grid."
+      },
+      {
+        "question": "Why can a request for unique values be rejected?",
+        "answer": "The requested count cannot exceed the number of permitted values in the range or decimal grid. Output-size limits also apply."
+      }
+    ]
+  },
+  "z-score-calculator": {
+    "description": "Standardize a value as a z-score, explore normal tail probabilities or recover a boundary from a known normal probability.",
+    "faqs": [
+      {
+        "question": "Does calculating a z-score prove the data are normal?",
+        "answer": "No. Standardization uses a mean and standard deviation. Interpreting the result as a normal percentile adds a normal-distribution assumption."
+      },
+      {
+        "question": "Should a probability of 95% be entered as 95 or 0.95?",
+        "answer": "Enter 0.95 in probability fields. Those modes use probabilities from 0 to 1 rather than percentages."
+      }
+    ]
+  },
+  "sample-size-calculator": {
+    "description": "Estimate a survey proportion's sample size or margin of error, with confidence, expected proportion and finite-population assumptions.",
+    "faqs": [
+      {
+        "question": "Why is the required sample size rounded up?",
+        "answer": "A fraction of a participant cannot be sampled. Rounding up preserves the minimum count required by the stated approximation."
+      },
+      {
+        "question": "Does the calculation account for nonresponse or clustered sampling?",
+        "answer": "No. It assumes random independent sampling. Nonresponse and complex survey designs may require a larger planned sample."
+      }
+    ]
+  },
+  "confidence-interval-calculator": {
+    "description": "Estimate a confidence interval for a mean using Student t or normal z assumptions, sample size and standard deviation.",
+    "faqs": [
+      {
+        "question": "When should I use Student t instead of normal z?",
+        "answer": "Use Student t when the standard deviation is estimated from the sample; the z method assumes a known population standard deviation."
+      },
+      {
+        "question": "Is the interval a range containing most individual observations?",
+        "answer": "No. It describes uncertainty in the estimated mean under the model, rather than a prediction range for individual values."
+      }
+    ]
+  },
+  "p-value-calculator": {
+    "description": "Find tail probabilities from z, t, chi-square or F statistics, with required degrees of freedom and normal inverse-probability options.",
+    "faqs": [
+      {
+        "question": "Is a p-value the probability that the null hypothesis is true?",
+        "answer": "No. It measures how extreme the statistic is under the specified null distribution and tail definition."
+      },
+      {
+        "question": "Why do degrees of freedom matter?",
+        "answer": "They determine the shape of t, chi-square and F distributions. Using the wrong degrees of freedom changes the resulting probability."
+      }
+    ]
+  },
+  "probability-calculator": {
+    "description": "Explore event unions and intersections, solve independent-event constraints, model repeated trials or calculate normal probabilities.",
+    "faqs": [
+      {
+        "question": "When can I multiply two event probabilities?",
+        "answer": "Multiplication gives the intersection directly when the events are independent. Dependent events require appropriate joint or conditional information."
+      },
+      {
+        "question": "Why can the independent-event solver return two solutions?",
+        "answer": "Some aggregate constraints fit two labeled event pairs. Redundant constraints can also leave infinitely many possibilities rather than a unique pair."
+      }
+    ]
+  },
+  "slope-calculator": {
+    "description": "Find slope and a line equation from two points, or determine endpoints from a point, distance and direction.",
+    "faqs": [
+      {
+        "question": "What does an undefined slope mean?",
+        "answer": "A vertical line has no finite slope because its horizontal change is zero. Identical points do not determine a unique line."
+      },
+      {
+        "question": "Does a slope and distance identify only one endpoint?",
+        "answer": "No. A slope allows two opposite directions from the starting point. A directed angle selects a particular direction."
+      }
+    ]
+  },
+  "distance-calculator": {
+    "description": "Calculate coordinate distance or spherical great-circle distance from decimal or degree-minute-second latitude and longitude.",
+    "faqs": [
+      {
+        "question": "Is great-circle distance the same as driving distance?",
+        "answer": "No. It estimates the shortest surface arc on a spherical Earth, without roads, terrain or route restrictions."
+      },
+      {
+        "question": "How do I enter southern or western DMS coordinates?",
+        "answer": "Use a nonnegative degree magnitude and select S or W. The hemisphere supplies the sign."
+      }
+    ]
+  },
+  "pythagorean-theorem-calculator": {
+    "description": "Find a right triangle's hypotenuse from two perpendicular legs, or recover one leg from the hypotenuse and the other leg.",
+    "faqs": [
+      {
+        "question": "Can I use this formula for any triangle?",
+        "answer": "No. The equation a\u00b2 + b\u00b2 = c\u00b2 applies when the legs meet at a right angle."
+      },
+      {
+        "question": "Why must the hypotenuse be longer than the known leg?",
+        "answer": "The missing leg uses the square root of c\u00b2 \u2212 a\u00b2. A nonpositive difference cannot form a nondegenerate right triangle."
+      }
+    ]
+  },
+  "right-triangle-calculator": {
+    "description": "Solve a right triangle from supported pairs of known measurements, returning sides, angles, area and possible alternate solutions.",
+    "faqs": [
+      {
+        "question": "Why can a known pair produce more than one solution?",
+        "answer": "Some measurements do not distinguish the two labeled legs or angles. The solver displays each admissible labeled solution."
+      },
+      {
+        "question": "Can I enter angles in radians?",
+        "answer": "Yes. Select radians for angular inputs. Calculated angles are displayed in degrees, and all lengths must follow the stated unit convention."
+      }
+    ]
+  },
+  "triangle-calculator": {
+    "description": "Solve SSS, SAS, ASA or ambiguous SSA triangles, with angles, area and derived measurements such as altitudes, medians and radii.",
+    "faqs": [
+      {
+        "question": "Why can the SSA case have two triangles?",
+        "answer": "A non-included angle can match two supplementary angle candidates. Only candidates with valid positive remaining angles form solutions."
+      },
+      {
+        "question": "What condition must three side lengths satisfy?",
+        "answer": "Every side must be shorter than the sum of the other two. Equality would form a degenerate straight-line shape."
+      }
+    ]
+  },
+  "circle-calculator": {
+    "description": "Find a circle's radius, diameter, circumference and area from any one of those measurements using consistent length units.",
+    "faqs": [
+      {
+        "question": "How do radius and diameter differ?",
+        "answer": "The diameter is twice the radius. A radius runs from the center to the edge; a diameter crosses the circle through its center."
+      },
+      {
+        "question": "Why does the area use square units?",
+        "answer": "Area measures two-dimensional coverage. If radius is measured in centimeters, \u03c0r\u00b2 is measured in square centimeters."
+      }
+    ]
+  },
+  "area-calculator": {
+    "description": "Calculate areas of common plane shapes, including sectors and triangles from three sides, with independent input-unit options.",
+    "faqs": [
+      {
+        "question": "Is a triangle's height the same as its sloping side?",
+        "answer": "Not usually. Base-and-height area uses the perpendicular distance to the base. Use the three-side mode when only side lengths are known."
+      },
+      {
+        "question": "Can dimensions use different length units?",
+        "answer": "Yes, when the unit selectors are used correctly. The engine converts each dimension and expresses area in the selected square unit."
+      }
+    ]
+  },
+  "volume-calculator": {
+    "description": "Find volumes of common solids, including hollow cylinders, frustums and spherical caps, with selectable measurement units.",
+    "faqs": [
+      {
+        "question": "Which volume does the hollow-cylinder mode calculate?",
+        "answer": "It subtracts the inner cylinder from the outer cylinder, giving the volume of the surrounding material rather than the empty bore."
+      },
+      {
+        "question": "Why can spherical-cap dimensions give two answers?",
+        "answer": "A sphere radius and cap-base radius can describe a smaller cap or the corresponding larger cap. The alternate-dimensions mode shows both."
+      }
+    ]
+  },
+  "surface-area-calculator": {
+    "description": "Calculate total surface areas of common solids, including cap bases and hollow-cylinder surfaces, with the ellipsoid approximation disclosed.",
+    "faqs": [
+      {
+        "question": "Does spherical-cap surface area include the flat base?",
+        "answer": "The total includes both the curved surface and flat base. The alternate cap mode also shows those parts separately."
+      },
+      {
+        "question": "Is the ellipsoid surface-area result exact?",
+        "answer": "No. The engine uses the stated Knud Thomsen approximation with exponent 1.6075; ellipsoid volume uses a separate exact formula."
+      }
+    ]
+  },
+  "matrix-calculator": {
+    "description": "Add, subtract, multiply, scale, transpose and raise matrices to integer powers, or calculate determinants and inverses up to 10 by 10.",
+    "faqs": [
+      {
+        "question": "When can two matrices be multiplied?",
+        "answer": "The number of columns in A must equal the number of rows in B. The result uses row-by-column dot products."
+      },
+      {
+        "question": "Which matrices have an inverse?",
+        "answer": "A matrix must be square and nonsingular. A zero determinant means no inverse exists, while nearly singular matrices can be numerically sensitive."
+      }
+    ]
+  }
+}

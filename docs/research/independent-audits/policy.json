@@ -1,0 +1,97 @@
+{
+  "verifiedOn": "2026-10-09",
+  "scope": "Read-only isolated execution of finance-policy engine, definitions and central dispatcher; expected values generated independently, not copied from product.",
+  "baseline": {
+    "referenceCases": 34,
+    "referenceAssertions": 124,
+    "referenceFailures": 0,
+    "edgeCases": 20,
+    "edgeFailures": 5
+  },
+  "current": {
+    "referenceCases": 34,
+    "referenceAssertions": 124,
+    "edgeCases": 20,
+    "edgeAssertions": 41,
+    "failures": 0
+  },
+  "fixedAndVerified": [
+    {
+      "id": "P01",
+      "title": "Roth transition applied each projection year",
+      "caseIds": [
+        "RMD-ROTH-2023-TO-2024"
+      ],
+      "sourceUrls": [
+        "https://www.irs.gov/retirement-plans/employee-plans-news"
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "Decimal half-up ledger state preserved throughout depreciation recurrence",
+      "caseIds": [
+        "BOOK-DECIMAL-HALF-UP-LEDGER"
+      ],
+      "sourceUrls": []
+    },
+    {
+      "id": "P03",
+      "title": "Final-coupon PRICE inverse handles negative and zero E-A fractions",
+      "caseIds": [
+        "BOND-LAST-NEGATIVE-FRACTION",
+        "BOND-LAST-ZERO-FRACTION"
+      ],
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/dax/price-function-dax"
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Historical designated-Roth employer-plan deferral eligibility exposed and applied",
+      "caseIds": [
+        "RMD-HISTORICAL-ROTH-EMPLOYMENT"
+      ],
+      "sourceUrls": [
+        "https://www.irs.gov/retirement-plans/employee-plans-news"
+      ]
+    }
+  ],
+  "remainingPresentationObservations": [
+    {
+      "severity": "low",
+      "title": "Next RMD deadline label describes second-ever RMD year, not selected-year next deadline",
+      "example": {
+        "birthDate": "1948-08-01",
+        "distributionYear": 2023,
+        "shownNextRmdDeadline": "2020-12-31"
+      },
+      "recommendation": "Relabel as Second RMD deadline in initial schedule or show applicable selected-year deadline; do not imply a past date is the next current deadline.",
+      "scope": "Label issue only; not a failing numerical assertion."
+    }
+  ],
+  "methodLimits": [
+    "Bond final-coupon formula deliberately follows cited Microsoft PRICE E-A definition. Fixed Actual/360 or Actual/365 may yield a negative time fraction near maturity; no alternative day-count convention was silently substituted.",
+    "Social Security comparisons are deterministic monthly-equivalent scenarios, not full SSA entitlement estimates; closed-form tests match the stated common valuation and end-month timing.",
+    "The 1959 RMD cohort remains explicitly guarded pending verified applicable final policy.",
+    "Book depreciation is a generic declared convention, not tax MACRS."
+  ],
+  "artifacts": [
+    "mapped-reference-cases.json",
+    "mapped-edge-cases.json",
+    "build-fixture-adapter.cjs",
+    "build-edge-cases.py",
+    "run-fixtures.cjs",
+    "current-reference-execution-report.json",
+    "current-edge-execution-report.json",
+    "snapshot-manifest.json",
+    "baseline-edge-execution-report.json",
+    "baseline-snapshot-manifest.json"
+  ],
+  "reproduction": [
+    "node make-snapshot.cjs",
+    "node build-fixture-adapter.cjs",
+    "python3 build-edge-cases.py",
+    "node run-fixtures.cjs mapped-reference-cases.json current-reference-execution-report.json",
+    "node run-fixtures.cjs mapped-edge-cases.json current-edge-execution-report.json"
+  ]
+}
