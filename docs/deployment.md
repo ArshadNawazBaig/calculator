@@ -2,6 +2,18 @@
 
 The private preview deployed successfully on October 9, 2026: [Open Finflo](https://finflo-calculators.qasim174298.chatgpt.site). The native deployment records source commit `d8821c442b260a03015a4c9a6d4ec69d3a189047`; see [deployment evidence](validation/deployment.json). This post-deployment documentation update does not change the deployed application. The domain `finflo.org` is not attached, and public indexing remains disabled.
 
+## Railway
+
+The `finflo` service uses the existing `ArshadNawazBaig/calculator` repository and its `main` branch. Its Railway URL is https://finflo-production-16af.up.railway.app. Deployment settings are checked in as `railway.json`: Railpack builds with Node.js 22 and `npm run build`, then runs `npm run start`. The server listens on `0.0.0.0` and Railway's `PORT`; `/api/health` must return a successful response before traffic is routed to a new deployment.
+
+The service has no database or volume. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=false`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. Keep the temporary Railway address out of search until `finflo.org` is connected and the public launch settings are ready. Change `NEXT_PUBLIC_` values before rebuilding.
+
+To link the Railway CLI to this service:
+
+```sh
+npx @railway/cli link --project d21adcb1-0b19-489d-8357-62edf17763f9 --environment production --service finflo
+```
+
 ## Portable native Next.js runtime
 
 The standard build is an actual Next.js Node application:
