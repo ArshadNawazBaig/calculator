@@ -46,19 +46,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .skip-link:focus { top: 12px; }
 
 /* Shared navigation */
-.site-header { --header-height: 64px; height: var(--header-height); border-bottom: 1px solid var(--color-line); background: #fff; }
-.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 33px; font-weight: 800; letter-spacing: -1.7px; line-height: 1; }
 .logo img { display: block; width: 170px; height: auto; }
-.site-header .logo { flex-shrink: 0; min-height: 44px; }
-.site-header .logo img { width: 128px; }
-.desktop-nav { align-self: stretch; display: flex; gap: 30px; align-items: stretch; margin-left: auto; margin-right: 36px; }
-.desktop-nav a { display: flex; align-items: center; font-size: 14px; font-weight: 600; color: var(--color-text-secondary); position: relative; }
-.desktop-nav a:hover, .desktop-nav a[aria-current="page"] { color: var(--color-brand); }
-.desktop-nav a[aria-current="page"]::after { content: ""; position: absolute; height: 2px; background: var(--color-brand); bottom: 0; inset-inline: 0; }
-.locale { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--color-muted); white-space: nowrap; }
-.mobile-toggle { display: none; border: 1px solid var(--color-line); background: white; border-radius: 6px; min-width: 44px; min-height: 44px; }
-.mobile-nav { display: none; }
 
 /* Controls */
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 6px; border: 1px solid transparent; font-size: 14px; font-weight: 600; line-height: 1.4; min-height: 46px; padding: 12px 22px; }
@@ -275,7 +264,6 @@ th:first-child, td:first-child { text-align: left; }
 
 @media (max-width: 1150px) {
   .container { width: calc(100% - 64px); }
-  .desktop-nav { gap: 23px; margin-right: 12px; }
   .hero-grid { gap: 38px; grid-template-columns: 1fr 1fr; }
   .hero h1 { font-size: 46px; }
   .hero-description { font-size: 16px; }
@@ -291,8 +279,6 @@ th:first-child, td:first-child { text-align: left; }
   .directory-grid { column-gap: 20px; }
 }
 @media (max-width: 900px) {
-  .desktop-nav { gap: 18px; margin-right: 0; }
-  .header-inner { gap: 24px; }
   .hero-grid { gap: 30px; }
   .hero h1 { font-size: 39px; }
   .mortgage-full-link { display: none; }
@@ -311,17 +297,9 @@ th:first-child, td:first-child { text-align: left; }
   .footer-bottom>span:last-child { display: none; }
 }
 @media (max-width: 800px) {
-  .site-header { --header-height: 60px; }
   .container { width: calc(100% - 40px); }
-  .desktop-nav { display: none; }
-  .locale { margin-left: auto; }
-  .mobile-toggle { display: grid; place-items: center; }
   .logo { font-size: 30px; }
   .logo img { width: 145px; height: auto; }
-  .site-header .logo img { width: 116px; }
-  .mobile-nav { display: grid; background: white; border-bottom: 1px solid var(--color-line); padding: 16px 20px; gap: 4px; position: absolute; left: 0; right: 0; top: var(--header-height); z-index: 50; box-shadow: 0 12px 20px color-mix(in srgb,var(--color-ink) 6%,transparent); }
-  .mobile-nav a { padding: 11px 8px; font-size: 15px; }
-  .mobile-nav a:hover { background: var(--color-soft); color: var(--color-brand); }
   .hero { padding: 38px 0; }
   .hero-grid { grid-template-columns: minmax(0,1fr); gap: 34px; }
   .hero-copy { max-width: 580px; }
@@ -362,8 +340,6 @@ th:first-child, td:first-child { text-align: left; }
 }
 @media (max-width: 540px) {
   .container { width: calc(100% - 36px); }
-  .header-inner { gap: 14px; }
-  .locale { font-size: 12px; gap: 6px; }
   .hero h1 { font-size: clamp(33px,9.3vw,47px); letter-spacing: -.06em; margin: 18px 0 20px; }
   .hero .eyebrow { font-size: 11px; letter-spacing: .055em; }
   .hero-description { font-size: 15px; line-height: 1.85; margin-bottom: 24px; }

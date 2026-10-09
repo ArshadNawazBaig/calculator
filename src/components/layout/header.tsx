@@ -1,7 +1,34 @@
 "use client";
-import {useState} from "react";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {Globe2, Menu, X} from "lucide-react";
 import {Logo} from "@/components/ui/logo";
-export function Header(){const [open,setOpen]=useState(false);const pathname=usePathname();return <header className="site-header"><div className="container header-inner"><Logo/><nav aria-label="Main navigation" className="desktop-nav"><Link href="/calculators" aria-current={pathname==="/calculators"?"page":undefined}>All calculators</Link><Link href="/calculators/finance" aria-current={pathname.startsWith("/calculators/finance")?"page":undefined}>Finance</Link><Link href="/calculators/health" aria-current={pathname.startsWith("/calculators/health")?"page":undefined}>Health</Link><Link href="/calculators/math" aria-current={pathname.startsWith("/calculators/math")?"page":undefined}>Math</Link><Link href="/calculators/everyday" aria-current={pathname.startsWith("/calculators/everyday")?"page":undefined}>Everyday</Link></nav><div className="locale" title="US English. Each calculator states its supported units and jurisdiction."><Globe2 size={16}/><span>EN · US</span></div><button className="mobile-toggle" aria-label={open?"Close navigation":"Open navigation"} aria-expanded={open} aria-controls="mobile-nav" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></div>{open&&<nav id="mobile-nav" aria-label="Mobile navigation" className="mobile-nav">{[ ["All calculators","/calculators"],["Finance","/calculators/finance"],["Health & fitness","/calculators/health"],["Math","/calculators/math"],["Everyday","/calculators/everyday"],["About Finflo","/about"]].map(([label,url])=><Link key={url} href={url} onClick={()=>setOpen(false)}>{label}</Link>)}</nav>}</header>;}
+import {HeaderLanguage} from "./header-language";
+import {HeaderSearch} from "./header-search";
+import {MobileNavigation} from "./mobile-navigation";
+import styles from "./header.module.css";
+
+const navigationLinks=[
+  {label:"All calculators",href:"/calculators"},
+  {label:"Finance",href:"/calculators/finance"},
+  {label:"Health",href:"/calculators/health"},
+  {label:"Math",href:"/calculators/math"},
+  {label:"Everyday",href:"/calculators/everyday"},
+  {label:"Guides",href:"/guides"},
+];
+
+export function Header(){
+  const pathname=usePathname();
+  return <header className={`site-header ${styles.header}`}>
+    <div className={`container ${styles.inner}`}>
+      <Logo onDark/>
+      <nav aria-label="Main navigation" className={styles.desktopNav}>
+        {navigationLinks.map(({label,href})=><Link key={href} href={href} aria-current={(pathname===href||(href!=="/calculators"&&pathname.startsWith(`${href}/`)))?"page":undefined}>{label}</Link>)}
+      </nav>
+      <div className={styles.actions}>
+        <HeaderLanguage/>
+        <HeaderSearch/>
+        <MobileNavigation key={pathname} links={[...navigationLinks,{label:"About Finflo",href:"/about"}]} pathname={pathname}/>
+      </div>
+    </div>
+  </header>;
+}

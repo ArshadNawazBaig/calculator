@@ -1,7 +1,7 @@
-import {Inter} from "next/font/google";
+import {Manrope} from "next/font/google";
 
-// Self-host the shared UI font; Inter is the provisional match for the Folio reference.
-export const siteFont = Inter({
+// Match the verified heading, navigation, and body font on thebestfreepdf.com.
+export const siteFont = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-site",
