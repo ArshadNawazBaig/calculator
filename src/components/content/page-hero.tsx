@@ -8,14 +8,15 @@ type PageHeroProps={
   description?:string;
   highlight?:string;
   breadcrumbs?:BreadcrumbItem[];
+  variant?:'default'|'system';
   children?:ReactNode;
 };
 
 /** Shared page introduction; preserves the complete title as a single accessible H1. */
-export function PageHero({eyebrow,title,description,highlight,breadcrumbs,children}:PageHeroProps){
+export function PageHero({eyebrow,title,description,highlight,breadcrumbs,variant='default',children}:PageHeroProps){
   const accent=highlight??title.slice(title.lastIndexOf(' ')+1);
   const index=title.lastIndexOf(accent);
-  return <section className={styles.hero} aria-labelledby="page-title" data-page-hero>
+  return <section className={`${styles.hero}${variant==='system'?` ${styles.system}`:''}`} aria-labelledby="page-title" data-page-hero data-system-page={variant==='system'||undefined}>
     <div className="container">
       <Breadcrumbs items={breadcrumbs??[{label:title}]} tone="inverse" className={styles.breadcrumbs}/>
       <span className={styles.eyebrow}>{eyebrow}</span>
