@@ -6,7 +6,7 @@ import styles from "./home.module.css";
 
 function GrowthIllustration() {
   return <svg className={styles.growthIllustration} viewBox="0 0 260 130" fill="none" aria-hidden="true">
-    <defs><linearGradient id="home-growth-fill" x1="130" y1="15" x2="130" y2="125" gradientUnits="userSpaceOnUse"><stop stopColor="#00bd94" stopOpacity=".5"/><stop offset="1" stopColor="#fff" stopOpacity=".02"/></linearGradient></defs>
+    <defs><linearGradient id="home-growth-fill" x1="130" y1="15" x2="130" y2="125" gradientUnits="userSpaceOnUse"><stop stopColor="var(--color-illustration)" stopOpacity=".5"/><stop offset="1" stopColor="#fff" stopOpacity=".02"/></linearGradient></defs>
     <path d="M12 117C53 110 65 102 88 93S128 73 150 62S194 40 218 23L248 6V118H12Z" fill="url(#home-growth-fill)"/>
     <path d="M12 117C53 110 65 102 88 93S128 73 150 62S194 40 218 23L248 6" stroke="white" strokeWidth="2"/>
     <path d="M12 118H249" stroke="white" strokeOpacity=".3"/>

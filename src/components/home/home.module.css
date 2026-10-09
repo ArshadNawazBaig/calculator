@@ -3,23 +3,23 @@
 .intro h1 { font-size: clamp(32px,3.4vw,40px); font-weight: 750; line-height: 1.2; letter-spacing: -.055em; color: var(--color-ink); }
 .intro>p { color: var(--color-muted); font-size: 16px; line-height: 1.5; margin-top: 4px; }
 .searchWrap { position: relative; max-width: 690px; margin: 14px auto 0; }
-.searchWrap :global(.search) { border-color: #d0dce6; border-radius: 6px; padding: 0 0 0 16px; gap: 13px; box-shadow: 0 2px 5px #03234404; }
+.searchWrap :global(.search) { border-color: var(--color-line); border-radius: 6px; padding: 0 0 0 16px; gap: 13px; box-shadow: 0 2px 5px color-mix(in srgb,var(--color-ink) 2%,transparent); }
 .searchWrap :global(.search input) { height: 42px; font-size: 14px; }
 .searchWrap :global(.search .button) { border-radius: 0 5px 5px 0; padding: 0; min-height: 44px; min-width: 55px; }
-.searchHint { position: absolute; left: calc(100% + 18px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 12px; color: #64748b; }
-.searchHint kbd { display: inline-grid; place-items: center; width: 24px; height: 25px; font-family: inherit; border: 1px solid #d4dfe8; border-radius: 4px; background: #f7f9fc; color: var(--color-ink); }
-.filters { max-width: 630px; margin: 10px auto 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); padding: 3px; background: #f6f8fb; border: 1px solid #e5ebf1; border-radius: 6px; }
-.filters button { position: relative; border: 0; border-radius: 4px; color: #405168; background: transparent; padding: 6px 10px; line-height: 1.5; font-size: 12px; font-weight: 500; }
-.filters button+button::before { content: ""; position: absolute; left: -1px; top: 25%; height: 50%; border-left: 1px solid #dce5ed; }
-.filters button[aria-pressed="true"] { background: #e1eefc; color: #005bc7; font-weight: 650; }
+.searchHint { position: absolute; left: calc(100% + 18px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 12px; color: var(--color-muted); }
+.searchHint kbd { display: inline-grid; place-items: center; width: 24px; height: 25px; font-family: inherit; border: 1px solid var(--color-line); border-radius: 4px; background: var(--color-surface); color: var(--color-ink); }
+.filters { max-width: 630px; margin: 10px auto 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); padding: 3px; background: var(--color-soft); border: 1px solid var(--color-line); border-radius: 6px; }
+.filters button { position: relative; border: 0; border-radius: 4px; color: var(--color-text-secondary); background: transparent; padding: 6px 10px; line-height: 1.5; font-size: 12px; font-weight: 500; }
+.filters button+button::before { content: ""; position: absolute; left: -1px; top: 25%; height: 50%; border-left: 1px solid var(--color-line); }
+.filters button[aria-pressed="true"] { background: var(--color-selected); color: var(--color-brand-dark); font-weight: 650; }
 .filters button[aria-pressed="true"]::before,.filters button[aria-pressed="true"]+button::before { display: none; }
-.filters button:hover { color: var(--color-brand); background: #eaf2fa; }
+.filters button:hover { color: var(--color-brand); background: var(--color-brand-soft); }
 .featuredLayout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
-.spotlight { position: relative; isolation: isolate; overflow: hidden; min-height: 268px; border-radius: 7px; color: #fff; padding: 25px 28px; background: linear-gradient(112deg,#0063da 0%,#005bc9 68%,#005bba 100%); }
-.spotlight::after { content: ""; position: absolute; inset: auto -90px -150px auto; width: 390px; height: 300px; border-radius: 50%; background: radial-gradient(ellipse,#00a07855,transparent 68%); z-index: -1; }
-.spotlightLabel { display: block; font-size: 12px; font-weight: 600; letter-spacing: .035em; text-transform: uppercase; color: #d6eaff; }
+.spotlight { position: relative; isolation: isolate; overflow: hidden; min-height: 268px; border-radius: 7px; color: #fff; padding: 25px 28px; background: linear-gradient(112deg,var(--color-brand) 0%,var(--color-brand-dark) 68%,var(--color-brand-dark) 100%); }
+.spotlight::after { content: ""; position: absolute; inset: auto -90px -150px auto; width: 390px; height: 300px; border-radius: 50%; background: radial-gradient(ellipse,color-mix(in srgb,var(--color-accent) 33%,transparent),transparent 68%); z-index: -1; }
+.spotlightLabel { display: block; font-size: 12px; font-weight: 600; letter-spacing: .035em; text-transform: uppercase; color: var(--color-on-brand-muted); }
 .spotlight h2 { font-size: clamp(28px,2.65vw,37px); font-weight: 750; letter-spacing: -.04em; line-height: 1.2; margin: 8px 0; text-wrap: initial; }
-.spotlight>p { max-width: 340px; font-size: 15px; color: #e8f3ff; line-height: 1.6; }
+.spotlight>p { max-width: 340px; font-size: 15px; color: var(--color-on-brand); line-height: 1.6; }
 .spotlightLinks { display: grid; gap: 11px; margin-top: 27px; position: relative; z-index: 1; width: fit-content; }
 .spotlightLinks a { color: #fff; font-size: 14px; font-weight: 550; line-height: 1.5; text-underline-offset: 4px; }
 .spotlightLinks a:hover { text-decoration: underline; }
@@ -41,7 +41,7 @@
 .category h3 { font-size: 16px; font-weight: 700; letter-spacing: -.3px; line-height: 1.4; margin: 2px 0 10px; }
 .category ul { padding: 0; list-style: none; margin: 0 0 12px; display: grid; gap: 5px; }
 .category li { font-size: 13px; line-height: 1.6; }
-.category li a { font-size: 13px; line-height: 1.6; color: #526782; }
+.category li a { font-size: 13px; line-height: 1.6; color: var(--color-muted); }
 .category a:hover { color: var(--color-brand); text-decoration: underline; text-underline-offset: 4px; }
 .categoryAll { display: inline-block; font-size: 12px; line-height: 1.6; font-weight: 550; color: var(--color-brand); }
 @media(min-width:1500px) { .intro { padding-top: 24px; } }
