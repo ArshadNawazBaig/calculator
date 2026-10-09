@@ -248,7 +248,18 @@ th:first-child, td:first-child { text-align: left; }
 
 /* Utility pages and footer */
 .offline-notice { padding: 12px 24px; text-align: center; background: #fff4d9; color: #775719; font-size: 14px; }
-.site-footer { border-top: 1px solid var(--color-line); background: var(--color-surface); padding: 36px 0 22px; }
+.site-footer {
+  --color-ink: #fff;
+  --color-muted: #bcbcbc;
+  --color-text-secondary: #d4d4d4;
+  --color-line: #393939;
+  --color-brand: #0f9b70;
+  --color-focus: #0f9b70;
+  color: var(--color-ink);
+  border-top: 1px solid var(--color-line);
+  background: #191919;
+  padding: 36px 0 22px;
+}
 .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-bottom: 30px; }
 .footer-top .logo { font-size: 28px; }
 .footer-top .logo img { width: 154px; height: auto; }
