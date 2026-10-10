@@ -11,7 +11,7 @@
 .root[data-open]>.selectTrigger>svg { transform: rotate(180deg); }
 .selectValue { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .selectValue[data-placeholder] { color: var(--color-muted); }
-.selectPopover,.calendarPopover { z-index: 80; border: 1px solid var(--color-line); border-radius: 10px; background: #fff; color: var(--color-ink); box-shadow: 0 12px 34px color-mix(in srgb,var(--color-ink) 13%,transparent); outline: none; max-width: calc(100vw - 24px); }
+.selectPopover,.calendarPopover { z-index: 110; border: 1px solid var(--color-line); border-radius: 10px; background: #fff; color: var(--color-ink); box-shadow: 0 12px 34px color-mix(in srgb,var(--color-ink) 13%,transparent); outline: none; max-width: calc(100vw - 24px); }
 .selectPopover { width: var(--trigger-width); min-width: 140px; display: flex; flex-direction: column; overflow: hidden; }
 .optionList { padding: 5px; overflow: auto; min-height: 0; outline: none; overscroll-behavior: contain; }
 .option { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 10px; border-radius: 5px; font-size: 14px; line-height: 1.5; cursor: pointer; outline: none; }

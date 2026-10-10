@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-10T05:56:03.550360+00:00",
+  "scope": "Local production build with indexing enabled. Deployment and live checks are recorded separately.",
+  "preferences": {
+    "languages": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar"
+    ],
+    "suggestedCountryByLanguage": {
+      "en": "US",
+      "es": "ES",
+      "fr": "FR",
+      "de": "DE",
+      "pt": "BR",
+      "ar": "AE"
+    },
+    "storage": "Validated country and currency only, in localStorage. No calculator inputs or results.",
+    "conversion": "None. Input amounts and calculation algorithms remain unchanged.",
+    "regionalPolicy": "Explicitly reviewed selectable models; regional tools and modes keep required currencies. Currency converter pairs and table headers stay independent."
+  },
+  "checks": {
+    "typecheck": "passed",
+    "eslint": "passed",
+    "unitTests": 2858,
+    "productionBuild": "passed",
+    "browserRegressionTests": 30,
+    "coverage": [
+      "country default and manual currency override",
+      "persistence across reloads and language changes",
+      "reset to language defaults",
+      "unchanged input values and calculation results",
+      "currency-labelled table and CSV output",
+      "regional USD/CAD/GBP constraints",
+      "mixed-purpose historical CPI versus assumed inflation modes",
+      "independent currency converter pair and table headings",
+      "Arabic mobile RTL and accessibility",
+      "blocked storage fallback",
+      "disabled inputs until hydration",
+      "responsive layouts and existing navigation/indexing checks"
+    ]
+  }
+}

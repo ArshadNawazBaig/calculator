@@ -17,11 +17,17 @@
 .mobileNav { position: absolute; inset-inline: 0; top: 100%; display: grid; gap: 4px; padding: 12px 20px 20px; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; border-bottom: 1px solid #393939; background: #191919; box-shadow: 0 12px 24px #00000024; }
 .mobileNav a { padding: 11px 12px; border-radius: 5px; color: #d0d0d0; font-size: 15px; font-weight: 550; }
 .mobileNav a:hover,.mobileNav a[aria-current="page"] { color: #6ee7b7; background: #242424; }
-.languagePopover { width: 250px; max-width: calc(100vw - 24px); z-index: 90; border: 1px solid var(--color-line); border-radius: 9px; background: #fff; color: var(--color-ink); box-shadow: 0 10px 30px #00000026; }
+.languagePopover { width: 340px; max-width: calc(100vw - 24px); max-height: var(--available-height); overflow-y: auto; z-index: 90; border: 1px solid var(--color-line); border-radius: 9px; background: #fff; color: var(--color-ink); box-shadow: 0 10px 30px #00000026; }
 .languageDialog { padding: 8px; outline: none; }
 .languageDialog>p { padding: 6px 9px 10px; font-size: 11px; color: var(--color-muted); }
 .languageOption { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; border-radius: 5px; color: var(--color-ink); padding: 11px 9px; font-size: 13px; }
 .languageOption:hover,.languageOption[aria-current] { background: var(--color-brand-soft); color: var(--color-brand-dark); }
+.languageDialog>nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3px; }
+.regionPreferences { display: grid; gap: 14px; margin: 8px 8px 4px; padding-top: 16px; border-top: 1px solid var(--color-line); }
+.regionPreferences label { display: block; margin-bottom: 7px; color: var(--color-ink); font-size: 12px; font-weight: 650; }
+.regionPreferences>p { margin: 0; font-size: 11px; line-height: 1.6; color: var(--color-muted); }
+.regionPreferences>p+p { margin-top: -7px; }
+.resetPreferences { justify-self: start; border: 0; background: none; color: var(--color-brand-dark); padding: 5px 0; font: inherit; font-size: 12px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
 .searchOverlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: start; justify-content: center; overflow-y: auto; padding: min(14vh,112px) 20px 24px; background: #00000070; backdrop-filter: blur(5px); }
 .searchModal { width: min(620px,100%); border: 1px solid var(--color-line); border-radius: 12px; background: #fff; box-shadow: 0 24px 80px #00000033; }
 .searchDialog { padding: 20px; outline: none; }
@@ -50,6 +56,7 @@
   .mobileControl { display: block; }
 }
 @media(max-width:600px) {
+  .currencyCode { display: none; }
   .searchOverlay { padding: 16px 12px 24px; }
   .searchDialog { padding: 16px; }
   .searchHeading h2 { font-size: 18px; }
