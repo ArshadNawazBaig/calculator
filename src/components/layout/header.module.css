@@ -20,8 +20,9 @@
 .languagePopover { width: 340px; max-width: calc(100vw - 24px); max-height: var(--available-height); overflow-y: auto; z-index: 90; border: 1px solid var(--color-line); border-radius: 9px; background: #fff; color: var(--color-ink); box-shadow: 0 10px 30px #00000026; }
 .languageDialog { padding: 8px; outline: none; }
 .languageDialog>p { padding: 6px 9px 10px; font-size: 11px; color: var(--color-muted); }
-.languageOption { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; border-radius: 5px; color: var(--color-ink); padding: 11px 9px; font-size: 13px; }
-.languageOption:hover,.languageOption[aria-current] { background: var(--color-brand-soft); color: var(--color-brand-dark); }
+.languageOption { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; border-radius: 5px; background: var(--color-brand-soft); color: var(--color-brand-dark); padding: 11px 9px; font-size: 13px; }
+.languageOption:hover { background: var(--color-selected); }
+.languageOption[aria-current="true"] { background: var(--color-brand-dark); color: #fff; }
 .languageDialog>nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3px; }
 .regionPreferences { display: grid; gap: 14px; margin: 8px 8px 4px; padding-top: 16px; border-top: 1px solid var(--color-line); }
 .regionPreferences label { display: block; margin-bottom: 7px; color: var(--color-ink); font-size: 12px; font-weight: 650; }
