@@ -2,9 +2,11 @@ import {NextRequest, NextResponse} from 'next/server';
 
 export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  if (path === '/401K-calculator') {
+  // Config redirects match paths without case sensitivity, which would also
+  // redirect the lowercase canonical URL to itself. Check the case here.
+  if (/^\/(?:(?:es|fr|de|pt|ar)\/)?401K-calculator$/.test(path)) {
     const target = request.nextUrl.clone();
-    target.pathname = '/401k-calculator';
+    target.pathname = path.replace('/401K-calculator', '/401k-calculator');
     return NextResponse.redirect(target, 308);
   }
   if (process.env.MAINTENANCE_MODE === 'true' && !path.startsWith('/_next/') && !path.includes('.') && path !== '/api/health') {

@@ -70,7 +70,12 @@ test('server HTML has localized metadata and invalid localized routes return 404
     expect(html).toContain('hrefLang="x-default"');
   }
   expect((await request.get('/fr/not-a-real-calculator')).status()).toBe(404);
-  expect(await (await request.get('/es/mortgage-calculator')).text()).toContain('name="robots" content="noindex, follow"');
+  const calculatorHtml=await (await request.get('/es/mortgage-calculator')).text();
+  expect(calculatorHtml).toContain('hrefLang="ar" href="https://finflo.org/ar/mortgage-calculator"');
+  expect(calculatorHtml).not.toContain('class="translation-notice"');
+  for(const locale of ['es','fr','de','pt','ar']){
+    expect((await request.get(`/${locale}/401k-calculator`,{maxRedirects:0})).status()).toBe(200);
+  }
   const redirects=await request.get('/en/calculators',{maxRedirects:0});expect(redirects.status()).toBe(308);
 });
 
@@ -100,5 +105,20 @@ test('translated pages retain accessible contrast and fit narrow and desktop scr
       await page.goto(`/${locale}`);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),`${locale} at ${width}px`).toBe(true);
     }
+  }
+});
+
+test('calculator articles, guides, and policies have translated server content',async({page})=>{
+  for(const locale of ['es','fr','de','pt','ar']){
+    await page.goto(`/${locale}/mortgage-calculator`);
+    await expect(page.locator('#how-it-works')).toBeVisible();
+    expect(await page.locator('#how-it-works').innerText()).not.toContain('How to use this calculator');
+    expect(await page.locator('.calculator-form label').first().innerText()).not.toContain('Home price');
+    await expect(page.locator('.translation-notice')).toHaveCount(0);
+    await page.goto(`/${locale}/privacy`);
+    expect(await page.locator('.document-body').innerText()).not.toContain('Calculator inputs and results');
+    await page.goto(`/${locale}/guides/bmi-as-a-screening-tool`);
+    expect(await page.locator('.document-body').innerText()).not.toContain('Who the adult categories are for');
+    await expect(page.locator('.document-body a[href$="/bmi-calculator"]').first()).toHaveAttribute('href',`/${locale}/bmi-calculator`);
   }
 });

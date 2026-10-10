@@ -54,7 +54,8 @@ describe('multilingual navigation and content', () => {
   it('only advertises complete translations to search engines', () => {
     expect(languageAlternates('/calculators/finance')?.ar).toBe('https://finflo.org/ar/calculators/finance');
     expect(languageAlternates('/calculators/finance')?.['x-default']).toBe('https://finflo.org/calculators/finance');
-    expect(languageAlternates('/mortgage-calculator')).toBeUndefined();
+    expect(languageAlternates('/mortgage-calculator')?.de).toBe('https://finflo.org/de/mortgage-calculator');
+    expect(languageAlternates('/search')).toBeUndefined();
     const meta = pageMetadata('Hypothek','Beschreibung','/mortgage-calculator',false,'de');
     expect(meta.alternates?.canonical).toBe('/de/mortgage-calculator');
     expect(meta.robots).toEqual({index:false,follow:true});

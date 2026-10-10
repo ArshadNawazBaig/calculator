@@ -6,11 +6,13 @@ Finflo supports English, Spanish, French, German, Portuguese and Arabic. English
 
 - All 204 calculator names, category and subcategory names, localized homepages and directories.
 - Header, footer, language menu, live search, category filters and search results.
-- Shared calculator actions, common field/mode labels, result labels, dropdown controls, calendar controls and export actions. The eight featured calculators have expanded mode, field and result-label coverage.
+- Calculator instructions, mode and field labels, hints, result labels and explanations, formulas, worked examples, FAQs and source labels for all 201 implemented calculators.
+- The three guides and nine information/policy pages, including privacy, terms, accessibility and methodology.
+- Shared calculator actions, validation messages, dropdown/calendar controls, file and coordinate tools, and export actions.
 - Locale-aware result numbers and currency formatting; calendars use the Gregorian calendar with localized month/day controls. Arabic uses RTL and Noto Sans Arabic alongside the existing Manrope Latin font.
 - Localized error, missing-page and connection/maintenance page introductions.
 
-This is interface and discovery localization, not a claim that every article and specialized method has been fully translated. Technical explanations, formula references, guides, policies and some specialized field/mode labels retain English source content. Mixed-language pages display an explicit notice and a link to the English version. Original reference text is marked `lang="en"` and `dir="ltr"`. Full legal, editorial and specialist-calculator translation remains separate work.
+The extended content dictionaries were generated with local OPUS translation models and corrected where the numerical, placeholder and sample content checks found problems. They have not undergone a comprehensive native-speaker or licensed professional review. Formulas, source URLs, regional assumptions and calculation algorithms remain those of the English source. User-entered strings, identifiers and scientific notation are intentionally preserved.
 
 Language suggests a default country and currency unless the visitor has saved a preference. The language menu offers country and currency controls, and eligible calculators also have a currency selector. A country selection suggests its currency; an explicit currency override remains available. Preferences persist in local storage across pages, reloads and languages. “Use language defaults” removes the saved choice. No location lookup, exchange-rate request, cookie or new service is needed.
 
@@ -22,28 +24,28 @@ Suggested countries are US for English, Spain for Spanish, France for French, Ge
 
 ## Structure and search
 
-`src/lib/i18n/config.ts` owns locales, paths and translation lookup. `src/data/locales/*.json` contains the five checked-in dictionaries. English source labels are fallback keys; calculator names use `tool.<slug>`. Each locale loads only its own dictionary into `LanguageProvider`. Shared components and the locale-aware Link keep internal navigation in the selected language.
+`src/lib/i18n/config.ts` owns locales, paths and translation lookup. `src/data/locales/*.json` contains the five checked-in dictionaries. English source labels are fallback keys; calculator names use `tool.<slug>`. Each locale loads only its shared interface dictionary into `LanguageProvider`. Longer content lives in `src/data/locales/content/<locale>.json` and is translated during server rendering. Calculator forms receive only their page messages and relevant category engine messages through `TranslationMessages`; the entire article library is not shipped to the client. Shared components and the locale-aware Link keep internal navigation in the selected language.
+
+`scripts/i18n-source.mjs` extracts source content and engine/UI messages. `npm run i18n:check` fails for missing translations or interpolation placeholders. After editing translations, `node scripts/check-translations.mjs --write-manifests` refreshes page/category message bundles and the indexable route manifest only when every language passes coverage. Dynamic engine messages use anchored templates; raw string result values never pass through this matcher.
 
 `src/lib/i18n/preferences.ts` validates the country/currency allowlists and language defaults. The client preferences provider uses a stable server snapshot so static HTML and hydration agree, synchronizes storage changes across tabs, and falls back to in-memory preferences when storage is blocked. `src/lib/calculators/currency-policy.ts` contains the reviewed selectable models and fixed regional exceptions; new algorithms must be reviewed before accepting a currency override. Preferences do not affect canonical URLs, indexing or static caching.
 
-English pages live in the `(en)` route group without changing their public URLs. Each other language has a small static route wrapper using shared layout and page factories. Home/category pages and popular calculators are prerendered; other existing tools are rendered on demand and cached. Unknown paths return 404. `/en/*` and legacy calculator aliases redirect permanently to the canonical path.
+English pages live in the `(en)` route group without changing their public URLs. Each other language has a small static route wrapper using shared layout and page factories. Every sitemap page in each language is included in the prerender list; other valid system or unavailable-tool routes can render on demand and remain excluded from indexing. Unknown paths return 404. `/en/*` and legacy calculator aliases redirect permanently to the canonical path.
 
 Search includes translated names and the original English names/slugs. Unicode normalization ignores accents and Arabic vowel marks while keeping category restrictions. Adding a new calculator requires a name in every dictionary; the coverage test enforces this.
 
 ## Indexing
 
-The 27 complete discovery/landing pages have reciprocal `hreflang` links for all six languages and English `x-default`. Their localized versions are self-canonical and included in the sitemap. The current sitemap contains 377 URLs: 242 existing English pages and 135 translated landing pages.
+All 242 sitemap paths have versions in six languages, for **1,452 URLs**: 242 each in English, Spanish, French, German, Portuguese and Arabic. Each version has a self-canonical URL, reciprocal `hreflang` links and English `x-default`. The same manifest controls localized metadata, sitemap expansion and static generation.
 
-Mixed-language tool, guide and policy pages are self-canonical but **noindex**. They are not included in the sitemap or advertised as completed language alternates. Original English calculator pages remain indexable. Expand this coverage only after the corresponding article, methods, examples and specialist interface strings are translated and checked. Preview hostname HTTP noindex protections continue to apply to every language.
+Search, status and unavailable-tool pages remain **noindex** and outside the sitemap. Unknown paths return 404. `NEXT_PUBLIC_INDEXABLE=false` still disables indexing and returns an empty sitemap; noncanonical-host HTTP noindex protections also remain in place.
 
 ## Verification
 
-- Production build succeeds with indexing enabled: 411 prerendered routes plus on-demand localized routes.
-- Full calculator/unit suite: 2,858 passing tests, including translation coverage, route/search behavior, currency policies and preservation of textual calculator outputs.
-- Country/currency controls, persistence, exports, regional exceptions, blocked storage and hydration were checked in the production build. The language and existing site regression suites also passed (30 browser checks in total). See [currency preference validation](validation/currency-preferences.json).
-- Seven language browser checks passed locally and on the deployed Railway origin. They cover waiting for interactive handlers on slow connections, switching, translated suggestions and category filters, query preservation, Arabic calculation/RTL, French date picker, localized metadata, 404s, accessibility and layouts from 360px to 1440px.
-- Existing English site and search browser checks were run; a category-message regression was corrected and the search suite passed.
-- Local production crawl: all 377 sitemap pages and 1,450 internal paths resolve, with correct canonical/indexing behavior. See [the report](validation/multilingual-indexing.json). This does not establish custom-domain DNS/TLS or Google indexing.
-- Live HTTPS audit: all 377 sitemap pages and 30 representative mixed-language calculator pages passed, using normal TLS verification against `https://finflo.org`. See [the live report](validation/live-indexing-readiness.json). Google Search Console ownership and indexing remain separate account actions.
+The October 10, 2026 local production check passed for all 1,452 sitemap URLs: HTTP 200, canonical URLs, indexing permission, document languages and seven language alternates. All 2,868 unit tests, TypeScript, lint and the production build passed. The eight language browser checks passed, including a focused rerun after fixing the localized 401(k) redirect loop. See the [expanded sitemap validation](validation/multilingual-content.json).
 
-Run `npm test`, `npm run lint` and `npm run build`. Browser checks use `TEST_URL=<running-site> TEST_INDEXABLE=true npx playwright test tests/e2e/languages.spec.ts tests/e2e/search.spec.ts` against an indexable production build.
+The translation tests cover dictionary coverage, placeholder substitution, raw user-output preservation, localized server articles, all 1,452 sitemap entries, reciprocal alternates and preview indexing protection. The language browser suite covers translated calculator articles, guides and policies alongside existing navigation, calculation, RTL, accessibility and responsive-layout checks.
+
+Run `npm run i18n:check`, `npm test`, `npm run typecheck`, `npm run lint` and `npm run build`. Browser checks use `TEST_URL=<running-site> npx playwright test tests/e2e/languages.spec.ts`.
+
+The earlier [live audit](validation/live-indexing-readiness.json) records the previous 377-URL deployment. Local verification of the expanded sitemap does not imply deployment or that Google has indexed its URLs. Submit the existing `/sitemap.xml` address after deployment; Search Console will need to fetch and process the expanded file.

@@ -14,8 +14,10 @@ import {isFieldActive} from '@/lib/calculators/field-visibility';
 import {calculate} from '@/lib/calculators/engine';
 import {useCalculatorTool} from './use-calculator-tool';
 import dynamic from 'next/dynamic';
-const Base64Files=dynamic(()=>import('./base64-files').then(m=>m.Base64Files),{loading:()=> <p>Loading local file tools…</p>});
-const GeographicPicker=dynamic(()=>import('./geographic-picker').then(m=>m.GeographicPicker),{loading:()=> <p className="field-help">Loading coordinate picker…</p>});
+function FileToolsLoading(){const {t}=useI18n();return <p>{t('Loading local file tools…')}</p>;}
+function CoordinatesLoading(){const {t}=useI18n();return <p className="field-help">{t('Loading coordinate picker…')}</p>;}
+const Base64Files=dynamic(()=>import('./base64-files').then(m=>m.Base64Files),{loading:FileToolsLoading});
+const GeographicPicker=dynamic(()=>import('./geographic-picker').then(m=>m.GeographicPicker),{loading:CoordinatesLoading});
 import {ExpressionControls} from './expression-controls';
 import {FieldGroup} from './field-group';
 import {CalculatorResult} from './result';

@@ -48,7 +48,7 @@ export function runVehicleTax(v: Values): Result {
   }
   const a = scenario(v, price, rebate, apr); nonnegative(a.principal, 'Financed principal');
   const money = (label: string, value: number) => m(label, value, 'money');
-  const notes = [a.method + '. Rates remain your entered state/local or vehicle-tax rate; selecting a state never guesses a combined local rate.', ...a.state.notes, 'Selling price is after unreimbursed dealer discounts. Manufacturer rebates are separate. An eligible trade uses gross allowance, while trade loan payoff adds to financing. Taxable dealer fees and nontaxable government fees are paid once.', 'State treatment was checked October 9, 2026. Private sales, leased trades, exemptions, separately sold vehicle credits, special vehicle classes, valuation floors and layered local taxes require their own verified treatment.'];
+  const notes = [`${a.method}. Rates remain your entered state/local or vehicle-tax rate; selecting a state never guesses a combined local rate.`, ...a.state.notes, 'Selling price is after unreimbursed dealer discounts. Manufacturer rebates are separate. An eligible trade uses gross allowance, while trade loan payoff adds to financing. Taxable dealer fees and nontaxable government fees are paid once.', 'State treatment was checked October 9, 2026. Private sales, leased trades, exemptions, separately sold vehicle credits, special vehicle classes, valuation floors and layered local taxes require their own verified treatment.'];
   if (v.solve === 'compare') {
     const vb=v.taxMethod==='quoted'?{...v,quotedTax:v.promotionalQuotedTax}:v;
     const b = scenario(vb, price, 0, num(v, 'promotionalAprPercent')); nonnegative(b.principal, 'Promotional financed principal');

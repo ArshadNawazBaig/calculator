@@ -16,7 +16,6 @@ const config: NextConfig = {
       { source: "/en/:path*", destination: "/:path*", permanent: true },
       { source: "/:locale(es|fr|de|pt|ar)/percentage-calculator", destination: "/:locale/percent-calculator", permanent: true },
       { source: "/:locale(es|fr|de|pt|ar)/terms-and-services", destination: "/:locale/terms", permanent: true },
-      { source: "/:locale(es|fr|de|pt|ar)/401K-calculator", destination: "/:locale/401k-calculator", permanent: true },
     ];
   },
 };

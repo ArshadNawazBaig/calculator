@@ -14,7 +14,8 @@
     "verify": "npm run typecheck && npm run lint && npm test && npm run build",
     "build:sites": "node scripts/build-sites.mjs",
     "preview:worker": "wrangler dev --config wrangler.staged.json --port 3101",
-    "coverage:manifest": "node scripts/export-coverage.mjs"
+    "coverage:manifest": "node scripts/export-coverage.mjs",
+    "i18n:check": "node scripts/check-translations.mjs"
   },
   "engines": {
     "node": "22.x"

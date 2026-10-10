@@ -5,6 +5,16 @@ import {proxy} from '@/proxy';
 afterEach(() => vi.unstubAllEnvs());
 
 describe('production indexing', () => {
+  it('redirects legacy 401K spelling without looping on canonical language URLs', () => {
+    for (const prefix of ['', '/es', '/fr', '/de', '/pt', '/ar']) {
+      const old = proxy(new NextRequest(`https://finflo.org${prefix}/401K-calculator?example=1`));
+      expect(old.status).toBe(308);
+      expect(old.headers.get('location')).toBe(`https://finflo.org${prefix}/401k-calculator?example=1`);
+      const canonical = proxy(new NextRequest(`https://finflo.org${prefix}/401k-calculator`));
+      expect(canonical.status).toBe(200);
+      expect(canonical.headers.get('location')).toBeNull();
+    }
+  });
   it('allows the canonical host while keeping preview addresses out of search', () => {
     vi.stubEnv('NEXT_PUBLIC_INDEXABLE', 'true');
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://finflo.org');
