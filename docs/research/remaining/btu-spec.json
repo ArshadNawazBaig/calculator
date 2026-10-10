@@ -171,5 +171,10 @@
     "scope": "Only entered steady conduction; not a cooling design load or Manual J. Excludes solar, humidity, ducts, ventilation and time-varying storage."
   },
   "unresolvedCompetitorFactors": "No verified primary coefficients for generic insulation/climate/room-type multiplier controls. Do not invent coefficients or infer competitor hidden formulas. A transparent user-entered heat-loss coefficient / design temperature alternative is local, but does not close full sizing parity.",
-  "rights": "Formula facts and original explanations can be implemented without reproducing manual charts; source availability is not a claim of ACCA approval or legal clearance."
+  "rights": "Formula facts and original explanations can be implemented without reproducing manual charts; source availability is not a claim of ACCA approval or legal clearance.",
+  "implementationUpdate": {
+    "reviewedOn": "2026-10-10",
+    "report": "docs/research/remaining/implementation-update-2026-10-10.json",
+    "note": "Earlier research retained as historical evidence. Use the linked update and remaining-mode audit for current implementation and limits."
+  }
 }

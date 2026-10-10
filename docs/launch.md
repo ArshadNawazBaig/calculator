@@ -6,7 +6,7 @@ Finflo has server-rendered descriptions, methods, assumptions, worked examples, 
 
 The production build was checked with indexing enabled and the `finflo.org` Host header. All 377 sitemap URLs returned HTTP 200, had matching canonical URLs, titles, descriptions and one H1, and allowed indexing. All 1,450 distinct internal link paths resolved. Search, status, unavailable and partially translated pages remain noindex and excluded from the sitemap; unknown pages return a real 404. The www redirect preserves paths and query strings, and the temporary Railway hostname retains noindex. See [the multilingual indexing audit](validation/multilingual-indexing.json). These checks establish application behavior, not live custom-domain connectivity or Google's indexing decision.
 
-The current source adds calculator articles, specialist interfaces, guides and policy translations in Spanish, French, German, Portuguese and Arabic. With production indexing enabled, the sitemap expands to 1,452 URLs: 242 in each language, with reciprocal alternates and English `x-default`. English URLs remain unchanged. See [translation coverage and review limits](internationalization.md). The 377-URL audit records above and below describe the earlier deployment; they do not certify the expanded version as deployed.
+The current source adds calculator articles, specialist interfaces, guides and policy translations in Spanish, French, German, Portuguese and Arabic. With production indexing enabled, the sitemap expands to 1,458 URLs: 243 in each language, with reciprocal alternates and English `x-default`. English URLs remain unchanged. See [translation coverage and review limits](internationalization.md). The 377-URL audit records above and below describe the earlier deployment; they do not certify the expanded version as deployed.
 
 **Live domain verified:** Railway reports both custom domains verified with valid certificates. Normal HTTPS requests to `https://finflo.org` succeed, HTTP redirects to HTTPS, and www permanently redirects to the apex while preserving paths and queries. The [live indexing audit](validation/live-indexing-readiness.json) checked all 377 sitemap pages and 30 representative mixed-language calculator pages with no failures. Robots, canonical/indexing metadata, missing-page responses and preview-host protections were also checked. The site is technically ready for Search Console submission; these checks do not establish Google's indexing decision.
 
@@ -14,7 +14,7 @@ Add a Domain property for `finflo.org` in Google Search Console and publish the 
 
 ## Release prerequisites
 
-- Review [remaining material modes](audit/remaining-modes.json). Two tools are unavailable; several specific advanced methods need authorized data or an independently verified specification. Preserve honest page limitations and noindex for unavailable tools.
+- Review [remaining material modes](audit/remaining-modes.json). WeightWatchers is the only unavailable whole tool. Khamis–Roche, Borg scales and generic BTU load presets retain specific unresolved data or licence requirements. Preserve honest page limitations and noindex for unavailable tools.
 - Review numerical, UI, accessibility, metadata and production build evidence in [verification](verification.md). Lab measurements do not establish real-user p75 Core Web Vitals.
 - Confirm the public operator identity, applicable contact/business disclosures and the actual hosting provider's logging, retention and processing arrangements. The authorized email is erushbaig@gmail.com. No company address or legal entity was supplied or invented.
 - Confirm hosting pricing, commercial use, external data reuse/attribution, runtime bindings and operational limits. The private preview does not establish a paid production account contract.
@@ -42,3 +42,13 @@ Review time-dependent datasets before their effective year changes and whenever 
 ## Advertising
 
 Ad placements are modular and disabled. No publisher ID, analytics endpoint, cookie banner or ad request is fabricated. Before activation, use the actual publisher configuration, required ads.txt entry and appropriate consent controls. Google publisher ads for EEA/UK/Swiss traffic require its current certified-CMP/TCF arrangements; see [Google's requirement](https://support.google.com/adsense/answer/13554020?hl=en). Test actual network behavior, withdrawal and reserved layout space. Never send calculator inputs or results in ad/analytics payloads.
+
+## Road-routing operation
+
+The mileage calculator now uses a Node route handler at `/api/road-route`. The default providers are Nominatim for explicit place searches and FOSSGIS/OSRM for driving routes. No route request runs during page generation or on typing. Users select matching locations before requesting mileage. Requests identify Finflo, include attribution, and are paced at least 1.1 seconds apart for each provider; an excessive queue returns 429. There is no straight-line fallback.
+
+The in-memory limiter covers one Node process only. Run **one server process and one replica** when using the default public providers. For multiple processes, replicas or sustained traffic, configure `ROAD_GEOCODER_URL` (a Nominatim-compatible search endpoint) and `ROAD_ROUTER_URL` (an OSRM-compatible base endpoint) through an operated service or a shared gateway that enforces provider-wide quotas. These environment settings require a server restart. Set `ROAD_ROUTING_ENABLED=false` to disable requests. Provider swaps must also update the visible attribution and privacy policy.
+
+Search responses expire from the bounded server-memory cache after 24 hours; route responses after five minutes. No calculator input database or application request-body logging is added. Hosting logs and provider retention are separate. The [Nominatim policy](https://operations.osmfoundation.org/policies/nominatim/) and [FOSSGIS policy](https://routing.openstreetmap.de/about.html) govern the defaults; the public services have no availability guarantee. The local live smoke test succeeded, but deployment configuration has not been changed or verified in this pass.
+
+The verified feature additions and remaining limitations are recorded in [the implementation update](research/remaining/implementation-update-2026-10-10.json), with [validation evidence](validation/remaining-features.json).

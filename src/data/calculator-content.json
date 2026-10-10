@@ -2739,5 +2739,22 @@
         "answer": "A matrix must be square and nonsingular. A zero determinant means no inverse exists, while nearly singular matrices can be numerically sensitive."
       }
     ]
+  },
+  "mileage-calculator": {
+    "description": "Plan a road journey between selected locations.",
+    "faqs": [
+      {
+        "question": "Is this straight-line distance?",
+        "answer": "No. The route follows mapped roads. If a driving route is unavailable, Finflo shows an error instead of substituting straight-line distance."
+      },
+      {
+        "question": "Does the time include traffic?",
+        "answer": "Driving time uses the routing model without live traffic, current closures or stops. Check local conditions before traveling."
+      },
+      {
+        "question": "Why must I select a search result?",
+        "answer": "Place names can have several matches. Choose the full address or location that you mean, then check the road-matched coordinates shown in the result."
+      }
+    ]
   }
 }

@@ -30,7 +30,7 @@
   "implementationIfDataCleared": [
     "Accept a selected brand/chart-group and source-size system. Exact row lookup, not formula interpolation.",
     "Return all matches if a source label repeats. No matching row means unsupported; do not extrapolate at large/small sizes.",
-    "For measured foot length use the selected chart\u2019s measurement row and documented between-size rule; distinguish numeric labels from physical lengths.",
+    "For measured foot length use the selected chart’s measurement row and documented between-size rule; distinguish numeric labels from physical lengths.",
     "Keep supplied-chart data separate from generic length-unit conversion."
   ],
   "referenceFixtures": [
@@ -202,5 +202,10 @@
       }
     ]
   },
-  "parity": "Generic foot-length conversion and custom charts are useful local alternatives but do not close all named regional/adult/child/infant presets."
+  "parity": "Generic foot-length conversion and custom charts are useful local alternatives but do not close all named regional/adult/child/infant presets.",
+  "implementationUpdate": {
+    "reviewedOn": "2026-10-10",
+    "report": "docs/research/remaining/implementation-update-2026-10-10.json",
+    "note": "Earlier research retained as historical evidence. Use the linked update and remaining-mode audit for current implementation and limits."
+  }
 }

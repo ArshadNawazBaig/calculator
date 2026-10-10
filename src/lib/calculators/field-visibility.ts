@@ -1,5 +1,14 @@
 import type {Mode,Values,Field} from './types';
 export function isFieldActive(mode:Mode,field:Field,values:Values):boolean{const key=field.key,a=mode.algorithm;
+ if(a==='road-route'&&['lat1','lon1','lat2','lon2'].includes(key)&&values.locationInput==='places')return false;
+ if(a==='shoe-regions'){
+  if(key==='size'&&values.source==='foot')return false;
+  if(['length','lengthUnit'].includes(key)&&values.source!=='foot')return false;
+ }
+ if(a==='heat-loss'){
+  if(key==='surfaces'&&values.envelopeInput!=='components')return false;
+  if(['ua','uaUnit'].includes(key)&&values.envelopeInput==='components')return false;
+ }
  if(['bra','bra-legacy','fashion-ffit'].includes(a)){if(key==='measurementUnit'&&values.unitScheme==='individual')return false;if(['underUnit','bustUnit','waistUnit','hipUnit','highHipUnit'].includes(key)&&values.unitScheme!=='individual')return false;}
  if(a==='vehicle-state-tax'){
   if((key==='price'&&values.solve==='price')||(key==='payment'&&values.solve!=='price'))return false;

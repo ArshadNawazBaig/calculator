@@ -82,7 +82,7 @@ export async function translationSource() {
       for (const key of owned) keys.add(key);
       for (const mode of definition.modes) {
         // No network requests during extraction. Provider messages are scanned below.
-        if (['currency-reference', 'currency-global'].includes(mode.algorithm)) continue;
+        if (['currency-reference', 'currency-global', 'road-route'].includes(mode.algorithm)) continue;
         const category = pageCategories[definition.slug];
         try {
           const result = await calculate(category, mode, defaults(mode));
@@ -113,7 +113,8 @@ export async function translationSource() {
     }
     for (const category of ['finance', 'health', 'math', 'everyday']) {
       const categoryKeys = await dependencyKeys(resolve(root, `src/lib/calculators/${category}-engine.ts`));
-      if (category === 'everyday') for (const key of await dependencyKeys(resolve(root, 'src/lib/calculators/base64-codec.ts'))) categoryKeys.add(key);
+      if (category === 'everyday') for (const helper of ['base64-codec', 'road-route']) for (const key of await dependencyKeys(resolve(root, `src/lib/calculators/${helper}.ts`))) categoryKeys.add(key);
+      if (category === 'everyday') for (const key of (await sourceModule(resolve(root, 'src/app/api/road-route/route.ts'))).keys) categoryKeys.add(key);
       runtime[category] = [...new Set([...common, ...categoryKeys, ...rendered[category]])].sort();
       runtime[category].forEach(key => keys.add(key));
     }

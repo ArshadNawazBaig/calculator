@@ -65,17 +65,17 @@ describe('complete localized content', () => {
   it('publishes all six variants with reciprocal alternates and excludes system pages', () => {
     site.indexable = true;
     const entries = sitemap();
-    expect(translatedPages).toHaveLength(242);
-    expect(entries).toHaveLength(1452);
+    expect(translatedPages).toHaveLength(243);
+    expect(entries).toHaveLength(1458);
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length);
-    for (const path of ['/mortgage-calculator', '/guides/compound-interest-and-contributions', '/privacy']) {
+    for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy']) {
       expect(translatedPages).toContain(path);
       const variants = languageAlternates(path)!;
       for (const locale of locales) expect(variants[locale]).toBeTruthy();
       expect(variants['x-default']).toBe(site.url + path);
     }
     for (const entry of entries) expect(Object.keys(entry.alternates!.languages!)).toHaveLength(7);
-    for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/mileage-calculator']) {
+    for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/weight-watchers-points-calculator']) {
       expect(isTranslatedPage(path)).toBe(false);
       expect(entries.some(entry => entry.url === site.url + path)).toBe(false);
     }

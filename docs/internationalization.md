@@ -6,7 +6,7 @@ Finflo supports English, Spanish, French, German, Portuguese and Arabic. English
 
 - All 204 calculator names, category and subcategory names, localized homepages and directories.
 - Header, footer, language menu, live search, category filters and search results.
-- Calculator instructions, mode and field labels, hints, result labels and explanations, formulas, worked examples, FAQs and source labels for all 201 implemented calculators.
+- Calculator instructions, mode and field labels, hints, result labels and explanations, formulas, worked examples, FAQs and source labels for all 202 implemented calculators.
 - The three guides and nine information/policy pages, including privacy, terms, accessibility and methodology.
 - Shared calculator actions, validation messages, dropdown/calendar controls, file and coordinate tools, and export actions.
 - Locale-aware result numbers and currency formatting; calendars use the Gregorian calendar with localized month/day controls. Arabic uses RTL and Noto Sans Arabic alongside the existing Manrope Latin font.
@@ -36,16 +36,18 @@ Search includes translated names and the original English names/slugs. Unicode n
 
 ## Indexing
 
-All 242 sitemap paths have versions in six languages, for **1,452 URLs**: 242 each in English, Spanish, French, German, Portuguese and Arabic. Each version has a self-canonical URL, reciprocal `hreflang` links and English `x-default`. The same manifest controls localized metadata, sitemap expansion and static generation.
+All 243 sitemap paths have versions in six languages, for **1,458 URLs**: 243 each in English, Spanish, French, German, Portuguese and Arabic. Each version has a self-canonical URL, reciprocal `hreflang` links and English `x-default`. The same manifest controls localized metadata, sitemap expansion and static generation.
 
 Search, status and unavailable-tool pages remain **noindex** and outside the sitemap. Unknown paths return 404. `NEXT_PUBLIC_INDEXABLE=false` still disables indexing and returns an empty sitemap; noncanonical-host HTTP noindex protections also remain in place.
 
 ## Verification
 
-The October 10, 2026 local production check passed for all 1,452 sitemap URLs: HTTP 200, canonical URLs, indexing permission, document languages and seven language alternates. All 2,868 unit tests, TypeScript, lint and the production build passed. The eight language browser checks passed, including a focused rerun after fixing the localized 401(k) redirect loop. See the [expanded sitemap validation](validation/multilingual-content.json).
+The earlier October 10, 2026 local production check passed for all 1,452 sitemap URLs: HTTP 200, canonical URLs, indexing permission, document languages and seven language alternates. All 2,868 unit tests, TypeScript, lint and the production build passed. The eight language browser checks passed, including a focused rerun after fixing the localized 401(k) redirect loop. See the [expanded sitemap validation](validation/multilingual-content.json).
 
-The translation tests cover dictionary coverage, placeholder substitution, raw user-output preservation, localized server articles, all 1,452 sitemap entries, reciprocal alternates and preview indexing protection. The language browser suite covers translated calculator articles, guides and policies alongside existing navigation, calculation, RTL, accessibility and responsive-layout checks.
+The translation tests cover dictionary coverage, placeholder substitution, raw user-output preservation, localized server articles, all 1,458 sitemap entries, reciprocal alternates and preview indexing protection. The language browser suite covers translated calculator articles, guides and policies alongside existing navigation, calculation, RTL, accessibility and responsive-layout checks.
 
 Run `npm run i18n:check`, `npm test`, `npm run typecheck`, `npm run lint` and `npm run build`. Browser checks use `TEST_URL=<running-site> npx playwright test tests/e2e/languages.spec.ts`.
 
 The earlier [live audit](validation/live-indexing-readiness.json) records the previous 377-URL deployment. Local verification of the expanded sitemap does not imply deployment or that Google has indexed its URLs. Submit the existing `/sitemap.xml` address after deployment; Search Console will need to fetch and process the expanded file.
+
+The remaining-feature update adds 251 translated messages per language and makes road mileage available in all six languages, expanding the sitemap to 1,458 URLs. Coverage now checks 8,970 source messages in each translated language, including numeric and formula preservation. The same translation review limits apply. The current production crawl passed for all 1,458 URLs, and all 17 focused browser checks and 2,957 unit tests passed. Current tests are recorded in [remaining-feature validation](validation/remaining-features.json); the older 1,452-URL crawl is retained as historical evidence.

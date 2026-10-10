@@ -7,7 +7,7 @@
         "title": "Built for everyday decisions",
         "paragraphs": [
           "Finflo brings money, health, math, and everyday calculations into one place. Our aim is simple: make the calculation easy to use and the reasoning easy to inspect.",
-          "Choose a tool, enter your own values, and explore the formula and assumptions beside the result. Calculations run in your browser without an account."
+          "Choose a tool, enter your own values, and explore the formula and assumptions beside the result. Most calculations run in your browser without an account; road mileage uses external map services."
         ]
       },
       {
@@ -77,7 +77,7 @@
       {
         "title": "Calculator inputs and results",
         "paragraphs": [
-          "Finflo performs calculations in your browser without an account. When you use the page controls, Finflo does not send the values you enter to an application database, advertisers, or analytics services. Finflo does not save your calculator inputs between visits. Your browser may restore form entries according to its own settings.",
+          "Most Finflo calculations run in your browser without an account. Road-route mileage sends your chosen location searches and coordinates to map providers through Finflo as described below. Finflo does not send calculator values to advertisers or analytics services, store them in an application database, or restore them between visits. Your browser may restore form entries according to its own settings.",
           "Copy tool link copies the page address without your calculator values. CSV downloads are created in your browser. If you copy, download, print, email, or otherwise share a result, the destination you choose may receive it."
         ]
       },
@@ -86,6 +86,23 @@
         "paragraphs": [
           "Some currency modes request a shared reference-data snapshot from Finflo’s server. The server obtains public data from sources including the European Central Bank, Frankfurter, Coinbase, and Chile’s Servicio de Impuestos Internos. Your amount and selected currency pair are used locally and are not included in these reference-data requests.",
           "Reference snapshots may be cached by the server, your browser, or hosting infrastructure. The calculator shows available source dates and identifies reference or spot values. Manual-rate calculations do not need a reference-data request."
+        ]
+      },
+      {
+        "title": "Road mileage and place searches",
+        "paragraphs": [
+          "Selecting Find place sends that search to Nominatim through Finflo. Selecting Calculate on the mileage tool sends the two route coordinates to the FOSSGIS OpenStreetMap routing service through Finflo. Finflo sends requests only when you use these controls; it does not use location autocomplete or request your device location.",
+          "Finflo temporarily caches place-search responses in server memory for up to 24 hours and routes for up to five minutes to reduce provider requests. These bounded caches are not a saved trip history. Map providers may log requests under their own privacy policies. Do not submit locations you do not want those services to receive."
+        ],
+        "links": [
+          {
+            "label": "Nominatim privacy policy",
+            "href": "https://osmfoundation.org/wiki/Privacy_Policy"
+          },
+          {
+            "label": "FOSSGIS routing and privacy information",
+            "href": "https://routing.openstreetmap.de/about.html"
+          }
         ]
       },
       {
@@ -308,7 +325,7 @@
       {
         "title": "Privacy by design",
         "paragraphs": [
-          "Calculations run in your browser without an account. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools."
+          "Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools."
         ],
         "links": [
           {

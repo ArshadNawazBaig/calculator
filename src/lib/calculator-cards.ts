@@ -3,7 +3,6 @@ import type {CatalogEntry} from "@/lib/calculators/types";
 import type {CalculatorCardData} from "@/components/calculators/calculator-card";
 
 const availability:Record<string,string>={
-  "mileage-calculator":"Road-route mileage needs a routing service. View availability and related distance tools.",
   "weight-watchers-points-calculator":"A verified, authorized points method is not available yet. Explore the current scope and alternatives.",
 };
 

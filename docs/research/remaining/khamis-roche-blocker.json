@@ -18,7 +18,7 @@
   ],
   "safeAlternative": {
     "now": "Keep the separate, clearly named midparent estimate already implemented.",
-    "optional": "User-entered regression coefficients with explicit length/mass unit labels and coefficient source; call it a custom linear height model, not verified Khamis\u2013Roche. No built-in purported KR defaults.",
+    "optional": "User-entered regression coefficients with explicit length/mass unit labels and coefficient source; call it a custom linear height model, not verified Khamis–Roche. No built-in purported KR defaults.",
     "syntheticFixture": {
       "inputs": {
         "b0": 5,
@@ -33,5 +33,10 @@
       "expected": 77.4,
       "meaning": "Arithmetic-only invented coefficients, not a biological prediction fixture."
     }
+  },
+  "implementationUpdate": {
+    "reviewedOn": "2026-10-10",
+    "report": "docs/research/remaining/implementation-update-2026-10-10.json",
+    "note": "Earlier research retained as historical evidence. Use the linked update and remaining-mode audit for current implementation and limits."
   }
 }

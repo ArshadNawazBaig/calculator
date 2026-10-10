@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-10-10T09:48:34.475130+00:00",
+  "scope": "Local implementation and production-build verification of the remaining-feature update; no deployment, Search Console action, licensing purchase or claim of full competitor parity.",
+  "baseCommit": "8086849",
+  "catalog": {
+    "catalogEntries": 204,
+    "calculatorPages": 202,
+    "modes": 555,
+    "unavailableTools": 1,
+    "directoryHubs": 1
+  },
+  "unitTests": {
+    "command": "npm test",
+    "files": 36,
+    "passed": 2957,
+    "failed": 0,
+    "newSuites": [
+      "tests/remaining-features.test.ts",
+      "tests/road-routing.test.ts",
+      "tests/road-route-api.test.ts"
+    ]
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "NEXT_PUBLIC_SITE_URL=https://finflo.org NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "status": "passed",
+    "prerenderedPages": 1472
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/remaining-features.spec.ts tests/e2e/languages.spec.ts",
+    "browser": "Chromium",
+    "passed": 17,
+    "failed": 0,
+    "coverage": [
+      "Regional label conversion and out-of-range rejection",
+      "Steady heating, mixed golf and dated NEC form calculations",
+      "Explicit place selection, service errors and reset",
+      "Mobile layout and WCAG 2A/2AA/2.1AA axe checks on representative pages",
+      "New mode labels and map errors in all five translated languages",
+      "Existing language navigation, slow hydration, articles, policies, guides, RTL and metadata"
+    ]
+  },
+  "sitemapCrawl": {
+    "checkedAt": "2026-10-10T09:47:33.857Z",
+    "scope": "Local production build; not a live deployment",
+    "sitemapUrls": 1458,
+    "languages": {
+      "en": 243,
+      "es": 243,
+      "fr": 243,
+      "de": 243,
+      "pt": 243,
+      "ar": 243
+    },
+    "passed": 1458,
+    "totalHtmlBytes": 335398448,
+    "errors": [],
+    "translationValidation": {
+      "messagesPerLocale": 8970,
+      "placeholders": "passed",
+      "numericValues": "passed",
+      "formulaNotation": "passed",
+      "unreadableTokens": "passed",
+      "nativeSpeakerReview": false
+    }
+  },
+  "liveProviderSmoke": {
+    "checkedAt": "2026-10-10T09:47:22.279742+00:00",
+    "requests": [
+      {
+        "kind": "search",
+        "status": 200,
+        "cacheControl": "private, no-store",
+        "robots": "noindex",
+        "result": {
+          "places": [
+            {
+              "lat": 52.1975846,
+              "lon": 0.1391537,
+              "label": "Cambridge, Cambridgeshire, Cambridgeshire and Peterborough, England, United Kingdom"
+            },
+            {
+              "lat": 52.2055314,
+              "lon": 0.1186637,
+              "label": "Cambridge, Cambridgeshire, Cambridgeshire and Peterborough, England, CB2 3NR, United Kingdom"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "route",
+        "status": 200,
+        "cacheControl": "private, no-store",
+        "robots": "noindex",
+        "result": {
+          "meters": 94358.9,
+          "seconds": 5457.2,
+          "snapped": [
+            {
+              "lat": 51.507478,
+              "lon": -0.127965,
+              "distance": 14.36820005
+            },
+            {
+              "lat": 52.205299,
+              "lon": 0.121798,
+              "distance": 0.1762358072
+            }
+          ],
+          "retrievedAt": "2026-10-10T09:47:22.277Z"
+        }
+      }
+    ]
+  },
+  "providerOperationLimit": "Default public map providers require one server process/replica or an application-wide rate-limited gateway. These production settings have not been changed or verified.",
+  "remainingReview": "docs/audit/remaining-modes.json",
+  "research": "docs/research/remaining/implementation-update-2026-10-10.json",
+  "limitations": [
+    "Sizing uses explicitly named Wacoal/Nike conventions; no universal regional chart or guaranteed fit.",
+    "2017 NEC reference is dated and bounded; no current local-code or ampacity certification.",
+    "Golf uses user-supplied final verified nine-hole equivalents; it does not produce the official expected-score contribution.",
+    "Steady sensible heating loss is not a general cooling/equipment-sizing or generic climate-preset model.",
+    "Khamis–Roche corrected tables, Borg licensing and complete verified WeightWatchers methods remain unavailable.",
+    "Extended translations have not received a comprehensive native-speaker or licensed professional review.",
+    "Sitemap verification is local; it does not imply deployment or Google indexing."
+  ]
+}

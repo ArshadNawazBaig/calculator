@@ -1,0 +1,135 @@
+{
+  "reviewedOn": "2026-10-10",
+  "implemented": [
+    {
+      "id": "BRA-REGIONAL-CONVERTER",
+      "slugs": [
+        "bra-size-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-labels",
+        "dress-labels"
+      ],
+      "scope": "Named Wacoal band/cup conventions for US, UK, EU, France, Australia/New Zealand and Japan, including AA where listed. Independent dress-label conversion. Published ranges only; not a universal brand or captured-chart equivalence.",
+      "primarySources": [
+        "https://www.wacoallingerie.com/uk/en/size-guide/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "SHOE-REGIONS-AGES",
+      "slugs": [
+        "shoe-size-conversion"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-chart"
+      ],
+      "scope": "115 Nike chart rows across adult men, adult women, big kids, little kids and infants. US/UK/EU/JP/CN source labels; repeated labels return all matching rows; measured length rounds to next listed row. CN joined from official China guides by US/UK/EU, never inferred from JP. Missing values remain unavailable.",
+      "primarySources": [
+        "https://www.nike.com/size-fit/mens-footwear",
+        "https://www.nike.com/size-fit/womens-footwear",
+        "https://www.nike.com/size-fit/kids-footwear",
+        "https://www.nike.com.cn/size-fit/mens-footwear",
+        "https://www.nike.com.cn/size-fit/womens-footwear",
+        "https://www.nike.com.cn/size-fit/kids-footwear"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "BTU-LOAD-FACTORS",
+      "slugs": [
+        "btu-calculator"
+      ],
+      "status": "scoped_alternative_implemented_residual_open",
+      "implementedModes": [
+        "heat-loss"
+      ],
+      "scope": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+      "primarySources": [
+        "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+        "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "NEC-IMPEDANCE",
+      "slugs": [
+        "voltage-drop-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "nec-2017"
+      ],
+      "scope": "Dated 2017 NEC Table 9 numerical R/X reference for 21 sizes, copper/aluminum and PVC/aluminum/steel conduit. Balanced three-phase, 60 Hz, 75 C, up to 600 V, Class B stranded UL RHH, cradled configuration. Missing 14 AWG aluminum rejected. Does not certify current local code or ampacity.",
+      "primarySources": [
+        "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2",
+        "https://www.cummins.com/sites/default/files/2024-08/t030-Liquid-cooled-gen-set-application-manual.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "GOLF-NINE-HOLE",
+      "slugs": [
+        "golf-handicap-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "mixed-rounds"
+      ],
+      "scope": "Mixed 3–20-round workflow accepts calculated 18-hole scores and user-supplied verified final 18-hole-equivalent differentials with source records. Nine-hole scores are never doubled; expected-score contributions are not generated or independently verified. Index remains unofficial.",
+      "primarySources": [
+        "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "ROAD-MILEAGE",
+      "slugs": [
+        "mileage-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "driving"
+      ],
+      "scope": "User-triggered Nominatim place lookup with explicit match selection, or coordinates; FOSSGIS/OSRM driving distance and estimated duration. No traffic or straight-line fallback. Cached and paced server requests, bounded queue, attribution, privacy disclosure, configurable providers and disable switch. Default public providers require a single process/replica; scale through a compliant shared gateway or operated provider.",
+      "primarySources": [
+        "https://operations.osmfoundation.org/policies/nominatim/",
+        "https://routing.openstreetmap.de/about.html",
+        "https://project-osrm.org/docs/v5.5.1/api/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    }
+  ],
+  "remaining": [
+    {
+      "id": "BTU-LOAD-FACTORS",
+      "action": "Verify a suitable primary model before adding generic climate, insulation or room-type multipliers.",
+      "latestSourceReview": "Generic presets remain unverified; a steady heating alternative is now implemented."
+    },
+    {
+      "id": "HEIGHT-KHAMIS-ROCHE",
+      "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
+      "latestSourceReview": "2026-10-10: corrected 1995 publisher table remained behind access requirements; no corrected primary coefficient dataset obtained. User has no copy; do not substitute secondary or invented values."
+    },
+    {
+      "id": "BORG-SCALES",
+      "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
+      "latestSourceReview": "2026-10-10: rights-holder FAQ requires licensing for use of the named scales. User has no licensed scales. Existing heart-rate methods remain available."
+    },
+    {
+      "id": "WW-NAMED-METHODS",
+      "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
+      "latestSourceReview": "2026-10-10: current official overview does not disclose a complete current formula. Historical US6040531A publishes numerical formulas but does not establish the captured version, fiber-cap rules, all four forms or current method. No proprietary named method was added."
+    }
+  ],
+  "verification": "docs/validation/remaining-features.json",
+  "deployment": "Local implementation only; no production deployment performed."
+}

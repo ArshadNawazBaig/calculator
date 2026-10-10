@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-09T16:22:26.377Z",
+  "generatedAt": "2026-10-10T09:44:16.499Z",
   "counts": {
     "catalogEntries": 204,
-    "calculatorPages": 201,
-    "modes": 548,
-    "unavailableTools": 2,
+    "calculatorPages": 202,
+    "modes": 555,
+    "unavailableTools": 1,
     "directoryHubs": 1
   },
   "definitions": [
@@ -53807,12 +53807,187 @@
           ],
           "formula": "Q = mass × specific heat × temperature change.",
           "explanation": "Assumes constant specific heat and no phase changes. A negative change removes heat. BTU is energy here, not BTU/h cooling capacity."
+        },
+        {
+          "id": "heat-loss",
+          "title": "Steady heating loss",
+          "algorithm": "heat-loss",
+          "fields": [
+            {
+              "key": "length",
+              "label": "Heated space length",
+              "type": "number",
+              "default": "5",
+              "min": 0.01,
+              "max": 10000,
+              "step": "any"
+            },
+            {
+              "key": "width",
+              "label": "Heated space width",
+              "type": "number",
+              "default": "4",
+              "min": 0.01,
+              "max": 10000,
+              "step": "any"
+            },
+            {
+              "key": "height",
+              "label": "Ceiling height",
+              "type": "number",
+              "default": "2.5",
+              "min": 0.01,
+              "max": 1000,
+              "step": "any"
+            },
+            {
+              "key": "lengthUnit",
+              "label": "Dimension unit",
+              "type": "select",
+              "default": "m",
+              "options": [
+                {
+                  "label": "Meters",
+                  "value": "m"
+                },
+                {
+                  "label": "Feet",
+                  "value": "ft"
+                }
+              ]
+            },
+            {
+              "key": "indoor",
+              "label": "Indoor design temperature",
+              "type": "number",
+              "default": "20",
+              "step": "any"
+            },
+            {
+              "key": "outdoor",
+              "label": "Outdoor design temperature",
+              "type": "number",
+              "default": "0",
+              "step": "any"
+            },
+            {
+              "key": "temperatureUnit",
+              "label": "Temperature unit",
+              "type": "select",
+              "default": "C",
+              "options": [
+                {
+                  "label": "C",
+                  "value": "C"
+                },
+                {
+                  "label": "F",
+                  "value": "F"
+                }
+              ]
+            },
+            {
+              "key": "envelopeInput",
+              "label": "Envelope heat loss",
+              "type": "select",
+              "default": "total",
+              "options": [
+                {
+                  "label": "Enter total UA",
+                  "value": "total"
+                },
+                {
+                  "label": "Enter surface areas and U-values",
+                  "value": "components"
+                }
+              ]
+            },
+            {
+              "key": "ua",
+              "label": "Total envelope heat-loss coefficient",
+              "type": "number",
+              "default": "100",
+              "min": 0,
+              "step": "any"
+            },
+            {
+              "key": "uaUnit",
+              "label": "Heat-loss coefficient unit",
+              "type": "select",
+              "default": "W/K",
+              "options": [
+                {
+                  "label": "W/K",
+                  "value": "W/K"
+                },
+                {
+                  "label": "BTU/(h·°F)",
+                  "value": "BTU/(h·°F)"
+                }
+              ]
+            },
+            {
+              "key": "surfaces",
+              "label": "Exposed surfaces",
+              "type": "rows",
+              "default": "[{\"name\":\"External wall\",\"area\":20,\"u\":0.5}]",
+              "hint": "Use net exposed areas and effective assembly U-values, including windows and thermal bridges where applicable. Areas use the selected dimension unit squared.",
+              "rowColumns": [
+                {
+                  "key": "name",
+                  "label": "Surface",
+                  "default": "Surface"
+                },
+                {
+                  "key": "area",
+                  "label": "Exposed area",
+                  "type": "number",
+                  "default": "20"
+                },
+                {
+                  "key": "u",
+                  "label": "U-value (W/m²·K)",
+                  "type": "number",
+                  "default": "0.5"
+                }
+              ]
+            },
+            {
+              "key": "ach",
+              "label": "Outdoor air changes per hour",
+              "type": "number",
+              "default": "0.5",
+              "unit": "1/h",
+              "min": 0,
+              "max": 100,
+              "step": "any"
+            },
+            {
+              "key": "airCapacity",
+              "label": "Air volumetric heat capacity",
+              "type": "number",
+              "default": "1207",
+              "unit": "J/(m³·K)",
+              "min": 0.01,
+              "step": "any"
+            }
+          ],
+          "formula": "Heat loss (W) = [UA + air heat capacity × air changes per hour × volume / 3600] × (indoor − outdoor temperature).",
+          "explanation": "Estimate steady sensible heating loss for an entered room or building envelope. Use local design temperatures and measured or specified insulation values. Air heat capacity defaults to 1207 J/(m³·K), an assumption for dry air near sea level and 21 °C. Use operating air changes, not a blower-door ACH50 value. This excludes solar gains, latent heat, ducts, warm-up and equipment sizing; it is not a Manual J calculation."
         }
       ],
       "sources": [
         {
           "title": "ENERGY STAR: properly sized room air conditioners",
           "url": "https://www.energystar.gov/products/room_air_conditioners"
+        },
+        {
+          "title": "OpenStax: conduction and thermal resistance",
+          "url": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction"
+        },
+        {
+          "title": "NREL: building thermal envelope tests, dry-air assumptions (Table A10)",
+          "url": "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
         }
       ]
     },
@@ -55290,6 +55465,195 @@
           ],
           "formula": "AWG diameter(mm)=0.127×92^((36−gauge)/39). DC loop resistance=2×resistivity×length/area.",
           "explanation": "Equivalent solid geometry is separate from insulated cable diameter. Nominal silver/gold/copper/aluminum constants are not manufacturer cable tables, NEC impedance values or ampacity ratings."
+        },
+        {
+          "id": "nec-2017",
+          "title": "2017 NEC impedance reference",
+          "algorithm": "nec-2017",
+          "fields": [
+            {
+              "key": "material",
+              "label": "Conductor material",
+              "type": "select",
+              "default": "copper",
+              "options": [
+                {
+                  "label": "Uncoated copper",
+                  "value": "copper"
+                },
+                {
+                  "label": "Aluminum",
+                  "value": "aluminum"
+                }
+              ]
+            },
+            {
+              "key": "size",
+              "label": "Conductor size",
+              "type": "select",
+              "default": "1/0",
+              "options": [
+                {
+                  "label": "14 AWG",
+                  "value": "14"
+                },
+                {
+                  "label": "12 AWG",
+                  "value": "12"
+                },
+                {
+                  "label": "10 AWG",
+                  "value": "10"
+                },
+                {
+                  "label": "8 AWG",
+                  "value": "8"
+                },
+                {
+                  "label": "6 AWG",
+                  "value": "6"
+                },
+                {
+                  "label": "4 AWG",
+                  "value": "4"
+                },
+                {
+                  "label": "3 AWG",
+                  "value": "3"
+                },
+                {
+                  "label": "2 AWG",
+                  "value": "2"
+                },
+                {
+                  "label": "1 AWG",
+                  "value": "1"
+                },
+                {
+                  "label": "1/0 AWG",
+                  "value": "1/0"
+                },
+                {
+                  "label": "2/0 AWG",
+                  "value": "2/0"
+                },
+                {
+                  "label": "3/0 AWG",
+                  "value": "3/0"
+                },
+                {
+                  "label": "4/0 AWG",
+                  "value": "4/0"
+                },
+                {
+                  "label": "250 kcmil",
+                  "value": "250"
+                },
+                {
+                  "label": "300 kcmil",
+                  "value": "300"
+                },
+                {
+                  "label": "350 kcmil",
+                  "value": "350"
+                },
+                {
+                  "label": "400 kcmil",
+                  "value": "400"
+                },
+                {
+                  "label": "500 kcmil",
+                  "value": "500"
+                },
+                {
+                  "label": "600 kcmil",
+                  "value": "600"
+                },
+                {
+                  "label": "750 kcmil",
+                  "value": "750"
+                },
+                {
+                  "label": "1000 kcmil",
+                  "value": "1000"
+                }
+              ]
+            },
+            {
+              "key": "conduit",
+              "label": "Conduit material",
+              "type": "select",
+              "default": "steel",
+              "options": [
+                {
+                  "label": "PVC",
+                  "value": "pvc"
+                },
+                {
+                  "label": "Aluminum",
+                  "value": "aluminum"
+                },
+                {
+                  "label": "Steel",
+                  "value": "steel"
+                }
+              ]
+            },
+            {
+              "key": "voltage",
+              "label": "Three-phase line-to-line supply",
+              "type": "number",
+              "default": "480",
+              "unit": "V",
+              "min": 0.01,
+              "max": 600,
+              "step": "any"
+            },
+            {
+              "key": "current",
+              "label": "Line current",
+              "type": "number",
+              "default": "100",
+              "unit": "A",
+              "min": 0,
+              "step": "any"
+            },
+            {
+              "key": "length",
+              "label": "One-way conductor length",
+              "type": "number",
+              "default": "100",
+              "min": 0,
+              "step": "any"
+            },
+            {
+              "key": "lengthUnit",
+              "label": "Length unit",
+              "type": "select",
+              "default": "ft",
+              "options": [
+                {
+                  "label": "Feet",
+                  "value": "ft"
+                },
+                {
+                  "label": "Meters",
+                  "value": "m"
+                }
+              ]
+            },
+            {
+              "key": "powerFactor",
+              "label": "Lagging power factor",
+              "type": "number",
+              "default": "0.8",
+              "min": 0,
+              "max": 1,
+              "step": "any"
+            }
+          ],
+          "formula": "Line-to-line drop (V) = √3 × current(A) × length(ft) / 1000 × [R × PF + X × √(1 − PF²)].",
+          "explanation": "Uses the numerical resistance and reactance relationships from 2017 NEC Chapter 9 Table 9. The lookup assumes 75 °C conductors, 60 Hz, three single UL RHH Class B stranded conductors in a cradled arrangement, up to 600 V. Length is converted to the table’s 1000-foot basis. This dated reference does not establish current local code compliance."
         }
       ],
       "notes": [
@@ -55319,6 +55683,10 @@
         {
           "title": "NIST Handbook 44, 2026, Appendix C",
           "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "title": "2017 NEC, Chapter 9 Table 9, page 70–690 (Nye County reference copy)",
+          "url": "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2#page=693"
         }
       ]
     },
@@ -57486,6 +57854,108 @@
           ],
           "formula": "Round each inch measurement; add 4 to an even underbust or 5 to an odd underbust, then compare rounded bust with band.",
           "explanation": "Alternative traditional fitting method using a declared US cup ladder: difference 0 = AA, 1 = A, 2 = B, 3 = C, 4 = D, then DD, DDD, G–L. This convention is not a universal fit or international brand conversion."
+        },
+        {
+          "id": "regional-labels",
+          "title": "International bra label conversion",
+          "algorithm": "bra-regions",
+          "fields": [
+            {
+              "key": "system",
+              "label": "Source label convention",
+              "type": "select",
+              "default": "uk",
+              "options": [
+                {
+                  "label": "US",
+                  "value": "us"
+                },
+                {
+                  "label": "UK",
+                  "value": "uk"
+                },
+                {
+                  "label": "EU",
+                  "value": "eu"
+                },
+                {
+                  "label": "France",
+                  "value": "fr"
+                },
+                {
+                  "label": "Australia / New Zealand",
+                  "value": "au"
+                },
+                {
+                  "label": "Japan",
+                  "value": "jp"
+                }
+              ]
+            },
+            {
+              "key": "band",
+              "label": "Label band size",
+              "type": "number",
+              "default": "34",
+              "min": 0,
+              "step": "any"
+            },
+            {
+              "key": "cup",
+              "label": "Label cup size",
+              "type": "text",
+              "default": "E"
+            }
+          ],
+          "formula": "Match the band and cup independently in the Wacoal international convention.",
+          "explanation": "Uses the named Wacoal convention, including AA where listed and distinct UK, US and European cup ladders. Only the documented band and cup ranges are supported. This converts garment labels, not measurements or dress sizes."
+        },
+        {
+          "id": "dress-labels",
+          "title": "Dress label conversion",
+          "algorithm": "dress-regions",
+          "fields": [
+            {
+              "key": "system",
+              "label": "Source dress convention",
+              "type": "select",
+              "default": "uk",
+              "options": [
+                {
+                  "label": "UK / Australia / New Zealand",
+                  "value": "uk"
+                },
+                {
+                  "label": "US",
+                  "value": "us"
+                },
+                {
+                  "label": "EU",
+                  "value": "eu"
+                },
+                {
+                  "label": "France",
+                  "value": "fr"
+                },
+                {
+                  "label": "Japan",
+                  "value": "jp"
+                },
+                {
+                  "label": "Wacoal dress code",
+                  "value": "code"
+                }
+              ]
+            },
+            {
+              "key": "size",
+              "label": "Dress label size",
+              "type": "text",
+              "default": "12"
+            }
+          ],
+          "formula": "Match the size within the Wacoal dress-label conversion rows.",
+          "explanation": "This separate garment-size conversion does not determine bra size. Bra band and cup depend on additional measurements and the garment convention."
         }
       ],
       "notes": [
@@ -57499,6 +57969,10 @@
         {
           "title": "Triumph: traditional +4/+5 measurement method",
           "url": "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size"
+        },
+        {
+          "title": "Wacoal: international band, cup and dress label conventions",
+          "url": "https://www.wacoallingerie.com/uk/en/size-guide/"
         }
       ]
     },
@@ -57560,6 +58034,119 @@
           ],
           "formula": "Mondopoint length is foot length in millimeters. The US estimate uses a traditional last-length formula with an assumed allowance.",
           "explanation": "Foot length does not uniquely determine fit. Brand lasts, width, sock thickness, and regional charts vary."
+        },
+        {
+          "id": "regional-chart",
+          "title": "Regional shoe sizes and age groups",
+          "algorithm": "shoe-regions",
+          "fields": [
+            {
+              "key": "group",
+              "label": "Nike chart group",
+              "type": "select",
+              "default": "adult-men",
+              "options": [
+                {
+                  "label": "Adult men’s chart",
+                  "value": "adult-men"
+                },
+                {
+                  "label": "Adult women’s chart",
+                  "value": "adult-women"
+                },
+                {
+                  "label": "Big kids",
+                  "value": "big-kids"
+                },
+                {
+                  "label": "Little kids",
+                  "value": "little-kids"
+                },
+                {
+                  "label": "Babies and toddlers",
+                  "value": "infants"
+                }
+              ]
+            },
+            {
+              "key": "source",
+              "label": "Source-size system",
+              "type": "select",
+              "default": "usMen",
+              "options": [
+                {
+                  "label": "US men",
+                  "value": "usMen"
+                },
+                {
+                  "label": "US women",
+                  "value": "usWomen"
+                },
+                {
+                  "label": "US children (C / Y)",
+                  "value": "usKids"
+                },
+                {
+                  "label": "UK",
+                  "value": "uk"
+                },
+                {
+                  "label": "EU",
+                  "value": "eu"
+                },
+                {
+                  "label": "JP / CM label",
+                  "value": "jp"
+                },
+                {
+                  "label": "CN / mm label",
+                  "value": "cn"
+                },
+                {
+                  "label": "Measured foot length",
+                  "value": "foot"
+                }
+              ]
+            },
+            {
+              "key": "size",
+              "label": "Source size label",
+              "type": "text",
+              "default": "9",
+              "hint": "Keep C or Y for children’s US sizes. Not every system is available in every group."
+            },
+            {
+              "key": "length",
+              "label": "Measured foot length",
+              "type": "number",
+              "default": "26",
+              "min": 0.01,
+              "max": 1000,
+              "step": "any"
+            },
+            {
+              "key": "lengthUnit",
+              "label": "Foot-length unit",
+              "type": "select",
+              "default": "cm",
+              "options": [
+                {
+                  "label": "Centimeters",
+                  "value": "cm"
+                },
+                {
+                  "label": "Millimeters",
+                  "value": "mm"
+                },
+                {
+                  "label": "Inches",
+                  "value": "in"
+                }
+              ]
+            }
+          ],
+          "formula": "Find all matching rows in the selected Nike chart; for measured feet, use the next listed length when between sizes.",
+          "explanation": "Adult, child and infant groups retain their own measurements. CN labels are checked against Nike’s China guides using matching US, UK and EU rows. Missing entries remain unavailable. These named conventions do not promise universal fit."
         }
       ],
       "notes": [
@@ -57569,6 +58156,30 @@
         {
           "title": "NIST: Guide to the SI",
           "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "title": "Nike: mens-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/mens-footwear"
+        },
+        {
+          "title": "Nike China: mens-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/mens-footwear"
+        },
+        {
+          "title": "Nike: womens-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/womens-footwear"
+        },
+        {
+          "title": "Nike China: womens-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/womens-footwear"
+        },
+        {
+          "title": "Nike: kids-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/kids-footwear"
+        },
+        {
+          "title": "Nike China: kids-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/kids-footwear"
         }
       ]
     },
@@ -57726,6 +58337,84 @@
           ],
           "formula": "Differential=(113/slope)×(adjusted gross score−course rating−PCC).",
           "explanation": "Supply the official PCC if applicable. This does not calculate PCC or certify an official Handicap Index."
+        },
+        {
+          "id": "mixed-rounds",
+          "title": "Mixed rounds with verified differentials",
+          "algorithm": "golf-mixed",
+          "fields": [
+            {
+              "key": "rounds",
+              "label": "Most recent 3–20 rounds",
+              "type": "rows",
+              "default": "[{\"name\":\"Round 1\",\"input\":\"18-score\",\"score\":82,\"rating\":72,\"slope\":113,\"pcc\":0,\"differential\":\"\",\"source\":\"\"},{\"name\":\"Round 2\",\"input\":\"9-verified\",\"score\":\"\",\"rating\":\"\",\"slope\":\"\",\"pcc\":\"\",\"differential\":12,\"source\":\"Example only\"},{\"name\":\"Round 3\",\"input\":\"18-score\",\"score\":86,\"rating\":72,\"slope\":113,\"pcc\":0,\"differential\":\"\",\"source\":\"\"}]",
+              "hint": "For a nine-hole round, enter the completed 18-hole-equivalent differential from your handicap service and its source. For a scored 18-hole round, use score, rating, slope and PCC. Unused columns are ignored.",
+              "rowColumns": [
+                {
+                  "key": "name",
+                  "label": "Round",
+                  "default": "Round"
+                },
+                {
+                  "key": "input",
+                  "label": "Round input",
+                  "type": "select",
+                  "default": "18-score",
+                  "options": [
+                    {
+                      "value": "18-score",
+                      "label": "18-hole adjusted score"
+                    },
+                    {
+                      "value": "9-verified",
+                      "label": "9-hole round: verified equivalent differential"
+                    },
+                    {
+                      "value": "18-verified",
+                      "label": "18-hole verified differential"
+                    }
+                  ]
+                },
+                {
+                  "key": "score",
+                  "label": "Adjusted gross score",
+                  "type": "number",
+                  "default": "85"
+                },
+                {
+                  "key": "rating",
+                  "label": "Course rating",
+                  "type": "number",
+                  "default": "72"
+                },
+                {
+                  "key": "slope",
+                  "label": "Slope rating",
+                  "type": "number",
+                  "default": "113"
+                },
+                {
+                  "key": "pcc",
+                  "label": "Official PCC",
+                  "type": "number",
+                  "default": "0"
+                },
+                {
+                  "key": "differential",
+                  "label": "Verified 18-hole-equivalent differential",
+                  "type": "number",
+                  "default": ""
+                },
+                {
+                  "key": "source",
+                  "label": "Differential source",
+                  "default": ""
+                }
+              ]
+            }
+          ],
+          "formula": "Combine calculated 18-hole differentials and supplied verified equivalents, then apply the differential selection table.",
+          "explanation": "Nine-hole scores need an expected-score contribution from the applicable handicap service. Enter its final 18-hole-equivalent differential here; never double the nine-hole score. Finflo does not generate or verify that contribution. The resulting index remains an unofficial estimate without caps, exceptional-score reductions or committee adjustments."
         }
       ],
       "notes": [
@@ -57739,6 +58428,10 @@
         {
           "title": "USGA Rule 5.1c: negative score-differential rounding",
           "url": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm"
+        },
+        {
+          "title": "USGA: treatment of nine-hole scores since 2024",
+          "url": "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html"
         }
       ]
     },
@@ -57772,6 +58465,94 @@
         "Entertainment only. The score should not guide relationship decisions."
       ],
       "sources": []
+    },
+    {
+      "slug": "mileage-calculator",
+      "description": "Find driving distance and estimated journey time between places or coordinates using OpenStreetMap roads.",
+      "modes": [
+        {
+          "id": "driving",
+          "title": "Driving route",
+          "algorithm": "road-route",
+          "fields": [
+            {
+              "key": "locationInput",
+              "label": "Choose locations by",
+              "type": "select",
+              "default": "places",
+              "options": [
+                {
+                  "label": "Place search",
+                  "value": "places"
+                },
+                {
+                  "label": "Latitude and longitude",
+                  "value": "coordinates"
+                }
+              ]
+            },
+            {
+              "key": "lat1",
+              "label": "Origin latitude",
+              "type": "number",
+              "default": "51.5074",
+              "unit": "°",
+              "min": -90,
+              "max": 90,
+              "step": "any"
+            },
+            {
+              "key": "lon1",
+              "label": "Origin longitude",
+              "type": "number",
+              "default": "-0.1278",
+              "unit": "°",
+              "min": -180,
+              "max": 180,
+              "step": "any"
+            },
+            {
+              "key": "lat2",
+              "label": "Destination latitude",
+              "type": "number",
+              "default": "52.2053",
+              "unit": "°",
+              "min": -90,
+              "max": 90,
+              "step": "any"
+            },
+            {
+              "key": "lon2",
+              "label": "Destination longitude",
+              "type": "number",
+              "default": "0.1218",
+              "unit": "°",
+              "min": -180,
+              "max": 180,
+              "step": "any"
+            }
+          ],
+          "formula": "Road distance comes from a routed path on the OpenStreetMap road network; miles = meters / 1609.344.",
+          "explanation": "Search for each location and select the intended match, or enter coordinates. Route calculation requires an internet connection. Place searches and route coordinates are sent to map providers through Finflo. Driving time excludes live traffic, stops and current road closures."
+        }
+      ],
+      "sources": [
+        {
+          "title": "OpenStreetMap data and attribution",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        {
+          "title": "FOSSGIS routing service",
+          "url": "https://routing.openstreetmap.de/about.html"
+        },
+        {
+          "title": "Nominatim place search",
+          "url": "https://nominatim.org/"
+        }
+      ],
+      "notes": [
+        "Choose a precise address or entrance when possible. A town-centre match can differ from your intended start or destination."
+      ]
     }
   ]
 }

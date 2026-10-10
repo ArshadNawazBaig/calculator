@@ -41,7 +41,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
     </section>}
     {!!entry?.faqs.length&&<section id="common-questions"><h2>{t('Common questions')}</h2><Accordion>{entry.faqs.map(faq=><AccordionItem key={faq.question} title={t(faq.question)}><p>{t(faq.answer)}</p></AccordionItem>)}</Accordion></section>}
     <section><h2>{t('About your results')}</h2><Accordion>
-      <AccordionItem title={t('Are my inputs saved?')}><p>{t('Calculations run in your browser, and Finflo does not save your entries between visits. The tool-sharing link contains only the page address.')} <Link href="/privacy">{t('Privacy policy')}</Link></p></AccordionItem>
+      <AccordionItem title={t('Are my inputs saved?')}><p>{t(definition.slug==='mileage-calculator'?'Road mileage sends selected locations to map providers through Finflo, with temporary server caching. The tool-sharing link contains only the page address.':'Calculations run in your browser, and Finflo does not save your entries between visits. The tool-sharing link contains only the page address.')} <Link href="/privacy">{t('Privacy policy')}</Link></p></AccordionItem>
       <AccordionItem title={t('Why might another calculator give a different answer?')}><p>{t('Compare units, compounding or timing assumptions, the selected formula, and rounding. A different model can produce a different estimate even when the headline inputs look similar.')}</p></AccordionItem>
       <AccordionItem title={t('How do I report a result that looks wrong?')}><p><Link href="/contact">{t('Contact Finflo')}</Link>. {t('Use fictional inputs to reproduce the issue. Include the calculation mode, formula, and reference result when possible.')}</p></AccordionItem>
     </Accordion></section>

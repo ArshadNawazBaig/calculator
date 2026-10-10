@@ -1,4 +1,6 @@
 import methodCopy from '@/data/method-copy.json';
+import {remainingDefinitions} from './remaining-definitions';
+import {roadRouteDefinition} from './road-route-definition';
 import {historicalFhaMode} from './historical-fha';
 import currencyInstruments from '@/data/currency-instruments.json';
 import {vehicleTaxDefinitions} from './vehicle-tax-definitions';
@@ -32,7 +34,7 @@ import {financeExtraDefinitions} from './finance-extra-definitions';
 import {everydayDefinitions} from './everyday-definitions';
 import type {CatalogEntry,Definition} from './types';
 export const catalog=rawCatalog as CatalogEntry[];
-export const definitions:Definition[]=structuredClone([...financeCoreDefinitions,...financeExtraDefinitions,...healthDefinitions,...mathDefinitions,...everydayDefinitions]);
+export const definitions:Definition[]=structuredClone([...financeCoreDefinitions,...financeExtraDefinitions,...healthDefinitions,...mathDefinitions,...everydayDefinitions,roadRouteDefinition]);
 for(const [slug,modes]of Object.entries(advancedFinanceDefinitions())){const d=definitions.find(d=>d.slug===slug)!;if(slug==='lease-calculator'||slug==='inflation-calculator')d.modes.unshift(...modes);else d.modes.push(...modes);}
 const lease=definitions.find(d=>d.slug==='lease-calculator')!;lease.description='Calculate an asset-financing lease payment or implied rate from asset value, residual, and term.';
 const inflation=definitions.find(d=>d.slug==='inflation-calculator')!;inflation.description='Compare historical US purchasing power using official CPI data, or explore an assumed future inflation rate.';inflation.sources.push({title:'BLS CPI-U all items, US city average (CUUR0000SA0)',url:'https://data.bls.gov/timeseries/CUUR0000SA0'});inflation.notes=['Historical calculations use a versioned BLS dataset. Future scenarios use your assumed rate; they are not forecasts.'];
@@ -80,12 +82,18 @@ for(const d of definitions)for(const m of d.modes){
 const versionedTaxAlgorithms=['tax-federal-composed','tax-standard-expanded','tax-social-benefits','tax-senior-deduction','tax-itemization-2026','tax-care-2026','tax-marriage-composed','annual-tax-pay','tax-tips-2026','tax-overtime-2026','tax-car-interest-2026','tax-education-2026','tax-student-interest-2026','tax-ira-deduction-2026','tax-qbi-2026','tax-qbi-section68','tax-eitc-estimate-2026'];
 for(const d of definitions)for(const m of d.modes)if(versionedTaxAlgorithms.includes(m.algorithm)){m.fields.unshift(s('taxYear','US federal tax year',[['2026','2026'],['2025','2025']]));m.title=m.title.replace('2026','2025 / 2026');m.explanation+=' Select the applicable tax year. Dollar ceilings and tax bands use that year’s versioned parameters; 2025 does not include the 2026 nonitemizer charitable deduction, charitable floor, overall itemized reduction or active-business QBI minimum.';if(m.algorithm==='tax-student-interest-2026')m.formula='Up to $2,500 per return, with joint MAGI phaseout $170,000–$200,000 for 2025 or $175,000–$205,000 for 2026; other eligible filers use $85,000–$100,000.';if(m.algorithm==='tax-care-2026')m.formula='Eligible expense base × selected-year rate: 2025 uses a 35% to 20% schedule; 2026 begins at 50% with the two-stage phaseout.';if(m.algorithm==='tax-itemization-2026')m.formula='Apply selected-year medical, SALT and charitable limits. The 0.5%-of-AGI cash-charity floor and Section 68 reduction begin in 2026.';}
 for(const d of definitions)for(const m of d.modes)for(const change of methodCopy)if(m.algorithm===change.algorithm){if(change.field==='formula')m.formula=change.replacement;else m.explanation=change.replacement;}
+for(const [slug,modes] of Object.entries(remainingDefinitions())) definitions.find(d=>d.slug===slug)!.modes.push(...modes);
+definitions.find(d=>d.slug==='voltage-drop-calculator')!.sources.push({title:'2017 NEC, Chapter 9 Table 9, page 70–690 (Nye County reference copy)',url:'https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2#page=693'});
+definitions.find(d=>d.slug==='bra-size-calculator')!.sources.push({title:'Wacoal: international band, cup and dress label conventions',url:'https://www.wacoallingerie.com/uk/en/size-guide/'});
+definitions.find(d=>d.slug==='shoe-size-conversion')!.sources.push(...['mens-footwear','womens-footwear','kids-footwear'].flatMap(path=>[{title:`Nike: ${path} regional size guide`,url:`https://www.nike.com/size-fit/${path}`},{title:`Nike China: ${path} CN size labels`,url:`https://www.nike.com.cn/size-fit/${path}`} ]));
+definitions.find(d=>d.slug==='golf-handicap-calculator')!.sources.push({title:'USGA: treatment of nine-hole scores since 2024',url:'https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html'});
+definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'OpenStax: conduction and thermal resistance',url:'https://openstax.org/books/college-physics-2e/pages/14-5-conduction'},{title:'NREL: building thermal envelope tests, dry-air assumptions (Table A10)',url:'https://docs.nrel.gov/docs/fy08osti/42059.pdf'});
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));
 export const blocked:Record<string,string>={
- 'mileage-calculator':'A route-distance calculator needs a routing and geocoding provider. Finflo has not connected a licensed provider yet. Use the fuel-cost calculator when you already know your trip distance.',
  'weight-watchers-points-calculator':'The current WeightWatchers Points system is proprietary and changes over time. Finflo does not have a licensed current algorithm. We do not present an unofficial formula as an accurate Points calculator.',
 };
 export const sensitiveTools=new Set(['password-generator','base64-encode-decode','url-encode-decode']);
 export const randomTools=new Set(['password-generator','dice-roller','random-number-generator']);
+export const noInitialExampleTools=new Set([...randomTools,'mileage-calculator']);
 export const relatedTools=(tool:CatalogEntry)=>catalog.filter(t=>t.category===tool.category&&t.slug!==tool.slug&&definitionMap.has(t.slug)).sort((a,b)=>Number(b.subcategory===tool.subcategory)-Number(a.subcategory===tool.subcategory)).slice(0,6);

@@ -1,88 +1,31 @@
 {
-  "snapshotAt": "2026-10-09T16:12:41.489341+00:00",
-  "scope": "Refresh of identified remaining calculator controls against the actual runtime registry and captured competitor forms.This is not a fresh exhaustive interactive recrawl or a claim of complete competitor equivalence.",
+  "snapshotAt": "2026-10-10T09:45:53.551796+00:00",
+  "scope": "Implementation of verified additions from the nine-item remaining-mode review, with dated source bounds and unresolved requirements preserved.",
   "catalogAccounting": {
     "catalogRoutes": 204,
-    "calculatorDefinitions": 201,
-    "registeredModes": 548,
+    "calculatorDefinitions": 202,
+    "registeredModes": 555,
     "unavailableWholeTools": [
-      "mileage-calculator",
       "weight-watchers-points-calculator"
     ],
     "directoryHubs": [
       "real-estate-calculator"
     ],
-    "remainingWorkItems": 9,
-    "affectedRoutes": 9,
+    "remainingWorkItems": 4,
+    "affectedRoutes": 4,
     "implementationReadyItems": []
   },
   "remaining": [
-    {
-      "id": "BRA-REGIONAL-CONVERTER",
-      "slugs": [
-        "bra-size-calculator"
-      ],
-      "classification": "source-chart-reuse",
-      "status": "research_or_dataset_needed",
-      "observedUseCase": "Convert an entered band/cup between US/CA, UK, EU, FR/BE/ES, AU/NZ and the captured dress-code convention.",
-      "currentImplementation": "Direct US estimate and traditional+4/+5 band estimate, with independent inch/cm measurements; no source-system band/cup conversion controls.",
-      "remaining": "Select and verify a named regional convention covering the captured systems and valid band/cup domains; preserve differing cup ladders. The inspected manufacturer candidate has reuse restrictions and incomplete A/AA/domain coverage. This is unresolved source/reuse provenance, not a legal conclusion that factual relationships cannot be implemented.",
-      "capturedControls": [
-        "bclocation",
-        "bcsize",
-        "bccup"
-      ],
-      "readyArtifact": "docs/research/remaining/bra-sizing-spec.json",
-      "sourceUrl": "https://www.calculator.net/bra-size-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "primarySources": [
-        "https://www.freyalingerie.com/us/en/size-guide/",
-        "https://www.freyalingerie.com/us/en/privacy-policy/",
-        "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size"
-      ],
-      "action": "Select and verify a named regional convention covering the captured systems and valid band/cup domains; preserve differing cup ladders. The inspected manufacturer candidate has reuse restrictions and incomplete A/AA/domain coverage. This is unresolved source/reuse provenance, not a legal conclusion that factual relationships cannot be implemented.",
-      "reason": "Direct US estimate and traditional+4/+5 band estimate, with independent inch/cm measurements; no source-system band/cup conversion controls."
-    },
-    {
-      "id": "SHOE-REGIONS-AGES",
-      "slugs": [
-        "shoe-size-conversion"
-      ],
-      "classification": "source-chart-reuse",
-      "status": "research_or_dataset_needed",
-      "observedUseCase": "Convert source sizes or foot length across the captured adult, child and infant/toddler regional systems.",
-      "currentImplementation": "Measured foot length in cm/mm/in produces adult US men/women approximation and Mondopoint.Regional source-size selectors and child/infant charts are absent.",
-      "remaining": "Verify a specific chart/system for US men/women,UK,EU,JP,CN and adult/child/infant groups.Official Nike candidates demonstrate repeated reverse keys and group-specific foot-length rows and lack CN; their facts do not establish a universal conversion. Resolve source provenance and applicable reuse terms rather than fabricating a regional arithmetic mapping.",
-      "capturedControls": [
-        "ac=a/k/i",
-        "usw",
-        "usm",
-        "uk",
-        "eu",
-        "jp",
-        "cn",
-        "fl"
-      ],
-      "readyArtifact": "docs/research/remaining/shoe-sizing-spec.json",
-      "sourceUrl": "https://www.calculator.net/shoe-size-conversion.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "primarySources": [
-        "https://www.nike.com/size-fit/mens-footwear",
-        "https://www.nike.com/size-fit/kids-footwear"
-      ],
-      "action": "Verify a specific chart/system for US men/women,UK,EU,JP,CN and adult/child/infant groups.Official Nike candidates demonstrate repeated reverse keys and group-specific foot-length rows and lack CN; their facts do not establish a universal conversion. Resolve source provenance and applicable reuse terms rather than fabricating a regional arithmetic mapping.",
-      "reason": "Measured foot length in cm/mm/in produces adult US men/women approximation and Mondopoint.Regional source-size selectors and child/infant charts are absent."
-    },
     {
       "id": "BTU-LOAD-FACTORS",
       "slugs": [
         "btu-calculator"
       ],
       "classification": "primary-model-verification",
-      "status": "research_or_dataset_needed",
+      "status": "scoped_alternative_implemented_residual_open",
       "observedUseCase": "Vary ceiling height, insulation, climate and room/whole-house type in the captured load forms.",
-      "currentImplementation": "ENERGY STAR8-foot-ceiling table with ft²/m²,sun,occupants,kitchen, plus separately labeled heat-energy Q=m*c*deltaT.",
-      "remaining": "Verify an appropriate heating/cooling power model and coefficients for ceiling height,room/whole-house type,insulation and climate.ENERGY STAR does not provide the missing generic height/climate multipliers.Entered conduction coefficients are a possible local alternative, not equivalent room-load presets; Q is energy rather than power.",
+      "currentImplementation": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+      "remaining": "Generic climate/insulation/room-type heating or cooling presets still need verified model coefficients. The entered-UA steady heating mode is available but does not establish preset or cooling-load parity.",
       "capturedControls": [
         "ceilingheight1",
         "roomtype1",
@@ -100,8 +43,8 @@
         "https://www.acca.org/standards/technical-manuals/manual-j",
         "https://openstax.org/books/college-physics-2e/pages/14-5-conduction"
       ],
-      "action": "Verify an appropriate heating/cooling power model and coefficients for ceiling height,room/whole-house type,insulation and climate.ENERGY STAR does not provide the missing generic height/climate multipliers.Entered conduction coefficients are a possible local alternative, not equivalent room-load presets; Q is energy rather than power.",
-      "reason": "ENERGY STAR8-foot-ceiling table with ft²/m²,sun,occupants,kitchen, plus separately labeled heat-energy Q=m*c*deltaT."
+      "action": "Verify a suitable primary model before adding generic climate, insulation or room-type multipliers.",
+      "reason": "Steady heating loss now covers entered dimensions, temperatures and insulation coefficients; the captured generic presets are not verified."
     },
     {
       "id": "HEIGHT-KHAMIS-ROCHE",
@@ -130,7 +73,8 @@
         "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/"
       ],
       "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
-      "reason": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode."
+      "reason": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
+      "latestSourceReview": "2026-10-10: corrected 1995 publisher table remained behind access requirements; no corrected primary coefficient dataset obtained. User has no copy; do not substitute secondary or invented values."
     },
     {
       "id": "BORG-SCALES",
@@ -150,80 +94,11 @@
       "sourceUrl": "https://www.calculator.net/target-heart-rate-calculator.html",
       "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
       "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
-      "reason": "Predicted/measured maximum and percentage/reserve heart-rate methods exist."
-    },
-    {
-      "id": "NEC-IMPEDANCE",
-      "slugs": [
-        "voltage-drop-calculator"
+      "reason": "Predicted/measured maximum and percentage/reserve heart-rate methods exist.",
+      "primarySources": [
+        "https://borgperception.se/faq/"
       ],
-      "classification": "source-edition-dataset",
-      "status": "research_or_dataset_needed",
-      "observedUseCase": "Select conductor material/size and PVC, aluminum or steel conduit for an NEC table-based impedance calculation.",
-      "currentImplementation": "Entered impedance, geometric resistance, gauge, temperature and phase calculations exist.",
-      "remaining": "Obtain a verifiable edition-specific resistance/reactance or effective-impedance dataset keyed by conductor material,size and conduit.Confirm the use basis for the named table.No dataset is bundled; entered coefficients and geometric resistance remain useful local modes.",
-      "capturedControls": [
-        "necmaterial",
-        "necwiresize",
-        "necconduit",
-        "necpf"
-      ],
-      "readyArtifact": null,
-      "sourceUrl": "https://www.calculator.net/voltage-drop-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "action": "Obtain a verifiable edition-specific resistance/reactance or effective-impedance dataset keyed by conductor material,size and conduit.Confirm the use basis for the named table.No dataset is bundled; entered coefficients and geometric resistance remain useful local modes.",
-      "reason": "Entered impedance, geometric resistance, gauge, temperature and phase calculations exist."
-    },
-    {
-      "id": "GOLF-NINE-HOLE",
-      "slugs": [
-        "golf-handicap-calculator"
-      ],
-      "classification": "source-official-processing",
-      "status": "official_processing_or_expected_score_data_needed",
-      "observedUseCase": "Use the observed mixed-round workflow including nine-hole results.",
-      "currentImplementation": "Independent 18-hole score differential, differential-list index and course-handicap formulas exist.",
-      "remaining": "Connect the applicable verified expected-score process/data for a current9-hole differential, or allow a separately supplied verified18-hole-equivalent differential with explicit scope.Do not double9-hole scores and call the result an official current handicap.The separate 18-hole row workflow is implemented and tested.",
-      "capturedControls": [
-        "form1:r1..r20 course rating",
-        "form1:l1..l20 slope",
-        "form1:c1..c20 18-hole score",
-        "form1:n1..n20 9-hole score",
-        "form1:a1..a20 PCC"
-      ],
-      "readyArtifact": null,
-      "sourceUrl": "https://www.calculator.net/golf-handicap-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "captureReverifiedOn": "2026-10-09",
-      "capturedSourceTableHeaders": [
-        "Course rating",
-        "Slope rating",
-        "18-hole score",
-        "9-hole score",
-        "Playing condition adjustment"
-      ],
-      "action": "Connect the applicable verified expected-score process/data for a current9-hole differential, or allow a separately supplied verified18-hole-equivalent differential with explicit scope.Do not double9-hole scores and call the result an official current handicap.The separate 18-hole row workflow is implemented and tested.",
-      "reason": "Independent 18-hole score differential, differential-list index and course-handicap formulas exist."
-    },
-    {
-      "id": "ROAD-MILEAGE",
-      "slugs": [
-        "mileage-calculator"
-      ],
-      "classification": "provider-or-operated-dataset",
-      "status": "routing_provider_or_graph_not_connected",
-      "observedUseCase": "Enter origin and destination to obtain road-route mileage.",
-      "currentImplementation": "Route is explicitly unavailable; fuel-cost calculation and straight-line distance are separate tools.",
-      "remaining": "Connect a usable routing/geocoding service or operate a real route graph. No paid account is inherently required, but none is currently connected.",
-      "capturedControls": [
-        "from",
-        "to"
-      ],
-      "readyArtifact": null,
-      "sourceUrl": "https://www.calculator.net/mileage-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "action": "Connect a usable routing/geocoding service or operate a real route graph. No paid account is inherently required, but none is currently connected.",
-      "reason": "Route is explicitly unavailable; fuel-cost calculation and straight-line distance are separate tools."
+      "latestSourceReview": "2026-10-10: rights-holder FAQ requires licensing for use of the named scales. User has no licensed scales. Existing heart-rate methods remain available."
     },
     {
       "id": "WW-NAMED-METHODS",
@@ -242,7 +117,12 @@
       "sourceUrl": "https://www.calculator.net/weight-watchers-points-calculator.html",
       "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
       "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
-      "reason": "Route is explicitly unavailable."
+      "reason": "Route is explicitly unavailable.",
+      "primarySources": [
+        "https://www.weightwatchers.com/us/blog/what-are-points",
+        "https://patents.google.com/patent/US6040531A/en"
+      ],
+      "latestSourceReview": "2026-10-10: current official overview does not disclose a complete current formula. Historical US6040531A publishes numerical formulas but does not establish the captured version, fiber-cap rules, all four forms or current method. No proprietary named method was added."
     }
   ],
   "closedSincePreviousSnapshot": [
@@ -421,6 +301,95 @@
       ],
       "evidence": "Recent 3–20 completed 18-hole round rows compose course rating, slope, adjusted gross score and optional PCC into the estimated index. Independently verified score selection, PCC sensitivity, positive/negative rounding and the index ceiling. Nine-hole expected-score processing remains open separately.",
       "validation": "tests/golf-rounds.test.ts: 24/24 passed"
+    },
+    {
+      "id": "BRA-REGIONAL-CONVERTER",
+      "slugs": [
+        "bra-size-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-labels",
+        "dress-labels"
+      ],
+      "scope": "Named Wacoal band/cup conventions for US, UK, EU, France, Australia/New Zealand and Japan, including AA where listed. Independent dress-label conversion. Published ranges only; not a universal brand or captured-chart equivalence.",
+      "primarySources": [
+        "https://www.wacoallingerie.com/uk/en/size-guide/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "SHOE-REGIONS-AGES",
+      "slugs": [
+        "shoe-size-conversion"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-chart"
+      ],
+      "scope": "115 Nike chart rows across adult men, adult women, big kids, little kids and infants. US/UK/EU/JP/CN source labels; repeated labels return all matching rows; measured length rounds to next listed row. CN joined from official China guides by US/UK/EU, never inferred from JP. Missing values remain unavailable.",
+      "primarySources": [
+        "https://www.nike.com/size-fit/mens-footwear",
+        "https://www.nike.com/size-fit/womens-footwear",
+        "https://www.nike.com/size-fit/kids-footwear",
+        "https://www.nike.com.cn/size-fit/mens-footwear",
+        "https://www.nike.com.cn/size-fit/womens-footwear",
+        "https://www.nike.com.cn/size-fit/kids-footwear"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "NEC-IMPEDANCE",
+      "slugs": [
+        "voltage-drop-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "nec-2017"
+      ],
+      "scope": "Dated 2017 NEC Table 9 numerical R/X reference for 21 sizes, copper/aluminum and PVC/aluminum/steel conduit. Balanced three-phase, 60 Hz, 75 C, up to 600 V, Class B stranded UL RHH, cradled configuration. Missing 14 AWG aluminum rejected. Does not certify current local code or ampacity.",
+      "primarySources": [
+        "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2",
+        "https://www.cummins.com/sites/default/files/2024-08/t030-Liquid-cooled-gen-set-application-manual.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "GOLF-NINE-HOLE",
+      "slugs": [
+        "golf-handicap-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "mixed-rounds"
+      ],
+      "scope": "Mixed 3–20-round workflow accepts calculated 18-hole scores and user-supplied verified final 18-hole-equivalent differentials with source records. Nine-hole scores are never doubled; expected-score contributions are not generated or independently verified. Index remains unofficial.",
+      "primarySources": [
+        "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "ROAD-MILEAGE",
+      "slugs": [
+        "mileage-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "driving"
+      ],
+      "scope": "User-triggered Nominatim place lookup with explicit match selection, or coordinates; FOSSGIS/OSRM driving distance and estimated duration. No traffic or straight-line fallback. Cached and paced server requests, bounded queue, attribution, privacy disclosure, configurable providers and disable switch. Default public providers require a single process/replica; scale through a compliant shared gateway or operated provider.",
+      "primarySources": [
+        "https://operations.osmfoundation.org/policies/nominatim/",
+        "https://routing.openstreetmap.de/about.html",
+        "https://project-osrm.org/docs/v5.5.1/api/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
     }
   ],
   "alreadySupportedWithExplicitScope": [
@@ -436,33 +405,30 @@
     }
   ],
   "validation": {
-    "newYearAndACTCSuite": "tests/tax-years.test.ts:151tests passed",
-    "integratedSuites": [
-      "tests/tax-years.test.ts",
-      "tests/tax-additional.test.ts",
-      "tests/composition-ledgers.test.ts"
-    ],
-    "integratedResult": {
-      "tests": 527,
-      "passed": 527,
-      "failed": 0
-    },
-    "golfRoundSuite": {
-      "path": "tests/golf-rounds.test.ts",
-      "tests": 24,
-      "passed": 24,
-      "failed": 0
-    },
+    "report": "docs/validation/remaining-features.json",
+    "scope": "Full unit suite, typecheck, lint, production build and focused browser/API/translation checks; no deployment or claim of full competitor parity.",
+    "unitTestsPassed": 2957,
+    "unitTestFiles": 36,
+    "browserTestsPassed": 17,
     "typecheck": "passed",
-    "targetedESLint": "passed",
-    "scope": "Only named targeted suites rerun by this agent; no claim of global full-suite or browser pass."
+    "lint": "passed",
+    "productionBuild": "passed",
+    "sitemapUrlsPassed": 1458,
+    "translationMessagesPerLanguage": 8970,
+    "liveRoutingApi": "passed"
   },
   "knownScopeLimitsNotMisreportedAsMissingControls": [
     "An entire federal/state tax return is not inferred from these calculator forms; supported calculations disclose excluded coordination and special eligibility.",
     "2026W4withholding remains explicitly2026; annual2025/2026income planning is separate.",
     "HistoricalFHA78%request eligibility/projection does not automatically certify actual billing cessation.",
     "No invented generic BTUcoefficients, Khamis–Roche coefficients, currentWWalgorithm, or9-holeexpectedscore is presented as verified.",
-    "Brand chart source selection/reuse remains unresolved; this report does not give a legal conclusion or assert a paid subscription is mandatory."
+    "Named Wacoal band/cup conventions for US, UK, EU, France, Australia/New Zealand and Japan, including AA where listed. Independent dress-label conversion. Published ranges only; not a universal brand or captured-chart equivalence.",
+    "115 Nike chart rows across adult men, adult women, big kids, little kids and infants. US/UK/EU/JP/CN source labels; repeated labels return all matching rows; measured length rounds to next listed row. CN joined from official China guides by US/UK/EU, never inferred from JP. Missing values remain unavailable.",
+    "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+    "Dated 2017 NEC Table 9 numerical R/X reference for 21 sizes, copper/aluminum and PVC/aluminum/steel conduit. Balanced three-phase, 60 Hz, 75 C, up to 600 V, Class B stranded UL RHH, cradled configuration. Missing 14 AWG aluminum rejected. Does not certify current local code or ampacity.",
+    "Mixed 3–20-round workflow accepts calculated 18-hole scores and user-supplied verified final 18-hole-equivalent differentials with source records. Nine-hole scores are never doubled; expected-score contributions are not generated or independently verified. Index remains unofficial.",
+    "User-triggered Nominatim place lookup with explicit match selection, or coordinates; FOSSGIS/OSRM driving distance and estimated duration. No traffic or straight-line fallback. Cached and paced server requests, bounded queue, attribution, privacy disclosure, configurable providers and disable switch. Default public providers require a single process/replica; scale through a compliant shared gateway or operated provider.",
+    "Sizing and impedance data contain independently structured numerical relationships with source attribution; no source artwork or descriptive tables are reproduced. This audit does not assert that a source licence or legal clearance was obtained."
   ],
   "manifestNote": "Implementation snapshot and coverage manifest are regenerated from the current typed registry; unresolved mode records remain explicit.",
   "routes": [
@@ -971,7 +937,7 @@
     {
       "slug": "bra-size-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 2,
+      "registeredModeCount": 4,
       "registeredModes": [
         {
           "id": "us",
@@ -980,17 +946,23 @@
         {
           "id": "traditional-band",
           "algorithm": "bra-legacy"
+        },
+        {
+          "id": "regional-labels",
+          "algorithm": "bra-regions"
+        },
+        {
+          "id": "dress-labels",
+          "algorithm": "dress-regions"
         }
       ],
-      "remainingIds": [
-        "BRA-REGIONAL-CONVERTER"
-      ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
       "slug": "btu-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 2,
+      "registeredModeCount": 3,
       "registeredModes": [
         {
           "id": "room",
@@ -999,6 +971,10 @@
         {
           "id": "heat-energy",
           "algorithm": "heat-energy"
+        },
+        {
+          "id": "heat-loss",
+          "algorithm": "heat-loss"
         }
       ],
       "remainingIds": [
@@ -1966,7 +1942,7 @@
     {
       "slug": "golf-handicap-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 4,
+      "registeredModeCount": 5,
       "registeredModes": [
         {
           "id": "index",
@@ -1983,11 +1959,13 @@
         {
           "id": "differential",
           "algorithm": "golf-differential"
+        },
+        {
+          "id": "mixed-rounds",
+          "algorithm": "golf-mixed"
         }
       ],
-      "remainingIds": [
-        "GOLF-NINE-HOLE"
-      ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
@@ -2656,12 +2634,15 @@
     },
     {
       "slug": "mileage-calculator",
-      "routeKind": "unavailable",
-      "registeredModeCount": 0,
-      "registeredModes": [],
-      "remainingIds": [
-        "ROAD-MILEAGE"
+      "routeKind": "calculator",
+      "registeredModeCount": 1,
+      "registeredModes": [
+        {
+          "id": "driving",
+          "algorithm": "road-route"
+        }
       ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
@@ -3740,16 +3721,18 @@
     {
       "slug": "shoe-size-conversion",
       "routeKind": "calculator",
-      "registeredModeCount": 1,
+      "registeredModeCount": 2,
       "registeredModes": [
         {
           "id": "length",
           "algorithm": "shoe"
+        },
+        {
+          "id": "regional-chart",
+          "algorithm": "shoe-regions"
         }
       ],
-      "remainingIds": [
-        "SHOE-REGIONS-AGES"
-      ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
@@ -4367,7 +4350,7 @@
     {
       "slug": "voltage-drop-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 3,
+      "registeredModeCount": 4,
       "registeredModes": [
         {
           "id": "dc",
@@ -4380,11 +4363,13 @@
         {
           "id": "gauge",
           "algorithm": "wire-gauge"
+        },
+        {
+          "id": "nec-2017",
+          "algorithm": "nec-2017"
         }
       ],
-      "remainingIds": [
-        "NEC-IMPEDANCE"
-      ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
@@ -4511,10 +4496,128 @@
     }
   ],
   "sourceHashes": {
-    "src/lib/calculators/registry.ts": "754de3983096328afc8e0719bd17082fab2d6be35198c895800544be2b9f155c",
+    "src/lib/calculators/registry.ts": "e3e3a01cbf5c8172e75079354dcc0b9d72716f983191376bd50dd9b6df02877c",
     "src/lib/calculators/tax-composition.ts": "8734c8b13ddf1b2c9bea993472ff6adbb0da92704ec130fe51c706fdd7aaa048",
     "src/lib/calculators/child-credit.ts": "c2208f9927efe03521f615f6cc1facc1b60679d78f4744afebf23d9e2ea3ec3e",
     "src/lib/calculators/historical-fha.ts": "710bc57422af2d595ad8a32c6bd50c95c7cc25c9cc41c238e24e8fdc176022f3",
-    "src/lib/calculators/everyday-engine.ts": "119555d89372619b44dbf60cdf72fcf06d1877e1e09f73a9a93e2e1a6e8dbfe2"
-  }
+    "src/lib/calculators/everyday-engine.ts": "a08b542575f117a2415ac731c2a0692c3c1a15ff3569b64f6795aaef923b3b33",
+    "src/lib/calculators/remaining-definitions.ts": "e84e47f48bc5b4cf900ba0150cd26926d80e7189c02bf4bb25b553f05f802a14",
+    "src/lib/calculators/remaining-engine.ts": "21fa1e62631ea880e3fd5532cfe28175d3e5c9fc71a7c169adedf4aa79c65aed",
+    "src/lib/calculators/sizing.ts": "25e12eb268d535de455abf2364856be205d06bd8a18c3ff8608f084c1befc89e",
+    "src/lib/calculators/nec-impedance.ts": "bdfc25cc29d06758a9c6d67ae678dabc4df53b4a5a120ba01a0c18a49d6c3106",
+    "src/lib/calculators/road-route.ts": "13705bad8f9a3087416fa266df89ed5e4a2382698dde14b00e47c1e69051b1f1",
+    "src/lib/data/road-routing.ts": "a234a96e2f22098f90dcea306e6864f1b57fd056fe8077cc3a59b03e0da26346",
+    "src/app/api/road-route/route.ts": "39eb8ad96a5ecfdbbc449903f37faa0364e1bdb954587d3dcf02ae1e1321d61a",
+    "src/data/bra-size-conventions.json": "3a06370918cf865c4d377c7c5c6ed1dfe24a5fc27164288b6dd825154600c509",
+    "src/data/shoe-size-charts.json": "08c3f8f121df92ed2836f44bc00fa7abf5eb72172680faf93c065d6e539aaea9",
+    "src/data/nec-2017-impedance.json": "f14df0c0322d32e2f9219a4196cf1d1ffd2129ae06855b3c9eafaa2be760c367"
+  },
+  "implementedThisPass": [
+    {
+      "id": "BRA-REGIONAL-CONVERTER",
+      "slugs": [
+        "bra-size-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-labels",
+        "dress-labels"
+      ],
+      "scope": "Named Wacoal band/cup conventions for US, UK, EU, France, Australia/New Zealand and Japan, including AA where listed. Independent dress-label conversion. Published ranges only; not a universal brand or captured-chart equivalence.",
+      "primarySources": [
+        "https://www.wacoallingerie.com/uk/en/size-guide/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "SHOE-REGIONS-AGES",
+      "slugs": [
+        "shoe-size-conversion"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "regional-chart"
+      ],
+      "scope": "115 Nike chart rows across adult men, adult women, big kids, little kids and infants. US/UK/EU/JP/CN source labels; repeated labels return all matching rows; measured length rounds to next listed row. CN joined from official China guides by US/UK/EU, never inferred from JP. Missing values remain unavailable.",
+      "primarySources": [
+        "https://www.nike.com/size-fit/mens-footwear",
+        "https://www.nike.com/size-fit/womens-footwear",
+        "https://www.nike.com/size-fit/kids-footwear",
+        "https://www.nike.com.cn/size-fit/mens-footwear",
+        "https://www.nike.com.cn/size-fit/womens-footwear",
+        "https://www.nike.com.cn/size-fit/kids-footwear"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "BTU-LOAD-FACTORS",
+      "slugs": [
+        "btu-calculator"
+      ],
+      "status": "scoped_alternative_implemented_residual_open",
+      "implementedModes": [
+        "heat-loss"
+      ],
+      "scope": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+      "primarySources": [
+        "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+        "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "NEC-IMPEDANCE",
+      "slugs": [
+        "voltage-drop-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "nec-2017"
+      ],
+      "scope": "Dated 2017 NEC Table 9 numerical R/X reference for 21 sizes, copper/aluminum and PVC/aluminum/steel conduit. Balanced three-phase, 60 Hz, 75 C, up to 600 V, Class B stranded UL RHH, cradled configuration. Missing 14 AWG aluminum rejected. Does not certify current local code or ampacity.",
+      "primarySources": [
+        "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2",
+        "https://www.cummins.com/sites/default/files/2024-08/t030-Liquid-cooled-gen-set-application-manual.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "GOLF-NINE-HOLE",
+      "slugs": [
+        "golf-handicap-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "mixed-rounds"
+      ],
+      "scope": "Mixed 3–20-round workflow accepts calculated 18-hole scores and user-supplied verified final 18-hole-equivalent differentials with source records. Nine-hole scores are never doubled; expected-score contributions are not generated or independently verified. Index remains unofficial.",
+      "primarySources": [
+        "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "ROAD-MILEAGE",
+      "slugs": [
+        "mileage-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "driving"
+      ],
+      "scope": "User-triggered Nominatim place lookup with explicit match selection, or coordinates; FOSSGIS/OSRM driving distance and estimated duration. No traffic or straight-line fallback. Cached and paced server requests, bounded queue, attribution, privacy disclosure, configurable providers and disable switch. Default public providers require a single process/replica; scale through a compliant shared gateway or operated provider.",
+      "primarySources": [
+        "https://operations.osmfoundation.org/policies/nominatim/",
+        "https://routing.openstreetmap.de/about.html",
+        "https://project-osrm.org/docs/v5.5.1/api/"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/remaining-features.json"
+    }
+  ]
 }

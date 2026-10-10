@@ -14,7 +14,7 @@ import {CalculatorArticle} from '@/components/i18n/calculator-article';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
 import translatedPages from '@/data/locales/translated-pages.json';
-import {catalog, toolMap, definitionMap, relatedTools, randomTools, sensitiveTools, blocked} from '@/lib/calculators/registry';
+import {catalog, toolMap, definitionMap, relatedTools, noInitialExampleTools, sensitiveTools, blocked} from '@/lib/calculators/registry';
 import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
 import {calculatorCardData} from '@/lib/calculator-cards';
@@ -83,7 +83,7 @@ export function localizedPage(locale: Locale) {
     if ('tool' in route && route.tool) {
       const tool = route.tool, def = definitionMap.get(tool.slug), category = categories.find(c => c.id === tool.category)!;
       const currency = tool.slug === 'mortgage-calculator-uk' ? 'GBP' : tool.slug === 'canadian-mortgage-calculator' ? 'CAD' : 'USD';
-      const initial = def && !randomTools.has(tool.slug) ? await calculate(tool.category, def.modes[0], defaults(def.modes[0])) : null;
+      const initial = def && !noInitialExampleTools.has(tool.slug) ? await calculate(tool.category, def.modes[0], defaults(def.modes[0])) : null;
       return <>
         <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}/>
         <div className="container tool-page page-content">
