@@ -474,6 +474,7 @@ th:first-child, td:first-child { text-align: left; }
 
 /* Language-aware shared layouts and explicit original-language references. */
 html[dir="rtl"] { --font-sans: var(--font-arabic), "Tahoma", sans-serif; }
+html[lang="hi"] { --font-sans: var(--font-hindi), "Nirmala UI", sans-serif; }
 html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .eyebrow { letter-spacing: normal; }
 html[dir="rtl"] .lucide-chevron-right, html[dir="rtl"] .lucide-chevron-left { transform: scaleX(-1); }
 html[dir="rtl"] .formula-block, html[dir="rtl"] input[type="number"], html[dir="rtl"] input[type="time"] { direction: ltr; text-align: start; }
@@ -482,3 +483,5 @@ html[dir="rtl"] .formula-block, html[dir="rtl"] input[type="number"], html[dir="
 .translation-notice a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px; }
 html:not([lang="en"]) .site-header nav a { font-size: 13px; }
 @media (min-width:1001px) and (max-width:1250px) { html:not([lang="en"]) .site-header .container { width: calc(100% - 48px); } }
+
+.directory-guidance { max-width: 76ch; margin-top: 3rem; }

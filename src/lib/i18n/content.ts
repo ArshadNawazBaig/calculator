@@ -11,6 +11,8 @@ const content = {
   de: () => import('@/data/locales/content/de.json').then(m=>m.default),
   pt: () => import('@/data/locales/content/pt.json').then(m=>m.default),
   ar: () => import('@/data/locales/content/ar.json').then(m=>m.default),
+  hi: () => import('@/data/locales/content/hi.json').then(m=>m.default),
+  tl: () => import('@/data/locales/content/tl.json').then(m=>m.default),
 };
 
 export const getContentDictionary = cache(async (locale: Locale): Promise<Dictionary> => {

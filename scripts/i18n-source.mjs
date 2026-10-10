@@ -5,7 +5,7 @@ import {readFile, readdir, writeFile, mkdir, access} from 'node:fs/promises';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs']);
+const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue']);
 const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name']);
 export async function translationSource() {
   const root = process.cwd();
@@ -100,6 +100,7 @@ export async function translationSource() {
     const info = JSON.parse(await readFile('src/data/information-content.json', 'utf8'));
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
+    collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
     for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.values(content)]) collect(entry, keys);
     const {calculatorCardData} = await server.ssrLoadModule('/src/lib/calculator-cards.ts');
     const descriptions = Object.fromEntries(catalog.map(tool => [tool.slug, calculatorCardData(tool).description]));

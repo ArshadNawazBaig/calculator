@@ -19,6 +19,10 @@ describe('country and currency preferences', () => {
     expect(resolvePreferences('de', {})).toEqual({country: 'DE', currency: 'EUR'});
     expect(resolvePreferences('pt', {})).toEqual({country: 'BR', currency: 'BRL'});
     expect(resolvePreferences('ar', {})).toEqual({country: 'AE', currency: 'AED'});
+    expect(resolvePreferences('hi', {})).toEqual({country: 'IN', currency: 'INR'});
+    expect(resolvePreferences('tl', {})).toEqual({country: 'PH', currency: 'PHP'});
+    expect(resolvePreferences('hi', {country: 'PH'})).toEqual({country: 'PH', currency: 'PHP'});
+    expect(resolvePreferences('tl', {country: 'IN', currency: 'USD'})).toEqual({country: 'IN', currency: 'USD'});
     expect(resolvePreferences('fr', {country: 'CA'})).toEqual({country: 'CA', currency: 'CAD'});
     expect(resolvePreferences('ar', {country: 'CA', currency: 'EUR'})).toEqual({country: 'CA', currency: 'EUR'});
   });
@@ -45,7 +49,7 @@ describe('country and currency preferences', () => {
   it('changes currency formatting, not numeric values or arbitrary text', () => {
     expect(formatMetric({label:'Total',value:1234.5,format:'money'},'EUR','de')).toBe('1.234,50 €');
     expect(formatMetric({label:'Total',value:1234.5,format:'money'},'JPY','en')).toBe('¥1,235');
-    expect(formatMetric({label:'Total',value:12.345,format:'money'},'KWD','en')).toContain('12.345');
+    expect(formatMetric({label:'Total',value:12.345,format:'money'},'KWD','en')).toContain('12.35');
     expect(formatMetric({label:'Total',value:'USD $ user content'},'EUR','de')).toBe('USD $ user content');
     expect(currencyText('Price ($/kWh)','EUR')).toBe('Price (EUR/kWh)');
     expect(currencyLabel('Dollars','EUR',text=>text)).toBe('Fixed amount');

@@ -1,0 +1,574 @@
+{
+  "/calculators": {
+    "description": "Find a calculator by the question you need to answer, from monthly payments and savings growth to percentages, dates, and measurement conversions.",
+    "sections": [
+      {
+        "title": "Choosing an online calculator",
+        "paragraphs": [
+          "Start with the quantity you want to find and the information you already know. Financial calculators model money over time; health calculators provide limited reference estimates; math tools solve numerical relationships; everyday tools handle dates, units, and practical quantities. Each tool shows its supported inputs and method so you can check whether it fits the problem.",
+          "Read the formula and worked example before comparing results. Use matching units and time periods, and keep assumptions visible when trying another scenario. A calculation can be mathematically correct while still answering a different question from the one you intended."
+        ],
+        "links": [
+          {
+            "href": "/guides",
+            "label": "Guides"
+          },
+          {
+            "href": "/methodology",
+            "label": "Our methodology"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance": {
+    "description": "Compare borrowing, saving, investing, retirement, and tax scenarios with financial calculators that explain their assumptions.",
+    "sections": [
+      {
+        "title": "Choosing a financial calculator",
+        "paragraphs": [
+          "Choose a loan calculator for payments and repayment schedules, a savings calculator for deposits and growth, or a cash-flow tool for investments with money entering and leaving over time. These questions use different models. For borrowing, compare total repayment with the regular payment. For saving, distinguish contributions from modeled returns.",
+          "Keep the currency, rate convention, and time horizon consistent across comparisons. Regional display preferences change presentation; they do not change a tax tool's jurisdiction or the rules of a named account. Review year-specific notes on retirement and tax worksheets."
+        ],
+        "links": [
+          {
+            "href": "/loan-calculator",
+            "label": "Loan Calculator"
+          },
+          {
+            "href": "/compound-interest-calculator",
+            "label": "Compound Interest Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/health": {
+    "description": "Explore BMI, energy, body-measurement, exercise, and pregnancy calculators with clear methods and limits.",
+    "sections": [
+      {
+        "title": "Using health and fitness estimates thoughtfully",
+        "paragraphs": [
+          "Health and fitness calculators turn measurements into reference estimates using stated equations. Select the model appropriate to the question and check whether it is intended for adults, children, or another specified group. Height, weight, dates, activity assumptions, and laboratory units need careful entry because a unit error can substantially change an output.",
+          "These results do not diagnose a condition or replace individualized care. Comparing equations can help explain why estimates differ, but does not establish which number is a direct measurement. Read the limitations and formula references before using an estimate to inform a health decision."
+        ],
+        "links": [
+          {
+            "href": "/bmi-calculator",
+            "label": "BMI Calculator"
+          },
+          {
+            "href": "/calorie-calculator",
+            "label": "Calorie Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/math": {
+    "description": "Use math calculators for arithmetic, algebra, geometry, probability, and statistics, with formulas and worked examples.",
+    "sections": [
+      {
+        "title": "Finding the right mathematical method",
+        "paragraphs": [
+          "Start by identifying whether the problem asks for a value, a relationship between quantities, a geometric measurement, or a statistical summary. A percentage change is different from a percentage of a number; a mean is different from a median; area and volume use different units. The method you choose determines what the result means.",
+          "Enter signs, parentheses, units, and data consistently. For geometry, match the diagram's measurements to the labels. For statistics, check the sample and distribution assumptions. Review the worked example to see how inputs connect to the formula before applying it to your own numbers."
+        ],
+        "links": [
+          {
+            "href": "/percent-calculator",
+            "label": "Percentage Calculator"
+          },
+          {
+            "href": "/statistics-calculator",
+            "label": "Statistics Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday": {
+    "description": "Find everyday calculators for schedules, unit conversions, travel, home projects, grades, and digital tools.",
+    "sections": [
+      {
+        "title": "Calculators for dates, measurements, and practical tasks",
+        "paragraphs": [
+          "Everyday calculations often combine information from different sources: a room measured in feet, material sold by volume, a journey priced per fuel unit, or an event scheduled in another time zone. Choose a tool that supports those quantities and verify the units before comparing the result with a quote, timetable, or product label.",
+          "Practical estimates depend on the dimensions, rates, and conditions entered. A geometric quantity may need a separate allowance when ordering materials, and a time or travel estimate may differ from real-world conditions. The notes on each page explain the supported model."
+        ],
+        "links": [
+          {
+            "href": "/conversion-calculator",
+            "label": "Unit Converter"
+          },
+          {
+            "href": "/date-calculator",
+            "label": "Date Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/retirement": {
+    "description": "Plan retirement contributions, account growth, withdrawals, pensions, and benefit scenarios using explicit assumptions.",
+    "sections": [
+      {
+        "title": "Comparing retirement savings and income",
+        "paragraphs": [
+          "Retirement planning connects money saved before retirement with money withdrawn afterward. Start with an accumulation tool if the question concerns contributions and growth. Use payout or duration modes to explore how a balance supports withdrawals, and a pension or benefit comparison when timing changes the income stream.",
+          "Check the tax year and jurisdiction of named account tools. Keep future money amounts separate from today's purchasing power, and compare scenarios using consistent return and inflation assumptions. A steady projection does not predict market performance, future rules, or a household's exact spending needs."
+        ],
+        "links": [
+          {
+            "href": "/retirement-calculator",
+            "label": "Retirement Calculator"
+          },
+          {
+            "href": "/annuity-payout-calculator",
+            "label": "Annuity Payout Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/mortgage-and-real-estate": {
+    "description": "Explore mortgage payments, amortization, affordability, refinancing, and property ownership scenarios.",
+    "sections": [
+      {
+        "title": "Comparing home financing and property costs",
+        "paragraphs": [
+          "A home purchase involves both a financing question and an ownership-cost question. Mortgage and amortization tools explain payments and remaining balances. Affordability and down-payment tools connect a budget with a possible price, while refinance and rent-versus-buy tools compare alternative paths over time.",
+          "Use the same horizon when comparing alternatives and account for costs at the point they occur. A lower monthly mortgage payment can result from a longer term. Property value, ongoing expenses, and sale assumptions also affect a real-estate comparison beyond the loan payment alone."
+        ],
+        "links": [
+          {
+            "href": "/mortgage-calculator",
+            "label": "Mortgage Calculator"
+          },
+          {
+            "href": "/rent-vs-buy-calculator",
+            "label": "Rent vs. Buy Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/auto": {
+    "description": "Calculate vehicle financing and compare cash rebates, interest-rate offers, leases, and payment budgets.",
+    "sections": [
+      {
+        "title": "Comparing vehicle loans, leases, and offers",
+        "paragraphs": [
+          "Choose an auto-loan tool when ownership is financed through repayments, or a lease tool when the agreement includes a residual-value structure. Rebate and low-interest comparisons need the same vehicle price and term to show the effect of the offer itself. Enter the supported taxes, fees, and trade-in treatment consistently.",
+          "Compare upfront cash, regular payments, and amounts remaining at the end. A small installment can reflect a longer financing period or a different ending obligation. Insurance, maintenance, and other ownership costs need a separate budget when they are not fields in the selected calculator."
+        ],
+        "links": [
+          {
+            "href": "/auto-loan-calculator",
+            "label": "Auto Loan Calculator"
+          },
+          {
+            "href": "/auto-lease-calculator",
+            "label": "Auto Lease Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/investment": {
+    "description": "Compare savings growth, investment returns, cash-flow timing, interest, and present value.",
+    "sections": [
+      {
+        "title": "Choosing a growth or return calculation",
+        "paragraphs": [
+          "Use a growth calculator to project an entered balance and contribution schedule under a selected rate. Use ROI to compare gain with invested cost, and a dated return method when deposits or withdrawals occur at different times. These outputs are not interchangeable descriptions of investment performance.",
+          "Separate money contributed from money earned and check the time period behind a percentage return. Fees, taxes, and inflation affect different parts of a comparison and should be included only as supported by the selected mode. Test assumptions without treating a constant-rate scenario as a forecast."
+        ],
+        "links": [
+          {
+            "href": "/investment-calculator",
+            "label": "Investment Calculator"
+          },
+          {
+            "href": "/roi-calculator",
+            "label": "ROI Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/other": {
+    "description": "Find tools for debt repayment, prices, margins, commissions, budgeting, and other financial arithmetic.",
+    "sections": [
+      {
+        "title": "Matching a money question to its calculation",
+        "paragraphs": [
+          "Pricing tools distinguish cost, selling price, profit, tax, and discount. Debt tools focus on the timing of payments and interest. Budgeting tools align income and expenses over a common period. Select the relationship you want to solve rather than choosing a calculator only because its title contains a familiar financial term.",
+          "Check whether percentages apply to cost, revenue, an original price, or an outstanding balance. Those bases can produce different results from the same percentage. Review the supported fees and timing assumptions before comparing a result with a contract or statement."
+        ],
+        "links": [
+          {
+            "href": "/budget-calculator",
+            "label": "Budget Calculator"
+          },
+          {
+            "href": "/margin-calculator",
+            "label": "Margin Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/finance/tax-and-salary": {
+    "description": "Explore salary, take-home pay, and supported US tax worksheets with year-specific assumptions.",
+    "sections": [
+      {
+        "title": "Separating pay conversion from tax estimates",
+        "paragraphs": [
+          "Salary conversion translates a pay amount between periods using an entered work schedule. Take-home estimates additionally account for supported taxes and deductions. Tax worksheets answer particular questions about income, credits, or adjustments for a stated year, and do not necessarily form a complete return.",
+          "Confirm the jurisdiction and tax year before calculating. A language or currency preference does not convert a US federal worksheet into another country's tax system. Compare gross pay, withholding, and estimated liability separately, because each describes a different part of the pay and tax process."
+        ],
+        "links": [
+          {
+            "href": "/salary-calculator",
+            "label": "Salary Calculator"
+          },
+          {
+            "href": "/take-home-pay-calculator",
+            "label": "Take Home Pay Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/health/fitness": {
+    "description": "Explore fitness calculators for energy, body measurements, activity, pace, and training reference estimates.",
+    "sections": [
+      {
+        "title": "Interpreting fitness and body-measurement estimates",
+        "paragraphs": [
+          "Choose the tool according to the measurement or estimate needed: BMI relates height to weight, energy models combine body inputs with activity assumptions, and pace tools relate time to distance. These methods do not provide the same information. Check measurement units and the selected equation before comparing values.",
+          "A reference estimate is different from a direct measurement or an individualized training plan. Activity settings and body-composition equations can produce different results under different assumptions. Use each page's explanation and limitations to understand what is included in the calculation."
+        ],
+        "links": [
+          {
+            "href": "/tdee-calculator",
+            "label": "TDEE Calculator"
+          },
+          {
+            "href": "/pace-calculator",
+            "label": "Pace Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/health/pregnancy": {
+    "description": "Explore estimated pregnancy dates, cycle windows, due dates, and pregnancy weight-gain references.",
+    "sections": [
+      {
+        "title": "Understanding pregnancy and cycle timelines",
+        "paragraphs": [
+          "Pregnancy dating can start from menstrual information, an IVF transfer, ultrasound dating, or an already known due date. Cycle tools instead extend a reported cycle pattern to estimate future dates. Choose the method that matches the information available rather than treating those starting points as interchangeable.",
+          "Calendar estimates do not confirm ovulation, conception, or an exact birth date. Cycle predictions are not a reliable method of contraception. Review the selected method's uncertainty and seek individualized maternity care for clinical dating or health concerns."
+        ],
+        "links": [
+          {
+            "href": "/pregnancy-calculator",
+            "label": "Pregnancy Calculator"
+          },
+          {
+            "href": "/due-date-calculator",
+            "label": "Due Date Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/health/other": {
+    "description": "Review specialized health estimates with their required measurements, equations, and limitations.",
+    "sections": [
+      {
+        "title": "Checking the scope of health reference tools",
+        "paragraphs": [
+          "Specialized health calculations need inputs that match the selected model, including the appropriate age group and measurement units. A laboratory-based estimate answers a different question from a body-measurement or alcohol model. Read the field labels and source notes before entering values copied from another report.",
+          "A calculated reference value cannot establish a diagnosis or a safe action on its own. The tool does not know a person's full medical context, medication use, or other measurements. Use the page's limitations to understand when professional interpretation is needed."
+        ],
+        "links": [
+          {
+            "href": "/gfr-calculator",
+            "label": "GFR Calculator"
+          },
+          {
+            "href": "/bac-calculator",
+            "label": "BAC Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/math/geometry": {
+    "description": "Calculate sides, angles, distances, area, and volume using the measurements available for a shape.",
+    "sections": [
+      {
+        "title": "Matching geometry formulas to shapes",
+        "paragraphs": [
+          "Start with the shape and the quantities already known. A right triangle has an additional angle constraint that a general triangle does not. Circle measurements distinguish radius from diameter, and solid shapes distinguish surface area from volume. Selecting the correct geometric case is part of solving the problem.",
+          "Use compatible length units and match perpendicular heights to their bases. The resulting area uses squared units and volume uses cubic units. For irregular objects, a combination of simpler shapes may fit better than a single idealized formula."
+        ],
+        "links": [
+          {
+            "href": "/triangle-calculator",
+            "label": "Triangle Calculator"
+          },
+          {
+            "href": "/volume-calculator",
+            "label": "Volume Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/math/statistics": {
+    "description": "Explore averages, spread, probability, confidence intervals, p-values, and sample-size calculations.",
+    "sections": [
+      {
+        "title": "Choosing a statistical summary or probability model",
+        "paragraphs": [
+          "Descriptive tools summarize the dataset entered, while inferential tools use additional assumptions to estimate uncertainty or evaluate a model. Check whether the question concerns a typical value, variation, a probability, or sampling precision. These questions require different inputs and should not be answered with the same headline statistic.",
+          "Review sample versus population conventions and any distribution or independence assumptions. A precise arithmetic output does not correct biased data collection. Keep the original data and study context alongside the calculated result so that a statistical quantity is not interpreted more broadly than its model allows."
+        ],
+        "links": [
+          {
+            "href": "/standard-deviation-calculator",
+            "label": "Standard Deviation Calculator"
+          },
+          {
+            "href": "/confidence-interval-calculator",
+            "label": "Confidence Interval Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/math/arithmetic-and-number-theory": {
+    "description": "Work with percentages, fractions, ratios, powers, factors, bases, rounding, and numerical expressions.",
+    "sections": [
+      {
+        "title": "Solving arithmetic with the right representation",
+        "paragraphs": [
+          "Choose a representation that matches the problem. Fractions preserve a numerator and denominator, ratios compare ordered quantities, and percentages use a comparison base. Binary and hexadecimal tools change place-value notation. Factor and multiple tools describe divisibility relationships rather than approximate decimal results.",
+          "Check signs, parentheses, and the selected operation before calculating. Rounding is a separate choice from evaluating an expression, and intermediate rounding can affect later steps. Review the formula or worked example when several similarly named methods are available."
+        ],
+        "links": [
+          {
+            "href": "/fraction-calculator",
+            "label": "Fraction Calculator"
+          },
+          {
+            "href": "/ratio-calculator",
+            "label": "Ratio Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/date-and-time": {
+    "description": "Calculate ages, date differences, business days, work hours, durations, and time-zone conversions.",
+    "sections": [
+      {
+        "title": "Choosing calendar, clock, or elapsed-time arithmetic",
+        "paragraphs": [
+          "A date interval, clock-time difference, and time-zone conversion require different information. Use calendar dates when a duration spans days, and named time zones when regional clock rules matter. Business-day calculations also need a weekend convention and any holidays that should be excluded.",
+          "Check whether the start and end boundaries are included. A fixed UTC offset is not the same as a location's date-dependent time zone, and an entered work duration does not automatically apply payroll rules. Keep those assumptions visible when planning a deadline or meeting."
+        ],
+        "links": [
+          {
+            "href": "/date-calculator",
+            "label": "Date Calculator"
+          },
+          {
+            "href": "/time-zone-calculator",
+            "label": "Time Zone Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/internet": {
+    "description": "Explore bandwidth, IP subnet, Base64, URL encoding, and password tools.",
+    "sections": [
+      {
+        "title": "Understanding digital units and encodings",
+        "paragraphs": [
+          "Digital tools handle several different kinds of information. Bandwidth calculations relate a data amount to a transfer rate, subnet tools divide address space, and encoders change how text or bytes are represented. Select the input format before pasting a value, especially when bits, bytes, or character encodings are involved.",
+          "Encoding is not encryption, and validly decoded text is not automatically trustworthy. Network arithmetic describes an address or transfer model without testing a live network. Check each tool's supported format and limitations before using its output in a system configuration."
+        ],
+        "links": [
+          {
+            "href": "/bandwidth-calculator",
+            "label": "Bandwidth Calculator"
+          },
+          {
+            "href": "/ip-subnet-calculator",
+            "label": "IP Subnet Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/everyday-utility": {
+    "description": "Find practical tools for grades, GPA, tips, and other everyday numerical questions.",
+    "sections": [
+      {
+        "title": "Calculating grades, bills, and everyday quantities",
+        "paragraphs": [
+          "Everyday arithmetic often depends on a weighting or comparison rule. Course credits can weight a GPA, assessment percentages can weight a final grade, and a bill split depends on which amount is shared. Identify that rule before entering values so that the result reflects the intended arrangement.",
+          "Check whether a number represents a percentage, a point total, a credit value, or a currency amount. A result based on entered rules does not confirm an institution's grading policy or an agreement between people. The worked example helps show how each input is used."
+        ],
+        "links": [
+          {
+            "href": "/grade-calculator",
+            "label": "Grade Calculator"
+          },
+          {
+            "href": "/tip-calculator",
+            "label": "Tip Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/housing-building": {
+    "description": "Calculate area, volume, material quantities, stair geometry, and heating or cooling estimates for planning.",
+    "sections": [
+      {
+        "title": "Estimating materials and home-project quantities",
+        "paragraphs": [
+          "Start with the project's measurements and select a matching geometric or heat-transfer model. Floor area, concrete volume, roof surface, and material mass are different quantities. Unit conversions matter when dimensions are measured in one system and products are sold in another.",
+          "Separate the idealized quantity from purchasing allowances, package rounding, and cost assumptions. Practical site conditions can differ from a rectangular or uniform model. These planning tools do not replace structural design, equipment sizing procedures, or local construction requirements."
+        ],
+        "links": [
+          {
+            "href": "/square-footage-calculator",
+            "label": "Square Footage Calculator"
+          },
+          {
+            "href": "/concrete-calculator",
+            "label": "Concrete Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/various-measurements-units": {
+    "description": "Convert units and calculate physical quantities such as density, mass, speed, and concentration.",
+    "sections": [
+      {
+        "title": "Converting measurements without changing their meaning",
+        "paragraphs": [
+          "Choose the physical quantity before converting units. A length is not an area, power is not energy, and a mass unit is not a force unit. For calculated quantities such as density or speed, all inputs must refer to the same sample or interval. Use the selected mode's field labels to keep those relationships clear.",
+          "Preserve the meaning and precision of the original measurement when presenting the output. Extra decimal places from a conversion do not create new measurement accuracy. Some quantities also depend on conditions or material properties that must be supplied rather than inferred from the number alone."
+        ],
+        "links": [
+          {
+            "href": "/conversion-calculator",
+            "label": "Unit Converter"
+          },
+          {
+            "href": "/density-calculator",
+            "label": "Density Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/weather": {
+    "description": "Calculate wind chill, heat index, and dew point using compatible weather measurements.",
+    "sections": [
+      {
+        "title": "Interpreting apparent temperature and humidity",
+        "paragraphs": [
+          "Weather indices combine measurements under specific reference conditions. Wind chill uses temperature and wind, heat index relates temperature and humidity, and dew point describes a moisture-related temperature. Choose the quantity that matches the question and confirm that the inputs are within the method's intended range.",
+          "An apparent-temperature index is different from the measured air temperature. It does not capture every aspect of an individual's exposure or establish a safe time outdoors. Compare results with the formula notes and current conditions rather than interpreting one index as a complete weather assessment."
+        ],
+        "links": [
+          {
+            "href": "/heat-index-calculator",
+            "label": "Heat Index Calculator"
+          },
+          {
+            "href": "/dew-point-calculator",
+            "label": "Dew Point Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/entertainment-anecdotes": {
+    "description": "Explore recreational calculators and everyday reference conversions with clear explanations of their scope.",
+    "sections": [
+      {
+        "title": "Using recreational and reference tools",
+        "paragraphs": [
+          "Some tools in this group provide a reference conversion or a modeled estimate, while others are explicitly for entertainment. Read the individual page's purpose before interpreting the output. A numerical score can look precise even when it is only a playful rule applied to the entered text.",
+          "Check measurement systems and supported ranges on reference tools. For recreational outputs, a result does not predict a real-world event or establish a personal characteristic. The method and limitations distinguish a useful conversion from a game or lighthearted activity."
+        ],
+        "links": [
+          {
+            "href": "/dice-roller",
+            "label": "Dice Roller"
+          },
+          {
+            "href": "/roman-numeral-converter",
+            "label": "Roman Numeral Converter"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/electronics-circuits": {
+    "description": "Explore voltage, current, resistance, power, conductor, and voltage-drop calculations.",
+    "sections": [
+      {
+        "title": "Checking units in electrical calculations",
+        "paragraphs": [
+          "Choose the circuit relationship that matches the known quantities. Ohm's law combines basic electrical values, resistor tools handle component markings and combinations, and voltage-drop models include conductor and circuit assumptions. Unit prefixes and the interpretation of conductor length are especially important to a correct result.",
+          "A mathematical output does not verify a component rating or make an installation safe. Review the model's scope and applicable reference notes before using an estimate in design work. Real circuits can require additional analysis beyond the values supported by the selected calculator."
+        ],
+        "links": [
+          {
+            "href": "/ohms-law-calculator",
+            "label": "Ohm's Law Calculator"
+          },
+          {
+            "href": "/voltage-drop-calculator",
+            "label": "Voltage Drop Calculator"
+          }
+        ]
+      }
+    ]
+  },
+  "/calculators/everyday/transportation": {
+    "description": "Estimate fuel use, trip cost, driving mileage, tire dimensions, and vehicle-related quantities.",
+    "sections": [
+      {
+        "title": "Comparing travel and vehicle measurements",
+        "paragraphs": [
+          "A trip cost combines distance, fuel consumption, and price. Driving-route mileage comes from a mapped route, while a geometric distance uses a different model. Vehicle measurement tools answer separate questions about power or dimensions. Choose the quantity needed before combining results from several tools.",
+          "Check units and the time or journey interval behind each measurement. Fuel economy can vary with conditions, a route provider can choose a different road, and a nominal tire size does not establish complete vehicle compatibility. Use the stated assumptions to understand the estimate's limits."
+        ],
+        "links": [
+          {
+            "href": "/fuel-cost-calculator",
+            "label": "Fuel Cost Calculator"
+          },
+          {
+            "href": "/mileage-calculator",
+            "label": "Mileage Calculator"
+          }
+        ]
+      }
+    ]
+  }
+}

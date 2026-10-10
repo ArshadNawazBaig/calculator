@@ -4,7 +4,7 @@ export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   // Config redirects match paths without case sensitivity, which would also
   // redirect the lowercase canonical URL to itself. Check the case here.
-  if (/^\/(?:(?:es|fr|de|pt|ar)\/)?401K-calculator$/.test(path)) {
+  if (/^\/(?:(?:es|fr|de|pt|ar|hi|tl)\/)?401K-calculator$/.test(path)) {
     const target = request.nextUrl.clone();
     target.pathname = path.replace('/401K-calculator', '/401k-calculator');
     return NextResponse.redirect(target, 308);

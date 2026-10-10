@@ -1,4 +1,5 @@
 import Decimal from 'decimal.js';
+import {finalGrade} from './final-grade';
 import units from '@/data/utility-unit-tables.json';
 import {num, positive} from './helpers';
 import {parseRows, rowNumber} from './row-data';
@@ -59,9 +60,8 @@ export function runCompletionEveryday(op: string, v: Values): Result {
   if (op === 'grade-letters' || op === 'grade-letter-final') {
     const grade = gradeScale(v);
     if (op === 'grade-letter-final') {
-      const current = grade(v.current), target = grade(v.target), remaining = positive(n('remainingWeight')) / 100;
-      const required = (target - current * (1 - remaining)) / remaining;
-      return {metrics: [m('Required remaining score', required, 'percent'), m('Minimum nonnegative score', Math.max(0, required), 'percent'), m('Within a 0–100 score range', required > 100 ? 'No: extra credit would be needed' : 'Yes')], notes: ['Letter inputs use your editable representative percentages, not universal grade cutoffs.']};
+      const output=finalGrade(grade(v.current),grade(v.target),positive(n('remainingWeight')),'Required remaining score');
+      return {...output,notes:[...output.notes||[], 'Letter inputs use your editable representative percentages, not universal grade cutoffs.']};
     }
     const rows = parseRows(v.assessments, 'Assessments').map(r => ({name: String(r.name || 'Assessment'), score: grade(r.grade), weight: positive(rowNumber(r.weight, 'Weight', 0))}));
     const weight = positive(rows.reduce((sum, r) => sum + r.weight, 0), 'Total weight');

@@ -10,6 +10,14 @@
         "question": "How are month-end anniversaries handled?",
         "answer": "If the matching day does not exist in a target month, the anniversary is clamped to that month's final day."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading age on a selected date",
+        "paragraphs": [
+          "Age depends on both the birth date and the date on which it is measured. Check the reference date before comparing results from different visits. Calendar years and months have different lengths, so a calendar-age breakdown is different from dividing a day count by a fixed year length. The result follows the date handling described by the calculator."
+        ]
+      }
     ]
   },
   "date-calculator": {
@@ -22,6 +30,14 @@
       {
         "question": "Are public holidays excluded automatically?",
         "answer": "The business-day modes exclude the holiday dates you supply. Custom modes also let you choose which weekdays count as working days."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing elapsed days or business days",
+        "paragraphs": [
+          "Elapsed calendar days and business days answer different scheduling questions. Select the mode that matches whether weekends and entered holidays should be excluded. Check the treatment of start and end dates before comparing a duration with a deadline. A custom holiday list only accounts for the dates supplied; it does not automatically establish every local workplace or legal-calendar rule."
+        ]
       }
     ]
   },
@@ -36,6 +52,14 @@
         "question": "What happens when the end date precedes the start?",
         "answer": "The result is signed to show a reverse interval, rather than silently changing the dates into forward order."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking the boundaries of a day count",
+        "paragraphs": [
+          "A day count can change depending on whether the starting and ending dates are included. Review the mode's boundary convention before using the result for an interval or deadline. Business-day modes also depend on the selected weekend pattern and holiday list. Keep the calendar rule consistent when comparing two periods, rather than assuming every day counter uses the same convention."
+        ]
+      }
     ]
   },
   "day-of-the-week-calculator": {
@@ -48,6 +72,14 @@
       {
         "question": "Do ISO weeks begin on Sunday?",
         "answer": "No. This calculator's ISO week convention starts each week on Monday."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Finding a weekday for a calendar date",
+        "paragraphs": [
+          "Enter the complete date, including the year, because the same month and day can fall on different weekdays in different years. The result uses the calendar convention supported by the tool. A weekday calculation identifies the calendar label only; it does not determine whether that date is a public holiday, school day, or working day in a particular location."
+        ]
       }
     ]
   },
@@ -62,6 +94,14 @@
         "question": "Does an overnight result account for a daylight-saving change?",
         "answer": "No. This civil-time calculation treats days as 24 hours and does not resolve timezone transitions."
       }
+    ],
+    "sections": [
+      {
+        "title": "Calculating hours across midnight",
+        "paragraphs": [
+          "A pair of clock times needs a clear assumption about whether the end occurs on the same day or a later day. Use the date-and-time mode when calendar dates make that distinction important. Enter breaks according to the available fields instead of subtracting them twice. A duration calculation alone does not apply an employer's paid-time, overtime, or rounding policy."
+        ]
+      }
     ]
   },
   "time-duration-calculator": {
@@ -74,6 +114,14 @@
       {
         "question": "Is civil-time duration always the elapsed time between zoned instants?",
         "answer": "No. Daylight-saving transitions can change actual elapsed time. This mode does not apply timezone offsets or transition rules."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separating a clock time from a duration",
+        "paragraphs": [
+          "A clock time identifies a point in a day, while a duration measures elapsed time between points. Check the overnight convention when entering only clock times. Use explicit dates when the interval spans several days. The result follows the selected calculation's assumptions and should not automatically be treated as a timezone-aware elapsed-time calculation across a daylight-saving change."
+        ]
       }
     ]
   },
@@ -88,6 +136,14 @@
         "question": "Does adding a duration apply daylight-saving rules?",
         "answer": "No. Duration arithmetic has no timezone, and date-time addition is civil arithmetic rather than a conversion between zoned instants."
       }
+    ],
+    "sections": [
+      {
+        "title": "Adding durations and changing a date-time",
+        "paragraphs": [
+          "Duration arithmetic combines lengths of time, while adding time to a date produces a new calendar value. Choose the matching mode before entering the expression. Keep the hour, minute, and second formats consistent, especially when a duration is longer than a day. A decimal fraction of an hour is different from the digits after a colon in a clock-style entry."
+        ]
+      }
     ]
   },
   "time-card-calculator": {
@@ -100,6 +156,14 @@
       {
         "question": "How does rounding affect dated shifts?",
         "answer": "Rounding is applied separately to each clock punch. Break durations remain unrounded, and daily overtime groups shifts by their starting work date."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reviewing shifts, breaks, and overtime",
+        "paragraphs": [
+          "A time card estimate depends on the recorded start and end of each shift, unpaid breaks, and the overtime assumptions selected. Use dated shifts when the calendar position matters. Compare regular and overtime totals with the underlying entries to catch an overnight or break error. The calculation follows the supplied rules and does not certify payroll compliance for a particular employer or jurisdiction."
+        ]
       }
     ]
   },
@@ -114,6 +178,14 @@
         "question": "Does a fixed UTC offset follow daylight-saving changes?",
         "answer": "No. It represents only the entered offset. Use a named IANA zone when location-specific transition rules are required."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing named zones or fixed UTC offsets",
+        "paragraphs": [
+          "A named time zone can apply date-dependent offset rules, while a fixed UTC offset stays at the entered difference. Use a date when converting a meeting or event across locations, because seasonal clock changes can affect the result. Review ambiguous or skipped local times near a clock change. A fixed-offset conversion should not be mistaken for a complete regional time-zone calendar."
+        ]
+      }
     ]
   },
   "conversion-calculator": {
@@ -127,6 +199,14 @@
         "question": "Why do decimal and binary data units give different results?",
         "answer": "Decimal units use powers of 1,000, while binary units use powers of 1,024. The selected unit determines the conversion factor."
       }
+    ],
+    "sections": [
+      {
+        "title": "Converting compatible measurements",
+        "paragraphs": [
+          "Choose the measurement category before selecting source and destination units. Length, area, volume, and power describe different quantities even when their unit names look related. Temperature conversion also uses a different relationship from a simple scale factor in many other categories. Keep the original measurement precision in mind; a conversion can add displayed digits without adding new measurement accuracy."
+        ]
+      }
     ]
   },
   "density-calculator": {
@@ -134,11 +214,19 @@
     "faqs": [
       {
         "question": "How does density relate mass to volume?",
-        "answer": "Density equals mass divided by volume. Rearranging gives mass = density \u00d7 volume and volume = mass \u00f7 density."
+        "answer": "Density equals mass divided by volume. Rearranging gives mass = density × volume and volume = mass ÷ density."
       },
       {
         "question": "Can I divide kilograms by cubic centimeters without converting?",
         "answer": "Only if the resulting unit is intended. Use the calculator's labeled units consistently; mixing volume scales changes the numerical density."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Keeping mass, volume, and density consistent",
+        "paragraphs": [
+          "Density relates mass to volume, so the two measurements must describe the same material sample and use compatible units. Select the unknown quantity before entering the known values. A bulk material's density may depend on how it is packed or measured, which is outside the arithmetic itself. The calculator does not identify a substance from a density value alone."
+        ]
       }
     ]
   },
@@ -147,11 +235,19 @@
     "faqs": [
       {
         "question": "Why does doubling volume double mass at the same density?",
-        "answer": "The model uses mass = density \u00d7 volume. Holding density constant makes mass directly proportional to volume."
+        "answer": "The model uses mass = density × volume. Holding density constant makes mass directly proportional to volume."
       },
       {
         "question": "Is the mass result a force in newtons?",
         "answer": "No. Mass and gravitational weight are different quantities. Calculating force also requires gravitational acceleration."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Estimating mass from volume and density",
+        "paragraphs": [
+          "The mass estimate multiplies the modeled volume by the entered density. Check whether the density unit matches the selected volume unit before interpreting the output. The mixed-unit mode helps with conversions, but the density still needs to represent the actual material and conditions. Empty space, packaging, or variable composition can make a simple solid-volume estimate differ from a measured mass."
+        ]
       }
     ]
   },
@@ -166,6 +262,14 @@
         "question": "Can the same mass have a different weight elsewhere?",
         "answer": "Yes. Mass can remain unchanged while gravitational force changes with the local acceleration entered in the model."
       }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing mass conversion from weight force",
+        "paragraphs": [
+          "Mass-unit conversion changes the unit used to describe the same mass. A weight-force calculation additionally depends on the selected gravitational acceleration. Choose the mode that matches the question rather than treating a force unit as interchangeable with a mass unit. The mathematical result describes the entered assumptions and does not measure an object's mass or the local gravity directly."
+        ]
+      }
     ]
   },
   "speed-calculator": {
@@ -178,6 +282,14 @@
       {
         "question": "Can the elapsed duration exceed one day?",
         "answer": "Yes. Duration hours can exceed 23. The input is elapsed time, not a clock time or timezone-aware timestamp."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Relating speed, distance, and elapsed time",
+        "paragraphs": [
+          "Average speed divides a traveled distance by the corresponding elapsed time. Use the same journey interval for both inputs, and decide whether stops are included in that elapsed time. The missing-quantity modes rearrange the same relationship. An average does not describe moment-by-moment speed or guarantee that a trip with changing traffic will take the projected duration."
+        ]
       }
     ]
   },
@@ -196,6 +308,14 @@
         "question": "Can a mass concentration alone identify molar mass?",
         "answer": "No. Converting mass to moles needs molar mass or independent molar-concentration information. Mass concentration alone does not identify the substance."
       }
+    ],
+    "sections": [
+      {
+        "title": "Using solution volume in concentration calculations",
+        "paragraphs": [
+          "Molarity relates the amount of solute to the volume of the final solution under the displayed model. Check whether a field requests mass, molar mass, or an amount in moles before entering values. The required-mass and missing-quantity modes answer preparation arithmetic questions. They do not account for chemical hazards, reaction behavior, or laboratory handling requirements."
+        ]
+      }
     ]
   },
   "molecular-weight-calculator": {
@@ -208,6 +328,14 @@
       {
         "question": "Why might a listed molar mass differ slightly from another table?",
         "answer": "The result depends on the atomic-mass values and rounding used. This tool identifies the versioned reference table behind its calculation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Entering a chemical formula accurately",
+        "paragraphs": [
+          "The molecular-weight calculator interprets element symbols, counts, and supported grouping notation to build the formula mass. Capitalization matters because it helps identify the elements. Check that parentheses and multipliers describe the intended composition before calculating. The resulting mass reflects the atomic-weight data and formula entered; it does not identify an unknown sample or establish its purity."
+        ]
       }
     ]
   },
@@ -222,6 +350,14 @@
         "question": "How does the income mode distinguish national from domestic income?",
         "answer": "National-basis inputs are adjusted using entered payments abroad minus receipts. The statistical discrepancy then reconciles the modeled domestic income with expenditure GDP."
       }
+    ],
+    "sections": [
+      {
+        "title": "Keeping national-account components separate",
+        "paragraphs": [
+          "The expenditure and income-based modes organize economic activity using different accounting relationships. Match each input to the field definition so that the same amount is not counted more than once. Use figures from a consistent period and unit scale. Adding components calculates the entered accounting total; it does not independently verify official data or measure every aspect of living standards."
+        ]
+      }
     ]
   },
   "gpa-calculator": {
@@ -234,6 +370,14 @@
       {
         "question": "What if the required future GPA exceeds my school's maximum?",
         "answer": "The target is unattainable under the entered credit plan and scale. Changing future credits or the target changes the scenario."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Weighting grades by course credits",
+        "paragraphs": [
+          "A GPA calculation depends on both the grade values and the credits assigned to each course. A simple average of course grades can differ from a credit-weighted result. Check that the grading scale matches the institution's system before entering values. The target planner models the remaining performance needed under those assumptions, rather than changing an official transcript or predicting future grades."
+        ]
       }
     ]
   },
@@ -248,6 +392,14 @@
         "question": "What does a required final score above 100% mean?",
         "answer": "The target cannot be reached under the entered assumptions without extra credit or another change permitted by the course rules."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking weights before averaging grades",
+        "paragraphs": [
+          "A weighted grade uses each assessment's contribution to the course total. Make sure percentages refer to course weight rather than points earned, and select the points mode when that is how the course is organized. The required-final-score mode works backward from a target. A result outside the available score range indicates that the target cannot be met under the entered assumptions."
+        ]
+      }
     ]
   },
   "tip-calculator": {
@@ -260,6 +412,14 @@
       {
         "question": "Does splitting a bill change the total tip?",
         "answer": "No. The tip is calculated on the entered bill first, then the combined amount is divided equally among the people."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Splitting a bill and tip consistently",
+        "paragraphs": [
+          "Decide which bill amount is the base for the tip before entering the percentage. The calculator then separates the tip and the total to be divided among the selected number of people. Check whether service charges or tax are already included in the entered bill. An equal split assumes each person shares the same portion and does not allocate individual ordered items."
+        ]
       }
     ]
   },
@@ -274,6 +434,14 @@
         "question": "Does choosing a currency convert the fuel price?",
         "answer": "No. Currency is a label in this tool. Enter a pump price expressed in the currency you want the cost to use."
       }
+    ],
+    "sections": [
+      {
+        "title": "Estimating a trip's fuel spending",
+        "paragraphs": [
+          "A fuel-cost estimate combines trip distance, fuel economy, and the price per fuel unit. Check whether consumption is expressed as distance per fuel amount or fuel amount per distance, because those conventions move in opposite directions. Use the independent-units mode when the inputs come from different systems. Actual traffic, route conditions, and driving can differ from the average consumption entered."
+        ]
+      }
     ]
   },
   "gas-mileage-calculator": {
@@ -286,6 +454,14 @@
       {
         "question": "Why do lower L/100 km and higher mpg both indicate better economy?",
         "answer": "L/100 km measures fuel used for a distance, while mpg measures distance traveled per unit of fuel. Their directions are opposite."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Calculating fuel economy from a measured trip",
+        "paragraphs": [
+          "Use the distance traveled and the fuel consumed over the same interval. Odometer mode helps derive distance from two readings, but the fuel measurement still needs to match that journey. Distinguish miles per gallon from liters per distance when comparing results. A single trip's economy can differ from a longer-term average because conditions and measurement error vary."
+        ]
       }
     ]
   },
@@ -304,6 +480,14 @@
         "question": "What does the work-based power calculation assume?",
         "answer": "It assumes a constant force parallel to the displacement and divides that work by elapsed time after converting the selected units."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the power relationship you know",
+        "paragraphs": [
+          "Power can be calculated from torque and rotational speed or from work completed over time under the supported modes. Choose the relationship that matches the measurements available. Check units before comparing horsepower with watts or kilowatts. The calculation converts or combines entered quantities; it does not independently measure an engine's output or account for unentered drivetrain losses."
+        ]
+      }
     ]
   },
   "engine-horsepower-calculator": {
@@ -316,6 +500,14 @@
       {
         "question": "Should reaction time be included in quarter-mile elapsed time?",
         "answer": "No. Use elapsed time excluding reaction time. In the other mode, use measured trap speed rather than the run's average speed."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing measured inputs with performance estimates",
+        "paragraphs": [
+          "The torque-and-speed mode calculates power from mechanical inputs, while the quarter-mile mode infers a performance estimate under its stated model. These are different sources of information and need not agree. Review the vehicle weight and timing assumptions before interpreting a track-based estimate. The result is not a replacement for a controlled engine or chassis dynamometer measurement."
+        ]
       }
     ]
   },
@@ -330,6 +522,14 @@
         "question": "Why can a larger tire change the indicated speed?",
         "answer": "A larger circumference travels farther per revolution. A speedometer calibrated for the original circumference can differ from the modeled actual speed."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing nominal tire dimensions",
+        "paragraphs": [
+          "A tire-size comparison uses the entered nominal width, aspect ratio, and wheel diameter to estimate overall dimensions. Review diameter and circumference changes together when comparing alternatives. The alternative-rim mode addresses a dimensional target, not complete vehicle compatibility. Clearance, wheel width, load rating, and manufacturer requirements need separate checks before choosing an actual replacement tire."
+        ]
+      }
     ]
   },
   "square-footage-calculator": {
@@ -342,6 +542,14 @@
       {
         "question": "Can each dimension and the area price use different units?",
         "answer": "Yes. Mixed-unit mode converts dimensions independently and converts the price's area unit separately before applying quantity and cost."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Breaking a floor plan into measurable shapes",
+        "paragraphs": [
+          "For an irregular floor plan, divide the area into shapes supported by the calculator and avoid counting overlaps twice. Check whether measurements refer to the interior area or a different boundary. The mixed-unit and cost modes help convert dimensions and apply an entered area price. Material quantities can still require allowances beyond the geometric floor area."
+        ]
       }
     ]
   },
@@ -358,7 +566,15 @@
       },
       {
         "question": "What shape does the stair-volume mode assume?",
-        "answer": "A solid block to ground with N risers, N \u2212 1 regular treads and a top platform at full height."
+        "answer": "A solid block to ground with N risers, N − 1 regular treads and a top platform at full height."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separating concrete volume from an order quantity",
+        "paragraphs": [
+          "Select the shape that matches the slab, column, footing, or stairs, and check each thickness and depth unit carefully. The geometric volume describes the idealized form. Use the supported quantity and cost inputs to explore an allowance or price, while keeping those assumptions explicit. Site irregularities and supplier ordering increments can make the delivered amount differ from the geometric estimate."
+        ]
       }
     ]
   },
@@ -373,6 +589,14 @@
         "question": "Why is the estimated mulch weight uncertain?",
         "answer": "Weight depends on bulk density, which varies with material, moisture and compaction. The density input is an estimate."
       }
+    ],
+    "sections": [
+      {
+        "title": "Turning bed area and depth into mulch volume",
+        "paragraphs": [
+          "Mulch volume depends on both the bed area and the intended layer depth. A common mistake is to mix a depth in inches with area measurements in feet without conversion. Use the bag and cost mode to connect volume with the package size being purchased. The estimate assumes the entered bed dimensions and layer depth, which can differ from settled material on site."
+        ]
+      }
     ]
   },
   "gravel-calculator": {
@@ -385,6 +609,14 @@
       {
         "question": "How is the bag count rounded?",
         "answer": "The required modeled weight is divided by bag weight and rounded up to a whole bag, so purchased quantity may exceed the estimate."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Using a material density for gravel estimates",
+        "paragraphs": [
+          "A gravel volume estimate comes from the bed shape and depth, while a mass estimate also depends on the entered material density. Keep these quantities separate when comparing a supplier's price by volume with a price by weight. Bag sizes and cost assumptions should match the product being considered. Compaction and irregular ground can change the amount needed in practice."
+        ]
       }
     ]
   },
@@ -399,6 +631,14 @@
         "question": "Does a simple area estimate predict every cut in a pattern?",
         "answer": "No. Area mode does not fully reproduce pattern-specific cuts. Grid layout, grout spacing and actual room geometry affect procurement."
       }
+    ],
+    "sections": [
+      {
+        "title": "Separating covered area from tile layout",
+        "paragraphs": [
+          "An area-based tile estimate describes coverage, while the layout mode accounts for the entered tile dimensions and arrangement assumptions. Check whether gaps, waste, box quantities, and prices are included in the selected fields. Rounding to whole boxes can increase the purchase quantity above the exact coverage. Edge cuts and an unusual room outline can require a separate layout review."
+        ]
+      }
     ]
   },
   "roofing-calculator": {
@@ -412,6 +652,14 @@
         "question": "Is package coverage based on horizontal footprint?",
         "answer": "No. Package mode starts from measured roof surface area, adds the allowance and rounds up using installed coverage per package."
       }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing roof footprint from sloped area",
+        "paragraphs": [
+          "A roof's horizontal footprint is different from the surface area on a slope. Choose a footprint-and-pitch mode when that is the information available, or the measured-area mode when the roof surface is already known. Check how overhangs and package coverage are entered. The estimate models the chosen geometry and does not assess structural condition or installation requirements."
+        ]
+      }
     ]
   },
   "stair-calculator": {
@@ -419,11 +667,19 @@
     "faqs": [
       {
         "question": "Is there always one fewer tread than risers?",
-        "answer": "The standard layout has N \u2212 1 treads. The flush-mount option adds a tread at landing height, giving N modeled treads."
+        "answer": "The standard layout has N − 1 treads. The flush-mount option adds a tread at landing height, giving N modeled treads."
       },
       {
         "question": "Does the headroom result certify a safe or compliant staircase?",
         "answer": "No. It describes clearance over the modeled nose line. Structural design, cutting details and local building requirements need separate verification."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Checking stair geometry against the intended layout",
+        "paragraphs": [
+          "Total rise, tread dimensions, and the number of risers work together to determine a stair layout. Review whether the upper floor acts as the final landing in the selected mode. Mounting and headroom inputs add geometric constraints but do not establish compliance with every building requirement. Verify the actual layout and applicable local rules before using an estimate for construction."
+        ]
       }
     ]
   },
@@ -450,6 +706,14 @@
         "question": "Does the cooling subtotal include humidity and solar heat?",
         "answer": "Only the solar, internal, moisture-removal and other gains you enter are included. Zero excludes a contribution. The subtotal does not model thermal storage, a time-dependent peak or equipment capacity."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing a room estimate or heat-transfer calculation",
+        "paragraphs": [
+          "The BTU calculator separates a room cooling estimate from heat-transfer and steady heating-loss models. Select the method that matches the information you have. US climate presets supply the stated design-temperature reference, while construction and room inputs remain your responsibility. Check whether the result is energy or a rate of heat transfer before comparing it with equipment capacity labels."
+        ]
+      }
     ]
   },
   "electricity-calculator": {
@@ -462,6 +726,14 @@
       {
         "question": "Will the result match my entire electricity bill?",
         "answer": "No. It estimates energy charges and excludes fixed fees, demand charges, tiered tariffs and other account-specific charges."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Estimating energy use from power and time",
+        "paragraphs": [
+          "Electricity cost depends on power use, operating time, and the entered energy price. A device's rated power may differ from its average use, so the load-factor mode can model a chosen utilization assumption. Keep watts and kilowatts distinct, and check the billing period. Fixed charges, tiered rates, and other bill components need separate treatment if they are not entered."
+        ]
       }
     ]
   },
@@ -476,6 +748,14 @@
         "question": "In what order should I enter the two known values?",
         "answer": "Follow the labels for the selected pair. The first and second quantities change with the chosen relationship."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing two known electrical quantities",
+        "paragraphs": [
+          "Ohm's law relates voltage, current, and resistance under the displayed circuit model. Select the two known quantities and verify unit prefixes before calculating the others. A small prefix error can change the result by a large factor. The calculation does not assess component ratings, heating, insulation, or whether a physical circuit is safe to build or energize."
+        ]
+      }
     ]
   },
   "resistor-calculator": {
@@ -488,6 +768,14 @@
       {
         "question": "What does the sixth resistor color band represent?",
         "answer": "In the supported six-band code, it indicates a temperature-coefficient class; it is not an additional significant resistance digit."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separating a resistor code from circuit resistance",
+        "paragraphs": [
+          "A color-code mode interprets markings on a resistor, while series and parallel modes combine resistance values in a circuit. Choose the matching mode before entering bands or numbers. Tolerance describes an allowed range around a nominal value rather than an extra resistance to add. A conductor-resistance estimate also depends on the material and dimensions specified in its separate mode."
+        ]
       }
     ]
   },
@@ -506,10 +794,18 @@
         "question": "Does the result determine safe ampacity or code compliance?",
         "answer": "No. Nominal geometry and voltage-drop estimates do not replace manufacturer cable data, ampacity assessment or the applicable installation requirements."
       }
+    ],
+    "sections": [
+      {
+        "title": "Matching the circuit model and conductor length",
+        "paragraphs": [
+          "Voltage drop depends on the circuit type, current, conductor properties, and length convention. Check whether the selected mode expects one-way distance or the full conductor path before entering a value. AC impedance and simple DC resistance are different models. A calculated drop does not by itself verify ampacity, protection, installation conditions, or compliance with an electrical code."
+        ]
+      }
     ]
   },
   "wind-chill-calculator": {
-    "description": "Calculate National Weather Service wind chill for temperatures at or below 50\u00b0F and wind speeds above 3 mph.",
+    "description": "Calculate National Weather Service wind chill for temperatures at or below 50°F and wind speeds above 3 mph.",
     "faqs": [
       {
         "question": "Why is the calculation restricted to cold and windy conditions?",
@@ -518,6 +814,14 @@
       {
         "question": "Is wind chill a replacement for the measured air temperature?",
         "answer": "No. It is an apparent-cold estimate under the model, not a change to the thermometer's air-temperature reading."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reading the conditions behind wind chill",
+        "paragraphs": [
+          "Wind chill combines air temperature and wind under the reference method's stated conditions. Check that both values fall within the formula's intended range and that wind-speed units are correct. The result is an apparent-temperature index rather than a change in the measured air temperature. It does not determine a safe outdoor exposure time for a particular person."
+        ]
       }
     ]
   },
@@ -532,6 +836,14 @@
         "question": "Can the dew point be higher than the air temperature?",
         "answer": "Not in this supported input model. A dew point above the air temperature is rejected rather than used as a valid humidity estimate."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding an apparent-temperature estimate",
+        "paragraphs": [
+          "Heat index combines temperature with humidity under the selected reference method. The dew-point mode obtains humidity-related information from a different input pair, so check that the measurements describe the same conditions. The resulting index is not a complete measure of personal heat stress. Sun exposure, exertion, and individual circumstances are not all represented by the displayed number."
+        ]
+      }
     ]
   },
   "dew-point-calculator": {
@@ -545,6 +857,14 @@
         "question": "Does the same approximation apply in every atmospheric condition?",
         "answer": "No. This implementation uses the stated liquid-water Magnus coefficients within its displayed range, rather than every possible ice or pressure condition."
       }
+    ],
+    "sections": [
+      {
+        "title": "Keeping humidity measurements consistent",
+        "paragraphs": [
+          "Dew point, relative humidity, and air temperature describe related aspects of moisture in air. Choose the unknown quantity and enter the other measurements using compatible units. Relative humidity depends on temperature, so the same moisture content can correspond to different percentages as air warms or cools. The calculator applies the selected approximation and does not replace a measured atmospheric observation."
+        ]
+      }
     ]
   },
   "bandwidth-calculator": {
@@ -555,12 +875,20 @@
         "answer": "The transfer mode divides data bits by rate and excludes protocol overhead or changing throughput. The result is a theoretical estimate."
       },
       {
-        "question": "Does a 2\u00d7 allowance mean 200% extra traffic?",
+        "question": "Does a 2× allowance mean 200% extra traffic?",
         "answer": "No. A total multiplier of 2 means 100% extra. In percentage mode, 200% extra means three times the baseline."
       },
       {
         "question": "Is monthly average bandwidth enough to choose peak capacity?",
         "answer": "No. Average transfer rates can hide short periods of much higher traffic; the tool does not predict peak demand."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing transfer speed from data volume",
+        "paragraphs": [
+          "Bandwidth describes a rate, while a file size or monthly transfer allowance describes an amount of data. Check bits versus bytes and the selected unit scale before calculating a duration. Website estimates combine assumptions about traffic and page size; they do not measure actual server usage. Protocol overhead, contention, and changing connection speed can make real transfers take longer than an idealized estimate."
+        ]
       }
     ]
   },
@@ -575,6 +903,14 @@
         "question": "Does an IPv6 subnet have a broadcast address?",
         "answer": "No. IPv6 does not use a broadcast address. Some address meanings, including subnet-router anycast, need separate interpretation."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading network and address-range results",
+        "paragraphs": [
+          "Choose IPv4 or IPv6 and enter a prefix or supported mask that matches the address family. The result describes how address bits divide into network and host portions under that prefix. Review the specific range labels rather than treating every listed address as an ordinary assignable host. Subnet arithmetic does not verify routing, address ownership, or reachability on a real network."
+        ]
+      }
     ]
   },
   "base64-encode-decode": {
@@ -587,6 +923,14 @@
       {
         "question": "Is this an arbitrary binary-file converter?",
         "answer": "This tool is a UTF-8 text encoder and decoder. Binary data that is not valid UTF-8 is outside that text interpretation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding what Base64 changes",
+        "paragraphs": [
+          "Base64 represents bytes using a text-friendly alphabet; it is an encoding, not encryption. Select the text encoding deliberately when converting non-ASCII characters so that decoding can reconstruct the intended bytes. Check whether your input is plain text or already encoded data before choosing the operation. A valid Base64 string does not prove that the decoded content is trustworthy."
+        ]
       }
     ]
   },
@@ -601,6 +945,14 @@
         "question": "Does percent-encoding make text secret or make a destination safe?",
         "answer": "No. It only represents characters for a URL component. It does not encrypt the text or assess a destination's trustworthiness."
       }
+    ],
+    "sections": [
+      {
+        "title": "Encoding a URL component correctly",
+        "paragraphs": [
+          "URL-component encoding represents characters that need special treatment inside a component such as a query value. Encoding a whole URL as one component can also encode its separators, which changes how it is used. Select encode or decode according to the input's current form. Repeated encoding can introduce additional escapes rather than fixing a malformed address."
+        ]
+      }
     ]
   },
   "password-generator": {
@@ -613,6 +965,14 @@
       {
         "question": "Does unique-character mode work at any password length?",
         "answer": "No. A password cannot contain more unique characters than the available selected pool. Repetition limits constrain the permitted length."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing password length and allowed characters",
+        "paragraphs": [
+          "Set the length and character options to fit the destination's requirements before generating a password. Restricting the character set changes the range of possible outputs, so avoid unnecessary restrictions when the service permits them. A generated password still needs to be stored securely and used for its intended account. The tool does not assess the security of the website where it will be entered."
+        ]
       }
     ]
   },
@@ -627,6 +987,14 @@
         "question": "Will changing a field silently reroll the dice?",
         "answer": "No. Results are generated when you select Calculate, so editing inputs alone does not produce a new set of rolls."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading repeated dice rolls",
+        "paragraphs": [
+          "Choose the number of dice and the number of sides to match the game or experiment. The total and the individual outcomes provide different information. Repeated rolls can produce streaks, and a short run need not look evenly distributed. The simulation generates outcomes under its stated method; it does not predict a future physical roll or guarantee a particular game result."
+        ]
+      }
     ]
   },
   "roman-numeral-converter": {
@@ -639,6 +1007,14 @@
       {
         "question": "Why is 4 written IV rather than IIII here?",
         "answer": "This converter uses standard subtractive pairs, including IV, IX, XL, XC, CD and CM."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Converting a number or a calendar date",
+        "paragraphs": [
+          "Roman numerals use symbol combinations rather than ordinary positional decimal digits. Choose number conversion or date conversion depending on the input. A converted date keeps the selected date fields but changes their written representation. Check the supported value range and notation rules before using an output in a design, because historical conventions can differ from a modern standardized conversion."
+        ]
       }
     ]
   },
@@ -653,6 +1029,14 @@
         "question": "Does a suggested cycle time guarantee I will wake refreshed?",
         "answer": "No. Total sleep, individual needs and sleep quality matter. A clock-time estimate cannot guarantee how someone will feel on waking."
       }
+    ],
+    "sections": [
+      {
+        "title": "Planning a sleep window with explicit assumptions",
+        "paragraphs": [
+          "The sleep planner works from a chosen bedtime or wake time and the duration assumptions shown in the selected mode. A cycle-based schedule is a planning model, not a measurement of a person's sleep stages. Include the entered time to fall asleep consistently when comparing options. The result does not diagnose a sleep problem or guarantee how rested someone will feel."
+        ]
+      }
     ]
   },
   "height-calculator": {
@@ -665,6 +1049,14 @@
       {
         "question": "Does choosing feet and inches change the prediction formula?",
         "answer": "No. Parent measurements are converted before applying the same 13 cm sex coefficient. The result remains a broad reference, not a growth assessment."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding a parental-height estimate",
+        "paragraphs": [
+          "The height estimate uses the supported mid-parental method and entered parent measurements. Check units carefully when combining heights recorded in different systems. The output is a broad model-based estimate, not a prediction of an individual child's final height or a growth assessment. The separate unit-conversion modes only change how a known height is expressed."
+        ]
       }
     ]
   },
@@ -679,6 +1071,14 @@
         "question": "Why might a different size fit better than the estimate?",
         "answer": "Measurements, garment construction, shape and personal fit preferences affect the result. A calculated starting size does not replace trying the bra on."
       }
+    ],
+    "sections": [
+      {
+        "title": "Using a size estimate as a fitting starting point",
+        "paragraphs": [
+          "Bra-size methods and regional labels can differ, so choose the system and measurement approach that match the question. Keep underbust and bust measurements distinct, and check the requested units. A converted label or formula result is a fitting starting point rather than a guarantee across brands and styles. Dress-label conversion is a separate comparison and does not infer fit from bra size."
+        ]
+      }
     ]
   },
   "shoe-size-conversion": {
@@ -691,6 +1091,14 @@
       {
         "question": "Does foot length alone guarantee a shoe will fit?",
         "answer": "No. Width, brand lasts, socks and design affect fit. The US result is an approximation rather than an official brand conversion."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing size labels with foot length",
+        "paragraphs": [
+          "A regional shoe label and a measured foot length are related through the selected reference, but brands and shoe shapes can differ. Choose the correct age group and region before converting. Check whether the entered measurement describes the foot rather than the shoe's outside length. The result is a reference estimate, so use the manufacturer's sizing information when selecting a particular pair."
+        ]
       }
     ]
   },
@@ -705,6 +1113,14 @@
         "question": "Is the result an official Handicap Index?",
         "answer": "No. Official processing includes adjustments, caps and committee procedures outside this estimate; nine-hole expected-score processing is also excluded."
       }
+    ],
+    "sections": [
+      {
+        "title": "Separating a differential, index, and course handicap",
+        "paragraphs": [
+          "A score differential, handicap index, and course handicap describe different stages of a golf-handicap calculation. Choose the mode that matches the information available, including verified differentials when requested. Course-related inputs affect how an index translates to a particular set of tees. The estimate follows the supported rules and does not replace an official handicap issued through the relevant authorized system."
+        ]
+      }
     ]
   },
   "love-calculator": {
@@ -717,6 +1133,14 @@
       {
         "question": "Why do the same names produce the same score?",
         "answer": "The game uses a deterministic name-based calculation rather than measuring a relationship or drawing a new random score each time."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Treating a name-based score as entertainment",
+        "paragraphs": [
+          "The love calculator turns entered names into a playful score using the displayed method. That score does not measure compatibility, feelings, or the quality of a relationship. Changing the spelling can change the output because the names are part of the calculation. Use it as a lighthearted activity rather than as evidence for a personal decision."
+        ]
       }
     ]
   },
@@ -733,7 +1157,15 @@
       },
       {
         "question": "Can I compare dated extras and a biweekly schedule?",
-        "answer": "Use Calendar-based extra payments for dated principal additions. The accelerated biweekly mode instead uses 26 equal interest periods, which may differ from your lender\u2019s actual posting schedule."
+        "answer": "Use Calendar-based extra payments for dated principal additions. The accelerated biweekly mode instead uses 26 equal interest periods, which may differ from your lender’s actual posting schedule."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing mortgage payments and ownership costs",
+        "paragraphs": [
+          "A mortgage payment is only one part of the cost of owning a home. Compare the principal and interest payment with the ownership-cost worksheet before deciding what fits your monthly budget. Changing the down payment changes the amount borrowed, while changing the term spreads repayment over a different period. Keep the purchase price and interest-rate assumptions consistent when comparing scenarios."
+        ]
       }
     ]
   },
@@ -748,6 +1180,14 @@
         "question": "Does the schedule predict future changes in mortgage rates?",
         "answer": "No. It uses the entered fixed rate throughout the term; variable-rate adjustments and refinancing require a different scenario."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading a mortgage amortization schedule",
+        "paragraphs": [
+          "The amortization schedule shows how each mortgage payment is divided between interest and principal. Look at the remaining balance at the date you expect to sell or refinance, as well as the total interest over the full term. A lower outstanding balance does not mean that every payment went toward principal; the interest column explains the difference."
+        ]
+      }
     ]
   },
   "canadian-mortgage-calculator": {
@@ -755,11 +1195,19 @@
     "faqs": [
       {
         "question": "How is the Canadian quoted rate converted to a monthly rate?",
-        "answer": "The model uses (1 + annual rate/2)^(1/6) \u2212 1, reflecting nominal semiannual compounding before calculating monthly payments."
+        "answer": "The model uses (1 + annual rate/2)^(1/6) − 1, reflecting nominal semiannual compounding before calculating monthly payments."
       },
       {
         "question": "Does the projection include mortgage renewals?",
         "answer": "No. It holds the rate constant over the amortization period. A renewal rate or changed payment requires another calculation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing Canadian mortgage scenarios",
+        "paragraphs": [
+          "Check the interest convention before comparing a Canadian mortgage estimate with another loan calculator. The quoted rate and the payment frequency work together to determine the periodic payment. Also distinguish the amortization period from a lender's current mortgage term: a projection over the entire amortization assumes the entered rate continues, rather than predicting the rate available at renewal."
+        ]
       }
     ]
   },
@@ -774,6 +1222,14 @@
         "question": "Does the UK estimate include every purchase cost?",
         "answer": "No. Use the fields for costs the model supports; stamp duty, product fees and lender-specific conditions are not automatically determined."
       }
+    ],
+    "sections": [
+      {
+        "title": "Repayment and interest-only mortgages",
+        "paragraphs": [
+          "A repayment mortgage gradually reduces the amount owed through scheduled payments. In the interest-only comparison, paying the interest does not by itself repay the original loan. Compare the balance left at the end alongside the monthly payment. A smaller monthly figure can therefore leave a much larger final obligation, and changing the assumed rate changes both comparisons."
+        ]
+      }
     ]
   },
   "loan-calculator": {
@@ -786,6 +1242,14 @@
       {
         "question": "Can payment frequency differ from compounding frequency?",
         "answer": "Yes. The frequency mode converts the quoted nominal rate to an equivalent rate for each payment period."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing borrowing over the full loan term",
+        "paragraphs": [
+          "Use the loan calculator to compare the payment, total interest, and repayment schedule together. Extending a loan can reduce the regular payment while increasing the time over which interest accrues. For deferred or zero-coupon borrowing, check when the money is actually repaid. Compare loans using the same principal and payment frequency so that the effect of the rate or term is visible."
+        ]
       }
     ]
   },
@@ -800,6 +1264,14 @@
         "question": "Can I add a one-time payment in a specific month?",
         "answer": "Yes. Calendar-based extras combine dated one-time payments with monthly and annual extras, capping the final payment at the debt owed."
       }
+    ],
+    "sections": [
+      {
+        "title": "How extra payments change amortization",
+        "paragraphs": [
+          "An amortization schedule makes the effect of an extra payment visible in the remaining balance and later interest charges. Enter extras in the period when you expect to make them, rather than subtracting them from the starting balance. Compare the original payoff date with the revised date, and check any lender restrictions separately before treating the projection as your actual repayment schedule."
+        ]
+      }
     ]
   },
   "personal-loan-calculator": {
@@ -810,12 +1282,20 @@
         "answer": "Use Origination fee, insurance & cash cost. The fee can be a percentage or dollar amount and can be withheld from disbursement or paid separately upfront."
       },
       {
-        "question": "Does the cash-flow cost equal the lender\u2019s disclosed APR?",
-        "answer": "Not necessarily. It includes the insurance amount you enter. Regulatory APR depends on which charges must be included under the transaction\u2019s rules."
+        "question": "Does the cash-flow cost equal the lender’s disclosed APR?",
+        "answer": "Not necessarily. It includes the insurance amount you enter. Regulatory APR depends on which charges must be included under the transaction’s rules."
       },
       {
         "question": "Why is the payment based on more money than I receive?",
         "answer": "An origination fee can reduce net proceeds while the contractual payment still repays the full note principal."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding the cash cost of a personal loan",
+        "paragraphs": [
+          "The amount financed and the cash you receive can differ when a personal loan includes an origination fee or insurance. Use the fee and cash-cost mode to separate those amounts. Compare the payment with the total borrowing cost, and keep the repayment term the same when evaluating offers. The lender's fee treatment matters as much as the advertised rate."
+        ]
       }
     ]
   },
@@ -830,6 +1310,14 @@
         "question": "What changes if I make extra principal payments?",
         "answer": "The modeled balance falls faster, reducing later interest and shortening repayment. Contractual prepayment charges are not automatically included."
       }
+    ],
+    "sections": [
+      {
+        "title": "Setting a boat purchase budget",
+        "paragraphs": [
+          "Start with either the boat price you are considering or the payment you can set aside each month. A down payment reduces the financed balance, but extending the term can make a more expensive boat appear affordable on a monthly basis. Check the resulting price and total interest together. Ongoing ownership expenses need a separate budget beyond the financing calculation."
+        ]
+      }
     ]
   },
   "business-loan-calculator": {
@@ -842,6 +1330,14 @@
       {
         "question": "Is the result a business-loan approval or legal APR disclosure?",
         "answer": "No. It models entered cash flows; underwriting, variable pricing, security requirements and jurisdiction-specific APR rules are outside its scope."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Matching business loan payments to cash flow",
+        "paragraphs": [
+          "Match the payment frequency to the schedule in the proposed business loan agreement. A monthly payment cannot be compared directly with a weekly payment without also considering how many payments occur. Review total repayment and the timing of installments alongside your expected business cash flow. The calculation models the entered loan terms; it does not forecast revenue available to make those payments."
+        ]
       }
     ]
   },
@@ -856,6 +1352,14 @@
         "question": "Does available equity guarantee I can borrow that amount?",
         "answer": "No. The capacity model does not assess credit, income, property valuation or lender eligibility requirements."
       }
+    ],
+    "sections": [
+      {
+        "title": "Separating available equity from the loan payment",
+        "paragraphs": [
+          "Available home equity and an affordable home-equity loan are different questions. The equity worksheet uses the property value, existing debt, and entered lending limit to estimate capacity. The payment mode then models repayment on a chosen amount. A change in the property-value estimate can change available equity without changing your income or the cash available for monthly payments."
+        ]
+      }
     ]
   },
   "payment-calculator": {
@@ -869,6 +1373,14 @@
         "question": "Why must the chosen payment exceed monthly interest?",
         "answer": "Otherwise the payment does not reduce principal, so this fixed-rate model cannot reach a finite payoff date."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing a payment or a payoff target",
+        "paragraphs": [
+          "Use the scheduled-loan mode when the amount, rate, and term are known. Use fixed-payment payoff when you want to see what a chosen payment does to an existing balance. Check whether that payment covers accruing interest and reduces principal. A payment that looks manageable today may extend repayment considerably, so review the payoff duration as well as the installment amount."
+        ]
+      }
     ]
   },
   "repayment-calculator": {
@@ -881,6 +1393,14 @@
       {
         "question": "Does the repayment estimate include new borrowing?",
         "answer": "No. It assumes a fixed starting balance and rate, with no new charges or late fees during the schedule."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Planning a repayment schedule",
+        "paragraphs": [
+          "A repayment plan depends on how much is owed, how interest is charged, and how much is paid each period. Compare a fixed term with a fixed payment to see which constraint fits your question. Keep any extra payments separate from the regular installment. The schedule assumes the entered terms continue, so a variable rate or missed payment can change the outcome."
+        ]
       }
     ]
   },
@@ -896,8 +1416,16 @@
         "answer": "Use principal and interest only. Taxes, insurance and other escrow charges do not reduce mortgage principal."
       },
       {
-        "question": "Does the biweekly result reproduce my lender\u2019s exact payment dates?",
+        "question": "Does the biweekly result reproduce my lender’s exact payment dates?",
         "answer": "No. It models 26 equal interest periods per year and half the contractual monthly payment. Actual collection dates, fees and principal-credit timing depend on the lender."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Evaluating an earlier mortgage payoff",
+        "paragraphs": [
+          "Compare the baseline mortgage with the extra-payment scenario using the same starting balance and interest rate. Calendar-based extras let you represent payments when they occur, while the balance-inference option estimates a balance from the stated loan history. Review both the interest saved and the earlier payoff date. An inferred balance should be checked against a current lender statement before use."
+        ]
       }
     ]
   },
@@ -912,6 +1440,14 @@
         "question": "What happens if I keep making new purchases?",
         "answer": "New charges are not modeled. The estimated payoff time assumes the starting balance receives no additional borrowing."
       }
+    ],
+    "sections": [
+      {
+        "title": "Why a fixed card payment matters",
+        "paragraphs": [
+          "A credit-card balance can take much longer to repay when the payment only slightly exceeds the interest charged. The fixed-payment mode helps you compare larger regular payments on the same balance. This projection assumes the modeled balance and rate, rather than reproducing every issuer's statement rules. New purchases, changing rates, or additional fees can alter the actual payoff path."
+        ]
+      }
     ]
   },
   "auto-loan-calculator": {
@@ -924,6 +1460,14 @@
       {
         "question": "Does the calculator choose my local vehicle sales-tax rules?",
         "answer": "No. Enter the applicable rate and trade-in tax treatment. Local exemptions, fee treatment and rebate rules need separate verification."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Looking beyond the vehicle's monthly payment",
+        "paragraphs": [
+          "Compare the vehicle price, down payment, trade-in treatment, fees, and financing term together. A longer term can lower the monthly payment while increasing total interest. The payment-budget mode works backward from an installment you choose. For tax comparisons, select the applicable supported state treatment and review its notes; a vehicle's advertised price alone does not capture the financed amount."
+        ]
       }
     ]
   },
@@ -938,6 +1482,14 @@
         "question": "Does the cheaper offer remain cheaper after early payoff?",
         "answer": "Not necessarily. The main comparison assumes scheduled repayment and excludes taxes, fees, early payoff and eligibility differences."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing a rebate with a lower interest rate",
+        "paragraphs": [
+          "A cash rebate reduces the purchase cost or amount financed, while a promotional interest rate changes the cost of borrowing over time. Compare both offers using the same vehicle, down payment, and repayment term. The more attractive monthly payment is not necessarily the lower total-cost offer. Include the applicable fees and tax treatment before drawing a conclusion from the difference."
+        ]
+      }
     ]
   },
   "auto-lease-calculator": {
@@ -950,6 +1502,14 @@
       {
         "question": "Is residual value the same as the amount I pay each month?",
         "answer": "No. Residual value is the modeled vehicle value at lease end. It helps determine depreciation and may affect an end-of-lease purchase."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding a lease payment estimate",
+        "paragraphs": [
+          "A lease payment combines the modeled depreciation and financing charges, with the entered taxes and fees where supported. Residual value describes the vehicle value assumed at the end of the lease, not cash you automatically receive. Compare offers over the same lease term and inspect upfront amounts separately. Mileage charges and end-of-lease conditions require the actual lease agreement."
+        ]
       }
     ]
   },
@@ -964,6 +1524,14 @@
         "question": "When are financing-lease payments assumed to occur?",
         "answer": "At month end. Taxes, contract fees and alternative payment timing are excluded from that model."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing lease structures consistently",
+        "paragraphs": [
+          "Choose the lease mode that matches the agreement you are examining. Asset financing and a residual-value lease answer different questions about repayment and the asset's ending value. Keep the asset price, timing, and any residual assumption visible when comparing payments. A lower installment can reflect a larger amount left at the end rather than a lower overall financing cost."
+        ]
+      }
     ]
   },
   "heloc-calculator": {
@@ -976,6 +1544,14 @@
       {
         "question": "Does the model track changing draws and variable HELOC rates?",
         "answer": "No. It assumes a fully drawn, constant balance during the draw period and an unchanged interest rate."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Planning for the HELOC repayment period",
+        "paragraphs": [
+          "A HELOC can have different payment behavior during the draw period and the repayment period. Compare both stages instead of using the initial payment as a long-term budget. The account-fee mode lets you include supported recurring charges. The estimate follows the entered balance and rate assumptions; future draws and a changing interest rate can alter the amount ultimately repaid."
+        ]
       }
     ]
   },
@@ -994,6 +1570,14 @@
         "question": "How does financing the upfront premium change the result?",
         "answer": "The premium increases note principal. The HUD worksheet also applies the financed-upfront adjustment when deriving periodic insurance charges."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading FHA mortgage cost estimates",
+        "paragraphs": [
+          "FHA loan comparisons should include the supported mortgage-insurance and program-fee assumptions alongside principal and interest. Select the schedule or historical branch that matches the loan details, and review its eligibility notes before interpreting the result. The ownership-cost worksheet can help distinguish the mortgage payment from other housing costs. An estimate does not establish loan eligibility or replace a lender's disclosure."
+        ]
+      }
     ]
   },
   "va-mortgage-calculator": {
@@ -1011,6 +1595,14 @@
         "question": "Does ordinary retirement pay prove a funding-fee exemption?",
         "answer": "No. Select an exemption only when the applicable qualifying status has been verified; receiving retirement pay alone does not establish it."
       }
+    ],
+    "sections": [
+      {
+        "title": "Separating VA loan fees from monthly costs",
+        "paragraphs": [
+          "The VA mortgage calculator separates the financing estimate from supported program-fee assumptions. Review the entered fee treatment and applicable exemption information before comparing scenarios. Financing a fee changes the borrowed balance, while paying it upfront changes cash needed at closing. Use the ownership-cost mode to consider additional recurring housing expenses rather than treating principal and interest as the entire home budget."
+        ]
+      }
     ]
   },
   "down-payment-calculator": {
@@ -1023,6 +1615,14 @@
       {
         "question": "Does the savings timeline include investment growth?",
         "answer": "No. It divides the remaining cash target by monthly savings, without interest, investment returns or changing contributions."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Planning the cash needed for a purchase",
+        "paragraphs": [
+          "A down payment can be expressed as a cash amount or a percentage of the purchase price. Use the matching mode depending on which figure you know. The savings timeline helps connect a target with regular contributions. Keep closing costs and any cash reserve separate from the down payment unless the selected fields explicitly include them, so the same money is not counted twice."
+        ]
       }
     ]
   },
@@ -1037,6 +1637,14 @@
         "question": "Does an affordable-price estimate mean a lender will approve it?",
         "answer": "No. Credit history, loan limits, underwriting, local costs and personal spending needs are not fully assessed."
       }
+    ],
+    "sections": [
+      {
+        "title": "Turning a housing budget into a price estimate",
+        "paragraphs": [
+          "Affordability depends on the assumed financing terms and the housing payment available within your budget. Compare the income-based estimate with the mode that starts from a chosen payment. A higher down payment or a different rate can change the estimated purchase price. Treat the result as a planning scenario; it does not confirm that a lender will approve the amount."
+        ]
+      }
     ]
   },
   "rent-calculator": {
@@ -1050,6 +1658,14 @@
         "question": "Is the suggested percentage suitable for every household?",
         "answer": "No. Debts, savings goals, household needs and local housing costs can make a percentage rule unsuitable."
       }
+    ],
+    "sections": [
+      {
+        "title": "Building a rent budget around other obligations",
+        "paragraphs": [
+          "Use the rent budget as a starting point for comparing housing choices. The debt-adjusted mode shows how existing monthly obligations affect the amount available under the entered rule. Check which expenses are included before comparing the result with a rental listing. Utilities, transport, and irregular expenses may need their own allowance even when the advertised rent fits the estimate."
+        ]
+      }
     ]
   },
   "debt-ratio-calculator": {
@@ -1057,7 +1673,7 @@
     "faqs": [
       {
         "question": "Should I use income before or after tax for DTI?",
-        "answer": "Use gross income before tax. The mixed-period budget\u2019s spendable-income result is separate from the gross-income denominator used for DTI."
+        "answer": "Use gross income before tax. The mixed-period budget’s spendable-income result is separate from the gross-income denominator used for DTI."
       },
       {
         "question": "Can I enter annual debt or income amounts?",
@@ -1066,6 +1682,14 @@
       {
         "question": "Does the result establish loan eligibility?",
         "answer": "No. Lenders may count income and obligations differently; use the debts relevant to the comparison."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Making income and debt periods comparable",
+        "paragraphs": [
+          "A debt-to-income ratio only makes sense when income and debt payments refer to the same time period. The mixed-period mode helps convert entries before comparing them. Review whether the income figure is gross or take-home pay and use the definition requested by the selected mode. A ratio describes the entered obligations; it does not capture every expense in a household budget."
+        ]
       }
     ]
   },
@@ -1079,6 +1703,14 @@
       {
         "question": "Why compare remaining balances over the same horizon?",
         "answer": "A lower payment can leave more debt outstanding. The horizon mode compares payment differences, upfront net cash and both ending balances together."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing refinancing over your own time horizon",
+        "paragraphs": [
+          "A refinance can lower the payment while adding closing costs or extending repayment. Compare the existing and replacement loans over the same period, especially if you expect to move or repay early. The common-horizon mode helps avoid comparing one loan's full lifetime with only part of another. Review the remaining balances together with interest and upfront costs."
+        ]
       }
     ]
   },
@@ -1097,6 +1729,14 @@
         "question": "Are semimonthly and biweekly compounding the same?",
         "answer": "No. Equivalent nominal rates uses 24 semimonthly periods or 26 biweekly periods per year. It compares equal annual growth, not exact calendar posting dates."
       }
+    ],
+    "sections": [
+      {
+        "title": "Keeping rate and contribution timing consistent",
+        "paragraphs": [
+          "Interest growth depends on the starting balance, the rate convention, and when contributions arrive. Use the mode that matches monthly or annual additions instead of combining them into an unexplained total. When comparing rates, check whether they are nominal or effective. The projection follows the entered rate over time; it does not predict future returns or account for omitted charges."
+        ]
+      }
     ]
   },
   "savings-calculator": {
@@ -1109,6 +1749,14 @@
       {
         "question": "Is the inflation-adjusted balance a separate account value?",
         "answer": "No. It expresses the projected nominal balance in purchasing-power terms using the inflation assumption you enter."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separating deposits from savings growth",
+        "paragraphs": [
+          "A savings balance contains both money you contributed and modeled interest. Compare those parts to see how much of the ending value comes from your own deposits. Regular contributions and an initial lump sum have different amounts of time to grow. Keep contribution timing consistent across scenarios, and test a lower rate if you want to understand how dependent a target is on growth."
+        ]
       }
     ]
   },
@@ -1123,6 +1771,14 @@
         "question": "Can contributions increase over time?",
         "answer": "The dual-stream mode supports separate increases for monthly and annual contributions. Returns and inflation remain modeled assumptions."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading a future value projection",
+        "paragraphs": [
+          "Future value translates today's balance and planned contributions into a modeled ending amount. It is sensitive to the time horizon, return assumption, and timing of deposits. Compare several plausible inputs rather than interpreting a single projection as a promised balance. Unless the selected calculation explicitly adjusts for inflation, the result is an amount in future money rather than today's purchasing power."
+        ]
+      }
     ]
   },
   "cd-calculator": {
@@ -1135,6 +1791,14 @@
       {
         "question": "Does the estimate deduct an early-withdrawal penalty?",
         "answer": "Not automatically. Penalties, promotional terms and product-specific interest rules must be checked against the CD agreement."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting certificate of deposit growth",
+        "paragraphs": [
+          "Use the CD calculator with the deposit, term, and rate convention that match the product you are reviewing. Compare the final balance with the interest earned, rather than treating the entire maturity value as a gain. Check the institution's compounding and withdrawal conditions separately. Early-withdrawal charges or a different credited rate can make actual proceeds differ from the modeled maturity value."
+        ]
       }
     ]
   },
@@ -1149,6 +1813,14 @@
         "question": "Does the calculator determine a fund's exit-load rules?",
         "answer": "No. Enter the applicable rate and charge basis from the prospectus; holding periods, waivers and lot treatment are product-specific."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing contributions and fund charges",
+        "paragraphs": [
+          "A mutual-fund projection depends on the assumed return and the contributions you make. Use the supported load, expense, or redemption modes to distinguish recurring growth assumptions from specific charges. Keep gross and net return assumptions consistent so that an expense is not deducted twice. A smooth projection illustrates a scenario; actual market returns need not arrive in that sequence."
+        ]
+      }
     ]
   },
   "compound-interest-calculator": {
@@ -1161,6 +1833,14 @@
       {
         "question": "Can I add both monthly and yearly deposits?",
         "answer": "Yes. The dual-stream mode adds both streams and allows their annual increase assumptions to be entered separately."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding compounding and regular deposits",
+        "paragraphs": [
+          "Compound interest applies growth to a balance that already includes earlier interest. Adding regular deposits introduces a separate source of growth, so compare contributed principal with the ending balance. Compounding frequency and deposit frequency describe different events and should not be confused. Use equivalent-rate modes when comparing quoted rates with different conventions, and keep the same time horizon for a fair comparison."
+        ]
       }
     ]
   },
@@ -1175,6 +1855,14 @@
         "question": "What time unit should I use with the annual rate?",
         "answer": "Use years, including a fractional year when appropriate. The inverse model also treats the rate as an annual rate."
       }
+    ],
+    "sections": [
+      {
+        "title": "When simple interest is the right model",
+        "paragraphs": [
+          "Simple interest uses the original principal for the entered time period, without adding earlier interest to the base. Match the time units to the rate before interpreting the result. The missing-quantity mode can solve for an unknown input when the other values are known. Do not use a simple-interest result as a substitute for a loan schedule that compounds or reduces principal through payments."
+        ]
+      }
     ]
   },
   "finance-calculator": {
@@ -1187,6 +1875,14 @@
       {
         "question": "Does payment timing affect the answer?",
         "answer": "Yes. A beginning-of-period payment has one additional period of growth or discounting compared with an end-of-period payment."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding cash-flow signs and timing",
+        "paragraphs": [
+          "Time-value-of-money calculations connect present value, future value, periodic payments, and interest. In the signed cash-flow mode, money paid out and money received use opposite signs. An unexpected negative result may therefore describe cash-flow direction rather than a loss. Check whether payments occur at the beginning or end of each period before comparing the answer with another financial model."
+        ]
       }
     ]
   },
@@ -1201,6 +1897,14 @@
         "question": "Which mode should I use for extra yearly contributions?",
         "answer": "Use Monthly + annual contributions when a yearly deposit is additional to the monthly savings stream."
       }
+    ],
+    "sections": [
+      {
+        "title": "Testing investment assumptions separately",
+        "paragraphs": [
+          "Change one assumption at a time when comparing investment projections: the starting balance, contribution amount, return, or horizon. This makes it easier to see what drives the difference. The signed cash-flow and equivalent-rate modes answer more specific financing questions. A constant-rate projection smooths away market fluctuations, so use it to explore scenarios rather than to predict a guaranteed account value."
+        ]
+      }
     ]
   },
   "present-value-calculator": {
@@ -1213,6 +1917,14 @@
       {
         "question": "Are annual and monthly payments treated the same way?",
         "answer": "No. The timing mode converts the effective annual rate to the selected payment interval and uses the corresponding number of periods."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the discount rate and payment timing",
+        "paragraphs": [
+          "Present value expresses future money as an equivalent amount at the selected discount rate. A future lump sum and a stream of payments require different inputs. Check the payment frequency and whether payments arrive at the start or end of a period. The discount rate is an assumption you supply; changing it can materially change the value assigned to the same future cash flows."
+        ]
       }
     ]
   },
@@ -1227,6 +1939,14 @@
         "question": "What if the payment is too small for the entered term?",
         "answer": "The inputs may not support a nonnegative amortizing rate. Review the principal, payment and term instead of treating an invalid scenario as a quote."
       }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting an implied interest rate",
+        "paragraphs": [
+          "An implied rate is the rate that reconciles the entered balance, payment, and term under the displayed model. It is not automatically a lender's disclosed annual percentage rate, because fee treatment and timing may differ. Verify the payment frequency and amounts before solving. Small differences in a payment or remaining term can change the rate needed to make the figures consistent."
+        ]
+      }
     ]
   },
   "apr-calculator": {
@@ -1239,6 +1959,14 @@
       {
         "question": "Is this a legally compliant APR disclosure for every loan?",
         "answer": "No. Required fees, timing conventions and disclosure rules vary. This is a stated cash-flow estimate, not a jurisdiction-specific disclosure."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing interest rates with borrowing costs",
+        "paragraphs": [
+          "APR calculations connect the cash received with the payments and supported fees over time. A stated interest rate can differ from a fee-adjusted borrowing rate. Enter fees according to the selected mode and compare offers with consistent payment timing. The result follows the calculator's assumptions; use the lender's required disclosure when a legal or contractual APR definition is needed."
+        ]
       }
     ]
   },
@@ -1253,6 +1981,14 @@
         "question": "Why is a historical month unavailable?",
         "answer": "The tool only uses published data included in its versioned dataset. Missing observations are not replaced with guessed CPI values."
       }
+    ],
+    "sections": [
+      {
+        "title": "Historical purchasing power versus a scenario",
+        "paragraphs": [
+          "The historical inflation mode uses the stated US CPI series and supported dates. The scenario mode instead applies an inflation rate that you choose. Keep these purposes separate: a scenario is not a forecast from the historical dataset. Compare the amount in its original date's money with the equivalent amount at the target date to understand the change in purchasing power."
+        ]
+      }
     ]
   },
   "annuity-payout-calculator": {
@@ -1265,6 +2001,14 @@
       {
         "question": "Why can the projected balance last longer at a higher return?",
         "answer": "More assumed growth offsets withdrawals. Actual returns vary, so a constant-return result does not guarantee the balance will last that long."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Balancing withdrawals with account duration",
+        "paragraphs": [
+          "An annuity payout estimate links an opening balance, assumed growth, and a withdrawal schedule. Use the duration mode when the payment is known, or the payment mode when a target duration is known. Check whether withdrawals occur at the beginning or end of each period. A constant-return account projection does not reproduce every feature or guarantee of an insurance annuity contract."
+        ]
       }
     ]
   },
@@ -1279,6 +2023,14 @@
         "question": "Are fees and insurance guarantees included?",
         "answer": "No. The calculation covers the entered cash flows and return assumptions, without mortality pricing, product guarantees or contract charges."
       }
+    ],
+    "sections": [
+      {
+        "title": "Accumulating a stream of contributions",
+        "paragraphs": [
+          "An annuity accumulation calculation models a sequence of contributions growing over time. Earlier contributions usually remain invested for more periods than later ones, so timing matters. Compare the total contributed with the ending balance and keep the payment schedule aligned with the selected mode. Contract charges, changing returns, or withdrawals need explicit treatment before this becomes a model of a particular annuity product."
+        ]
+      }
     ]
   },
   "retirement-calculator": {
@@ -1286,7 +2038,7 @@
     "faqs": [
       {
         "question": "Does an income-based retirement need use my final salary?",
-        "answer": "In Salary growth & income-based retirement, the need is a share of current income, inflated to retirement once. Savings based on salary grow separately with each year\u2019s modeled income."
+        "answer": "In Salary growth & income-based retirement, the need is a share of current income, inflated to retirement once. Savings based on salary grow separately with each year’s modeled income."
       },
       {
         "question": "What does a negative projected retirement balance mean?",
@@ -1295,6 +2047,14 @@
       {
         "question": "Does the target include market volatility?",
         "answer": "No. Constant return assumptions do not model volatility or sequence-of-returns risk."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Connecting a retirement target with savings",
+        "paragraphs": [
+          "Start by distinguishing the balance you want at retirement from the income you want after retiring. The available modes connect savings, salary-based contributions, withdrawals, and duration under their stated assumptions. Check how inflation is handled before comparing future amounts with today's spending. Testing several contribution and return assumptions can show which parts of the plan depend most on uncertain inputs."
+        ]
       }
     ]
   },
@@ -1311,7 +2071,15 @@
       },
       {
         "question": "How does the dated distribution mode handle the additional tax?",
-        "answer": "It tests age 59\u00bd, the specified employer-plan separation-year rule and entered verified exceptions against the taxable portion. An exception to additional tax does not remove ordinary income tax."
+        "answer": "It tests age 59½, the specified employer-plan separation-year rule and entered verified exceptions against the taxable portion. An exception to additional tax does not remove ordinary income tax."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reviewing contributions, matching, and withdrawals",
+        "paragraphs": [
+          "A 401(k) projection can separate your contributions from employer matching and investment growth. Review the salary and matching inputs before interpreting the ending balance. Withdrawal modes answer different questions from accumulation and include only the supported tax assumptions. A regional display preference does not change this tool's US account rules, and the projection does not verify the terms of your employer's plan."
+        ]
       }
     ]
   },
@@ -1330,6 +2098,14 @@
         "question": "Does leaving an employer at age 55 create an IRA exception?",
         "answer": "The dated mode applies its separation-year exception only to the relevant qualified employer plan, not to an IRA. Other exceptions must be separately established."
       }
+    ],
+    "sections": [
+      {
+        "title": "Keeping IRA contribution and tax assumptions aligned",
+        "paragraphs": [
+          "The IRA modes cover different planning questions, including account growth, contribution ceilings, and supported distributions. Select the branch that matches the tax year and account scenario before entering values. The equal-budget comparison is useful when tax treatment changes how much can be contributed from the same pretax resources. Read the mode's limitations before using an estimate in a tax or withdrawal decision."
+        ]
+      }
     ]
   },
   "roth-ira-calculator": {
@@ -1347,6 +2123,14 @@
         "question": "Does the 2026 ceiling account for every income restriction?",
         "answer": "No. It is an age-and-compensation ceiling before MAGI restrictions, deductibility and other eligibility rules."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing accounts from the same starting budget",
+        "paragraphs": [
+          "A Roth IRA comparison is most informative when both alternatives begin with a consistent budget. A contribution made from after-tax money is not directly comparable with a larger pretax contribution without accounting for that difference. Use the equal-budget mode for that question, and review the supported contribution-ceiling assumptions separately. The model does not predict future tax rules or investment performance."
+        ]
+      }
     ]
   },
   "pension-calculator": {
@@ -1359,6 +2143,14 @@
       {
         "question": "Does the survivor comparison predict either person's lifespan?",
         "answer": "No. The cash-flow streams use the lifetime assumptions you enter. They compare scenarios rather than probabilities of surviving to particular ages."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing pension payment streams",
+        "paragraphs": [
+          "Pension choices can differ in starting date, payment amount, and survivor benefits. Compare the timing of those streams as well as their present value under the selected discount rate. A later start may change the payment without making every scenario equivalent. The calculation values the entered streams; it does not determine personal longevity or establish which pension election best fits a household."
+        ]
       }
     ]
   },
@@ -1377,6 +2169,14 @@
         "question": "Does a zero owner RMD mean every withdrawal rule is satisfied?",
         "answer": "No. Owner Roth exemptions and eligible current-employer deferral are limited branches. Inherited accounts and other account-specific obligations are outside this model."
       }
+    ],
+    "sections": [
+      {
+        "title": "Using the right balance and distribution year",
+        "paragraphs": [
+          "A required minimum distribution estimate depends on the applicable year, balance, and supported life-expectancy table. Review the owner-calendar mode when timing matters, rather than treating every calendar year as identical. Keep the account balance date consistent with the field instructions. The tool covers the owner scenarios described in its notes and should not be assumed to handle every inherited-account rule."
+        ]
+      }
     ]
   },
   "social-security-calculator": {
@@ -1393,6 +2193,14 @@
       {
         "question": "Does waiting beyond age 70 add delayed credits?",
         "answer": "No. The model caps age-based delayed credits at 70; later changes in an actual benefit can have other causes."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing benefit streams across claiming ages",
+        "paragraphs": [
+          "A claiming-age comparison combines the assumed benefit with the age when payments begin. A larger monthly benefit can start later, so compare cumulative streams as well as individual payments. Use the birth-cohort mode to check the supported full-retirement-age assumption. The calculator models the benefit figures you enter and does not retrieve an official earnings record or guarantee an award amount."
+        ]
       }
     ]
   },
@@ -1411,6 +2219,14 @@
         "question": "How do I model partial funding?",
         "answer": "Enter the share of projected costs to fund from these savings. Scholarships, grants and financial-aid awards are not selected automatically."
       }
+    ],
+    "sections": [
+      {
+        "title": "Matching college savings with expected costs",
+        "paragraphs": [
+          "College planning combines a current cost estimate, time until enrollment, cost growth, and savings contributions. Review how much of the projected expense is funded rather than looking only at the account balance. A change in the inflation assumption affects the target, while the investment return affects savings growth. The taxable-savings mode includes only its stated tax treatment, not every education-account rule."
+        ]
+      }
     ]
   },
   "debt-payoff-calculator": {
@@ -1423,6 +2239,14 @@
       {
         "question": "What happens after one debt is paid off?",
         "answer": "Its freed payment is redirected to remaining debts. The model assumes no new borrowing and fixed minimum-payment amounts until payoff."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing payoff priorities with the same budget",
+        "paragraphs": [
+          "Keep the total payment budget constant when comparing debt-payoff strategies. Otherwise, a faster result may come from paying more rather than changing which debt receives extra money first. Check how minimum payments, rollover amounts, and dated extras are entered. The schedule assumes the modeled debts and rates, so new borrowing or a rate change requires an updated scenario."
+        ]
       }
     ]
   },
@@ -1437,6 +2261,14 @@
         "question": "Does monthly APR divided by 12 match every card statement?",
         "answer": "No. This schedule uses that monthly approximation; daily interest methods, fees, rate changes and new purchases can produce different statement amounts."
       }
+    ],
+    "sections": [
+      {
+        "title": "Planning payments across multiple cards",
+        "paragraphs": [
+          "Enter each card balance and rate separately so that the payoff schedule can allocate payments to the correct debt. Compare strategies using the same overall budget and review what happens when a cleared card's payment rolls over. A statement's changing minimum-payment rules may differ from the model. Adding purchases during repayment also changes the balance path shown by the estimate."
+        ]
+      }
     ]
   },
   "debt-consolidation-calculator": {
@@ -1449,6 +2281,14 @@
       {
         "question": "Is a lower monthly payment necessarily a cheaper consolidation?",
         "answer": "No. A longer repayment term can reduce payments while increasing total interest. Compare fees, interest and time in debt together."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Checking whether consolidation reduces total cost",
+        "paragraphs": [
+          "Consolidation replaces several payment streams with a new borrowing arrangement. Compare the new term, fees, and total repayment with the existing debts, not just the first monthly payment. A longer term may make the payment smaller while keeping debt outstanding for longer. Use the fee-adjusted comparison to see how supported upfront charges affect the apparent savings."
+        ]
       }
     ]
   },
@@ -1467,6 +2307,14 @@
         "question": "When is new school borrowing assumed to occur?",
         "answer": "The model adds the annual borrowing at the start of each school year, then tracks each amount over its time outstanding."
       }
+    ],
+    "sections": [
+      {
+        "title": "Separating school borrowing from repayment",
+        "paragraphs": [
+          "Borrowing during school and repaying an existing student loan are different stages. Choose the mode that matches the balance and timing you know. The repayment-budget mode works backward from a payment, while fixed-payment payoff estimates how long a balance takes to clear. These scenarios follow the stated loan model and do not automatically reproduce income-based repayment or forgiveness programs."
+        ]
+      }
     ]
   },
   "bond-calculator": {
@@ -1484,6 +2332,14 @@
         "question": "Does the yield account for default or early redemption?",
         "answer": "No. These modes assume the scheduled regular coupons and redemption amount are paid."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading bond price and yield together",
+        "paragraphs": [
+          "A bond's coupon rate, market price, and yield describe different things. When working with settlement dates, check the payment schedule and day-count convention because accrued interest and remaining cash flows depend on them. Compare clean and settlement-related values using the labels shown. A calculated yield assumes the modeled payments and does not remove the possibility of default or changing market prices."
+        ]
+      }
     ]
   },
   "average-return-calculator": {
@@ -1496,6 +2352,14 @@
       {
         "question": "What if my deposits and withdrawals occur on irregular dates?",
         "answer": "Use the dated money-weighted mode with negative investor payments and positive receipts. It accounts for unequal intervals using elapsed days."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing an average that matches the question",
+        "paragraphs": [
+          "An arithmetic average summarizes individual period returns, while a compounded result describes growth across periods. Deposits and withdrawals introduce another question: the return on money invested at different times. Use the dated money-weighted mode for that cash-flow perspective. Two accounts can have the same sequence of market returns but different investor outcomes when their contributions occur at different dates."
+        ]
       }
     ]
   },
@@ -1510,6 +2374,14 @@
         "question": "Which mode fits several deposits and withdrawals?",
         "answer": "Use dated money-weighted return with signed cash flows. Simple ROI annualization assumes one initial investment and one final receipt."
       }
+    ],
+    "sections": [
+      {
+        "title": "Putting return on investment in context",
+        "paragraphs": [
+          "ROI compares the gain or loss with the amount invested, but a percentage alone does not describe how long the investment lasted. Use the exact-date annualized mode when duration matters. If money enters or leaves at several dates, the dated cash-flow mode is more informative than treating everything as one initial purchase. Keep costs consistent across investments being compared."
+        ]
+      }
     ]
   },
   "irr-calculator": {
@@ -1523,6 +2395,14 @@
         "question": "Can the same cash flows have more than one IRR?",
         "answer": "Yes. Multiple sign changes can create multiple roots. The calculator reports detected solutions within its supported search range."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading an internal rate of return carefully",
+        "paragraphs": [
+          "IRR is the rate that makes the modeled cash flows balance in present-value terms. Enter outgoing and incoming amounts with the required signs, and select periodic or dated cash flows according to their timing. Irregular sign changes can make interpretation more difficult. Compare the cash-flow schedule and investment size alongside the rate rather than ranking projects from IRR alone."
+        ]
+      }
     ]
   },
   "payback-period-calculator": {
@@ -1535,6 +2415,14 @@
       {
         "question": "Does the shortest payback always identify the best investment?",
         "answer": "No. Payback alone does not value all later cash flows or fully describe risk. Discounted payback also depends on the chosen discount rate."
+      }
+    ],
+    "sections": [
+      {
+        "title": "What a payback period does and does not show",
+        "paragraphs": [
+          "The payback period identifies when accumulated modeled inflows recover the initial outlay. Check whether the selected result uses discounted cash flows before comparing it with another payback estimate. Cash received after the recovery point still matters to total project value. A short payback therefore describes recovery speed, rather than proving that a project has the highest overall return."
+        ]
       }
     ]
   },
@@ -1553,6 +2441,14 @@
         "question": "Will every declining-balance schedule reach salvage value?",
         "answer": "Not necessarily. With the straight-line switch disabled, the model leaves unused basis rather than forcing a final writeoff."
       }
+    ],
+    "sections": [
+      {
+        "title": "Allocating asset cost across accounting periods",
+        "paragraphs": [
+          "Book depreciation spreads the depreciable amount across periods according to the selected method. Enter the asset cost, residual value, and useful life consistently, and use the fiscal-year mode when the acquisition date affects the schedule. The remaining book value is an accounting result rather than a prediction of resale price. Tax depreciation can follow separate rules from the displayed book schedule."
+        ]
+      }
     ]
   },
   "margin-calculator": {
@@ -1563,8 +2459,16 @@
         "answer": "Margin divides profit by revenue; markup divides profit by cost. The profit-and-margin inverse requires positive profit and positive margin in this model."
       },
       {
-        "question": "Do the stock and FX modes apply my broker\u2019s exact requirements?",
+        "question": "Do the stock and FX modes apply my broker’s exact requirements?",
         "answer": "No. They use entered ratios, leverage and exchange rates. Broker rules, financing charges and instrument requirements can differ."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing profit margin from markup",
+        "paragraphs": [
+          "Profit margin compares profit with the selling price, while markup compares it with cost. Confusing the denominator can produce a price that misses the intended margin. Use the missing-cost or missing-price mode when working backward from a target. The stock and foreign-exchange margin modes answer separate collateral questions and should not be interpreted as product-pricing calculations."
+        ]
       }
     ]
   },
@@ -1578,6 +2482,14 @@
       {
         "question": "What happens above the highest entered tier?",
         "answer": "The final tier's rate continues above its upper limit. Confirm that this matches the actual commission agreement."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding flat and tiered commission",
+        "paragraphs": [
+          "A flat commission applies one rate to the selected sales amount. A marginal tier schedule applies different rates to portions of that amount, rather than automatically applying the highest rate to all sales. Enter the tiers in the order requested and compare the total commission with the underlying sales figure. The result follows the entered schedule, not an employer's unentered bonus or clawback rules."
+        ]
       }
     ]
   },
@@ -1596,6 +2508,14 @@
         "question": "Is sales tax included in the discounted price?",
         "answer": "No. This tool does not decide how a discount or coupon affects the taxable amount."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking the price before and after a discount",
+        "paragraphs": [
+          "Choose the discount mode based on which two values you already know. A reduction amount, a percentage, and a final price describe related but different quantities. Check that the original price is the comparison base before interpreting the percentage saved. Taxes, delivery charges, and other fees need separate consideration if they are not part of the entered price."
+        ]
+      }
     ]
   },
   "percent-off-calculator": {
@@ -1608,6 +2528,14 @@
       {
         "question": "Can I recover an original price from the sale price?",
         "answer": "Use the known-pair mode with final price and percent off. A zero final price at 100% off cannot identify one original price."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Why successive discounts do not simply add",
+        "paragraphs": [
+          "A second percentage discount normally applies to the price remaining after the first reduction. Use the consecutive-discount mode to see that effect rather than adding the two percentages. The known-pair mode can work backward from a final price or saving. Keep the original price visible when comparing promotions so that a larger advertised percentage is not mistaken for a lower final cost."
+        ]
       }
     ]
   },
@@ -1622,6 +2550,14 @@
         "question": "Does the calculator find the sales-tax rate for my address?",
         "answer": "No. You supply the rate and determine whether the transaction is taxable or exempt."
       }
+    ],
+    "sections": [
+      {
+        "title": "Working with tax-inclusive and pre-tax prices",
+        "paragraphs": [
+          "The sales-tax modes distinguish a pre-tax amount from a price that already includes tax. Choose the known pair that matches your receipt or estimate so that tax is not added twice. Enter the applicable rate yourself; selecting a display currency does not supply a local tax rate. The result follows that rate and does not decide whether a transaction is taxable."
+        ]
+      }
     ]
   },
   "vat-calculator": {
@@ -1634,6 +2570,14 @@
       {
         "question": "Does this decide which VAT rate or exemption applies?",
         "answer": "No. Rate selection, place of supply, exemptions and recoverability are outside this arithmetic model."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Extracting VAT from an inclusive price",
+        "paragraphs": [
+          "When a price already includes VAT, the tax component must be separated from the total using the inclusive-price relationship. Multiplying the inclusive total by the rate would use the wrong base. Select the known-pair mode that matches the figures available. The calculator performs the arithmetic for an entered rate and does not establish registration, exemption, or input-tax recovery eligibility."
+        ]
       }
     ]
   },
@@ -1652,6 +2596,14 @@
         "question": "Is the converted salary my take-home pay?",
         "answer": "No. These are gross-pay conversions before taxes, benefits and payroll deductions."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing pay across different periods",
+        "paragraphs": [
+          "An hourly, monthly, and annual salary comparison depends on the work schedule assumed. Check working days, hours, and nonworking days before comparing offers. A simple period conversion does not automatically account for overtime, variable shifts, benefits, or tax withholding. Use the pay-period mode when the calendar or number of paid periods is central to the question."
+        ]
+      }
     ]
   },
   "budget-calculator": {
@@ -1668,6 +2620,14 @@
       {
         "question": "How can I avoid counting a debt payment twice?",
         "answer": "Enter a payment in either living expenses or debt payments, not both. The mixed-period model deducts the two groups separately."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Making a monthly budget from mixed expenses",
+        "paragraphs": [
+          "Convert income and expenses to a common period before comparing the totals. A yearly bill can be easy to miss in a monthly budget unless an allowance is made for it. Review the remaining balance after recurring obligations, then consider irregular spending separately. The mixed-period mode helps align timing; it does not know about transactions that have not been entered."
+        ]
       }
     ]
   },
@@ -1686,6 +2646,14 @@
         "question": "Does the dependent-credit worksheet establish eligibility?",
         "answer": "No. Eligibility is supplied as an assumption. The basic refundable branch is limited to at most two qualifying children and excludes the special Schedule 8812 branches."
       }
+    ],
+    "sections": [
+      {
+        "title": "Selecting the correct US tax worksheet",
+        "paragraphs": [
+          "Start with the tax year and the specific income, deduction, or credit question you need to model. The calculator contains separate supported branches, so a result from one worksheet should not be assumed to represent an entire return. Review eligibility and limitation notes beside the selected mode. Changing the website language or currency does not convert these US federal rules into another country's tax system."
+        ]
+      }
     ]
   },
   "take-home-pay-calculator": {
@@ -1701,7 +2669,15 @@
       },
       {
         "question": "Does Additional Medicare withholding use my filing status?",
-        "answer": "The paycheck FICA branch uses the employer\u2019s $200,000 withholding trigger. Final Additional Medicare liability uses a separate filing-status calculation."
+        "answer": "The paycheck FICA branch uses the employer’s $200,000 withholding trigger. Final Additional Medicare liability uses a separate filing-status calculation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separating tax liability from paycheck withholding",
+        "paragraphs": [
+          "An annual tax estimate and withholding from a particular paycheck are related but different calculations. Choose the mode that matches the pay period, wage base, and deduction treatment you want to examine. Compare gross pay, deductions, and the resulting net amount using consistent timing. The supported federal calculations do not automatically include every state, local, employer, or benefit-plan adjustment."
+        ]
       }
     ]
   },
@@ -1710,11 +2686,19 @@
     "faqs": [
       {
         "question": "What does the year-based comparison include?",
-        "answer": "It compares the selected year\u2019s ordinary-income brackets using basic standard deductions or the deduction amounts you enter."
+        "answer": "It compares the selected year’s ordinary-income brackets using basic standard deductions or the deduction amounts you enter."
       },
       {
         "question": "Does it decide whether a married couple should file separately?",
         "answer": "No. It compares two eligible single-filer scenarios with one joint scenario. Married-filing-separately rules, credits and other taxes require a separate analysis."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing filing scenarios consistently",
+        "paragraphs": [
+          "A marriage-tax comparison needs the same underlying incomes and supported deductions in both scenarios. Review the year and filing assumptions before interpreting the difference. A change in total modeled tax is not a complete measure of the financial effects of marriage. Credits, eligibility rules, and income types outside the selected branch may require a more complete return calculation."
+        ]
       }
     ]
   },
@@ -1726,12 +2710,20 @@
         "answer": "No. The legacy approximation uses the top rate above its entered exclusion. The detailed assets-and-gifts mode uses the graduated tentative-tax schedule and applicable exclusion credit."
       },
       {
-        "question": "Can I enter a deceased spouse\u2019s unused exclusion?",
+        "question": "Can I enter a deceased spouse’s unused exclusion?",
         "answer": "The detailed mode accepts a valid elected DSUE amount as an assumption. It does not determine portability eligibility or make the required election."
       },
       {
         "question": "Are state inheritance taxes and all gift adjustments included?",
         "answer": "State and generation-skipping taxes are excluded. Adjusted taxable gifts, gift tax payable, deductions and other credits must be supplied after separate verification."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding a modeled taxable estate",
+        "paragraphs": [
+          "The estate worksheet starts from the entered assets, adjustments, gifts, and supported credits. Keep estate value separate from the amount potentially subject to tax under the selected federal assumptions. The result is a planning estimate for the stated year and scope. It does not determine asset ownership, valuation disputes, state estate or inheritance taxes, or the effect of an unmodeled trust arrangement."
+        ]
       }
     ]
   },
@@ -1745,6 +2737,14 @@
       {
         "question": "How does a sale affect holding-period return?",
         "answer": "Final cash flow includes the sale proceeds after selling costs and remaining mortgage debt. It is counted once in the investor-return stream."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing rental cash flow with sale proceeds",
+        "paragraphs": [
+          "Rental income, operating costs, financing, and eventual sale proceeds affect different parts of an investment's return. Review ongoing cash flow separately from the holding-period result. An attractive sale assumption can hide weak annual cash flow, while a positive monthly figure may omit costs not entered. Compare scenarios using consistent vacancy, expense, financing, and holding-period assumptions."
+        ]
       }
     ]
   },
@@ -1763,6 +2763,14 @@
         "question": "What does the terminal buying advantage measure?",
         "answer": "In the detailed mode it grows the same present-value cost difference to the comparison end date. It is not an additional benefit to add to that difference."
       }
+    ],
+    "sections": [
+      {
+        "title": "Making a rent-or-buy comparison over one horizon",
+        "paragraphs": [
+          "A rent-versus-buy result depends on how long you stay and what happens to housing costs, property value, and alternative savings. Compare both paths over the same horizon and review the treatment of deposits and ending equity. A refundable deposit is different from an expense. The model is especially sensitive to long-term assumptions, so test several scenarios before relying on a single break-even point."
+        ]
+      }
     ]
   },
   "currency-calculator": {
@@ -1775,6 +2783,14 @@
       {
         "question": "Are my amount and currency choices sent to the rate provider?",
         "answer": "No. The site fetches a generic reference-rate feed; your selected currencies and amount are used for conversion in the browser."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reading an exchange-rate result",
+        "paragraphs": [
+          "Select the conversion mode according to whether you want an entered rate, a dated reference rate, or a supported spot quote. Check the source and timestamp shown with the result. A reference conversion is not a promise that a bank or payment provider will offer that amount. Fees, spreads, settlement timing, and unsupported dates can affect an actual exchange."
+        ]
       }
     ]
   },
@@ -1789,6 +2805,14 @@
         "question": "Does a BMI result measure body fat or diagnose a condition?",
         "answer": "No. BMI relates weight to height. Body composition, pregnancy and individual health circumstances can limit its interpretation."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing an adult or child BMI calculation",
+        "paragraphs": [
+          "BMI relates weight to height, but the adult and child modes do not interpret that number in the same way. Use the age-appropriate mode and check the measurement units before calculating. A BMI category is a screening reference rather than a complete assessment of health or body composition. The result should be considered alongside the limitations and references shown on this page."
+        ]
+      }
     ]
   },
   "anorexic-bmi-calculator": {
@@ -1801,6 +2825,14 @@
       {
         "question": "Why does this page not calculate an anorexic target weight?",
         "answer": "A target based on becoming underweight would misuse the measure. The page provides screening context rather than a weight-loss goal."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Why BMI cannot diagnose an eating disorder",
+        "paragraphs": [
+          "This page provides adult BMI information, not a test for anorexia or another eating disorder. A weight-to-height calculation cannot describe eating behaviors, symptoms, or a person's medical needs. Avoid interpreting a category as either a diagnosis or reassurance that no problem exists. If the concern is about eating or health, the relevant next step is an assessment by a qualified health professional."
+        ]
       }
     ]
   },
@@ -1815,6 +2847,14 @@
         "question": "Can a muscular person receive a higher BMI category?",
         "answer": "Yes. BMI does not distinguish muscle from fat, so body composition matters when interpreting the number."
       }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting an adult BMI screening category",
+        "paragraphs": [
+          "The calculator uses adult height and weight to produce a BMI screening result. Check the units carefully, especially when switching between metric and imperial measurements. A category does not measure body fat directly or explain why a person's weight has changed. Use the result as one limited piece of information, with the model's notes, rather than as an individualized health target."
+        ]
+      }
     ]
   },
   "bmr-calculator": {
@@ -1827,6 +2867,14 @@
       {
         "question": "Is the equation a measured metabolic rate?",
         "answer": "No. It is a population estimate from body measurements and age, not a direct test of an individual's metabolism."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Resting energy versus daily energy needs",
+        "paragraphs": [
+          "A BMR estimate concerns energy used at rest under the selected equation. It should not be confused with a complete daily-energy estimate that also models activity. Check the age, height, weight, and equation inputs before comparing results. The energy-conversion modes answer a separate units question; converting calories and joules does not determine an individual's food or exercise needs."
+        ]
       }
     ]
   },
@@ -1841,6 +2889,14 @@
         "question": "What is the difference between a food Calorie and a kilocalorie?",
         "answer": "They refer to the same food-energy unit. One kilocalorie equals 4.184 kilojoules."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding a daily calorie estimate",
+        "paragraphs": [
+          "The daily calorie result combines the selected resting-energy method with an activity assumption. An activity setting describes a modeled average rather than measuring everything done during a day. Compare the assumptions before treating a difference between calculators as an error. The estimate is not a personalized meal prescription, and the displayed limitations explain situations where a simple model is less informative."
+        ]
+      }
     ]
   },
   "tdee-calculator": {
@@ -1853,6 +2909,14 @@
       {
         "question": "Does TDEE stay constant every day?",
         "answer": "Not necessarily. This model gives a single scenario estimate; actual activity, health and other circumstances can change daily expenditure."
+      }
+    ],
+    "sections": [
+      {
+        "title": "How activity assumptions affect TDEE",
+        "paragraphs": [
+          "Total daily energy expenditure is an estimate built from the selected body measurements and activity setting. Changing the activity input can substantially change the result even when weight and height stay the same. Use a consistent interpretation of activity when comparing scenarios. This model does not directly measure metabolism or track day-to-day changes in food intake and movement."
+        ]
       }
     ]
   },
@@ -1867,6 +2931,14 @@
         "question": "Can I combine every upper endpoint of the reference ranges?",
         "answer": "No. The adult reference ranges are independent. Their upper endpoints are not intended to form one 100% dietary split."
       }
+    ],
+    "sections": [
+      {
+        "title": "Connecting macro amounts with an energy target",
+        "paragraphs": [
+          "The macro calculator distributes a stated or estimated energy target into macronutrient amounts. Check whether you are entering calories directly or deriving them from body measurements and activity. A different split can change carbohydrate, fat, and protein grams without changing the total energy target. The output illustrates the selected assumptions and does not assess dietary adequacy or individual medical requirements."
+        ]
+      }
     ]
   },
   "carbohydrate-calculator": {
@@ -1879,6 +2951,14 @@
       {
         "question": "Is the calculated carbohydrate amount an individual dietary prescription?",
         "answer": "No. It is a planning quantity or adult reference range, not individualized advice for medical conditions, pregnancy or growing children."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reading carbohydrate grams in context",
+        "paragraphs": [
+          "Carbohydrate grams depend on the energy target and distribution entered in the selected mode. If the target comes from an activity-based estimate, uncertainty in that estimate also affects the carbohydrate result. Compare amounts using the same daily time period. The calculation translates an energy allocation into grams; it does not evaluate food quality, blood-glucose response, or a personal treatment plan."
+        ]
       }
     ]
   },
@@ -1893,6 +2973,14 @@
         "question": "Does this tell me which types of dietary fat to choose?",
         "answer": "No. It estimates total fat grams from energy assumptions and does not evaluate food quality or an individual's dietary needs."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding an estimated fat allocation",
+        "paragraphs": [
+          "The fat-intake result represents the portion of an energy target assigned to fat by the selected inputs. Check the calorie target before comparing the resulting grams with another scenario. A numerical allocation does not distinguish individual foods or assess the balance of different fatty acids. Use the model's assumptions as context rather than interpreting the result as a complete dietary recommendation."
+        ]
+      }
     ]
   },
   "protein-calculator": {
@@ -1905,6 +2993,14 @@
       {
         "question": "Is the default protein target right for everyone?",
         "answer": "No. It reflects the stated adult reference assumption. Activity, age and medical or reproductive circumstances can change individual requirements."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the inputs for a protein estimate",
+        "paragraphs": [
+          "The protein calculator offers a direct daily-protein mode and a mode based on body measurements and activity. Read the selected method before comparing results, because the same label can conceal different assumptions about the calculation base. Check mass units when entering weight. The result is a modeled amount and does not evaluate a person's medical history, diet, or training response."
+        ]
       }
     ]
   },
@@ -1921,7 +3017,15 @@
       },
       {
         "question": "Does the BMI estimate measure body fat?",
-        "answer": "No. Deurenberg\u2019s equations combine BMI, age and sex statistically. The adult and child equations are separate, and individual error can be several percentage points."
+        "answer": "No. Deurenberg’s equations combine BMI, age and sex statistically. The adult and child equations are separate, and individual error can be several percentage points."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing body-fat estimation methods",
+        "paragraphs": [
+          "Circumference-based and BMI-based body-fat methods use different measurements, so their results need not agree. Follow the field instructions and use consistent measurement locations and units. Small input changes can affect a percentage estimate. Neither method directly measures all body tissues, and a difference between the two outputs should not be treated as proof that one is an exact measurement."
+        ]
       }
     ]
   },
@@ -1936,6 +3040,14 @@
         "question": "Does this result count as an official assessment?",
         "answer": "No. It calculates from your recorded inputs. Official measurement, confirmation, exemption and administrative procedures require the applicable Army guidance."
       }
+    ],
+    "sections": [
+      {
+        "title": "Selecting the correct Army assessment method",
+        "paragraphs": [
+          "This calculator separates the stated current waist-to-height method from the historical one-site estimate. Select the mode that matches the policy and purpose you are checking before entering measurements. Historical and current outputs should not be compared as if they were the same assessment. Read the source and applicability notes; the calculator does not issue an official fitness or administrative determination."
+        ]
+      }
     ]
   },
   "lean-body-mass-calculator": {
@@ -1948,6 +3060,14 @@
       {
         "question": "Is the pediatric estimate suitable for calculating a medication dose?",
         "answer": "No. The Peters mode is an educational body-composition estimate. Clinical interpretation and medication dosing require a clinician."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding lean body mass estimates",
+        "paragraphs": [
+          "Lean body mass is estimated here from either an entered body-fat percentage or a selected reference equation. These approaches can produce different values because they depend on different assumptions. Use the age-appropriate mode and check height and weight units. The output is an estimate of mass outside the modeled fat component, not a direct measurement of skeletal muscle alone."
+        ]
       }
     ]
   },
@@ -1966,6 +3086,14 @@
         "question": "Why do the eight equations give different estimates?",
         "answer": "They were fitted to different populations and use different mathematical relationships. The named method and its study limits are part of the result; Finflo does not average them into a clinical assessment."
       }
+    ],
+    "sections": [
+      {
+        "title": "Comparing body surface area equations",
+        "paragraphs": [
+          "Body surface area equations estimate an area from measurements such as height and weight. Different equations can give slightly different answers even with identical inputs. Keep the units and selected equation visible when comparing results or communicating a value. This page performs the mathematical estimate; it does not determine a medication dose or replace the method required by a clinical protocol."
+        ]
+      }
     ]
   },
   "ideal-weight-calculator": {
@@ -1978,6 +3106,14 @@
       {
         "question": "Does the child mode prescribe an ideal weight?",
         "answer": "No. It shows age- and sex-specific BMI reference information, not a weight-loss target or diagnosis."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Reading reference weight equations without a personal target",
+        "paragraphs": [
+          "Reference weight equations summarize relationships between measurements under specific models. Their outputs can differ and should not be treated as one uniquely correct weight for an individual. The child and teen mode uses a different age-related framework from the adult reference equations. Review the selected method and limitations before comparing a result with a current weight or a health goal."
+        ]
       }
     ]
   },
@@ -1992,6 +3128,14 @@
         "question": "Is every weight in this interval personally appropriate?",
         "answer": "Not necessarily. This population screening interval does not account for pregnancy, muscle mass or individual medical circumstances."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding an adult reference range",
+        "paragraphs": [
+          "The displayed range comes from the adult reference method explained on the page. Check height units first, because the result depends directly on that measurement. The range is not an individualized assessment of nutrition, fitness, or health. A person's medical context and changes over time require information that a height-based calculation cannot provide."
+        ]
+      }
     ]
   },
   "body-type-calculator": {
@@ -2004,6 +3148,14 @@
       {
         "question": "Must waist, hip and height use the same unit?",
         "answer": "Measurements in each ratio must be expressed consistently. Mixing centimeters and inches would distort the ratio unless converted first."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Using body proportion and clothing descriptors",
+        "paragraphs": [
+          "Body-proportion results and fashion descriptors are ways to summarize entered measurements for the selected model. They are not medical categories or judgments about appearance. Use consistent measurement locations and avoid mixing garment dimensions with body dimensions unless instructed. Differences between modes can reflect different classification rules, so read the explanation for the descriptor rather than treating the label as an absolute."
+        ]
       }
     ]
   },
@@ -2022,6 +3174,14 @@
         "question": "Do wheelchair METs use the same calorie conversion?",
         "answer": "No. Wheelchair references use the Compendium baseline of 0.992 kcal per kilogram per hour for one MET_WC. Adult oxygen-based MET references use their own baseline."
       }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting activity calorie estimates",
+        "paragraphs": [
+          "An activity-energy estimate depends on the selected activity, duration, and body measurements. Check whether the chosen mode uses a reference activity value or a distance-and-speed model. Two activities with the same duration can produce different estimates because their modeled intensities differ. The result is not a direct measurement from a person and should not be treated as exact compensation for food intake."
+        ]
+      }
     ]
   },
   "one-rep-max-calculator": {
@@ -2034,6 +3194,14 @@
       {
         "question": "Why do estimates become less reliable with more repetitions?",
         "answer": "Predictive equations extrapolate from repetitions to a maximum. Their assumptions become less dependable as the repetition count increases."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Comparing estimated lifting maximums",
+        "paragraphs": [
+          "A one-repetition-maximum estimate uses a weight lifted for several repetitions to infer a single-repetition value under the displayed equation. The estimate is sensitive to the repetition count and how representative the set was. Use it as a comparison of entered sets, not an instruction to attempt the predicted load. The calculation cannot assess technique, fatigue, injury, or readiness to lift."
+        ]
       }
     ]
   },
@@ -2052,6 +3220,14 @@
         "question": "Does the talk test calculate a target heart rate?",
         "answer": "No. It gives a rough indication of relative exercise intensity from speech and breathing. It does not report beats per minute."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding heart-rate training estimates",
+        "paragraphs": [
+          "The heart-rate modes use the selected maximum-rate assumption or measured value to calculate a range. Different maximum-heart-rate equations can therefore change the range without any change in the person's actual response to exercise. The talk-test mode provides a different way to describe intensity. Read the limitations before using a calculated range as an exercise target, particularly when individualized guidance is needed."
+        ]
+      }
     ]
   },
   "pace-calculator": {
@@ -2064,6 +3240,14 @@
       {
         "question": "Does the finish projection account for slowing down later?",
         "answer": "No. It assumes the average pace over the completed distance continues unchanged for the remaining distance."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Keeping running pace, speed, and splits distinct",
+        "paragraphs": [
+          "Pace expresses time per distance, while speed expresses distance per time. A smaller pace value can therefore describe faster movement. Check the distance units and time format before comparing runs. The split modes summarize checkpoints, while projected finish times extend the entered assumptions to a target distance; they do not predict terrain, fatigue, or race-day conditions."
+        ]
       }
     ]
   },
@@ -2078,6 +3262,14 @@
         "question": "Can the calculated due date change after a clinical assessment?",
         "answer": "Yes. Ultrasound and clinical information can revise an estimate. A due date does not predict the exact day of delivery."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the pregnancy dating information you know",
+        "paragraphs": [
+          "Select the dating mode that matches the information available, such as a menstrual date, IVF transfer, ultrasound dating, or a known due date. These inputs represent different starting points and should not be substituted for one another. The calculated timeline is an estimate under the selected method. It does not confirm a pregnancy or replace dating and follow-up by a maternity care professional."
+        ]
+      }
     ]
   },
   "due-date-calculator": {
@@ -2090,6 +3282,14 @@
       {
         "question": "What should I enter for ultrasound dating?",
         "answer": "Use the scan date and gestational age reported by the clinical ultrasound assessment, rather than estimating fetal age yourself."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding an estimated due date",
+        "paragraphs": [
+          "An estimated due date depends on the dating method and the accuracy of the information entered. Choose the menstrual, conception, IVF, or ultrasound mode that matches the source of your dates. A due date is a reference point for a pregnancy timeline rather than a prediction of the exact day of birth. Clinical dating may differ when additional information is available."
+        ]
       }
     ]
   },
@@ -2104,6 +3304,14 @@
         "question": "Can this establish which sexual encounter led to pregnancy?",
         "answer": "No. Dating uncertainty and the biological timing involved prevent this calendar estimate from establishing a specific encounter or parentage."
       }
+    ],
+    "sections": [
+      {
+        "title": "Why conception timing is an estimate",
+        "paragraphs": [
+          "Working backward from a due date or another pregnancy date gives a modeled conception timeline, not proof of a particular event. Different dating inputs and their uncertainty can shift the estimate. Select the mode corresponding to the information you actually know. This calculator cannot establish paternity or identify an exact fertilization date from an approximate pregnancy timeline."
+        ]
+      }
     ]
   },
   "conception-calculator": {
@@ -2116,6 +3324,14 @@
       {
         "question": "Can the calendar window confirm ovulation or prevent pregnancy?",
         "answer": "No. Cycle timing varies, and the estimate does not confirm ovulation. Do not use it alone to prevent pregnancy."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing a fertile window from pregnancy dating",
+        "paragraphs": [
+          "A cycle-based fertile-window estimate and a pregnancy-dating calculation answer different questions. Use cycle inputs to explore a modeled window, or the appropriate dating mode when pregnancy information is already available. Calendar estimates do not confirm ovulation or conception. Avoid treating a calculated window as a reliable method of contraception or as evidence of a specific conception event."
+        ]
       }
     ]
   },
@@ -2130,6 +3346,14 @@
         "question": "Will this identify ovulation accurately for an irregular cycle?",
         "answer": "It cannot reliably establish ovulation from a fixed calendar assumption. Variable cycles can shift the actual timing substantially."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding the limits of cycle predictions",
+        "paragraphs": [
+          "The ovulation calculator estimates a window from the cycle information you enter. A typical cycle length does not establish when ovulation occurs in any particular cycle, and variation can shift the dates. Review the result as a calendar estimate rather than a confirmation. It should not be used as a reliable contraceptive method or to diagnose a fertility concern."
+        ]
+      }
     ]
   },
   "period-calculator": {
@@ -2142,6 +3366,14 @@
       {
         "question": "Does a predicted date explain a late or missed period?",
         "answer": "No. The calculator projects dates and cannot determine the reason for a change in menstrual timing."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Planning with an estimated period date",
+        "paragraphs": [
+          "A period-date estimate extends the entered cycle pattern into the future. Check that the starting date and cycle length describe the information you intend to use. Cycles can vary, so a predicted date is not a guarantee or a diagnosis when a period arrives earlier or later. The calculation does not identify the reason for a change in a person's cycle."
+        ]
       }
     ]
   },
@@ -2156,6 +3388,14 @@
         "question": "Are twin-pregnancy ranges the same as singleton ranges?",
         "answer": "No. Twin ranges are provisional references and do not have a universal weekly trajectory. Clinical context remains necessary."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading pregnancy weight-gain references",
+        "paragraphs": [
+          "The calculator compares the entered pregnancy information with the reference framework described on this page. Check the starting measurements and pregnancy timing before interpreting the result. A reference range does not determine what is appropriate for every pregnancy or explain a sudden change in weight. Individual maternity care takes account of information that is not captured by this calculation."
+        ]
+      }
     ]
   },
   "gfr-calculator": {
@@ -2168,6 +3408,14 @@
       {
         "question": "Can I use the adult equation for a child?",
         "answer": "No. The pediatric mode uses the bedside Schwartz relationship with height and creatinine, under clinical supervision rather than the adult equation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Selecting an adult or pediatric kidney estimate",
+        "paragraphs": [
+          "The adult and pediatric eGFR modes use different equations and required measurements. Select the appropriate method and verify the laboratory units before entering a result. An estimated filtration rate is not the same as a direct measurement and must be interpreted in clinical context. A single calculated value cannot by itself establish a diagnosis or determine treatment."
+        ]
       }
     ]
   },
@@ -2182,6 +3430,14 @@
         "question": "Why can measured alcohol levels differ from the estimate?",
         "answer": "Absorption and elimination vary substantially. The single-beverage mode uses hours since drinking began; the multiple-beverage mode assumes simultaneous absorption. Neither timing convention describes everyone accurately."
       }
+    ],
+    "sections": [
+      {
+        "title": "Why an alcohol estimate cannot establish safety",
+        "paragraphs": [
+          "A BAC estimate models alcohol intake using the selected beverage amounts, timing, and body assumptions. Actual alcohol concentration and impairment can differ from that model. Check whether amounts describe beverage volume or alcohol content, and use the multiple-beverage mode when appropriate. Do not use the estimated concentration or time to decide whether it is safe or legal to drive."
+        ]
+      }
     ]
   },
   "average-calculator": {
@@ -2194,6 +3450,14 @@
       {
         "question": "Is this a weighted average?",
         "answer": "No. Each entered value contributes equally. A weighted mean requires explicit weights and a different calculation."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing what an average should describe",
+        "paragraphs": [
+          "A dataset can have several useful summaries. Compare the arithmetic mean with the median to see whether unusually large or small observations affect the center. Check that every entry uses the same unit and represents the same kind of observation. An average describes the entered values; it does not show their full spread or establish that the sample represents a wider population."
+        ]
       }
     ]
   },
@@ -2208,6 +3472,14 @@
         "question": "Can a dataset have more than one mode?",
         "answer": "Yes. Several values can tie for the highest frequency. A mode describes frequency, not necessarily the center of the data."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading the center and spread of a dataset",
+        "paragraphs": [
+          "The mean, median, mode, and range answer different questions about the same data. The mode identifies repeated values, while the range depends only on the smallest and largest entries. Two datasets can share a mean and still have very different distributions. Review the original values as well as these summaries, especially when the list contains outliers or repeated measurements."
+        ]
+      }
     ]
   },
   "statistics-calculator": {
@@ -2221,6 +3493,14 @@
         "question": "Do these summary statistics establish that data are normally distributed?",
         "answer": "No. Mean, median and standard deviation describe features of a dataset; they do not by themselves demonstrate a normal distribution."
       }
+    ],
+    "sections": [
+      {
+        "title": "Preparing data for a statistical summary",
+        "paragraphs": [
+          "Before calculating, make sure the dataset contains comparable observations and that missing entries have not been replaced with zeros unless zero is an actual measurement. The summary describes the list you enter. Compare measures of center with measures of spread to avoid presenting a typical value without context. Descriptive statistics alone do not establish a cause or support a population-wide conclusion."
+        ]
+      }
     ]
   },
   "standard-deviation-calculator": {
@@ -2228,11 +3508,19 @@
     "faqs": [
       {
         "question": "Why is sample standard deviation usually larger?",
-        "answer": "Sample variance divides squared deviations by n \u2212 1 instead of n. Taking the square root preserves that difference."
+        "answer": "Sample variance divides squared deviations by n − 1 instead of n. Taking the square root preserves that difference."
       },
       {
         "question": "Does standard deviation use the same units as my data?",
         "answer": "Yes. Variance uses squared units, while standard deviation takes the square root and returns to the original unit."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Population and sample standard deviation",
+        "paragraphs": [
+          "Standard deviation describes how spread out observations are around their mean. Check whether the selected result treats the entered values as an entire population or as a sample from a larger population. That choice affects the denominator used in the calculation. Keep units consistent: the standard deviation uses the data's original unit, while variance uses the squared unit."
+        ]
       }
     ]
   },
@@ -2247,6 +3535,14 @@
         "question": "Can I reverse a 100% decrease to find the original value?",
         "answer": "No. Every original value becomes zero after a 100% decrease, so the final value does not identify a unique original."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the correct percentage question",
+        "paragraphs": [
+          "A percentage of a number, a percentage change, and a percentage difference use different comparison bases. Select the mode that matches the wording of the problem before entering values. When reversing a percentage change, work from the relationship to the original amount rather than subtracting the same percentage from the final amount. The displayed formula shows which value serves as the base."
+        ]
+      }
     ]
   },
   "percent-error-calculator": {
@@ -2259,6 +3555,14 @@
       {
         "question": "What does signed error add to absolute percentage error?",
         "answer": "Absolute percentage error describes the size of the discrepancy. Signed error also preserves whether the observation lies above or below the reference."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the reference value for percent error",
+        "paragraphs": [
+          "Percent error compares a measured or estimated value with a reference value. The reference belongs in the denominator, so swapping the two values changes the meaning of the answer. Check the selected formula's treatment of the sign and absolute difference. If the reference is zero, a relative percentage cannot be interpreted in the same way as an ordinary nonzero comparison."
+        ]
       }
     ]
   },
@@ -2273,6 +3577,14 @@
         "question": "How should I write multiplication next to parentheses?",
         "answer": "Use an explicit multiplication sign, such as 2 * (3 + 4). Select the angle unit before evaluating trigonometric functions."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking expression structure before evaluating",
+        "paragraphs": [
+          "Use parentheses to make the intended order of operations explicit, particularly around fractions, powers, and negative values. Check the supported function names and angle convention before entering a trigonometric expression. A mathematically valid expression can still answer the wrong question if the grouping is different. Compare the entered expression with the original problem before relying on the numerical result."
+        ]
+      }
     ]
   },
   "basic-calculator": {
@@ -2285,6 +3597,14 @@
       {
         "question": "How do parentheses change an arithmetic result?",
         "answer": "They group operations to be performed first. For example, 2 * (3 + 4) gives 14, while 2 * 3 + 4 gives 10."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Making everyday arithmetic unambiguous",
+        "paragraphs": [
+          "The basic calculator evaluates the expression you enter using its supported operators and order of operations. Use parentheses when a subtotal should be calculated first, such as a combined price before a division. Keep track of units outside the expression so that unlike quantities are not added accidentally. Rounding a displayed answer does not necessarily mean the original inputs were equally precise."
+        ]
       }
     ]
   },
@@ -2299,6 +3619,14 @@
         "question": "Are all modes unlimited exact arithmetic?",
         "answer": "No. Exact integer operations, higher-precision decimal operations and ordinary expressions have different capabilities and explicit size or precision limits."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing integer or decimal precision",
+        "paragraphs": [
+          "Very large integers and decimal expressions can require different arithmetic methods. Use exact integer operations when all inputs and the requested operation fit that mode. For decimal work, review the precision setting and the displayed limitations. A long result is not automatically an exact result, particularly when division creates a repeating decimal or the selected expression uses an approximate function."
+        ]
+      }
     ]
   },
   "fraction-calculator": {
@@ -2311,6 +3639,14 @@
       {
         "question": "Why is comparing fractions better than rounding them first?",
         "answer": "Cross multiplication compares the rational values directly. Rounding both to decimals can hide a small difference."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Working with equivalent fractions",
+        "paragraphs": [
+          "A fraction represents a numerator relative to a nonzero denominator. Simplifying changes the written form without changing that value. Use comparison mode when you need to order fractions, and arithmetic mode when combining them. For addition and subtraction, the denominators describe the unit being counted, so adding numerators and denominators independently does not produce the correct sum."
+        ]
       }
     ]
   },
@@ -2325,6 +3661,14 @@
         "question": "Why can some proportions not be solved uniquely?",
         "answer": "A zero denominator is invalid, and some combinations reduce to an identity with infinitely many possible values rather than one answer."
       }
+    ],
+    "sections": [
+      {
+        "title": "Keeping the order of a ratio consistent",
+        "paragraphs": [
+          "The order of quantities matters in a ratio. A ratio of one ingredient to another is not interchangeable with the reversed comparison. Simplifying preserves the relationship, while scaling changes both terms by the same factor. In a proportion, place corresponding quantities in matching positions before solving for the missing term, and make sure their measurement units are compatible."
+        ]
+      }
     ]
   },
   "quadratic-formula-calculator": {
@@ -2338,6 +3682,14 @@
         "question": "What happens if the coefficient of x squared is zero?",
         "answer": "The equation is no longer quadratic. The calculator treats the remaining expression as a linear or degenerate equation."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading the roots of a quadratic equation",
+        "paragraphs": [
+          "Write the equation in the standard quadratic form before entering its coefficients, including any negative signs and a zero coefficient for a missing linear term. The roots are the input values where the expression equals zero. The discriminant helps explain whether the roots are distinct, repeated, or non-real under the supported output. A zero leading coefficient describes a different type of equation."
+        ]
+      }
     ]
   },
   "exponent-calculator": {
@@ -2345,11 +3697,19 @@
     "faqs": [
       {
         "question": "What does a negative exponent mean?",
-        "answer": "For a nonzero base, a negative exponent takes the reciprocal of the corresponding positive power; for example, 2^\u22123 is 1/8."
+        "answer": "For a nonzero base, a negative exponent takes the reciprocal of the corresponding positive power; for example, 2^−3 is 1/8."
       },
       {
         "question": "Will a fractional power of a negative base return a complex value?",
         "answer": "No. This mode is restricted to supported real-number results and does not calculate complex powers."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing a base from its exponent",
+        "paragraphs": [
+          "The base is the quantity being raised to a power, while the exponent controls the operation. Parentheses matter when the base is negative: a negative base raised to a power is different from negating an already computed power. Check the supported real-number domain for fractional exponents. Very large powers can also exceed the precision or range of the selected numerical method."
+        ]
       }
     ]
   },
@@ -2358,11 +3718,19 @@
     "faqs": [
       {
         "question": "Can a negative number have a real root?",
-        "answer": "It has real odd roots, such as the cube root of \u22128 being \u22122. Even roots of negative values are not real."
+        "answer": "It has real odd roots, such as the cube root of −8 being −2. Even roots of negative values are not real."
       },
       {
         "question": "Does the calculator list every complex root?",
         "answer": "No. This mode returns the supported real root rather than the full set of complex roots."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Understanding the root index and input value",
+        "paragraphs": [
+          "The root index specifies which power would reproduce the entered value. A square root and a cube root therefore answer different questions about the same number. Review the real-number restrictions when the input is negative or the index is not a whole number. The calculator's root result should not be confused with listing every possible solution of a polynomial equation."
+        ]
       }
     ]
   },
@@ -2377,6 +3745,14 @@
         "question": "How do I solve for the argument from a logarithm?",
         "answer": "If log base b of x equals y, then x = b^y. The base must be positive and different from one."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing the logarithm base",
+        "paragraphs": [
+          "A logarithm asks which exponent gives the entered argument for a chosen base. Changing the base changes the result, even though the argument stays the same. Use the missing-base or missing-argument mode only when those are the unknown quantities in your problem. Check the real logarithm domain before calculating; not every combination of signs and base values is valid."
+        ]
+      }
     ]
   },
   "half-life-calculator": {
@@ -2389,6 +3765,14 @@
       {
         "question": "Which units should I use for time?",
         "answer": "Use the same unit for elapsed time and half-life. The decay constant then has the reciprocal of that time unit."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Matching the decay model to the question",
+        "paragraphs": [
+          "The half-life calculator uses an exponential-decay model with a constant rate. Choose remaining quantity, initial quantity, elapsed time, or half-life according to what is unknown. Keep the time unit consistent across the inputs. The mathematical model does not establish the actual half-life of a substance or account for additional production, changing conditions, or multiple interacting decay processes."
+        ]
       }
     ]
   },
@@ -2403,6 +3787,14 @@
         "question": "What is the LCM of 6 and 8?",
         "answer": "It is 24: the smallest positive integer divisible by both 6 and 8."
       }
+    ],
+    "sections": [
+      {
+        "title": "When to use the least common multiple",
+        "paragraphs": [
+          "The least common multiple is useful when you need the smallest positive quantity that is a multiple of every entered whole number. It differs from a greatest common factor, which looks for a shared divisor. For fraction problems, an LCM can help identify a common denominator. Check that inputs represent whole-number quantities before applying the result to a repeating schedule or grouping problem."
+        ]
+      }
     ]
   },
   "gcf-calculator": {
@@ -2415,6 +3807,14 @@
       {
         "question": "Is greatest common divisor different from greatest common factor?",
         "answer": "No. GCD and GCF are two names for the same whole-number relationship."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Using a greatest common factor",
+        "paragraphs": [
+          "The greatest common factor identifies the largest shared positive divisor of the entered whole numbers. It is useful for simplifying ratios and fractions or finding the largest equal grouping size. A common multiple answers a different question and can be much larger than the inputs. Review how the tool handles zeros and signs before interpreting an edge case."
+        ]
       }
     ]
   },
@@ -2429,6 +3829,14 @@
         "question": "What are the common factors of 12 and 18?",
         "answer": "They are 1, 2, 3 and 6. The greatest common factor is 6."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading the complete list of common factors",
+        "paragraphs": [
+          "Common factors are whole-number divisors shared by the entered values. The largest item has a special role as the greatest common factor, but smaller factors may be useful when choosing a grouping size. Check the original values when verifying the list: each reported factor should divide every relevant input without a remainder. Common factors should not be confused with common multiples."
+        ]
+      }
     ]
   },
   "factor-calculator": {
@@ -2442,6 +3850,14 @@
         "question": "Why is the input limited to one trillion?",
         "answer": "This implementation uses bounded trial division. The limit keeps the calculation responsive rather than implying that larger integers lack factors."
       }
+    ],
+    "sections": [
+      {
+        "title": "Understanding factors and prime factorization",
+        "paragraphs": [
+          "A factor divides an integer without leaving a remainder. The factor list and the prime decomposition describe the same integer in different ways: one lists divisors, while the other expresses a product of prime numbers. Check how signs and special inputs are treated in the mode's notes. Multiplying the prime factors back together is a useful way to verify a decomposition."
+        ]
+      }
     ]
   },
   "prime-factorization-calculator": {
@@ -2449,11 +3865,19 @@
     "faqs": [
       {
         "question": "How are repeated prime factors shown mathematically?",
-        "answer": "Repeated factors can be written as powers. For example, 72 = 2^3 \u00d7 3^2."
+        "answer": "Repeated factors can be written as powers. For example, 72 = 2^3 × 3^2."
       },
       {
         "question": "Does the number 1 have a prime factorization?",
         "answer": "No. One is neither prime nor a product of primes; it has no prime factors."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Using a prime decomposition",
+        "paragraphs": [
+          "Prime factorization writes a supported integer as a product of primes, with repeated factors grouped by exponent where shown. This representation can help compare divisibility or derive common factors and multiples. The exponent counts repeated multiplication; it is not an additional factor to add. Verify the result by reconstructing the original integer from the displayed prime powers."
+        ]
       }
     ]
   },
@@ -2468,6 +3892,14 @@
         "question": "What does the steps mode show?",
         "answer": "It shows each partial dividend, quotient digit, multiplication and subtraction, followed by the resulting remainder."
       }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting a quotient and remainder",
+        "paragraphs": [
+          "Integer division separates the result into a whole-number quotient and a remainder, while decimal division expresses the same relationship as a decimal value where supported. Keep the dividend and divisor in the correct order. A useful check is to multiply the divisor by the quotient and add the remainder. The step-by-step mode is intended to make that division process easier to follow."
+        ]
+      }
     ]
   },
   "rounding-calculator": {
@@ -2480,6 +3912,14 @@
       {
         "question": "Why might two rounding rules disagree at a halfway value?",
         "answer": "Tie rules choose different directions. The increment mode names the selected behavior explicitly so that halfway cases can be interpreted correctly."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Choosing a rounding place and tie rule",
+        "paragraphs": [
+          "Rounding changes a value to a chosen level of precision or to a multiple of an increment. Select the rule explicitly when halfway cases matter, especially for negative values. Rounding to decimal places is different from rounding to a cash increment. Keep full intermediate precision when possible, because rounding each step can produce a different final result from rounding once at the end."
+        ]
       }
     ]
   },
@@ -2494,6 +3934,14 @@
         "question": "Do square and square-root operations use both input values?",
         "answer": "No. They use only the first value. Power uses a whole-number exponent within the mode's stated bounds."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading a number in scientific notation",
+        "paragraphs": [
+          "Scientific notation separates a coefficient from a power of ten. A positive exponent moves the scale toward larger values, while a negative exponent represents a smaller magnitude. Use arithmetic mode when combining numbers already written this way. Check whether the displayed digits reflect the requested precision; changing the notation alone does not make a measurement more accurate."
+        ]
+      }
     ]
   },
   "binary-calculator": {
@@ -2507,18 +3955,34 @@
         "question": "Does binary division return a repeating fractional expansion?",
         "answer": "No. The arithmetic mode returns an integer quotient and remainder rather than a fractional binary expansion."
       }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing binary values from decimal values",
+        "paragraphs": [
+          "Binary notation uses a different place-value base from ordinary decimal notation. The same written sequence of digits can therefore represent a different amount depending on the chosen base. Select conversion mode when changing notation and arithmetic mode when operating on binary inputs. Keep leading zeros only when a fixed bit width is relevant to your separate application."
+        ]
+      }
     ]
   },
   "hex-calculator": {
-    "description": "Calculate exact hexadecimal integer operations and convert signed values between base 16 and decimal, using digits 0\u20139 and A\u2013F.",
+    "description": "Calculate exact hexadecimal integer operations and convert signed values between base 16 and decimal, using digits 0–9 and A–F.",
     "faqs": [
       {
         "question": "Are uppercase and lowercase hexadecimal letters different?",
-        "answer": "No. A\u2013F and a\u2013f represent the same digits. Enter the digits without a base prefix."
+        "answer": "No. A–F and a–f represent the same digits. Enter the digits without a base prefix."
       },
       {
         "question": "Why does hexadecimal division show a remainder?",
         "answer": "The integer arithmetic mode separates the quotient and remainder instead of producing a fractional hexadecimal result."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Working with hexadecimal place values",
+        "paragraphs": [
+          "Hexadecimal notation uses digits and letter symbols to represent values in a base larger than decimal. Check the input mode before pasting a number, because a string containing only digits can still have different values in different bases. Conversion changes representation rather than quantity. Arithmetic results follow the supported number model, not every fixed-width overflow rule used by programming languages."
+        ]
       }
     ]
   },
@@ -2533,6 +3997,14 @@
         "question": "Do first-term and difference inputs change the Fibonacci sequence?",
         "answer": "No. Fibonacci uses its fixed starting values and recurrence. Those controls apply to the other sequence types."
       }
+    ],
+    "sections": [
+      {
+        "title": "Identifying the sequence model before extending it",
+        "paragraphs": [
+          "A sequence calculator can extend only the pattern described by the selected model and inputs. Several different rules can fit a short list of terms, so an apparent pattern is not proof of a unique continuation. Distinguish the value of a particular term from the sum of several terms. Check the starting index and common difference or ratio when comparing results."
+        ]
+      }
     ]
   },
   "permutation-and-combination-calculator": {
@@ -2545,6 +4017,14 @@
       {
         "question": "Can the same object be selected more than once?",
         "answer": "Not in this model. It assumes distinct objects sampled without replacement, so the selection size cannot exceed the available count."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Deciding whether order matters",
+        "paragraphs": [
+          "Use permutations when changing the order creates a different outcome, and combinations when the same selected items count once regardless of order. Check the replacement or repetition assumptions supported by the mode before entering the population and selection size. A counting formula gives the number of outcomes under those assumptions; it does not automatically assign probabilities to outcomes with unequal chances."
+        ]
       }
     ]
   },
@@ -2559,6 +4039,14 @@
         "question": "Why can a request for unique values be rejected?",
         "answer": "The requested count cannot exceed the number of permitted values in the range or decimal grid. Output-size limits also apply."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking range and repetition settings",
+        "paragraphs": [
+          "Choose the minimum, maximum, and number of results according to the sample you need. Check whether endpoints are included and whether repeated values are allowed in the selected options. A random sample can contain clusters or repeats without indicating an error. Keep the generator's stated limitations in mind before using output for a security-sensitive or formally regulated drawing."
+        ]
+      }
     ]
   },
   "z-score-calculator": {
@@ -2571,6 +4059,14 @@
       {
         "question": "Should a probability of 95% be entered as 95 or 0.95?",
         "answer": "Enter 0.95 in probability fields. Those modes use probabilities from 0 to 1 rather than percentages."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Relating a value to its mean and spread",
+        "paragraphs": [
+          "A z-score expresses how far a value is from the entered mean in standard-deviation units. Its sign shows the direction of that difference. A probability interpretation additionally relies on the selected distribution assumption; standardizing a value does not by itself make the data normally distributed. Use the interval or inverse mode only when that is the probability question you intend to answer."
+        ]
       }
     ]
   },
@@ -2585,6 +4081,14 @@
         "question": "Does the calculation account for nonresponse or clustered sampling?",
         "answer": "No. It assumes random independent sampling. Nonresponse and complex survey designs may require a larger planned sample."
       }
+    ],
+    "sections": [
+      {
+        "title": "Planning precision before collecting data",
+        "paragraphs": [
+          "A required sample size depends on the confidence level, margin of error, and other assumptions in the selected model. Tightening the desired precision can increase the required sample. The calculation does not fix biased recruitment, measurement errors, or a nonrepresentative sample. Use the margin-of-error mode when the sample size is already fixed and you want to examine the modeled precision."
+        ]
+      }
     ]
   },
   "confidence-interval-calculator": {
@@ -2597,6 +4101,14 @@
       {
         "question": "Is the interval a range containing most individual observations?",
         "answer": "No. It describes uncertainty in the estimated mean under the model, rather than a prediction range for individual values."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Interpreting a mean confidence interval",
+        "paragraphs": [
+          "A confidence interval combines the estimated mean with uncertainty under the selected statistical model. Check whether the method and spread input match your sample information. The interval is not a guarantee that every observation falls inside it, and it does not remove bias in how data were collected. Report the confidence level and assumptions alongside the endpoints so the result retains its context."
+        ]
       }
     ]
   },
@@ -2611,6 +4123,14 @@
         "question": "Why do degrees of freedom matter?",
         "answer": "They determine the shape of t, chi-square and F distributions. Using the wrong degrees of freedom changes the resulting probability."
       }
+    ],
+    "sections": [
+      {
+        "title": "Matching a p-value to the test direction",
+        "paragraphs": [
+          "Select the test direction and distribution assumptions that match the question being tested. One-sided and two-sided probabilities can differ for the same standardized statistic. A p-value describes evidence under the specified null model; it is not the probability that a hypothesis is true or a measure of practical importance. Interpret it alongside the effect size and study design."
+        ]
+      }
     ]
   },
   "probability-calculator": {
@@ -2623,6 +4143,14 @@
       {
         "question": "Why can the independent-event solver return two solutions?",
         "answer": "Some aggregate constraints fit two labeled event pairs. Redundant constraints can also leave infinitely many possibilities rather than a unique pair."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Checking dependence and event definitions",
+        "paragraphs": [
+          "Probability formulas depend on whether events overlap, are independent, or are repeated under the same assumptions. Define the events before choosing a mode. Adding probabilities without accounting for overlap can count outcomes twice, while multiplying them requires the appropriate relationship. The normal-distribution modes use a separate continuous model and should not be mixed with event formulas without a reason."
+        ]
       }
     ]
   },
@@ -2637,6 +4165,14 @@
         "question": "Does a slope and distance identify only one endpoint?",
         "answer": "No. A slope allows two opposite directions from the starting point. A directed angle selects a particular direction."
       }
+    ],
+    "sections": [
+      {
+        "title": "Reading slope from coordinate changes",
+        "paragraphs": [
+          "Slope compares the vertical change with the horizontal change between two points. Keep the point order consistent in both differences. A vertical line has no finite slope under this ratio, while a horizontal line has zero slope. In direction-based mode, check the angle convention and distance input before comparing coordinates with a slope obtained from two known points."
+        ]
+      }
     ]
   },
   "distance-calculator": {
@@ -2650,6 +4186,14 @@
         "question": "How do I enter southern or western DMS coordinates?",
         "answer": "Use a nonnegative degree magnitude and select S or W. The hemisphere supplies the sign."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing planar or geographic distance",
+        "paragraphs": [
+          "Coordinate distance treats points in the selected mathematical space, while great-circle distance models locations on a curved Earth. Use latitude and longitude fields only with the geographic mode, and check signs and angle units. A geographic straight-line estimate is different from a road route. For travel mileage along roads, use the separate driving-route calculator and review its provider result."
+        ]
+      }
     ]
   },
   "pythagorean-theorem-calculator": {
@@ -2657,11 +4201,19 @@
     "faqs": [
       {
         "question": "Can I use this formula for any triangle?",
-        "answer": "No. The equation a\u00b2 + b\u00b2 = c\u00b2 applies when the legs meet at a right angle."
+        "answer": "No. The equation a² + b² = c² applies when the legs meet at a right angle."
       },
       {
         "question": "Why must the hypotenuse be longer than the known leg?",
-        "answer": "The missing leg uses the square root of c\u00b2 \u2212 a\u00b2. A nonpositive difference cannot form a nondegenerate right triangle."
+        "answer": "The missing leg uses the square root of c² − a². A nonpositive difference cannot form a nondegenerate right triangle."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Identifying the hypotenuse correctly",
+        "paragraphs": [
+          "The Pythagorean theorem applies to a right triangle. The hypotenuse is opposite the right angle and is the longest side, so it cannot be interchanged with a leg when choosing the unknown. Use consistent length units for all sides. A valid arithmetic result does not establish that a measured triangle actually has a right angle."
+        ]
       }
     ]
   },
@@ -2676,6 +4228,14 @@
         "question": "Can I enter angles in radians?",
         "answer": "Yes. Select radians for angular inputs. Calculated angles are displayed in degrees, and all lengths must follow the stated unit convention."
       }
+    ],
+    "sections": [
+      {
+        "title": "Solving a right triangle from known quantities",
+        "paragraphs": [
+          "Choose the pair of known quantities supported by the mode, such as two sides or a side and an acute angle. Label the hypotenuse and legs carefully before entering values. The right-angle assumption supplies information that a general triangle problem does not have. Review the resulting side lengths and angle units together to check that the solution matches the diagram you intended."
+        ]
+      }
     ]
   },
   "triangle-calculator": {
@@ -2689,6 +4249,14 @@
         "question": "What condition must three side lengths satisfy?",
         "answer": "Every side must be shorter than the sum of the other two. Equality would form a degenerate straight-line shape."
       }
+    ],
+    "sections": [
+      {
+        "title": "Choosing a triangle-solving case",
+        "paragraphs": [
+          "Three sides, two sides with an included angle, and two angles with a side provide different starting information. Select the matching case rather than placing an unrelated measurement in an available field. A side-side-angle problem can have ambiguous solutions, which is why the selected method matters. Check whether the entered values can form a triangle before interpreting its area or angles."
+        ]
+      }
     ]
   },
   "circle-calculator": {
@@ -2700,7 +4268,15 @@
       },
       {
         "question": "Why does the area use square units?",
-        "answer": "Area measures two-dimensional coverage. If radius is measured in centimeters, \u03c0r\u00b2 is measured in square centimeters."
+        "answer": "Area measures two-dimensional coverage. If radius is measured in centimeters, πr² is measured in square centimeters."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Distinguishing radius, diameter, and circumference",
+        "paragraphs": [
+          "The radius runs from the center to the circle, while the diameter spans the circle through its center. Circumference measures the boundary and area measures the enclosed region. Mixing those quantities can produce a plausible-looking number with the wrong meaning. Keep length units consistent and remember that area uses squared units rather than the original length unit."
+        ]
       }
     ]
   },
@@ -2715,6 +4291,14 @@
         "question": "Can dimensions use different length units?",
         "answer": "Yes, when the unit selectors are used correctly. The engine converts each dimension and expresses area in the selected square unit."
       }
+    ],
+    "sections": [
+      {
+        "title": "Selecting the shape that matches the measurement",
+        "paragraphs": [
+          "Area formulas depend on the shape and on whether a height is perpendicular to the relevant base. Choose the matching shape before entering measurements. For an irregular region, calculate suitable pieces separately rather than forcing it into an unrelated formula. Check the output's squared unit and avoid treating a side length or perimeter as an area input."
+        ]
+      }
     ]
   },
   "volume-calculator": {
@@ -2727,6 +4311,14 @@
       {
         "question": "Why can spherical-cap dimensions give two answers?",
         "answer": "A sphere radius and cap-base radius can describe a smaller cap or the corresponding larger cap. The alternate-dimensions mode shows both."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Matching dimensions to a solid shape",
+        "paragraphs": [
+          "Volume measures the space inside the modeled solid. Select the correct shape and distinguish radius, diameter, height, and slant-related measurements using the field labels. All dimensions must use compatible units before combining them. The result uses cubic units and describes the idealized shape; wall thickness, openings, or irregular geometry need a mode or separate calculation that accounts for them."
+        ]
       }
     ]
   },
@@ -2741,6 +4333,14 @@
         "question": "Is the ellipsoid surface-area result exact?",
         "answer": "No. The engine uses the stated Knud Thomsen approximation with exponent 1.6075; ellipsoid volume uses a separate exact formula."
       }
+    ],
+    "sections": [
+      {
+        "title": "Checking which surfaces are included",
+        "paragraphs": [
+          "Surface area adds the modeled exposed faces of a solid, rather than measuring the space inside it. Review the selected shape's formula to see whether bases, ends, or inner surfaces are included. This matters for tasks such as covering a container or comparing an open and closed shape. The output uses squared units, even though the object itself has volume."
+        ]
+      }
     ]
   },
   "matrix-calculator": {
@@ -2753,6 +4353,14 @@
       {
         "question": "Which matrices have an inverse?",
         "answer": "A matrix must be square and nonsingular. A zero determinant means no inverse exists, while nearly singular matrices can be numerically sensitive."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Checking matrix dimensions before an operation",
+        "paragraphs": [
+          "Matrix operations have different dimension requirements. Addition needs matching shapes, while multiplication matches the first matrix's column count with the second matrix's row count. Reversing multiplication can change the result or make the operation undefined. For an inverse or determinant, review the square-matrix requirements and singularity limitations. Check row order and separators when entering the values."
+        ]
       }
     ]
   },
@@ -2770,6 +4378,14 @@
       {
         "question": "Why must I select a search result?",
         "answer": "Place names can have several matches. Choose the full address or location that you mean, then check the road-matched coordinates shown in the result."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Checking the route behind a mileage result",
+        "paragraphs": [
+          "Driving mileage comes from the selected locations and the route returned by the map provider. Check the start and destination details before interpreting the distance, especially when several places share a name. Road distance is different from a straight-line geographic measurement. Provider availability, road data, and route choices can affect the result, and the estimate does not establish actual travel conditions."
+        ]
       }
     ]
   }

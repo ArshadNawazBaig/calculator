@@ -1,5 +1,5 @@
 import Decimal from 'decimal.js';
-import {metric as m,type Values,type Result} from './types';
+import {metric as m,numericTextMetric as textMetric,type Values,type Result} from './types';
 import {num,positive,integer,result,dateUTC,dayMs} from './helpers';
 import {lengths,powerUnits,masses,liters,molarUnits,massConcentrations,dataBits,rateBits,unitFactor as f} from './physical-units';
 export const physicalEverydayAlgorithms=new Set(['power-units','power-work-units','molarity-units','income-gdp','fixed-time-zone','data-units','transfer-units','website-units','tire-target','height-units','parent-height-units','quarter-mile']);
@@ -31,11 +31,11 @@ export function runPhysicalEveryday(op:string,v:Values):Result{
  }
  if(op==='data-units'||op==='transfer-units'||op==='website-units'){
   const factor=(table:Record<string,string>,key:string)=>{if(!Object.hasOwn(table,key))throw Error('Select an exact data-unit label; uppercase B means bytes.');return new Decimal(table[key]);},d=(key:string)=>new Decimal(v[key]);
-  if(op==='data-units')return result(m('Converted data',d('value').times(factor(dataBits,v.from)).div(factor(dataBits,v.to)).toString(),'number',v.to));
-  if(op==='transfer-units'){positive(n('rate'),'Transfer rate');return result(m('Transfer seconds',d('size').times(factor(dataBits,v.sizeUnit)).div(d('rate').times(factor(rateBits,v.rateUnit))).toString(),'number','seconds'));}
+  if(op==='data-units')return result(textMetric('Converted data',d('value').times(factor(dataBits,v.from)).div(factor(dataBits,v.to)).toString(),v.to));
+  if(op==='transfer-units'){positive(n('rate'),'Transfer rate');return result(textMetric('Transfer seconds',d('size').times(factor(dataBits,v.sizeUnit)).div(d('rate').times(factor(rateBits,v.rateUnit))).toString(),'seconds'));}
   const days=v.periodBasis==='calendar-dates'?(dateUTC(v.outputEnd).getTime()-dateUTC(v.outputStart).getTime())/dayMs:positive(n('outputDays'),'Report days');positive(days,'Report duration');
   const periods:Record<string,number>={second:1,minute:60,hour:3600,day:86400,week:604800,month:positive(n('monthDays'))*86400,year:positive(n('yearDays'))*86400},multiplier=v.redundancyMode==='multiplier'?n('redundancy'):1+n('redundancy')/100;if(multiplier<1)throw Error('A redundancy multiplier must be at least one.');const bps=d('pageviews').div(f(periods,v.viewPeriod)).times(d('pageSize')).times(factor(dataBits,v.pageSizeUnit)).times(multiplier),gb=bps.times(days).times(86400).div(8e9);
-  return result(m('Reporting days',days),m('Average bandwidth',bps.div(1e6).toString(),'number','Mbps'),m('Transferred data',gb.toString(),'number','GB'));
+  return result(m('Reporting days',days),textMetric('Average bandwidth',bps.div(1e6).toString(),'Mbps'),textMetric('Transferred data',gb.toString(),'GB'));
  }
  if(op==='tire-target'){
   const width=positive(n('width')),aspect=positive(n('aspect')),rim=positive(n('rim')),side=width*aspect/100,diameter=rim*25.4+2*side,circumference=Math.PI*diameter,metrics=[m('Sidewall',side,'number','mm'),m('Nominal diameter',diameter,'number','mm'),m('Circumference',circumference,'number','mm'),m('Revolutions per kilometer',1e6/circumference),m('Revolutions per mile',1609344/circumference)];

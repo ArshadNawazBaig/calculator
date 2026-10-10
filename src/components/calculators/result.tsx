@@ -11,7 +11,7 @@ export const CalculatorResult=memo(function CalculatorResult({result,currency='U
   const {t,locale}=useI18n();
   return <div className="calculator-results">
     <div className="result-heading"><span className="eyebrow">{example?t('EXAMPLE RESULT'):t('YOUR RESULT')}</span><span className="result-method"><Check size={14} aria-hidden="true"/>{t('Calculated locally')}</span></div>
-    <dl className="result-metrics">{result.metrics.map((metric,index)=><div className={`metric ${index===0?'primary-metric':''}`} data-text={typeof metric.value==='string'||undefined} key={index}>
+    <dl className="result-metrics">{result.metrics.map((metric,index)=><div className={`metric ${index===0?'primary-metric':''}`} data-text={Boolean(metric.displayValue)||typeof metric.value==='string'||undefined} key={index}>
       <dt>{t(metric.label)}</dt><dd>{formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,languages[locale].tag,t)}</dd>
     </div>)}</dl>
     {(result.explanation||result.notes?.length)?<div className="result-notes"><h3>{t('About this result')}</h3>

@@ -13,6 +13,8 @@ describe('multilingual navigation and content', () => {
   it('preserves the tool, query and fragment without duplicate language prefixes', () => {
     expect(localizedPath('/es/search?q=pr%C3%A9stamo#results', 'fr')).toBe('/fr/search?q=pr%C3%A9stamo#results');
     expect(localizedPath('/ar/mortgage-calculator', 'en')).toBe('/mortgage-calculator');
+    expect(localizedPath('/hi/loan-calculator?amount=100#example', 'tl')).toBe('/tl/loan-calculator?amount=100#example');
+    expect(splitLocale('/hi')).toEqual({locale:'hi', path:'/'});
     expect(localizedPath('/', 'ar')).toBe('/ar');
     expect(splitLocale('/fr')).toEqual({locale:'fr', path:'/'});
     expect(localizedPath('/api/health', 'de')).toBe('/api/health');
@@ -33,10 +35,13 @@ describe('multilingual navigation and content', () => {
   });
   it('finds native-language names, ignores accents and retains English aliases', async () => {
     const es = await getDictionary('es'), ar = await getDictionary('ar');
+    const hi = await getDictionary('hi'), tl = await getDictionary('tl');
     expect(searchCalculators('interes compuesto','finance',es)[0].slug).toBe('compound-interest-calculator');
     expect(searchCalculators('hipoteca','health',es)).toHaveLength(0);
     expect(searchCalculators('mortgage',undefined,es).some(tool=>tool.slug==='mortgage-calculator')).toBe(true);
     expect(searchCalculators('الفائدة المركبة',undefined,ar)[0].slug).toBe('compound-interest-calculator');
+    expect(searchCalculators('चक्रवृद्धि ब्याज',undefined,hi)[0].slug).toBe('compound-interest-calculator');
+    expect(searchCalculators('netong suweldo',undefined,tl)[0].slug).toBe('take-home-pay-calculator');
   });
   it('formats numbers for the language while keeping the calculator currency', () => {
     expect(number(1234.5,2,'de')).toBe('1.234,5');
@@ -55,6 +60,8 @@ describe('multilingual navigation and content', () => {
     expect(languageAlternates('/calculators/finance')?.ar).toBe('https://finflo.org/ar/calculators/finance');
     expect(languageAlternates('/calculators/finance')?.['x-default']).toBe('https://finflo.org/calculators/finance');
     expect(languageAlternates('/mortgage-calculator')?.de).toBe('https://finflo.org/de/mortgage-calculator');
+    expect(languageAlternates('/mortgage-calculator')?.hi).toBe('https://finflo.org/hi/mortgage-calculator');
+    expect(languageAlternates('/mortgage-calculator')?.tl).toBe('https://finflo.org/tl/mortgage-calculator');
     expect(languageAlternates('/search')).toBeUndefined();
     const meta = pageMetadata('Hypothek','Beschreibung','/mortgage-calculator',false,'de');
     expect(meta.alternates?.canonical).toBe('/de/mortgage-calculator');

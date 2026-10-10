@@ -18,7 +18,7 @@ test('language selection waits for its handlers on a slow connection',async({pag
 test('language menu keeps the current calculator and changes the document language',async({page})=>{
   await page.goto('/mortgage-calculator');
   await page.getByRole('button',{name:'Language: English'}).click();
-  await expect(page.getByRole('dialog',{name:'Website language'}).getByRole('link')).toHaveCount(6);
+  await expect(page.getByRole('dialog',{name:'Website language'}).getByRole('link')).toHaveCount(8);
   await page.getByRole('link',{name:'Español',exact:true}).click();
   await expect(page).toHaveURL(/\/es\/mortgage-calculator$/);
   await expect(page.locator('html')).toHaveAttribute('lang','es');
@@ -73,7 +73,7 @@ test('server HTML has localized metadata and invalid localized routes return 404
   const calculatorHtml=await (await request.get('/es/mortgage-calculator')).text();
   expect(calculatorHtml).toContain('hrefLang="ar" href="https://finflo.org/ar/mortgage-calculator"');
   expect(calculatorHtml).not.toContain('class="translation-notice"');
-  for(const locale of ['es','fr','de','pt','ar']){
+  for(const locale of ['es','fr','de','pt','ar','hi','tl']){
     expect((await request.get(`/${locale}/401k-calculator`,{maxRedirects:0})).status()).toBe(200);
   }
   const redirects=await request.get('/en/calculators',{maxRedirects:0});expect(redirects.status()).toBe(308);
@@ -81,7 +81,7 @@ test('server HTML has localized metadata and invalid localized routes return 404
 
 test('French date picker uses Gregorian dates and the language switch preserves search parameters',async({page})=>{
   await page.goto('/fr/age-calculator');
-  await page.getByRole('button',{name:'Ouvrir le calendrier'}).first().click();
+  await page.getByRole('button',{name:/Ouvrir le calendrier/}).first().click();
   await expect(page.getByRole('button',{name:'Aujourd’hui',exact:true})).toBeVisible();
   await expect(page.getByRole('grid')).toBeVisible();
   await page.keyboard.press('Escape');
@@ -101,7 +101,7 @@ test('translated pages retain accessible contrast and fit narrow and desktop scr
   }
   for(const width of [360,768,1024,1440]){
     await page.setViewportSize({width,height:900});
-    for(const locale of ['es','fr','de','pt','ar']){
+    for(const locale of ['es','fr','de','pt','ar','hi','tl']){
       await page.goto(`/${locale}`);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),`${locale} at ${width}px`).toBe(true);
     }
@@ -109,7 +109,7 @@ test('translated pages retain accessible contrast and fit narrow and desktop scr
 });
 
 test('calculator articles, guides, and policies have translated server content',async({page})=>{
-  for(const locale of ['es','fr','de','pt','ar']){
+  for(const locale of ['es','fr','de','pt','ar','hi','tl']){
     await page.goto(`/${locale}/mortgage-calculator`);
     await expect(page.locator('#how-it-works')).toBeVisible();
     expect(await page.locator('#how-it-works').innerText()).not.toContain('How to use this calculator');

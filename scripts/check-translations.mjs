@@ -3,10 +3,10 @@ import {translationSource} from './i18n-source.mjs';
 
 const source = await translationSource();
 const placeholders = text => (text.match(/\{\w+\}/g) || []).sort().join('|');
-const numbers = text => (text.normalize('NFKC').replace(/[٠-٩۰-۹]/g, digit => String(digit.charCodeAt(0) - (digit <= '٩' ? 0x660 : 0x6f0))).match(/\d+(?:[.,]\d+)*/g) || []).map(number => number.replace(/[.,]/g, '').replace(/^0+/, '') || '0').sort().join('|');
+const numbers = text => (text.normalize('NFKC').replace(/[٠-٩۰-۹०-९]/g, digit => String(digit.charCodeAt(0) - (digit <= '٩' ? 0x660 : digit <= '۹' ? 0x6f0 : 0x966))).match(/\d+(?:[.,]\d+)*/g) || []).map(number => number.replace(/[.,]/g, '').replace(/^0+/, '') || '0').sort().join('|');
 const notation = text => (text.match(/[=×÷^+*Σ∑√≤≥±≠⁻²³≈−<>|\[\]]/g) || []).sort().join('');
 let failed = false;
-for (const locale of ['es', 'fr', 'de', 'pt', 'ar']) {
+for (const locale of ['es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl']) {
   const ui = JSON.parse(await readFile(`src/data/locales/${locale}.json`, 'utf8'));
   const content = JSON.parse(await readFile(`src/data/locales/content/${locale}.json`, 'utf8'));
   const dictionary = {...content, ...ui};
@@ -27,5 +27,5 @@ else if (process.argv.includes('--write-manifests')) {
   for (const [file, data] of [['page-keys', source.pages], ['runtime-keys', source.runtime], ['translated-pages', source.paths]]) {
     await writeFile(`src/data/locales/${file}.json`, JSON.stringify(data, null, 2) + '\n');
   }
-  console.log(`${source.paths.length} translated routes; ${source.paths.length * 6} sitemap URLs.`);
+  console.log(`${source.paths.length} translated routes; ${source.paths.length * 8} sitemap URLs.`);
 }

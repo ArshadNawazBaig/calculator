@@ -5,14 +5,14 @@ export const countryCurrencies = {
   ES: 'EUR', MX: 'MXN', AR: 'ARS', FR: 'EUR', BE: 'EUR', CH: 'CHF',
   DE: 'EUR', AT: 'EUR', PT: 'EUR', BR: 'BRL', AE: 'AED', SA: 'SAR',
   QA: 'QAR', KW: 'KWD', EG: 'EGP', MA: 'MAD', IN: 'INR', PK: 'PKR',
-  SG: 'SGD', JP: 'JPY',
+  SG: 'SGD', JP: 'JPY', PH: 'PHP',
 } as const;
 export type Country = keyof typeof countryCurrencies;
 export const currencies = [...new Set(Object.values(countryCurrencies))].sort();
 export type Currency = (typeof currencies)[number];
 export type Preferences = {country?: Country; currency?: Currency};
 export const preferenceKey = 'finflo.preferences.v1';
-export const languageCountries: Record<Locale, Country> = {en: 'US', es: 'ES', fr: 'FR', de: 'DE', pt: 'BR', ar: 'AE'};
+export const languageCountries: Record<Locale, Country> = {en: 'US', es: 'ES', fr: 'FR', de: 'DE', pt: 'BR', ar: 'AE', hi: 'IN', tl: 'PH'};
 export const isCountry = (value: string): value is Country => Object.hasOwn(countryCurrencies, value);
 export const isCurrency = (value: string): value is Currency => currencies.some(currency => currency === value);
 

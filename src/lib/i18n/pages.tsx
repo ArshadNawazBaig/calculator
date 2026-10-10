@@ -1,3 +1,4 @@
+import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {Suspense} from 'react';
 import {notFound} from 'next/navigation';
 import Link from '@/components/i18n/link';
@@ -32,13 +33,13 @@ export function localizedStaticParams() {
 }
 function routeInfo(path: string) {
   if (path === '/') return {title: 'Find your answer.', description: 'Free calculators for money, health, math, and everyday life.'};
-  if (path === '/calculators' || path === '/sitemap') return {title: path === '/sitemap' ? 'Sitemap' : 'All calculators', description: 'Free calculators for money, health, math, and everyday life.'};
+  if (path === '/calculators' || path === '/sitemap') return {title: path === '/sitemap' ? 'Sitemap' : 'All calculators', description: directoryContent[path]?.description || 'Free calculators for money, health, math, and everyday life.'};
   const parts = path.split('/').filter(Boolean);
   const category = categories.find(c => c.id === parts[1]);
   if (parts[0] === 'calculators' && category && parts.length <= 3) {
     const subcategory = parts[2] && catalog.find(tool => tool.category === category.id && categorySlug(tool.subcategory) === parts[2])?.subcategory;
     if (parts[2] && !subcategory) return null;
-    return {title: subcategory || category.label, description: category.description, category, subcategory};
+    return {title: subcategory || category.label, description: directoryContent[path]?.description || category.description, category, subcategory};
   }
   if (path === '/search') return {title: 'Search calculators', description: 'Find the right tool for your next question.'};
   if (path === '/guides') return {title: 'Guides', description: 'Practical guides to the formulas, assumptions, and limits behind your calculations.'};
@@ -72,12 +73,13 @@ export function localizedPage(locale: Locale) {
       <div className="container directory-page page-content">
         <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}</nav>
         {categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}
+        <DirectoryGuidance path={path} messages={messages} locale={locale}/>
       </div>
     </>;
     if ('category' in route && route.category) {
       const category = route.category;
       const tools = catalog.filter(tool => tool.category === category.id && (!route.subcategory || tool.subcategory === route.subcategory));
-      return <><PageHero eyebrow={t('The calculator library')} title={route.subcategory?`${t(route.subcategory)} · ${t(category.name)}`:t(route.title)} description={t(route.description)} breadcrumbs={[{label:t('All calculators'),href:'/calculators'},{label:t(category.name),...(route.subcategory?{href:`/calculators/${category.id}`}:{})},...(route.subcategory?[{label:t(route.subcategory)}]:[])]}/><div className="container directory-page page-content"><FilterableToolDirectory category={category.id} tools={tools} grouped={!route.subcategory}/></div></>;
+      return <><PageHero eyebrow={t('The calculator library')} title={route.subcategory?`${t(route.subcategory)} · ${t(category.name)}`:t(route.title)} description={t(route.description)} breadcrumbs={[{label:t('All calculators'),href:'/calculators'},{label:t(category.name),...(route.subcategory?{href:`/calculators/${category.id}`}:{})},...(route.subcategory?[{label:t(route.subcategory)}]:[])]}/><div className="container directory-page page-content"><FilterableToolDirectory category={category.id} tools={tools} grouped={!route.subcategory}/><DirectoryGuidance path={path} messages={messages} locale={locale}/></div></>;
     }
     if (path === '/search') return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}/><div className="container directory-page page-content"><Suspense fallback={null}><SearchResults/></Suspense></div></>;
     if ('tool' in route && route.tool) {
@@ -88,6 +90,7 @@ export function localizedPage(locale: Locale) {
         <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}/>
         <div className="container tool-page page-content">
           {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
+          {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}
           <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div></aside></div>
           {def&&<JsonLd data={{'@context':'https://schema.org','@type':'WebApplication',name:t(route.title),url:site.url+localizedPath(path,locale),description:t(route.description),inLanguage:locale,applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}}/>}
         </div>

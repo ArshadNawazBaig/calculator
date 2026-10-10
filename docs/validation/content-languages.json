@@ -1,0 +1,125 @@
+{
+  "checkedAt": "2026-10-10T13:57:52.879871+00:00",
+  "scope": "Page content expansion and Hindi / Filipino support. Local production build; not deployed.",
+  "baseCommit": "8844561",
+  "content": {
+    "calculatorPagesWithNewGuidance": 202,
+    "directoryPagesWithNewGuidance": 26,
+    "newEnglishGuidanceWords": 15694,
+    "calculatorGuidanceWords": 13219,
+    "directoryGuidanceWords": 2475,
+    "realEstateHub": "Also renders mortgage and real-estate directory guidance.",
+    "approach": "Distinct interpretation guidance, natural topic vocabulary, existing formulas/examples/FAQs, unique directory descriptions and contextual internal links. No ranking guarantee or word-count threshold."
+  },
+  "languages": {
+    "locales": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar",
+      "hi",
+      "tl"
+    ],
+    "added": {
+      "hi": {
+        "name": "Hindi",
+        "nativeName": "हिन्दी",
+        "formattingLocale": "hi-IN",
+        "defaultCountry": "IN",
+        "defaultCurrency": "INR"
+      },
+      "tl": {
+        "name": "Filipino",
+        "formattingLocale": "fil-PH",
+        "defaultCountry": "PH",
+        "defaultCurrency": "PHP"
+      }
+    },
+    "savedPreferences": "Override language defaults. Regional models retain their stated jurisdiction."
+  },
+  "translationValidation": {
+    "messagesPerLocale": 9651,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar",
+      "hi",
+      "tl"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0,
+    "unreadableMessages": 0,
+    "provenance": "Local OPUS drafts; longer Hindi/Filipino passages refined with SMALL100 and selected MADLAD outputs. Direct revisions cover all new guidance, directory content, names and shared interface messages, plus selected descriptions and technical notes.",
+    "directlyRevisedNewCalculatorFieldsPerNewLocale": 404,
+    "directlyRevisedDirectoryFieldsPerNewLocale": 104,
+    "reviewLimit": "Machine-assisted translations; no comprehensive independent native-speaker or licensed professional review. Coverage and notation checks do not establish semantic accuracy or fluency.",
+    "runtimeTranslationServices": 0
+  },
+  "unitTests": {
+    "command": "npm test",
+    "files": 39,
+    "passed": 2993,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "status": "passed",
+    "prerenderedPages": 1957
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/hindi-filipino.spec.ts tests/e2e/languages.spec.ts tests/e2e/popover-scroll.spec.ts tests/e2e/form-controls.spec.ts",
+    "browser": "Chromium",
+    "passed": 22,
+    "failed": 0,
+    "stats": {
+      "startTime": "2026-10-10T13:55:27.839Z",
+      "duration": 71940.59999999999,
+      "expected": 22,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "Hindi and Filipino interactive calculation, guidance, currency defaults and navigation",
+      "Devanagari font and mobile overflow",
+      "Eight-language selector with preserved query and fragment",
+      "Localized canonicals, language alternatives, legacy redirects and 404s",
+      "Existing language, RTL, accessibility and calendar regressions",
+      "Dropdowns and nested menus preserve the page scrollbar"
+    ]
+  },
+  "indexing": {
+    "scope": "Local production build requested with canonical Host header; not a live deployment",
+    "sitemapUrls": 1944,
+    "canonicalPaths": 243,
+    "urlsPerLanguage": {
+      "en": 243,
+      "es": 243,
+      "fr": 243,
+      "de": 243,
+      "pt": 243,
+      "ar": 243,
+      "hi": 243,
+      "tl": 243
+    },
+    "failures": [],
+    "checked": [
+      "HTTP 200 for every sitemap URL",
+      "Self-canonical URL",
+      "Document language",
+      "Nine reciprocal alternatives including x-default",
+      "No noindex on sitemap pages",
+      "Calculator and directory guidance present where expected"
+    ],
+    "crawlSeconds": 39
+  },
+  "deployment": "Not deployed. The existing https://finflo.org/sitemap.xml address will expose the expanded sitemap after deployment."
+}

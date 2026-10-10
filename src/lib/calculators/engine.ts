@@ -10,6 +10,7 @@ export async function calculate(category:CategoryId,mode:Mode,values:Values,cont
  if(category==='everyday'&&['base64','base64-charset'].includes(mode.algorithm))return (await import('./base64-codec')).runBase64Text(values);
  const engine=category==="math"?await import("./math-engine"):category==="finance"?await import("./finance-engine"):category==="health"?await import("./health-engine"):await import("./everyday-engine");
  const r=await engine.run(mode.algorithm,category==="math"?prepareMathInputs(mode,values):values,context);
+ if(r.metrics.some(metric=>metric.numericText&&/NaN|Infinity/.test(String(metric.value))))throw new Error("These inputs do not produce a finite result. Check the values and formula limits.");
  for(const value of [...r.metrics.map(m=>m.value),...(r.table?.rows.flat()||[]),...(r.chart?.map(p=>p.value)||[])])if(typeof value==="number"&&!Number.isFinite(value))throw new Error("These inputs do not produce a finite result. Check the values and formula limits.");
  return category==="math"?mathOutputUnits(r,values.outputUnit):r;
 }

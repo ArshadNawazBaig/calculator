@@ -1,0 +1,87 @@
+{
+  "checkedAt": "2026-10-10T14:14:33.848169+00:00",
+  "scope": "Shared result formatting and unattainable final-grade targets. Local production build; not deployed.",
+  "baseCommit": "8844561",
+  "changes": [
+    "At most two decimal places for ordinary result cards, worked examples, tables, numeric CSV cells and currency amounts. JPY retains zero fractional digits.",
+    "Small nonzero values use scientific notation with at most two mantissa decimals. Decimal-backed data conversions support exponents outside the Number range.",
+    "Engine-owned composite numeric answers opt into formatting; raw calculation values, user text and exact outputs are retained.",
+    "Final-grade and letter-grade target modes show a translated unattainable message above 100%, with the highest possible overall grade. Negative required scores show that the target is secured and the minimum score is zero.",
+    "The validated two-event probability model bounds floating-point excursions to zero through one. Growth, return, markup and similar ratios can still exceed 100%.",
+    "Decimal arithmetic defaults to two places; scientific arithmetic defaults to three significant digits. Users can explicitly select higher precision."
+  ],
+  "exceptions": [
+    "Exact integers and fractions",
+    "User-selected rounding / random-decimal / scientific precision and high-precision arithmetic",
+    "Prescribed three-decimal Army recorded ratio and threshold",
+    "Dates, IP addresses and arbitrary user text"
+  ],
+  "audit": {
+    "calculatorPages": 202,
+    "registeredModes": 557,
+    "offlineDefaultModesChecked": 554,
+    "offlineFailures": 0,
+    "otherModes": "Currency-reference and global-currency modes use mocked quote snapshots in catalog tests. Road-route mode validates its missing-location default."
+  },
+  "unitTests": {
+    "files": 40,
+    "passed": 3006,
+    "failed": 0,
+    "command": "npm test",
+    "coverage": "Catalog-wide numeric presentation checks plus targeted grades, floating-point boundaries, numeric composites, tiny and huge quantities, localization, exact-output preservation and table immutability."
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "translationValidation": {
+    "messagesPerTranslatedLocale": 9654,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar",
+      "hi",
+      "tl"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0,
+    "unreadableMessages": 0
+  },
+  "productionBuild": {
+    "status": "passed",
+    "command": "NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "prerenderedPages": 1957
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/result-formatting.spec.ts tests/e2e/calculator-results.spec.ts tests/e2e/currency-preferences.spec.ts",
+    "passed": 14,
+    "failed": 0,
+    "stats": {
+      "startTime": "2026-10-10T14:13:12.248Z",
+      "duration": 25635.422,
+      "expected": 14,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "Impossible and secured grade targets; grade CSV",
+      "Valid percentage growth above 100",
+      "Matrix result, table and CSV precision",
+      "Hindi warning and narrow layout",
+      "Currency preferences, persistence and export labels",
+      "Charts, negative growth, complete schedules and Arabic accessibility"
+    ]
+  },
+  "example": {
+    "currentGrade": 85,
+    "targetGrade": 90,
+    "finalWeight": 30,
+    "mathematicalRequiredScore": "101.666666…%",
+    "displayedRequiredScore": "Target not attainable",
+    "highestPossibleOverallGrade": "89.5%"
+  },
+  "deployment": "Not deployed."
+}

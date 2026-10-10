@@ -1,5 +1,5 @@
 import translatedPages from '@/data/locales/translated-pages.json';
-export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar'] as const;
+export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const;
 export type Locale = (typeof locales)[number];
 export const languages: Record<Locale, {name: string; tag: string; direction: 'ltr' | 'rtl'}> = {
   en: {name: 'English', tag: 'en-US', direction: 'ltr'},
@@ -8,6 +8,8 @@ export const languages: Record<Locale, {name: string; tag: string; direction: 'l
   de: {name: 'Deutsch', tag: 'de', direction: 'ltr'},
   pt: {name: 'Português', tag: 'pt', direction: 'ltr'},
   ar: {name: 'العربية', tag: 'ar', direction: 'rtl'},
+  hi: {name: 'हिन्दी', tag: 'hi-IN', direction: 'ltr'},
+  tl: {name: 'Filipino', tag: 'fil-PH', direction: 'ltr'},
 };
 export function isLocale(value: string): value is Locale {
   return locales.some(locale => locale === value);
