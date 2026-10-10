@@ -1,0 +1,451 @@
+{
+  "checkedAt": "2026-10-10T11:03:11.879064+00:00",
+  "request": "if not ready remove it from website",
+  "scope": "Remove unfinished public features in all six languages while retaining working calculators. Local production-build verification; no deployment.",
+  "baseCommit": "132fedd",
+  "changes": [
+    "Removed WeightWatchers from the public catalog, directories, search index, icon mapping and translation dictionaries. Its six former URLs return 404 and noindex.",
+    "Removed the previous nutrition-links panel with the retired page. Calorie and macro calculators remain independently available.",
+    "Removed public Khamis–Roche/Borg references. Neither named method had an implemented mode; the existing parent-based height, heart-rate and CDC talk-test methods remain available.",
+    "Kept the original 204-entry historical audit while explicitly marking the removed page instead of misclassifying it as a directory hub."
+  ],
+  "catalog": {
+    "catalogEntries": 203,
+    "calculatorPages": 202,
+    "modes": 557,
+    "unavailableTools": 0,
+    "directoryHubs": 1
+  },
+  "unitTests": {
+    "command": "npm test",
+    "files": 38,
+    "passed": 2990,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "NEXT_PUBLIC_SITE_URL=https://finflo.org NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "status": "passed",
+    "prerenderedPages": 1471
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/free-health-alternatives.spec.ts tests/e2e/languages.spec.ts tests/e2e/search.spec.ts",
+    "browser": "Chromium",
+    "passed": 18,
+    "failed": 0,
+    "stats": {
+      "startTime": "2026-10-10T11:01:53.580Z",
+      "duration": 37484.109,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "404/noindex at each removed language URL",
+      "No retired tool in category cards, full search results or live suggestions",
+      "Active height, calorie and macro forms remain available in six languages",
+      "Talk-test categories, reset, Spanish CSV, mobile layout and accessibility",
+      "Existing multilingual metadata, navigation, RTL and keyboard/mobile search regressions"
+    ]
+  },
+  "translationValidation": {
+    "messagesPerLocale": 9095,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0,
+    "unreadableMessages": 0,
+    "review": "Revised strings manually drafted; no independent native-speaker review."
+  },
+  "indexing": {
+    "checkedAt": "2026-10-10T11:02:10.688Z",
+    "scope": "Local production build with canonical Host header; not a live deployment",
+    "sitemapUrls": 1458,
+    "removedPages": [
+      {
+        "path": "/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      },
+      {
+        "path": "/es/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      },
+      {
+        "path": "/fr/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      },
+      {
+        "path": "/de/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      },
+      {
+        "path": "/pt/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      },
+      {
+        "path": "/ar/weight-watchers-points-calculator",
+        "status": 404,
+        "noindex": true
+      }
+    ],
+    "publicPages": [
+      {
+        "path": "/",
+        "status": 200,
+        "canonical": "https://finflo.org",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/calculators",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/calculators/health",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/sitemap",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/height-calculator",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/target-heart-rate-calculator",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/about",
+        "status": 200,
+        "canonical": "https://finflo.org/about",
+        "lang": "en",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es",
+        "status": 200,
+        "canonical": "https://finflo.org/es",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/es/calculators",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/es/calculators/health",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/es/sitemap",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/es/height-calculator",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/es/target-heart-rate-calculator",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/es/about",
+        "status": 200,
+        "canonical": "https://finflo.org/es/about",
+        "lang": "es",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr",
+        "status": 200,
+        "canonical": "https://finflo.org/fr",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/calculators",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/calculators/health",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/sitemap",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/height-calculator",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/target-heart-rate-calculator",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/fr/about",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/about",
+        "lang": "fr",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de",
+        "status": 200,
+        "canonical": "https://finflo.org/de",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/de/calculators",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/de/calculators/health",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/de/sitemap",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/de/height-calculator",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/de/target-heart-rate-calculator",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/de/about",
+        "status": 200,
+        "canonical": "https://finflo.org/de/about",
+        "lang": "de",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt",
+        "status": 200,
+        "canonical": "https://finflo.org/pt",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/calculators",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/calculators/health",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/sitemap",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/height-calculator",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/target-heart-rate-calculator",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/pt/about",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/about",
+        "lang": "pt",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar",
+        "status": 200,
+        "canonical": "https://finflo.org/ar",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/calculators",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/calculators",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/calculators/health",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/calculators/health",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/sitemap",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/sitemap",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/height-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/height-calculator",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/target-heart-rate-calculator",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      },
+      {
+        "path": "/ar/about",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/about",
+        "lang": "ar",
+        "robots": "index, follow",
+        "removedNamesAbsent": true
+      }
+    ]
+  },
+  "publicSourceScan": {
+    "scope": "src, including generated translation manifests",
+    "removedNamesFound": 0
+  },
+  "currentScope": "No unfinished public tool placeholders remain. The three named-method dependencies are excluded at user request, not claimed implemented.",
+  "audit": "docs/audit/remaining-modes.json",
+  "deployment": "Not deployed. Production must receive these changes before live URLs and listings change."
+}

@@ -112,23 +112,42 @@
       ],
       "verifiedOn": "2026-10-10",
       "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "FREE-HEALTH-ALTERNATIVES",
+      "slugs": [
+        "target-heart-rate-calculator",
+        "weight-watchers-points-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "talk-test"
+      ],
+      "scope": "CDC speech-pattern guide for relative aerobic intensity, plus localized links to existing calorie/macro calculators. Does not close the named Khamis–Roche, Borg or WeightWatchers dependencies.",
+      "primarySources": [
+        "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+        "https://www.cdc.gov/other/agencymaterials.html"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/free-health-alternatives.json",
+      "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json"
     }
   ],
   "remaining": [
     {
       "id": "HEIGHT-KHAMIS-ROCHE",
       "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
-      "latestSourceReview": "2026-10-10: corrected 1995 publisher table remained behind access requirements; no corrected primary coefficient dataset obtained. User has no copy; do not substitute secondary or invented values."
+      "latestSourceReview": "The publisher confirms that the original tables contain errors and supplies corrected Tables 1 and 2 in the 1995 PDF behind an access requirement. Wright State records provide citations and publisher links, not corrected numerical rows. The matuR package documentation references the 1994 paper without establishing correspondence to the corrected 1995 tables."
     },
     {
       "id": "BORG-SCALES",
       "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
-      "latestSourceReview": "2026-10-10: rights-holder FAQ requires licensing for use of the named scales. User has no licensed scales. Existing heart-rate methods remain available."
+      "latestSourceReview": "BorgPerception explicitly requires a license. Its current licensing page directs IT companies/system providers seeking electronic integration to contact info@borgperception.se. The provider distinguishes that category from free academic/student licenses. Its FAQ describes approval of electronic presentation."
     },
     {
       "id": "WW-NAMED-METHODS",
       "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
-      "latestSourceReview": "2026-10-10: current official overview does not disclose a complete current formula. Historical US6040531A publishes numerical formulas but does not establish the captured version, fiber-cap rules, all four forms or current method. No proprietary named method was added."
+      "latestSourceReview": "The official Points overview, updated January 23, 2026, explains nutritional factors and personalized budgets without publishing complete numerical rules sufficient to reproduce the current method. No verified current implementation was obtained. Earlier historical-patent evidence does not establish all four requested forms or the current program."
     }
   ],
   "verification": "docs/validation/remaining-features.json",
@@ -138,5 +157,28 @@
     "userPreference": "United States first",
     "research": "docs/research/remaining/btu-us-design-2026-10-10.json",
     "validation": "docs/validation/btu-us-design.json"
+  },
+  "latestExternalDependencyReview": "docs/research/remaining/external-dependency-review-2026-10-10.json",
+  "freeOnlyFollowup": {
+    "reviewedAt": "2026-10-10T10:44:49.123850+00:00",
+    "userPreference": "Only free verified sources and methods",
+    "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json",
+    "validation": "docs/validation/free-health-alternatives.json",
+    "namedDependenciesRemain": true
+  },
+  "publicRemovalFollowup": {
+    "reviewedAt": "2026-10-10T11:00:23.810037+00:00",
+    "userRequest": "if not ready remove it from website",
+    "removedPublicRoutes": [
+      "weight-watchers-points-calculator"
+    ],
+    "excludedNamedMethods": [
+      "HEIGHT-KHAMIS-ROCHE",
+      "BORG-SCALES",
+      "WW-NAMED-METHODS"
+    ],
+    "scope": "The earlier remaining-dependency list is retained as research history. These methods are now excluded from the requested public scope; none is claimed implemented. Free talk test, parent-based height, calorie and macro calculators remain available.",
+    "validation": "docs/validation/removed-unready-features.json",
+    "deployment": "Local changes only; no production deployment performed."
   }
 }

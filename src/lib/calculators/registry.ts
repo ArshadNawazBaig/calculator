@@ -89,11 +89,10 @@ definitions.find(d=>d.slug==='shoe-size-conversion')!.sources.push(...['mens-foo
 definitions.find(d=>d.slug==='golf-handicap-calculator')!.sources.push({title:'USGA: treatment of nine-hole scores since 2024',url:'https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html'});
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'OpenStax: conduction and thermal resistance',url:'https://openstax.org/books/college-physics-2e/pages/14-5-conduction'},{title:'NREL: building thermal envelope tests, dry-air assumptions (Table A10)',url:'https://docs.nrel.gov/docs/fy08osti/42059.pdf'});
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'EPA: county design temperature limits, 2019 edition revised 2020',url:'https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits'},{title:'2015 IECC: assembly U-factor references, Table R402.1.4',url:'https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency'});
+definitions.find(d=>d.slug==='target-heart-rate-calculator')!.sources.push({title:'CDC: measuring physical activity intensity',url:'https://www.cdc.gov/physical-activity-basics/measuring/index.html'});
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));
-export const blocked:Record<string,string>={
- 'weight-watchers-points-calculator':'The current WeightWatchers Points system is proprietary and changes over time. Finflo does not have a licensed current algorithm. We do not present an unofficial formula as an accurate Points calculator.',
-};
+export const blocked:Record<string,string>={};
 export const sensitiveTools=new Set(['password-generator','base64-encode-decode','url-encode-decode']);
 export const randomTools=new Set(['password-generator','dice-roller','random-number-generator']);
 export const noInitialExampleTools=new Set([...randomTools,'mileage-calculator']);

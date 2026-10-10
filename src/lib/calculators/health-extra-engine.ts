@@ -1,10 +1,12 @@
 import {activityMets,locomotionMets} from '@/data/activity-mets';
+import {runTalkTest} from './talk-test';
 import {num,positive,integer,result,dateUTC,isoDate,dayMs} from './helpers';
 import {metric as m,type Values,type Result} from './types';
-export const extraHealthAlgorithms=new Set(['activity-energy','activity-distance','pregnancy-reverse','food-energy','heart-rate-methods','pace-splits','pace-finish','pace-convert','bac-beverages']);
+export const extraHealthAlgorithms=new Set(['activity-talk-test','activity-energy','activity-distance','pregnancy-reverse','food-energy','heart-rate-methods','pace-splits','pace-finish','pace-convert','bac-beverages']);
 const formatTime=(seconds:number)=>{if(!Number.isFinite(seconds)||seconds<0||seconds>Number.MAX_SAFE_INTEGER)throw Error('Duration exceeds the supported finite range.');const s=Math.round(seconds);return `${Math.floor(s/3600).toString().padStart(2,'0')}:${Math.floor(s%3600/60).toString().padStart(2,'0')}:${(s%60).toString().padStart(2,'0')}`;};
 function parseTime(text:string){if(!/^\d{1,4}:\d{2}:\d{2}$/.test(text))throw Error('Use HH:MM:SS for elapsed time.');const [h,m,s]=text.split(':').map(Number);if(m>59||s>59)throw Error('Minutes and seconds must be less than 60.');return h*3600+m*60+s;}
 export function runExtraHealth(op:string,v:Values):Result{const n=(key:string)=>num(v,key);
+ if(op==='activity-talk-test')return runTalkTest(v);
  if(op==='activity-energy'||op==='activity-distance'){
   const weight=positive(n('weight'))*(v.units==='us'?.45359237:1);let minutes:number,met:number,reference:string;
   if(op==='activity-energy'){const activity=activityMets.find(a=>a.code===v.activity)!;if(!activity)throw Error('Choose a supported activity.');minutes=n('minutes');met=activity.met;reference=`2024 Compendium ${activity.code}`;}

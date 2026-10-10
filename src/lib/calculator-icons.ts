@@ -8,7 +8,7 @@ import {
   Car, CarFront, Castle, ChartArea, ChartLine, ChartPie,
   ChartScatter, ChartSpline, Circle, CircleArrowDown, CircleCheck, CircleDashed,
   CircleDollarSign, CircleDot, CircleGauge, CirclePercent, CirclePlus, CircuitBoard,
-  ClipboardCheck, ClipboardClock, ClipboardList, ClipboardPen, Clock3,
+  ClipboardCheck, ClipboardClock, ClipboardList, Clock3,
   ClockArrowLeft, ClockArrowRight, CloudDrizzle, Cog, Coins, Combine,
   Container, CopyPlus, CreditCard, CreditCardCheck, Cuboid, Currency,
   Dice5, Dices, Disc, Divide, DraftingCompass, Droplets,
@@ -239,7 +239,6 @@ export const calculatorIcons:Readonly<Record<string,LucideIcon>>={
   'voltage-drop-calculator':Cable,
   'volume-calculator':Box,
   'weight-calculator':Weight,
-  'weight-watchers-points-calculator':ClipboardPen,
   'wind-chill-calculator':Snowflake,
   'z-score-calculator':SquareSigma,
 };

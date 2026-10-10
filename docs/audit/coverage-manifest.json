@@ -71352,6 +71352,10 @@
         {
           "title": "Nes et al.: HUNT Fitness Study",
           "url": "https://pubmed.ncbi.nlm.nih.gov/22376273/"
+        },
+        {
+          "title": "CDC: measuring physical activity intensity",
+          "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
         }
       ],
       "implemented_modes": [
@@ -71516,6 +71520,39 @@
           "formula": "Target=intensity×maximum; reserve target=resting+intensity×(maximum−resting).",
           "scope": "Predicted and measured maxima differ. Medication and medical conditions can change appropriate targets; this is not a prescribed training intensity.",
           "notes": []
+        },
+        {
+          "id": "talk-test",
+          "title": "Talk test for exercise intensity",
+          "algorithm": "activity-talk-test",
+          "fields": [
+            {
+              "key": "speech",
+              "label": "Talking during aerobic activity",
+              "type": "select",
+              "default": "conversation",
+              "options": [
+                {
+                  "label": "Conversation is comfortable, but singing is difficult",
+                  "value": "conversation"
+                },
+                {
+                  "label": "A few words require a pause for breath",
+                  "value": "few-words"
+                },
+                {
+                  "label": "Neither description fits / I am unsure",
+                  "value": "unsure"
+                }
+              ],
+              "hint": "Choose the description that matches your speech and breathing during the activity."
+            }
+          ],
+          "formula": "Comfortable conversation with difficulty singing suggests moderate relative intensity. Only a few words between breaths suggests vigorous relative intensity.",
+          "scope": "The talk test is a rough guide to relative effort during aerobic activity. It does not calculate a heart rate, measure fitness or prescribe an exercise target.",
+          "notes": [
+            "Source: CDC. This guidance is available free on the CDC website. Its use does not imply endorsement of Finflo by CDC, HHS or the US government."
+          ]
         }
       ],
       "limitation": null,
@@ -84928,9 +84965,9 @@
       "proposed_finflo_url": "https://finflo.org/weight-watchers-points-calculator",
       "audit_status": "structurally_audited",
       "behavior_status": "independent_methods_and_captured_controls_reconciled; not_a_claim_of_identical_competitor_behavior",
-      "implementation_status": "unavailable_explained",
-      "testing_status": "route_and_content_checks",
-      "content_status": "availability_or_directory_content",
+      "implementation_status": "removed_from_public_site",
+      "testing_status": "not_found_and_listing_checks",
+      "content_status": "removed",
       "form_count": 4,
       "visible_field_count": 30,
       "jurisdiction": [
@@ -84943,10 +84980,10 @@
       ],
       "formula_references": [],
       "implemented_modes": [],
-      "limitation": "The current WeightWatchers Points system is proprietary and changes over time. Finflo does not have a licensed current algorithm. We do not present an unofficial formula as an accurate Points calculator.",
+      "limitation": "Removed from the public website at the user’s request because the named method is not ready.",
       "evidence": {
         "competitor_structure": "docs/audit/catalog.json#tools/weight-watchers-points-calculator",
-        "implementation": "docs/audit/implementation-snapshot.json#definitions/weight-watchers-points-calculator",
+        "implementation": null,
         "material_mode_review": "docs/audit/remaining-modes.json",
         "test_files": [
           "tests/advanced-reference.test.ts",
@@ -84983,7 +85020,7 @@
           "tests/tax-years.test.ts",
           "tests/vehicle-tax.test.ts"
         ],
-        "validation": "docs/validation/verification.json"
+        "validation": "docs/validation/removed-unready-features.json"
       },
       "exports": []
     },
@@ -85371,13 +85408,17 @@
     }
   ],
   "implementation": {
-    "updatedAt": "2026-10-10T10:17:01.120Z",
-    "catalogEntries": 204,
+    "updatedAt": "2026-10-10T11:02:04.767Z",
+    "catalogEntries": 203,
     "calculatorPages": 202,
-    "modes": 556,
-    "unavailableTools": 1,
+    "modes": 557,
+    "unavailableTools": 0,
     "directoryHubs": 1,
-    "coverage_claim": "All 204 discovered routes accounted for. 1 whole tool(s) and the explicitly listed advanced capabilities remain unresolved. Neither mode counts nor default examples establish complete feature parity.",
+    "auditedEntries": 204,
+    "removedFromPublicSite": [
+      "weight-watchers-points-calculator"
+    ],
+    "coverage_claim": "All 204 audited entries accounted for; 203 remain public. Removed tools are retained only as audit records. Neither mode counts nor default examples establish complete feature parity.",
     "remainingReviewPresent": true
   }
 }

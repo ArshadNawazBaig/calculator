@@ -31,7 +31,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
         const value=options?.length?options.map(option=>t(option.label)).join(' · '):field.default;
         return <div key={field.key}><dt>{t(displayed.label)}{displayed.unit?` (${t(displayed.unit)})`:''}</dt><dd dir="auto">{value||t('None')}</dd></div>;
       })}</dl>
-      <div className="example-answer">{initial.metrics.slice(0,3).map(metric=><p key={metric.label}>{t(metric.label)}: <strong dir="auto">{formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,languages[locale].tag)}</strong></p>)}</div>
+      <div className="example-answer">{initial.metrics.slice(0,3).map(metric=><p key={metric.label}>{t(metric.label)}: <strong dir="auto">{formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,languages[locale].tag,t)}</strong></p>)}</div>
       <p>{t('These are illustrative inputs. Change the values to explore a different scenario.')}</p>
     </section>}
     {!!definition.notes?.length&&<section id="limitations"><h2>{t('What to keep in mind')}</h2>{definition.notes.map(note=><p key={note}>{t(note)}</p>)}</section>}

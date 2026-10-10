@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-10T10:44:49.123850+00:00",
+  "request": "Do whatever is free.",
+  "scope": "Free alternatives for the remaining health-calculator dependencies. No paid access, subscription, purchase or license application.",
+  "sources": [
+    {
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+      "title": "CDC: How to Measure Physical Activity Intensity",
+      "pageDate": "2025-12-04",
+      "use": "Independent paraphrase of two speech/breathing reference patterns: conversation possible but singing difficult suggests moderate relative intensity; only a few words between breaths suggests vigorous relative intensity. No numerical exertion scale, heart-rate estimate or personalized prescription."
+    },
+    {
+      "url": "https://www.cdc.gov/other/agencymaterials.html",
+      "title": "CDC: Use of Agency Materials",
+      "use": "The policy generally allows reuse of CDC public-domain text, subject to third-party exceptions and its attribution/presentation conditions. We use independently phrased text only, identify CDC, state that source information is available free, include nonendorsement language, link to the source and use no CDC logo or source image."
+    }
+  ],
+  "implemented": [
+    {
+      "slug": "target-heart-rate-calculator",
+      "mode": "talk-test",
+      "algorithm": "activity-talk-test",
+      "scope": "Moderate, vigorous or unclassified indication from a selected speech pattern during aerobic activity. Separate from the numerical heart-rate methods. Neither/unsure returns no classification. No Borg scale or substitute branded score."
+    },
+    {
+      "slug": "weight-watchers-points-calculator",
+      "scope": "Unavailable page now links to the existing free calorie and macro calculators in the current language and explains that they do not calculate Points. The named page remains unavailable, noindex and excluded from the sitemap."
+    }
+  ],
+  "alreadyAvailable": {
+    "slug": "height-calculator",
+    "scope": "Midparent estimate and height conversions remain available. This follow-up does not introduce a Khamis–Roche method."
+  },
+  "languages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "ar"
+  ],
+  "runtime": "No external API, account, added package or recurring service introduced. The talk test runs through the existing calculator engine.",
+  "remainingNamedMethods": [
+    "HEIGHT-KHAMIS-ROCHE",
+    "BORG-SCALES",
+    "WW-NAMED-METHODS"
+  ],
+  "dependencyReview": "docs/research/remaining/external-dependency-review-2026-10-10.json",
+  "validation": "docs/validation/free-health-alternatives.json",
+  "deployment": "Local implementation and verification only; no deployment performed."
+}

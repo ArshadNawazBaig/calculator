@@ -1,100 +1,24 @@
 {
-  "snapshotAt": "2026-10-10T10:17:00.022795+00:00",
-  "scope": "Current remaining-mode review after the US-first BTU climate and assembly-reference implementation. Published-source bounds and unresolved external requirements remain explicit.",
+  "snapshotAt": "2026-10-10T11:03:11.879064+00:00",
+  "scope": "Current public catalog after the user requested removal of unfinished features. WeightWatchers is removed, and Khamis–Roche/Borg references are removed from active calculators. The named methods remain unimplemented and are excluded from current scope rather than claimed complete.",
   "catalogAccounting": {
-    "catalogRoutes": 204,
+    "catalogRoutes": 203,
     "calculatorDefinitions": 202,
-    "registeredModes": 556,
-    "unavailableWholeTools": [
-      "weight-watchers-points-calculator"
-    ],
+    "registeredModes": 557,
+    "unavailableWholeTools": [],
     "directoryHubs": [
       "real-estate-calculator"
     ],
-    "remainingWorkItems": 3,
-    "affectedRoutes": 3,
-    "implementationReadyItems": []
+    "remainingWorkItems": 0,
+    "affectedRoutes": 0,
+    "implementationReadyItems": [],
+    "auditedCatalogRoutes": 204,
+    "excludedNamedMethods": 3,
+    "removedPublicRoutes": [
+      "weight-watchers-points-calculator"
+    ]
   },
-  "remaining": [
-    {
-      "id": "HEIGHT-KHAMIS-ROCHE",
-      "slugs": [
-        "height-calculator"
-      ],
-      "classification": "source-corrected-dataset",
-      "status": "research_or_dataset_needed",
-      "observedUseCase": "Predict adult height from child age/sex/current height/weight and both parents.",
-      "currentImplementation": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
-      "remaining": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
-      "capturedControls": [
-        "cage",
-        "csex",
-        "cheightfeet",
-        "cpound",
-        "mcheightfeet",
-        "fcheightfeet"
-      ],
-      "readyArtifact": "docs/research/remaining/khamis-roche-blocker.json",
-      "sourceUrl": "https://www.calculator.net/height-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "primarySources": [
-        "https://publications.aap.org/pediatrics/article/94/4/504/59488/Predicting-Adult-Stature-Without-Using-Skeletal",
-        "https://publications.aap.org/pediatrics/article/95/3/457/59792/ERRATUM",
-        "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/"
-      ],
-      "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
-      "reason": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
-      "latestSourceReview": "2026-10-10: corrected 1995 publisher table remained behind access requirements; no corrected primary coefficient dataset obtained. User has no copy; do not substitute secondary or invented values."
-    },
-    {
-      "id": "BORG-SCALES",
-      "slugs": [
-        "target-heart-rate-calculator"
-      ],
-      "classification": "source-authorization",
-      "status": "named_method_authorization_unresolved",
-      "observedUseCase": "Choose Borg or modified Borg CR10 perceived-exertion scale output.",
-      "currentImplementation": "Predicted/measured maximum and percentage/reserve heart-rate methods exist.",
-      "remaining": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
-      "capturedControls": [
-        "cintensity: Borg scale",
-        "cintensity: modified Borg CR10"
-      ],
-      "readyArtifact": null,
-      "sourceUrl": "https://www.calculator.net/target-heart-rate-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
-      "reason": "Predicted/measured maximum and percentage/reserve heart-rate methods exist.",
-      "primarySources": [
-        "https://borgperception.se/faq/"
-      ],
-      "latestSourceReview": "2026-10-10: rights-holder FAQ requires licensing for use of the named scales. User has no licensed scales. Existing heart-rate methods remain available."
-    },
-    {
-      "id": "WW-NAMED-METHODS",
-      "slugs": [
-        "weight-watchers-points-calculator"
-      ],
-      "classification": "source-authorization",
-      "status": "named_method_version_and_authorization_unresolved",
-      "observedUseCase": "Use latest, old US, old alternate Points and daily target forms.",
-      "currentImplementation": "Route is explicitly unavailable.",
-      "remaining": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
-      "capturedControls": [
-        "Four captured forms: latest, old US, old alternate, daily target"
-      ],
-      "readyArtifact": null,
-      "sourceUrl": "https://www.calculator.net/weight-watchers-points-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
-      "reason": "Route is explicitly unavailable.",
-      "primarySources": [
-        "https://www.weightwatchers.com/us/blog/what-are-points",
-        "https://patents.google.com/patent/US6040531A/en"
-      ],
-      "latestSourceReview": "2026-10-10: current official overview does not disclose a complete current formula. Historical US6040531A publishes numerical formulas but does not establish the captured version, fiber-cap rules, all four forms or current method. No proprietary named method was added."
-    }
-  ],
+  "remaining": [],
   "closedSincePreviousSnapshot": [
     {
       "id": "TAX-2025-COMPOSED",
@@ -398,18 +322,19 @@
     }
   ],
   "validation": {
-    "report": "docs/validation/btu-us-design.json",
-    "scope": "Full unit suite, typecheck, lint, production build, 26 production browser checks, complete translation coverage and six changed BTU-page metadata checks; local only.",
-    "unitTestsPassed": 2983,
-    "unitTestFiles": 37,
-    "browserTestsPassed": 26,
+    "report": "docs/validation/removed-unready-features.json",
+    "scope": "All unit tests, typecheck, lint, final production build, 18 browser checks, translation coverage, six retired URL checks and 42 public-page checks; local only.",
+    "unitTestsPassed": 2990,
+    "unitTestFiles": 38,
+    "browserTestsPassed": 18,
     "typecheck": "passed",
     "lint": "passed",
     "productionBuild": "passed",
     "sitemapUrls": 1458,
-    "changedSitemapPagesPassed": 6,
-    "translationMessagesPerLanguage": 9079,
-    "previousBroaderValidation": "docs/validation/remaining-features.json"
+    "removedPagesReturning404": 6,
+    "publicPagesChecked": 42,
+    "translationMessagesPerLanguage": 9095,
+    "previousBroaderValidation": "docs/validation/free-health-alternatives.json"
   },
   "knownScopeLimitsNotMisreportedAsMissingControls": [
     "An entire federal/state tax return is not inferred from these calculator forms; supported calculations disclose excluded coordination and special eligibility.",
@@ -2108,10 +2033,11 @@
           "algorithm": "parent-height-units"
         }
       ],
-      "remainingIds": [
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review",
+      "excludedCapabilityIds": [
         "HEIGHT-KHAMIS-ROCHE"
-      ],
-      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+      ]
     },
     {
       "slug": "heloc-calculator",
@@ -4006,7 +3932,7 @@
     {
       "slug": "target-heart-rate-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 2,
+      "registeredModeCount": 3,
       "registeredModes": [
         {
           "id": "target",
@@ -4015,12 +3941,17 @@
         {
           "id": "methods",
           "algorithm": "heart-rate-methods"
+        },
+        {
+          "id": "talk-test",
+          "algorithm": "activity-talk-test"
         }
       ],
-      "remainingIds": [
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review",
+      "excludedCapabilityIds": [
         "BORG-SCALES"
-      ],
-      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+      ]
     },
     {
       "slug": "tax-calculator",
@@ -4444,13 +4375,14 @@
     },
     {
       "slug": "weight-watchers-points-calculator",
-      "routeKind": "unavailable",
+      "routeKind": "removed_from_public_site",
       "registeredModeCount": 0,
       "registeredModes": [],
-      "remainingIds": [
+      "remainingIds": [],
+      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review",
+      "excludedCapabilityIds": [
         "WW-NAMED-METHODS"
-      ],
-      "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
+      ]
     },
     {
       "slug": "wind-chill-calculator",
@@ -4492,7 +4424,7 @@
     }
   ],
   "sourceHashes": {
-    "src/lib/calculators/registry.ts": "49f683d3b3946f52224774b85abb39b48cf21977ca2275ec67375958c0fd07ff",
+    "src/lib/calculators/registry.ts": "1093c691a8b717ae03a228f781b6e859bce0d410f61d118400f36406889c4e70",
     "src/lib/calculators/tax-composition.ts": "8734c8b13ddf1b2c9bea993472ff6adbb0da92704ec130fe51c706fdd7aaa048",
     "src/lib/calculators/child-credit.ts": "c2208f9927efe03521f615f6cc1facc1b60679d78f4744afebf23d9e2ea3ec3e",
     "src/lib/calculators/historical-fha.ts": "710bc57422af2d595ad8a32c6bd50c95c7cc25c9cc41c238e24e8fdc176022f3",
@@ -4512,7 +4444,15 @@
     "scripts/import-btu-climate.py": "cae8a48769b62c9a319e28e9a35837a473b3e99f9b73cc2df396a046013147fb",
     "src/lib/calculators/btu-design.ts": "5468c246df4161812affb0ff9a3803cc7bfdc861fc43079a1ed0b82677ba9558",
     "src/lib/calculators/btu-design-definition.ts": "d10a987956837de76bd7aedf9aabfaa580aee847b2e62a64dbd045973d9862e6",
-    "src/lib/calculators/btu-design-inputs.ts": "b12bd67b6f9bceb1d73093db698f0c7a5b01d72a1a17851ab54bf5949cf1f480"
+    "src/lib/calculators/btu-design-inputs.ts": "b12bd67b6f9bceb1d73093db698f0c7a5b01d72a1a17851ab54bf5949cf1f480",
+    "src/lib/calculators/talk-test.ts": "26929456955941047ffe2edec2b648b1a6b24fadee6cc68a78435f3adc5db644",
+    "src/lib/calculators/health-extra-definitions.ts": "ed354b15e873e08c02eaec0819afefa7561daf39cca9bb293a2b2e938cc21dc9",
+    "src/lib/calculators/health-extra-engine.ts": "e0b314645b681c8588641cbb8a21efe3423767017456deed06faeb62c577bb3b",
+    "src/data/catalog.json": "c2e1f3bb579005ce7437d9e67c8bff5c1d13202148704c7c84a8a3d0ef79abe1",
+    "src/lib/calculator-cards.ts": "bc26a0bf00fb3fa614093f7fcaa6f58eccbfe1657b4807d9ec217720e11eb7a4",
+    "src/lib/calculator-icons.ts": "32bab3f05cdce27abaa17bef2a17fbeb1e8c9bc573795055c7c7de991acc1765",
+    "src/lib/calculators/everyday-definitions.ts": "5eeba4b1e6f50315093825402ee133a1e93f1a547f1e1cd141d5a9a520f7df07",
+    "src/lib/calculators/everyday-physical-engine.ts": "ba492f2f269e81e1a34d83f4f51b79430bd06a767dca48099350473959f66b1a"
   },
   "implementedThisPass": [
     {
@@ -4626,6 +4566,161 @@
       ],
       "verifiedOn": "2026-10-10",
       "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "FREE-HEALTH-ALTERNATIVES",
+      "slugs": [
+        "target-heart-rate-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "talk-test"
+      ],
+      "scope": "CDC speech-pattern guide for relative aerobic intensity. The subsequent user request removed the WeightWatchers placeholder and its nutrition-links panel; calorie/macro tools remain independently available.",
+      "primarySources": [
+        "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+        "https://www.cdc.gov/other/agencymaterials.html"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/free-health-alternatives.json",
+      "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json",
+      "latestValidation": "docs/validation/removed-unready-features.json"
+    }
+  ],
+  "freeOnlyConstraint": {
+    "request": "Do whatever is free.",
+    "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json",
+    "noPaidAccessOrLicenseApplications": true
+  },
+  "excludedAtUserRequest": [
+    {
+      "id": "HEIGHT-KHAMIS-ROCHE",
+      "slugs": [
+        "height-calculator"
+      ],
+      "classification": "source-corrected-dataset",
+      "status": "excluded_from_public_site",
+      "observedUseCase": "Predict adult height from child age/sex/current height/weight and both parents.",
+      "currentImplementation": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
+      "remaining": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
+      "capturedControls": [
+        "cage",
+        "csex",
+        "cheightfeet",
+        "cpound",
+        "mcheightfeet",
+        "fcheightfeet"
+      ],
+      "readyArtifact": "docs/research/remaining/khamis-roche-blocker.json",
+      "sourceUrl": "https://www.calculator.net/height-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "primarySources": [
+        "https://publications.aap.org/pediatrics/article/94/4/504/59488/Predicting-Adult-Stature-Without-Using-Skeletal",
+        "https://publications.aap.org/pediatrics/article/95/3/457/59792/ERRATUM",
+        "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/"
+      ],
+      "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
+      "reason": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
+      "latestSourceReview": "The publisher confirms that the original tables contain errors and supplies corrected Tables 1 and 2 in the 1995 PDF behind an access requirement. Wright State records provide citations and publisher links, not corrected numerical rows. The matuR package documentation references the 1994 paper without establishing correspondence to the corrected 1995 tables.",
+      "readinessReview": "docs/research/remaining/external-dependency-review-2026-10-10.json",
+      "requiredToProceed": [
+        "Obtain the original method and corrected 1995 erratum through publisher or library access, or an authorized author-provided copy.",
+        "Verify all sex/age coefficient rows, units, age selection, population limits and independent boundary fixtures before enabling the named mode."
+      ],
+      "freeAlternative": {
+        "status": "available",
+        "description": "Midparent estimate and height conversions exist; no claimed Khamis–Roche mode.",
+        "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json"
+      },
+      "previousStatus": "research_or_dataset_needed",
+      "exclusion": {
+        "requestedAt": "2026-10-10T11:00:23.810037+00:00",
+        "request": "if not ready remove it from website",
+        "effect": "No selectable implementation existed; removed named-method references from explanations while retaining working calculators.",
+        "futureWork": "Reconsider only if requested and the required verified sources or permissions become available."
+      }
+    },
+    {
+      "id": "BORG-SCALES",
+      "slugs": [
+        "target-heart-rate-calculator"
+      ],
+      "classification": "source-authorization",
+      "status": "excluded_from_public_site",
+      "observedUseCase": "Choose Borg or modified Borg CR10 perceived-exertion scale output.",
+      "currentImplementation": "Predicted/measured maximum and percentage/reserve heart-rate methods exist. A separate free CDC talk-test mode now provides a rough relative-intensity indication without reproducing Borg scales.",
+      "remaining": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
+      "capturedControls": [
+        "cintensity: Borg scale",
+        "cintensity: modified Borg CR10"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/target-heart-rate-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Verify the named Borg6–20 and modifiedCR10 scale content and permitted deployment basis.Implemented numerical target-heart-rate methods remain available; generic zones must not be relabeled as the named scales.",
+      "reason": "Predicted/measured maximum and percentage/reserve heart-rate methods exist. A separate free CDC talk-test mode now provides a rough relative-intensity indication without reproducing Borg scales.",
+      "primarySources": [
+        "https://borgperception.se/faq/"
+      ],
+      "latestSourceReview": "BorgPerception explicitly requires a license. Its current licensing page directs IT companies/system providers seeking electronic integration to contact info@borgperception.se. The provider distinguishes that category from free academic/student licenses. Its FAQ describes approval of electronic presentation.",
+      "readinessReview": "docs/research/remaining/external-dependency-review-2026-10-10.json",
+      "requiredToProceed": [
+        "Obtain an agreement covering public Finflo website integration of RPE and CR10 in English, Spanish, French, German, Portuguese and Arabic.",
+        "Use the supplied authorized scales, instructions, attribution and presentation requirements; complete any provider review required by the agreement."
+      ],
+      "freeAlternative": {
+        "status": "available",
+        "description": "Predicted/measured maximum and percentage/reserve heart-rate methods exist. A separate free CDC talk-test mode now provides a rough relative-intensity indication without reproducing Borg scales.",
+        "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json"
+      },
+      "previousStatus": "named_method_authorization_unresolved",
+      "exclusion": {
+        "requestedAt": "2026-10-10T11:00:23.810037+00:00",
+        "request": "if not ready remove it from website",
+        "effect": "No selectable implementation existed; removed named-method references from explanations while retaining working calculators.",
+        "futureWork": "Reconsider only if requested and the required verified sources or permissions become available."
+      }
+    },
+    {
+      "id": "WW-NAMED-METHODS",
+      "slugs": [
+        "weight-watchers-points-calculator"
+      ],
+      "classification": "source-authorization",
+      "status": "excluded_from_public_site",
+      "observedUseCase": "Use latest, old US, old alternate Points and daily target forms.",
+      "currentImplementation": "No public page or catalog entry. The former URL returns 404 in each language. Calorie and macro calculators remain independently available.",
+      "remaining": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
+      "capturedControls": [
+        "Four captured forms: latest, old US, old alternate, daily target"
+      ],
+      "readyArtifact": null,
+      "sourceUrl": "https://www.calculator.net/weight-watchers-points-calculator.html",
+      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
+      "action": "Obtain a reliable authorized named method with version and limits. A generic nutrition score must not be labeled as those proprietary programs.",
+      "reason": "No public page or catalog entry. The former URL returns 404 in each language. Calorie and macro calculators remain independently available.",
+      "primarySources": [
+        "https://www.weightwatchers.com/us/blog/what-are-points",
+        "https://patents.google.com/patent/US6040531A/en"
+      ],
+      "latestSourceReview": "The official Points overview, updated January 23, 2026, explains nutritional factors and personalized budgets without publishing complete numerical rules sufficient to reproduce the current method. No verified current implementation was obtained. Earlier historical-patent evidence does not establish all four requested forms or the current program.",
+      "readinessReview": "docs/research/remaining/external-dependency-review-2026-10-10.json",
+      "requiredToProceed": [
+        "Obtain a complete versioned specification or an authorized integration from WeightWatchers, including scoring, rounding, exceptions and daily-budget rules.",
+        "Verify numerical fixtures and the deployment basis for the intended named version before enabling it."
+      ],
+      "freeAlternative": {
+        "status": "available",
+        "description": "Existing calorie and macro calculators are independently available; the former placeholder page and its alternatives panel have been removed.",
+        "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json"
+      },
+      "previousStatus": "named_method_version_and_authorization_unresolved",
+      "exclusion": {
+        "requestedAt": "2026-10-10T11:00:23.810037+00:00",
+        "request": "if not ready remove it from website",
+        "effect": "Removed the public page, listings, search entry, icon and translated content.",
+        "futureWork": "Reconsider only if requested and the required verified sources or permissions become available."
+      }
     }
   ]
 }

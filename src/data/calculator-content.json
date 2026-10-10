@@ -659,8 +659,8 @@
     "description": "Convert centimeters and feet/inches, or estimate adult height from parental measurements using the same mid-parental reference in either unit system.",
     "faqs": [
       {
-        "question": "Is the family-based estimate the Khamis\u2013Roche method?",
-        "answer": "No. It is a simpler mid-parental relationship and does not use the child measurements and verified coefficients required by Khamis\u2013Roche."
+        "question": "What does the parent-based height estimate show?",
+        "answer": "It gives a broad family-based reference from the parents' heights. It does not use the child's current measurements or assess growth."
       },
       {
         "question": "Does choosing feet and inches change the prediction formula?",
@@ -2038,7 +2038,7 @@
     ]
   },
   "target-heart-rate-calculator": {
-    "description": "Compare estimated maximum heart rates and target ranges, including measured-maximum and heart-rate-reserve methods.",
+    "description": "Compare estimated maximum heart rates and target ranges, or use the talk test to check exercise intensity.",
     "faqs": [
       {
         "question": "How does heart-rate reserve differ from a percentage of maximum?",
@@ -2047,6 +2047,10 @@
       {
         "question": "Does an age-based target fit every person?",
         "answer": "No. Predicted maxima vary between people, and medication or medical conditions can change appropriate exercise intensity."
+      },
+      {
+        "question": "Does the talk test calculate a target heart rate?",
+        "answer": "No. It gives a rough indication of relative exercise intensity from speech and breathing. It does not report beats per minute."
       }
     ]
   },

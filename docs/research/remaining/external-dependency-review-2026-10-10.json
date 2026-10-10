@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-10T10:27:40.299632+00:00",
+  "request": "Can the three remaining named features be ready now?",
+  "conclusion": "None became ready from the newly checked accessible sources. These prerequisites need external material or authorization; they are not resolved by scaffolding calculator UI.",
+  "items": [
+    {
+      "id": "HEIGHT-KHAMIS-ROCHE",
+      "status": "corrected_primary_coefficients_not_obtained",
+      "finding": "The publisher confirms that the original tables contain errors and supplies corrected Tables 1 and 2 in the 1995 PDF behind an access requirement. Wright State records provide citations and publisher links, not corrected numerical rows. The matuR package documentation references the 1994 paper without establishing correspondence to the corrected 1995 tables.",
+      "requiredToProceed": [
+        "Obtain the original method and corrected 1995 erratum through publisher or library access, or an authorized author-provided copy.",
+        "Verify all sex/age coefficient rows, units, age selection, population limits and independent boundary fixtures before enabling the named mode."
+      ],
+      "sourceLinks": [
+        "https://publications.aap.org/pediatrics/article-pdf/95/3/457/983170/457.pdf",
+        "https://research.wright.edu/en/publications/erratum-predicting-adult-stature-without-using-skeletal-age-the-k/",
+        "https://corescholar.libraries.wright.edu/math/247/",
+        "https://search.r-project.org/CRAN/refmans/matuR/html/table.html"
+      ],
+      "accessNotObtained": true,
+      "currentAlternative": "Existing midparent estimate; do not relabel it as Khamis–Roche."
+    },
+    {
+      "id": "BORG-SCALES",
+      "status": "website_integration_license_not_obtained",
+      "finding": "BorgPerception explicitly requires a license. Its current licensing page directs IT companies/system providers seeking electronic integration to contact info@borgperception.se. The provider distinguishes that category from free academic/student licenses. Its FAQ describes approval of electronic presentation.",
+      "requiredToProceed": [
+        "Obtain an agreement covering public Finflo website integration of RPE and CR10 in English, Spanish, French, German, Portuguese and Arabic.",
+        "Use the supplied authorized scales, instructions, attribution and presentation requirements; complete any provider review required by the agreement."
+      ],
+      "sourceLinks": [
+        "https://borgperception.se/obtain-a-license/",
+        "https://borgperception.se/faq/"
+      ],
+      "contact": "info@borgperception.se",
+      "licenseNotObtained": true,
+      "currentAlternative": "Existing maximum-heart-rate and reserve methods; no relabeled substitute for the named scales."
+    },
+    {
+      "id": "WW-NAMED-METHODS",
+      "status": "complete_versioned_method_not_verified",
+      "finding": "The official Points overview, updated January 23, 2026, explains nutritional factors and personalized budgets without publishing complete numerical rules sufficient to reproduce the current method. No verified current implementation was obtained. Earlier historical-patent evidence does not establish all four requested forms or the current program.",
+      "requiredToProceed": [
+        "Obtain a complete versioned specification or an authorized integration from WeightWatchers, including scoring, rounding, exceptions and daily-budget rules.",
+        "Verify numerical fixtures and the deployment basis for the intended named version before enabling it."
+      ],
+      "sourceLinks": [
+        "https://www.weightwatchers.com/us/blog/what-are-points"
+      ],
+      "currentMethodNotObtained": true,
+      "currentAlternative": "The named tool remains explicitly unavailable; existing calorie and nutrition tools remain separate."
+    }
+  ],
+  "actionsTaken": [
+    "Rechecked publisher, university repository, official package documentation, rights-holder licensing and official WeightWatchers overview.",
+    "Recorded concrete prerequisites without replacing named methods with estimates."
+  ],
+  "actionsNotTaken": [
+    "No purchases, license acceptance, third-party contact, deployment or calculator implementation changes."
+  ],
+  "tests": "Not rerun; research/audit metadata changes only."
+}

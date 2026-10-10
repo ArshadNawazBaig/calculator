@@ -1,0 +1,178 @@
+{
+  "checkedAt": "2026-10-10T10:44:49.123850+00:00",
+  "scope": "Free health alternatives; local production build, no deployment.",
+  "baseCommit": "132fedd",
+  "catalog": {
+    "catalogEntries": 204,
+    "calculatorPages": 202,
+    "modes": 557,
+    "unavailableTools": 1,
+    "directoryHubs": 1
+  },
+  "research": "docs/research/remaining/free-health-alternatives-2026-10-10.json",
+  "unitTests": {
+    "command": "npm test",
+    "files": 38,
+    "passed": 2990,
+    "failed": 0,
+    "newSuite": "tests/free-health-alternatives.test.tsx",
+    "newSuiteTests": 6,
+    "coverage": [
+      "Three speech responses, unknown response rejection and no fabricated pulse values",
+      "Explicit translation of application-owned values with raw user-string preservation",
+      "Rendered result translation and existing numerical/currency regressions"
+    ]
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "NEXT_PUBLIC_SITE_URL=https://finflo.org NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "status": "passed",
+    "prerenderedPages": 1472
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/free-health-alternatives.spec.ts tests/e2e/languages.spec.ts",
+    "browser": "Chromium",
+    "passed": 14,
+    "failed": 0,
+    "stats": {
+      "startTime": "2026-10-10T10:43:20.942Z",
+      "duration": 27657.588,
+      "expected": 14,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "All three talk-test outcomes and reset in six languages",
+      "Spanish CSV indication translation",
+      "Localized calorie/macro links and navigation",
+      "390px mobile layout and English WCAG2A/2AA/2.1AA axe checks",
+      "Existing language navigation, Arabic RTL, metadata, accessibility and calculator regression checks"
+    ]
+  },
+  "translationValidation": {
+    "messagesPerLocale": 9102,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0,
+    "unreadableMessages": 0,
+    "review": "New strings manually drafted and reviewed; no independent native-speaker review."
+  },
+  "indexing": {
+    "checkedAt": "2026-10-10T10:43:45.728Z",
+    "scope": "Local production build with canonical Host header; not a live deployment",
+    "sitemapUrls": 1458,
+    "pages": [
+      {
+        "path": "/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/target-heart-rate-calculator",
+        "lang": "en",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/es/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/es/target-heart-rate-calculator",
+        "lang": "es",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/fr/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/target-heart-rate-calculator",
+        "lang": "fr",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/de/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/de/target-heart-rate-calculator",
+        "lang": "de",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/pt/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/target-heart-rate-calculator",
+        "lang": "pt",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/ar/target-heart-rate-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/target-heart-rate-calculator",
+        "lang": "ar",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      },
+      {
+        "path": "/es/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      },
+      {
+        "path": "/fr/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      },
+      {
+        "path": "/de/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      },
+      {
+        "path": "/pt/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      },
+      {
+        "path": "/ar/weight-watchers-points-calculator",
+        "status": 200,
+        "robots": "noindex, follow",
+        "listedInSitemap": false
+      }
+    ]
+  },
+  "remainingNamedMethods": [
+    "HEIGHT-KHAMIS-ROCHE",
+    "BORG-SCALES",
+    "WW-NAMED-METHODS"
+  ],
+  "limitations": [
+    "Talk test is a rough relative-intensity guide, not a measured heart rate, fitness measure, Borg scale or exercise prescription.",
+    "Nutrition links open existing calorie and macro models and do not implement WeightWatchers Points.",
+    "No corrected Khamis–Roche coefficient dataset was obtained; existing parent-based estimate remains available.",
+    "Local verification does not establish live deployment or Google indexing."
+  ]
+}

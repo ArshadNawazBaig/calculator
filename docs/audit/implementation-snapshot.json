@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-10T10:17:01.120Z",
+  "generatedAt": "2026-10-10T11:02:04.767Z",
   "counts": {
-    "catalogEntries": 204,
+    "catalogEntries": 203,
     "calculatorPages": 202,
-    "modes": 556,
-    "unavailableTools": 1,
+    "modes": 557,
+    "unavailableTools": 0,
     "directoryHubs": 1
   },
   "definitions": [
@@ -30321,7 +30321,7 @@
     },
     {
       "slug": "target-heart-rate-calculator",
-      "description": "Compare estimated maximum heart rates and target ranges, including measured-maximum and heart-rate-reserve methods.",
+      "description": "Compare estimated maximum heart rates and target ranges, or use the talk test to check exercise intensity.",
       "modes": [
         {
           "id": "target",
@@ -30482,6 +30482,39 @@
           ],
           "formula": "Target=intensity×maximum; reserve target=resting+intensity×(maximum−resting).",
           "explanation": "Predicted and measured maxima differ. Medication and medical conditions can change appropriate targets; this is not a prescribed training intensity."
+        },
+        {
+          "id": "talk-test",
+          "title": "Talk test for exercise intensity",
+          "algorithm": "activity-talk-test",
+          "fields": [
+            {
+              "key": "speech",
+              "label": "Talking during aerobic activity",
+              "type": "select",
+              "default": "conversation",
+              "options": [
+                {
+                  "label": "Conversation is comfortable, but singing is difficult",
+                  "value": "conversation"
+                },
+                {
+                  "label": "A few words require a pause for breath",
+                  "value": "few-words"
+                },
+                {
+                  "label": "Neither description fits / I am unsure",
+                  "value": "unsure"
+                }
+              ],
+              "hint": "Choose the description that matches your speech and breathing during the activity."
+            }
+          ],
+          "formula": "Comfortable conversation with difficulty singing suggests moderate relative intensity. Only a few words between breaths suggests vigorous relative intensity.",
+          "explanation": "The talk test is a rough guide to relative effort during aerobic activity. It does not calculate a heart rate, measure fitness or prescribe an exercise target.",
+          "notes": [
+            "Source: CDC. This guidance is available free on the CDC website. Its use does not imply endorsement of Finflo by CDC, HHS or the US government."
+          ]
         }
       ],
       "sources": [
@@ -30496,6 +30529,10 @@
         {
           "title": "Nes et al.: HUNT Fitness Study",
           "url": "https://pubmed.ncbi.nlm.nih.gov/22376273/"
+        },
+        {
+          "title": "CDC: measuring physical activity intensity",
+          "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
         }
       ]
     },
@@ -70833,9 +70870,6 @@
           "formula": "Mid-parental estimate = (mother cm + father cm ± 13 cm)/2.",
           "explanation": "Convert measurements before using the family-based formula. The coefficient remains 13 cm in both unit systems. This is a broad reference, not an individual growth prediction."
         }
-      ],
-      "notes": [
-        "Khamis–Roche prediction requires verified corrected coefficients and child measurements; it is not represented by this simpler estimate."
       ],
       "sources": [
         {
