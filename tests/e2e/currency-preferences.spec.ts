@@ -41,7 +41,7 @@ test('currency changes preserve inputs and calculations and label table and CSV 
   await expect(page.locator('#loan-principal')).toHaveValue('1000');
   await expect(page.locator('.primary-metric dd')).toHaveText('€83.33');
   await expect(page.locator('[data-calculator-currency]')).toContainText('no exchange rate is applied');
-  await page.locator('.result-details summary').click();
+  await expect(page.locator('.result-details table')).toBeVisible();
   await expect(page.getByRole('columnheader',{name:'Payment amount (EUR)',exact:true})).toBeVisible();
   const pending=page.waitForEvent('download');
   await page.getByRole('button',{name:'CSV',exact:true}).click();

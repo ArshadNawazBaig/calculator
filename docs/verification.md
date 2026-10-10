@@ -1,6 +1,8 @@
 # Verification
 
-Current native Next verification: **2,840 automated tests and 14 browser tests pass**, with passing TypeScript, ESLint and production build. The all-site crawl covers 249 pages, 201 calculator pages and 403 JSON-LD blocks; final metadata rechecks close its two findings.
+Latest calculator UI verification: **2,863 unit tests and 39 browser checks pass**, with passing TypeScript, ESLint and production build. See [calculator UI verification](calculator-ui.md) for scope and the final responsive-chart recheck.
+
+The earlier all-site crawl covers 249 pages, 201 calculator pages and 403 JSON-LD blocks; final metadata rechecks close its two findings. The historical release evidence and performance measurements below describe that earlier audit.
 
 The release evidence is stored in `docs/validation/verification.json`, with actual lab measurements in [lab-performance.json](validation/lab-performance.json). Counts in the coverage manifest describe registered scope, not a guarantee of complete parity or every possible input.
 

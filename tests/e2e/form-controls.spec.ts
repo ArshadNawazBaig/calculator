@@ -9,6 +9,7 @@ async function accessible(page:Page){
 test('dropdown supports keyboard selection, dismissal, and accessible options',async({page})=>{
   await page.goto('/gfr-calculator');
   const trigger=page.getByRole('button',{name:/Sex used by the equation/});
+  await expect(trigger).toBeEnabled();
   await trigger.focus();await page.keyboard.press('Enter');
   await expect(page.getByRole('listbox',{name:'Sex used by the equation'})).toBeVisible();
   await accessible(page);
@@ -75,7 +76,7 @@ test('optional dates remain usable when adding and removing calculator rows',asy
   await page.getByRole('button',{name:'Clear',exact:true}).click();
   await expect(extras.locator('[data-type="day"]')).toHaveAttribute('data-placeholder','true');
   await extras.getByRole('button',{name:'Add row',exact:true}).click();
-  await extras.getByRole('button',{name:'Remove one-time extras row 1',exact:true}).click();
+  await extras.getByRole('button',{name:'Remove row 1',exact:true}).click();
   await expect(extras.locator('[data-ui-control="date-picker"]')).toHaveCount(1);
   await expect(extras.locator('[data-type="day"]')).toHaveAttribute('data-placeholder','true');
 });

@@ -1,12 +1,23 @@
-"use client";
-import {useI18n} from "@/components/i18n/provider";
-import {currencyText} from '@/lib/i18n/preferences';
+'use client';
 import {memo} from 'react';
-import {AccordionItem} from '@/components/ui/accordion';
+import {Check} from 'lucide-react';
+import {useI18n} from '@/components/i18n/provider';
 import type {Result} from '@/lib/calculators/types';
-import {number} from '@/lib/format';
 import {formatMetric} from '@/lib/calculators/format-metric';
 import {languages} from '@/lib/i18n/config';
-export const CalculatorResult=memo(function CalculatorResult({result,currency='USD',example=false,currencyLabels=true}:{result:Result;currency?:string;example?:boolean;currencyLabels?:boolean}){
- const {t,locale,messages}=useI18n();
-return <div className="calculator-results"><div className="result-heading"><span className="eyebrow">{example?t("EXAMPLE RESULT"):t("YOUR RESULT")}</span><span className="result-method">{t("Calculated locally")}</span></div><dl className="result-metrics">{result.metrics.map((metric,i)=><div className={`metric ${i===0?'primary-metric':''}`} key={i}><dt>{t(metric.label)}</dt><dd>{typeof metric.value==='string'?metric.value:formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,languages[locale].tag)}</dd></div>)}</dl>{result.chart&&<div className="result-chart" role="img" aria-label={result.chart.map(p=>`${p.label}: ${number(p.value,4,languages[locale].tag)}`).join('; ')}>{result.chart.map((p,i)=><div key={t(p.label)} className="chart-row"><span>{p.label}</span><div><i style={{width:`${Math.max(0,p.value)/Math.max(...result.chart!.map(p=>p.value),1)*100}%`,background:i%2?'var(--color-accent)':'var(--color-brand)'}}/></div><strong>{number(p.value,2,languages[locale].tag)}</strong></div>)}</div>}{result.explanation&&<p lang={messages[result.explanation]?locale:"en"} dir="auto">{t(result.explanation)}</p>}{result.notes?.map(note=><p className="result-footnote" key={note} lang={messages[note]?locale:"en"} dir="auto">{t(note)}</p>)}{result.table&&<AccordionItem className="result-details" title={t("View detailed breakdown ({count} rows)",{count:result.table.rows.length})}><div className="table-scroll" tabIndex={0} role="region" aria-label={t("Detailed calculation results")}><table><thead><tr>{result.table.headers.map((h,i)=><th key={i} scope="col">{currencyLabels?currencyText(t(h),currency):t(h)}</th>)}</tr></thead><tbody>{result.table.rows.map((row,i)=><tr key={i}>{row.map((cell,j)=><td key={j}>{typeof cell==='number'?number(cell,6,languages[locale].tag):cell}</td>)}</tr>)}</tbody></table></div></AccordionItem>}</div>;});
+import {ResultDetails} from './result-details';
+
+export const CalculatorResult=memo(function CalculatorResult({result,currency='USD',example=false,currencyLabels=true,showDetails=true,algorithm=''}:{result:Result;currency?:string;example?:boolean;currencyLabels?:boolean;showDetails?:boolean;algorithm?:string}) {
+  const {t,locale,messages}=useI18n();
+  return <div className="calculator-results">
+    <div className="result-heading"><span className="eyebrow">{example?t('EXAMPLE RESULT'):t('YOUR RESULT')}</span><span className="result-method"><Check size={14} aria-hidden="true"/>{t('Calculated locally')}</span></div>
+    <dl className="result-metrics">{result.metrics.map((metric,index)=><div className={`metric ${index===0?'primary-metric':''}`} data-text={typeof metric.value==='string'||undefined} key={index}>
+      <dt>{t(metric.label)}</dt><dd>{typeof metric.value==='string'?metric.value:formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,languages[locale].tag)}</dd>
+    </div>)}</dl>
+    {(result.explanation||result.notes?.length)?<div className="result-notes"><h3>{t('About this result')}</h3>
+      {result.explanation&&<p lang={messages[result.explanation]?locale:'en'} dir="auto">{t(result.explanation)}</p>}
+      {result.notes?.map((note,index)=><p key={index} lang={messages[note]?locale:'en'} dir="auto">{t(note)}</p>)}
+    </div>:null}
+    {showDetails&&<ResultDetails result={result} algorithm={algorithm} currency={currency} currencyLabels={currencyLabels}/>}
+  </div>;
+});

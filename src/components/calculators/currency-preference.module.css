@@ -1,7 +1,12 @@
-.panel { display: flex; align-items: center; gap: 24px; padding: 18px 24px; border-bottom: 1px solid var(--color-line); background: var(--color-soft); }
+.panel { display: flex; align-items: center; gap: 24px; padding: 22px 28px; }
 .selection { flex: 0 0 280px; min-width: 0; }
 .selection label { display: block; margin-bottom: 7px; color: var(--color-ink); font-size: 12px; font-weight: 650; }
 .panel p { max-width: 640px; color: var(--color-muted); font-size: 12px; line-height: 1.7; margin: 0; }
 .panel strong { display: flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: 13px; font-weight: 650; color: var(--color-ink); }
+:global(.calculator-settings[data-has-mode="true"]) .panel { display: grid; align-content: start; gap: 8px; border-inline-start: 1px solid var(--color-line); }
+:global(.calculator-settings[data-has-mode="true"]) .selection { min-width: 0; }
+:global(.calculator-settings[data-has-mode="true"]) .selection label { margin-bottom: 8px; }
+.panel p { font-size: 11px; }
+@media(max-width:800px) { :global(.calculator-settings[data-has-mode="true"]) .panel { border-inline-start: 0; border-top: 1px solid var(--color-line); } }
 @media(max-width:700px) { .panel { align-items: stretch; flex-direction: column; gap: 12px; padding: 18px; } .selection { flex-basis: auto; } }
 @media print { .selection :global([data-ui-control]) { display: none; } .selection label { display: none; } .panel { padding: 10px 0; background: none; border: 0; } }
