@@ -1,51 +1,21 @@
 {
-  "snapshotAt": "2026-10-10T09:45:53.551796+00:00",
-  "scope": "Implementation of verified additions from the nine-item remaining-mode review, with dated source bounds and unresolved requirements preserved.",
+  "snapshotAt": "2026-10-10T10:17:00.022795+00:00",
+  "scope": "Current remaining-mode review after the US-first BTU climate and assembly-reference implementation. Published-source bounds and unresolved external requirements remain explicit.",
   "catalogAccounting": {
     "catalogRoutes": 204,
     "calculatorDefinitions": 202,
-    "registeredModes": 555,
+    "registeredModes": 556,
     "unavailableWholeTools": [
       "weight-watchers-points-calculator"
     ],
     "directoryHubs": [
       "real-estate-calculator"
     ],
-    "remainingWorkItems": 4,
-    "affectedRoutes": 4,
+    "remainingWorkItems": 3,
+    "affectedRoutes": 3,
     "implementationReadyItems": []
   },
   "remaining": [
-    {
-      "id": "BTU-LOAD-FACTORS",
-      "slugs": [
-        "btu-calculator"
-      ],
-      "classification": "primary-model-verification",
-      "status": "scoped_alternative_implemented_residual_open",
-      "observedUseCase": "Vary ceiling height, insulation, climate and room/whole-house type in the captured load forms.",
-      "currentImplementation": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
-      "remaining": "Generic climate/insulation/room-type heating or cooling presets still need verified model coefficients. The entered-UA steady heating mode is available but does not establish preset or cooling-load parity.",
-      "capturedControls": [
-        "ceilingheight1",
-        "roomtype1",
-        "insulation1",
-        "climate1",
-        "roomwidth",
-        "roomlength",
-        "ceilingheight"
-      ],
-      "readyArtifact": "docs/research/remaining/btu-spec.json",
-      "sourceUrl": "https://www.calculator.net/btu-calculator.html",
-      "verification": "Captured control and current runtime registry compared; absence is a named workflow/data gap, not a conclusion that a paid service is required.",
-      "primarySources": [
-        "https://www.energystar.gov/products/room_air_conditioners",
-        "https://www.acca.org/standards/technical-manuals/manual-j",
-        "https://openstax.org/books/college-physics-2e/pages/14-5-conduction"
-      ],
-      "action": "Verify a suitable primary model before adding generic climate, insulation or room-type multipliers.",
-      "reason": "Steady heating loss now covers entered dimensions, temperatures and insulation coefficients; the captured generic presets are not verified."
-    },
     {
       "id": "HEIGHT-KHAMIS-ROCHE",
       "slugs": [
@@ -390,6 +360,29 @@
       ],
       "verifiedOn": "2026-10-10",
       "verification": "docs/validation/remaining-features.json"
+    },
+    {
+      "id": "BTU-LOAD-FACTORS",
+      "slugs": [
+        "btu-calculator"
+      ],
+      "status": "implemented_with_explicit_scope",
+      "implementedModes": [
+        "heat-loss",
+        "us-design"
+      ],
+      "scope": "US county climate references from the EPA 2019 guide revised in 2020, seven dated 2015 IECC assembly U-factor comparison profiles, manual local temperature/U inputs, rectangular room or whole-building geometry, US/SI conversion, steady heating loss and cooling heat-gain subtotal with separately entered solar/internal/latent/other loads. Not Manual J, equipment sizing, current code certification, automatically assigned insulation, or full competitor-model parity.",
+      "primarySources": [
+        "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+        "https://www.energystar.gov/sites/default/files/Design%20Temperature%20Limit%20Reference%20Guide%20%282019%20Ed%29%20-%20ENERGY%20STAR%20Single-Family%20New%20Homes_Rev11.pdf",
+        "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+        "https://www.southface.org/wp-content/uploads/2019/08/2015-IECC-Excerpt_Chap4.pdf#page=2",
+        "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+        "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
+      ],
+      "verifiedOn": "2026-10-10",
+      "verification": "docs/validation/btu-us-design.json",
+      "research": "docs/research/remaining/btu-us-design-2026-10-10.json"
     }
   ],
   "alreadySupportedWithExplicitScope": [
@@ -405,17 +398,18 @@
     }
   ],
   "validation": {
-    "report": "docs/validation/remaining-features.json",
-    "scope": "Full unit suite, typecheck, lint, production build and focused browser/API/translation checks; no deployment or claim of full competitor parity.",
-    "unitTestsPassed": 2957,
-    "unitTestFiles": 36,
-    "browserTestsPassed": 17,
+    "report": "docs/validation/btu-us-design.json",
+    "scope": "Full unit suite, typecheck, lint, production build, 26 production browser checks, complete translation coverage and six changed BTU-page metadata checks; local only.",
+    "unitTestsPassed": 2983,
+    "unitTestFiles": 37,
+    "browserTestsPassed": 26,
     "typecheck": "passed",
     "lint": "passed",
     "productionBuild": "passed",
-    "sitemapUrlsPassed": 1458,
-    "translationMessagesPerLanguage": 8970,
-    "liveRoutingApi": "passed"
+    "sitemapUrls": 1458,
+    "changedSitemapPagesPassed": 6,
+    "translationMessagesPerLanguage": 9079,
+    "previousBroaderValidation": "docs/validation/remaining-features.json"
   },
   "knownScopeLimitsNotMisreportedAsMissingControls": [
     "An entire federal/state tax return is not inferred from these calculator forms; supported calculations disclose excluded coordination and special eligibility.",
@@ -424,7 +418,7 @@
     "No invented generic BTUcoefficients, Khamis–Roche coefficients, currentWWalgorithm, or9-holeexpectedscore is presented as verified.",
     "Named Wacoal band/cup conventions for US, UK, EU, France, Australia/New Zealand and Japan, including AA where listed. Independent dress-label conversion. Published ranges only; not a universal brand or captured-chart equivalence.",
     "115 Nike chart rows across adult men, adult women, big kids, little kids and infants. US/UK/EU/JP/CN source labels; repeated labels return all matching rows; measured length rounds to next listed row. CN joined from official China guides by US/UK/EU, never inferred from JP. Missing values remain unavailable.",
-    "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+    "US county climate references from the EPA 2019 guide revised in 2020, seven dated 2015 IECC assembly U-factor comparison profiles, manual local temperature/U inputs, rectangular room or whole-building geometry, US/SI conversion, steady heating loss and cooling heat-gain subtotal with separately entered solar/internal/latent/other loads. Not Manual J, equipment sizing, current code certification, automatically assigned insulation, or full competitor-model parity.",
     "Dated 2017 NEC Table 9 numerical R/X reference for 21 sizes, copper/aluminum and PVC/aluminum/steel conduit. Balanced three-phase, 60 Hz, 75 C, up to 600 V, Class B stranded UL RHH, cradled configuration. Missing 14 AWG aluminum rejected. Does not certify current local code or ampacity.",
     "Mixed 3–20-round workflow accepts calculated 18-hole scores and user-supplied verified final 18-hole-equivalent differentials with source records. Nine-hole scores are never doubled; expected-score contributions are not generated or independently verified. Index remains unofficial.",
     "User-triggered Nominatim place lookup with explicit match selection, or coordinates; FOSSGIS/OSRM driving distance and estimated duration. No traffic or straight-line fallback. Cached and paced server requests, bounded queue, attribution, privacy disclosure, configurable providers and disable switch. Default public providers require a single process/replica; scale through a compliant shared gateway or operated provider.",
@@ -962,7 +956,7 @@
     {
       "slug": "btu-calculator",
       "routeKind": "calculator",
-      "registeredModeCount": 3,
+      "registeredModeCount": 4,
       "registeredModes": [
         {
           "id": "room",
@@ -973,13 +967,15 @@
           "algorithm": "heat-energy"
         },
         {
+          "id": "us-design",
+          "algorithm": "btu-design"
+        },
+        {
           "id": "heat-loss",
           "algorithm": "heat-loss"
         }
       ],
-      "remainingIds": [
-        "BTU-LOAD-FACTORS"
-      ],
+      "remainingIds": [],
       "fullBehaviorParity": "not_asserted_by_mode_count_or_this_bounded_review"
     },
     {
@@ -4496,13 +4492,13 @@
     }
   ],
   "sourceHashes": {
-    "src/lib/calculators/registry.ts": "e3e3a01cbf5c8172e75079354dcc0b9d72716f983191376bd50dd9b6df02877c",
+    "src/lib/calculators/registry.ts": "49f683d3b3946f52224774b85abb39b48cf21977ca2275ec67375958c0fd07ff",
     "src/lib/calculators/tax-composition.ts": "8734c8b13ddf1b2c9bea993472ff6adbb0da92704ec130fe51c706fdd7aaa048",
     "src/lib/calculators/child-credit.ts": "c2208f9927efe03521f615f6cc1facc1b60679d78f4744afebf23d9e2ea3ec3e",
     "src/lib/calculators/historical-fha.ts": "710bc57422af2d595ad8a32c6bd50c95c7cc25c9cc41c238e24e8fdc176022f3",
     "src/lib/calculators/everyday-engine.ts": "a08b542575f117a2415ac731c2a0692c3c1a15ff3569b64f6795aaef923b3b33",
-    "src/lib/calculators/remaining-definitions.ts": "e84e47f48bc5b4cf900ba0150cd26926d80e7189c02bf4bb25b553f05f802a14",
-    "src/lib/calculators/remaining-engine.ts": "21fa1e62631ea880e3fd5532cfe28175d3e5c9fc71a7c169adedf4aa79c65aed",
+    "src/lib/calculators/remaining-definitions.ts": "94bfdf540aac4e784c1fca5a7c51efc7841aa1995ca5269957296702d86fde36",
+    "src/lib/calculators/remaining-engine.ts": "44c94d9b764f77945967e49fa9d7a70073e4a33bff65663f5012b13be229d4d9",
     "src/lib/calculators/sizing.ts": "25e12eb268d535de455abf2364856be205d06bd8a18c3ff8608f084c1befc89e",
     "src/lib/calculators/nec-impedance.ts": "bdfc25cc29d06758a9c6d67ae678dabc4df53b4a5a120ba01a0c18a49d6c3106",
     "src/lib/calculators/road-route.ts": "13705bad8f9a3087416fa266df89ed5e4a2382698dde14b00e47c1e69051b1f1",
@@ -4510,7 +4506,13 @@
     "src/app/api/road-route/route.ts": "39eb8ad96a5ecfdbbc449903f37faa0364e1bdb954587d3dcf02ae1e1321d61a",
     "src/data/bra-size-conventions.json": "3a06370918cf865c4d377c7c5c6ed1dfe24a5fc27164288b6dd825154600c509",
     "src/data/shoe-size-charts.json": "08c3f8f121df92ed2836f44bc00fa7abf5eb72172680faf93c065d6e539aaea9",
-    "src/data/nec-2017-impedance.json": "f14df0c0322d32e2f9219a4196cf1d1ffd2129ae06855b3c9eafaa2be760c367"
+    "src/data/nec-2017-impedance.json": "f14df0c0322d32e2f9219a4196cf1d1ffd2129ae06855b3c9eafaa2be760c367",
+    "src/data/btu-us-climate.json": "e5c0e1d76cde4d12fa6ad8a39e298c06bd29e4def7755aa3be946838cafc4ca4",
+    "src/data/btu-envelope-presets.json": "4e0d265a8ad3dc9ada458d6dcaba2116fa24fe466aee14f184fc05fdaca8fdfa",
+    "scripts/import-btu-climate.py": "cae8a48769b62c9a319e28e9a35837a473b3e99f9b73cc2df396a046013147fb",
+    "src/lib/calculators/btu-design.ts": "5468c246df4161812affb0ff9a3803cc7bfdc861fc43079a1ed0b82677ba9558",
+    "src/lib/calculators/btu-design-definition.ts": "d10a987956837de76bd7aedf9aabfaa580aee847b2e62a64dbd045973d9862e6",
+    "src/lib/calculators/btu-design-inputs.ts": "b12bd67b6f9bceb1d73093db698f0c7a5b01d72a1a17851ab54bf5949cf1f480"
   },
   "implementedThisPass": [
     {
@@ -4556,17 +4558,23 @@
       "slugs": [
         "btu-calculator"
       ],
-      "status": "scoped_alternative_implemented_residual_open",
+      "status": "implemented_with_explicit_scope",
       "implementedModes": [
-        "heat-loss"
+        "heat-loss",
+        "us-design"
       ],
-      "scope": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+      "scope": "US county climate references from the EPA 2019 guide revised in 2020, seven dated 2015 IECC assembly U-factor comparison profiles, manual local temperature/U inputs, rectangular room or whole-building geometry, US/SI conversion, steady heating loss and cooling heat-gain subtotal with separately entered solar/internal/latent/other loads. Not Manual J, equipment sizing, current code certification, automatically assigned insulation, or full competitor-model parity.",
       "primarySources": [
+        "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+        "https://www.energystar.gov/sites/default/files/Design%20Temperature%20Limit%20Reference%20Guide%20%282019%20Ed%29%20-%20ENERGY%20STAR%20Single-Family%20New%20Homes_Rev11.pdf",
+        "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+        "https://www.southface.org/wp-content/uploads/2019/08/2015-IECC-Excerpt_Chap4.pdf#page=2",
         "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
         "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
       ],
       "verifiedOn": "2026-10-10",
-      "verification": "docs/validation/remaining-features.json"
+      "verification": "docs/validation/btu-us-design.json",
+      "research": "docs/research/remaining/btu-us-design-2026-10-10.json"
     },
     {
       "id": "NEC-IMPEDANCE",

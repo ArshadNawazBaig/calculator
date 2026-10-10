@@ -1,0 +1,18 @@
+{
+  "edition": "2015 IECC",
+  "table": "R402.1.4",
+  "verifiedOn": "2026-10-10",
+  "source": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+  "referenceCopy": "https://www.southface.org/wp-content/uploads/2019/08/2015-IECC-Excerpt_Chap4.pdf#page=2",
+  "unit": "BTU/(h·ft²·°F)",
+  "scope": "Dated maximum assembly U-factor comparison values, not measured insulation performance, automatically assigned climate zones, or current local code compliance. Only frame walls, ceilings, floors exposed to outdoor air and vertical windows are used.",
+  "profiles": [
+    {"id": "zone1", "label": "2015 reference: zone 1", "wall": 0.084, "ceiling": 0.035, "floor": 0.064, "window": 0.50},
+    {"id": "zone2", "label": "2015 reference: zone 2", "wall": 0.084, "ceiling": 0.030, "floor": 0.064, "window": 0.40},
+    {"id": "zone3", "label": "2015 reference: zone 3", "wall": 0.060, "ceiling": 0.030, "floor": 0.047, "window": 0.35},
+    {"id": "zone4", "label": "2015 reference: zone 4 except marine", "wall": 0.060, "ceiling": 0.026, "floor": 0.047, "window": 0.35},
+    {"id": "zone5", "label": "2015 reference: zone 5 and marine 4", "wall": 0.060, "ceiling": 0.026, "floor": 0.033, "window": 0.32},
+    {"id": "zone6", "label": "2015 reference: zone 6", "wall": 0.045, "ceiling": 0.026, "floor": 0.033, "window": 0.32},
+    {"id": "zone78", "label": "2015 reference: zones 7 and 8", "wall": 0.045, "ceiling": 0.026, "floor": 0.028, "window": 0.32}
+  ]
+}

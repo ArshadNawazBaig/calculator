@@ -21,7 +21,7 @@ export function CalculatorField({field,value,onChange,prefix,disabled=false,curr
   const controlProps={id,name:field.key,value,onValueChange:onChange,required:!field.optional,disabled,'aria-labelledby':`${id}-label`,'aria-describedby':describedBy};
   return <div className={`calculator-field ${field.type==='textarea'?'field-wide':''}`}>
     {field.type!=='date'&&<label id={`${id}-label`} htmlFor={id} lang={locale!=='en'&&t(field.label)===field.label?'en':undefined}>{text(field.label)}{field.unit&&<span>{text(field.unit)}</span>}</label>}
-    {field.type==='select'?<Dropdown {...controlProps} options={(field.options??[]).map(option=>({...option,label:text(option.label)}))}/>:field.type==='date'?<DatePicker {...controlProps} aria-labelledby={undefined} label={text(field.label)}/>:field.type==='textarea'?<textarea {...common} rows={4} spellCheck={false}/>:<input {...common} type={field.type} min={field.min} max={field.max} step={field.step||'any'} autoComplete="off"/>}
+    {field.type==='select'?<Dropdown {...controlProps} options={(field.options??[]).map(option=>({...option,label:field.translateOptions===false?option.label:text(option.label)}))}/>:field.type==='date'?<DatePicker {...controlProps} aria-labelledby={undefined} label={text(field.label)}/>:field.type==='textarea'?<textarea {...common} rows={4} spellCheck={false}/>:<input {...common} type={field.type} min={field.min} max={field.max} step={field.step||'any'} autoComplete="off"/>}
     {field.hint&&<p id={`${id}-hint`} lang={locale!=='en'&&field.hint&&t(field.hint)===field.hint?'en':undefined} dir="auto">{text(field.hint)}</p>}
   </div>;
 }

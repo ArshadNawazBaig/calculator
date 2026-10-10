@@ -17,7 +17,11 @@ export async function translationSource() {
   function collect(value, set, parent = '') {
     if (typeof value === 'string') { if (textProperties.has(parent)) add(set, value); }
     else if (Array.isArray(value)) value.forEach(item => collect(item, set, parent));
-    else if (value && typeof value === 'object') for (const [key, child] of Object.entries(value)) collect(child, set, key);
+    else if (value && typeof value === 'object') for (const [key, child] of Object.entries(value)) {
+      // Geographic names retain their source spelling; controls and hints still translate.
+      if (key === 'options' && value.translateOptions === false) continue;
+      collect(child, set, key);
+    }
   }
   async function sourceModule(file) {
     if (modules.has(file)) return modules.get(file);

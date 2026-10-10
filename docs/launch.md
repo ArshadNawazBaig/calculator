@@ -14,7 +14,7 @@ Add a Domain property for `finflo.org` in Google Search Console and publish the 
 
 ## Release prerequisites
 
-- Review [remaining material modes](audit/remaining-modes.json). WeightWatchers is the only unavailable whole tool. Khamis–Roche, Borg scales and generic BTU load presets retain specific unresolved data or licence requirements. Preserve honest page limitations and noindex for unavailable tools.
+- Review [remaining material modes](audit/remaining-modes.json). WeightWatchers is the only unavailable whole tool. Khamis–Roche and Borg scales retain specific unresolved data or licence requirements. US BTU county and assembly presets now have a verified, dated reference model; their steady estimates do not size equipment or establish Manual J/current-code compliance. Preserve honest page limitations and noindex for unavailable tools.
 - Review numerical, UI, accessibility, metadata and production build evidence in [verification](verification.md). Lab measurements do not establish real-user p75 Core Web Vitals.
 - Confirm the public operator identity, applicable contact/business disclosures and the actual hosting provider's logging, retention and processing arrangements. The authorized email is erushbaig@gmail.com. No company address or legal entity was supplied or invented.
 - Confirm hosting pricing, commercial use, external data reuse/attribution, runtime bindings and operational limits. The private preview does not establish a paid production account contract.
@@ -52,3 +52,5 @@ The in-memory limiter covers one Node process only. Run **one server process and
 Search responses expire from the bounded server-memory cache after 24 hours; route responses after five minutes. No calculator input database or application request-body logging is added. Hosting logs and provider retention are separate. The [Nominatim policy](https://operations.osmfoundation.org/policies/nominatim/) and [FOSSGIS policy](https://routing.openstreetmap.de/about.html) govern the defaults; the public services have no availability guarantee. The local live smoke test succeeded, but deployment configuration has not been changed or verified in this pass.
 
 The verified feature additions and remaining limitations are recorded in [the implementation update](research/remaining/implementation-update-2026-10-10.json), with [validation evidence](validation/remaining-features.json).
+
+The US-first BTU follow-up adds 3,146 county reference rows and seven dated assembly profiles, with room/whole-building geometry, unit conversion and separately entered cooling gains. See the [BTU source and scope record](research/remaining/btu-us-design-2026-10-10.json) and [validation](validation/btu-us-design.json). No deployment was performed.

@@ -44,17 +44,23 @@
       "slugs": [
         "btu-calculator"
       ],
-      "status": "scoped_alternative_implemented_residual_open",
+      "status": "implemented_with_explicit_scope",
       "implementedModes": [
-        "heat-loss"
+        "heat-loss",
+        "us-design"
       ],
-      "scope": "Steady sensible heating loss using entered envelope UA or component area/U values, ceiling-height-based volume, outdoor air changes, and indoor/outdoor design temperatures. SI/imperial inputs. Does not supply generic climate/insulation presets, a cooling load, Manual J, or equipment sizing.",
+      "scope": "US county climate references from the EPA 2019 guide revised in 2020, seven dated 2015 IECC assembly U-factor comparison profiles, manual local temperature/U inputs, rectangular room or whole-building geometry, US/SI conversion, steady heating loss and cooling heat-gain subtotal with separately entered solar/internal/latent/other loads. Not Manual J, equipment sizing, current code certification, automatically assigned insulation, or full competitor-model parity.",
       "primarySources": [
+        "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+        "https://www.energystar.gov/sites/default/files/Design%20Temperature%20Limit%20Reference%20Guide%20%282019%20Ed%29%20-%20ENERGY%20STAR%20Single-Family%20New%20Homes_Rev11.pdf",
+        "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+        "https://www.southface.org/wp-content/uploads/2019/08/2015-IECC-Excerpt_Chap4.pdf#page=2",
         "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
         "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
       ],
       "verifiedOn": "2026-10-10",
-      "verification": "docs/validation/remaining-features.json"
+      "verification": "docs/validation/btu-us-design.json",
+      "research": "docs/research/remaining/btu-us-design-2026-10-10.json"
     },
     {
       "id": "NEC-IMPEDANCE",
@@ -110,11 +116,6 @@
   ],
   "remaining": [
     {
-      "id": "BTU-LOAD-FACTORS",
-      "action": "Verify a suitable primary model before adding generic climate, insulation or room-type multipliers.",
-      "latestSourceReview": "Generic presets remain unverified; a steady heating alternative is now implemented."
-    },
-    {
       "id": "HEIGHT-KHAMIS-ROCHE",
       "action": "Obtain and verify the corrected 1995 coefficient tables, unit/age rules and method limits. The original tables have a documented erratum; publisher access offered purchase and no corrected primary dataset was obtained. Do not substitute invented coefficients.",
       "latestSourceReview": "2026-10-10: corrected 1995 publisher table remained behind access requirements; no corrected primary coefficient dataset obtained. User has no copy; do not substitute secondary or invented values."
@@ -131,5 +132,11 @@
     }
   ],
   "verification": "docs/validation/remaining-features.json",
-  "deployment": "Local implementation only; no production deployment performed."
+  "deployment": "Local implementation only; no production deployment performed.",
+  "btuFollowup": {
+    "reviewedAt": "2026-10-10T10:17:00.022795+00:00",
+    "userPreference": "United States first",
+    "research": "docs/research/remaining/btu-us-design-2026-10-10.json",
+    "validation": "docs/validation/btu-us-design.json"
+  }
 }

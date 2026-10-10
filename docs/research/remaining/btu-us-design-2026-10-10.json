@@ -1,0 +1,166 @@
+{
+  "reviewedOn": "2026-10-10",
+  "scope": "US-first room and rectangular whole-building steady heat transfer. Implements county climate references and dated assembly presets without claiming complete equipment sizing or captured competitor algorithm parity.",
+  "mode": {
+    "slug": "btu-calculator",
+    "id": "us-design",
+    "algorithm": "btu-design"
+  },
+  "climate": {
+    "edition": "2019; revised 2020-11-11",
+    "verifiedOn": "2026-10-10",
+    "source": "https://www.energystar.gov/sites/default/files/Design%20Temperature%20Limit%20Reference%20Guide%20%282019%20Ed%29%20-%20ENERGY%20STAR%20Single-Family%20New%20Homes_Rev11.pdf",
+    "sourceSha256": "813bf5e7458985ece7ceb87594ecf7feabe764f8ba90b92760dbfa24428b7b16",
+    "scope": "EPA county/territory program temperature limits, not current weather or site-specific weather-station temperatures. Geographic names retain the source edition.",
+    "columns": [
+      "county",
+      "heating99F",
+      "cooling1F",
+      "pdfPage"
+    ],
+    "count": 3146
+  },
+  "climateRegions": 55,
+  "climateMethod": "The EPA guide gives conservative county program limits for 99% heating and 1% cooling, not exact design-station observations. Preserve guide-era county names and cite the one-based PDF source page. The current EPA program distinguishes Track A from Track B; this historical guide is not represented as a universal current certification requirement.",
+  "climateGuidePage": "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+  "reproduceClimateImport": {
+    "command": "python3 scripts/import-btu-climate.py /path/to/Design-Temperature-Limit-Reference-Guide.pdf",
+    "dependency": "pdfplumber==0.11.4",
+    "checks": [
+      "Exact source SHA-256",
+      "141 PDF pages",
+      "Every table row parsed or recognized as header, footnote or wrapped-name continuation",
+      "Unique state/county keys",
+      "Valid temperatures and source-page indices"
+    ],
+    "wrappedNames": "Five name continuations merged; source hyphen glyphs normalized. No current geographic-boundary inference."
+  },
+  "envelope": {
+    "edition": "2015 IECC",
+    "table": "R402.1.4",
+    "verifiedOn": "2026-10-10",
+    "source": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+    "referenceCopy": "https://www.southface.org/wp-content/uploads/2019/08/2015-IECC-Excerpt_Chap4.pdf#page=2",
+    "unit": "BTU/(h·ft²·°F)",
+    "scope": "Dated maximum assembly U-factor comparison values, not measured insulation performance, automatically assigned climate zones, or current local code compliance. Only frame walls, ceilings, floors exposed to outdoor air and vertical windows are used.",
+    "profiles": [
+      {
+        "id": "zone1",
+        "label": "2015 reference: zone 1",
+        "wall": 0.084,
+        "ceiling": 0.035,
+        "floor": 0.064,
+        "window": 0.5
+      },
+      {
+        "id": "zone2",
+        "label": "2015 reference: zone 2",
+        "wall": 0.084,
+        "ceiling": 0.03,
+        "floor": 0.064,
+        "window": 0.4
+      },
+      {
+        "id": "zone3",
+        "label": "2015 reference: zone 3",
+        "wall": 0.06,
+        "ceiling": 0.03,
+        "floor": 0.047,
+        "window": 0.35
+      },
+      {
+        "id": "zone4",
+        "label": "2015 reference: zone 4 except marine",
+        "wall": 0.06,
+        "ceiling": 0.026,
+        "floor": 0.047,
+        "window": 0.35
+      },
+      {
+        "id": "zone5",
+        "label": "2015 reference: zone 5 and marine 4",
+        "wall": 0.06,
+        "ceiling": 0.026,
+        "floor": 0.033,
+        "window": 0.32
+      },
+      {
+        "id": "zone6",
+        "label": "2015 reference: zone 6",
+        "wall": 0.045,
+        "ceiling": 0.026,
+        "floor": 0.033,
+        "window": 0.32
+      },
+      {
+        "id": "zone78",
+        "label": "2015 reference: zones 7 and 8",
+        "wall": 0.045,
+        "ceiling": 0.026,
+        "floor": 0.028,
+        "window": 0.32
+      }
+    ]
+  },
+  "model": {
+    "envelope": "sum(area_m2 * U_W_per_m2_K) * deltaT_K",
+    "air": "airCapacity_J_per_m3_K * ACH_per_hour * volume_m3 * deltaT_K / 3600",
+    "heating": "deltaT=max(indoor-outdoor,0); total=envelope+air+enteredAdditionalHeatingLosses; no solar/internal credits",
+    "cooling": "deltaT=outdoor-indoor, including negative values; total=max(0,envelope+air+enteredSolar+enteredInternal+enteredLatent+enteredOther)",
+    "geometry": "Room uses entered exterior wall length; whole building uses full rectangular perimeter * ceiling height * conditioned stories. Subtract windows/doors from gross walls; reject openings greater than wall area. Ceiling and exposed-floor areas are entered independently; footprint ceiling follows dimension changes only while it remains a full-footprint value.",
+    "units": "US/SI form changes convert length, area, indoor/outdoor temperatures and U-values while preserving physical results. Explicit additional loads remain watts. IT BTU=1055.05585262 J.",
+    "airDefault": "1207 J/(m3 K), explicitly dry air near 21 C and sea level; editable, not altitude or humidity compensated."
+  },
+  "independentFixtures": [
+    {
+      "location": "Texas/Travis",
+      "heatingF": 28,
+      "coolingF": 99
+    },
+    {
+      "location": "Alabama/Autauga",
+      "heatingF": 24,
+      "coolingF": 96
+    },
+    {
+      "location": "Alaska/Fairbanks North Star",
+      "heatingF": -40,
+      "coolingF": 80
+    },
+    {
+      "location": "Arizona/Maricopa",
+      "heatingF": 24,
+      "coolingF": 111
+    },
+    {
+      "case": "20ft exterior wall, 8ft high, 30ft2 windows, 20ft2 door, 300ft2 ceiling, no exposed floor, zone3 reference, doorU=.35, indoor70F/outdoor28F, ACH0",
+      "formula": "[(110*.060)+(30*.35)+(20*.35)+(300*.030)]*42",
+      "expectedBtuPerHour": 1390.2
+    },
+    {
+      "case": "Same geometry, zone6 reference",
+      "expectedBtuPerHour": 1232.7
+    },
+    {
+      "case": "20ft x15ft x8ft volume, ACH=.5, delta42F, air capacity1207",
+      "expectedCubicMeters": 67.9604318208,
+      "expectedAirWatts": 265.83226317312
+    }
+  ],
+  "limits": [
+    "Dated program climate limits and 2015 code U-factor references, not current weather, local code certification or measured building properties.",
+    "County selection does not assign an IECC zone or insulation profile. Door U-value always entered; no fabricated door preset.",
+    "Steady heat transfer does not determine a time-dependent cooling design peak, equipment capacity, Manual J result or ENERGY STAR certification.",
+    "Ground, ducts, thermal storage, solar and latent effects require separately established inputs where relevant. Entering zero omits a load and does not prove it absent.",
+    "Only rectangular room/building geometry; flat exposed areas. No arbitrary poor/average/good insulation multipliers or generic climate factors."
+  ],
+  "validation": "docs/validation/btu-us-design.json",
+  "sourceHashes": {
+    "src/data/btu-us-climate.json": "e5c0e1d76cde4d12fa6ad8a39e298c06bd29e4def7755aa3be946838cafc4ca4",
+    "src/data/btu-envelope-presets.json": "4e0d265a8ad3dc9ada458d6dcaba2116fa24fe466aee14f184fc05fdaca8fdfa",
+    "scripts/import-btu-climate.py": "cae8a48769b62c9a319e28e9a35837a473b3e99f9b73cc2df396a046013147fb",
+    "src/lib/calculators/btu-design.ts": "5468c246df4161812affb0ff9a3803cc7bfdc861fc43079a1ed0b82677ba9558",
+    "src/lib/calculators/btu-design-definition.ts": "d10a987956837de76bd7aedf9aabfaa580aee847b2e62a64dbd045973d9862e6",
+    "src/lib/calculators/btu-design-inputs.ts": "b12bd67b6f9bceb1d73093db698f0c7a5b01d72a1a17851ab54bf5949cf1f480"
+  }
+}

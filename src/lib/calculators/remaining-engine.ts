@@ -1,3 +1,4 @@
+import {runBtuDesign} from './btu-design';
 import Decimal from 'decimal.js';
 import {runSizing} from './sizing';
 import {runNecImpedance} from './nec-impedance';
@@ -5,9 +6,10 @@ import {integer, num, positive, nonnegative} from './helpers';
 import {parseRows, rowNumber} from './row-data';
 import {metric as m, type Result, type Values} from './types';
 
-export const remainingAlgorithms = new Set(['golf-mixed', 'heat-loss', 'bra-regions', 'dress-regions', 'shoe-regions', 'nec-2017']);
+export const remainingAlgorithms = new Set(['btu-design', 'golf-mixed', 'heat-loss', 'bra-regions', 'dress-regions', 'shoe-regions', 'nec-2017']);
 
 export function runRemaining(op: string, v: Values, run: (algorithm: string, values: Values) => Result): Result {
+  if (op === 'btu-design') return runBtuDesign(v);
   if (op === 'nec-2017') return runNecImpedance(v);
   if (['bra-regions', 'dress-regions', 'shoe-regions'].includes(op)) return runSizing(op, v);
   if (op === 'golf-mixed') {

@@ -22,7 +22,7 @@ export function ResultTable({table,currency,currencyLabels,moneyColumns=[]}: {ta
         <thead><tr>{table.headers.map((header,index)=><th key={index} scope="col" data-money={currencyLabels&&moneyColumns.includes(index)||undefined}>{currencyLabels?currencyText(t(header),currency):t(header)}</th>)}</tr></thead>
         <tbody>{table.rows.map((row,rowIndex)=><tr key={rowIndex}>{row.map((cell,columnIndex)=>{
           const isMoney=typeof cell==='number'&&currencyLabels&&moneyColumns.includes(columnIndex);
-          return <td key={columnIndex} data-numeric={typeof cell==='number'||undefined} data-money={isMoney||undefined} title={isMoney?money(cell as number,currency,undefined,languages[locale].tag):undefined}>{typeof cell==='number'?(isMoney?amountFormatter.format(cell):number(cell,6,languages[locale].tag)):cell}</td>;
+          return <td key={columnIndex} data-numeric={typeof cell==='number'||undefined} data-money={isMoney||undefined} title={isMoney?money(cell as number,currency,undefined,languages[locale].tag):undefined}>{typeof cell==='number'?(isMoney?amountFormatter.format(cell):number(cell,6,languages[locale].tag)):table.translateColumns?.includes(columnIndex)?t(cell):cell}</td>;
         })}</tr>)}</tbody>
       </table>
     </div>

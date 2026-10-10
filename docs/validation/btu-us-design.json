@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-10T10:18:07.947589+00:00",
+  "scope": "US-first BTU implementation and local production-build verification. No deployment or claim of equipment sizing, Manual J certification, current code compliance or identical competitor behavior.",
+  "baseCommit": "938a8c3",
+  "catalog": {
+    "catalogEntries": 204,
+    "calculatorPages": 202,
+    "modes": 556,
+    "unavailableTools": 1,
+    "directoryHubs": 1
+  },
+  "referenceData": {
+    "countyRows": 3146,
+    "statesAndTerritories": 53,
+    "assemblyProfiles": 7,
+    "climateEdition": "2019; revised 2020-11-11",
+    "assemblyEdition": "2015 IECC Table R402.1.4",
+    "research": "docs/research/remaining/btu-us-design-2026-10-10.json"
+  },
+  "unitTests": {
+    "command": "npm test",
+    "files": 37,
+    "passed": 2983,
+    "failed": 0,
+    "newSuite": "tests/btu-design.test.ts",
+    "newSuiteTests": 25,
+    "coverage": [
+      "Four independent county heating/cooling source fixtures",
+      "Independent imperial envelope, air-exchange and building-volume calculations",
+      "Opening deductions and whole-building geometry",
+      "Signed cooling balance and independently entered sensible/latent gains",
+      "Invalid inputs and hidden-field isolation",
+      "US/SI physical equivalence and dependent county/area controls"
+    ]
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "NEXT_PUBLIC_SITE_URL=https://finflo.org NEXT_PUBLIC_INDEXABLE=true npm run build",
+    "status": "passed",
+    "prerenderedPages": 1472
+  },
+  "browserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/btu-design.spec.ts tests/e2e/remaining-features.spec.ts tests/e2e/languages.spec.ts",
+    "browser": "Chromium",
+    "passed": 26,
+    "failed": 0,
+    "stats": {
+      "startTime": "2026-10-10T10:14:47.014Z",
+      "duration": 40585.839,
+      "expected": 26,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "BTU county selection, unit conversion, heating/cooling calculation, validation and reset",
+      "390px mobile layout and WCAG2A/2AA/2.1AA axe checks",
+      "BTU field/result/table translations in all five translated languages",
+      "Geographic proper names remain exact source names",
+      "Spanish CSV surface labels translate while raw numerical values are preserved",
+      "Existing sizing, entered-UA heating, golf, NEC, road-routing and multilingual navigation regressions"
+    ]
+  },
+  "translationValidation": {
+    "messagesPerLocale": 9079,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0,
+    "unreadableMessages": 0,
+    "review": "Drafted locally, with targeted manual corrections to technical terminology, prose, units and named-method references. No comprehensive native-speaker review."
+  },
+  "indexing": {
+    "checkedAt": "2026-10-10T10:15:16.537Z",
+    "scope": "Local production build with canonical Host header; not a live deployment",
+    "sitemapUrls": 1458,
+    "pages": [
+      {
+        "path": "/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/btu-calculator",
+        "lang": "en",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/es/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/es/btu-calculator",
+        "lang": "es",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/fr/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/fr/btu-calculator",
+        "lang": "fr",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/de/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/de/btu-calculator",
+        "lang": "de",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/pt/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/pt/btu-calculator",
+        "lang": "pt",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      },
+      {
+        "path": "/ar/btu-calculator",
+        "status": 200,
+        "canonical": "https://finflo.org/ar/btu-calculator",
+        "lang": "ar",
+        "robots": "index, follow",
+        "hreflangLinks": 7,
+        "listedInSitemap": true
+      }
+    ]
+  },
+  "remainingWorkItems": 3,
+  "remainingReview": "docs/audit/remaining-modes.json",
+  "limitations": [
+    "Dated program climate limits and 2015 code U-factor references, not current weather, local code certification or measured building properties.",
+    "County selection does not assign an IECC zone or insulation profile. Door U-value always entered; no fabricated door preset.",
+    "Steady heat transfer does not determine a time-dependent cooling design peak, equipment capacity, Manual J result or ENERGY STAR certification.",
+    "Ground, ducts, thermal storage, solar and latent effects require separately established inputs where relevant. Entering zero omits a load and does not prove it absent.",
+    "Only rectangular room/building geometry; flat exposed areas. No arbitrary poor/average/good insulation multipliers or generic climate factors.",
+    "Khamis–Roche corrected tables, Borg permission and a complete verified WeightWatchers method remain unresolved.",
+    "Local checks do not establish live deployment or Google indexing."
+  ],
+  "finalTranslationCheck": {
+    "scope": "After correcting the German air heat-capacity label, rebuilt production and repeated the German BTU browser scenario. Earlier 26-test regression results are retained above.",
+    "passed": 1,
+    "failed": 0
+  }
+}

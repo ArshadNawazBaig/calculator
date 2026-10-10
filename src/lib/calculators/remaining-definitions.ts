@@ -1,4 +1,5 @@
 import {mode, n, s, t, type Mode} from './types';
+import {btuDesignMode} from './btu-design-definition';
 import impedanceData from '@/data/nec-2017-impedance.json';
 
 export function remainingDefinitions(): Record<string, Mode[]> {
@@ -35,7 +36,7 @@ export function remainingDefinitions(): Record<string, Mode[]> {
         {key: 'source', label: 'Differential source', default: ''},
       ],
     }], 'Combine calculated 18-hole differentials and supplied verified equivalents, then apply the differential selection table.', 'Nine-hole scores need an expected-score contribution from the applicable handicap service. Enter its final 18-hole-equivalent differential here; never double the nine-hole score. Finflo does not generate or verify that contribution. The resulting index remains an unofficial estimate without caps, exceptional-score reductions or committee adjustments.')],
-    'btu-calculator': [mode('heat-loss', 'Steady heating loss', 'heat-loss', [
+    'btu-calculator': [btuDesignMode(), mode('heat-loss', 'Steady heating loss', 'heat-loss', [
       n('length', 'Heated space length', 5, undefined, 0.01, 10000),
       n('width', 'Heated space width', 4, undefined, 0.01, 10000),
       n('height', 'Ceiling height', 2.5, undefined, 0.01, 1000),

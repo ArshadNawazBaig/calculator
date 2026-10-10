@@ -1,5 +1,14 @@
 import type {Mode,Values,Field} from './types';
 export function isFieldActive(mode:Mode,field:Field,values:Values):boolean{const key=field.key,a=mode.algorithm;
+ if(a==='btu-design'){
+  if(['state','county'].includes(key)&&values.climateInput!=='county')return false;
+  if(key==='outdoor'&&values.climateInput!=='custom')return false;
+  if(key==='stories'&&values.space!=='building')return false;
+  if(key==='exposedWallLength'&&values.space!=='room')return false;
+  if(['wallU','ceilingU','floorU','windowU'].includes(key)&&values.envelope!=='custom')return false;
+  if(key==='additionalHeating'&&values.season!=='heating')return false;
+  if(['solarGain','internalGain','latentGain','otherCooling'].includes(key)&&values.season!=='cooling')return false;
+ }
  if(a==='road-route'&&['lat1','lon1','lat2','lon2'].includes(key)&&values.locationInput==='places')return false;
  if(a==='shoe-regions'){
   if(key==='size'&&values.source==='foot')return false;

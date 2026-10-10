@@ -428,15 +428,27 @@
     ]
   },
   "btu-calculator": {
-    "description": "Estimate room cooling capacity from the ENERGY STAR floor-area guide, with entered sun, shade, occupancy and kitchen adjustments.",
+    "description": "Estimate room cooling needs, or compare steady heating loss and cooling heat gains using US county temperatures and assembly references.",
     "faqs": [
       {
         "question": "Is this a complete HVAC load calculation?",
-        "answer": "No. It is a room-sizing guide. Insulation, climate, windows, air leakage and other building factors need a fuller load assessment."
+        "answer": "The ENERGY STAR room mode is an area-based cooling guide. The US design mode uses dated county temperatures, exposed geometry and assembly U-values for steady heating loss or a cooling heat-gain subtotal. Neither is a complete Manual J assessment or equipment selection."
       },
       {
         "question": "Why do occupancy and kitchen use change the estimate?",
         "answer": "Those inputs apply the stated adjustments to the floor-area baseline to account for additional room heat under the guide's assumptions."
+      },
+      {
+        "question": "What do the US county presets represent?",
+        "answer": "They use the EPA 2019 Design Temperature Limit Reference Guide, revised in 2020. Its county limits are dated program references, not live weather or guaranteed design conditions at your address. You can enter an established local design temperature instead."
+      },
+      {
+        "question": "Does selecting a county determine my insulation?",
+        "answer": "No. Select an assembly reference separately or enter actual whole-assembly U-values. The 2015 code references are comparison assumptions, not measured performance or a statement of current local requirements."
+      },
+      {
+        "question": "Does the cooling subtotal include humidity and solar heat?",
+        "answer": "Only the solar, internal, moisture-removal and other gains you enter are included. Zero excludes a contribution. The subtotal does not model thermal storage, a time-dependent peak or equipment capacity."
       }
     ]
   },
