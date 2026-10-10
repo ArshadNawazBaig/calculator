@@ -17,7 +17,7 @@ test('dropdown supports keyboard selection, dismissal, and accessible options',a
   await expect(trigger).toContainText('Female');await expect(trigger).toBeFocused();
   await trigger.click();await page.keyboard.press('Escape');
   await expect(page.getByRole('listbox')).toHaveCount(0);await expect(trigger).toBeFocused();
-  await trigger.click();await page.mouse.click(80,150);
+  await trigger.click();await expect(page.getByRole('listbox')).toBeVisible();await page.mouse.click(80,150);
   await expect(page.getByRole('listbox')).toHaveCount(0);
 });
 
@@ -94,7 +94,9 @@ for(const width of [320,390])test(`calendar fits and responds to touch at ${widt
   await page.getByRole('button',{name:'Open calendar Date of birth',exact:true}).tap();
   await page.getByRole('button',{name:'1995 year'}).tap();
   await page.getByRole('searchbox',{name:'Search options'}).fill('200');
-  const years=await page.getByRole('dialog',{name:'year',exact:true}).boundingBox();
+  const yearMenu=page.locator('[data-anchored-popover][data-trigger="Select"]');
+  await expect(yearMenu).toHaveCSS('opacity','1');
+  const years=await yearMenu.boundingBox();
   expect(years!.height).toBeLessThanOrEqual(360);
   await page.getByRole('option',{name:'2000',exact:true}).tap();
   await page.getByRole('button',{name:'Friday, June 16, 2000',exact:true}).tap();

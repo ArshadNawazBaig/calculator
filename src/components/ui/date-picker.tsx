@@ -2,10 +2,11 @@
 import {languages} from '@/lib/i18n/config';
 import {useI18n} from "@/components/i18n/provider";
 import {useState} from "react";
-import {Button,Calendar,CalendarCell,CalendarGrid,CalendarGridBody,CalendarGridHeader,CalendarHeaderCell,CalendarHeading,CalendarMonthPicker,CalendarYearPicker,DateInput,DatePicker as AriaDatePicker,DateSegment,Dialog,FieldError,Group,I18nProvider,Label,Popover} from "react-aria-components";
+import {Button,Calendar,CalendarCell,CalendarGrid,CalendarGridBody,CalendarGridHeader,CalendarHeaderCell,CalendarHeading,CalendarMonthPicker,CalendarYearPicker,DateInput,DatePicker as AriaDatePicker,DateSegment,Dialog,FieldError,Group,I18nProvider,Label} from "react-aria-components";
 import {parseDate,today,getLocalTimeZone,type CalendarDate} from "@internationalized/date";
 import {CalendarDays,ChevronLeft,ChevronRight} from "lucide-react";
 import {Dropdown} from "./dropdown";
+import {AnchoredPopover} from "./anchored-popover";
 import styles from "./form-controls.module.css";
 
 export type DatePickerProps={
@@ -48,7 +49,7 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
         <DateInput className={styles.dateInput}>{segment=><DateSegment segment={segment} className={styles.dateSegment}/>}</DateInput>
         <Button className={styles.calendarTrigger} aria-label={t("Open calendar")}><CalendarDays size={19} aria-hidden="true"/></Button>
       </Group>
-      <Popover placement="bottom start" offset={7} className={styles.calendarPopover}>
+      <AnchoredPopover placement="bottom start" offset={7} className={styles.calendarPopover}>
         <Dialog className={styles.calendarDialog}>
           <Calendar className={styles.calendar}>
             <CalendarHeading className="sr-only"/>
@@ -65,7 +66,7 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
           </Calendar>
           <div className={styles.calendarFooter}><span>{new Intl.DateTimeFormat(languages[locale].tag,{year:"numeric",month:"2-digit",day:"2-digit",calendar:"gregory"}).formatToParts(new Date(Date.UTC(2000,10,22))).filter(part=>["day","month","year","literal"].includes(part.type)).map(part=>part.type==='literal'?part.value:part.type==='day'?'DD':part.type==='month'?'MM':'YYYY').join('')}</span><div><Button slot={null} className={styles.calendarAction} onPress={chooseToday}>{t("Today")}</Button><Button slot={null} className={styles.calendarAction} isDisabled={!value} onPress={()=>{onValueChange("");setOpen(false);}}>{t("Clear")}</Button></div></div>
         </Dialog>
-      </Popover>
+      </AnchoredPopover>
       <FieldError className={styles.error}/>
     </AriaDatePicker>
   </I18nProvider>;

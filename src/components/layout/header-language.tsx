@@ -8,7 +8,8 @@ import {usePreferences} from '@/components/i18n/preferences-provider';
 import {CurrencySelect} from '@/components/i18n/currency-select';
 import {countryCurrencies,isCountry} from '@/lib/i18n/preferences';
 import {Dropdown} from '@/components/ui/dropdown';
-import {Button,Dialog,DialogTrigger,Popover} from "react-aria-components";
+import {Button,Dialog,DialogTrigger} from "react-aria-components";
+import {AnchoredPopover} from "@/components/ui/anchored-popover";
 import {Check,ChevronDown,Languages} from "lucide-react";
 import styles from "./header.module.css";
 
@@ -26,7 +27,7 @@ export function HeaderLanguage(){
     <Button isDisabled={!hydrated} className={styles.languageTrigger} aria-label={t('Language: {name}',{name:languages[locale].name})}>
       <Languages size={17} aria-hidden="true"/><span>{locale.toUpperCase()}</span><span className={styles.currencyCode}>· {currency}</span><ChevronDown size={12} aria-hidden="true"/>
     </Button>
-    <Popover placement="bottom end" offset={10} className={styles.languagePopover}>
+    <AnchoredPopover placement="bottom end" offset={10} className={styles.languagePopover}>
       <Dialog aria-label={t('Website language')} className={styles.languageDialog}>
         <p>{t('Website language')}</p>
         <nav aria-label={t('Website language')}>{locales.map(language=><a key={language} className={styles.languageOption}
@@ -45,6 +46,6 @@ export function HeaderLanguage(){
           {custom&&<button type="button" className={styles.resetPreferences} onClick={reset}>{t('Use language defaults')}</button>}
         </div>
       </Dialog>
-    </Popover>
+    </AnchoredPopover>
   </DialogTrigger>;
 }
