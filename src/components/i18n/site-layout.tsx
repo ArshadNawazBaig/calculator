@@ -12,7 +12,8 @@ export function localizedLayout(locale: Locale) {
   return async function LocalizedLayout({children}: {children: ReactNode}) {
     const messages = await getDictionary(locale), t = translator(messages);
     return <html lang={locale} dir={languages[locale].direction} className={`${siteFont.variable} ${locale === 'ar' ? arabicFont.variable : ''} ${locale === 'hi' ? hindiFont.variable : ''}`}>
-      <body><LanguageProvider locale={locale} messages={messages}>
+      {/* Extensions such as Grammarly add body attributes before hydration. Descendant mismatches still warn. */}
+      <body suppressHydrationWarning><LanguageProvider locale={locale} messages={messages}>
         <a className="skip-link" href="#main">{t('Skip to content')}</a>
         <Header/><NetworkStatus/><main id="main">{children}</main><Footer/>
       </LanguageProvider></body>
