@@ -78,3 +78,9 @@ Engine-owned composite answers such as matrix values, coordinates, approximate f
 Final-grade modes retain the equation result internally but present an unattainable-target message when it exceeds 100%, alongside the highest possible overall grade. Already-secured targets have a zero minimum score. All new messages are translated. Percentage change, return, markup and similar ratios are not globally capped at 100%; valid results can exceed it. The two-event probability mode removes floating-point excursions outside its validated zero-to-one domain.
 
 This follow-up passed 3,006 unit tests, 14 production browser checks, TypeScript, lint and the production build. Translation coverage is 9,654 messages per translated language. See [result formatting validation](validation/result-formatting.json). No deployment was performed.
+
+## Mobile calculator exports
+
+CSV exports keep a usable download link, with native file sharing offered when supported. The PDF action creates a printable report locally, including metrics, notes and complete tables. It uses the page’s fonts and browser text shaping for Hindi and Arabic, and matches localized result and currency precision. PDF pages contain rendered images; CSV remains available for machine-readable data. Desktop printing remains available.
+
+This follow-up passed 3,012 unit tests, 16 mobile browser checks, 15 desktop regression checks, TypeScript, lint and the production build. Translation coverage is 9,661 messages per translated language. See [mobile export validation](validation/mobile-exports.json) for coverage and the limits of browser emulation. No deployment was performed.

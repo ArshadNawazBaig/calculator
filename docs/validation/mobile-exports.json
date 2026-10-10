@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-10T16:10:37.214981+00:00",
+  "scope": "Shared calculator CSV downloads, native file sharing and local PDF generation for mobile Safari and Chrome. Local production build; not deployed.",
+  "baseCommit": "18077d2",
+  "changes": [
+    "CSV download anchors are attached to the document. Blob URLs remain usable while the save link is visible, with delayed cleanup after replacement or unmount.",
+    "CSV and PDF retain an explicit Download file link if automatic downloads are blocked. Save or share is offered only when native file sharing supports the generated file; sharing runs from a fresh user tap.",
+    "PDF generation runs locally and is loaded on demand. It includes result metrics, example/current-result labeling, explanatory notes and all table rows, with repeated table headers and support for long cells.",
+    "PDF tables match selected currency precision and localized numeric formatting; CSV numeric cells remain ungrouped for spreadsheet import. Both retain the existing result display precision.",
+    "Mobile touch devices use the real PDF export. Desktop Print is retained and has a visible PDF fallback. Existing private-input export exclusions remain in place.",
+    "The seven new interface messages are translated into all seven non-English languages."
+  ],
+  "dependency": {
+    "package": "pdf-lib",
+    "version": "1.17.1",
+    "license": "MIT",
+    "loading": "Lazy client import on PDF action"
+  },
+  "unitTests": {
+    "command": "npm test -- --maxWorkers=2",
+    "files": 41,
+    "passed": 3012,
+    "failed": 0,
+    "note": "Initial default-concurrency runs timed out in an existing translation-rendering test. The complete suite passed with two workers; no unrelated test behavior was changed."
+  },
+  "typecheck": "passed",
+  "eslint": "passed",
+  "productionBuild": {
+    "command": "npm run build",
+    "status": "passed",
+    "prerenderedPages": 1957
+  },
+  "translationValidation": {
+    "messagesPerTranslatedLocale": 9661,
+    "locales": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar",
+      "hi",
+      "tl"
+    ],
+    "missing": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0
+  },
+  "mobileBrowserTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test --config playwright.exports.config.ts",
+    "projects": [
+      "Pixel 7 / Chromium",
+      "iPhone 13 / WebKit"
+    ],
+    "stats": {
+      "startTime": "2026-10-10T16:08:08.738Z",
+      "duration": 38257.11,
+      "expected": 16,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "coverage": [
+      "Complete CSV schedule and persistent retry URL",
+      "Valid multipage PDF with native printing unavailable",
+      "Native file sharing with fresh user activation; cancellation",
+      "Blocked sharing falls back to download",
+      "Blocked automatic downloads fall back to explicit save links",
+      "PDF generation failure can be retried",
+      "Hindi and Arabic PDF titles, downloads and narrow layouts"
+    ]
+  },
+  "desktopRegressionTests": {
+    "command": "TEST_URL=http://127.0.0.1:3200 npx playwright test tests/e2e/result-formatting.spec.ts tests/e2e/calculator-results.spec.ts tests/e2e/currency-preferences.spec.ts tests/e2e/desktop-exports.spec.ts --output /tmp/finflo-export-desktop-results",
+    "stats": {
+      "startTime": "2026-10-10T16:09:05.771Z",
+      "duration": 35982.966,
+      "expected": 15,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "visualReview": [
+    "Hindi and Arabic PDFs with correctly rendered script and direction",
+    "First and last pages of a 360-payment loan schedule; 13 PDF pages, including payment 360 and final zero balance",
+    "Mobile export controls and retained download link"
+  ],
+  "accessibility": {
+    "mobileExportToolbarAxeViolations": 0,
+    "mobileHorizontalOverflow": false
+  },
+  "limitations": [
+    "Browser tests use desktop browser engines with mobile emulation. Native OS share menus are mocked to verify activation, file handoff, cancellation and fallback. No physical phone was connected.",
+    "PDF pages use browser-rendered images to preserve complex scripts. They are printable but do not contain selectable text; CSV provides machine-readable data. The PDF contains result metrics, notes and full tables; the existing desktop page print retains charts and article content."
+  ],
+  "references": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL_static",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share",
+    "https://pdf-lib.js.org/docs/api/classes/pdfdocument"
+  ],
+  "deployment": "Not deployed."
+}
