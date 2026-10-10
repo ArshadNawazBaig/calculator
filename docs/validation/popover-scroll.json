@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-10T11:44:56.568Z",
+  "scope": "Local production build from the current working tree. This change has not been deployed by this task.",
+  "checks": {
+    "typecheck": "passed",
+    "eslint": "passed",
+    "productionBuild": "passed",
+    "browserRegressionTests": 17,
+    "browser": "Chromium, including touch-emulated mobile viewports"
+  },
+  "coverage": [
+    "Dropdowns, calendars and language/country/currency menus keep root scrolling enabled without changing page width, padding or scroll position.",
+    "Searchable menus scroll their option list and expose combobox semantics with keyboard selection.",
+    "Outside clicks and Escape dismiss nested menus in order and restore focus.",
+    "Page scrolling dismisses anchored menus; full search retains its modal scroll lock.",
+    "Calendar touch interaction at 320px and 390px; English and Arabic RTL menus; automated accessibility checks.",
+    "Currency selection, persistence, calculations and CSV output remain functional."
+  ],
+  "suites": [
+    "tests/e2e/form-controls.spec.ts",
+    "tests/e2e/popover-scroll.spec.ts",
+    "tests/e2e/currency-preferences.spec.ts"
+  ]
+}

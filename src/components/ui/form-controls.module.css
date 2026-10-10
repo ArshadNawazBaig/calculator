@@ -22,9 +22,6 @@
 .option>span { overflow-wrap: anywhere; }
 .optionSearch { display: flex; align-items: center; gap: 8px; margin: 7px 7px 0; padding: 8px 9px; border: 1px solid var(--color-line-strong); border-radius: 6px; color: var(--color-muted); flex-shrink: 0; }
 .optionSearch[data-focus-within] { border-color: var(--color-brand); }
-.searchablePopover { display: block; overflow-y: auto; overscroll-behavior: contain; }
-.searchablePopover .optionList { overflow: visible; }
-.searchablePopover .optionSearch { position: sticky; top: 7px; z-index: 1; background: white; box-shadow: 0 0 0 7px white; }
 .optionSearch input { flex: 1; width: 100%; min-width: 0; font: inherit; font-size: 14px; line-height: 1.5; padding: 0; border: 0; color: var(--color-ink); background: none; outline: none; }
 .optionSearch input::-webkit-search-cancel-button { display: none; }
 .optionSearch button { display: grid; place-items: center; border: 0; background: none; color: var(--color-muted); padding: 2px; }

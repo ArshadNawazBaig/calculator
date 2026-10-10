@@ -33,7 +33,8 @@ for (const locale of ['en', 'ar']) test(`${locale}: dropdowns and nested prefere
   await expect(page.locator('#preferred-country')).toBeVisible();
   await expectPageUnchanged(page, headerBefore);
   await page.locator('#preferred-country').click();
-  await expect(page.getByRole('searchbox')).toBeVisible();
+  await expect(page.locator('[data-anchored-popover] input[role="combobox"]')).toBeVisible();
+  await expect(page.locator('[data-anchored-popover][data-trigger="Select"]')).toHaveCSS('opacity', '1');
   await expectPageUnchanged(page, headerBefore);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('listbox')).toHaveCount(0);
@@ -59,7 +60,7 @@ test('calendar and its year menu preserve scrolling and dismiss in order', async
   await expect(page.getByRole('grid')).toBeVisible();
   await expectPageUnchanged(page, before);
   await page.getByRole('button', {name: '1995 year'}).click();
-  await expect(page.getByRole('searchbox')).toBeVisible();
+  await expect(page.getByRole('combobox', {name: 'Search options'})).toBeVisible();
   await expectPageUnchanged(page, before);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('grid')).toBeVisible();

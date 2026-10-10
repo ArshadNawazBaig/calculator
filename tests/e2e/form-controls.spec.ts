@@ -26,7 +26,7 @@ test('calendar supports searchable years, leap days, and nested keyboard dismiss
   const trigger=page.getByRole('button',{name:'Open calendar Date of birth',exact:true});
   await trigger.click();await accessible(page);
   await page.getByRole('button',{name:'1995 year'}).click();await accessible(page);
-  const search=page.getByRole('searchbox',{name:'Search options'});
+  const search=page.getByRole('combobox',{name:'Search options'});
   await search.fill('zzzz');await expect(page.getByText('No matching options')).toBeVisible();
   await search.fill('2000');await expect(page.getByRole('option')).toHaveCount(1);
   await search.press('ArrowDown');await search.press('Enter');
@@ -93,7 +93,7 @@ for(const width of [320,390])test(`calendar fits and responds to touch at ${widt
   await expect(page.locator('input[name="birth"]').first()).toHaveValue('1995-06-16');
   await page.getByRole('button',{name:'Open calendar Date of birth',exact:true}).tap();
   await page.getByRole('button',{name:'1995 year'}).tap();
-  await page.getByRole('searchbox',{name:'Search options'}).fill('200');
+  await page.getByRole('combobox',{name:'Search options'}).fill('200');
   const yearMenu=page.locator('[data-anchored-popover][data-trigger="Select"]');
   await expect(yearMenu).toHaveCSS('opacity','1');
   const years=await yearMenu.boundingBox();

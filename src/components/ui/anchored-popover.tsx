@@ -12,11 +12,11 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
   const isOpen = state?.isOpen;
   // Escape should also cancel a menu before its opening frames have finished.
   const cancelOpening = useEffectEvent((event: KeyboardEvent) => {
-      if (event.key === "Escape" && !props.isKeyboardDismissDisabled) {
-        event.preventDefault();
-        event.stopPropagation();
-        state?.close();
-      }
+    if (event.key === "Escape" && !props.isKeyboardDismissDisabled) {
+      event.preventDefault();
+      event.stopPropagation();
+      state?.close();
+    }
   });
   useEffect(() => {
     if (!isOpen) return;
