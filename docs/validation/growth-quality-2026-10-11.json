@@ -1,0 +1,85 @@
+{
+  "validatedAt": "2026-10-11T17:37:55.733Z",
+  "scope": "Local production release checks. Live verification follows the pushed commit and is not inferred from local success.",
+  "previousDeployedCommit": "400f8f0",
+  "checks": {
+    "typecheck": "passed",
+    "eslint": "passed",
+    "unit": {
+      "files": 44,
+      "passed": 3030,
+      "failed": 0,
+      "includes": "Seven independent editorial example cases and five analytics privacy-boundary cases"
+    },
+    "translation": {
+      "sourceMessagesPerSecondaryLanguage": 9687,
+      "secondaryLanguages": 7,
+      "missing": 0,
+      "numericChanges": 0,
+      "formulaChanges": 0,
+      "placeholderErrors": 0
+    },
+    "productionBuild": "passed",
+    "desktopBrowser": {
+      "passed": 16,
+      "failed": 0,
+      "files": [
+        "growth-quality",
+        "seo-discovery",
+        "languages",
+        "desktop-exports"
+      ]
+    },
+    "sitemap": {
+      "pages": 1944,
+      "internalPaths": 1952,
+      "errors": 0,
+      "duplicateTitles": [],
+      "duplicateDescriptions": [],
+      "report": "growth-seo-crawl-2026-10-11.json"
+    },
+    "sources": {
+      "total": 188,
+      "access_unverified": 28,
+      "reachable": 154,
+      "request_unverified": 6,
+      "report": "source-links-after-2026-10-11.json"
+    },
+    "mobileBrowser": {
+      "passed": 16,
+      "failed": 0,
+      "projects": [
+        "android-chromium",
+        "iphone-webkit"
+      ],
+      "scope": "CSV/PDF, native sharing, blocked automatic downloads, retries, and Hindi/Arabic exports"
+    }
+  },
+  "research": {
+    "catalogPagesMapped": 203,
+    "competitorEvidencePages": 203,
+    "queryCandidates": 46,
+    "clusters": 13,
+    "unassignedAustralianQueries": 3,
+    "measuredDemand": false
+  },
+  "editorial": {
+    "reviewedSharedMessages": 30,
+    "targetedCorrections": 36,
+    "fullNativeReview": false
+  },
+  "initialFindings": [
+    "A legacy test fixture referenced the former Next RMD deadline label; the expected date remains unchanged and the label now reads Second RMD deadline.",
+    "Running the numerical suite concurrently with the full production build caused 10 timeouts. A standalone rerun and the final sequential verification both passed all 3030 cases.",
+    "The Canadian mortgage browser assertion initially omitted the unit in the accessible name; the assertion now checks the actual spinbutton name.",
+    "Final translation verification exposed inconsistent BMI guide title keys during cleanup; the title and seven translations were reconciled and the production build repeated."
+  ],
+  "externalDependencies": [
+    "Search Console/Bing connection or exports for verified submission, indexing and growth reports",
+    "Optional analytics site token and real traffic for visitor statistics; tracking remains off",
+    "CrUX API access and an available field record for field Core Web Vitals",
+    "Fluent and qualified reviewers for comprehensive language and method review",
+    "Account evidence for hosting-plan log retention and any additional business disclosures"
+  ],
+  "measurement": "measurement-readiness-2026-10-11.json"
+}

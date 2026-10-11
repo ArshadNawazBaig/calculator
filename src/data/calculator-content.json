@@ -36,7 +36,8 @@
       {
         "title": "Choosing elapsed days or business days",
         "paragraphs": [
-          "Elapsed calendar days and business days answer different scheduling questions. Select the mode that matches whether weekends and entered holidays should be excluded. Check the treatment of start and end dates before comparing a duration with a deadline. A custom holiday list only accounts for the dates supplied; it does not automatically establish every local workplace or legal-calendar rule."
+          "Elapsed calendar days and business days answer different scheduling questions. Select the mode that matches whether weekends and entered holidays should be excluded. Check the treatment of start and end dates before comparing a duration with a deadline. A custom holiday list only accounts for the dates supplied; it does not automatically establish every local workplace or legal-calendar rule.",
+          "The basic business-day modes use entered holidays. The custom modes can also apply selected holiday presets, observation rules and recurring dates. Check which rules are enabled; a preset does not establish every workplace or legal deadline."
         ]
       }
     ]
@@ -1206,7 +1207,8 @@
       {
         "title": "Comparing Canadian mortgage scenarios",
         "paragraphs": [
-          "Check the interest convention before comparing a Canadian mortgage estimate with another loan calculator. The quoted rate and the payment frequency work together to determine the periodic payment. Also distinguish the amortization period from a lender's current mortgage term: a projection over the entire amortization assumes the entered rate continues, rather than predicting the rate available at renewal."
+          "Check the interest convention before comparing a Canadian mortgage estimate with another loan calculator. The quoted rate and the payment frequency work together to determine the periodic payment. Also distinguish the amortization period from a lender's current mortgage term: a projection over the entire amortization assumes the entered rate continues, rather than predicting the rate available at renewal.",
+          "The years input is the full amortization period, not the current mortgage contract term. This monthly-payment model does not calculate renewal rates, qualification, prepayment penalties or financed mortgage-insurance premiums. Entered ownership costs are separate from the amount borrowed."
         ]
       }
     ]
@@ -1227,7 +1229,8 @@
       {
         "title": "Repayment and interest-only mortgages",
         "paragraphs": [
-          "A repayment mortgage gradually reduces the amount owed through scheduled payments. In the interest-only comparison, paying the interest does not by itself repay the original loan. Compare the balance left at the end alongside the monthly payment. A smaller monthly figure can therefore leave a much larger final obligation, and changing the assumed rate changes both comparisons."
+          "A repayment mortgage gradually reduces the amount owed through scheduled payments. In the interest-only comparison, paying the interest does not by itself repay the original loan. Compare the balance left at the end alongside the monthly payment. A smaller monthly figure can therefore leave a much larger final obligation, and changing the assumed rate changes both comparisons.",
+          "For a loan of 250,000 at a constant 5% annual rate, the modeled interest-only payment is 1,041.67 per month and 250,000 remains to repay. Product fees, early repayment charges, purchase taxes and future rate changes are excluded unless explicitly entered in a supported field."
         ]
       }
     ]
@@ -1709,7 +1712,8 @@
       {
         "title": "Comparing refinancing over your own time horizon",
         "paragraphs": [
-          "A refinance can lower the payment while adding closing costs or extending repayment. Compare the existing and replacement loans over the same period, especially if you expect to move or repay early. The common-horizon mode helps avoid comparing one loan's full lifetime with only part of another. Review the remaining balances together with interest and upfront costs."
+          "A refinance can lower the payment while adding closing costs or extending repayment. Compare the existing and replacement loans over the same period, especially if you expect to move or repay early. The common-horizon mode helps avoid comparing one loan's full lifetime with only part of another. Review the remaining balances together with interest and upfront costs.",
+          "For example, 3,000 in upfront costs divided by a 100 monthly payment reduction gives a simple break-even of 30 months. This does not establish total savings: compare the remaining loan balances at the same date, especially when extending the term."
         ]
       }
     ]
@@ -1824,7 +1828,7 @@
     ]
   },
   "compound-interest-calculator": {
-    "description": "Compare equivalent interest rates and compounding frequencies, then project growth with regular deposits and optional contribution increases.",
+    "description": "Project compound growth with regular deposits, then compare equivalent interest rates and contribution schedules.",
     "faqs": [
       {
         "question": "Why do equivalent nominal rates differ?",
@@ -1839,7 +1843,8 @@
       {
         "title": "Understanding compounding and regular deposits",
         "paragraphs": [
-          "Compound interest applies growth to a balance that already includes earlier interest. Adding regular deposits introduces a separate source of growth, so compare contributed principal with the ending balance. Compounding frequency and deposit frequency describe different events and should not be confused. Use equivalent-rate modes when comparing quoted rates with different conventions, and keep the same time horizon for a fair comparison."
+          "Compound interest applies growth to a balance that already includes earlier interest. Adding regular deposits introduces a separate source of growth, so compare contributed principal with the ending balance. Compounding frequency and deposit frequency describe different events and should not be confused. Use equivalent-rate modes when comparing quoted rates with different conventions, and keep the same time horizon for a fair comparison.",
+          "With 1,000 initially, deposits of 100 at each month end, and a 12% nominal annual rate compounded monthly, the balance after 12 months is 2,395.08. Deposits total 2,200 and interest is 195.08. This example assumes no tax, fees or inflation adjustment."
         ]
       }
     ]
@@ -3540,7 +3545,9 @@
       {
         "title": "Choosing the correct percentage question",
         "paragraphs": [
-          "A percentage of a number, a percentage change, and a percentage difference use different comparison bases. Select the mode that matches the wording of the problem before entering values. When reversing a percentage change, work from the relationship to the original amount rather than subtracting the same percentage from the final amount. The displayed formula shows which value serves as the base."
+          "A percentage of a number, a percentage change, and a percentage difference use different comparison bases. Select the mode that matches the wording of the problem before entering values. When reversing a percentage change, work from the relationship to the original amount rather than subtracting the same percentage from the final amount. The displayed formula shows which value serves as the base.",
+          "A rate rising from 5% to 6% increases by 1 percentage point and by 20% relative to the original rate. Percentage points subtract the two rates; percentage change divides that difference by the original rate.",
+          "If an item costs 80 after a 20% discount, the original price was 100: divide 80 by 0.8. Adding 20% to 80 gives 96, because that percentage uses a different base."
         ]
       }
     ]

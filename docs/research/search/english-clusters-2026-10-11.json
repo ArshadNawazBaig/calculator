@@ -1,0 +1,410 @@
+{
+  "reviewedOn": "2026-10-11",
+  "method": "English public search queries and first-party competitor pages, combined with the current Finflo registry. Search results were not controlled for searcher location and are not a country-specific rank report. Query phrases are intent candidates, not verified search volumes. No traffic, difficulty, revenue or citation metrics were available.",
+  "marketOrder": [
+    {
+      "market": "International English",
+      "reason": "Percentage, arithmetic, dates, units and compound-growth scenarios can serve shared needs without inventing local tax rules."
+    },
+    {
+      "market": "United States",
+      "reason": "Existing mortgage, tax and retirement models explicitly implement US assumptions. Prioritize accuracy and year maintenance before expansion."
+    },
+    {
+      "market": "Canada and United Kingdom",
+      "reason": "Existing dedicated mortgage pages have distinct methods. Improve their regional explanations and references before proposing new pages."
+    },
+    {
+      "market": "Australia",
+      "reason": "Moneysmart is a relevant public competitor. Finflo has no independently verified Australian tax or home-loan product model; validate demand and scope before expansion."
+    }
+  ],
+  "clusters": [
+    {
+      "id": "compound-growth",
+      "priority": "P1",
+      "market": "International English",
+      "primary": "compound-interest-calculator",
+      "supporting": [
+        "interest-calculator",
+        "savings-calculator",
+        "investment-calculator",
+        "future-value-calculator",
+        "simple-interest-calculator"
+      ],
+      "queries": [
+        "compound interest calculator",
+        "compound interest calculator with monthly contributions",
+        "compound interest formula with deposits",
+        "nominal vs effective interest rate"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.calculator.net/compound-interest-calculator.html",
+          "observation": "The initial tool converts compounding rates and directs growth calculations to a separate interest page."
+        },
+        {
+          "url": "https://www.thecalculatorsite.com/finance/calculators/compoundinterestcalculator.php",
+          "observation": "Exposes deposits, withdrawals and compounding frequencies with named authorship."
+        }
+      ],
+      "opportunity": "Keep the growth-first default. Explain contribution timing with one checked example. Assign generic compound-growth intent to this URL; interest covers tax and dual contribution streams, savings covers deposit timing, and investment covers target solving.",
+      "confidence": "High for observed intent differences; demand and ranking potential unmeasured",
+      "effort": "Small content batch",
+      "validation": "Independently verify the example and both timing modes; check existing URLs and internal links."
+    },
+    {
+      "id": "us-mortgage",
+      "priority": "P1",
+      "market": "United States",
+      "primary": "mortgage-calculator",
+      "supporting": [
+        "mortgage-amortization-calculator",
+        "mortgage-payoff-calculator",
+        "down-payment-calculator",
+        "house-affordability-calculator"
+      ],
+      "queries": [
+        "mortgage calculator with taxes and insurance",
+        "mortgage extra payment calculator",
+        "mortgage amortization schedule",
+        "how much house can I afford"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.calculator.net/mortgage-calculator.html",
+          "observation": "Existing catalog audit records ownership costs, amortization and extra-payment controls."
+        },
+        {
+          "url": "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/",
+          "observation": "Separates principal and interest from mortgage insurance, escrow and other closing disclosures."
+        }
+      ],
+      "opportunity": "Explain total ownership cost and extra-principal treatment beside the existing schedule. Keep payoff, schedule and affordability intents distinct; avoid new variations of the main mortgage page.",
+      "confidence": "High for product and content scope",
+      "effort": "Small",
+      "validation": "Compare the principal-and-interest example with the annuity formula and confirm zero-rate behavior."
+    },
+    {
+      "id": "canadian-mortgage",
+      "priority": "P1",
+      "market": "Canada",
+      "primary": "canadian-mortgage-calculator",
+      "supporting": [],
+      "queries": [
+        "Canadian mortgage calculator",
+        "Canadian mortgage semi annual compounding",
+        "mortgage term vs amortization Canada"
+      ],
+      "competitors": [
+        {
+          "url": "https://itools-ioutils.fcac-acfc.gc.ca/MC-CH/MortgageCalculator.aspx",
+          "observation": "Distinguishes term from amortization and includes prepayment/payment-frequency inputs."
+        },
+        {
+          "url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/renew-mortgage.html",
+          "observation": "Explains renewal and the difference between the current agreement and full repayment period."
+        }
+      ],
+      "opportunity": "Label the years input as amortization. Replace generic US references with FCAC references and state that renewals, financed insurance premiums and lender eligibility are not calculated.",
+      "confidence": "High",
+      "effort": "Small",
+      "validation": "Check the monthly rate against nominal semiannual conversion and verify CAD presentation."
+    },
+    {
+      "id": "uk-mortgage",
+      "priority": "P1",
+      "market": "United Kingdom",
+      "primary": "mortgage-calculator-uk",
+      "supporting": [],
+      "queries": [
+        "UK mortgage repayment calculator",
+        "interest only mortgage calculator UK",
+        "mortgage repayment vs interest only"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-repayment-calculator",
+          "observation": "Covers repayment and interest-only estimates and the effect of changed rates."
+        },
+        {
+          "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/ways-of-repaying-an-interest-only-mortgage",
+          "observation": "Explains the outstanding capital and need for a repayment plan."
+        }
+      ],
+      "opportunity": "Use UK references and clarify that the entered rate is fixed for the scenario, not a predicted renewal rate. Make the outstanding capital in interest-only mode explicit.",
+      "confidence": "High",
+      "effort": "Small",
+      "validation": "Verify an independent interest-only example and GBP output."
+    },
+    {
+      "id": "refinance",
+      "priority": "P1",
+      "market": "United States / generic fixed-loan comparison",
+      "primary": "refinance-calculator",
+      "supporting": [
+        "loan-calculator",
+        "payment-calculator",
+        "amortization-calculator"
+      ],
+      "queries": [
+        "refinance break even calculator",
+        "refinance calculator remaining balance",
+        "loan payment calculator with schedule"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.calculator.net/refinance-calculator.html",
+          "observation": "Presents current-versus-refinanced loan comparisons."
+        }
+      ],
+      "opportunity": "Explain why payment-only break-even can differ from the existing common-horizon comparison. Keep both ending balances and upfront costs visible.",
+      "confidence": "High for implemented distinction",
+      "effort": "Small",
+      "validation": "Check equal-loan and zero-savings cases; retain existing cash-flow tests."
+    },
+    {
+      "id": "percentages",
+      "priority": "P1",
+      "market": "International English",
+      "primary": "percent-calculator",
+      "supporting": [
+        "percent-off-calculator",
+        "discount-calculator",
+        "percent-error-calculator",
+        "margin-calculator",
+        "ratio-calculator"
+      ],
+      "queries": [
+        "percentage calculator",
+        "percentage change calculator",
+        "percentage difference calculator",
+        "reverse percentage calculator",
+        "percentage points vs percent change"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.calculatorsoup.com/calculators/algebra/percent-change-calculator.php",
+          "observation": "Provides dedicated percentage-change explanations and a calculation tool."
+        },
+        {
+          "url": "https://www.calculatorsoup.com/calculators/percent-calculators.php",
+          "observation": "Separates common percentage intents in a directory."
+        }
+      ],
+      "opportunity": "Add a short percentage-points comparison and reverse-discount example to the existing multi-mode page. Map retail savings to percent-off, chained reductions to discount and measurement error to percent-error.",
+      "confidence": "High",
+      "effort": "Small",
+      "validation": "Check 80 after a 20 percent discount returns 100; distinguish 5 to 6 percent as one point and 20 percent relative change."
+    },
+    {
+      "id": "bmi",
+      "priority": "P1",
+      "market": "International English; CDC reference population",
+      "primary": "bmi-calculator",
+      "supporting": [
+        "healthy-weight-calculator",
+        "body-fat-calculator",
+        "lean-body-mass-calculator"
+      ],
+      "queries": [
+        "BMI calculator kg cm",
+        "adult BMI calculator",
+        "child BMI percentile calculator",
+        "BMI formula and limitations"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.cdc.gov/bmi/adult-calculator/index.html",
+          "observation": "Official adult screening calculator."
+        },
+        {
+          "url": "https://www.cdc.gov/bmi/child-teen-calculator/calculator.html",
+          "observation": "Uses age- and sex-specific child/teen percentiles and explains interpretation limits."
+        }
+      ],
+      "opportunity": "Preserve adult/child separation, state CDC scope and ages, and improve the translations of screening and clinician interpretation. Avoid diagnostic or weight-loss promises.",
+      "confidence": "High",
+      "effort": "Medium, editorial review",
+      "validation": "Check adult unit equivalence and existing pediatric LMS/extended reference fixtures."
+    },
+    {
+      "id": "energy-estimates",
+      "priority": "P2",
+      "market": "International English; adult model scope",
+      "primary": "tdee-calculator",
+      "supporting": [
+        "bmr-calculator",
+        "calorie-calculator",
+        "macro-calculator",
+        "protein-calculator",
+        "carbohydrate-calculator",
+        "fat-intake-calculator"
+      ],
+      "queries": [
+        "TDEE calculator activity level",
+        "BMR vs TDEE calculator",
+        "maintenance calorie calculator"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.omnicalculator.com/health/tdee",
+          "observation": "Offers a TDEE calculator with explanatory health context."
+        }
+      ],
+      "opportunity": "Differentiate resting expenditure, maintenance expenditure and macro allocation. Use assumptions rather than weight-loss promises as the distinguishing explanation.",
+      "confidence": "Medium; demand unmeasured",
+      "effort": "Medium",
+      "validation": "Verify equation selection, adult restrictions and activity-factor interpretation."
+    },
+    {
+      "id": "dates",
+      "priority": "P1",
+      "market": "International English; selected calendar rules",
+      "primary": "date-calculator",
+      "supporting": [
+        "day-counter",
+        "age-calculator",
+        "day-of-the-week-calculator",
+        "time-duration-calculator"
+      ],
+      "queries": [
+        "days between dates",
+        "add months to a date",
+        "business days calculator custom holidays",
+        "age calculator leap year"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.timeanddate.com/date/duration.php",
+          "observation": "Makes end-date inclusion explicit and links duration, addition and workday tools."
+        },
+        {
+          "url": "https://www.timeanddate.com/date/workdays-help.html",
+          "observation": "Explains business-day and business-date tools."
+        }
+      ],
+      "opportunity": "Clarify custom holiday and observation rules, end-date inclusion and month-end clamping. Keep simple day counting as a focused entry point, with full calendar operations on date-calculator.",
+      "confidence": "High",
+      "effort": "Small",
+      "validation": "Verify leap years, month-end clamping and holiday exclusion with independent calendar cases."
+    },
+    {
+      "id": "grades",
+      "priority": "P1",
+      "market": "International English; user-supplied grading scale",
+      "primary": "grade-calculator",
+      "supporting": [
+        "gpa-calculator"
+      ],
+      "queries": [
+        "weighted grade calculator",
+        "final exam grade needed calculator",
+        "GPA calculator custom scale"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.calculatorsoup.com/calculators/statistics/grade-calculator.php",
+          "observation": "Explains weighted scores using the sum of score-times-weight divided by total weight."
+        },
+        {
+          "url": "https://www.calculatorsoup.com/calculators/statistics/final-grade-calculator.php",
+          "observation": "Provides a separate final-grade target tool."
+        }
+      ],
+      "opportunity": "Keep target solving within the existing grade page and emphasize impossible targets and explicit letter scales. Do not add a duplicate final-grade URL.",
+      "confidence": "High",
+      "effort": "Small",
+      "validation": "Check unequal weights and a required final score over 100 percent."
+    },
+    {
+      "id": "us-tax",
+      "priority": "P2",
+      "market": "United States; explicit 2025/2026 scope",
+      "primary": "tax-calculator",
+      "supporting": [
+        "take-home-pay-calculator",
+        "salary-calculator",
+        "marriage-calculator",
+        "estate-tax-calculator"
+      ],
+      "queries": [
+        "2026 federal income tax calculator",
+        "take home pay calculator 2026",
+        "gross salary to net pay US"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+          "observation": "Primary source confirms 2026 standard deductions and bracket thresholds; this is reference evidence, not a competing calculator."
+        }
+      ],
+      "opportunity": "Prioritize effective-year maintenance, payroll terminology and limitations over new regional tax pages. A currency display change must never imply a different tax jurisdiction.",
+      "confidence": "High for supported year; demand unmeasured",
+      "effort": "Medium, recurring",
+      "validation": "Reconcile constants to IRS publications and retain independent tax fixtures."
+    },
+    {
+      "id": "retirement",
+      "priority": "P2",
+      "market": "United States for account rules",
+      "primary": "retirement-calculator",
+      "supporting": [
+        "401k-calculator",
+        "ira-calculator",
+        "roth-ira-calculator",
+        "rmd-calculator",
+        "social-security-calculator",
+        "pension-calculator"
+      ],
+      "queries": [
+        "retirement savings calculator",
+        "Roth vs traditional IRA calculator",
+        "RMD calculator deadline",
+        "401k employer match calculator"
+      ],
+      "competitors": [
+        {
+          "url": "https://www.irs.gov/retirement-plans/rmd-comparison-chart-iras-vs-defined-contribution-plans",
+          "observation": "Explains first and subsequent distribution deadlines and account distinctions; reference evidence."
+        }
+      ],
+      "opportunity": "Correct ambiguous RMD deadline labels and keep generic projections separate from account-specific eligibility. Preserve unresolved-policy guards.",
+      "confidence": "High for confirmed label issue",
+      "effort": "Small label fix; ongoing policy review",
+      "validation": "Verify historical birth cohorts and ensure labels describe the dates actually shown."
+    },
+    {
+      "id": "australia-research",
+      "priority": "P3",
+      "market": "Australia",
+      "primary": "loan-calculator",
+      "supporting": [
+        "savings-calculator",
+        "budget-calculator"
+      ],
+      "queries": [
+        "mortgage calculator Australia",
+        "loan repayment calculator Australia",
+        "compound interest calculator Australia"
+      ],
+      "competitors": [
+        {
+          "url": "https://moneysmart.gov.au/home-loans/mortgage-calculator",
+          "observation": "Official Australian mortgage tool considers loan repayments and interest-rate sensitivity."
+        }
+      ],
+      "opportunity": "Use generic arithmetic only within its stated assumptions. Do not relabel the US mortgage as Australian or create a country page without local method and demand evidence.",
+      "confidence": "Medium for competitor relevance; low for market priority",
+      "effort": "Research only",
+      "validation": "Review actual country demand once Search Console is available; independently specify any proposed Australian model."
+    }
+  ],
+  "unresearchedFamilies": "All 203 existing catalog pages have a page-intent inventory and corresponding competitor-page evidence from the October 9 audit. Outside the 13 researched clusters, query phrasing is catalog-derived and demand remains unmeasured. No bulk page creation is recommended.",
+  "successMeasures": [
+    "All candidate intents resolve to one chosen existing primary URL.",
+    "Measure English page/query clicks, impressions and CTR over comparable post-recrawl periods when reports are available.",
+    "Compare country/device segments and annotate releases; do not attribute every change to this work.",
+    "Record representative AI citations manually with query, platform and date when observed; do not claim complete AI visibility."
+  ]
+}

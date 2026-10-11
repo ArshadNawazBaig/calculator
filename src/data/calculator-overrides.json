@@ -247,6 +247,10 @@
       {
         "title": "IRS Announcement2026-7",
         "url": "https://www.irs.gov/pub/irs-drop/a-26-07.pdf"
+      },
+      {
+        "title": "IRS: first and subsequent RMD deadlines",
+        "url": "https://www.irs.gov/retirement-plans/rmd-comparison-chart-iras-vs-defined-contribution-plans"
       }
     ],
     "removeSources": [],
@@ -1066,6 +1070,38 @@
         "title": "USGA Rule 5.1c: negative score-differential rounding",
         "url": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm"
       }
+    ]
+  },
+  "canadian-mortgage-calculator": {
+    "sources": [
+      {
+        "title": "FCAC: mortgage payment calculator",
+        "url": "https://itools-ioutils.fcac-acfc.gc.ca/MC-CH/MortgageCalculator.aspx"
+      },
+      {
+        "title": "FCAC: renewing your mortgage",
+        "url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/renew-mortgage.html"
+      }
+    ],
+    "removeSources": [
+      "https://www.consumerfinance.gov/owning-a-home/",
+      "https://www.investor.gov/use-financial-tools-and-calculators"
+    ]
+  },
+  "mortgage-calculator-uk": {
+    "sources": [
+      {
+        "title": "MoneyHelper: mortgage repayment calculator",
+        "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-repayment-calculator"
+      },
+      {
+        "title": "MoneyHelper: repaying an interest-only mortgage",
+        "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/ways-of-repaying-an-interest-only-mortgage"
+      }
+    ],
+    "removeSources": [
+      "https://www.consumerfinance.gov/owning-a-home/",
+      "https://www.investor.gov/use-financial-tools-and-calculators"
     ]
   }
 }

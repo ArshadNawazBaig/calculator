@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-11T17:35:48.692Z",
+  "fieldCoreWebVitals": {
+    "status": "unmeasured",
+    "pageSpeedAttempt": {
+      "checkedAt": "2026-10-11T17:06:52.199Z",
+      "httpStatus": 429,
+      "reason": "Anonymous shared API quota exceeded; no field metrics returned"
+    },
+    "cruxApi": {
+      "status": "requires_api_key",
+      "command": "npm run audit:field"
+    },
+    "insufficientTrafficEstablished": false
+  },
+  "visitorAnalytics": {
+    "status": "disabled",
+    "tokenConfigured": false,
+    "calculatorEngagementCollected": false
+  },
+  "searchAccounts": {
+    "status": "not_connected",
+    "sitemapSubmissionVerified": false,
+    "indexedPages": null,
+    "impressions": null,
+    "clicks": null,
+    "ctr": null
+  }
+}

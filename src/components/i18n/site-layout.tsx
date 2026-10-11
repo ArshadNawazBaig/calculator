@@ -2,6 +2,9 @@ import type {ReactNode} from 'react';
 import {Header} from '@/components/layout/header';
 import {Footer} from '@/components/layout/footer';
 import {NetworkStatus} from '@/components/layout/network-status';
+import {WebAnalytics} from '@/components/layout/web-analytics';
+import {analyticsToken} from '@/lib/analytics';
+import {site} from '@/lib/site';
 import {siteFont} from '@/lib/fonts';
 import {getDictionary, sharedMessages} from '@/lib/i18n/dictionaries';
 import {languages, translator, type Locale} from '@/lib/i18n/config';
@@ -16,6 +19,7 @@ export function localizedLayout(locale: Locale, scriptFont = '') {
       <body suppressHydrationWarning><LanguageProvider locale={locale} messages={sharedMessages(messages)}>
         <a className="skip-link" href="#main">{t('Skip to content')}</a>
         <Header/><NetworkStatus/><main id="main">{children}</main><Footer/>
+        {analyticsToken&&<WebAnalytics token={analyticsToken} host={new URL(site.url).hostname}/>}
       </LanguageProvider></body>
     </html>;
   };

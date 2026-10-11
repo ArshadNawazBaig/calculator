@@ -26,7 +26,7 @@ Both `finflo.org` and `www.finflo.org` are registered on the Railway service at 
 
 The Vercel DNS zone is enabled under `arshadnawazbaigs-projects`, using the same DNS provider as `thebestfreepdf.com`. The apex ALIAS points to `0mimryym.up.railway.app`; the `www` CNAME points to `d78e491d.up.railway.app`. The exact Railway verification TXT records are installed at `_railway-verify` and `_railway-verify.www`. Both Vercel nameservers directly returned the correct records. Retrieve the full expected verification values with `railway domain status <hostname> --json`; do not reuse Folio's values.
 
-The direct `.org` registry query confirms `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. No further registrar edit is needed. Live requests now resolve the domain and pass normal TLS verification. The live audit checked canonical pages, robots/sitemap behavior, indexing headers and redirects. Publish any Google Search Console verification TXT record in Vercel DNS, the active DNS provider. Search Console ownership verification and sitemap submission are still handled by the user.
+The direct `.org` registry query confirms `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. No further registrar edit is needed. Live requests now resolve the domain and pass normal TLS verification. The live audit checked canonical pages, robots/sitemap behavior, indexing headers and redirects. Publish any Google Search Console verification TXT record in Vercel DNS, the active DNS provider. Search Console/Bing ownership and submission remain unverified without connected accounts or exports. See [measurement setup](measurement.md) for the prepared metadata settings and account steps.
 
 ## Portable native Next.js runtime
 
@@ -41,7 +41,7 @@ npm run build
 npm exec next start -- --hostname 0.0.0.0 --port 3000
 ```
 
-Use Node.js 22, persistent process supervision and a reverse proxy providing HTTPS. Pass only real environment values from `.env.example`. Public variables must be set at build time; `MAINTENANCE_MODE` is runtime configuration. A Node host should allow outbound HTTPS to the fixed currency providers. The application has no database migration or account secrets to provision.
+Use Node.js 22, persistent process supervision and a reverse proxy providing HTTPS. Pass only real environment values from `.env.example`. Public variables must be set at build time; `MAINTENANCE_MODE` is runtime configuration. A Node host should allow outbound HTTPS to the fixed currency providers. The application has no database migration or required account secrets. Optional webmaster verification and analytics values must come from their actual accounts; they remain empty by default.
 
 The production preview is available locally when `npm run start -- --port 3100` is running at http://127.0.0.1:3100. This URL is only reachable on the user's computer.
 
@@ -68,3 +68,11 @@ Two assertive, hash-checked adapter patches include Next16.4's new `preview-prop
 Local workerd checks establish page rendering, real404s, redirects, lazy math/codecs, maintenance status and currency snapshot behavior. Hosted Sites additionally must accept the default-fetch module, WASM modules, `ASSETS` binding and Node compatibility. The native deployment result is recorded separately. Upstream cache adapters are defaults; application snapshots have explicit per-isolate cache/coalescing and immutable serialized bodies, while cross-instance/CDN caching depends on the selected host.
 
 The scoped npm override updates the build-only minifier's `glob` to10.5.0 for [GHSA-5j98-mcp5-4vw2](https://github.com/advisories/GHSA-5j98-mcp5-4vw2). It does not replace OpenNext's own glob13 library. Keep the lockfile and rerun adapter smoke checks after changing these dependencies.
+
+## October 11 measurement and maintenance additions
+
+`GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` render only supplied public ownership values. Rebuild after changes. Domain-property verification still requires the provider's exact DNS TXT record.
+
+`NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN` is optional and currently unset. A valid public site token enables page/performance measurement only for the canonical host in an indexable build; calculator values are excluded and DNT/GPC visitors are skipped. The privacy/cookies disclosure follows configuration automatically. Clear the variable and rebuild to disable. No DNS migration or infrastructure change is required. See [measurement](measurement.md).
+
+The GitHub `Site quality` workflow runs release checks on main/PRs and a scheduled reference audit on Mondays. Railway still auto-deploys main independently of these checks. Run release checks before pushing and review both Railway and GitHub results. Source artifacts expire after 14 days; preserve significant findings in a dated report. See [maintenance](maintenance.md).

@@ -98,6 +98,7 @@ export async function translationSource() {
     }
     Object.values(blocked).forEach(value => add(keys, value));
     const info = JSON.parse(await readFile('src/data/information-content.json', 'utf8'));
+    collect(JSON.parse(await readFile('src/data/analytics-copy.json', 'utf8')), keys);
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);

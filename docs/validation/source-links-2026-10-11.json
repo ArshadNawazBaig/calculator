@@ -1,0 +1,4364 @@
+{
+  "checkedAt": "2026-10-11T17:07:33.669Z",
+  "scope": "Distinct external references rendered by calculator definitions, guides and information pages.",
+  "limitations": [
+    "Reachability does not establish factual correctness or licensing.",
+    "Blocked requests and timeouts remain unverified, not confirmed broken links.",
+    "Fragment checks inspect server HTML only; PDF page fragments are not checked."
+  ],
+  "counts": {
+    "access_unverified": 26,
+    "reachable": 151,
+    "request_unverified": 6
+  },
+  "total": 183,
+  "results": [
+    {
+      "url": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+      "references": [
+        {
+          "page": "/btu-calculator",
+          "label": "2015 IECC: assembly U-factor references, Table R402.1.4",
+          "url": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+      "contentType": "text/html",
+      "title": "ERROR: The request could not be satisfied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://data.bls.gov/timeseries/CUUR0000SA0",
+      "references": [
+        {
+          "page": "/inflation-calculator",
+          "label": "BLS CPI-U all items, US city average (CUUR0000SA0)",
+          "url": "https://data.bls.gov/timeseries/CUUR0000SA0"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://data.bls.gov/timeseries/CUUR0000SA0",
+      "contentType": "text/html;charset=ISO-8859-1",
+      "title": "Bureau of Labor Statistics Data",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues",
+      "references": [
+        {
+          "page": "/password-generator",
+          "label": "MDN: cryptographic random values",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues",
+      "contentType": "text/html",
+      "title": "Crypto: getRandomValues() method - Web APIs | MDN",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/coinbase-app/track-apis/prices",
+      "references": [
+        {
+          "page": "/currency-calculator",
+          "label": "Coinbase: public spot-price endpoint",
+          "url": "https://docs.cdp.coinbase.com/coinbase-app/track-apis/prices"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.cdp.coinbase.com/coinbase-app/track-apis/prices",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Data API- Prices - Coinbase Developer Documentation",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://docs.nrel.gov/docs/fy08osti/42059.pdf",
+      "references": [
+        {
+          "page": "/btu-calculator",
+          "label": "NREL: building thermal envelope tests, dry-air assumptions (Table A10)",
+          "url": "https://docs.nrel.gov/docs/fy08osti/42059.pdf"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "ENOTFOUND"
+    },
+    {
+      "url": "https://doi.org/10.1001/archinte.1916.00080130010002",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Du Bois and Du Bois (1916), original BSA article",
+          "url": "https://doi.org/10.1001/archinte.1916.00080130010002"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://jamanetwork.com/article.aspx?doi=10.1001/archinte.1916.00080130010002",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Just a moment...",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://doi.org/10.1016/j.jshs.2023.11.003",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "Conger et al. (2024), Wheelchair Compendium update",
+          "url": "https://doi.org/10.1016/j.jshs.2023.11.003"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2095254623001126",
+      "contentType": "text/html;charset=UTF-8",
+      "title": "Redirecting",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://doi.org/10.1016/j.jtherbio.2020.102650",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Formulae for calculating body surface area in modern U.S. Army Soldiers (2020), Table 3",
+          "url": "https://doi.org/10.1016/j.jtherbio.2020.102650"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://linkinghub.elsevier.com/retrieve/pii/S030645652030317X",
+      "contentType": "text/html;charset=UTF-8",
+      "title": "Redirecting",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://entp.hud.gov/sfohlp/f17updbal.cfm",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD: Final Monthly MIP Payment Date",
+          "url": "https://entp.hud.gov/sfohlp/f17updbal.cfm"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "url": "https://ernaehrungs-umschau.de/wp-content/uploads/2026/free_pdfs/EU04_2010_178_183.qxd.pdf",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Schlich et al. (2010), 3D body scanning and specific surface area",
+          "url": "https://ernaehrungs-umschau.de/wp-content/uploads/2026/free_pdfs/EU04_2010_178_183.qxd.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://ernaehrungs-umschau.de/wp-content/uploads/2026/free_pdfs/EU04_2010_178_183.qxd.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://frankfurter.dev/",
+      "references": [
+        {
+          "page": "/currency-calculator",
+          "label": "Frankfurter: blended rates and provider attribution",
+          "url": "https://frankfurter.dev/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://frankfurter.dev/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Frankfurter | Free exchange rates API",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://goldbook.iupac.org/terms/view/A00295",
+      "references": [
+        {
+          "page": "/molarity-calculator",
+          "label": "IUPAC Gold Book: amount concentration",
+          "url": "https://goldbook.iupac.org/terms/view/A00295"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://goldbook.iupac.org/terms/view/A00295",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Just a moment...",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size",
+      "references": [
+        {
+          "page": "/bra-size-calculator",
+          "label": "Triumph: traditional +4/+5 measurement method",
+          "url": "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://in.triumph.com/blogs/community/your-ultimate-guide-to-finding-the-perfect-bra-size",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Triumph Bra | How To Calculate and Find Your Correct Bra Size",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dax/price-function-dax",
+      "references": [
+        {
+          "page": "/bond-calculator",
+          "label": "Microsoft PRICE documented method",
+          "url": "https://learn.microsoft.com/en-us/dax/price-function-dax"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/dax/price-function-dax",
+      "contentType": "text/html",
+      "title": "PRICE function (DAX) - DAX | Microsoft Learn",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids",
+      "references": [
+        {
+          "page": "/macro-calculator",
+          "label": "National Academies: Dietary Reference Intakes for macronutrients",
+          "url": "https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids"
+        },
+        {
+          "page": "/carbohydrate-calculator",
+          "label": "National Academies: Dietary Reference Intakes for macronutrients",
+          "url": "https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids"
+        },
+        {
+          "page": "/fat-intake-calculator",
+          "label": "National Academies: Dietary Reference Intakes for macronutrients",
+          "url": "https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids"
+        },
+        {
+          "page": "/protein-calculator",
+          "label": "National Academies: Dietary Reference Intakes",
+          "url": "https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nationalacademies.org/projects/HMD-FNB-18-P-119/publication/10490",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://nominatim.org/",
+      "references": [
+        {
+          "page": "/mileage-calculator",
+          "label": "Nominatim place search",
+          "url": "https://nominatim.org/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://nominatim.org/",
+      "contentType": "text/html",
+      "title": "Nominatim",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://ntrs.nasa.gov/api/citations/19800011820/downloads/19800011820.pdf",
+      "references": [
+        {
+          "page": "/horsepower-calculator",
+          "label": "NASA technical publication: power conversion table",
+          "url": "https://ntrs.nasa.gov/api/citations/19800011820/downloads/19800011820.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://ntrs.nasa.gov/api/citations/19800011820/downloads/19800011820.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook100.pdf",
+      "references": [
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "NBS Handbook 100: Copper wire tables",
+          "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook100.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook100.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://oljeep.com/JeepEngines.pdf",
+      "references": [
+        {
+          "page": "/engine-horsepower-calculator",
+          "label": "Mopar Performance Parts: Jeep Engines, 3rd edition, printed page 495",
+          "url": "https://oljeep.com/JeepEngines.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://oljeep.com/JeepEngines.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+      "references": [
+        {
+          "page": "/btu-calculator",
+          "label": "OpenStax: conduction and thermal resistance",
+          "url": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+      "contentType": "text/html",
+      "title": "14.5 Conduction - College Physics 2e | OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+      "references": [
+        {
+          "page": "/margin-calculator",
+          "label": "OpenStax: discounts, markups and sales tax",
+          "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax"
+        },
+        {
+          "page": "/discount-calculator",
+          "label": "OpenStax: discounts, markups and sales tax",
+          "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax"
+        },
+        {
+          "page": "/percent-off-calculator",
+          "label": "OpenStax: discounts, markups and sales tax",
+          "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax"
+        },
+        {
+          "page": "/sales-tax-calculator",
+          "label": "OpenStax: discounts, markups and sales tax",
+          "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax"
+        },
+        {
+          "page": "/vat-calculator",
+          "label": "OpenStax: discounts, markups and sales tax",
+          "url": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax",
+      "contentType": "text/html",
+      "title": "6.2 Discounts, Markups, and Sales Tax - Contemporary Mathematics | OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+      "references": [
+        {
+          "page": "/interest-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        },
+        {
+          "page": "/compound-interest-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        },
+        {
+          "page": "/investment-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        },
+        {
+          "page": "/retirement-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        },
+        {
+          "page": "/college-cost-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        },
+        {
+          "page": "/rent-vs-buy-calculator",
+          "label": "OpenStax annuities",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/principles-finance-2e/pages/8-2-annuities",
+      "contentType": "text/html",
+      "title": "8.2 Annuities - Principles of Finance 2e | OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+      "references": [
+        {
+          "page": "/mortgage-calculator",
+          "label": "OpenStax loan amortization",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization"
+        },
+        {
+          "page": "/personal-loan-calculator",
+          "label": "OpenStax loan amortization",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization"
+        },
+        {
+          "page": "/mortgage-payoff-calculator",
+          "label": "OpenStax loan amortization",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization"
+        },
+        {
+          "page": "/rent-vs-buy-calculator",
+          "label": "OpenStax loan amortization",
+          "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+      "contentType": "text/html",
+      "title": "8.3 Loan Amortization - Principles of Finance 2e | OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance",
+      "references": [
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "OpenStax University Physics Volume 2, 9.3",
+          "url": "https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance",
+      "contentType": "text/html",
+      "title": "9.3 Resistivity and Resistance - University Physics Volume 2 | OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e",
+      "references": [
+        {
+          "page": "/average-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/mean-median-mode-range-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/statistics-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/standard-deviation-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/percent-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/percent-error-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/scientific-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/basic-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/big-number-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/fraction-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/ratio-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/quadratic-formula-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/exponent-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/root-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/log-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/half-life-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/lcm-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/gcf-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/common-factor-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/factor-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/prime-factorization-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/long-division-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/rounding-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/scientific-notation-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/binary-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/hex-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/number-sequence-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/permutation-and-combination-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/random-number-generator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/z-score-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/sample-size-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/confidence-interval-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/p-value-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/probability-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/slope-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/distance-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/pythagorean-theorem-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/right-triangle-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/triangle-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/circle-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/area-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/volume-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/surface-area-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        },
+        {
+          "page": "/matrix-calculator",
+          "label": "OpenStax: Algebra and Trigonometry",
+          "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://openstax.org/details/books/algebra-and-trigonometry-2e",
+      "contentType": "text/html",
+      "title": "OpenStax",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://osmfoundation.org/wiki/Privacy_Policy",
+      "references": [
+        {
+          "page": "/privacy",
+          "label": "Nominatim privacy policy",
+          "url": "https://osmfoundation.org/wiki/Privacy_Policy"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://osmfoundation.org/wiki/Privacy_Policy",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Privacy Policy - OpenStreetMap Foundation",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Compendium of Physical Activities",
+          "url": "https://pacompendium.com/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Compendium of Physical Activities &#8211; Quantifying Physical Activity Energy Expenditure",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/adult-wheelchair-users-compendium/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Wheelchair Compendium, numerical activities and baseline",
+          "url": "https://pacompendium.com/adult-wheelchair-users-compendium/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/adult-wheelchair-users-compendium/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "2024 Adult Wheelchair Compendium &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/bicycling/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Compendium: bicycling",
+          "url": "https://pacompendium.com/bicycling/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/bicycling/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Bicycling &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/conditioning-exercise/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Compendium: conditioning exercise",
+          "url": "https://pacompendium.com/conditioning-exercise/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/conditioning-exercise/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Conditioning Exercise &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/dancing/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: dancing",
+          "url": "https://pacompendium.com/dancing/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/dancing/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Dancing &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/fishing-hunting/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: fishing hunting",
+          "url": "https://pacompendium.com/fishing-hunting/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/fishing-hunting/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Fishing &amp; Hunting &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/home-activities/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: home activities",
+          "url": "https://pacompendium.com/home-activities/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/home-activities/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Home Activities &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/home-repair/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: home repair",
+          "url": "https://pacompendium.com/home-repair/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/home-repair/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Home Repair &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/inactivity/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: inactivity",
+          "url": "https://pacompendium.com/inactivity/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/inactivity/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Inactivity &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/lawn-garden/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: lawn garden",
+          "url": "https://pacompendium.com/lawn-garden/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/lawn-garden/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Lawn &amp; Garden &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/miscellaneous/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: miscellaneous",
+          "url": "https://pacompendium.com/miscellaneous/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/miscellaneous/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Miscellaneous &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/running/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Compendium: running",
+          "url": "https://pacompendium.com/running/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/running/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Running &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/sexual-activity/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: sexual activity",
+          "url": "https://pacompendium.com/sexual-activity/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/sexual-activity/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Sexual Activity &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/sports/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: sports",
+          "url": "https://pacompendium.com/sports/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/sports/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Sports &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/walking/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Adult Compendium: walking",
+          "url": "https://pacompendium.com/walking/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/walking/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Walking &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/water-activities/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: water activities",
+          "url": "https://pacompendium.com/water-activities/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/water-activities/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Water Activities &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pacompendium.com/winter-activities/",
+      "references": [
+        {
+          "page": "/calories-burned-calculator",
+          "label": "2024 Compendium: winter activities",
+          "url": "https://pacompendium.com/winter-activities/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pacompendium.com/winter-activities/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Winter Activities &#8211; Compendium of Physical Activities",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://physics.nist.gov/cuu/pdf/all.pdf",
+      "references": [
+        {
+          "page": "/molarity-calculator",
+          "label": "NIST 2022 CODATA complete constants",
+          "url": "https://physics.nist.gov/cuu/pdf/all.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://physics.nist.gov/cuu/pdf/all.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://physics.nist.gov/cuu/Units/binary.html",
+      "references": [
+        {
+          "page": "/bandwidth-calculator",
+          "label": "NIST: prefixes for binary multiples",
+          "url": "https://physics.nist.gov/cuu/Units/binary.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://physics.nist.gov/cuu/Units/binary.html",
+      "contentType": "text/html",
+      "title": "Definitions of the SI units: The binary prefixes",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10993957/",
+      "references": [
+        {
+          "page": "/lean-body-mass-calculator",
+          "label": "Puri and Blake (2022), comparison of ten LBM equations, Table 2",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10993957/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10993957/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Comparison of ten predictive equations for estimating lean body mass with dual-energy X-ray absorptiometry in older patients - PMC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13124374/",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "AI-driven CT body surface area comparison (2026), published 0.007241 Takahira variant",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13124374/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13124374/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Checking your browser - reCAPTCHA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4361698/",
+      "references": [
+        {
+          "page": "/bac-calculator",
+          "label": "Searle (2015), Alcohol calculations and their uncertainty",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4361698/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4361698/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Checking your browser - reCAPTCHA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5365720/",
+      "references": [
+        {
+          "page": "/lean-body-mass-calculator",
+          "label": "Pediatric Pharmacokinetics study: published Peters equations 8 and 9",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5365720/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5365720/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Checking your browser - reCAPTCHA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://proc.3dbody.tech/papers/2020/2022sokolowski.pdf",
+      "references": [
+        {
+          "page": "/body-type-calculator",
+          "label": "Sokolowski and Bettencourt: revised FFIT apparel descriptors, Table 9 (2020)",
+          "url": "https://proc.3dbody.tech/papers/2020/2022sokolowski.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://proc.3dbody.tech/papers/2020/2022sokolowski.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubchem.ncbi.nlm.nih.gov/periodic-table/",
+      "references": [
+        {
+          "page": "/molecular-weight-calculator",
+          "label": "PubChem periodic table data",
+          "url": "https://pubchem.ncbi.nlm.nih.gov/periodic-table/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://pubchem.ncbi.nlm.nih.gov/periodic-table/",
+      "contentType": "text/html",
+      "title": "Periodic Table of Elements - PubChem",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/",
+      "references": [
+        {
+          "page": "/target-heart-rate-calculator",
+          "label": "Tanaka et al. (2001): age-predicted maximal heart rate",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/11153730/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21498495/",
+      "references": [
+        {
+          "page": "/lean-body-mass-calculator",
+          "label": "Peters et al.: estimation of lean body mass in children",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21498495/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/21498495/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22376273/",
+      "references": [
+        {
+          "page": "/target-heart-rate-calculator",
+          "label": "Nes et al.: HUNT Fitness Study",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22376273/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/22376273/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/",
+      "references": [
+        {
+          "page": "/bmr-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/calorie-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/tdee-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/macro-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/carbohydrate-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/fat-intake-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        },
+        {
+          "page": "/protein-calculator",
+          "label": "Mifflin et al.: resting energy expenditure",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/2305711/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33719914/",
+      "references": [
+        {
+          "page": "/body-type-calculator",
+          "label": "Measurement placement and shape classification reliability (2021)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33719914/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/33719914/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3657876/",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Mosteller: simplified calculation of BSA",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3657876/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/3657876/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/5527019/",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Gehan and George (1970), Estimation of human body surface area",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/5527019/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/5527019/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/5929341/",
+      "references": [
+        {
+          "page": "/lean-body-mass-calculator",
+          "label": "Hume (1966): Prediction of lean body mass from height and weight",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/5929341/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/5929341/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6496691/",
+      "references": [
+        {
+          "page": "/lean-body-mass-calculator",
+          "label": "Boer: estimated lean body mass",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/6496691/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/6496691/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/650346/",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Haycock et al. (1978), geometric BSA study in infants, children and adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/650346/"
+        }
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/650346/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://reports.nlr.nl/server/api/core/bitstreams/918226f2-467e-4b8f-8ed6-4c3c29e22ff4/content",
+      "references": [
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "NLR TP 2011-469: AWG diameter equation",
+          "url": "https://reports.nlr.nl/server/api/core/bitstreams/918226f2-467e-4b8f-8ed6-4c3c29e22ff4/content"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://reports.nlr.nl/server/api/core/bitstreams/918226f2-467e-4b8f-8ed6-4c3c29e22ff4/content",
+      "contentType": "application/pdf;charset=UTF-8",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://research.vu.nl/en/publications/body-mass-index-as-a-measure-of-body-fatness-age-and-sex-specific/",
+      "references": [
+        {
+          "page": "/body-fat-calculator",
+          "label": "Deurenberg et al. (1991), original study abstract and formulas",
+          "url": "https://research.vu.nl/en/publications/body-mass-index-as-a-measure-of-body-fatness-age-and-sex-specific/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://research.vu.nl/en/publications/body-mass-index-as-a-measure-of-body-fatness-age-and-sex-specific/",
+      "contentType": "text/html;charset=UTF-8",
+      "title": "Body mass index as a measure of body fatness: age- and sex-specific prediction formulas - Vrije Universiteit Amsterdam",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://rethinkingdrinking.niaaa.nih.gov/how-much-too-much/whats-standard-drink",
+      "references": [
+        {
+          "page": "/bac-calculator",
+          "label": "NIAAA, What is a standard drink?",
+          "url": "https://rethinkingdrinking.niaaa.nih.gov/how-much-too-much/whats-standard-drink"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://rethinkingdrinking.niaaa.nih.gov/how-much-too-much/whats-standard-drink",
+      "contentType": "text/html; charset=utf-8",
+      "title": "What is a Standard Drink | Rethinking Drinking | NIAAA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://routing.openstreetmap.de/about.html",
+      "references": [
+        {
+          "page": "/mileage-calculator",
+          "label": "FOSSGIS routing service",
+          "url": "https://routing.openstreetmap.de/about.html"
+        },
+        {
+          "page": "/privacy",
+          "label": "FOSSGIS routing and privacy information",
+          "url": "https://routing.openstreetmap.de/about.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://routing.openstreetmap.de/about.html",
+      "contentType": "text/html",
+      "title": "About routing.openstreetmap.de",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://studentaid.gov/manage-loans/repayment",
+      "references": [
+        {
+          "page": "/student-loan-calculator",
+          "label": "Federal Student Aid: repayment",
+          "url": "https://studentaid.gov/manage-loans/repayment"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://studentaid.gov/manage-loans/repayment",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/excel/functions/vdb-function",
+      "references": [
+        {
+          "page": "/depreciation-calculator",
+          "label": "Microsoft VDB documented method",
+          "url": "https://support.microsoft.com/en-us/excel/functions/vdb-function"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://support.microsoft.com/en-us/excel/functions/vdb-function",
+      "contentType": "text/html; charset=utf-8",
+      "title": "VDB function | Microsoft Support",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/office/days360-function-b9a509fd-49ef-407e-94df-0cbda5718c2a",
+      "references": [
+        {
+          "page": "/bond-calculator",
+          "label": "Microsoft DAYS360 documented conventions",
+          "url": "https://support.microsoft.com/en-us/office/days360-function-b9a509fd-49ef-407e-94df-0cbda5718c2a"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://support.microsoft.com/en-us/excel/functions/days360-function",
+      "contentType": "text/html; charset=utf-8",
+      "title": "DAYS360 function | Microsoft Support",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://tc39.es/ecma402/",
+      "references": [
+        {
+          "page": "/time-zone-calculator",
+          "label": "ECMA-402: Intl.supportedValuesOf",
+          "url": "https://tc39.es/ecma402/#sec-intl.supportedvaluesof"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://tc39.es/ecma402/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "ECMAScript® 2027 Internationalization API Specification",
+      "classification": "reachable",
+      "fragments": [
+        {
+          "page": "/time-zone-calculator",
+          "fragment": "sec-intl.supportedvaluesof",
+          "status": "not_checked"
+        }
+      ]
+    },
+    {
+      "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date",
+      "references": [
+        {
+          "page": "/pregnancy-calculator",
+          "label": "ACOG: estimating the due date",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date"
+        },
+        {
+          "page": "/due-date-calculator",
+          "label": "ACOG: estimating the due date",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date"
+        },
+        {
+          "page": "/pregnancy-conception-calculator",
+          "label": "ACOG: estimating the due date",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date"
+        },
+        {
+          "page": "/conception-calculator",
+          "label": "ACOG: estimating the due date",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date",
+      "contentType": "text/html; charset=utf-8",
+      "title": "value is what Coveo indexes and uses as the title in Search Results.--> <title>Methods for Estimating the Due Date | ACOG",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning",
+      "references": [
+        {
+          "page": "/conception-calculator",
+          "label": "ACOG: fertility awareness",
+          "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning"
+        },
+        {
+          "page": "/ovulation-calculator",
+          "label": "ACOG: fertility awareness",
+          "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning"
+        },
+        {
+          "page": "/period-calculator",
+          "label": "ACOG: fertility awareness",
+          "url": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning",
+      "contentType": "text/html; charset=utf-8",
+      "title": "value is what Coveo indexes and uses as the title in Search Results.--> <title>Fertility Awareness-Based Methods of Family Planning | ACOG",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.army.mil/e2/downloads/rv7/tyf/DA_FORM_5500.pdf",
+      "references": [
+        {
+          "page": "/army-body-fat-calculator",
+          "label": "Army 2026 recorded-measurement worksheet",
+          "url": "https://www.army.mil/e2/downloads/rv7/tyf/DA_FORM_5500.pdf"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "ENOTFOUND"
+    },
+    {
+      "url": "https://www.army.mil/e2/downloads/rv7/tyf/EXORD_182-26_Annex_A.pdf",
+      "references": [
+        {
+          "page": "/army-body-fat-calculator",
+          "label": "Army Directive 2026-13 implementation: EXORD Annex A",
+          "url": "https://www.army.mil/e2/downloads/rv7/tyf/EXORD_182-26_Annex_A.pdf"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "ENOTFOUND"
+    },
+    {
+      "url": "https://www.army.mil/standto/archive/2023/06/12/",
+      "references": [
+        {
+          "page": "/army-body-fat-calculator",
+          "label": "US Army: body fat assessment guidance",
+          "url": "https://www.army.mil/standto/archive/2023/06/12/"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "ENOTFOUND"
+    },
+    {
+      "url": "https://www.bea.gov/help/glossary/gross-domestic-income-gdi",
+      "references": [
+        {
+          "page": "/gdp-calculator",
+          "label": "BEA: Gross domestic income",
+          "url": "https://www.bea.gov/help/glossary/gross-domestic-income-gdi"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.bea.gov/help/glossary/gross-domestic-income-gdi",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Gross domestic income (GDI) | U.S. Bureau of Economic Analysis (BEA)",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.bea.gov/help/glossary/gross-national-income-gni",
+      "references": [
+        {
+          "page": "/gdp-calculator",
+          "label": "BEA: Gross national income",
+          "url": "https://www.bea.gov/help/glossary/gross-national-income-gni"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.bea.gov/help/glossary/gross-national-income-gni",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Gross national income (GNI) | U.S. Bureau of Economic Analysis (BEA)",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.bea.gov/resources/learning-center/what-to-know-gdp",
+      "references": [
+        {
+          "page": "/gdp-calculator",
+          "label": "BEA: GDP",
+          "url": "https://www.bea.gov/resources/learning-center/what-to-know-gdp"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.bea.gov/resources/learning-center/what-to-know-gdp",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Gross Domestic Product | U.S. Bureau of Economic Analysis (BEA)",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.bea.gov/sites/default/files/methodologies/nipa-handbook-all-chapters.pdf",
+      "references": [
+        {
+          "page": "/gdp-calculator",
+          "label": "BEA NIPA Handbook",
+          "url": "https://www.bea.gov/sites/default/files/methodologies/nipa-handbook-all-chapters.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.bea.gov/sites/default/files/methodologies/nipa-handbook-all-chapters.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+      "references": [
+        {
+          "page": "/bmi-calculator",
+          "label": "CDC: adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+        },
+        {
+          "page": "/anorexic-bmi-calculator",
+          "label": "CDC: adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+        },
+        {
+          "page": "/overweight-calculator",
+          "label": "CDC: adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+        },
+        {
+          "page": "/healthy-weight-calculator",
+          "label": "CDC: adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+        },
+        {
+          "page": "/body-type-calculator",
+          "label": "CDC: adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+      "contentType": "text/html",
+      "title": "Adult BMI Categories | BMI | CDC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/bmi/adult-calculator/index.html",
+      "references": [
+        {
+          "page": "/ideal-weight-calculator",
+          "label": "CDC: interpreting adult BMI",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/index.html"
+        },
+        {
+          "page": "/guides/bmi-as-a-screening-tool",
+          "label": "CDC: adult BMI",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/index.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/bmi/adult-calculator/index.html",
+      "contentType": "text/html",
+      "title": "Adult BMI Calculator | BMI | CDC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/growthcharts/extended-bmi-data-files.htm",
+      "references": [
+        {
+          "page": "/bmi-calculator",
+          "label": "CDC: BMI-for-age LMS and 2022 extended growth-chart data",
+          "url": "https://www.cdc.gov/growthcharts/extended-bmi-data-files.htm"
+        },
+        {
+          "page": "/ideal-weight-calculator",
+          "label": "CDC: BMI-for-age LMS and 2022 extended growth-chart data",
+          "url": "https://www.cdc.gov/growthcharts/extended-bmi-data-files.htm"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/growthcharts/extended-bmi-data-files.htm",
+      "contentType": "text/html",
+      "title": "Growth Charts - Data file for the CDC Extended BMI-for-Age Growth Charts",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/maternal-infant-health/pregnancy-weight/index.html",
+      "references": [
+        {
+          "page": "/pregnancy-weight-gain-calculator",
+          "label": "CDC: weight gain during pregnancy",
+          "url": "https://www.cdc.gov/maternal-infant-health/pregnancy-weight/index.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/maternal-infant-health/pregnancy-weight/index.html",
+      "contentType": "text/html",
+      "title": "Weight Gain During Pregnancy | Maternal Infant Health | CDC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+      "references": [
+        {
+          "page": "/target-heart-rate-calculator",
+          "label": "CDC: measuring physical activity intensity",
+          "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+      "contentType": "text/html",
+      "title": "How to Measure Physical Activity Intensity | Physical Activity Basics | CDC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.cdc.gov/sleep/",
+      "references": [
+        {
+          "page": "/sleep-calculator",
+          "label": "CDC: sleep",
+          "url": "https://www.cdc.gov/sleep/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/sleep/",
+      "contentType": "text/html",
+      "title": "Sleep | Sleep | CDC",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-included-in-a-monthly-mortgage-payment-en-1945/",
+      "references": [
+        {
+          "page": "/guides/understanding-mortgage-payments",
+          "label": "Consumer Financial Protection Bureau: monthly mortgage payments",
+          "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-included-in-a-monthly-mortgage-payment-en-1945/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.consumerfinance.gov/ask-cfpb/are-condoco-op-fees-or-homeowners-association-dues-included-in-my-monthly-mortgage-payment-en-1945/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Are condo/co-op fees or homeowners&#39; association dues included in my monthly mortgage payment? | Consumer Financial Protection Bureau",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/",
+      "references": [
+        {
+          "page": "/auto-loan-calculator",
+          "label": "CFPB: comparing auto loans",
+          "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/"
+        },
+        {
+          "page": "/cash-back-or-low-interest-calculator",
+          "label": "CFPB: comparing auto loans",
+          "url": "https://www.consumerfinance.gov/consumer-tools/auto-loans/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.consumerfinance.gov/consumer-tools/auto-loans/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Auto loans | Consumer Financial Protection Bureau",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/",
+      "references": [
+        {
+          "page": "/mortgage-calculator",
+          "label": "CFPB mortgage terms: biweekly payments",
+          "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+        },
+        {
+          "page": "/mortgage-payoff-calculator",
+          "label": "CFPB mortgage terms: biweekly payments",
+          "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Mortgage answers | Consumer Financial Protection Bureau",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.consumerfinance.gov/owning-a-home/",
+      "references": [
+        {
+          "page": "/mortgage-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/mortgage-amortization-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/canadian-mortgage-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/mortgage-calculator-uk",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/amortization-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/personal-loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/boat-loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/business-loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/home-equity-loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/payment-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/repayment-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/mortgage-payoff-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/credit-card-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/auto-loan-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/cash-back-or-low-interest-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/auto-lease-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/lease-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/heloc-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/down-payment-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/house-affordability-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/rent-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/debt-ratio-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/refinance-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/interest-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/savings-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/future-value-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/cd-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/mutual-fund-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/simple-interest-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/finance-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/investment-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/present-value-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/interest-rate-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/apr-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        },
+        {
+          "page": "/inflation-calculator",
+          "label": "CFPB: understanding mortgages",
+          "url": "https://www.consumerfinance.gov/owning-a-home/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.consumerfinance.gov/owning-a-home/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Buying a house | Consumer Financial Protection Bureau",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/4/",
+      "references": [
+        {
+          "page": "/personal-loan-calculator",
+          "label": "CFPB Regulation Z: Finance charge",
+          "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/4/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.consumerfinance.gov/rules-policy/regulations/1026/4/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "§ 1026.4 Finance charge. | Consumer Financial Protection Bureau",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.dietaryguidelines.gov/",
+      "references": [
+        {
+          "page": "/macro-calculator",
+          "label": "USDA Dietary Guidelines",
+          "url": "https://www.dietaryguidelines.gov/"
+        },
+        {
+          "page": "/carbohydrate-calculator",
+          "label": "USDA Dietary Guidelines",
+          "url": "https://www.dietaryguidelines.gov/"
+        },
+        {
+          "page": "/fat-intake-calculator",
+          "label": "USDA Dietary Guidelines",
+          "url": "https://www.dietaryguidelines.gov/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.dietaryguidelines.gov/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Dietary Guidelines for Americans",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "references": [
+        {
+          "page": "/currency-calculator",
+          "label": "ECB: reference exchange rates",
+          "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Euro foreign exchange reference rates",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.electrical-installation.org/enwiki/Calculation_of_voltage_drop_in_steady_load_conditions",
+      "references": [
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "Schneider Electric: voltage drop in steady load conditions",
+          "url": "https://www.electrical-installation.org/enwiki/Calculation_of_voltage_drop_in_steady_load_conditions"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.electrical-installation.org/enwiki/Calculation_of_voltage_drop_in_steady_load_conditions",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+      "references": [
+        {
+          "page": "/btu-calculator",
+          "label": "EPA: county design temperature limits, 2019 edition revised 2020",
+          "url": "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Design Temperature Limits for Residential New Construction | ENERGY STAR",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.energystar.gov/products/room_air_conditioners",
+      "references": [
+        {
+          "page": "/btu-calculator",
+          "label": "ENERGY STAR: properly sized room air conditioners",
+          "url": "https://www.energystar.gov/products/room_air_conditioners"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.energystar.gov/products/room_air_conditioners",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Room Air Conditioners | ENERGY STAR",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.gaf.com/en-us/roofing-materials/residential-roofing-materials/shingles",
+      "references": [
+        {
+          "page": "/roofing-calculator",
+          "label": "GAF: Roofing squares and shingles",
+          "url": "https://www.gaf.com/en-us/roofing-materials/residential-roofing-materials/shingles"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.gaf.com/en-us/roofing-materials/residential-roofing-materials/shingles",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "Public Law 119-21: tax changes and effective dates",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+      "contentType": "text/html",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates",
+      "references": [
+        {
+          "page": "/target-heart-rate-calculator",
+          "label": "American Heart Association: target heart rates",
+          "url": "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/hud-partners/housing-premium-calculation",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD periodic mortgage-insurance calculation",
+          "url": "https://www.hud.gov/hud-partners/housing-premium-calculation"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/hud-partners/housing-premium-calculation",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/hud-partners/housing-premium-portfolio-layout-abbrv",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD: Original Mortgage Amount, Upfront Factor, Percent Financed, UPB@78%",
+          "url": "https://www.hud.gov/hud-partners/housing-premium-portfolio-layout-abbrv"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/hud-partners/housing-premium-portfolio-layout-abbrv",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD: III.A.1.k, printed1178–1180, last revised2025-11-26",
+          "url": "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/2023-05hsgml.pdf",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD Mortgagee Letter2023-05",
+          "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/2023-05hsgml.pdf"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/sites/dfiles/OCHCO/documents/2023-05hsgml.pdf",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/40001-hsgh-update15-052024.pdf",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD: Printed1187, borrower-initiated cancellation/processing",
+          "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/40001-hsgh-update15-052024.pdf"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/sites/dfiles/OCHCO/documents/40001-hsgh-update15-052024.pdf",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.hud.gov/sites/documents/13-12mlatch.pdf",
+      "references": [
+        {
+          "page": "/fha-loan-calculator",
+          "label": "HUD: 2013Lender Insurance Guide, printed37, Case Query screenshot",
+          "url": "https://www.hud.gov/sites/documents/13-12mlatch.pdf"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.hud.gov/sites/documents/13-12mlatch.pdf",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.iana.org/time-zones",
+      "references": [
+        {
+          "page": "/time-zone-calculator",
+          "label": "IANA Time Zone Database",
+          "url": "https://www.iana.org/time-zones"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.iana.org/time-zones",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Time Zones",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.investor.gov/use-financial-tools-and-calculators",
+      "references": [
+        {
+          "page": "/mortgage-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/mortgage-amortization-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/canadian-mortgage-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/mortgage-calculator-uk",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/amortization-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/personal-loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/boat-loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/business-loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/home-equity-loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/payment-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/repayment-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/mortgage-payoff-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/credit-card-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/auto-loan-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/cash-back-or-low-interest-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/auto-lease-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/lease-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/heloc-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/down-payment-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/house-affordability-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/rent-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/debt-ratio-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/refinance-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/interest-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/savings-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/future-value-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/cd-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/mutual-fund-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/simple-interest-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/finance-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/investment-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/present-value-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/interest-rate-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/apr-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/inflation-calculator",
+          "label": "Investor.gov: financial tools and calculators",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/annuity-payout-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/annuity-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/retirement-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/401k-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/ira-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/roth-ira-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/pension-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/college-cost-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/debt-payoff-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/credit-card-payoff-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/debt-consolidation-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/bond-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/average-return-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/roi-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/irr-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/payback-period-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/depreciation-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/margin-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/commission-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/discount-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/percent-off-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/sales-tax-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/vat-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/salary-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/budget-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/rental-property-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        },
+        {
+          "page": "/rent-vs-buy-calculator",
+          "label": "Investor.gov: financial tools",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.investor.gov/use-financial-tools-and-calculators",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.investor.gov/use-financial-tools-and-calculators/calculators/compound-interest-calculator",
+      "references": [
+        {
+          "page": "/compound-interest-calculator",
+          "label": "Investor.gov: compound interest",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators/calculators/compound-interest-calculator"
+        },
+        {
+          "page": "/guides/compound-interest-and-contributions",
+          "label": "Investor.gov: compound interest",
+          "url": "https://www.investor.gov/use-financial-tools-and-calculators/calculators/compound-interest-calculator"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.investor.gov/use-financial-tools-and-calculators/calculators/compound-interest-calculator",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i1040gi",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS1040 instructions Qualified Dividends and Capital Gain Tax Worksheet",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: Form 1040 instructions",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: Form 1040 instructions",
+          "url": "https://www.irs.gov/instructions/i1040gi"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i1040gi",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "1040 (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i1040s8",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Schedule8812 instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: child and additional child tax credit instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: child and additional child tax credit instructions",
+          "url": "https://www.irs.gov/instructions/i1040s8"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i1040s8",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Schedule 8812 (Form 1040) (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i1040sse",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS ScheduleSE instructions2025",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: self-employment tax instructions",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: self-employment tax instructions",
+          "url": "https://www.irs.gov/instructions/i1040sse"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i1040sse",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Schedule SE (Form 1040) (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i2441",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: dependent-care credit instructions",
+          "url": "https://www.irs.gov/instructions/i2441"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: dependent-care credit instructions",
+          "url": "https://www.irs.gov/instructions/i2441"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i2441",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Form 2441 (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i6251",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: alternative minimum tax instructions",
+          "url": "https://www.irs.gov/instructions/i6251"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: alternative minimum tax instructions",
+          "url": "https://www.irs.gov/instructions/i6251"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i6251",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Form 6251 (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i706",
+      "references": [
+        {
+          "page": "/estate-tax-calculator",
+          "label": "IRS Form706 instructions July2026",
+          "url": "https://www.irs.gov/instructions/i706"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i706",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Form 706 (07/2026) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i8863",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: education-credit instructions",
+          "url": "https://www.irs.gov/instructions/i8863"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: education-credit instructions",
+          "url": "https://www.irs.gov/instructions/i8863"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i8863",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Form 8863 (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i8995a",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: qualified business income deduction instructions",
+          "url": "https://www.irs.gov/instructions/i8995a"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: qualified business income deduction instructions",
+          "url": "https://www.irs.gov/instructions/i8995a"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/instructions/i8995a",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Instructions for Form 8995-A (2025) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/irb/2024-33_IRB",
+      "references": [
+        {
+          "page": "/rmd-calculator",
+          "label": "IRS2024 final and proposed RMD regulations",
+          "url": "https://www.irs.gov/irb/2024-33_IRB"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/irb/2024-33_IRB",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Internal Revenue Bulletin: 2024-33 | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/irb/2025-45_IRB",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Revenue Procedure2025-32 in IRB2025-45",
+          "url": "https://www.irs.gov/irb/2025-45_IRB"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS Revenue Procedure2025-32 in IRB2025-45",
+          "url": "https://www.irs.gov/irb/2025-45_IRB"
+        },
+        {
+          "page": "/estate-tax-calculator",
+          "label": "IRS Revenue Procedure2025-32 in IRB2025-45",
+          "url": "https://www.irs.gov/irb/2025-45_IRB"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/irb/2025-45_IRB",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Internal Revenue Bulletin: 2025-45 | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/irb/2026-18_IRB",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: final qualified-tips regulations",
+          "url": "https://www.irs.gov/irb/2026-18_IRB"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: final qualified-tips regulations",
+          "url": "https://www.irs.gov/irb/2026-18_IRB"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/irb/2026-18_IRB",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Internal Revenue Bulletin: 2026-18 | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "references": [
+        {
+          "page": "/401k-calculator",
+          "label": "IRS: retirement contribution limits for 2026",
+          "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500 | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/a-26-07.pdf",
+      "references": [
+        {
+          "page": "/rmd-calculator",
+          "label": "IRS Announcement2026-7",
+          "url": "https://www.irs.gov/pub/irs-drop/a-26-07.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/a-26-07.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: 2025 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: 2025 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+      "references": [
+        {
+          "page": "/401k-calculator",
+          "label": "IRS Notice 2025-67: retirement-plan limits for 2026",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "page": "/ira-calculator",
+          "label": "IRS Notice 2025-67: retirement-plan limits for 2026",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "page": "/roth-ira-calculator",
+          "label": "IRS Notice 2025-67: retirement-plan limits for 2026",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: 2026 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: 2026 retirement-plan and IRA limits",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: 2025 tips and overtime transition guidance",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: 2025 tips and overtime transition guidance",
+          "url": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/n-25-69.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Revenue Procedure2024-40",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: 2025 indexed tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS Revenue Procedure2024-40",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "references": [
+        {
+          "page": "/ira-calculator",
+          "label": "IRS: 2026 federal tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: 2026 federal tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: 2026 federal tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: 2026 federal tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        },
+        {
+          "page": "/estate-tax-calculator",
+          "label": "IRS: 2026 federal tax parameters",
+          "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: Schedule 1-A additional deductions",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Schedule8812(2025)",
+          "url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: qualified overtime questions and answers",
+          "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: qualified overtime questions and answers",
+          "url": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/pub/taxpros/fs-2026-13.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p15",
+      "references": [
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: employer payroll tax guide",
+          "url": "https://www.irs.gov/publications/p15"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p15",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 15 (2026), (Circular E), Employer’s Tax Guide | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p15t",
+      "references": [
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS Publication15-T(2026)",
+          "url": "https://www.irs.gov/publications/p15t"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p15t",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 15-T (2026), Federal Income Tax Withholding Methods | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p590a",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: contributions to traditional and Roth IRAs",
+          "url": "https://www.irs.gov/publications/p590a"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: contributions to traditional and Roth IRAs",
+          "url": "https://www.irs.gov/publications/p590a"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p590a",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 590-A (2025), Contributions to Individual Retirement Arrangements (IRAs) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p590b",
+      "references": [
+        {
+          "page": "/rmd-calculator",
+          "label": "IRS Publication 590-B: distributions",
+          "url": "https://www.irs.gov/publications/p590b"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p590b",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 590-B (2025), Distributions from Individual Retirement Arrangements (IRAs) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p596",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: earned income credit eligibility and worksheets",
+          "url": "https://www.irs.gov/publications/p596"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: earned income credit eligibility and worksheets",
+          "url": "https://www.irs.gov/publications/p596"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p596",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 596 (2025), Earned Income Credit (EIC) | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p915",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: taxation of Social Security benefits",
+          "url": "https://www.irs.gov/publications/p915"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p915",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 915 (2025), Social Security and Equivalent Railroad Retirement Benefits | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p946",
+      "references": [
+        {
+          "page": "/depreciation-calculator",
+          "label": "IRS Publication946(2025)",
+          "url": "https://www.irs.gov/publications/p946"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p946",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 946 (2025), How To Depreciate Property | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/publications/p970",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS: education tax benefits",
+          "url": "https://www.irs.gov/publications/p970"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: education tax benefits",
+          "url": "https://www.irs.gov/publications/p970"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/publications/p970",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Publication 970 (2025), Tax Benefits for Education | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions",
+      "references": [
+        {
+          "page": "/401k-calculator",
+          "label": "IRS exceptions to additional early-distribution tax",
+          "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions"
+        },
+        {
+          "page": "/ira-calculator",
+          "label": "IRS exceptions to additional early-distribution tax",
+          "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Retirement topics - Exceptions to tax on early distributions | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      "references": [
+        {
+          "page": "/rmd-calculator",
+          "label": "IRS RMD FAQs",
+          "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Retirement plan and IRA required minimum distributions FAQs | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/taxtopics/tc554",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Topic554 Self-employment tax",
+          "url": "https://www.irs.gov/taxtopics/tc554"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/taxtopics/tc554",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Topic no. 554, Self-employment tax | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/taxtopics/tc556",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Topic556 Alternative Minimum Tax",
+          "url": "https://www.irs.gov/taxtopics/tc556"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/taxtopics/tc556",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Topic no. 556, Alternative Minimum Tax | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/taxtopics/tc559",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Topic559 Net investment income tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS: Net Investment Income Tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: Net Investment Income Tax",
+          "url": "https://www.irs.gov/taxtopics/tc559"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/taxtopics/tc559",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Topic no. 559, Net investment income tax | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.irs.gov/taxtopics/tc560",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "IRS Topic 560: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "IRS Topic 560: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "IRS: Additional Medicare Tax",
+          "url": "https://www.irs.gov/taxtopics/tc560"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.irs.gov/taxtopics/tc560",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Topic no. 560, Additional Medicare tax | Internal Revenue Service",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "references": [
+        {
+          "page": "/average-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/mean-median-mode-range-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/statistics-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/standard-deviation-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/z-score-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/sample-size-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/confidence-interval-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/p-value-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        },
+        {
+          "page": "/probability-calculator",
+          "label": "NIST statistical methods handbook",
+          "url": "https://www.itl.nist.gov/div898/handbook/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.itl.nist.gov/div898/handbook/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.jstage.jst.go.jp/article/jjh1946/23/5/23_5_443/_article/",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Fujimoto et al. (1968), three age-specific formulas",
+          "url": "https://www.jstage.jst.go.jp/article/jjh1946/23/5/23_5_443/_article/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.jstage.jst.go.jp/article/jjh1946/23/5/23_5_443/_article/",
+      "contentType": "text/html;charset=utf-8",
+      "title": "Studies on the Physical Surface Area of Japanese",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.mdpi.com/2076-3417/14/2/834",
+      "references": [
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "Advanced Body Measurement Techniques (2024), published 0.007246 Takahira variant",
+          "url": "https://www.mdpi.com/2076-3417/14/2/834"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.mdpi.com/2076-3417/14/2/834",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/find-your-tire-size",
+      "references": [
+        {
+          "page": "/tire-size-calculator",
+          "label": "Michelin: choosing tire size",
+          "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/find-your-tire-size"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/find-your-tire-size",
+      "contentType": "text/html",
+      "title": "Choosing the Right Tire Size for Your Vehicle – Michelin USA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/performance-upgrade",
+      "references": [
+        {
+          "page": "/tire-size-calculator",
+          "label": "Michelin: performance upgrades and plus sizing",
+          "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/performance-upgrade"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-buying-guide/performance-upgrade",
+      "contentType": "text/html",
+      "title": "Do I need new tires? | Performance upgrade | Michelin USA",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.mynavyhr.navy.mil/Support-Services/Culture-Resilience/Physical-Readiness/",
+      "references": [
+        {
+          "page": "/body-fat-calculator",
+          "label": "US Navy physical readiness resources",
+          "url": "https://www.mynavyhr.navy.mil/Support-Services/Culture-Resilience/Physical-Readiness/"
+        }
+      ],
+      "status": null,
+      "classification": "request_unverified",
+      "error": "ENOTFOUND"
+    },
+    {
+      "url": "https://www.nationalacademies.org/read/12584/chapter/9",
+      "references": [
+        {
+          "page": "/pregnancy-weight-gain-calculator",
+          "label": "National Academies: pregnancy weight-gain guidance, Table 7-3",
+          "url": "https://www.nationalacademies.org/read/12584/chapter/9"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nationalacademies.org/read/12584/chapter/9",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Read &quot;Weight Gain During Pregnancy: Reexamining the Guidelines&quot; at NAP.edu",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.niaaa.nih.gov/alcohols-effects-health",
+      "references": [
+        {
+          "page": "/bac-calculator",
+          "label": "NIAAA: alcohol and your health",
+          "url": "https://www.niaaa.nih.gov/alcohols-effects-health"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.niaaa.nih.gov/alcohols-effects-health",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Alcohol&#039;s Effects on Health | National Institute on Alcohol Abuse and Alcoholism (NIAAA)",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults",
+      "references": [
+        {
+          "page": "/gfr-calculator",
+          "label": "NIDDK: eGFR equations",
+          "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults",
+      "contentType": "text/html; charset=utf-8",
+      "title": "eGFR Equations for Adults - NIDDK",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com.cn/size-fit/kids-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike China: kids-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/kids-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com.cn/size-fit/kids-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "儿童鞋类尺码表-NIKE 中文官方网站",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com.cn/size-fit/mens-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike China: mens-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/mens-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com.cn/size-fit/mens-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "男子鞋类尺码表-NIKE 中文官方网站",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com.cn/size-fit/womens-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike China: womens-footwear CN size labels",
+          "url": "https://www.nike.com.cn/size-fit/womens-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com.cn/size-fit/womens-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "女子鞋类尺码表-NIKE 中文官方网站",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com/size-fit/kids-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike: kids-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/kids-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com/size-fit/kids-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Kids&#x27; Footwear Size Chart. Nike.com",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com/size-fit/mens-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike: mens-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/mens-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com/size-fit/mens-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Men&#x27;s Footwear Size Chart. Nike.com",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nike.com/size-fit/womens-footwear",
+      "references": [
+        {
+          "page": "/shoe-size-conversion",
+          "label": "Nike: womens-footwear regional size guide",
+          "url": "https://www.nike.com/size-fit/womens-footwear"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nike.com/size-fit/womens-footwear",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Women&#x27;s Footwear Size Chart. Nike.com",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c",
+      "references": [
+        {
+          "page": "/pace-calculator",
+          "label": "NIST Handbook 44 (2026), Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/bac-calculator",
+          "label": "NIST Handbook 44 (2026), Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/molarity-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/horsepower-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/engine-horsepower-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/tire-size-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/square-footage-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/concrete-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/roofing-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/stair-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        },
+        {
+          "page": "/height-calculator",
+          "label": "NIST Handbook 44, 2026, Appendix C",
+          "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nist.gov/pml/special-publication-330/sp-330-section-3",
+      "references": [
+        {
+          "page": "/bandwidth-calculator",
+          "label": "NIST SP 330: SI prefixes",
+          "url": "https://www.nist.gov/pml/special-publication-330/sp-330-section-3"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nist.gov/pml/special-publication-330/sp-330-section-3",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "SP 330 - Section 3 | NIST",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nist.gov/pml/special-publication-811",
+      "references": [
+        {
+          "page": "/pace-calculator",
+          "label": "NIST: SI units",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/age-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/date-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/day-counter",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/day-of-the-week-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/hours-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/time-duration-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/time-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/time-card-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/conversion-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/density-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/mass-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/weight-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/speed-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/molarity-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/gpa-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/grade-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/tip-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/fuel-cost-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/gas-mileage-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/horsepower-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/engine-horsepower-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/tire-size-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/square-footage-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/concrete-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/mulch-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/gravel-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/tile-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/roofing-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/stair-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/electricity-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/ohms-law-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/resistor-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/dew-point-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/bandwidth-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/dice-roller",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/roman-numeral-converter",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/height-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/bra-size-calculator",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        },
+        {
+          "page": "/shoe-size-conversion",
+          "label": "NIST: Guide to the SI",
+          "url": "https://www.nist.gov/pml/special-publication-811"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nist.gov/pml/special-publication-811",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Special Publication 811 | NIST",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+      "references": [
+        {
+          "page": "/bmr-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        },
+        {
+          "page": "/calorie-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        },
+        {
+          "page": "/tdee-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        },
+        {
+          "page": "/body-surface-area-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        },
+        {
+          "page": "/pace-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        },
+        {
+          "page": "/bac-calculator",
+          "label": "NIST SP 811 Appendix B.8 conversion factors",
+          "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "NIST Guide to the SI, Appendix B.8: Factors for Units Listed Alphabetically | NIST",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nsca.com/education/",
+      "references": [
+        {
+          "page": "/one-rep-max-calculator",
+          "label": "NSCA: strength and conditioning resources",
+          "url": "https://www.nsca.com/education/"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.nsca.com/education/",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Attention Required! | Cloudflare",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2",
+      "references": [
+        {
+          "page": "/voltage-drop-calculator",
+          "label": "2017 NEC, Chapter 9 Table 9, page 70–690 (Nye County reference copy)",
+          "url": "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2#page=693"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nyecountynv.gov/DocumentCenter/View/38288/2017-NEC-Code-2",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": [
+        {
+          "page": "/voltage-drop-calculator",
+          "fragment": "page=693",
+          "status": "pdf_fragment_not_checked"
+        }
+      ]
+    },
+    {
+      "url": "https://www.openstreetmap.org/copyright",
+      "references": [
+        {
+          "page": "/mileage-calculator",
+          "label": "OpenStreetMap data and attribution",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.openstreetmap.org/copyright",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Copyright and License | OpenStreetMap",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.25",
+      "references": [
+        {
+          "page": "/stair-calculator",
+          "label": "OSHA 1910.25: Stairways",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.25"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.25",
+      "contentType": "text/html",
+      "title": "ERROR: The request could not be satisfied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3339.txt",
+      "references": [
+        {
+          "page": "/time-zone-calculator",
+          "label": "IETF RFC 3339: numeric UTC offsets",
+          "url": "https://www.rfc-editor.org/rfc/rfc3339.txt"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc3339.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3986",
+      "references": [
+        {
+          "page": "/url-encode-decode",
+          "label": "IETF RFC 3986",
+          "url": "https://www.rfc-editor.org/rfc/rfc3986"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/info/rfc3986/",
+      "contentType": "text/html;charset=utf-8",
+      "title": "RFC 3986: Uniform Resource Identifier (URI): Generic Syntax | RFC Editor",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4291",
+      "references": [
+        {
+          "page": "/ip-subnet-calculator",
+          "label": "IETF RFC 4291: IPv6 addressing",
+          "url": "https://www.rfc-editor.org/rfc/rfc4291"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/info/rfc4291/",
+      "contentType": "text/html;charset=utf-8",
+      "title": "RFC 4291: IP Version 6 Addressing Architecture | RFC Editor",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4632",
+      "references": [
+        {
+          "page": "/ip-subnet-calculator",
+          "label": "IETF RFC 4632: CIDR",
+          "url": "https://www.rfc-editor.org/rfc/rfc4632"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/info/rfc4632/",
+      "contentType": "text/html;charset=utf-8",
+      "title": "RFC 4632: Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan | RFC Editor",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4648",
+      "references": [
+        {
+          "page": "/base64-encode-decode",
+          "label": "IETF RFC 4648",
+          "url": "https://www.rfc-editor.org/rfc/rfc4648"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/info/rfc4648/",
+      "contentType": "text/html;charset=utf-8",
+      "title": "RFC 4648: The Base16, Base32, and Base64 Data Encodings | RFC Editor",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+      "references": [
+        {
+          "page": "/currency-calculator",
+          "label": "Chile SII: daily Unidad de Fomento values",
+          "url": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.sii.cl/valores_y_fechas/uf/uf2026.htm",
+      "contentType": "text/html",
+      "title": "Sii | Servicio de Impuestos Internos",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+      "references": [
+        {
+          "page": "/social-security-calculator",
+          "label": "SSA full retirement age and benefit reduction",
+          "url": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ssa.gov/cola/factsheets/2026.html",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "SSA: 2026 wage base",
+          "url": "https://www.ssa.gov/cola/factsheets/2026.html"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "SSA: 2026 wage base",
+          "url": "https://www.ssa.gov/cola/factsheets/2026.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.ssa.gov/cola/factsheets/2026.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ssa.gov/oact/cola/cbb.html",
+      "references": [
+        {
+          "page": "/tax-calculator",
+          "label": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        },
+        {
+          "page": "/take-home-pay-calculator",
+          "label": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        },
+        {
+          "page": "/marriage-calculator",
+          "label": "SSA: annual contribution and benefit bases",
+          "url": "https://www.ssa.gov/oact/cola/cbb.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.ssa.gov/oact/cola/cbb.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ssa.gov/oact/quickcalc/early_late.html",
+      "references": [
+        {
+          "page": "/social-security-calculator",
+          "label": "SSA early and late retirement adjustments",
+          "url": "https://www.ssa.gov/oact/quickcalc/early_late.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.ssa.gov/oact/quickcalc/early_late.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.ssa.gov/oact/quickcalc/earlyretire.html",
+      "references": [
+        {
+          "page": "/social-security-calculator",
+          "label": "SSA: retirement benefit reduction",
+          "url": "https://www.ssa.gov/oact/quickcalc/earlyretire.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.ssa.gov/oact/quickcalc/earlyretire.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.unm.edu/~rrobergs/478RMStrengthPrediction.pdf",
+      "references": [
+        {
+          "page": "/one-rep-max-calculator",
+          "label": "Reynolds et al. (2006): comparison of 1RM prediction equations, Table 5",
+          "url": "https://www.unm.edu/~rrobergs/478RMStrengthPrediction.pdf"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.unm.edu/~rrobergs/478RMStrengthPrediction.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm",
+      "references": [
+        {
+          "page": "/golf-handicap-calculator",
+          "label": "USGA Rule 5.1c: negative score-differential rounding",
+          "url": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html",
+      "references": [
+        {
+          "page": "/golf-handicap-calculator",
+          "label": "USGA: treatment of nine-hole scores since 2024",
+          "url": "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.usga.org/handicapping/roh/2024-rules-of-handicapping.html",
+      "references": [
+        {
+          "page": "/golf-handicap-calculator",
+          "label": "USGA: Rules of Handicapping",
+          "url": "https://www.usga.org/handicapping/roh/2024-rules-of-handicapping.html"
+        }
+      ],
+      "status": 403,
+      "finalUrl": "https://www.usga.org/handicapping/roh/2024-rules-of-handicapping.html",
+      "contentType": "text/html",
+      "title": "Access Denied",
+      "classification": "access_unverified",
+      "fragments": []
+    },
+    {
+      "url": "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/",
+      "references": [
+        {
+          "page": "/va-mortgage-calculator",
+          "label": "VA funding fee guidance",
+          "url": "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/",
+      "contentType": "text/html",
+      "title": "VA Funding Fee And Loan Closing Costs | Veterans Affairs",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.wacoallingerie.com/uk/en/size-guide/",
+      "references": [
+        {
+          "page": "/bra-size-calculator",
+          "label": "Wacoal: international band, cup and dress label conventions",
+          "url": "https://www.wacoallingerie.com/uk/en/size-guide/"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.wacoallingerie.com/uk/en/size-guide/",
+      "contentType": "text/html;charset=UTF-8",
+      "title": "International Size Guide",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.weather.gov/safety/cold-wind-chill-chart",
+      "references": [
+        {
+          "page": "/wind-chill-calculator",
+          "label": "NWS: wind chill",
+          "url": "https://www.weather.gov/safety/cold-wind-chill-chart"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.weather.gov/safety/cold-wind-chill-chart",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Understanding Wind Chill",
+      "classification": "reachable",
+      "fragments": []
+    },
+    {
+      "url": "https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml",
+      "references": [
+        {
+          "page": "/heat-index-calculator",
+          "label": "NWS: heat-index equation",
+          "url": "https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml"
+        }
+      ],
+      "status": 200,
+      "finalUrl": "https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml",
+      "contentType": "text/html; charset=UTF-8",
+      "title": "Heat Index Equation",
+      "classification": "reachable",
+      "fragments": []
+    }
+  ]
+}
