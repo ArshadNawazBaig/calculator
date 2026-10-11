@@ -24,6 +24,10 @@
 .keyHint { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted); font-size: 10px; white-space: nowrap; }
 .keyHint kbd { display: inline-grid; place-items: center; height: 19px; min-width: 17px; padding-inline: 3px; font: inherit; color: var(--color-text-secondary); background: var(--search-key-bg,#fff); border: 1px solid var(--color-line); border-radius: 3px; }
 .keyHint>span { margin-inline: 3px; }
+.inlineMenu { position: static; margin-top: 16px; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+.inlineMenu .menuHeading { padding: 0 4px 12px; }
+.inlineMenu .list { max-height: none; overflow: visible; padding-inline: 0; }
+.inlineMenu .menuFooter { margin-top: 8px; padding: 12px 4px 0; background: transparent; }
 @media(max-width:600px) {
   .menu { border-radius: 9px; top: calc(100% + 7px); }
   .menuHeading { padding-inline: 14px; }

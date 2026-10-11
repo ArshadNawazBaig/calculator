@@ -29,10 +29,11 @@ export function HeaderSearch(){
       <Modal className={styles.searchModal}>
         <Dialog className={styles.searchDialog}>
           <div className={styles.searchHeading}><Heading slot="title">{t("Find a calculator")}</Heading><Button slot="close" className={styles.closeSearch} aria-label={t("Close search")}><X size={20} aria-hidden="true"/></Button></div>
-          <Search autoFocus onNavigate={()=>setOpen(false)} placeholder={t("Search calculators…")}/>
+          <Search autoFocus suggestionLayout="inline" onNavigate={()=>setOpen(false)} placeholder={t("Search calculators…")} emptyContent={<>
           <p className={styles.popularLabel}>{t("Popular calculators")}</p>
           <div className={styles.popularLinks}>{popular.map(tool=><Link key={tool.slug} href={`/${tool.slug}`} onClick={()=>setOpen(false)}><span className={styles.popularIcon}><ToolIcon slug={tool.slug} size={20}/></span><span><strong>{locale==='en'?tool.label:t(`tool.${tool.slug}`)}</strong>{locale==='en'&&<small>{tool.description}</small>}</span><ChevronRight size={16} aria-hidden="true"/></Link>)}</div>
           <div className={styles.searchFooter}><span>{t("Free calculators for money, health, math, and everyday life.")}</span><span><kbd>Esc</kbd> {t("to close")}</span></div>
+          </>}/>
         </Dialog>
       </Modal>
     </ModalOverlay>

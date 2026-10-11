@@ -29,8 +29,8 @@
 .regionPreferences>p { margin: 0; font-size: 11px; line-height: 1.6; color: var(--color-muted); }
 .regionPreferences>p+p { margin-top: -7px; }
 .resetPreferences { justify-self: start; border: 0; background: none; color: var(--color-brand-dark); padding: 5px 0; font: inherit; font-size: 12px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
-.searchOverlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: start; justify-content: center; overflow-y: auto; padding: min(14vh,112px) 20px 24px; background: #00000070; backdrop-filter: blur(5px); }
-.searchModal { width: min(620px,100%); border: 1px solid var(--color-line); border-radius: 12px; background: #fff; box-shadow: 0 24px 80px #00000033; }
+.searchOverlay { --search-top: min(14dvh,112px); position: fixed; inset: 0; z-index: 100; display: flex; align-items: start; justify-content: center; overflow-y: auto; padding: var(--search-top) 20px 24px; background: #00000070; backdrop-filter: blur(5px); }
+.searchModal { width: min(620px,100%); max-height: calc(100dvh - var(--search-top) - 24px); overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--color-line); border-radius: 12px; background: #fff; box-shadow: 0 24px 80px #00000033; }
 .searchDialog { padding: 20px; outline: none; }
 .searchHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .searchHeading h2 { color: var(--color-ink); font-size: 19px; font-weight: 700; line-height: 1.4; letter-spacing: -.4px; }
@@ -58,7 +58,7 @@
 }
 @media(max-width:600px) {
   .currencyCode { display: none; }
-  .searchOverlay { padding: 16px 12px 24px; }
+  .searchOverlay { --search-top: 16px; padding-inline: 12px; }
   .searchDialog { padding: 16px; }
   .searchHeading h2 { font-size: 18px; }
   .searchFooter>span:first-child { max-width: 185px; }

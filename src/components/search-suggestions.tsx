@@ -8,6 +8,7 @@ import type {CatalogEntry} from "@/lib/calculators/types";
 import styles from "./search.module.css";
 
 type SearchSuggestionsProps={
+  inline?:boolean;
   id:string;
   matches:CatalogEntry[];
   total:number;
@@ -18,7 +19,7 @@ type SearchSuggestionsProps={
   onBrowse:()=>void;
 };
 
-export function SearchSuggestions({id,matches,total,activeIndex,category,onActive,onSelect,onBrowse}:SearchSuggestionsProps) {
+export function SearchSuggestions({inline=false,id,matches,total,activeIndex,category,onActive,onSelect,onBrowse}:SearchSuggestionsProps) {
  const {t,locale}=useI18n();
 
   const listRef=useRef<HTMLUListElement>(null);
@@ -27,12 +28,13 @@ export function SearchSuggestions({id,matches,total,activeIndex,category,onActiv
     if(list&&activeIndex<0){list.scrollTop=0;return;}
     const option=list?.querySelector<HTMLElement>('[aria-selected="true"]');
     if(!list||!option)return;
+    if(inline){option.scrollIntoView({block:'nearest'});return;}
     const top=option.offsetTop;
     if(top<list.scrollTop)list.scrollTop=top;
     else if(top+option.offsetHeight>list.scrollTop+list.clientHeight)list.scrollTop=top+option.offsetHeight-list.clientHeight;
-  },[activeIndex,matches]);
+  },[activeIndex,matches,inline]);
 
-  return <div className={styles.menu}>
+  return <div className={`${styles.menu}${inline?` ${styles.inlineMenu}`:''}`}>
     <div className={styles.menuHeading}><span id={`${id}-label`}>{t("Suggested calculators")}</span>{total>0&&<span>{total>matches.length?t("{shown} of {total}",{shown:matches.length,total}):t("Results: {count}",{count:total})}</span>}</div>
     <ul ref={listRef} id={id} role="listbox" aria-labelledby={`${id}-label`} className={styles.list}>
       {matches.map((tool,index)=><li key={tool.slug} id={`${id}-${index}`} role="option" aria-selected={activeIndex===index} tabIndex={-1} className={styles.option}
@@ -45,7 +47,7 @@ export function SearchSuggestions({id,matches,total,activeIndex,category,onActiv
     {!matches.length&&<div className={styles.empty}><SearchX size={24} aria-hidden="true"/><strong>{category?t("No matches in {category}",{category:t(categoryLabels[category]).toLowerCase()}):t("No calculators found")}</strong><p>{t("Try a shorter name, such as “loan” or “date”.")}</p></div>}
     <div className={styles.menuFooter}>
       <span className={styles.keyHint}><kbd>↑</kbd><kbd>↓</kbd> {t("to navigate")}<span>·</span><kbd>↵</kbd> {t("to open")}</span>
-      {total>0?<button type="submit" tabIndex={-1}>{t("View all results")}<ChevronRight size={15} aria-hidden="true"/></button>:<button type="button" tabIndex={-1} onClick={onBrowse}>{category?t("Search all categories"):t("Browse all calculators")}<ChevronRight size={15} aria-hidden="true"/></button>}
+      {total>0?<button type="submit" tabIndex={inline?0:-1}>{t("View all results")}<ChevronRight size={15} aria-hidden="true"/></button>:<button type="button" tabIndex={inline?0:-1} onClick={onBrowse}>{category?t("Search all categories"):t("Browse all calculators")}<ChevronRight size={15} aria-hidden="true"/></button>}
     </div>
   </div>;
 }
