@@ -1,5 +1,6 @@
 import Link from './link';
 import {CalculatorGuidance} from '@/components/content/calculator-guidance';
+import {RelatedGuides} from '@/components/content/related-guides';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import content from '@/data/calculator-content.json';
 import {defaults, type Definition, type Result} from '@/lib/calculators/types';
@@ -19,6 +20,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
       <p>{t(definition.modes.length>1?'Select the calculation mode that matches your question, then enter the values shown.':'Enter the values in the labeled fields.')} {t('Check the displayed units before calculating. Results reflect the selected model and your inputs.')}</p>
     </section>
     <CalculatorGuidance slug={definition.slug} messages={messages}/>
+    <RelatedGuides slug={definition.slug} messages={messages} locale={locale}/>
     {definition.modes.map(mode=><section key={mode.id} id={`method-${mode.id}`}>
       <h2>{t('{mode}: formula and assumptions',{mode:t(mode.title)})}</h2>
       <p className="formula-block" dir="auto">{t(mode.formula)}</p>

@@ -8,6 +8,8 @@ import {categories} from '@/lib/site';
 import {catalog} from '@/lib/calculators/registry';
 import {calculatorCardData} from '@/lib/calculator-cards';
 import {translator, type Dictionary} from '@/lib/i18n/config';
+import {cardMessages} from '@/lib/i18n/dictionaries';
+import {TranslationMessages} from './provider';
 import styles from '@/components/home/home.module.css';
 
 export function LocalizedHome({messages}: {messages: Dictionary}) {
@@ -16,13 +18,13 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
   const questions = [
     ['Are the calculators free to use?', 'Yes. Available calculators are free and require no account.'],
     ['Does changing language change tax rules or currency?', 'No. Language changes the interface. Check the region, currency, and units shown in each calculator.'],
-    ['Do my inputs leave my device?', 'Calculations run in your browser. Sharing a tool link does not include your inputs.'],
+    ['Do my inputs leave my device?', 'Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools.'],
   ];
   return <>
     <SearchHero id="home-title" eyebrow={t('A little clarity goes a long way')} title={t('Find your answer.')} highlight={t('answer.')} description={t('Free calculators for life’s big and small decisions. From your next home to your everyday numbers.')}/>
     <section className={`container ${styles.section}`} aria-labelledby="featured-title">
       <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>{t('Your everyday toolkit')}</span><h2 id="featured-title">{t('Start with a calculator.')}</h2><p>{t('Find the right tool for your next question.')}</p></div><Link className={styles.sectionLink} href="/calculators">{t('All calculators')}<ChevronRight size={16}/></Link></div>
-      <div className="directory-grid">{popular.map(slug => <CalculatorCard key={slug} tool={calculatorCardData(catalog.find(tool => tool.slug === slug)!)}/>)}</div>
+      <TranslationMessages messages={cardMessages(messages,popular.map(slug=>({slug})))}><div className="directory-grid">{popular.map(slug => <CalculatorCard key={slug} tool={calculatorCardData(catalog.find(tool => tool.slug === slug)!)}/>)}</div></TranslationMessages>
     </section>
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
@@ -37,7 +39,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
       <div className={styles.benefits}>{[
         {icon: BookOpen, title: 'Formulas explained', text: 'Check units and assumptions before using a result.'},
         {icon: SlidersHorizontal, title: 'Your everyday toolkit', text: 'Change a rate, a date, or an amount to explore different scenarios.'},
-        {icon: UserRoundCheck, title: 'No account needed', text: 'Calculations run in your browser. Sharing a tool link does not include your inputs.'},
+        {icon: UserRoundCheck, title: 'No account needed', text: 'Most calculations run in your browser. Sharing a tool link does not include your inputs.'},
       ].map(({icon: BenefitIcon, title, text}) => <div className={styles.benefit} key={title}><BenefitIcon size={23}/><div><h3>{t(title)}</h3><p>{t(text)}</p></div></div>)}</div>
     </div></section>
     <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>

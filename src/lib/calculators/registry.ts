@@ -1,4 +1,5 @@
 import methodCopy from '@/data/method-copy.json';
+import {calculatorFamilies, relatedCalculatorSlugs} from '@/data/calculator-relationships';
 import {remainingDefinitions} from './remaining-definitions';
 import {roadRouteDefinition} from './road-route-definition';
 import {historicalFhaMode} from './historical-fha';
@@ -96,4 +97,8 @@ export const blocked:Record<string,string>={};
 export const sensitiveTools=new Set(['password-generator','base64-encode-decode','url-encode-decode']);
 export const randomTools=new Set(['password-generator','dice-roller','random-number-generator']);
 export const noInitialExampleTools=new Set([...randomTools,'mileage-calculator']);
-export const relatedTools=(tool:CatalogEntry)=>catalog.filter(t=>t.category===tool.category&&t.slug!==tool.slug&&definitionMap.has(t.slug)).sort((a,b)=>Number(b.subcategory===tool.subcategory)-Number(a.subcategory===tool.subcategory)).slice(0,6);
+export function relatedTools(tool: CatalogEntry): CatalogEntry[] {
+ const preferred = relatedCalculatorSlugs[tool.slug] || calculatorFamilies.filter(family=>family.includes(tool.slug)).flat();
+ const fallback = catalog.filter(item=>item.category===tool.category).sort((a,b)=>Number(b.subcategory===tool.subcategory)-Number(a.subcategory===tool.subcategory)).map(item=>item.slug);
+ return [...new Set([...preferred,...fallback])].filter(slug=>slug!==tool.slug&&definitionMap.has(slug)).slice(0,6).map(slug=>toolMap.get(slug)!);
+}

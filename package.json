@@ -15,7 +15,9 @@
     "build:sites": "node scripts/build-sites.mjs",
     "preview:worker": "wrangler dev --config wrangler.staged.json --port 3101",
     "coverage:manifest": "node scripts/export-coverage.mjs",
-    "i18n:check": "node scripts/check-translations.mjs"
+    "i18n:check": "node scripts/check-translations.mjs",
+    "audit:seo": "node scripts/audit-seo.mjs",
+    "audit:performance": "node scripts/lab-performance.mjs"
   },
   "engines": {
     "node": "22.x"

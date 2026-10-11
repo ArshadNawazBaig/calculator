@@ -1,6 +1,6 @@
 # Deployment
 
-Finflo runs on Railway at `https://finflo.org`. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains are verified with valid Railway certificates. The registry delegates to Vercel DNS, and the live HTTPS indexing audit passed for all 377 sitemap URLs; see [the live report](validation/live-indexing-readiness.json).
+Finflo runs on Railway at `https://finflo.org`. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains are verified with valid Railway certificates. The registry delegates to Vercel DNS, and the original HTTPS indexing audit covered 377 sitemap URLs; see [that historical report](validation/live-indexing-readiness.json). The current eight-language inventory contains 1,944 sitemap URLs. The October 2026 implementation and current validation scope are documented in [the SEO change record](seo-improvements-2026-10-11.md).
 
 ## Railway
 

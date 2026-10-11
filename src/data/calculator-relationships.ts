@@ -1,0 +1,41 @@
+/** Ordered by the next task a visitor is likely to want, across categories where useful. */
+export const relatedCalculatorSlugs: Record<string, string[]> = {
+  'mortgage-calculator': ['mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator'],
+  'compound-interest-calculator': ['savings-calculator', 'investment-calculator', 'simple-interest-calculator', 'future-value-calculator', 'interest-calculator', 'inflation-calculator'],
+  'bmi-calculator': ['healthy-weight-calculator', 'body-fat-calculator', 'lean-body-mass-calculator', 'bmr-calculator', 'calorie-calculator', 'height-calculator'],
+  'percent-calculator': ['percent-off-calculator', 'discount-calculator', 'percent-error-calculator', 'fraction-calculator', 'ratio-calculator', 'margin-calculator'],
+};
+
+/** Shared task families supplement explicit recommendations before category fallbacks. */
+export const calculatorFamilies: string[][] = [
+  ['mortgage-calculator', 'mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator', 'rental-property-calculator', 'heloc-calculator', 'home-equity-loan-calculator', 'fha-loan-calculator', 'va-mortgage-calculator', 'real-estate-calculator'],
+  ['loan-calculator', 'amortization-calculator', 'payment-calculator', 'repayment-calculator', 'personal-loan-calculator', 'interest-rate-calculator', 'apr-calculator', 'business-loan-calculator', 'boat-loan-calculator'],
+  ['compound-interest-calculator', 'savings-calculator', 'investment-calculator', 'future-value-calculator', 'interest-calculator', 'simple-interest-calculator', 'cd-calculator', 'present-value-calculator', 'finance-calculator', 'mutual-fund-calculator'],
+  ['credit-card-payoff-calculator', 'credit-card-calculator', 'debt-payoff-calculator', 'debt-consolidation-calculator', 'debt-ratio-calculator', 'budget-calculator'],
+  ['auto-loan-calculator', 'auto-lease-calculator', 'cash-back-or-low-interest-calculator', 'lease-calculator', 'fuel-cost-calculator', 'gas-mileage-calculator'],
+  ['retirement-calculator', '401k-calculator', 'ira-calculator', 'roth-ira-calculator', 'rmd-calculator', 'pension-calculator', 'social-security-calculator', 'annuity-calculator', 'annuity-payout-calculator'],
+  ['salary-calculator', 'take-home-pay-calculator', 'tax-calculator', 'marriage-calculator', 'budget-calculator', 'time-card-calculator'],
+  ['roi-calculator', 'irr-calculator', 'payback-period-calculator', 'average-return-calculator', 'bond-calculator', 'investment-calculator'],
+  ['percent-calculator', 'percent-off-calculator', 'discount-calculator', 'sales-tax-calculator', 'vat-calculator', 'margin-calculator', 'commission-calculator', 'tip-calculator'],
+  ['bmi-calculator', 'healthy-weight-calculator', 'body-fat-calculator', 'lean-body-mass-calculator', 'bmr-calculator', 'calorie-calculator', 'height-calculator'],
+  ['calorie-calculator', 'tdee-calculator', 'bmr-calculator', 'macro-calculator', 'protein-calculator', 'carbohydrate-calculator', 'fat-intake-calculator', 'calories-burned-calculator'],
+  ['pregnancy-calculator', 'due-date-calculator', 'pregnancy-conception-calculator', 'conception-calculator', 'ovulation-calculator', 'period-calculator', 'pregnancy-weight-gain-calculator'],
+  ['pace-calculator', 'speed-calculator', 'calories-burned-calculator', 'target-heart-rate-calculator', 'one-rep-max-calculator'],
+  ['fraction-calculator', 'ratio-calculator', 'percent-calculator', 'long-division-calculator', 'rounding-calculator', 'basic-calculator'],
+  ['factor-calculator', 'prime-factorization-calculator', 'common-factor-calculator', 'gcf-calculator', 'lcm-calculator'],
+  ['statistics-calculator', 'mean-median-mode-range-calculator', 'average-calculator', 'standard-deviation-calculator', 'z-score-calculator', 'confidence-interval-calculator', 'sample-size-calculator', 'p-value-calculator'],
+  ['probability-calculator', 'permutation-and-combination-calculator', 'random-number-generator', 'dice-roller'],
+  ['triangle-calculator', 'right-triangle-calculator', 'pythagorean-theorem-calculator', 'slope-calculator', 'distance-calculator'],
+  ['area-calculator', 'circle-calculator', 'surface-area-calculator', 'volume-calculator', 'square-footage-calculator'],
+  ['scientific-calculator', 'exponent-calculator', 'root-calculator', 'log-calculator', 'scientific-notation-calculator', 'quadratic-formula-calculator'],
+  ['binary-calculator', 'hex-calculator', 'big-number-calculator', 'base64-encode-decode', 'url-encode-decode'],
+  ['date-calculator', 'day-counter', 'age-calculator', 'day-of-the-week-calculator', 'time-duration-calculator'],
+  ['time-calculator', 'time-duration-calculator', 'hours-calculator', 'time-card-calculator', 'time-zone-calculator'],
+  ['conversion-calculator', 'height-calculator', 'weight-calculator', 'mass-calculator', 'speed-calculator', 'density-calculator'],
+  ['concrete-calculator', 'gravel-calculator', 'mulch-calculator', 'square-footage-calculator', 'tile-calculator', 'roofing-calculator', 'stair-calculator'],
+  ['electricity-calculator', 'ohms-law-calculator', 'resistor-calculator', 'voltage-drop-calculator', 'horsepower-calculator', 'engine-horsepower-calculator'],
+  ['fuel-cost-calculator', 'gas-mileage-calculator', 'mileage-calculator', 'tire-size-calculator', 'auto-loan-calculator'],
+  ['heat-index-calculator', 'dew-point-calculator', 'wind-chill-calculator', 'btu-calculator'],
+  ['molecular-weight-calculator', 'molarity-calculator', 'density-calculator', 'mass-calculator'],
+  ['gpa-calculator', 'grade-calculator', 'college-cost-calculator', 'student-loan-calculator'],
+];

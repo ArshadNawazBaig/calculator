@@ -7,11 +7,13 @@ import {HomeCta} from "@/components/home/home-cta";
 import {site} from "@/lib/site";
 import {pageMetadata} from "@/lib/metadata";
 import {JsonLd} from "@/components/content/json-ld";
+import {organizationData} from "@/lib/structured-data";
 
-export const metadata=pageMetadata("Free calculators for life’s big and small decisions",site.description,"/");
+export const metadata=pageMetadata("Free Finance, Health, Math & Everyday Calculators",site.description,"/");
 export default function Home() {
   return <>
     <JsonLd data={{"@context":"https://schema.org","@type":"WebSite",name:"Finflo",url:site.url,description:site.description}}/>
+    <JsonLd data={{"@context":"https://schema.org",...organizationData()}}/>
     <HomeExplorer/>
     <BrowseCategories/>
     <CalculationConfidence/>

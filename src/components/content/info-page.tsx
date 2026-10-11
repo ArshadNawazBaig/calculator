@@ -6,7 +6,10 @@ export function InfoPage({page,guide=false,highlight}:{page:Content;guide?:boole
   return <>
     <PageHero eyebrow={guide?'THE FINFLO GUIDE':'FINFLO · CLEAR BY DESIGN'} title={page.title} description={page.description} highlight={highlight} breadcrumbs={[...(guide?[{label:'Guides',href:'/guides'}]:[]),{label:page.title}]}/>
     <div className="container document-page page-content">
-      <div className="document-body">{page.sections.map((s,i)=><section key={i}><h2>{s.title}</h2>{s.paragraphs.map((p,j)=><p key={j}>{p}</p>)}{s.links&&<ul>{s.links.map(l=><li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}</ul>}</section>)}</div>
+      <article className="document-body">
+        {guide&&<p className="editorial-note">Prepared by <Link href="/about">Finflo</Link>. <Link href="/methodology">Our methodology</Link> · <Link href="/editorial-policy">Editorial policy</Link></p>}
+        {page.sections.map((s,i)=><section key={i}><h2>{s.title}</h2>{s.paragraphs.map((p,j)=><p key={j}>{p}</p>)}{s.links&&<ul>{s.links.map(l=><li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}</ul>}</section>)}
+      </article>
     </div>
   </>;
 }
