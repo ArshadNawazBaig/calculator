@@ -1,10 +1,13 @@
 .exports { display: contents; }
 .actions { display: flex; flex-wrap: wrap; gap: 3px; }
-.file { flex-basis: 100%; min-width: 0; padding: 12px; margin-top: 8px; background: var(--color-soft); border: 1px solid var(--color-line); border-radius: 8px; font-size: 12px; }
+.file { display: none; flex-basis: 100%; min-width: 0; padding: 12px; margin-top: 8px; background: var(--color-soft); border: 1px solid var(--color-line); border-radius: 8px; font-size: 12px; }
+/* Keep export errors and print guidance visible on every device. */
+.notice { display: block; }
 .filename { display: block; margin-top: 5px; color: var(--color-muted); overflow-wrap: anywhere; }
 .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .links a { text-decoration: underline; text-underline-offset: 3px; }
-/* Phones save a real PDF, without depending on a native browser print service. */
+/* Touch devices retain the save/share fallback and use PDF instead of native printing. */
 @media (hover: none) and (pointer: coarse) {
+  .file { display: block; }
   .actions .print { display: none; }
 }

@@ -39,7 +39,7 @@ export function ResultExports({result,title,modeTitle,algorithm,slug,currency,cu
     try {shareable=typeof navigator.share==='function'&&Boolean(navigator.canShare?.({files:[file]}));} catch { /* The download remains available when sharing is blocked. */ }
     setReady({file,url,shareable,snapshot});
     setMessage(null);
-    // The visible link is retained even if automatic downloads are blocked.
+    // Mobile devices retain a save/share fallback after the automatic download.
     try {downloadFile(url,file.name);} catch { /* The user can tap Download file. */ }
   }
   function csv() {
@@ -88,7 +88,7 @@ export function ResultExports({result,title,modeTitle,algorithm,slug,currency,cu
       <Button type="button" variant="ghost" disabled={disabled||busy||sharing} onClick={pdf}><FileDown size={15} aria-hidden="true"/>{busy?t('Preparing PDF…'):'PDF'}</Button>
       <Button type="button" variant="ghost" className={styles.print} disabled={disabled||busy||sharing} onClick={print}><Printer size={15} aria-hidden="true"/>{t('Print')}</Button>
     </div>
-    {(current||busy||message?.snapshot===snapshot)&&<div className={styles.file}>
+    {(current||busy||message?.snapshot===snapshot)&&<div className={`${styles.file} ${message?.snapshot===snapshot?styles.notice:''}`}>
       <p role="status">{busy?t('Preparing PDF…'):message?.snapshot===snapshot?t(message.text):t('Your file is ready. If it did not download, use the options below.')}</p>
       {current&&<>
         <span className={styles.filename} dir="ltr">{current.file.name}</span>
