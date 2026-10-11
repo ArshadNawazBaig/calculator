@@ -7,6 +7,7 @@ import {SearchHero} from '@/components/content/search-hero';
 import {SearchResults} from '@/components/content/search-results';
 import {ToolDirectory} from '@/components/content/tool-directory';
 import {FilterableToolDirectory} from '@/components/content/filterable-tool-directory';
+import {CalculatorNavigation} from '@/components/calculators/calculator-navigation';
 import {CalculatorForm} from '@/components/calculators/calculator';
 import {CalculatorCard} from '@/components/calculators/calculator-card';
 import {JsonLd} from '@/components/content/json-ld';
@@ -72,7 +73,7 @@ export function localizedPage(locale: Locale) {
     const messages = await getContentDictionary(locale), t = translator(messages);
     if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
     if (path === '/calculators' || path === '/sitemap') return <>
-      <SearchHero id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
+      <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
       <div className="container directory-page page-content">
         <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}</nav>
         <TranslationMessages messages={cardMessages(messages,catalog)}>{categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}</TranslationMessages>
@@ -92,6 +93,7 @@ export function localizedPage(locale: Locale) {
       return <>
         <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}/>
         <TranslationMessages messages={cardMessages(messages,relatedTools(tool))}><div className="container tool-page page-content">
+          {def&&<CalculatorNavigation messages={messages}/>}
           {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
           {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}
           <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div></aside></div>

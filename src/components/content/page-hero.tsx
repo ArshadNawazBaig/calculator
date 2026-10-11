@@ -19,7 +19,7 @@ export function PageHero({eyebrow,title,description,highlight,breadcrumbs,showBr
   const index=title.lastIndexOf(accent);
   return <section className={`${styles.hero}${variant==='system'?` ${styles.system}`:''}`} aria-labelledby="page-title" data-page-hero data-system-page={variant==='system'||undefined}>
     <div className="container">
-      {showBreadcrumbs&&<Breadcrumbs items={breadcrumbs??[{label:title}]} tone="inverse" className={styles.breadcrumbs}/>}
+      {showBreadcrumbs&&<Breadcrumbs items={breadcrumbs??[{label:title}]} className={styles.breadcrumbs}/>}
       <span className={styles.eyebrow}>{eyebrow}</span>
       <h1 id="page-title" className={styles.title}>{index<0?title:<>{title.slice(0,index)}<span>{accent}</span>{title.slice(index+accent.length)}</>}</h1>
       {description&&<p className={styles.description}>{description}</p>}

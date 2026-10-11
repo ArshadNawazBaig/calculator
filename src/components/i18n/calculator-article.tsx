@@ -15,7 +15,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
   const t=translator(messages), mode=definition.modes[0], values=defaults(mode);
   const entry=(content as Record<string,{faqs:{question:string;answer:string}[]}>)[definition.slug];
   return <article className="document-body">
-    <section id="how-it-works"><h2>{t('How to use this calculator')}</h2>
+    <section id="how-it-works" tabIndex={-1}><h2>{t('How to use this calculator')}</h2>
       <p>{t(definition.description)}</p>
       <p>{t(definition.modes.length>1?'Select the calculation mode that matches your question, then enter the values shown.':'Enter the values in the labeled fields.')} {t('Check the displayed units before calculating. Results reflect the selected model and your inputs.')}</p>
     </section>

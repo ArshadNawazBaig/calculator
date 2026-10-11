@@ -1,0 +1,44 @@
+
+Running 16 tests using 1 worker
+
+(node:77127) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [android-chromium] › tests/e2e/mobile-exports.spec.ts:5:5 › CSV downloads contain the full schedule and the retry link stays usable (1.2s)
+(node:77144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [android-chromium] › tests/e2e/mobile-exports.spec.ts:25:5 › PDF creates a valid multipage file on a phone without calling window.print (4.3s)
+  ✓   3 [android-chromium] › tests/e2e/mobile-exports.spec.ts:45:5 › native file sharing is invoked from a fresh tap and cancellation keeps the download available (916ms)
+  ✓   4 [android-chromium] › tests/e2e/mobile-exports.spec.ts:67:5 › a browser that blocks file sharing still offers a working download (719ms)
+  ✓   5 [android-chromium] › tests/e2e/mobile-exports.spec.ts:85:5 › the visible save link works when automatic downloads are blocked (1.0s)
+  ✓   6 [android-chromium] › tests/e2e/mobile-exports.spec.ts:101:5 › PDF creation failures show a retryable message (1.2s)
+  ✓   7 [android-chromium] › tests/e2e/mobile-exports.spec.ts:118:7 › hi PDF renders localized text and a mobile save link (957ms)
+  ✓   8 [android-chromium] › tests/e2e/mobile-exports.spec.ts:118:7 › ar PDF renders localized text and a mobile save link (1.4s)
+(node:77207) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:5:5 › CSV downloads contain the full schedule and the retry link stays usable (3.9s)
+  ✓  10 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:25:5 › PDF creates a valid multipage file on a phone without calling window.print (5.2s)
+  ✓  11 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:45:5 › native file sharing is invoked from a fresh tap and cancellation keeps the download available (1.5s)
+  ✓  12 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:67:5 › a browser that blocks file sharing still offers a working download (1.2s)
+  ✓  13 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:85:5 › the visible save link works when automatic downloads are blocked (1.4s)
+  ✓  14 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:101:5 › PDF creation failures show a retryable message (1.3s)
+  ✓  15 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:118:7 › hi PDF renders localized text and a mobile save link (1.5s)
+  ✓  16 [iphone-webkit] › tests/e2e/mobile-exports.spec.ts:118:7 › ar PDF renders localized text and a mobile save link (1.4s)
+
+
+  1) [android-chromium] › tests/e2e/mobile-exports.spec.ts:5:5 › CSV downloads contain the full schedule and the retry link stays usable
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '<repository>/test-results/.playwright-artifacts-0/traces/c2fecba4f14c9beb6a21-201947a634d722156c73.network'
+
+    Error Context: test-results/mobile-exports-CSV-downloa-32eec-the-retry-link-stays-usable-android-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/mobile-exports-CSV-downloa-32eec-the-retry-link-stays-usable-android-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/mobile-exports-CSV-downloa-32eec-the-retry-link-stays-usable-android-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [android-chromium] › tests/e2e/mobile-exports.spec.ts:5:5 › CSV downloads contain the full schedule and the retry link stays usable
+  15 passed (33.8s)

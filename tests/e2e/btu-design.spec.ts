@@ -91,7 +91,8 @@ for (const locale of ['es','fr','de','pt','ar']) test(`${locale}: design control
     await page.getByRole('button', {name: 'CSV', exact: true}).click();
     const csv = readFileSync((await (await downloaded).path())!, 'utf8');
     expect(csv).toContain(t('Opaque exterior walls'));
-    expect(Number(csv.split(/\r?\n/)[1].split(',')[1].replaceAll('"', ''))).toBeCloseTo(110 * .09290304, 10);
+    // CSV follows the displayed two-decimal precision: 110 ft² = 10.2193344 m².
+    expect(Number(csv.split(/\r?\n/)[1].split(',')[1].replaceAll('"', ''))).toBe(10.22);
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

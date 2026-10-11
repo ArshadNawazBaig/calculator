@@ -23,13 +23,13 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
   return <>
     <SearchHero id="home-title" eyebrow={t('A little clarity goes a long way')} title={t('Find your answer.')} highlight={t('answer.')} description={t('Free calculators for life’s big and small decisions. From your next home to your everyday numbers.')}/>
     <section className={`container ${styles.section}`} aria-labelledby="featured-title">
-      <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>{t('Your everyday toolkit')}</span><h2 id="featured-title">{t('Start with a calculator.')}</h2><p>{t('Find the right tool for your next question.')}</p></div><Link className={styles.sectionLink} href="/calculators">{t('All calculators')}<ChevronRight size={16}/></Link></div>
+      <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>{t('Your everyday toolkit')}</span><h2 id="featured-title">{t('Start with a calculator.')}</h2></div><Link className={styles.sectionLink} href="/calculators">{t('All calculators')}<ChevronRight size={16}/></Link></div>
       <TranslationMessages messages={cardMessages(messages,popular.map(slug=>({slug})))}><div className="directory-grid">{popular.map(slug => <CalculatorCard key={slug} tool={calculatorCardData(catalog.find(tool => tool.slug === slug)!)}/>)}</div></TranslationMessages>
     </section>
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
-      <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} key={category.id}>
-        <Icon name={category.icon} size={25}/><h3><Link href={`/calculators/${category.id}`}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
+      <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} data-category={category.id} key={category.id}>
+        <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span><h3><Link href={`/calculators/${category.id}`}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
         <ul>{category.links.map(link => <li key={link.slug}><Link href={`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
         <Link className={styles.categoryAll} href={`/calculators/${category.id}`}>{t('All calculators')}<ChevronRight size={15}/></Link>
       </article>)}</div>

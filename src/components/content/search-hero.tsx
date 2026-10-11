@@ -14,21 +14,22 @@ type SearchHeroProps={
   highlight:string;
   description:string;
   breadcrumbs?:BreadcrumbItem[];
+  compact?:boolean;
   category?:CategoryId;
   onClearCategory?:()=>void;
 };
 
-export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,category,onClearCategory}:SearchHeroProps){
+export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,category,onClearCategory,compact=false}:SearchHeroProps){
  const {t,locale}=useI18n();
 
   const index=title.lastIndexOf(highlight);
-  return <section className={styles.intro} aria-labelledby={id} data-search-hero>
+  return <section className={`${styles.intro}${compact?` ${styles.compact}`:""}`} aria-labelledby={id} data-search-hero>
     {breadcrumbs&&<div className={`container ${styles.heroBreadcrumbs}`}><Breadcrumbs items={breadcrumbs} tone="inverse"/></div>}
     <div className={`container ${styles.introInner}`}>
       <span className={styles.heroEyebrow}>{eyebrow}</span>
       <h1 id={id}>{index<0?title:<>{title.slice(0,index)}<span>{highlight}</span>{title.slice(index+highlight.length)}</>}</h1>
       <p className={styles.heroDescription}>{description}</p>
-      <div className={styles.searchWrap}><Search keyboardShortcut category={category} placeholder={t("What would you like to calculate?")}/></div>
+      <div className={styles.searchWrap}><Search keyboardShortcut category={category} placeholder={t("Search calculators…")}/></div>
       <div className={styles.heroFooter}>
         <div className={styles.searchUnder}>
           <div className={styles.quickSearches}><span>{t("Try")}</span><Link href="/mortgage-calculator">{locale==='en'?'Mortgage':t('tool.mortgage-calculator')}</Link><Link href="/bmi-calculator">{t("BMI")}</Link><Link href="/compound-interest-calculator">{locale==='en'?'Compound interest':t('tool.compound-interest-calculator')}</Link></div>

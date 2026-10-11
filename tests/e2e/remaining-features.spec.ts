@@ -42,7 +42,7 @@ test('heat loss, mixed golf and dated NEC modes calculate', async ({page}) => {
   await page.goto('/voltage-drop-calculator');
   await choose(page, '2017 NEC impedance reference');
   await calculate(page);
-  await expect(page.locator('.primary-metric dd')).toContainText('2.234');
+  await expect(page.locator('.primary-metric dd')).toHaveText('2.23 V');
 });
 
 test('road mileage requires chosen locations, handles service errors, and resets', async ({page}) => {

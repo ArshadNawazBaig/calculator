@@ -1,0 +1,9 @@
+.nav { position: sticky; top: 0; z-index: 40; display: flex; gap: 8px; padding: 8px 0; margin-bottom: 16px; border-bottom: 1px solid var(--color-line); background: #fff; }
+.nav a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 16px; border-radius: 8px; color: var(--color-text-secondary); font-size: 14px; font-weight: 600; line-height: 1.5; }
+.nav a svg { color: var(--color-brand); }
+.nav a:hover { color: var(--color-brand-dark); background: var(--color-soft); }
+@media(max-width:600px) {
+  .nav { gap: 4px; margin-bottom: 12px; }
+  .nav a { flex: 1; min-width: 0; gap: 6px; padding: 8px 5px; font-size: 13px; text-align: center; }
+}
+@media(max-width:360px) { .nav a svg { display: none; } }
