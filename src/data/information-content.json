@@ -89,8 +89,21 @@
       {
         "title": "Calculator inputs and results",
         "paragraphs": [
-          "Most Finflo calculations run in your browser without an account. Road-route mileage sends your chosen location searches and coordinates to map providers through Finflo as described below. Finflo does not send calculator values to advertisers or analytics services, store them in an application database, or restore them between visits. Your browser may restore form entries according to its own settings.",
+          "Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools.",
           "Copy tool link copies the page address without your calculator values. CSV downloads are created in your browser. If you copy, download, print, email, or otherwise share a result, the destination you choose may receive it."
+        ]
+      },
+      {
+        "title": "Your local workspace",
+        "paragraphs": [
+          "Favorites and calculations are stored on this device only when you choose to save them. My workspace lets you reopen, rename, compare, delete, export, and import them. Nothing syncs to other devices automatically.",
+          "Clearing site data removes your workspace. Backup files include saved inputs and results; keep them somewhere you trust. Passwords and encoding-tool contents cannot be saved to the workspace."
+        ],
+        "links": [
+          {
+            "label": "My workspace",
+            "href": "/workspace"
+          }
         ]
       },
       {
@@ -229,7 +242,7 @@
         "title": "Cookies and tracking",
         "paragraphs": [
           "Finflo currently uses no advertising networks, marketing analytics, or optional tracking cookies.",
-          "Your browser may cache pages, code, and public currency reference data. Caching helps resources load again; it is separate from an advertising profile. Finflo does not save calculator inputs between visits.",
+          "Inputs stay in this browser only when you choose Save calculation. Manage saved results and backups in My workspace.",
           "When you choose a country or currency, Finflo stores those preferences in this browser’s local storage so they can apply on future visits. Calculator inputs and results are not saved with these preferences. Use “Use language defaults” in the language menu, or clear site data in your browser, to remove them. If browser storage is unavailable, preferences apply only for the current page session."
         ]
       },

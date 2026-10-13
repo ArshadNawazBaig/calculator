@@ -16,6 +16,7 @@ const navigationLinks=[
   {label:"Math",href:"/calculators/math"},
   {label:"Everyday",href:"/calculators/everyday"},
   {label:"Guides",href:"/guides"},
+  {label:"My workspace",href:"/workspace"},
 ];
 
 export function Header(){

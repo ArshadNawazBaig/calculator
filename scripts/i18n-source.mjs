@@ -127,6 +127,10 @@ export async function translationSource() {
     for (const file of ['src/components/i18n/calculator-article.tsx', 'src/lib/i18n/pages.tsx']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
     }
+    for (const entry of await readdir('src/components/workspace')) {
+      if (!/\.tsx?$/.test(entry)) continue;
+      for (const key of (await sourceModule(resolve(root, 'src/components/workspace', entry))).keys) keys.add(key);
+    }
     const existing = JSON.parse(await readFile('src/data/locales/es.json', 'utf8'));
     Object.keys(existing).filter(key => !/^tool\.|^description\./.test(key)).forEach(key => keys.add(key));
     // Routes match the English sitemap. Unavailable tools and system pages stay excluded.

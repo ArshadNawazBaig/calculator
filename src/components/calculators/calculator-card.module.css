@@ -1,5 +1,6 @@
 /* Shared by featured tools, directories, search results, and related calculators. */
 .card {
+  position: relative;
   container-type: inline-size;
   height: 100%;
   min-width: 0;
@@ -20,7 +21,7 @@
   border-radius: inherit;
 }
 .link:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 3px; }
-.header { display: flex; align-items: center; gap: 13px; }
+.header { display: flex; align-items: center; gap: 13px; padding-inline-end: 27px; }
 .iconWrap {
   display: grid;
   place-items: center;

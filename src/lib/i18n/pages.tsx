@@ -12,6 +12,7 @@ import {CalculatorForm} from '@/components/calculators/calculator';
 import {CalculatorCard} from '@/components/calculators/calculator-card';
 import {JsonLd} from '@/components/content/json-ld';
 import {LocalizedHome} from '@/components/i18n/localized-home';
+import {WorkspacePage} from '@/components/workspace/workspace';
 import {CalculatorArticle} from '@/components/i18n/calculator-article';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
@@ -32,9 +33,10 @@ import {isTranslatedPage, localizedPath, translator, type Locale} from './config
 type PageProps = {params: Promise<{path?: string[]}>};
 export const localizedLandingPaths = ['/', '/calculators', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
 export function localizedStaticParams() {
-  return [...new Set([...localizedLandingPaths,...translatedPages])].map(path => ({path: path.split('/').filter(Boolean)}));
+  return [...new Set([...localizedLandingPaths,...translatedPages,'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
 }
 function routeInfo(path: string) {
+  if (path === '/workspace') return {title: 'My workspace', description: 'Your favorite tools, saved calculations, and scenarios in one place.'};
   if (path === '/') return {title: 'Find your answer.', description: 'Free calculators for money, health, math, and everyday life.'};
   if (path === '/sitemap') return {title:'Sitemap', description:'Browse Finflo’s calculators, categories, guides, and website information.'};
   if (path === '/calculators') return {title:'All calculators', description:directoryContent[path].description};
@@ -71,6 +73,7 @@ export function localizedPage(locale: Locale) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
     const messages = await getContentDictionary(locale), t = translator(messages);
+    if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
     if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>

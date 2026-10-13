@@ -5,6 +5,7 @@ import {ChevronRight} from "lucide-react";
 import {ToolIcon} from "@/components/ui/tool-icon";
 import {categoryLabels,type CategoryId} from "@/lib/site";
 import styles from "./calculator-card.module.css";
+import {FavoriteButton} from '@/components/workspace/favorite-button';
 
 export type CalculatorCardData={
   slug:string;
@@ -22,6 +23,7 @@ export function CalculatorCard({tool,size="regular",headingLevel=3}:CalculatorCa
   const Heading=headingLevel===2?"h2":"h3";
   const unavailable=tool.status==="unavailable";
   return <article className={`${styles.card} ${locale!=='en'&&!messages[`description.${tool.slug}`]?styles.withoutDescription:''} ${size==="compact"?styles.compact:""}`} data-calculator-card={tool.slug} data-category={tool.category} data-status={tool.status||"available"}>
+    <FavoriteButton slug={tool.slug} title={locale==='en'?tool.title:t(`tool.${tool.slug}`)} compact/>
     <Link className={styles.link} href={`/${tool.slug}`} aria-label={locale==='en'?tool.title:t(`tool.${tool.slug}`)} prefetch={false}>
       <div className={styles.header}>
         <span className={styles.iconWrap}><ToolIcon slug={tool.slug} size={22}/></span>

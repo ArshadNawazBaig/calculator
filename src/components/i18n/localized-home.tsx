@@ -16,6 +16,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
   const t = translator(messages);
   const popular = ['compound-interest-calculator', 'bmi-calculator', 'percent-calculator', 'age-calculator', 'mortgage-calculator', 'loan-calculator', 'calorie-calculator', 'conversion-calculator'];
   const questions = [
+    ['Can I save or share my results?', 'Inputs stay in this browser only when you choose Save calculation. Manage saved results and backups in My workspace.'],
     ['Are the calculators free to use?', 'Yes. Available calculators are free and require no account.'],
     ['Does changing language change tax rules or currency?', 'No. Language changes the interface. Check the region, currency, and units shown in each calculator.'],
     ['Do my inputs leave my device?', 'Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools.'],

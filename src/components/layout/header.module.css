@@ -1,7 +1,7 @@
 .header { --header-height: 64px; position: relative; z-index: 70; height: var(--header-height); color: #f8f8f8; background: #092f27; border-bottom: 1px solid #ffffff24; }
 .inner { height: 100%; display: grid; grid-template-columns: minmax(128px,1fr) auto minmax(128px,1fr); align-items: center; gap: 28px; }
 .header :global(.logo) { justify-self: start; min-height: 44px; }
-.desktopNav { align-self: stretch; display: flex; align-items: stretch; gap: 28px; }
+.desktopNav { align-self: stretch; display: flex; align-items: stretch; gap: 20px; }
 .desktopNav a { position: relative; display: flex; align-items: center; color: #d0e3da; font-size: 15px; font-weight: 600; white-space: nowrap; }
 .desktopNav a:hover,.desktopNav a[aria-current="page"] { color: #fff; }
 .desktopNav a[aria-current="page"]::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 2px; background: #6ee7b7; }
@@ -49,7 +49,7 @@
 .searchFooter { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-line); color: var(--color-muted); font-size: 10px; }
 .searchFooter kbd { font: inherit; }
 @media(max-width:1150px) { .desktopNav { gap: 20px; } .desktopNav a { font-size: 14px; } .inner { gap: 22px; } }
-@media(max-width:1000px) {
+@media(max-width:1180px) {
   .header { --header-height: 60px; }
   .inner { grid-template-columns: minmax(0,1fr) auto; gap: 12px; }
   .desktopNav { display: none; }

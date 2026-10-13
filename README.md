@@ -44,6 +44,10 @@ The browser suite requires Playwright Chromium (`npx playwright install chromium
 - [Launch and search plan](docs/launch.md)
 - [Deployment instructions](docs/deployment.md)
 
+## Local workspace
+
+Visitors can favorite calculators, save named calculations, reopen their inputs, and compare up to three scenarios using the same calculator, mode, and currency. `/workspace` stores these items in the current browser only, with no account or database. JSON backups can be exported and imported on another device; clearing site data removes the local copy. Password and encoding tools do not save inputs or results. Saved summaries retain their original calculation date; reopening restores inputs and requires Calculate to refresh the full result.
+
 ## Project layout
 
 - `src/app`: App Router pages, metadata routes, error boundaries and public-reference APIs.
