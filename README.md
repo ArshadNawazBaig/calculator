@@ -1,8 +1,8 @@
 # Finflo
 
-A modular Next.js calculator website for **finflo.org**, using the approved Emerald composition, Cobalt palette and four-bar Finflo mark. This is a working implementation with an explicit coverage record; it is not a claim of complete competitor parity or public launch readiness.
+A modular Next.js calculator website for **finflo.org**, using Finflo's existing green palette, typography, and shared calculator components. This is a working implementation with an explicit coverage record; it is not a claim of complete competitor parity or public launch readiness.
 
-The October 9, 2026 audit accounts for **204 Calculator.net entries**: **201 implemented calculator pages**, **548 calculation modes**, one real-estate directory and two explicitly unavailable tools. Remaining advanced capabilities and the evidence needed to finish them are recorded in [the mode review](docs/audit/remaining-modes.json).
+The current public catalog contains **214 calculator pages**, **571 calculation modes**, and one real-estate directory. This includes 12 original planning tools added on October 14, 2026. The historical audit still accounts for 204 Calculator.net entries, including the subsequently removed WeightWatchers placeholder; the new tools are recorded separately from that competitor audit. See the [planning toolkit](docs/planning-toolkit.md), [coverage manifest](docs/audit/coverage-manifest.json), and [mode review](docs/audit/remaining-modes.json).
 
 ## Run locally
 

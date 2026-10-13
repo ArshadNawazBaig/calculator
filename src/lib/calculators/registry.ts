@@ -1,4 +1,5 @@
 import methodCopy from '@/data/method-copy.json';
+import {toolkitDefinitions} from './toolkit-definitions';
 import {calculatorFamilies, relatedCalculatorSlugs} from '@/data/calculator-relationships';
 import {remainingDefinitions} from './remaining-definitions';
 import {roadRouteDefinition} from './road-route-definition';
@@ -35,7 +36,7 @@ import {financeExtraDefinitions} from './finance-extra-definitions';
 import {everydayDefinitions} from './everyday-definitions';
 import type {CatalogEntry,Definition} from './types';
 export const catalog=rawCatalog as CatalogEntry[];
-export const definitions:Definition[]=structuredClone([...financeCoreDefinitions,...financeExtraDefinitions,...healthDefinitions,...mathDefinitions,...everydayDefinitions,roadRouteDefinition]);
+export const definitions:Definition[]=structuredClone([...financeCoreDefinitions,...financeExtraDefinitions,...healthDefinitions,...mathDefinitions,...everydayDefinitions,roadRouteDefinition,...toolkitDefinitions]);
 for(const [slug,modes]of Object.entries(advancedFinanceDefinitions())){const d=definitions.find(d=>d.slug===slug)!;if(slug==='lease-calculator'||slug==='inflation-calculator')d.modes.unshift(...modes);else d.modes.push(...modes);}
 const lease=definitions.find(d=>d.slug==='lease-calculator')!;lease.description='Calculate an asset-financing lease payment or implied rate from asset value, residual, and term.';
 const inflation=definitions.find(d=>d.slug==='inflation-calculator')!;inflation.description='Compare historical US purchasing power using official CPI data, or explore an assumed future inflation rate.';inflation.sources.push({title:'BLS CPI-U all items, US city average (CUUR0000SA0)',url:'https://data.bls.gov/timeseries/CUUR0000SA0'});inflation.notes=['Historical calculations use a versioned BLS dataset. Future scenarios use your assumed rate; they are not forecasts.'];

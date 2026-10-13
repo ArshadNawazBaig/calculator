@@ -40,7 +40,7 @@ export function SearchSuggestions({inline=false,id,matches,total,activeIndex,cat
       {matches.map((tool,index)=><li key={tool.slug} id={`${id}-${index}`} role="option" aria-selected={activeIndex===index} tabIndex={-1} className={styles.option}
         onMouseDown={event=>event.preventDefault()} onPointerMove={event=>{if(event.pointerType==="mouse")onActive(index);}} onClick={()=>onSelect(tool.slug)}>
         <span className={styles.optionIcon}><ToolIcon slug={tool.slug} size={21}/></span>
-        <span className={styles.optionCopy}><span className={styles.optionTitle}>{locale==='en'?tool.title:t(`tool.${tool.slug}`)}</span><span className={styles.optionCategory}>{t(categoryLabels[tool.category])}<span aria-hidden="true"> · </span>{t(tool.subcategory)}</span></span>
+        <span className={styles.optionCopy}><span className={styles.optionTitle}>{locale==='en'||t(`tool.${tool.slug}`)===`tool.${tool.slug}`?tool.title:t(`tool.${tool.slug}`)}</span><span className={styles.optionCategory}>{t(categoryLabels[tool.category])}<span aria-hidden="true"> · </span>{t(tool.subcategory)}</span></span>
         <ChevronRight className={styles.chevron} size={16} aria-hidden="true"/>
       </li>)}
     </ul>

@@ -1,8 +1,10 @@
 "use client";
+import {RecordCsvControls} from './record-csv-controls';
 import {currencyLabel} from '@/lib/i18n/preferences';
 import {useI18n} from "@/components/i18n/provider";
 import {Plus,Trash2} from 'lucide-react';
 import {Dropdown} from '@/components/ui/dropdown';
+import {Button} from '@/components/ui/button';
 import {DatePicker} from '@/components/ui/date-picker';
 import type {Field} from '@/lib/calculators/types';
 
@@ -22,7 +24,8 @@ export function RecordRows({field,value,onChange,id,disabled,currency}:{currency
       return <div className="record-cell" key={column.key}>{column.type!=='date'&&<label id={`${inputId}-label`} htmlFor={inputId}>{text(column.label)}</label>}
         {column.type==='select'?<Dropdown {...controlProps} options={(column.options??[]).map(option=>({...option,label:text(option.label)}))}/>:column.type==='date'?<DatePicker {...controlProps} aria-labelledby={undefined} label={text(column.label)}/>:<input id={inputId} value={current} onChange={event=>update(index,column.key,event.target.value)} type={column.type||'text'} step="any" autoComplete="off"/>}
       </div>;
-    })}</div><button type="button" className="record-remove" aria-label={t("Remove row {count}",{count:index+1})} onClick={()=>onChange(JSON.stringify(rows.filter((_,i)=>i!==index)))}><Trash2 size={16}/></button></div>)}
-    <button type="button" className="button button-secondary" disabled={rows.length>=100} onClick={()=>onChange(JSON.stringify([...rows,Object.fromEntries(columns.map(c=>[c.key,c.default??'']))]))}><Plus size={16}/> {t("Add row")}</button>
+    })}</div><Button type="button" variant="ghost" className="record-remove" aria-label={t("Remove row {count}",{count:index+1})} onClick={()=>onChange(JSON.stringify(rows.filter((_,i)=>i!==index)))}><Trash2 size={16} aria-hidden="true"/></Button></div>)}
+    <Button type="button" variant="secondary" disabled={rows.length>=100} onClick={()=>onChange(JSON.stringify([...rows,Object.fromEntries(columns.map(c=>[c.key,c.default??'']))]))}><Plus size={16} aria-hidden="true"/> {t("Add row")}</Button>
+    {field.csv&&<RecordCsvControls key={value} field={field} disabled={disabled} onChange={onChange}/>}
   </fieldset>;
 }

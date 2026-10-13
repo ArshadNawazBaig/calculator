@@ -1,3 +1,4 @@
+import englishOnlyTools from '@/data/locales/english-only-tools.json';
 import {describe, expect, it, vi, afterEach} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getContentDictionary, calculatorMessages} from '@/lib/i18n/content';
@@ -66,7 +67,7 @@ describe('complete localized content', () => {
     site.indexable = true;
     const entries = sitemap();
     expect(translatedPages).toHaveLength(243);
-    expect(entries).toHaveLength(translatedPages.length * locales.length);
+    expect(entries).toHaveLength(translatedPages.length * locales.length + englishOnlyTools.length);
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length);
     for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy']) {
       expect(translatedPages).toContain(path);
@@ -74,7 +75,14 @@ describe('complete localized content', () => {
       for (const locale of locales) expect(variants[locale]).toBeTruthy();
       expect(variants['x-default']).toBe(site.url + path);
     }
-    for (const entry of entries) expect(Object.keys(entry.alternates!.languages!)).toHaveLength(locales.length + 1);
+    for (const entry of entries) {
+      if (englishOnlyTools.some(slug => entry.url === `${site.url}/${slug}`)) expect(entry.alternates).toBeUndefined();
+      else expect(Object.keys(entry.alternates!.languages!)).toHaveLength(locales.length + 1);
+    }
+    for (const slug of englishOnlyTools) {
+      expect(entries.filter(entry => entry.url === `${site.url}/${slug}`)).toHaveLength(1);
+      expect(languageAlternates(`/${slug}`)).toBeUndefined();
+    }
     for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/weight-watchers-points-calculator']) {
       expect(isTranslatedPage(path)).toBe(false);
       expect(entries.some(entry => entry.url === site.url + path)).toBe(false);

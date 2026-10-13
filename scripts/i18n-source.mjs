@@ -9,6 +9,8 @@ const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint',
 const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name']);
 export async function translationSource() {
   const root = process.cwd();
+  const englishOnly = new Set(JSON.parse(await readFile('src/data/locales/english-only-tools.json', 'utf8')));
+  const englishOnlyComponents = new Set(['invoice-document.tsx', 'net-worth-history.tsx', 'record-csv-controls.tsx']);
   const server = await createServer({configFile: false, root, server: {middlewareMode: true}, resolve: {alias: {'@': resolve(root, 'src')}}});
   const keys = new Set(), formulas = new Set(), pages = {}, pageCategories = {}, modules = new Map();
   const add = (set, value) => {
@@ -78,7 +80,7 @@ export async function translationSource() {
     const {calculate} = await server.ssrLoadModule('/src/lib/calculators/engine.ts');
     const {defaults} = await server.ssrLoadModule('/src/lib/calculators/types.ts');
     const rendered = {finance: new Set(), health: new Set(), math: new Set(), everyday: new Set()};
-    for (const definition of definitions) {
+    for (const definition of definitions.filter(definition => !englishOnly.has(definition.slug))) {
       const owned = new Set(); collect(definition, owned);
       pages[definition.slug] = [...owned].sort();
       definition.modes.forEach(mode => formulas.add(mode.formula));
@@ -102,15 +104,15 @@ export async function translationSource() {
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
-    for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.values(content)]) collect(entry, keys);
+    for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.entries(content).filter(([slug]) => !englishOnly.has(slug)).map(([,entry]) => entry)]) collect(entry, keys);
     const {calculatorCardData} = await server.ssrLoadModule('/src/lib/calculator-cards.ts');
     const descriptions = Object.fromEntries(catalog.map(tool => [tool.slug, calculatorCardData(tool).description]));
-    Object.values(descriptions).forEach(value => add(keys, value));
+    Object.entries(descriptions).filter(([slug]) => !englishOnly.has(slug)).forEach(([,value]) => add(keys, value));
     collect(JSON.parse(await readFile('src/data/vehicle-tax-2026.json', 'utf8')), keys);
     const runtime = {};
     const common = new Set((await sourceModule(resolve(root, 'src/lib/calculators/engine.ts'))).keys);
     for (const entry of await readdir('src/components/calculators')) {
-      if (!/\.tsx?$/.test(entry)) continue;
+      if (!/\.tsx?$/.test(entry) || englishOnlyComponents.has(entry)) continue;
       const parsed = await sourceModule(resolve(root, 'src/components/calculators', entry));
       for (const key of parsed.keys) common.add(key);
     }
@@ -128,7 +130,7 @@ export async function translationSource() {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
     }
     for (const entry of await readdir('src/components/workspace')) {
-      if (!/\.tsx?$/.test(entry)) continue;
+      if (!/\.tsx?$/.test(entry) || englishOnlyComponents.has(entry)) continue;
       for (const key of (await sourceModule(resolve(root, 'src/components/workspace', entry))).keys) keys.add(key);
     }
     const existing = JSON.parse(await readFile('src/data/locales/es.json', 'utf8'));
@@ -136,7 +138,7 @@ export async function translationSource() {
     // Routes match the English sitemap. Unavailable tools and system pages stay excluded.
     const {categories} = await server.ssrLoadModule('/src/lib/site.ts');
     const {categorySlug} = await server.ssrLoadModule('/src/lib/catalog-paths.ts');
-    const paths = ['/', '/calculators', '/guides', '/sitemap', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    const paths = ['/', '/calculators', '/guides', '/sitemap', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.filter(d => !englishOnly.has(d.slug)).map(d => `/${d.slug}`)];
     return {keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions};
   } finally { await server.close(); }
 }

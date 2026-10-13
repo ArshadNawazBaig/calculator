@@ -1,3 +1,4 @@
+import {csvCell} from '@/lib/calculators/record-csv';
 import type {Result} from '@/lib/calculators/types';
 import {formatMetric} from '@/lib/calculators/format-metric';
 import {resultPresentation} from '@/lib/calculators/result-presentation';
@@ -13,7 +14,7 @@ export function resultRows(result:Result, {currency,currencyLabels,locale,t,algo
     formatMetric({...metric,unit:metric.unit?t(metric.unit):undefined},currency,locale,t),
   ]);
   const moneyColumns=localizedNumbers&&currencyLabels?resultPresentation(result,algorithm).moneyColumns:[];
-  const precision=currencyDigits(currency,locale);
+  const precision=result.table?.moneyDigits??currencyDigits(currency,locale);
   const amounts=new Intl.NumberFormat(locale==='ar'?'ar-u-nu-arab':locale,{minimumFractionDigits:precision,maximumFractionDigits:precision});
   const table = result.table && [
     result.table.headers.map(header=>currencyLabels?currencyText(t(header),currency):t(header)),
@@ -28,7 +29,7 @@ export function resultCsv(result:Result, options:Options):Blob {
   const {metrics,table} = resultRows(result,{...options,localizedNumbers:false});
   const rows = table ?? [[options.t('Result'),options.t('Value')],...metrics];
   if(options.currencyLabels)rows.unshift([options.t('Currency'),options.currency]);
-  const cell = (value:string) => `"${value.replace(/"/g,'""')}"`;
+  const cell = csvCell;
   return new Blob(['\uFEFF'+rows.map(row=>row.map(cell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});
 }
 

@@ -1,3 +1,4 @@
+import englishOnlyTools from '@/data/locales/english-only-tools.json';
 import translatedPages from '@/data/locales/translated-pages.json';
 export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const;
 export type Locale = (typeof locales)[number];
@@ -23,9 +24,11 @@ export function splitLocale(path: string): {locale: Locale; path: string} {
     ? {locale: segment, path: (pathname.slice(segment.length + 1) || '/') + suffix}
     : {locale: 'en', path};
 }
+export function isEnglishOnlyTool(path: string): boolean {return englishOnlyTools.includes(splitLocale(path).path.split(/[?#]/)[0].slice(1));}
 export function localizedPath(path: string, locale: Locale): string {
   if (!path.startsWith('/') || path.startsWith('//')) return path;
   const clean = splitLocale(path).path;
+  if(isEnglishOnlyTool(clean)) return clean;
   if (/^\/(?:api|_next)(?:\/|$)/.test(clean) || /\.[a-z0-9]+(?:[?#]|$)/i.test(clean)) return clean;
   return locale === 'en' ? clean : `/${locale}${clean === '/' ? '' : clean}`;
 }

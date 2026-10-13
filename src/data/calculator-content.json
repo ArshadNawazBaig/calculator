@@ -4395,5 +4395,749 @@
         ]
       }
     ]
+  },
+  "freelance-rate-calculator": {
+    "description": "Calculate freelance hourly and day rates, plus project quotes, from your income goal, expenses, tax reserve, time off, and billable hours.",
+    "seoTitle": "Freelance Rate Calculator: Hourly, Daily & Project Pricing",
+    "quickAnswer": "A freelance hourly rate is your required annual business revenue divided by your realistic annual billable hours. First allow for business expenses, a planning tax reserve, and time off. Then divide by hours you expect to invoice, rather than every hour you work. This calculator also converts that rate into a day rate and a project quote.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Build a freelance rate around hours you can actually invoice",
+        "paragraphs": [
+          "Start with the annual personal income you want to retain after the tax reserve you choose. Add operating expenses such as software, equipment, professional services, workspace, and insurance. These costs need to be recovered through client work even when they are paid during quiet months. Use the same currency for your income target and every business expense; changing the currency label does not convert your amounts.",
+          "Billable utilization is the share of working time you expect to charge clients. Proposals, bookkeeping, marketing, training, and unpaid revisions can consume working hours without producing invoices. A 40-hour week at 60% billable utilization produces 24 billable hours. Nonworking weeks then account for holidays, sickness, and other time you will not work. Keep these two adjustments separate to avoid double-counting time off."
+        ]
+      },
+      {
+        "title": "Freelance pricing example: a 60,000 income goal",
+        "paragraphs": [
+          "Suppose your after-reserve income goal is 60,000 and you set aside 25% of profit for tax planning. The required profit before that reserve is 60,000 ÷ 0.75 = 80,000. With 12,000 of annual business expenses, your base revenue target becomes 92,000. Adding a 10% revenue buffer raises the target to 101,200. The buffer is a markup on the base revenue target, not a margin percentage.",
+          "Working 46 weeks at 40 hours per week with 60% billable utilization gives 1,104 annual billable hours. Dividing 101,200 by 1,104 gives approximately 91.67 per hour. An eight-billable-hour day is approximately 733.33. A 40-hour project with a 15% time allowance is approximately 4,216.67. The calculations keep full precision before displaying the final quoted amounts."
+        ]
+      },
+      {
+        "title": "Turn the hourly baseline into a usable project quote",
+        "paragraphs": [
+          "The hourly result is a revenue-planning baseline. A project estimate multiplies it by the time you expect the work to take, including the extra project allowance you enter. Use that allowance for identifiable uncertainty such as additional review rounds or coordination. It does not add third-party purchases automatically. Include those costs in the project hours or agree a separate expense line with the client.",
+          "A day rate uses the billable hours in the quoted day, which need not equal the total time you spend working. Compare alternative workloads by saving named calculations, such as a steady-client scenario and a lower-utilization scenario. Once you have a quote, the invoice generator can turn the agreed work into a downloadable document. The payment fee calculator can estimate the effect of processing charges."
+        ]
+      },
+      {
+        "title": "Interpret tax reserves and rate changes carefully",
+        "paragraphs": [
+          "The tax reserve is a percentage assumption applied to profit after expenses. It does not calculate a country’s tax bands, social contributions, deductions, or filing obligations. A buffer may also create additional taxable profit that is not separately calculated here. Use a verified reserve suitable for your situation, and keep taxes you collect on behalf of a government separate from your personal income goal.",
+          "Increasing billable hours lowers the required rate, but only if those hours are realistic. A useful comparison changes one assumption at a time: expenses, utilization, personal income, or time off. Saving these scenarios in your local workspace makes the tradeoffs visible without connecting a bank account. Revisit your assumptions when workload or costs change, rather than treating the first result as a permanent price."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I divide my salary by 2,080 hours?",
+        "answer": "That assumes 40 billable hours every week for 52 weeks. Freelance work also includes nonbillable activity and time off. Use your expected working weeks and billable utilization to calculate a more realistic denominator."
+      },
+      {
+        "question": "Does the tax reserve calculate my actual taxes?",
+        "answer": "No. It grosses up your desired personal income using an assumed reserve percentage. It does not apply local tax brackets, deductions, social contributions, or sales-tax rules."
+      },
+      {
+        "question": "What is the difference between a revenue buffer and a project allowance?",
+        "answer": "The revenue buffer increases your annual business target. The project allowance increases the hours allocated to a particular project. They cover different assumptions and are applied separately."
+      },
+      {
+        "question": "Can I use this for consulting or contracting?",
+        "answer": "Yes. The same arithmetic works when your revenue depends on billable hours. Replace the examples with your own costs, schedule, reserve assumptions, and definition of a billable day."
+      },
+      {
+        "question": "Are payment fees included in the quoted rate?",
+        "answer": "Only if you include them in your planning costs or buffer. Use the separate payment fee calculator to estimate the gross charge required for a specific net receipt."
+      },
+      {
+        "question": "Can I save multiple rate scenarios?",
+        "answer": "Yes. Calculate with your inputs, give the result a name, and select Save calculation. My workspace stores the inputs locally and can compare compatible saved scenarios."
+      }
+    ]
+  },
+  "invoice-generator": {
+    "description": "Create an invoice or quotation with line items, discounts, tax, and payment terms. Add your branding and download a PDF without an account.",
+    "seoTitle": "Free Invoice & Quotation Generator with PDF Download",
+    "quickAnswer": "To create an invoice, enter your business and customer details, document number, dates, and line items. Apply any agreed discount, shipping charge, tax rate, and amount already paid. Calculate to review the totals, then add an optional logo and download the PDF. Choose Quotation when the document is an offer rather than a request for payment.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Prepare the details for an invoice or quotation",
+        "paragraphs": [
+          "A useful invoice identifies the parties, explains what was supplied, and states the amount and payment deadline clearly. Add your business or freelance name, contact information, customer details, and a document number you can recognize later. The address fields also accept a relevant tax ID or other identifying details. Replace the example dates before downloading: the issue date and due date are entered explicitly.",
+          "Use the document-type selector to distinguish an invoice from a quotation. A quotation can use the second date as its validity deadline. In the notes, describe the scope, payment instructions, or conditions you have agreed with the customer. Finflo does not check the document against every local invoice requirement. The government reference below illustrates requirements in the United Kingdom; it is not a worldwide compliance standard."
+        ]
+      },
+      {
+        "title": "Understand the order of invoice calculations",
+        "paragraphs": [
+          "Each line multiplies quantity by unit price and rounds the result to the chosen number of amount decimal places. The subtotal adds those rounded line totals. A percentage discount is then calculated on the subtotal, followed by shipping and tax. Tax applies to the discounted item subtotal, with shipping included only if you select that option. The amount already paid reduces the balance due after the total is calculated.",
+          "For example, 10 hours at 75 per hour gives a subtotal of 750. A 10% discount removes 75, leaving 675. If shipping is 20 and tax is 8% with shipping excluded from the tax base, tax is 54 and the document total is 749. A prior payment of 200 leaves 549 due. This order matters: calculating tax before the discount would produce a different result."
+        ]
+      },
+      {
+        "title": "Create a branded PDF and keep a usable copy",
+        "paragraphs": [
+          "After calculating, the preview shows the exact line items, parties, dates, and monetary totals that will be placed in the PDF. You can attach a PNG or JPEG logo and choose a brand color. These branding controls operate locally, and the document is generated on your device. Logos are limited in size to keep the export responsive. Long line descriptions and documents with multiple pages are wrapped by the export layout.",
+          "Save a named calculation to preserve the document inputs in this browser. The optional logo and color belong to the current preview and should be reapplied after changing inputs or restoring a saved document. Download the final PDF for your own records and share it through your normal channel. Downloading does not email the customer, mark the invoice as paid, reserve a unique invoice number, or process a transaction."
+        ]
+      },
+      {
+        "title": "Check tax treatment, rounding, and payment status",
+        "paragraphs": [
+          "This generator supports one manually entered tax rate and tax-exclusive item prices. It does not split mixed tax classes, calculate withholding, handle reverse-charge rules, or infer whether you should charge tax. If the transaction requires those details, establish the correct treatment separately before preparing the document. A quotation is also not proof of delivery or payment; keep its wording consistent with its purpose.",
+          "Choose amount precision that matches the currency and your accounting convention. The default is two decimal places, with a whole-unit option available. Quantity and unit-price precision may differ from the rounded line total. The payment field is for money already received, not a request for a deposit. The generator rejects a payment larger than the total instead of quietly turning it into a credit note."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is this invoice generator free and account-free?",
+        "answer": "Yes. You can enter details, calculate totals, preview the document, and download a PDF without creating an account or connecting a payment service."
+      },
+      {
+        "question": "Can I make a quotation instead of an invoice?",
+        "answer": "Yes. Choose Quotation. The PDF uses that title, and the second date becomes the validity deadline. Add the proposed scope and conditions in the notes."
+      },
+      {
+        "question": "Does Finflo email invoices to customers?",
+        "answer": "No. It creates a local PDF for you to download and share. Email delivery, payment collection, and shared invoice tracking are not part of this tool."
+      },
+      {
+        "question": "Does the tool automatically calculate VAT or sales tax?",
+        "answer": "No. Enter a rate you have verified for the transaction. The generator applies that rate to the discounted items and, optionally, shipping. It does not determine tax obligations."
+      },
+      {
+        "question": "Will my logo be saved in My workspace?",
+        "answer": "No. Saved calculations preserve document fields and totals, while the logo and brand color belong to the current preview. Reapply them when reopening or recalculating a document."
+      },
+      {
+        "question": "Why can a line total differ from multiplying displayed rounded prices?",
+        "answer": "The engine uses the entered quantity and price, then rounds their product to the selected amount precision. If you entered a unit price with extra decimals, rounding that price first can produce a different total."
+      }
+    ]
+  },
+  "payment-fee-calculator": {
+    "description": "Calculate payment fees and net receipts, or find the gross charge needed for a target net amount. Includes custom fees and a US Stripe preset.",
+    "seoTitle": "Payment Fee Calculator: Net Receipts & Reverse Fees",
+    "quickAnswer": "A percentage-plus-fixed payment fee is calculated from the gross payment, then subtracted to find the net receipt. To receive a target amount, solve backward for the gross charge and check fee rounding. Finflo supports your own rates and a dated Stripe US domestic online-card example; neither option processes a payment.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Choose a fee model that matches your payment agreement",
+        "paragraphs": [
+          "The custom mode accepts a percentage fee and a fixed fee for each payment. Enter the full rate that applies to the transaction you want to model. Your country, payment method, card origin, settlement currency, and contract can change the applicable charge. When the agreement includes additional products or separate fees, combine only charges that share the same calculation base; this simple model cannot reproduce every processor’s fee structure.",
+          "The Stripe preset is restricted to the published US standard domestic online-card example: 2.9% plus USD 0.30, checked on October 13, 2026. Its currency is fixed to US dollars. It does not include international-card additions, conversion, manually entered cards, dispute charges, or other Stripe products. Follow the official pricing reference and use the custom mode when your agreement differs."
+        ]
+      },
+      {
+        "title": "Work through a payment-fee and reverse-fee example",
+        "paragraphs": [
+          "At 2.9% plus 0.30, a gross payment of 100 incurs 2.90 in percentage fees plus 0.30 in fixed fees. The total fee is 3.20 and the net receipt is 96.80. The effective fee rate is therefore 3.2% of the gross payment, which is higher than the quoted percentage because the fixed component also consumes part of the payment.",
+          "To receive a net 100 under those same assumptions, the rounded minimum gross charge is 103.30. Its fee rounds to 3.30, leaving exactly 100. Charging 103.29 leaves 99.99 after the same rounding convention. The reverse mode verifies the rounded net receipt instead of just displaying an unrounded algebraic answer. The result is arithmetic for a target receipt, not a recommendation about customer surcharges."
+        ]
+      },
+      {
+        "title": "Compare the cost of several payments",
+        "paragraphs": [
+          "The amount field is per payment. The transaction count multiplies the result across equal payments, with the fixed fee applied to each one. For ten payments of 100, the example model produces 32 in fees and 968 in net receipts. One payment of 1,000 produces a different fee because it incurs the fixed component once. Use separate calculations if the payment amounts differ.",
+          "The detailed row shows per-payment and aggregate amounts side by side. This is useful for comparing billing schedules, deposits, or recurring purchases. It does not account for the probability of refunds, failed collections, chargebacks, or fees charged on payouts. If you need a wider profitability view, combine processing costs with fulfillment expenses and overhead in the online seller profit calculator."
+        ]
+      },
+      {
+        "title": "Read rounding, effective rates, and small-payment results",
+        "paragraphs": [
+          "The custom mode lets you choose the smallest amount unit used by the calculation. Fees are rounded half up to that precision for each payment. Reverse calculations then find the smallest permitted gross amount that meets the target net. A processor may have additional rounding rules, minimum fees, or payment minimums; those are not inferred from the two fee inputs.",
+          "A zero gross payment has no meaningful effective percentage because the denominator is zero. A fixed fee larger than a small payment can also create a negative modeled receipt. These outcomes are displayed rather than hidden so you can see the effect of your assumptions. Save a named scenario with its currency and contract context, and refresh the inputs when the agreement changes."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why is the effective fee higher than the percentage rate?",
+        "answer": "The effective rate includes both the percentage fee and the fixed fee. Dividing the combined fee by the gross payment shows their total effect, which is proportionally larger for small payments."
+      },
+      {
+        "question": "How much should I charge to receive 100 after a 2.9% plus 0.30 fee?",
+        "answer": "Under this tool’s two-decimal rounding convention, 103.30 produces a fee of 3.30 and a net receipt of 100. Other fees or contract rules can change the amount."
+      },
+      {
+        "question": "Is the Stripe preset available for every country?",
+        "answer": "No. It models the named US domestic online-card case in USD. Use the custom mode with verified country and contract rates for other payments."
+      },
+      {
+        "question": "Does the transaction count split one total payment?",
+        "answer": "No. The entered amount is per payment. A count of ten means ten equal payments of that amount, with one fixed fee applied to each."
+      },
+      {
+        "question": "Are refund and chargeback fees included?",
+        "answer": "No. The model covers only the percentage and fixed charges shown. Refunds, disputes, payout fees, and separately billed services need their own assumptions."
+      },
+      {
+        "question": "Does reverse-calculating a fee mean I may add a surcharge?",
+        "answer": "No. The result only solves for a gross amount. Whether a surcharge is permitted or how it must be disclosed depends on the applicable agreement and rules."
+      }
+    ]
+  },
+  "break-even-calculator": {
+    "description": "Calculate break-even units and sales revenue, target-profit volume, and your margin of safety using fixed costs, unit price, and variable costs.",
+    "seoTitle": "Break-Even Calculator: Sales, Units & Target Profit",
+    "quickAnswer": "A business reaches operating break-even when sales revenue covers its fixed and variable costs. For one product, divide fixed costs by selling price minus variable cost per unit. The result is the sales volume needed before operating profit becomes positive. Finflo also rounds up to whole units and calculates the volume required for a chosen profit target.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Separate fixed costs from variable costs for the same period",
+        "paragraphs": [
+          "Fixed costs are costs you expect to incur for the planning period regardless of the number of units sold within the modeled range. Variable costs rise with each additional unit. Enter monthly figures consistently: a monthly fixed-cost total should be compared with monthly sales and a monthly profit target. Convert an annual expense to a monthly average before including it, rather than mixing periods.",
+          "The selling price and variable cost must describe the same unit. For a product, variable costs might include production, packaging, fulfillment, and per-sale charges. For a service, the unit might be an hour or a completed appointment. If a cost has a fixed component and a per-unit component, separate them between the two inputs. The model does not automatically account for capacity limits or changing supplier prices."
+        ]
+      },
+      {
+        "title": "Break-even example with 3,000 of fixed costs",
+        "paragraphs": [
+          "Assume monthly fixed costs of 3,000, a selling price of 50 per unit, and variable costs of 20 per unit. Each sale contributes 30 toward fixed costs and profit. Break-even is 3,000 ÷ 30 = 100 units, equivalent to 5,000 in sales revenue. At 100 units, revenue and total cost are equal; the business has not yet earned an operating profit.",
+          "For a monthly profit target of 1,000, the required volume is (3,000 + 1,000) ÷ 30 = 133.33 units. Selling whole units means the target is 134. If planned sales are 150 units, modeled profit is 150 × 30 − 3,000 = 1,500. The margin of safety is (150 − 100) ÷ 150, or approximately 33.33% of planned unit sales."
+        ]
+      },
+      {
+        "title": "Use the contribution margin to compare business choices",
+        "paragraphs": [
+          "Contribution per unit is the money left from a sale after its variable cost. Contribution margin expresses that amount as a percentage of the selling price. It differs from the final operating profit margin because fixed costs still need to be paid. A positive contribution can coexist with a monthly loss when the number of sales is too small to cover fixed costs.",
+          "Use saved scenarios to test a price change, a supplier-cost increase, or a different fixed-cost structure. Keep the other assumptions unchanged to understand the effect of each adjustment. Raising the selling price improves the arithmetic contribution, but this calculator does not predict how customers will respond or how sales volume might change. Planned units are an input, not a demand forecast."
+        ]
+      },
+      {
+        "title": "Understand unattainable targets and fractional thresholds",
+        "paragraphs": [
+          "If selling price is equal to variable cost, each sale contributes nothing toward positive fixed costs. If price is lower than variable cost, every additional sale increases the loss. The calculator reports that a positive-contribution break-even target is unavailable in those cases, rather than producing a misleading negative sales target. With no fixed costs, selling zero units can still produce zero operating profit.",
+          "The sales-revenue threshold uses the exact fractional break-even quantity. The whole-unit target rounds up because many products cannot be sold in fractional units. A negative margin of safety means planned sales are below the threshold. The model covers one product with a constant cost structure; a changing product mix, step costs, interest, or income tax needs additional analysis or explicit cost inputs."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the break-even formula?",
+        "answer": "For a single product, fixed costs divided by selling price minus variable cost per unit gives the break-even quantity. Multiply the exact quantity by selling price for the revenue threshold."
+      },
+      {
+        "question": "Is contribution margin the same as profit margin?",
+        "answer": "No. Contribution margin subtracts variable costs from sales. Operating profit also subtracts fixed costs. A positive contribution margin does not guarantee an overall profit."
+      },
+      {
+        "question": "Why does the calculator round the unit target up?",
+        "answer": "A target of 133.33 units requires 134 sales when units are indivisible. The revenue threshold still uses the exact fractional quantity so the underlying formula remains visible."
+      },
+      {
+        "question": "What does a negative margin of safety mean?",
+        "answer": "It means planned sales are below the break-even threshold. Its magnitude shows the shortfall relative to planned sales; it does not indicate how likely the sales plan is to occur."
+      },
+      {
+        "question": "Can selling more fix a negative contribution?",
+        "answer": "No, not under a constant-price and constant-variable-cost model. If variable cost exceeds price, each added unit increases the loss. The unit economics need to change."
+      },
+      {
+        "question": "Can I use the result for several products?",
+        "answer": "This calculator models one unit type. A multi-product business needs a consistent sales-mix assumption and a properly weighted contribution model before applying a combined break-even calculation."
+      }
+    ]
+  },
+  "net-worth-tracker": {
+    "description": "Calculate assets minus liabilities and track dated net-worth snapshots in your browser. See liquid assets, debt totals, and changes over time.",
+    "seoTitle": "Net Worth Tracker & Calculator: Assets Minus Liabilities",
+    "quickAnswer": "Net worth is the current value of your assets minus your outstanding liabilities. Enter both sides as of the same date, calculate the result, and save a named snapshot. Finflo builds a local history from those saved dates so you can follow the change over time. It also totals the assets you identify as liquid.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Create a consistent snapshot of assets and liabilities",
+        "paragraphs": [
+          "Choose a snapshot date and gather balances that are as close to that date as practical. Assets can include cash, investments, property, and other items with a current value you can reasonably estimate. Liabilities are outstanding amounts you owe, such as loan principal and credit-card balances. Use a single currency throughout the snapshot; currency selection changes labels and does not convert mixed-currency accounts.",
+          "Enter a property’s full value as an asset and its mortgage balance as a liability. Entering only home equity while also listing the mortgage would subtract the loan twice. Similarly, do not list the same investment both inside an account total and as a separate holding. Use names that help you recognize each item when you restore the calculation for a later date."
+        ]
+      },
+      {
+        "title": "Net-worth example: 290,000 of assets and 185,000 of debt",
+        "paragraphs": [
+          "Consider cash and savings of 15,000, investments of 25,000, and a home valued at 250,000. Total assets are 290,000. If the mortgage balance is 180,000 and other loans total 5,000, liabilities are 185,000. Net worth is therefore 105,000. Marking only cash and savings as liquid produces a liquid-asset total of 15,000.",
+          "The debt-to-assets ratio in this example is 185,000 ÷ 290,000, or approximately 63.79%. This ratio uses balance-sheet amounts. It is different from debt-to-income, which compares payment obligations with income over a period. A positive net-worth result also does not mean every asset can be converted to cash quickly or without selling costs."
+        ]
+      },
+      {
+        "title": "Save monthly snapshots and read the trend",
+        "paragraphs": [
+          "After calculating, give the result a recognizable name and save it. The history panel reads the saved snapshot dates and draws a trend once it has at least two distinct dates in the selected currency. If you save a correction for the same date, the latest saved version becomes that date’s chart point. Earlier saved records remain manageable in My workspace.",
+          "The change shown above the chart is the latest snapshot minus the earliest visible snapshot. It is a money difference, not an investment return. Contributions, purchases, debt repayments, asset-price changes, and updated valuations can all affect it. Use a consistent schedule and valuation approach if you want comparisons to be meaningful, and inspect the underlying records when a movement looks unexpected."
+        ]
+      },
+      {
+        "title": "Keep liquidity, uncertainty, and local storage in view",
+        "paragraphs": [
+          "Liquid assets are whatever asset rows you explicitly mark as liquid. The tool does not decide whether an account can be accessed immediately, whether a sale would trigger tax, or whether an asset has withdrawal restrictions. A retirement account, a home, and a checking balance may all contribute to net worth while serving very different practical purposes. Track emergency savings separately if immediate cash availability is your main question.",
+          "Finflo does not connect to financial institutions or refresh valuations. Every snapshot reflects your entries on its chosen date. Records are saved in this browser, so clearing site data removes the local copy. Use the workspace backup export to keep another copy or move the history to a different device. A negative net worth is displayed as entered; the chart does not clip debt-heavy snapshots to zero."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What counts as an asset in a net-worth calculation?",
+        "answer": "An asset is something you own with a current value, such as cash, an investment account, or property. Use a defensible value and avoid counting the same holding more than once."
+      },
+      {
+        "question": "Should I enter my house value or home equity?",
+        "answer": "Enter the full current house value as an asset and the outstanding mortgage as a liability. Entering equity and subtracting the mortgage again would double-count the debt."
+      },
+      {
+        "question": "Can my net worth be negative?",
+        "answer": "Yes. If liabilities exceed assets, the difference is negative. Finflo preserves that result and includes negative values in the saved history."
+      },
+      {
+        "question": "Does the chart calculate my investment performance?",
+        "answer": "No. It compares total net-worth snapshots. Deposits, withdrawals, borrowing, repayments, and valuation changes can all affect the difference, so it is not a rate-of-return calculation."
+      },
+      {
+        "question": "What happens if I save two snapshots for the same date?",
+        "answer": "The history uses the most recently saved record for that date and currency. Both records remain in My workspace until you choose to delete one."
+      },
+      {
+        "question": "Will my history sync automatically to another device?",
+        "answer": "No. History is stored in the current browser. Export a workspace backup and import it on the other device to transfer your saved calculations."
+      }
+    ]
+  },
+  "emergency-fund-calculator": {
+    "description": "Plan an emergency fund from essential monthly expenses, chosen coverage months, and existing savings. Calculate your gap and a monthly savings timeline.",
+    "seoTitle": "Emergency Fund Calculator: Target & Savings Timeline",
+    "quickAnswer": "An emergency fund target equals essential monthly expenses multiplied by your chosen months of coverage, plus any additional reserve you enter. Subtract available emergency savings to find the remaining gap. Dividing that gap by your monthly deposit gives the savings timeline, rounded up to a whole deposit month. You choose the coverage level; the tool does not prescribe one for everyone.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Decide which expenses your emergency savings should cover",
+        "paragraphs": [
+          "List the monthly expenses you expect to keep paying during the situation you are planning for. Housing, basic utilities, food, transportation, insurance, and minimum debt payments are common categories, but your own obligations determine the list. Separate essential spending from optional purchases. If a bill is paid annually, divide it into a monthly planning amount so the coverage calculation uses a consistent period.",
+          "Choose the number of coverage months yourself. Income variability, household support, insurance arrangements, and the nature of the possible interruption can affect the amount you want to test. An extra reserve can represent a known one-time exposure, but avoid counting the same expense both in monthly spending and in that reserve. The result is a scenario based on these decisions, not an assessment of your personal risk."
+        ]
+      },
+      {
+        "title": "Emergency savings example with a six-month target",
+        "paragraphs": [
+          "Suppose essential monthly expenses are 2,500 and you choose six months of coverage with no extra reserve. The target is 15,000. If 5,000 is already set aside and available for emergencies, the remaining gap is 10,000. A monthly deposit of 500 fills that gap in 20 months when no interest, withdrawals, or changes in expenses are assumed.",
+          "The existing 5,000 covers two months of the entered essential expenses. That coverage figure is separate from progress toward the full target. If you add a 1,000 one-time reserve, the target rises to 16,000, but the monthly-expense coverage of the existing savings remains two months. The extra reserve changes the savings goal without changing the expense denominator."
+        ]
+      },
+      {
+        "title": "Read the deposit schedule and adjust the plan",
+        "paragraphs": [
+          "The schedule begins at month zero with the savings already available. Each following row adds the planned monthly deposit at the end of the month. If the final gap is smaller than a full deposit, that row uses only the amount needed to reach the target. A gap of 1,050 with a deposit of 500 therefore takes three deposits: 500, 500, and 50.",
+          "Compare scenarios by changing the deposit, coverage months, or essential-expense total and saving each calculation with a descriptive name. A smaller monthly deposit extends the timeline, while a lower target reduces the gap. This tool does not judge which tradeoff is appropriate; it makes the arithmetic visible. Your budget calculator can help check whether a proposed deposit fits the cash remaining after ordinary commitments."
+        ]
+      },
+      {
+        "title": "Recognize the boundaries of a simple emergency-fund plan",
+        "paragraphs": [
+          "Interest is deliberately excluded, so the plan does not depend on an assumed savings yield. It also excludes inflation and future withdrawals. If living costs increase or you use part of the fund, update the expense and available-savings inputs. Only money you intend to make available for this purpose should be included as existing emergency savings; the calculator does not check account restrictions or settlement times.",
+          "When your savings already meet the target, the gap and months to goal are zero, and any excess is shown separately. If the gap is positive but the monthly deposit is zero, the tool reports no progress rather than an infinite numeric result. When expenses are zero, months of current expense coverage is undefined. Very long plans show the first 1,200 monthly rows while retaining the full calculated timeline metric."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many months should my emergency fund cover?",
+        "answer": "You choose the coverage period. The appropriate target depends on the expenses and interruption you want to plan for. Compare several month counts rather than treating the example as a universal recommendation."
+      },
+      {
+        "question": "Does the calculator include interest on savings?",
+        "answer": "No. It uses existing savings plus regular end-of-month deposits. This keeps the timeline independent of interest-rate assumptions, taxes on interest, or changing account terms."
+      },
+      {
+        "question": "What happens if I already have enough saved?",
+        "answer": "The savings gap and time to goal are zero. The result separately shows how much your current savings exceed the selected target."
+      },
+      {
+        "question": "Why does the final deposit differ from my monthly amount?",
+        "answer": "The final row is limited to the remaining gap. You can reach the exact target without assuming a full extra deposit when only a smaller amount is needed."
+      },
+      {
+        "question": "What should I enter as an extra reserve?",
+        "answer": "Enter a separate one-time amount you want to include beyond the monthly-expense coverage. Avoid double-counting a cost already included in the monthly expense rows."
+      },
+      {
+        "question": "Can I keep this plan for later?",
+        "answer": "Yes. Calculate and save a named result in My workspace. Restore it when expenses or available savings change, then calculate again for an updated timeline."
+      }
+    ]
+  },
+  "subscription-cost-tracker": {
+    "description": "Total recurring subscriptions, compare monthly and annual costs, and estimate savings from cancellations or annual-plan offers. Save your plan locally.",
+    "seoTitle": "Subscription Cost Tracker: Monthly Costs & Annual Savings",
+    "quickAnswer": "To compare subscriptions, convert each billing cycle into an annual equivalent and add the totals. Divide by 12 for an average monthly budget. Finflo lets you model keeping a plan, canceling it, or switching to an annual offer. The savings are a full-year comparison of the entered plans, not a prediction of the exact timing of your next bills.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Put different subscription billing cycles on one basis",
+        "paragraphs": [
+          "Add one row for each recurring service or membership and enter its price per billing cycle. Choose weekly, every four weeks, monthly, quarterly, or yearly. These schedules are not interchangeable. A service billed every four weeks has 13 modeled payments in a 52-week budgeting year, whereas monthly billing has 12. The annual equivalent makes those differences visible before you compare prices.",
+          "Use the same currency for all rows and include taxes in the entered cycle price if you want them reflected in the budget. The tool does not fetch prices from providers or read bank transactions. Keep the labels recognizable so that a saved calculation can act as your local subscription list. If a service is free for a limited trial, enter the continuing price when you want to model the cost after the trial."
+        ]
+      },
+      {
+        "title": "Subscription example: cancel one plan and switch another",
+        "paragraphs": [
+          "Suppose streaming costs 15 per month, cloud storage costs 10 per month, and an unused membership costs 20 per month. The current annual total is 180 + 120 + 240 = 540, or 45 per month on average. Keeping streaming, switching cloud storage to a 100 annual offer, and canceling the unused membership produces a planned annual total of 280.",
+          "The modeled annual saving is 540 − 280 = 260, equivalent to approximately 21.67 per month. The cloud-storage switch contributes 20 of that saving; canceling the membership contributes 240. These figures assume a full year under the new arrangements. They do not imply that a prepaid membership will refund unused months or that cancellation will take effect immediately."
+        ]
+      },
+      {
+        "title": "Compare annual offers without hiding the cash commitment",
+        "paragraphs": [
+          "An annual plan can have a lower annual equivalent while requiring more cash upfront. Enter the offered annual price in its own column and select Switch to annual offer to include it in the planned total. If the annual offer costs more than the current schedule, the saving is negative. The calculator keeps that difference visible rather than labeling every switch as a benefit.",
+          "The monthly equivalent is a budgeting average, not a monthly charge for an annual plan. A 100 annual subscription averages approximately 8.33 per month, but the actual bill may be 100 on a single renewal date. Use your own cash-flow calendar to plan payment timing. This tool does not model promotional expiry, price escalation, cancellation penalties, refunds, or a specific billing date."
+        ]
+      },
+      {
+        "title": "Turn the comparison into a record you can revisit",
+        "paragraphs": [
+          "Calculate the plan and save it with a date or descriptive name. When you return, restore the saved inputs from My workspace, revise the prices or planned actions, and calculate again. The save is explicit: changing a row does not automatically overwrite a previous record. Keeping separate before-and-after plans makes the source of a spending change easier to inspect.",
+          "Selecting Cancel in this calculator only changes the scenario. It does not contact the provider, revoke a payment authorization, or send a cancellation request. Complete any real changes through the service’s own process and retain the confirmation. Finflo also does not send renewal reminders. Your local records remain in this browser until you remove them or clear site data; use a workspace backup for a separate copy."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is every four weeks the same as monthly billing?",
+        "answer": "No. The budgeting model uses 13 four-weekly payments per year and 12 monthly payments. At the same price per cycle, the four-weekly plan has a higher annual equivalent."
+      },
+      {
+        "question": "Does choosing Cancel actually cancel my subscription?",
+        "answer": "No. It sets the planned annual cost to zero for comparison. You must complete any cancellation directly with the provider."
+      },
+      {
+        "question": "Are the savings the amount I will save this calendar year?",
+        "answer": "Not necessarily. They compare a full year under the current and proposed arrangements. Remaining prepaid periods, renewal dates, refunds, and penalties are not modeled."
+      },
+      {
+        "question": "Why does switching to an annual plan show negative savings?",
+        "answer": "The annual price you entered is higher than the current plan’s annual equivalent. A negative result shows that the proposed change increases the modeled cost."
+      },
+      {
+        "question": "Does the tracker connect to my bank account?",
+        "answer": "No. You enter subscriptions manually or import supported rows. The tool calculates locally and saves only when you explicitly save a calculation."
+      },
+      {
+        "question": "Will Finflo remind me before a renewal?",
+        "answer": "No. This version compares costs and stores local plans. It does not maintain a reminder service or send notifications when a bill is due."
+      }
+    ]
+  },
+  "expense-splitter": {
+    "description": "Split group expenses with multiple payers, equal or unequal shares, and exact rounded settlements. Find who owes whom for trips and shared bills.",
+    "seoTitle": "Expense Splitter: Group Bills, Unequal Shares & Settlements",
+    "quickAnswer": "A group expense splitter compares what each person paid with their share of the group’s costs. Someone who paid more than their share should receive money; someone who paid less should pay. Enter participants and expenses, choose equal or weighted shares, and calculate a settlement plan. Amounts are allocated in whole currency units or cents without losing rounding remainders.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Enter participants, payers, and the people sharing each expense",
+        "paragraphs": [
+          "Give every participant a unique name. A default share weight of one for each person splits common expenses equally. Use a larger weight when a person should cover a larger portion: weights of two and one allocate two-thirds and one-third of a bill. Names are matched without case sensitivity, and commas or colons are reserved for the custom-share syntax.",
+          "Each expense records a description, the person who paid, and the total amount. Leave its optional shares field blank to use all participants’ default weights. To include only part of the group or change the weights for a specific bill, enter pairs such as Alex:2, Sam:1. Each listed person must already exist in the participant list. Someone may pay a bill without being included in its shares."
+        ]
+      },
+      {
+        "title": "Group trip example with several people paying",
+        "paragraphs": [
+          "Alex, Sam, and Jordan share equally. Alex pays 180 for a hotel and Sam pays 60 for dinner, giving total expenses of 240. Each participant owes 80. Alex paid 100 more than their share, Sam paid 20 less, and Jordan paid 80 less. The settlement plan therefore asks Sam to pay Alex 20 and Jordan to pay Alex 80.",
+          "After those transfers, every person has contributed a net 80. The original payments remain intact in the breakdown; settlements simply resolve the differences. For an unequal example, an expense of 90 with shares Alex:2, Sam:1 allocates 60 to Alex and 30 to Sam, with no share assigned to Jordan. Other expenses can still use the default equal split."
+        ]
+      },
+      {
+        "title": "Understand exact rounding and settlement rows",
+        "paragraphs": [
+          "A bill may not divide evenly into the smallest currency unit. For example, 10 split equally among three people at two-decimal precision cannot give everyone exactly 3.333… in payable money. The tool first allocates whole cents, then distributes remaining cents to the largest fractional shares. Ties follow participant order. The allocated amounts always add back to the rounded expense total.",
+          "The detailed table contains balance rows followed by settlement rows. Balance rows show each person’s paid amount, owed share, and net position. Settlement rows name the sender, recipient, and transfer amount. The algorithm matches debtors to creditors in a consistent order. It settles the group’s balances, but it does not claim to find the mathematically smallest number of transfers for every possible group."
+        ]
+      },
+      {
+        "title": "Use one currency and keep the shared record clear",
+        "paragraphs": [
+          "Every expense must be expressed in the selected currency before you calculate. A trip involving several currencies needs a chosen exchange-rate convention applied before entry; switching the display currency does not perform that conversion. Choose a rounding precision appropriate to the money you will transfer. Use the expense descriptions to preserve the purpose of each bill and reduce confusion when reviewing the table.",
+          "Finflo does not move money or create a live shared group. You can download the results to share the settlement plan and save the inputs in your local workspace for later changes. If a payment was entered against the wrong person or a participant is missing, correct the original records and recalculate. Reusing an old settlement plan after changing expenses can lead to incorrect transfers."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can different people pay different expenses?",
+        "answer": "Yes. Every expense has its own payer. The calculator totals what each person paid, subtracts their allocated share, and settles the net balances across the group."
+      },
+      {
+        "question": "How do I split one expense among only two people?",
+        "answer": "In that expense’s shares field, enter only those names and their weights, such as Alex:1, Sam:1. Other participants receive no share of that expense."
+      },
+      {
+        "question": "Can the person who paid be excluded from the split?",
+        "answer": "Yes. The payer records who supplied the money; the shares field records who owes the expense. They are independent, so someone can pay entirely on behalf of others."
+      },
+      {
+        "question": "What happens when a bill does not divide evenly?",
+        "answer": "The tool allocates whole units at your chosen precision, then distributes the remaining units by largest fractional remainder. Participant order breaks equal remainders, and the total is preserved."
+      },
+      {
+        "question": "Does this transfer money between participants?",
+        "answer": "No. It provides a settlement plan. Review the names and amounts, then arrange any actual transfers through your own payment method."
+      },
+      {
+        "question": "Can the group edit the same record together?",
+        "answer": "No. Saved records live in the current browser. Export the results or a workspace backup to share a copy; there is no synchronized group account in this version."
+      }
+    ]
+  },
+  "cash-flow-calculator": {
+    "description": "Forecast monthly business cash balances and runway with revenue growth, operating expenses, one-time movements, and a minimum cash buffer.",
+    "seoTitle": "Cash Flow Calculator & Business Runway Planner",
+    "quickAnswer": "Cash flow is money received minus money paid during a period. A cash forecast adds that net movement to the opening balance to estimate the ending balance. Runway asks how long cash can support the modeled outflows. Finflo shows both a simple constant-burn estimate and a monthly forecast that includes growth, one-time movements, and a safety buffer.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Build a forecast from cash timing rather than accounting profit",
+        "paragraphs": [
+          "Enter the cash available at the start of the forecast and the sales receipts you expect in the first month. Receipts are money actually collected, which may differ from invoices issued or revenue recognized in accounting. Fixed cash expenses are the recurring payments in that same month. Variable cash costs are modeled as a percentage of sales receipts, so they rise or fall with the sales scenario.",
+          "Growth rates are monthly. A 2% monthly increase compounds from one month to the next; it is not the same as a 2% annual increase. Use negative rates for declining receipts or expenses, within the permitted range. Add financing receipts, equipment purchases, or other exceptional movements as one-time rows with a month number and direction. Those rows do not automatically recur in later months."
+        ]
+      },
+      {
+        "title": "Cash-runway example with a recurring monthly shortfall",
+        "paragraphs": [
+          "Suppose opening cash is 30,000, monthly sales receipts are 8,000, fixed expenses are 10,000, and variable costs are 20% of sales. Variable expenses are 1,600, so the recurring monthly net burn is 3,600. With no growth or one-time movements, simple runway is 30,000 ÷ 3,600, or approximately 8.33 months.",
+          "The month-end forecast shows 1,200 remaining after month eight and a balance of −2,400 after month nine. A 5,000 safety buffer is breached in month seven, when cash ends at 4,800. These are different signals: the buffer gives an earlier planning threshold, while the nonpositive balance identifies the first month-end at or below zero. The forecast does not establish the exact day cash would run out."
+        ]
+      },
+      {
+        "title": "Use the schedule to locate funding gaps",
+        "paragraphs": [
+          "The monthly table separates sales receipts, other cash in, fixed expenses, variable expenses, and other cash out. This makes an unusual purchase or financing event visible instead of burying it inside a growth rate. The lowest projected balance includes the opening balance at month zero. Funding needed to maintain the buffer is the difference between the desired buffer and that lowest balance, when positive.",
+          "The forecast continues below zero to show the size of a potential gap. A negative balance is not an assumed overdraft approval or an automatic funding source. You can add a proposed cash injection as a new scenario and compare how it changes the timing. Likewise, delaying an expense changes cash timing even when it does not alter the total amount paid across the forecast."
+        ]
+      },
+      {
+        "title": "Keep the constant-burn shortcut separate from the full model",
+        "paragraphs": [
+          "The simple runway metric uses the first month’s recurring net burn and excludes one-time movements and future growth. If that month does not burn cash, the shortcut reports no recurring first-month cash burn instead of an infinite number of months. The forecast can still show later trouble if costs grow, receipts fall, or a large one-time outflow occurs.",
+          "This model does not calculate receivables, payables, inventory financing, taxes, or payroll rules automatically. Include their expected cash effects in your inputs where relevant. Forecast months must be whole numbers, and one-time movements must fall inside the chosen horizon. Save a base case and alternatives with clear names, then update actual balances and assumptions as new information becomes available."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the difference between cash flow and profit?",
+        "answer": "Cash flow tracks receipts and payments. Accounting profit may recognize income or expenses in different periods. An unpaid invoice can contribute to profit before it contributes to available cash."
+      },
+      {
+        "question": "How is simple runway calculated?",
+        "answer": "Opening cash is divided by the first month’s recurring net burn when that burn is positive. This shortcut excludes growth and one-time movements; the full schedule includes them."
+      },
+      {
+        "question": "Does a negative balance mean the business can borrow that amount?",
+        "answer": "No. A negative balance represents a modeled funding gap. The calculator does not assume an overdraft, credit approval, or automatic investment."
+      },
+      {
+        "question": "What does month zero mean?",
+        "answer": "Month zero is the opening cash position before forecast receipts and expenses. If that balance is already below the safety buffer, the buffer warning correctly begins at month zero."
+      },
+      {
+        "question": "Can I include an investment or large equipment purchase?",
+        "answer": "Yes. Add a one-time cash movement, choose the month and direction, and enter its amount. Cash-in rows increase the balance; cash-out rows decrease it."
+      },
+      {
+        "question": "Why can the runway metric and forecast month differ?",
+        "answer": "The simple metric can return a fractional month and holds recurring burn constant. The forecast checks month-end balances and includes growth and one-time movements, so the results answer different questions."
+      }
+    ]
+  },
+  "seller-profit-calculator": {
+    "description": "Estimate online selling profit after product costs, shipping, platform fees, processing, advertising, returns, and overhead. Includes a US Etsy example.",
+    "seoTitle": "Online Seller Profit Calculator: Fees, Costs & Etsy Example",
+    "quickAnswer": "Online seller profit starts with item revenue and shipping charged to the customer, then subtracts product, fulfillment, advertising, return allowances, and selling fees. Monthly operating profit also subtracts fixed overhead. Finflo separates these components so you can see whether an order contributes positively before you scale the number of sales.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Include the costs that sit between a sale and your profit",
+        "paragraphs": [
+          "Enter the selling price and shipping charged for one representative order. Add the product cost, actual shipping cost, packaging, advertising spend, and an allowance for expected losses from returns. The return allowance is a money amount per order, allowing you to use your own experience instead of a generic return-rate assumption. Monthly fixed overhead is entered separately so it is not subtracted twice.",
+          "Collected sales tax is treated as money you pass through rather than revenue you retain. The model includes that tax in the processing-fee base while excluding it from the marketplace transaction-fee base. Check that this treatment matches the custom fee arrangement you are modeling. This is a declared calculation convention, not a universal rule for every marketplace or country."
+        ]
+      },
+      {
+        "title": "Seller profit example with a 50 item and 5 shipping charge",
+        "paragraphs": [
+          "Assume an item price of 50 and shipping charged of 5, giving revenue of 55 before collected tax. Product cost is 15, actual shipping is 6, packaging is 1, advertising spend is 3, and expected return loss is 1. Those costs total 26. With a 6.5% marketplace fee, 3% processing plus 0.25, and a 0.20 listing allocation, the rounded fees are 3.58, 1.90, and 0.20.",
+          "Total fees are 5.68 and contribution is 55 − 26 − 5.68 = 23.32 per order. At 100 orders and 200 monthly overhead, operating profit is 2,132. The result is before income tax and any owner compensation not entered as a cost. It also depends on the representative order remaining representative as sales volume changes."
+        ]
+      },
+      {
+        "title": "Use the dated US Etsy example with its stated scope",
+        "paragraphs": [
+          "The Etsy mode models a US bank-account case using USD listing and settlement, with one item per order and one listing-fee allocation. It uses the published transaction and processing rates and lets you choose whether the order has an Offsite Ads fee. The selected advertising percentage is capped at 100 per order. The preset was checked against Etsy’s official policies on October 13, 2026.",
+          "This is not a complete reproduction of every Etsy statement. Multiple-item orders, gift wrapping, different bank countries, currency conversion, fee taxes, setup charges, and other services can change actual charges. Enter applicable extra per-order fees or monthly overhead, or use custom rates for a different scenario. Selecting an Offsite Ads rate does not establish which rate or eligibility applies to your account."
+        ]
+      },
+      {
+        "title": "Distinguish order contribution from monthly operating profit",
+        "paragraphs": [
+          "Contribution per order shows what remains before monthly fixed overhead. A store can have positive contribution but a negative monthly operating profit if there are too few orders to cover that overhead. The orders-to-cover-overhead metric rounds up when contribution is positive. If contribution is zero or negative, increasing volume alone cannot reliably fund positive fixed costs in this model.",
+          "The displayed operating margin divides monthly operating profit by monthly sales excluding collected tax. It is not a markup percentage on product cost. Compare scenarios for selling price, shipping recovery, advertising, or order volume by saving named calculations. Keep account fees current and compare the detailed components with real statements so missing expenses are visible instead of treating the initial estimate as a final accounting result."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does shipping charged count as revenue?",
+        "answer": "Yes. The customer’s shipping payment adds to sales revenue, and actual shipping cost is deducted separately. Their difference can increase or decrease the order’s contribution."
+      },
+      {
+        "question": "Is collected sales tax included in profit?",
+        "answer": "No. It is treated as a pass-through amount. Under this model it is included in the processing-fee base, which can still affect the fee you pay."
+      },
+      {
+        "question": "Does this support every Etsy seller country?",
+        "answer": "No. The preset is the stated US bank-account example in USD. Use verified custom fees for other countries, contracts, or order structures."
+      },
+      {
+        "question": "How should I enter returns?",
+        "answer": "Enter the expected financial loss from returns as a money allowance per order. Use your own evidence for refunds, lost shipping, restocking, and recoverable inventory rather than assuming every returned item is a total loss."
+      },
+      {
+        "question": "Why is contribution higher than profit per order?",
+        "answer": "Contribution is before fixed overhead. The detailed table allocates monthly overhead across the entered order count to show a resulting operating profit per order."
+      },
+      {
+        "question": "Are income taxes and my own pay included?",
+        "answer": "Only if you explicitly include an appropriate cost allowance. The displayed result is operating profit before income taxes and owner compensation that has not been entered."
+      }
+    ]
+  },
+  "solar-savings-calculator": {
+    "description": "Estimate solar electricity savings, financing cash flow, and payback from system cost, generation, self-use, export rates, and your own tariff assumptions.",
+    "seoTitle": "Solar Savings Calculator: Payback, Export Credits & Financing",
+    "quickAnswer": "Solar savings come from using generated electricity instead of buying it and from any credits earned by exporting surplus electricity. Subtract maintenance and compare the benefits with the net installed cost. Finflo projects these amounts year by year and can include a fixed-rate loan, while keeping unfinanced payback separate from financing cash flow.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Gather system costs, generation estimates, and tariff details",
+        "paragraphs": [
+          "Enter the installed system price and any verified incentive that actually reduces the upfront cost. A later tax credit or uncertain rebate should not be entered as immediate cash without adjusting the scenario. System capacity is in kilowatts, while annual generation yield is kilowatt-hours per installed kilowatt per year. Use a site-specific estimate for yield rather than assuming the example represents your roof.",
+          "The annual-use input represents household electricity consumption. The self-use percentage is the share of solar generation you expect to use on site, subject to the annual consumption limit. Electricity you use on site is valued at the entered import price, while the remainder is valued at the export price. These rates may differ substantially. The model does not automatically establish your utility’s net-metering or billing arrangement."
+        ]
+      },
+      {
+        "title": "Solar example: a 5 kW system with 7,000 kWh generation",
+        "paragraphs": [
+          "A 5 kW system with a yield of 1,400 kWh per kW produces 7,000 kWh in its first modeled year. At 60% self-use and sufficient household demand, 4,200 kWh offsets imports and 2,800 kWh is exported. With an import price of 0.20 and an export credit of 0.05 per kWh, gross annual benefit is 840 + 140 = 980.",
+          "Subtracting maintenance of 150 leaves a first-year benefit of 830. For a net installed cost of 15,000, a constant 830 annual benefit would imply a simple payback of about 18.07 years. The actual projection in this tool also applies the degradation and tariff changes you enter, so its payback can differ from that fixed-benefit shortcut. Set both annual changes to zero to reproduce the shortcut."
+        ]
+      },
+      {
+        "title": "Separate operating benefit from loan-funded cash flow",
+        "paragraphs": [
+          "If part of the installation is financed, upfront cash equals net system cost minus the amount borrowed. A fixed monthly payment is calculated from the loan rate and term. Each year’s cash flow subtracts that year’s loan payments from the operating benefit. The cumulative cash series starts with the upfront outflow at year zero and then adds each annual net movement.",
+          "A loan can reduce the initial out-of-pocket cost while adding interest and future obligations. The result therefore shows remaining loan balance separately, especially when the projection ends before the loan is fully repaid. Cumulative cash is not the same as net wealth. The unfinanced payback metric compares operating benefits with the full net system cost and does not use the financing arrangement to make payback appear artificially immediate."
+        ]
+      },
+      {
+        "title": "Interpret solar payback as an assumption-based projection",
+        "paragraphs": [
+          "Generation degradation reduces output each year after year one. The tariff-change assumption adjusts both import and export prices annually. Maintenance is held constant. Unfinanced payback is interpolated within the first year when cumulative operating benefit recovers net system cost. A later period of negative benefit can reverse that recovery, so inspect the full schedule as well as the headline payback number.",
+          "Annual self-use is a simplified estimate rather than an hourly simulation of sunlight and household demand. Battery dispatch, seasonal billing, fixed utility charges, equipment replacement, tax deductions, and resale value are not automatically modeled. Use the linked generation and energy references to develop the inputs, then compare conservative and optimistic scenarios. The calculator’s example is a transparent arithmetic demonstration, not an installation quote or a savings guarantee."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the difference between kW and kWh?",
+        "answer": "Kilowatts describe system capacity, while kilowatt-hours describe energy produced or consumed. The calculator multiplies installed kW by annual kWh per kW to estimate first-year generation."
+      },
+      {
+        "question": "Why are self-used and exported electricity valued differently?",
+        "answer": "Self-used generation offsets the import price you enter. Exported generation earns the separate export credit. Many billing arrangements distinguish them, so the tool keeps both assumptions visible."
+      },
+      {
+        "question": "Does the tool automatically include solar tax credits?",
+        "answer": "No. You enter only a verified incentive that reduces upfront cost. A future tax benefit has different timing and eligibility, which this model does not determine."
+      },
+      {
+        "question": "Does financing change the unfinanced payback?",
+        "answer": "No. That metric compares operating benefits with full net system cost. Financing changes upfront cash, repayments, interest, and cumulative cash, which are shown separately."
+      },
+      {
+        "question": "Why might the projection show no payback?",
+        "answer": "Operating benefits may be too small, negative, or insufficient within the chosen horizon. Higher costs, lower export credits, maintenance, and declining generation can all affect the result."
+      },
+      {
+        "question": "Does the annual model simulate a battery?",
+        "answer": "No. It does not dispatch storage hour by hour. If you use a self-use estimate influenced by a battery, account for its cost and recognize that losses and replacement timing are not separately simulated."
+      }
+    ]
+  },
+  "ev-vs-petrol-calculator": {
+    "description": "Compare EV and petrol ownership costs using purchase price, fuel or charging, mileage, maintenance, insurance, charging losses, and final resale values.",
+    "seoTitle": "EV vs Petrol Cost Calculator: Charging & Total Ownership",
+    "quickAnswer": "Compare an EV and a petrol car by adding purchase and running costs over the same ownership period, then subtracting each vehicle’s expected resale value. For the EV, include charger installation and electricity lost during charging. Finflo compares those totals and also shows annual energy costs, running-cost savings, and simple payback on any EV upfront premium.",
+    "reviewedAt": "2026-10-14",
+    "sections": [
+      {
+        "title": "Compare equivalent vehicles over the same driving plan",
+        "paragraphs": [
+          "Enter purchase prices that already reflect applicable purchase taxes and verified discounts. Use one annual distance and ownership period for both vehicles so the comparison describes the same transport need. Add charger installation to the EV’s upfront cost. Annual maintenance and insurance or other ownership costs are entered separately for each vehicle; a difference in those assumptions can matter as much as the energy price.",
+          "Choose metric units for kilometers and liters or US units for miles and US gallons. EV efficiency is always battery energy per 100 selected distance units. Petrol efficiency changes convention: liters per 100 kilometers in metric mode and miles per US gallon in US mode. Switching the unit setting converts the existing distance, efficiency, and fuel-price values so the scenario remains comparable."
+        ]
+      },
+      {
+        "title": "Account for charging losses and the home/public mix",
+        "paragraphs": [
+          "The EV input describes energy delivered to the battery. If 10% of purchased grid energy is lost during charging, divide battery energy by 0.90 to estimate electricity bought. This is different from simply adding 10% to battery use. Home and public rates are blended using the entered share of charging at home, with the remainder priced at the public rate.",
+          "For example, 15,000 kilometers at 18 kWh per 100 kilometers uses 2,700 kWh at the battery. With a 10% grid-energy loss share, purchased electricity is 3,000 kWh. An 80% home share at 0.15 per kWh and 20% public share at 0.40 gives a blended rate of 0.20, for 600 in annual charging costs. Parking or session fees should be included in your other annual costs when relevant."
+        ]
+      },
+      {
+        "title": "Ownership-cost example over five years",
+        "paragraphs": [
+          "Using the example above, a petrol car consuming 7 liters per 100 kilometers uses 1,050 liters over 15,000 kilometers. At 1.50 per liter, annual fuel cost is 1,575. With EV maintenance of 400 and other annual costs of 1,200, EV running cost is 2,200 per year. Petrol maintenance of 800 and other costs of 1,100 give petrol running cost of 3,475.",
+          "An EV purchased for 35,000 with a 1,000 charger and a 15,000 final resale value costs 32,000 over five years under those assumptions. A petrol car purchased for 28,000 with a 12,000 final resale value costs 33,375. The modeled EV saving is 1,375. Its 8,000 upfront premium divided by 1,275 annual running savings gives approximately 6.27 years of simple payback, which excludes resale."
+        ]
+      },
+      {
+        "title": "Read total ownership and simple payback as different measures",
+        "paragraphs": [
+          "The cumulative-cost chart includes the purchase at year zero and running costs in subsequent years. It subtracts resale only in the final year of the selected ownership period. That final-year drop represents a modeled sale, not a sudden reduction in historical running costs. Positive EV savings favor the EV under your inputs; negative savings favor the petrol vehicle.",
+          "Simple running-cost payback asks how long annual operating savings would take to offset the EV’s initial premium. It excludes resale and may fall outside your chosen ownership period. If there is no premium, the tool reports that directly; if EV running costs are not lower, a positive premium has no payback through running savings. Financing, future price changes, time value of money, and exceptional repairs are not automatically included."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does the EV efficiency input include charging losses?",
+        "answer": "No. It is battery energy use per 100 distance units. The separate loss input converts that battery demand into purchased grid electricity so the charging cost includes the modeled losses."
+      },
+      {
+        "question": "Can I compare using miles and US gallons?",
+        "answer": "Yes. Select US units. The tool uses miles for distance, kWh per 100 miles for EV energy use, and miles per US gallon for petrol efficiency."
+      },
+      {
+        "question": "Why does the final year drop in the cost chart?",
+        "answer": "The model credits the entered resale value only at the end of the ownership period. Earlier rows show costs without assuming the vehicle was already sold."
+      },
+      {
+        "question": "Why can five-year EV savings be positive when simple payback exceeds five years?",
+        "answer": "Total ownership includes both final resale values. Simple running-cost payback excludes resale and compares only the initial premium with annual running savings, so they can differ."
+      },
+      {
+        "question": "Does the calculator include car-loan interest?",
+        "answer": "No. It compares purchase and operating costs without financing. Use the loan calculator separately if different borrowing costs are relevant to the decision."
+      },
+      {
+        "question": "Are fuel and charging prices live?",
+        "answer": "No. You enter local prices and the share of charging at home. The values remain constant throughout this projection and should be updated when you compare a new scenario."
+      }
+    ]
   }
 }

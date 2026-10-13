@@ -1,0 +1,27 @@
+.body { padding: 0 28px 28px; min-width: 0; }
+.brandControls { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; gap: 18px 24px; margin-bottom: 24px; padding: 20px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-surface); }
+.fieldLabel { display: block; margin-bottom: 8px; font-size: 15px; font-weight: 550; color: var(--color-text-secondary); }
+.uploadActions { display: flex; flex-wrap: wrap; gap: 8px; }
+.fileName { overflow-wrap: anywhere; }
+.brandNote { grid-column: 1/-1; color: var(--color-muted); font-size: 13px; line-height: 1.7; }
+.invoice { padding: 28px; border: 1px solid var(--color-line); border-top: 3px solid var(--color-brand); border-radius: 8px; background: #fff; color: var(--color-ink); overflow-wrap: anywhere; }
+.parties { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: start; }
+.parties h3 { font-size: 18px; font-weight: 650; letter-spacing: -.4px; margin-bottom: 12px; }
+.parties p,.customer p,.terms p { white-space: pre-wrap; color: var(--color-muted); font-size: 14px; line-height: 1.8; margin: 6px 0 20px; }
+.logo { object-fit: contain; object-position: left center; max-width: 100%; margin-bottom: 12px; }
+.customer { margin-top: 18px; }
+.customer strong,.terms strong { font-size: 14px; font-weight: 650; }
+.totals { max-width: 360px; margin: 24px 0 24px auto; font-size: 14px; }
+.totals>div { display: flex; justify-content: space-between; gap: 24px; padding: 8px 0; }
+.totals dt { color: var(--color-muted); }
+.totals dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.totals>div:last-child { border-top: 1px solid var(--color-line); font-size: 19px; font-weight: 650; margin-top: 8px; padding-top: 16px; }
+.totals>div:last-child dt,.totals>div:last-child dd { color: var(--color-brand-dark); }
+.terms { border-top: 1px solid var(--color-line); padding-top: 18px; }
+.terms p { margin-bottom: 0; }
+.status { margin-top: 16px; font-size: 14px; color: var(--color-brand-dark); }
+.change { font-size: 14px; color: var(--color-muted); }
+.change strong { color: var(--color-brand-dark); font-variant-numeric: tabular-nums; }
+@media(max-width:700px) { .body { padding: 0 18px 18px; } .invoice { padding: 18px; } }
+@media(max-width:600px) { .parties { grid-template-columns: minmax(0,1fr); gap: 8px; } .brandControls { grid-template-columns: minmax(0,1fr); padding: 16px; } }
+@media print { .body { padding: 0; } .brandControls { display: none; } }

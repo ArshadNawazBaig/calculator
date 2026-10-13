@@ -23,11 +23,11 @@ export function CalculatorCard({tool,size="regular",headingLevel=3}:CalculatorCa
   const Heading=headingLevel===2?"h2":"h3";
   const unavailable=tool.status==="unavailable";
   return <article className={`${styles.card} ${locale!=='en'&&!messages[`description.${tool.slug}`]?styles.withoutDescription:''} ${size==="compact"?styles.compact:""}`} data-calculator-card={tool.slug} data-category={tool.category} data-status={tool.status||"available"}>
-    <FavoriteButton slug={tool.slug} title={locale==='en'?tool.title:t(`tool.${tool.slug}`)} compact/>
-    <Link className={styles.link} href={`/${tool.slug}`} aria-label={locale==='en'?tool.title:t(`tool.${tool.slug}`)} prefetch={false}>
+    <FavoriteButton slug={tool.slug} title={messages[`tool.${tool.slug}`]||tool.title} compact/>
+    <Link className={styles.link} href={`/${tool.slug}`} aria-label={messages[`tool.${tool.slug}`]||tool.title} prefetch={false}>
       <div className={styles.header}>
         <span className={styles.iconWrap}><ToolIcon slug={tool.slug} size={22}/></span>
-        <Heading className={styles.title}>{locale==='en'?tool.title:t(`tool.${tool.slug}`)}</Heading>
+        <Heading className={styles.title}>{messages[`tool.${tool.slug}`]||tool.title}</Heading>
       </div>
       {(locale==='en'||messages[`description.${tool.slug}`])&&<p className={styles.description}>{locale==='en'?tool.description:messages[`description.${tool.slug}`]}</p>}
       <div className={styles.footer}>

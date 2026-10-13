@@ -5,6 +5,11 @@ export type SeriesChart = {title: string; xLabel: string; labels: string[]; poin
 export type BreakdownChart = {title: string; description: string; items: {label: string; value: number}[]};
 type SeriesRule = {title: string; columns: string[]; moneyFrom: number; exclude?: number[]};
 const rules: Record<string, SeriesRule> = {};
+rules['toolkit-emergency'] = {title:'Emergency savings over time', columns:['Emergency savings ($)'], moneyFrom:1};
+rules['toolkit-cashflow'] = {title:'Projected cash balance', columns:['Ending cash ($)'], moneyFrom:1};
+rules['toolkit-solar'] = {title:'Solar cash flow and remaining loan', columns:['Cumulative cash ($)', 'Loan balance ($)'], moneyFrom:4};
+rules['toolkit-ev'] = {title:'EV and petrol ownership costs', columns:['EV cumulative cost ($)', 'Petrol cumulative cost ($)'], moneyFrom:1};
+rules['toolkit-networth-history'] = {title:'Net worth over time', columns:['Net worth ($)'], moneyFrom:1};
 for (const algorithm of ['loan','payoff','mortgage','mortgage-ca','mortgage-uk','auto-loan','refinance','consolidation','student-loan','program-loan']) {
   rules[algorithm] = {title:'Loan balance over time', columns:['Balance ($)'], moneyFrom:2};
 }

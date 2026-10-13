@@ -11,6 +11,7 @@ const fixedTools: Record<string, Currency> = {
 };
 // Explicitly reviewed arithmetic models. New algorithms do not inherit a currency override.
 const selectable = new Set([
+  'toolkit-freelance', 'toolkit-invoice', 'toolkit-payment', 'toolkit-breakeven', 'toolkit-networth', 'toolkit-emergency', 'toolkit-subscriptions', 'toolkit-split', 'toolkit-cashflow', 'toolkit-seller', 'toolkit-solar', 'toolkit-ev',
   'mortgage', 'dated-loan', 'ownership-lines', 'biweekly-inferred',
   'loan', 'deferred', 'zero-bond', 'loan-frequencies', 'personal-cashcost', 'vehicle-price', 'equity-capacity', 'payoff',
   'auto-loan', 'rebate-compare', 'financing-lease', 'heloc', 'heloc-fees',
@@ -26,7 +27,7 @@ const selectable = new Set([
   'time-card', 'shift-card', 'tip', 'fuel-metric', 'fuel-us', 'fuel-odometer',
   'landscape', 'landscape-area', 'gravel-circle', 'landscape-purchasing', 'tile', 'tile-procurement', 'roof-packages', 'electricity', 'electricity-load',
 ]);
-const fixedAlgorithms = new Set(['vehicle-state-tax', 'cpi-historical', 'lease', 'lease-price']);
+const fixedAlgorithms = new Set(['vehicle-state-tax', 'cpi-historical', 'lease', 'lease-price', 'toolkit-stripe', 'toolkit-etsy']);
 const independent = new Set(['currency', 'currency-reference', 'currency-global', 'fuel-units', 'fx-margin', 'gdp', 'income-gdp']);
 
 export function calculatorCurrencyPolicy(slug: string, mode: Mode): CurrencyPolicy {

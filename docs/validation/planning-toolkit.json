@@ -1,0 +1,207 @@
+{
+  "recordedAt": "2026-10-13T19:39:47.003Z",
+  "scope": "12 browser-based planning tools; local implementation, not deployed",
+  "catalog": {
+    "catalogEntries": 215,
+    "calculatorPages": 214,
+    "modes": 571,
+    "unavailableTools": 0,
+    "directoryHubs": 1
+  },
+  "newTools": 12,
+  "newModes": 14,
+  "checks": {
+    "productionBuild": {
+      "command": "npm run build",
+      "status": "passed",
+      "staticPages": 1977,
+      "typeScript": "passed as part of production build"
+    },
+    "lint": {
+      "command": "npm run lint",
+      "status": "passed"
+    },
+    "unit": {
+      "command": "npm test",
+      "status": "passed",
+      "files": 46,
+      "tests": 3126
+    },
+    "translations": {
+      "command": "npm run i18n:check",
+      "status": "passed",
+      "locales": [
+        "es",
+        "fr",
+        "de",
+        "pt",
+        "ar",
+        "hi",
+        "tl"
+      ],
+      "messagesPerLocale": 9770,
+      "placeholderErrors": 0,
+      "numericChanges": 0,
+      "formulaChanges": 0,
+      "unreadableMessages": 0
+    },
+    "browser": {
+      "command": "TEST_URL=http://127.0.0.1:3100 npx playwright test toolkit.spec.ts workspace.spec.ts search.spec.ts result-formatting.spec.ts languages.spec.ts desktop-exports.spec.ts",
+      "status": "passed",
+      "stats": {
+        "startTime": "2026-10-13T19:36:15.427Z",
+        "duration": 151715.854,
+        "expected": 47,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "newToolkitTests": 20,
+      "existingRegressionTests": 27,
+      "suites": [
+        "desktop-exports.spec.ts",
+        "header-search.spec.ts",
+        "languages.spec.ts",
+        "result-formatting.spec.ts",
+        "search.spec.ts",
+        "toolkit.spec.ts",
+        "workspace.spec.ts"
+      ]
+    },
+    "mobileExports": {
+      "command": "TEST_URL=http://127.0.0.1:3100 npx playwright test --config playwright.exports.config.ts",
+      "status": "passed",
+      "stats": {
+        "startTime": "2026-10-13T19:31:16.547Z",
+        "duration": 41795.918,
+        "expected": 16,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "projects": [
+        "android-chromium (Pixel 7)",
+        "iphone-webkit (iPhone 13)"
+      ],
+      "evidence": "Completed report inspected before the subsequent desktop run cleared the shared test-results directory."
+    },
+    "diffWhitespace": {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    "visualReview": {
+      "status": "passed",
+      "views": [
+        "390px group expense inputs",
+        "1440px cash-flow guide",
+        "invoice preview"
+      ],
+      "notes": "Calculator precedes long-form guidance; styles match the existing green palette."
+    }
+  },
+  "editorial": [
+    {
+      "slug": "freelance-rate-calculator",
+      "seoTitle": "Freelance Rate Calculator: Hourly, Daily & Project Pricing",
+      "words": 812,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "invoice-generator",
+      "seoTitle": "Free Invoice & Quotation Generator with PDF Download",
+      "words": 832,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "payment-fee-calculator",
+      "seoTitle": "Payment Fee Calculator: Net Receipts & Reverse Fees",
+      "words": 787,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "break-even-calculator",
+      "seoTitle": "Break-Even Calculator: Sales, Units & Target Profit",
+      "words": 796,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "net-worth-tracker",
+      "seoTitle": "Net Worth Tracker & Calculator: Assets Minus Liabilities",
+      "words": 777,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "emergency-fund-calculator",
+      "seoTitle": "Emergency Fund Calculator: Target & Savings Timeline",
+      "words": 802,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "subscription-cost-tracker",
+      "seoTitle": "Subscription Cost Tracker: Monthly Costs & Annual Savings",
+      "words": 792,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "expense-splitter",
+      "seoTitle": "Expense Splitter: Group Bills, Unequal Shares & Settlements",
+      "words": 788,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "cash-flow-calculator",
+      "seoTitle": "Cash Flow Calculator & Business Runway Planner",
+      "words": 791,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "seller-profit-calculator",
+      "seoTitle": "Online Seller Profit Calculator: Fees, Costs & Etsy Example",
+      "words": 781,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "solar-savings-calculator",
+      "seoTitle": "Solar Savings Calculator: Payback, Export Credits & Financing",
+      "words": 802,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "slug": "ev-vs-petrol-calculator",
+      "seoTitle": "EV vs Petrol Cost Calculator: Charging & Total Ownership",
+      "words": 802,
+      "faqCount": 6,
+      "guideSections": 4,
+      "reviewedAt": "2026-10-14"
+    }
+  ],
+  "scopeNotes": [
+    "Word counts include the direct answer, guide headings/paragraphs, and FAQs; they exclude formulas, worked examples, and references.",
+    "New articles are English-only; existing language catalogs have translated names linking to the English canonical tools.",
+    "No new backend, runtime fee feed, email delivery, cloud storage, or deployment was introduced.",
+    "Mobile export tests use the dedicated mobile configuration because touch-only fallback links are intentionally hidden on desktop.",
+    "The original 204-entry competitor audit is retained as historical evidence; these 12 tools are original additions."
+  ]
+}

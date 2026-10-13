@@ -10,7 +10,7 @@ function normalize(value:string) {
 const index=(data as CatalogEntry[]).map(tool=>({
   tool,
   title:normalize(tool.title),
-  text:normalize(`${tool.title} ${tool.slug} ${tool.category} ${tool.subcategory}`),
+  text:normalize(`${tool.title} ${tool.slug} ${tool.category} ${tool.subcategory} ${(tool.searchTerms||[]).join(" ")}`),
 }));
 
 /** Shared by live suggestions and the full results page. No calculation engines are loaded. */

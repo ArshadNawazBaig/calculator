@@ -1,6 +1,6 @@
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {Suspense} from 'react';
-import {notFound} from 'next/navigation';
+import {notFound, redirect} from 'next/navigation';
 import Link from '@/components/i18n/link';
 import {PageHero} from '@/components/content/page-hero';
 import {SearchHero} from '@/components/content/search-hero';
@@ -28,7 +28,7 @@ import {categories, site} from '@/lib/site';
 import {information} from '@/data/information';
 import {guides} from '@/data/guides';
 import {pageMetadata} from '@/lib/metadata';
-import {isTranslatedPage, localizedPath, translator, type Locale} from './config';
+import {isEnglishOnlyTool, isTranslatedPage, localizedPath, translator, type Locale} from './config';
 
 type PageProps = {params: Promise<{path?: string[]}>};
 export const localizedLandingPaths = ['/', '/calculators', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
@@ -72,6 +72,7 @@ export function localizedPage(locale: Locale) {
   return async function LocalizedPage({params}: PageProps) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
+    if(isEnglishOnlyTool(path)) redirect(path);
     const messages = await getContentDictionary(locale), t = translator(messages);
     if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
     if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;

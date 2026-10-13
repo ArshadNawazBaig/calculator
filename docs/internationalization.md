@@ -84,3 +84,9 @@ This follow-up passed 3,006 unit tests, 14 production browser checks, TypeScript
 CSV exports keep a usable download link, with native file sharing offered when supported. The PDF action creates a printable report locally, including metrics, notes and complete tables. It uses the page’s fonts and browser text shaping for Hindi and Arabic, and matches localized result and currency precision. PDF pages contain rendered images; CSV remains available for machine-readable data. Desktop printing remains available.
 
 This follow-up passed 3,012 unit tests, 16 mobile browser checks, 15 desktop regression checks, TypeScript, lint and the production build. Translation coverage is 9,661 messages per translated language. See [mobile export validation](validation/mobile-exports.json) for coverage and the limits of browser emulation. No deployment was performed.
+
+## October 14 planning toolkit
+
+The catalog now has 215 entries: 214 calculators and one directory. All 215 tool names are available in the seven translated navigation dictionaries. The 12 new planning tools and their long-form guides are currently English-only, explicitly listed in `src/data/locales/english-only-tools.json`. Localized catalog/search links open their unprefixed English pages; directly requested language-prefixed versions redirect to English. These pages have one canonical URL each and no unsupported language alternates. Existing fully translated pages retain their reciprocal alternates. When indexing is enabled, the sitemap contains 1,956 URLs: the existing 1,944 localized URLs plus 12 English additions.
+
+The translation extraction and audit honor this explicit scope rather than treating the new English articles as translated. The shared dictionary audit covers 9,770 messages per language, including new chart/unit labels. The English-only list must be updated only when full page translations are supplied and verified.

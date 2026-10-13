@@ -8,6 +8,9 @@ export const relatedCalculatorSlugs: Record<string, string[]> = {
 
 /** Shared task families supplement explicit recommendations before category fallbacks. */
 export const calculatorFamilies: string[][] = [
+  ['freelance-rate-calculator', 'invoice-generator', 'payment-fee-calculator', 'break-even-calculator', 'cash-flow-calculator', 'seller-profit-calculator', 'margin-calculator', 'salary-calculator'],
+  ['net-worth-tracker', 'emergency-fund-calculator', 'subscription-cost-tracker', 'expense-splitter', 'budget-calculator', 'savings-calculator', 'debt-payoff-calculator'],
+  ['solar-savings-calculator', 'electricity-calculator', 'ev-vs-petrol-calculator', 'fuel-cost-calculator', 'auto-loan-calculator', 'payback-period-calculator'],
   ['mortgage-calculator', 'mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator', 'rental-property-calculator', 'heloc-calculator', 'home-equity-loan-calculator', 'fha-loan-calculator', 'va-mortgage-calculator', 'real-estate-calculator'],
   ['loan-calculator', 'amortization-calculator', 'payment-calculator', 'repayment-calculator', 'personal-loan-calculator', 'interest-rate-calculator', 'apr-calculator', 'business-loan-calculator', 'boat-loan-calculator'],
   ['compound-interest-calculator', 'savings-calculator', 'investment-calculator', 'future-value-calculator', 'interest-calculator', 'simple-interest-calculator', 'cd-calculator', 'present-value-calculator', 'finance-calculator', 'mutual-fund-calculator'],

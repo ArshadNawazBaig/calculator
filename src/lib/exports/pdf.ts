@@ -12,6 +12,7 @@ export type PdfReport = {
   direction:'ltr'|'rtl';
   locale:string;
   fontFamily:string;
+  brand?: {name:string; accent:string; logo?:string};
 };
 
 /** Word wrap without cutting combining characters in Hindi or Arabic. */
@@ -70,7 +71,7 @@ export async function resultPdf(report:PdfReport, signal?:AbortSignal):Promise<B
   async function finishPage() {
     signal?.throwIfAborted();
     font(9); ctx.fillStyle='#53685d';
-    textLine(`Finflo · ${++pageNumber}`,margin,height-27,contentWidth);
+    textLine(`${report.brand?.name || 'Finflo'} · ${++pageNumber}`,margin,height-27,contentWidth);
     const png=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('canvas-export-failed')),'image/png'));
     const image=await pdf.embedPng(await png.arrayBuffer());
     pdf.addPage([width,height]).drawImage(image,{x:0,y:0,width,height});
@@ -142,6 +143,15 @@ export async function resultPdf(report:PdfReport, signal?:AbortSignal):Promise<B
   }
   try {
     startPage();
+    if(report.brand) {
+      ctx.fillStyle=report.brand.accent;ctx.fillRect(margin,y,contentWidth,5);y+=18;
+      if(report.brand.logo) {
+        const logo=await new Promise<HTMLImageElement>((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(new Error('logo-unavailable'));image.src=report.brand!.logo!;});
+        signal?.throwIfAborted();
+        const scale=Math.min(150/logo.naturalWidth,60/logo.naturalHeight);
+        ctx.drawImage(logo,margin,y,logo.naturalWidth*scale,logo.naturalHeight*scale);y+=logo.naturalHeight*scale+12;
+      }
+    }
     await paragraph(report.title,20,true);
     await paragraph(report.subtitle,12);
     await paragraph(report.caption,10);

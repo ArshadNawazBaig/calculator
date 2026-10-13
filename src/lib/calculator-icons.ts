@@ -1,3 +1,4 @@
+import {BriefcaseConveyorBelt, FileText, BadgeCent, ChartNoAxesCombined, ChartCandlestick, LifeBuoy, Repeat, UsersRound, ChartNoAxesGantt, Store, Sun, BatteryCharging} from 'lucide-react';
 import {
   Accessibility, Activity, Anvil, Apple, Armchair, ArrowLeftRight,
   Atom, Award, Baby, BadgeAlert, BadgeCheck, BadgeDollarSign,
@@ -38,6 +39,18 @@ import {
 
 /** One distinct symbol for every catalog entry, shared across cards and search. */
 export const calculatorIcons:Readonly<Record<string,LucideIcon>>={
+  'freelance-rate-calculator':BriefcaseConveyorBelt,
+  'invoice-generator':FileText,
+  'payment-fee-calculator':BadgeCent,
+  'break-even-calculator':ChartNoAxesCombined,
+  'net-worth-tracker':ChartCandlestick,
+  'emergency-fund-calculator':LifeBuoy,
+  'subscription-cost-tracker':Repeat,
+  'expense-splitter':UsersRound,
+  'cash-flow-calculator':ChartNoAxesGantt,
+  'seller-profit-calculator':Store,
+  'solar-savings-calculator':Sun,
+  'ev-vs-petrol-calculator':BatteryCharging,
   '401k-calculator':PiggyBank,
   'age-calculator':Cake,
   'amortization-calculator':TableProperties,
