@@ -49,7 +49,7 @@ test('translated cards keep their descriptions across calculator, guide, and sea
 
 test('English homepage and guide expose consistent identity and authorship', async ({page}) => {
   await page.goto('/');
-  await expect(page).toHaveTitle('Free Finance, Health, Math & Everyday Calculators | Finflo');
+  await expect(page).toHaveTitle('Free Finance, Health, Math & Everyday Calculators');
   const schemas=await page.locator('script[type="application/ld+json"]').allTextContents();
   expect(schemas.map(value=>JSON.parse(value)['@type'])).toEqual(['WebSite','Organization']);
   await page.goto('/guides/understanding-mortgage-payments');

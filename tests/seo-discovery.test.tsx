@@ -83,7 +83,7 @@ describe('calculator discovery and translated payloads', () => {
     expect(data).not.toHaveProperty('dateModified');
     const crumbs = breadcrumbData([{name:'Inicio',path:'/'},{name:'Guías',path:'/guides'}],'es');
     expect(crumbs.itemListElement.map(item=>item.item)).toEqual(['https://finflo.org/es','https://finflo.org/es/guides']);
-    expect(pageMetadata('Free calculators','Description','/').title).toEqual({absolute:'Free calculators | Finflo'});
+    expect(pageMetadata('Free calculators','Description','/').title).toEqual({absolute:'Free calculators'});
   });
 
   it('preserves the negative privacy promise and provider identities in Hindi', async () => {
