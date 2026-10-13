@@ -1,0 +1,146 @@
+{
+  "recordedAt": "2026-10-13T19:50:59.653Z",
+  "scope": "Align the 12 planning tools with the existing Finflo design",
+  "status": "passed",
+  "checks": {
+    "productionBuild": "passed, including TypeScript",
+    "lint": "passed",
+    "targetedUnit": {
+      "files": 3,
+      "tests": 84
+    },
+    "translations": "9770 messages in each of seven locales; no errors",
+    "browser": {
+      "command": "TEST_URL=http://127.0.0.1:3100 npx playwright test toolkit.spec.ts result-formatting.spec.ts desktop-exports.spec.ts form-controls.spec.ts",
+      "stats": {
+        "startTime": "2026-10-13T19:48:29.491Z",
+        "duration": 74902.683,
+        "expected": 31,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "visuals": {
+      "reference": "Existing mortgage calculator",
+      "referenceHeading": {
+        "fontFamily": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif",
+        "fontSize": "19px",
+        "fontWeight": "700",
+        "color": "rgb(22, 53, 45)",
+        "borderRadius": "0px",
+        "borderColor": "rgb(22, 53, 45)"
+      },
+      "invoiceHeading": {
+        "fontFamily": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif",
+        "fontSize": "19px",
+        "fontWeight": "700",
+        "color": "rgb(22, 53, 45)",
+        "borderRadius": "0px",
+        "borderColor": "rgb(22, 53, 45)"
+      },
+      "referencePanel": {
+        "fontFamily": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(22, 53, 45)",
+        "borderRadius": "12px",
+        "borderColor": "rgb(220, 231, 223)"
+      },
+      "invoicePanel": {
+        "fontFamily": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "rgb(22, 53, 45)",
+        "borderRadius": "12px",
+        "borderColor": "rgb(220, 231, 223)"
+      },
+      "widths": [
+        {
+          "slug": "freelance-rate-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "invoice-generator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "payment-fee-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "break-even-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "net-worth-tracker",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "emergency-fund-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "subscription-cost-tracker",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "expense-splitter",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "cash-flow-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "seller-profit-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "solar-savings-calculator",
+          "page": 320,
+          "viewport": 320
+        },
+        {
+          "slug": "ev-vs-petrol-calculator",
+          "page": 320,
+          "viewport": 320
+        }
+      ],
+      "articleHeadingColors": [
+        "rgb(22, 53, 45)",
+        "rgb(22, 53, 45)"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "reviewed": [
+        "invoice desktop and phone",
+        "invoice dropdown",
+        "empty snapshot history on phone",
+        "guide desktop",
+        "existing result table desktop"
+      ]
+    }
+  },
+  "sharedComponents": [
+    "Button",
+    "Dropdown",
+    "ResultSection",
+    "ResultDataTable"
+  ],
+  "palette": "Existing globals.css tokens; invoice preview and PDF use the same palette",
+  "deployment": "Local only"
+}

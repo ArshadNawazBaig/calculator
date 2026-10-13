@@ -29,6 +29,8 @@ The invoice generator creates its own document PDF with business/customer detail
 
 The tools use Finflo's established green palette and shared page, form, button, dropdown, result-panel, and table components. Invoice and snapshot panels reuse the same `ResultSection` and `ResultDataTable` as existing calculator breakdowns. Upload controls use the shared button patterns, invoice colors resolve from the site's color tokens, and direct-answer summaries share the existing formula-callout styling and article typography. The design was compared with the mortgage calculator at desktop and phone widths.
 
+The [design validation report](validation/toolkit-design.json) records the matching panel styles, 320px layout checks for all 12 tools, and the targeted unit and browser checks.
+
 ## Editorial and discovery
 
 Each new page contains roughly 800 words of original explanatory guidance and FAQs, plus formula and calculated worked-example sections. Content includes a direct answer, four topic-specific sections, a numerical scenario, six questions with answers, model boundaries, primary references, Finflo authorship, and a review date. Reference fees carry a separate October 13, 2026 check date.
