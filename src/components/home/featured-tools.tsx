@@ -16,7 +16,7 @@ function GrowthIllustration() {
 }
 
 export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
-  return <article className={styles.spotlight} data-category={spotlight.category}>
+  return <article className={styles.spotlight} data-category={spotlight.category} data-theme-surface="dark">
     <div className={styles.spotlightCopy}><span className={styles.spotlightLabel}>{categoryLabels[spotlight.category]} in focus</span>
       <h3>{spotlight.title}</h3><p>{spotlight.description}</p></div>
     <div className={styles.spotlightLinks}>{spotlight.links.map(link=><Link key={link.slug} href={`/${link.slug}`}>{link.title}<ChevronRight size={18} aria-hidden="true"/></Link>)}</div>

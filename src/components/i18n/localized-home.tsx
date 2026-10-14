@@ -12,6 +12,7 @@ import {cardMessages} from '@/lib/i18n/dictionaries';
 import {TranslationMessages} from './provider';
 import {PlanningPathways, FinanceToolkit, HealthToolkit, EverydayToolkit, HowItWorks, WorkspaceIntroduction} from '@/components/home/home-details';
 import {LearningGuides} from '@/components/home/learning-guides';
+import {HomeCta} from '@/components/home/home-cta';
 import styles from '@/components/home/home.module.css';
 
 export function LocalizedHome({messages}: {messages: Dictionary}) {
@@ -53,6 +54,6 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     <WorkspaceIntroduction messages={messages}/>
     <LearningGuides messages={messages}/>
     <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>
-    <section className={`container ${styles.closing}`} aria-labelledby="closing-title"><h2 id="closing-title">{t('Your next answer is a calculation away.')}</h2><Link className="button button-primary" href="/calculators">{t('Browse all calculators')}<ChevronRight size={17}/></Link></section>
+    <HomeCta messages={messages}/>
   </>;
 }

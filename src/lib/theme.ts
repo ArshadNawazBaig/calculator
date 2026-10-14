@@ -1,7 +1,7 @@
 export type ThemePreference = 'system' | 'light' | 'dark';
 export const themeStorageKey = 'finflo.theme.v1';
 export const themeChangeEvent = 'finflo-theme-change';
-export const themeColors = {light: '#ffffff', dark: '#101113'};
+export const themeColors = {light: '#f7f8f4', dark: '#101113'};
 
 export function parseTheme(value: unknown): ThemePreference {
   return value === 'light' || value === 'dark' ? value : 'system';

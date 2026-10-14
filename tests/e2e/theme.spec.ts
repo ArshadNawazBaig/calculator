@@ -12,7 +12,7 @@ async function choose(page: Page, name: 'System' | 'Light' | 'Dark') {
 test('defaults to the system and follows live device changes', async ({page}) => {
   await page.emulateMedia({colorScheme: 'light'});
   await page.goto('/');
-  await expect.poll(() => background(page)).toBe('rgb(255, 255, 255)');
+  await expect.poll(() => background(page)).toBe('rgb(247, 248, 244)');
   await page.getByRole('button', {name: 'Appearance', exact: true}).click();
   await expect(page.getByRole('radio', {name: 'System', exact: true})).toBeChecked();
   await page.keyboard.press('Escape');
@@ -41,9 +41,9 @@ test('manual choices persist across reloads, routes, languages, and tabs', async
   await other.goto('/ar');
   await expect.poll(() => background(other)).toBe('rgb(16, 17, 19)');
   await choose(page, 'Light');
-  await expect.poll(() => background(other)).toBe('rgb(255, 255, 255)');
+  await expect.poll(() => background(other)).toBe('rgb(247, 248, 244)');
   await page.emulateMedia({colorScheme: 'dark'});
-  await expect.poll(() => background(page)).toBe('rgb(255, 255, 255)');
+  await expect.poll(() => background(page)).toBe('rgb(247, 248, 244)');
   await choose(page, 'System');
   await expect.poll(() => background(page)).toBe('rgb(16, 17, 19)');
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
@@ -62,11 +62,11 @@ test('saved preference applies before hydration and storage failure remains usab
     Object.defineProperty(window, 'localStorage', {get() { throw new Error('Storage unavailable'); }});
   });
   await page.reload();
-  await expect.poll(() => background(page)).toBe('rgb(255, 255, 255)');
+  await expect.poll(() => background(page)).toBe('rgb(247, 248, 244)');
   await choose(page, 'Dark');
   await expect.poll(() => background(page)).toBe('rgb(16, 17, 19)');
   await choose(page, 'System');
-  await expect.poll(() => background(page)).toBe('rgb(255, 255, 255)');
+  await expect.poll(() => background(page)).toBe('rgb(247, 248, 244)');
 });
 
 test('invalid stored preferences fall back to the system without hydration errors', async ({page}) => {
