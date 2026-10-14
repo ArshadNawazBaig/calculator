@@ -70,7 +70,7 @@ export async function resultPdf(report:PdfReport, signal?:AbortSignal):Promise<B
   }
   async function finishPage() {
     signal?.throwIfAborted();
-    font(9); ctx.fillStyle='#53685d';
+    font(9); ctx.fillStyle='#50555d';
     textLine(`${report.brand?.name || 'Finflo'} · ${++pageNumber}`,margin,height-27,contentWidth);
     const png=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('canvas-export-failed')),'image/png'));
     const image=await pdf.embedPng(await png.arrayBuffer());
@@ -87,7 +87,7 @@ export async function resultPdf(report:PdfReport, signal?:AbortSignal):Promise<B
     const spacing=Math.max(lineHeight,size*1.5);
     for(const line of lines) {
       if(y+spacing>bottom)await newPage();
-      font(size,bold);ctx.fillStyle=bold?'#14332a':'#3c5548';
+      font(size,bold);ctx.fillStyle=bold?'#17191c':'#363b43';
       textLine(line,margin,y,contentWidth);y+=spacing;
     }
     y+=8;
@@ -106,13 +106,13 @@ export async function resultPdf(report:PdfReport, signal?:AbortSignal):Promise<B
     const canRepeatHeader=headerHeight>0&&headerHeight<(bottom-margin)/3;
     function paint(cells:string[][],offset:number,count:number,bold:boolean,shaded:boolean) {
       const rowHeight=count*lineHeight+padding*2;
-      ctx.fillStyle=shaded?'#eef6f1':'#ffffff';ctx.fillRect(margin,y,contentWidth,rowHeight);
-      font(10,bold);ctx.fillStyle='#14332a';
+      ctx.fillStyle=shaded?'#f1f5df':'#ffffff';ctx.fillRect(margin,y,contentWidth,rowHeight);
+      font(10,bold);ctx.fillStyle='#17191c';
       cells.forEach((lines,index)=>{
         const x=margin+(rtl?columns-1-index:index)*cellWidth+padding;
         lines.slice(offset,offset+count).forEach((line,lineIndex)=>textLine(line,x,y+padding+lineIndex*lineHeight,cellWidth-padding*2));
       });
-      ctx.strokeStyle='#dce7df';ctx.beginPath();ctx.moveTo(margin,y+rowHeight);ctx.lineTo(width-margin,y+rowHeight);ctx.stroke();
+      ctx.strokeStyle='#d4d7dc';ctx.beginPath();ctx.moveTo(margin,y+rowHeight);ctx.lineTo(width-margin,y+rowHeight);ctx.stroke();
       y+=rowHeight;
     }
     for(let rowIndex=0;rowIndex<rows.length;rowIndex++) {

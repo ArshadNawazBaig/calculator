@@ -4,7 +4,7 @@
 .uploadActions { display: flex; flex-wrap: wrap; gap: 8px; }
 .fileName { overflow-wrap: anywhere; }
 .brandNote { grid-column: 1/-1; color: var(--color-muted); font-size: 13px; line-height: 1.7; }
-.invoice { padding: 28px; border: 1px solid var(--color-line); border-top: 3px solid var(--color-brand); border-radius: 8px; background: #fff; color: var(--color-ink); overflow-wrap: anywhere; }
+.invoice { padding: 28px; border: 1px solid var(--color-line); border-top: 3px solid var(--color-brand); border-radius: 8px; background: var(--color-card); color: var(--color-ink); overflow-wrap: anywhere; }
 .parties { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: start; }
 .parties h3 { font-size: 18px; font-weight: 650; letter-spacing: -.4px; margin-bottom: 12px; }
 .parties p,.customer p,.terms p { white-space: pre-wrap; color: var(--color-muted); font-size: 14px; line-height: 1.8; margin: 6px 0 20px; }

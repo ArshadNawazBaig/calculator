@@ -4,6 +4,7 @@ import Link from "@/components/i18n/link";
 import {Logo} from "@/components/ui/logo";
 import {HeaderLanguage} from "./header-language";
 import {HeaderSearch} from "./header-search";
+import {ThemeSelector} from "./theme-selector";
 import {MobileNavigation} from "./mobile-navigation";
 import styles from "./header.module.css";
 import {useI18n} from '@/components/i18n/provider';
@@ -24,12 +25,13 @@ export function Header(){
   const {t}=useI18n();
   return <header className={`site-header ${styles.header}`}>
     <div className={`container ${styles.inner}`}>
-      <Logo onDark/>
+      <Logo/>
       <nav aria-label={t('Main navigation')} className={styles.desktopNav}>
         {navigationLinks.map(({label,href})=><Link key={href} href={href} aria-current={(pathname===href||(href!=="/calculators"&&pathname.startsWith(`${href}/`)))?"page":undefined}>{t(label)}</Link>)}
       </nav>
       <div className={styles.actions}>
         <HeaderLanguage/>
+        <ThemeSelector/>
         <HeaderSearch/>
         <MobileNavigation key={pathname} links={[...navigationLinks,{label:"About Finflo",href:"/about"}].map(link=>({...link,label:t(link.label)}))} pathname={pathname}/>
       </div>

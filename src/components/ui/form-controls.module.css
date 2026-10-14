@@ -1,9 +1,9 @@
 .root { min-width: 0; width: 100%; font-size: 16px; line-height: 1.4; }
 .label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 550; color: var(--color-text-secondary); }
-.control { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: #fff; color: var(--color-ink); font: inherit; text-align: start; transition: border-color .16s,box-shadow .16s; }
+.control { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-input); color: var(--color-ink); font: inherit; text-align: start; transition: border-color .16s,box-shadow .16s; }
 .control:hover { border-color: var(--color-line-hover); }
 .control[data-focus-visible],.root[data-focus-within]>.control,.root[data-focused]>.control,.root[data-open]>.control { outline: none; border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
-.root[data-invalid]>.control { border-color: #b42318; }
+.root[data-invalid]>.control { border-color: var(--color-danger); }
 .root[data-disabled] { opacity: .6; }
 .root[data-disabled] .control { cursor: not-allowed; background: var(--color-soft); }
 .selectTrigger { justify-content: space-between; cursor: pointer; }
@@ -11,7 +11,7 @@
 .root[data-open]>.selectTrigger>svg { transform: rotate(180deg); }
 .selectValue { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .selectValue[data-placeholder] { color: var(--color-muted); }
-.selectPopover,.calendarPopover { z-index: 110; border: 1px solid var(--color-line); border-radius: 10px; background: #fff; color: var(--color-ink); box-shadow: 0 12px 34px color-mix(in srgb,var(--color-ink) 13%,transparent); outline: none; max-width: calc(100vw - 24px); }
+.selectPopover,.calendarPopover { z-index: 110; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-ink); box-shadow: 0 12px 34px #00000066; outline: none; max-width: calc(100vw - 24px); }
 .selectPopover { width: var(--trigger-width); min-width: 140px; display: flex; flex-direction: column; overflow: hidden; }
 .optionList { padding: 5px; overflow: auto; min-height: 0; outline: none; overscroll-behavior: contain; }
 .option { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 10px; border-radius: 5px; font-size: 14px; line-height: 1.5; cursor: pointer; outline: none; }
@@ -27,7 +27,7 @@
 .optionSearch button { display: grid; place-items: center; border: 0; background: none; color: var(--color-muted); padding: 2px; }
 .optionSearch[data-empty] button { visibility: hidden; }
 .empty { padding: 18px 10px; font-size: 13px; text-align: center; color: var(--color-muted); }
-.error { font-size: 12px; line-height: 1.6; color: #b42318; margin-top: 7px; }
+.error { font-size: 12px; line-height: 1.6; color: var(--color-danger); margin-top: 7px; }
 .error:empty { display: none; }
 .compact { font-size: 13px; }
 .compact .control { min-height: 38px; padding: 8px 9px; gap: 6px; }
@@ -53,7 +53,7 @@
 .day[data-hovered] { background: var(--color-brand-soft); }
 .day[data-outside-month] { color: var(--color-muted); opacity: .55; }
 .day[data-today] { box-shadow: inset 0 0 0 1px var(--color-brand); color: var(--color-brand-dark); font-weight: 600; }
-.day[data-selected] { background: var(--color-brand); color: white; font-weight: 600; }
+.day[data-selected] { background: var(--color-action); color: var(--color-on-action); font-weight: 600; }
 .day[data-focus-visible] { outline: 2px solid var(--color-brand-dark); outline-offset: 2px; }
 .day[data-disabled],.day[data-unavailable] { opacity: .3; cursor: not-allowed; }
 .calendarFooter { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--color-line); padding: 10px 14px; background: var(--color-surface); }

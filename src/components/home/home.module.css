@@ -12,17 +12,17 @@
 .filters { display: flex; align-items: center; gap: 6px; margin-bottom: 22px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; width: fit-content; max-width: 100%; background: var(--color-soft); }
 .filters button { min-height: 44px; border: 1px solid transparent; border-radius: 8px; color: var(--color-muted); background: transparent; padding: 9px 18px; font-size: 14px; line-height: 1.5; font-weight: 550; }
 
-.filters button[aria-pressed="true"] { color: var(--color-brand-dark); border-color: var(--color-line); background: #fff; box-shadow: 0 2px 4px #16352d08; font-weight: 700; }
+.filters button[aria-pressed="true"] { color: var(--color-brand-dark); border-color: var(--color-line); background: var(--color-card); box-shadow: 0 2px 4px #00000026; font-weight: 700; }
 .filters button:hover { color: var(--color-brand-dark); background: var(--color-surface); }
 .featuredLayout { display: grid; gap: 24px; }
 .featuredGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
-.spotlight { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,.65fr); gap: 72px; align-items: center; position: relative; isolation: isolate; overflow: hidden; border-radius: 12px; color: #fff; padding: 32px 38px; background: linear-gradient(112deg,var(--color-brand-dark),#064b38); }
+.spotlight { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,.65fr); gap: 72px; align-items: center; position: relative; isolation: isolate; overflow: hidden; border-radius: 12px; color: var(--color-ink); padding: 32px 38px; background: linear-gradient(112deg,var(--color-brand-soft),var(--color-card)); }
 .spotlightCopy { max-width: 490px; }
-.spotlightLabel { display: block; font-size: 10px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--color-on-brand-muted); }
+.spotlightLabel { display: block; font-size: 10px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--color-brand); }
 .spotlight h3 { font-size: 30px; font-weight: 700; letter-spacing: -.9px; line-height: 1.25; margin: 9px 0; text-wrap: initial; }
-.spotlightCopy>p { font-size: 14px; color: var(--color-on-brand); line-height: 1.7; max-width: 370px; }
+.spotlightCopy>p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; max-width: 370px; }
 .spotlightLinks { display: grid; position: relative; z-index: 1; }
-.spotlightLinks a { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #fff; font-size: 13px; font-weight: 550; line-height: 1.5; padding: 14px 0; border-bottom: 1px solid #ffffff30; }
+.spotlightLinks a { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--color-ink); font-size: 13px; font-weight: 550; line-height: 1.5; padding: 14px 0; border-bottom: 1px solid var(--color-brand-line); }
 .spotlightLinks a:last-child { border-bottom: 0; }
 .spotlightLinks a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .growthIllustration { position: absolute; width: 25%; max-width: 300px; right: 37%; bottom: -12px; z-index: -1; opacity: .17; }
@@ -34,10 +34,7 @@
 .category { display: flex; flex-direction: column; align-items: start; border-inline-start: 1px solid var(--color-line); padding: 0 28px; min-width: 0; }
 .category:first-child { border-inline-start: 0; padding-inline-start: 0; }
 .category:last-child { padding-inline-end: 0; }
-.category[data-category="health"] { --category-ink: #994367; --category-soft: #f9edf2; }
-.category[data-category="math"] { --category-ink: #5652a3; --category-soft: #efeffc; }
-.category[data-category="everyday"] { --category-ink: #8a601c; --category-soft: #faf3e6; }
-.categoryIcon { display: grid; place-items: center; height: 44px; width: 44px; border-radius: 10px; background: var(--category-soft,var(--color-brand-soft)); color: var(--category-ink,var(--color-brand)); margin-bottom: 18px; }
+.categoryIcon { display: grid; place-items: center; height: 44px; width: 44px; border-radius: 10px; background: var(--color-brand-soft); color: var(--color-brand); margin-bottom: 18px; }
 .category h3 { font-size: 18px; font-weight: 700; letter-spacing: -.4px; line-height: 1.4; }
 .category>p { font-size: 14px; line-height: 1.75; color: var(--color-muted); margin: 8px 0 18px; max-width: 230px; }
 .category ul { padding: 0; list-style: none; margin: auto 0 17px; display: grid; gap: 6px; }
