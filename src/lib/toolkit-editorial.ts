@@ -9,3 +9,6 @@ export function getToolkitEditorial(slug: string): ToolkitEditorial | undefined 
   const entry = (content as Record<string, Partial<ToolkitEditorial>>)[slug];
   return entry?.quickAnswer ? entry as ToolkitEditorial : undefined;
 }
+export function getCalculatorSeoTitle(slug: string): string | undefined {
+  return (content as Record<string, Partial<ToolkitEditorial>>)[slug]?.seoTitle;
+}

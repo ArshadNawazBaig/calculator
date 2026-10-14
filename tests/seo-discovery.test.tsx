@@ -12,8 +12,43 @@ import {breadcrumbData, guideData} from '@/lib/structured-data';
 import {pageMetadata} from '@/lib/metadata';
 import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
+import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
+import content from '@/data/calculator-content.json';
 
 describe('calculator discovery and translated payloads', () => {
+  it('omits brand suffixes from search and social titles and translates descriptive calculator titles', async () => {
+    for (const [title, expected] of [['Loan Calculator', 'Loan Calculator'], ['Loan Calculator | Finflo', 'Loan Calculator'], ['About Finflo', 'About Finflo']]) {
+      const metadata = pageMetadata(title, 'Description', '/loan-calculator');
+      const absolute = (metadata.title as {absolute: string}).absolute;
+      expect(absolute).toBe(expected);
+      expect(metadata.openGraph?.title).toBe(absolute);
+      expect(metadata.twitter?.title).toBe(absolute);
+    }
+    const slugs = ['compound-interest-calculator','interest-calculator','savings-calculator','future-value-calculator','investment-calculator','loan-calculator','mortgage-calculator','retirement-calculator','date-calculator','time-duration-calculator','percent-calculator','discount-calculator'];
+    for (const locale of locales) {
+      const messages = await getContentDictionary(locale), t = translator(messages);
+      for (const slug of slugs) {
+        const title = getCalculatorSeoTitle(slug)!;
+        expect(title).toBeTruthy();
+        if (locale !== 'en') expect(t(title)).not.toBe(title);
+      }
+    }
+  });
+
+  it('reproduces the distinct interest, savings and lump-sum examples in the page copy', async () => {
+    const cases: {slug: string; inputs: Record<string, string>; balance: number}[] = [
+      {slug: 'interest-calculator', inputs: {initial:'1000',contribution:'0',rate:'5',years:'1',frequency:'1',taxRate:'20',inflation:'0'}, balance:1040},
+      {slug: 'savings-calculator', inputs: {initial:'1000',contribution:'100',contributionFrequency:'12',rate:'0',years:'1',frequency:'12',taxRate:'0',inflation:'0'}, balance:2200},
+      {slug: 'future-value-calculator', inputs: {initial:'10000',contribution:'0',rate:'5',years:'10',frequency:'1',taxRate:'0',inflation:'0'}, balance:16288.95},
+    ];
+    for (const example of cases) {
+      const mode = definitionMap.get(example.slug)!.modes[0];
+      const result = await calculate('finance', mode, {...defaults(mode), ...example.inputs});
+      expect(result.metrics[0].value).toBeCloseTo(example.balance, 2);
+      const article = content[example.slug as keyof typeof content];
+      expect(article.sections[0].paragraphs.join(' ')).toContain(example.balance.toLocaleString('en-US'));
+    }
+  });
   it('keeps every related link functional, distinct, and relevant to the main tasks', () => {
     for (const slug of [...calculatorFamilies.flat(), ...Object.keys(relatedCalculatorSlugs), ...Object.values(relatedCalculatorSlugs).flat()]) expect(toolMap.has(slug), slug).toBe(true);
     for (const tool of catalog) {

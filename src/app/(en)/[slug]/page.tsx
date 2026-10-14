@@ -1,6 +1,6 @@
 import {MethodologyNote} from '@/components/content/methodology-note';
 import {ToolkitSummary,ToolkitArticleData} from '@/components/content/toolkit-summary';
-import {getToolkitEditorial} from '@/lib/toolkit-editorial';
+import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
 import {DirectoryGuidance} from '@/components/content/directory-guidance';
 import {RelatedGuides} from '@/components/content/related-guides';
 import {CalculatorGuidance} from '@/components/content/calculator-guidance';
@@ -25,7 +25,7 @@ import {CalculatorForm} from '@/components/calculators/calculator';
 import {WorkedExample} from '@/components/content/worked-example';
 export const dynamicParams=false;
 export function generateStaticParams(){return [...catalog.map(t=>({slug:t.slug})),...Object.keys(information).map(slug=>({slug}))];}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const info=information[slug],tool=toolMap.get(slug),definition=definitionMap.get(slug);if(info)return pageMetadata(info.title,info.description,`/${slug}`);if(tool)return pageMetadata(getToolkitEditorial(slug)?.seoTitle||tool.title,definition?.description||blocked[slug]||'Explore calculators for property and home ownership.',`/${slug}`,Boolean(definition));return {};}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const info=information[slug],tool=toolMap.get(slug),definition=definitionMap.get(slug);if(info)return pageMetadata(({about:'About Finflo',methodology:'Our methodology'} as Record<string,string>)[slug]||info.title,info.description,`/${slug}`);if(tool)return pageMetadata(getCalculatorSeoTitle(slug)||tool.title,definition?.description||blocked[slug]||'Explore calculators for property and home ownership.',`/${slug}`,Boolean(definition));return {};}
 export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;if(information[slug])return <InfoPage page={information[slug]}/>;const tool=toolMap.get(slug);if(!tool)notFound();const category=categories.find(c=>c.id===tool.category)!;const def=definitionMap.get(slug);const currency=slug==='mortgage-calculator-uk'?'GBP':slug==='canadian-mortgage-calculator'?'CAD':'USD';
  if(!def)return <><PageHero eyebrow={category.name} title={tool.title} description={blocked[slug]||'Explore calculations for buying, financing, and owning property.'} breadcrumbs={[{label:category.name,href:`/calculators/${tool.category}`},{label:tool.title}]}/><div className="container tool-page page-content">{blocked[slug]?<div className="availability-panel"><h2>Not available yet</h2><p>{blocked[slug]}</p><Link className="text-link" href="/calorie-calculator">Explore a related tool</Link></div>:<ToolDirectory tools={catalog.filter(t=>['mortgage-calculator','rent-vs-buy-calculator','rental-property-calculator','refinance-calculator','house-affordability-calculator','down-payment-calculator'].includes(t.slug))} grouped={false}/>}{slug==='real-estate-calculator'&&<DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate"/>}</div></>;
  const initial=noInitialExampleTools.has(slug)?null:await calculate(tool.category,def.modes[0],defaults(def.modes[0]));

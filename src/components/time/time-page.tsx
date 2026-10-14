@@ -1,4 +1,5 @@
 import {notFound} from 'next/navigation';
+import {connection} from 'next/server';
 import {ArrowUpRight} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {TranslationMessages} from '@/components/i18n/provider';
@@ -9,6 +10,7 @@ import {translator, localizedPath, type Locale, type Dictionary} from '@/lib/i18
 import {timeTools, timeRoute, zones, clockZoneVersion} from '@/lib/time/catalog';
 import {timeGuides} from '@/lib/time/content';
 import {timeMessages} from '@/lib/time/messages';
+import {createClockSnapshot} from '@/lib/time/snapshot';
 import {breadcrumbData} from '@/lib/structured-data';
 import {site} from '@/lib/site';
 import {WorldClock} from './world-clock';
@@ -17,20 +19,27 @@ import {TimerTool} from './timer-tool';
 import styles from './time.module.css';
 import tabStyles from '@/components/ui/segmented-tabs.module.css';
 
-export function TimePage({path = '/time', locale = 'en', messages = {}}: {path?: string; locale?: Locale; messages?: Dictionary}) {
+async function requestClockSnapshot(zoneId: string, locale: Locale) {
+  // Generate fresh data for this request instead of freezing a clock at build time.
+  await connection();
+  return createClockSnapshot(Date.now(), zoneId, locale);
+}
+
+export async function TimePage({path = '/time', locale = 'en', messages = {}}: {path?: string; locale?: Locale; messages?: Dictionary}) {
   const route = timeRoute(path);
   if (!route) notFound();
   const t = translator(messages), zone = 'zone' in route ? route.zone : undefined;
   const values = {place: zone?.place || ''};
   const title = t(route.title, values), description = t(route.description, values);
   const mode = path === '/time/timer' ? 'timer' : path === '/time/stopwatch' ? 'stopwatch' : path === '/time/time-zones' ? 'directory' : 'clock';
+  const initialSnapshot = mode === 'clock' ? await requestClockSnapshot(zone?.id || 'UTC', locale) : null;
   const guide = timeGuides[mode];
   const countryNames = new Intl.DisplayNames([locale === 'tl' ? 'fil' : locale], {type: 'region'});
   const countries = Object.fromEntries(zones.filter(zone => zone.country).map(zone => [zone.country, countryNames.of(zone.country) || zone.country]));
   const breadcrumbs = path === '/time' ? [{label: t('Time & clocks')}] : [{label: t('Time & clocks'), href: '/time'}, {label: title}];
   const navigation = <nav className={`${tabStyles.tabs} ${styles.toolNav}`} aria-label={t('Time tools')}>{timeTools.map(tool => <Link className={tabStyles.item} key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>;
   return <TranslationMessages messages={timeMessages(messages)}>
-    {mode === 'clock' ? <WorldClock initialZone={zone} countries={countries}
+    {mode === 'clock' ? <WorldClock initialZone={zone} initialSnapshot={initialSnapshot} countries={countries}
       breadcrumbs={<Breadcrumbs items={breadcrumbs} tone="inverse"/>}
       introduction={<div className={styles.clockIntro}><h1 id="page-title">{title}</h1><p>{description}</p></div>}
       navigation={navigation}/>

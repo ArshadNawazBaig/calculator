@@ -28,7 +28,7 @@ test('wheel pages expose unique metadata, readable guides and structured data be
     const response = await page.goto(wheelHref(wheel.slug));
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('heading', {level: 1})).toHaveText(wheel.title);
-    await expect(page).toHaveTitle(wheel.seoTitle);
+    await expect(page).toHaveTitle(wheel.seoTitle.replace(' | Finflo', ''));
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', wheel.description);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://finflo.org${wheelHref(wheel.slug)}`);
     expect((await page.getByRole('article', {name: `${wheel.title} guide`, exact: true}).innerText()).split(/\s+/).length).toBeGreaterThan(600);

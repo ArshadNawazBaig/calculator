@@ -58,4 +58,10 @@ test('English homepage and guide expose consistent identity and authorship', asy
   const data=article.map(value=>JSON.parse(value)).find(value=>value['@type']==='Article');
   expect(data.author.name).toBe('Finflo');
   expect(data.headline).toBe(await page.locator('h1').innerText());
+  await page.goto('/about');
+  await expect(page).toHaveTitle('About Finflo');
+  await page.goto('/methodology');
+  await expect(page).toHaveTitle('Our methodology');
+  await page.goto('/es/compound-interest-calculator');
+  await expect(page).toHaveTitle('Calculadora de interés compuesto con depósitos mensuales');
 });

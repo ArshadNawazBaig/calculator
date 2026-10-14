@@ -8,6 +8,47 @@ test.beforeEach(async ({page}) => {
   await page.route('**/pagead2.googlesyndication.com/**', route => route.fulfill({contentType: 'application/javascript', body: ''}));
 });
 
+test('clock pages deliver fresh time and calendar details without JavaScript', async ({browser}) => {
+  const context = await browser.newContext({javaScriptEnabled:false});
+  const page = await context.newPage();
+  try {
+    await page.goto('/time/asia-karachi');
+    await expect(page.locator('[data-live-clock]')).toHaveText(/\d{2}:\d{2}:\d{2}/);
+    await expect(page.locator('[data-clock-source]')).toHaveText('Server time at page load');
+    await expect(page.getByText('UTC+05:00',{exact:true})).toHaveCount(2);
+    await expect(page.getByText('No change scheduled',{exact:true})).toBeVisible();
+    await expect(page.getByText(/Week \d+ · Day \d+/)).toBeVisible();
+    const first = Number(await page.locator('[data-clock-snapshot-at]').getAttribute('data-clock-snapshot-at'));
+    expect(Math.abs(Date.now()-first)).toBeLessThan(30000);
+    await page.reload();
+    const next = Number(await page.locator('[data-clock-snapshot-at]').getAttribute('data-clock-snapshot-at'));
+    expect(next).toBeGreaterThan(first);
+    await page.goto('/ar/time/america-new-york');
+    await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+    await expect(page.locator('[data-live-clock]')).not.toContainText('—');
+    await expect(page.locator('[data-clock-date]')).not.toContainText('Loading');
+    await expect(page.locator('[data-clock-source]')).toHaveText('وقت الخادم عند تحميل الصفحة');
+  } finally {await context.close();}
+});
+
+test('serialized clock strings hydrate even if browser date formatting differs', async ({page}) => {
+  const errors:string[]=[];
+  page.on('console', message => {if(message.type()==='error') errors.push(message.text());});
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.addInitScript(() => {
+    const descriptor = Object.getOwnPropertyDescriptor(Intl.DateTimeFormat.prototype,'format')!;
+    Object.defineProperty(Intl.DateTimeFormat.prototype,'format',{...descriptor,get() {
+      const format = descriptor.get!.call(this);
+      return (date?: number | Date) => `browser:${format(date)}`;
+    }});
+    localStorage.setItem('finflo-default-clock-v1','Asia/Tokyo');
+  });
+  await page.goto('/time');
+  await expect(page.locator('[data-live-clock]')).toContainText('browser:');
+  await expect(page.locator('#clock-zone')).toContainText('Asia/Tokyo');
+  expect(errors).toEqual([]);
+});
+
 test('world clocks hydrate, use server time and retain saved cities', async ({page}) => {
   const errors: string[] = [];
   page.on('console', message => {if (message.type() === 'error') errors.push(message.text());});

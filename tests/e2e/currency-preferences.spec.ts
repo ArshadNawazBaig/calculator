@@ -3,9 +3,32 @@ import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
 
 async function selectCurrency(page:Page,code:string,id='calculator-currency') {
+  if (id === 'calculator-currency' && await page.locator('[data-calculator-currency]').getAttribute('open') === null) await page.locator('[data-calculator-currency] summary').click();
   await page.locator('#'+id).click();
   await page.getByRole('option',{name:new RegExp('^'+code+' ·')}).click();
 }
+
+test('mobile inputs are visible before scrolling and currency opens with the keyboard', async ({page}) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/compound-interest-calculator');
+  const currency = page.locator('[data-calculator-currency]');
+  await expect(currency.locator('summary')).toContainText('Currency: USD');
+  await expect(page.locator('#calculator-currency')).not.toBeVisible();
+  await expect(page.locator('#calculation-mode')).toBeVisible();
+  const input = page.locator('#growth-initial');
+  await expect(input).toBeEnabled();
+  const bounds = (await input.boundingBox())!;
+  expect(bounds.y + bounds.height).toBeLessThan(740);
+  await currency.locator('summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#calculator-currency')).toBeVisible();
+  await selectCurrency(page,'EUR');
+  await expect(currency.locator('summary')).toContainText('Currency: EUR');
+  await expect(input).toHaveValue('10000');
+  await currency.locator('summary').click();
+  await expect(page.locator('#calculator-currency')).not.toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
 
 test('country suggests a currency, manual override persists across reloads and languages',async({page})=>{
   await page.goto('/loan-calculator');

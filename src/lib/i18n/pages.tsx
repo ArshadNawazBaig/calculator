@@ -1,3 +1,4 @@
+import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
 import {MethodologyNote} from '@/components/content/methodology-note';
 import {TimePage} from '@/components/time/time-page';
 import {TimeCollection} from '@/components/time/time-collection';
@@ -82,7 +83,8 @@ export function localizedMetadata(locale: Locale) {
     if (!route) return {title: '404', robots: {index: false, follow: true}};
     const t = translator(await getContentDictionary(locale));
     if ('time' in route) {const values = {place: 'zone' in route ? route.zone?.place || '' : ''}; return pageMetadata(t(route.title, values) + ' | Finflo', t(route.description, values), path, true, locale);}
-    const title='category' in route&&route.subcategory?`${t(route.subcategory)} · ${t(route.category.name)}`:t(route.title);
+    const searchTitle = 'tool' in route && route.tool ? getCalculatorSeoTitle(route.tool.slug) || route.title : path === '/methodology' ? 'Our methodology' : route.title;
+    const title='category' in route&&route.subcategory?`${t(route.subcategory)} · ${t(route.category.name)}`:t(searchTitle);
     return pageMetadata(title, t(route.description), path, isTranslatedPage(path), locale);
   };
 }

@@ -2,8 +2,23 @@ import {describe, expect, it} from 'vitest';
 import {calendarFacts, durationText, nextClockChange, offsetLabel, offsetMinutes, supportsZone, timerDuration} from '@/lib/time/engine';
 import {zones, zoneById, timePaths, timeRoute} from '@/lib/time/catalog';
 import {searchCalculators} from '@/lib/calculator-search';
+import {createClockSnapshot} from '@/lib/time/snapshot';
 
 describe('world clocks and time-zone data', () => {
+  it('serializes a complete local snapshot, including calendar boundaries and DST', () => {
+    const at = Date.parse('2026-01-01T00:30:00Z');
+    const snapshot = createClockSnapshot(at, 'America/New_York', 'en')!;
+    expect(snapshot.time).toBe('19:30:00');
+    expect(snapshot.date).toContain('December 31, 2025');
+    expect(snapshot.offset).toBe(-300);
+    expect(snapshot.facts).toMatchObject({year: 2025, dayOfYear: 365, daysRemaining: 0});
+    expect(snapshot.nextChange).toEqual({at: Date.parse('2026-03-08T07:00:00Z'), before: -300, after: -240});
+    expect(snapshot.changeDate).toContain('2026');
+    expect(snapshot.favorites['Asia/Tokyo'].time).toBe('09:30');
+    expect(JSON.parse(JSON.stringify(snapshot))).toEqual(snapshot);
+    expect(createClockSnapshot(at, 'Asia/Karachi', 'ar')!.nextChange).toBeNull();
+    expect(createClockSnapshot(at, 'invalid/zone', 'en')).toBeNull();
+  });
   it('exposes unique routes and resolves every bundled name and alias', () => {
     expect(zones.length).toBeGreaterThan(400);
     expect(new Set(timePaths).size).toBe(timePaths.length);
