@@ -1,16 +1,14 @@
 import Link from '@/components/i18n/link';
-import {SearchHero} from '@/components/content/search-hero';
-import {CalculatorCard} from '@/components/calculators/calculator-card';
+import {HomeExplorer} from '@/components/home/home-explorer';
+import {featuredTools} from '@/lib/home-content';
+import {homeMessages} from '@/lib/i18n/content';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import {Icon} from '@/components/ui/icon';
 import {BookOpen, SlidersHorizontal, UserRoundCheck, ChevronRight} from 'lucide-react';
 import {toolCategories as categories} from '@/lib/site';
 import {wheelHref} from '@/lib/spin-wheels/catalog';
 import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
-import {catalog} from '@/lib/calculators/registry';
-import {calculatorCardData} from '@/lib/calculator-cards';
 import {translator, type Dictionary} from '@/lib/i18n/config';
-import {cardMessages} from '@/lib/i18n/dictionaries';
 import {TranslationMessages} from './provider';
 import {PlanningPathways, FinanceToolkit, HealthToolkit, EverydayToolkit, HowItWorks, WorkspaceIntroduction} from '@/components/home/home-details';
 import {LearningGuides} from '@/components/home/learning-guides';
@@ -19,7 +17,6 @@ import styles from '@/components/home/home.module.css';
 
 export function LocalizedHome({messages}: {messages: Dictionary}) {
   const t = translator(messages);
-  const popular = ['compound-interest-calculator', 'bmi-calculator', 'percent-calculator', 'age-calculator', 'mortgage-calculator', 'loan-calculator', 'calorie-calculator', 'conversion-calculator'];
   const questions = [
     ['Can I save or share my results?', 'Inputs stay in this browser only when you choose Save calculation. Manage saved results and backups in My workspace.'],
     ['Are the calculators free to use?', 'Yes. Available calculators are free and require no account.'],
@@ -27,11 +24,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     ['Do my inputs leave my device?', 'Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools.'],
   ];
   return <>
-    <SearchHero id="home-title" eyebrow={t('A little clarity goes a long way')} title={t('Find your answer.')} highlight={t('answer.')} description={t('Free calculators for life’s big and small decisions. From your next home to your everyday numbers.')}/>
-    <section className={`container ${styles.section}`} aria-labelledby="featured-title">
-      <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>{t('Your everyday toolkit')}</span><h2 id="featured-title">{t('Start with a calculator.')}</h2></div><Link className={styles.sectionLink} href="/calculators">{t('All calculators')}<ChevronRight size={16}/></Link></div>
-      <TranslationMessages messages={cardMessages(messages,popular.map(slug=>({slug})))}><div className="directory-grid">{popular.map(slug => <CalculatorCard key={slug} tool={calculatorCardData(catalog.find(tool => tool.slug === slug)!)}/>)}</div></TranslationMessages>
-    </section>
+    <TranslationMessages messages={homeMessages(messages, Object.values(featuredTools).flat())}><HomeExplorer/></TranslationMessages>
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
       <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} data-category={category.id} key={category.id}>

@@ -198,9 +198,9 @@ describe('cash, solar, and vehicle projections', () => {
 });
 
 describe('CSV rows and discoverable original guides', () => {
-  it('keeps untranslated tools on the English canonical while preserving local saved links', () => {
-    expect(localizedPath('/es/invoice-generator#saved=test', 'fr')).toBe('/invoice-generator#saved=test');
-    expect(isTranslatedPage('/invoice-generator')).toBe(false);
+  it('keeps the selected language and preserves local saved links', () => {
+    expect(localizedPath('/es/invoice-generator#saved=test', 'fr')).toBe('/fr/invoice-generator#saved=test');
+    expect(isTranslatedPage('/invoice-generator')).toBe(true);
   });
   const columns=[{key:'name',label:'Name',default:''},{key:'amount',label:'Amount',default:'0'}];
   it('imports quoted commas, line breaks, and escaped quotation marks', () => {

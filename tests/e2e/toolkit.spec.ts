@@ -99,12 +99,12 @@ test('group expense rows show exact settlements and export them',async({page})=>
   expect(csv).toContain('"Settlement","Sam","Alex"'); expect(csv).toContain('"Settlement","Jordan","Alex"');
 });
 
-test('new English tools remain discoverable from other language directories',async({page})=>{
+test('toolkit tools retain the language selected in the directory',async({page})=>{
   await page.goto('/es/calculators/finance/other');
   const card=page.locator('[data-calculator-card="invoice-generator"]');
   await expect(card).toContainText('Generador de facturas y presupuestos');
-  await expect(card.locator('a').first()).toHaveAttribute('href','/invoice-generator');
-  await card.locator('a').first().click(); await expect(page).toHaveURL(/\/invoice-generator$/);
+  await expect(card.locator('a').first()).toHaveAttribute('href','/es/invoice-generator');
+  await card.locator('a').first().click(); await expect(page).toHaveURL(/\/es\/invoice-generator$/);
 });
 
 for(const slug of ['invoice-generator','expense-splitter','net-worth-tracker']) test(`${slug}: keyboard labels and accessible content`,async({page})=>{

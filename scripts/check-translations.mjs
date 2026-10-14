@@ -24,7 +24,7 @@ for (const locale of ['es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl']) {
 if (failed) process.exitCode = 1;
 else if (process.argv.includes('--write-manifests')) {
   // Publishing the route manifest is deliberately gated on complete dictionaries.
-  for (const [file, data] of [['page-keys', source.pages], ['runtime-keys', source.runtime], ['translated-pages', source.paths]]) {
+  for (const [file, data] of [['page-keys', source.pages], ['runtime-keys', source.runtime], ['translated-pages', source.paths], ['wheel-runtime-keys', source.wheelRuntime], ['home-runtime-keys', source.homeRuntime]]) {
     await writeFile(`src/data/locales/${file}.json`, JSON.stringify(data, null, 2) + '\n');
   }
   console.log(`${source.paths.length} translated routes; ${source.paths.length * 8} sitemap URLs.`);

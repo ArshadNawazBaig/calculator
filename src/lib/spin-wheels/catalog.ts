@@ -9,6 +9,7 @@ export type WheelDefinition = {
   entries: string[];
   presets: WheelPreset[];
   searchTerms: string[];
+  colorAliases?: Record<string, string>;
 };
 
 const numbers = (count: number) => Array.from({length: count}, (_, index) => String(index + 1));
@@ -91,7 +92,8 @@ export const spinWheels: WheelDefinition[] = [
 export const wheelMap = new Map(spinWheels.map(wheel => [wheel.slug, wheel]));
 export const wheelHref = (slug: string) => `/spin-wheels/${slug}`;
 export const colorSwatches: Record<string, string> = {red: '#ef4444', orange: '#f59e0b', yellow: '#facc15', green: '#22c55e', blue: '#3b82f6', purple: '#a855f7', pink: '#f472b6', teal: '#14b8a6', white: '#ffffff', black: '#17191c'};
-export function colorForEntry(label: string): string | undefined {
+export function colorForEntry(label: string, aliases: Record<string, string> = {}): string | undefined {
   const key = label.toLowerCase();
+  if (Object.hasOwn(aliases, key)) return aliases[key];
   return Object.hasOwn(colorSwatches, key) ? colorSwatches[key] : undefined;
 }

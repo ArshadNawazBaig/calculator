@@ -54,7 +54,9 @@ export function landingRotation(current: number, index: number, count: number): 
 export function segmentPath(index: number, count: number): string {
   const angle = 2 * Math.PI / count;
   const start = index * angle - Math.PI / 2, end = start + angle;
-  const point = (radians: number) => `${200 + 188 * Math.cos(radians)} ${200 + 188 * Math.sin(radians)}`;
+  // Trigonometry can differ slightly between server and browser runtimes.
+  // Subpixel precision keeps SVG attributes identical during hydration.
+  const point = (radians: number) => `${(200 + 188 * Math.cos(radians)).toFixed(4)} ${(200 + 188 * Math.sin(radians)).toFixed(4)}`;
   return `M 200 200 L ${point(start)} A 188 188 0 ${angle > Math.PI ? 1 : 0} 1 ${point(end)} Z`;
 }
 

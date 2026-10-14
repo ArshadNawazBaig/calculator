@@ -1,5 +1,5 @@
-import {describe, expect, it} from 'vitest';
-import {landingRotation, numberEntries, parseWheelEntries, pickIndex, shuffleEntries} from '@/lib/spin-wheels/engine';
+import {describe, expect, it, vi} from 'vitest';
+import {landingRotation, MAX_ENTRIES, numberEntries, parseWheelEntries, pickIndex, segmentPath, shuffleEntries} from '@/lib/spin-wheels/engine';
 import {colorForEntry, spinWheels, wheelHref} from '@/lib/spin-wheels/catalog';
 import {wheelGuides} from '@/lib/spin-wheels/guides';
 import {searchCalculators} from '@/lib/calculator-search';
@@ -47,6 +47,21 @@ describe('wheel entries and selection', () => {
       current = next;
     }
   });
+  it.each([-1, 1])('keeps SVG paths identical when runtime trigonometry differs by %i epsilon', direction => {
+    const paths = Array.from({length: MAX_ENTRIES - 1}, (_, size) => {
+      const count = size + 2;
+      return Array.from({length: count}, (_, index) => ({index, count, path: segmentPath(index, count)}));
+    }).flat();
+    const {sin, cos} = Math;
+    const sinSpy = vi.spyOn(Math, 'sin').mockImplementation(angle => sin(angle) + direction * Number.EPSILON);
+    const cosSpy = vi.spyOn(Math, 'cos').mockImplementation(angle => cos(angle) + direction * Number.EPSILON);
+    try {
+      for (const {index, count, path} of paths) expect(segmentPath(index, count)).toBe(path);
+    } finally {
+      sinSpy.mockRestore();
+      cosSpy.mockRestore();
+    }
+  });
   it('supports known color names without treating object properties as colors', () => {
     expect(colorForEntry('RED')).toBe('#ef4444');
     for (const name of ['constructor', '__proto__', 'toString', 'My custom color']) expect(colorForEntry(name)).toBeUndefined();
@@ -59,7 +74,7 @@ describe('wheel discovery and content', () => {
       const result = searchCalculators(wheel.title, 'spin-wheels')[0];
       expect(result.slug).toBe(wheel.slug);
       expect(result.href).toBe(wheelHref(wheel.slug));
-      expect(localizedPath(result.href!, 'ar')).toBe(result.href);
+      expect(localizedPath(result.href!, 'ar')).toBe(`/ar${result.href}`);
     }
     expect(searchCalculators('ruleta de nombres', undefined, es)[0].slug).toBe('wheel-of-names');
     expect(searchCalculators('wheel', 'finance')).toEqual([]);

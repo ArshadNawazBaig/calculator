@@ -1,4 +1,3 @@
-import englishOnlyTools from '@/data/locales/english-only-tools.json';
 import {describe, expect, it, vi, afterEach} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getContentDictionary, calculatorMessages} from '@/lib/i18n/content';
@@ -66,22 +65,18 @@ describe('complete localized content', () => {
   it('publishes all language variants with reciprocal alternates and excludes system pages', () => {
     site.indexable = true;
     const entries = sitemap();
-    expect(translatedPages).toHaveLength(243);
-    expect(entries).toHaveLength(translatedPages.length * locales.length + englishOnlyTools.length);
+    expect(translatedPages).toContain('/spin-wheels');
+    expect(translatedPages).toContain('/invoice-generator');
+    expect(entries).toHaveLength(translatedPages.length * locales.length);
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length);
-    for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy']) {
+    for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy', '/invoice-generator', '/net-worth-tracker', '/spin-wheels/yes-or-no-wheel']) {
       expect(translatedPages).toContain(path);
       const variants = languageAlternates(path)!;
       for (const locale of locales) expect(variants[locale]).toBeTruthy();
       expect(variants['x-default']).toBe(site.url + path);
     }
     for (const entry of entries) {
-      if (englishOnlyTools.some(slug => entry.url === `${site.url}/${slug}`)) expect(entry.alternates).toBeUndefined();
-      else expect(Object.keys(entry.alternates!.languages!)).toHaveLength(locales.length + 1);
-    }
-    for (const slug of englishOnlyTools) {
-      expect(entries.filter(entry => entry.url === `${site.url}/${slug}`)).toHaveLength(1);
-      expect(languageAlternates(`/${slug}`)).toBeUndefined();
+      expect(Object.keys(entry.alternates!.languages!)).toHaveLength(locales.length + 1);
     }
     for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/weight-watchers-points-calculator']) {
       expect(isTranslatedPage(path)).toBe(false);

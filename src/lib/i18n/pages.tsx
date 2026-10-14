@@ -1,8 +1,11 @@
 import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
-import {spinWheels} from '@/lib/spin-wheels/catalog';
+import {spinWheels, wheelMap} from '@/lib/spin-wheels/catalog';
+import {WheelPage} from '@/components/spin-wheels/wheel-page';
+import {SpinWheelsPage, wheelLibraryTitle, wheelLibraryDescription} from '@/components/spin-wheels/library-page';
+import {toolListings} from '@/lib/tool-listings';
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {Suspense} from 'react';
-import {notFound, redirect} from 'next/navigation';
+import {notFound} from 'next/navigation';
 import Link from '@/components/i18n/link';
 import {PageHero} from '@/components/content/page-hero';
 import {SearchHero} from '@/components/content/search-hero';
@@ -19,6 +22,7 @@ import {CalculatorArticle} from '@/components/i18n/calculator-article';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
 import {cardMessages} from './dictionaries';
+import {localizeToolDefaults} from './tool-defaults';
 import {breadcrumbData, guideData, organizationData} from '@/lib/structured-data';
 import translatedPages from '@/data/locales/translated-pages.json';
 import {catalog, toolMap, definitionMap, relatedTools, noInitialExampleTools, sensitiveTools, blocked} from '@/lib/calculators/registry';
@@ -30,7 +34,7 @@ import {categories, site} from '@/lib/site';
 import {information} from '@/data/information';
 import {guides} from '@/data/guides';
 import {pageMetadata} from '@/lib/metadata';
-import {isEnglishOnlyTool, isTranslatedPage, localizedPath, translator, type Locale} from './config';
+import {isTranslatedPage, localizedPath, translator, type Locale} from './config';
 
 type PageProps = {params: Promise<{path?: string[]}>};
 export const localizedLandingPaths = ['/', '/calculators', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
@@ -38,6 +42,11 @@ export function localizedStaticParams() {
   return [...new Set([...localizedLandingPaths,...translatedPages,'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
 }
 function routeInfo(path: string) {
+  if (path === '/spin-wheels') return {title: wheelLibraryTitle, description: wheelLibraryDescription};
+  if (path.startsWith('/spin-wheels/')) {
+    const wheel = wheelMap.get(path.slice('/spin-wheels/'.length));
+    return wheel ? {title: wheel.seoTitle, description: wheel.description, wheel} : null;
+  }
   if (path === '/workspace') return {title: 'My workspace', description: 'Your favorite tools, saved calculations, and scenarios in one place.'};
   if (path === '/') return {title: 'Find your answer.', description: 'Free calculators for money, health, math, and everyday life.'};
   if (path === '/sitemap') return {title:'Sitemap', description:'Browse Finflo’s calculators, categories, guides, and website information.'};
@@ -74,8 +83,9 @@ export function localizedPage(locale: Locale) {
   return async function LocalizedPage({params}: PageProps) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
-    if(isEnglishOnlyTool(path)) redirect(path);
     const messages = await getContentDictionary(locale), t = translator(messages);
+    if (path === '/spin-wheels') return <SpinWheelsPage locale={locale} messages={messages}/>;
+    if ('wheel' in route && route.wheel) return <WheelPage slug={route.wheel.slug} locale={locale} messages={messages}/>;
     if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
     if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
     if (path === '/calculators' || path === '/sitemap') return <>
@@ -91,9 +101,9 @@ export function localizedPage(locale: Locale) {
       const tools = catalog.filter(tool => tool.category === category.id && (!route.subcategory || tool.subcategory === route.subcategory));
       return <><PageHero eyebrow={t('The calculator library')} title={route.subcategory?`${t(route.subcategory)} · ${t(category.name)}`:t(route.title)} description={t(route.description)} breadcrumbs={[{label:t('All calculators'),href:'/calculators'},{label:t(category.name),...(route.subcategory?{href:`/calculators/${category.id}`}:{})},...(route.subcategory?[{label:t(route.subcategory)}]:[])]}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,tools)}><FilterableToolDirectory category={category.id} tools={tools} grouped={!route.subcategory}/></TranslationMessages><DirectoryGuidance path={path} messages={messages} locale={locale}/></div></>;
     }
-    if (path === '/search') return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,catalog)}><Suspense fallback={null}><SearchResults/></Suspense></TranslationMessages></div></>;
+    if (path === '/search') return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,toolListings)}><Suspense fallback={null}><SearchResults/></Suspense></TranslationMessages></div></>;
     if ('tool' in route && route.tool) {
-      const tool = route.tool, def = definitionMap.get(tool.slug), category = categories.find(c => c.id === tool.category)!;
+      const tool = route.tool, sourceDefinition = definitionMap.get(tool.slug), def = sourceDefinition && localizeToolDefaults(sourceDefinition,messages), category = categories.find(c => c.id === tool.category)!;
       const currency = tool.slug === 'mortgage-calculator-uk' ? 'GBP' : tool.slug === 'canadian-mortgage-calculator' ? 'CAD' : 'USD';
       const initial = def && !noInitialExampleTools.has(tool.slug) ? await calculate(tool.category, def.modes[0], defaults(def.modes[0])) : null;
       return <>

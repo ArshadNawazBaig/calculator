@@ -5,12 +5,10 @@ import {readFile, readdir, writeFile, mkdir, access} from 'node:fs/promises';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue']);
-const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name']);
+const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue', 'seoTitle', 'summary', 'entryLabel', 'steps']);
+const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name', 'd', 'viewBox', 'transform', 'fill', 'stroke', 'strokeWidth']);
 export async function translationSource() {
   const root = process.cwd();
-  const englishOnly = new Set(JSON.parse(await readFile('src/data/locales/english-only-tools.json', 'utf8')));
-  const englishOnlyComponents = new Set(['invoice-document.tsx', 'net-worth-history.tsx', 'record-csv-controls.tsx']);
   const server = await createServer({configFile: false, root, server: {middlewareMode: true}, resolve: {alias: {'@': resolve(root, 'src')}}});
   const keys = new Set(), formulas = new Set(), pages = {}, pageCategories = {}, modules = new Map();
   const add = (set, value) => {
@@ -31,6 +29,7 @@ export async function translationSource() {
     const entry = {keys: new Set(), imports: new Set()};
     modules.set(file, entry);
     function accept(value) {
+      if (/^(?:\(prefers-reduced-motion:|transform \{value|translate\(|rotate\(|M\s*\d)/.test(value)) return;
       if (/[a-zA-Z]/.test(value) && (/\s/.test(value) || /^[A-Z][a-z]+$/.test(value)) && !/^(?:https?:|mailto:|\/|@\/|\.\/|use client|text\/)/.test(value)) add(entry.keys, value);
     }
     function visit(node) {
@@ -80,8 +79,15 @@ export async function translationSource() {
     const {calculate} = await server.ssrLoadModule('/src/lib/calculators/engine.ts');
     const {defaults} = await server.ssrLoadModule('/src/lib/calculators/types.ts');
     const rendered = {finance: new Set(), health: new Set(), math: new Set(), everyday: new Set()};
-    for (const definition of definitions.filter(definition => !englishOnly.has(definition.slug))) {
+    for (const definition of definitions) {
       const owned = new Set(); collect(definition, owned);
+      for (const mode of definition.modes.filter(mode => mode.algorithm.startsWith('toolkit-'))) for (const field of mode.fields) {
+        if (field.type === 'text' || field.type === 'textarea') add(owned,field.default);
+        if (field.type === 'rows') {
+          for (const column of field.rowColumns || []) if (!column.type || column.type === 'text') add(owned,column.default);
+          for (const row of JSON.parse(field.default)) for (const column of field.rowColumns || []) if (!column.type || column.type === 'text') add(owned,row[column.key]);
+        }
+      }
       pages[definition.slug] = [...owned].sort();
       definition.modes.forEach(mode => formulas.add(mode.formula));
       pageCategories[definition.slug] = catalog.find(tool => tool.slug === definition.slug).category;
@@ -104,19 +110,19 @@ export async function translationSource() {
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
-    for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.entries(content).filter(([slug]) => !englishOnly.has(slug)).map(([,entry]) => entry)]) collect(entry, keys);
+    for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.values(content)]) collect(entry, keys);
     const {calculatorCardData} = await server.ssrLoadModule('/src/lib/calculator-cards.ts');
     const descriptions = Object.fromEntries(catalog.map(tool => [tool.slug, calculatorCardData(tool).description]));
-    Object.entries(descriptions).filter(([slug]) => !englishOnly.has(slug)).forEach(([,value]) => add(keys, value));
+    Object.values(descriptions).forEach(value => add(keys, value));
     collect(JSON.parse(await readFile('src/data/vehicle-tax-2026.json', 'utf8')), keys);
     const runtime = {};
     const common = new Set((await sourceModule(resolve(root, 'src/lib/calculators/engine.ts'))).keys);
     for (const entry of await readdir('src/components/calculators')) {
-      if (!/\.tsx?$/.test(entry) || englishOnlyComponents.has(entry)) continue;
+      if (!/\.tsx?$/.test(entry)) continue;
       const parsed = await sourceModule(resolve(root, 'src/components/calculators', entry));
       for (const key of parsed.keys) common.add(key);
     }
-    for (const helper of ['input-display', 'result-presentation', 'row-data']) {
+    for (const helper of ['input-display', 'result-presentation', 'row-data', 'record-csv']) {
       for (const key of await dependencyKeys(resolve(root, `src/lib/calculators/${helper}.ts`))) common.add(key);
     }
     for (const category of ['finance', 'health', 'math', 'everyday']) {
@@ -130,7 +136,7 @@ export async function translationSource() {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
     }
     for (const entry of await readdir('src/components/workspace')) {
-      if (!/\.tsx?$/.test(entry) || englishOnlyComponents.has(entry)) continue;
+      if (!/\.tsx?$/.test(entry)) continue;
       for (const key of (await sourceModule(resolve(root, 'src/components/workspace', entry))).keys) keys.add(key);
     }
     const existing = JSON.parse(await readFile('src/data/locales/es.json', 'utf8'));
@@ -138,8 +144,22 @@ export async function translationSource() {
     // Routes match the English sitemap. Unavailable tools and system pages stay excluded.
     const {categories} = await server.ssrLoadModule('/src/lib/site.ts');
     const {categorySlug} = await server.ssrLoadModule('/src/lib/catalog-paths.ts');
-    const paths = ['/', '/calculators', '/guides', '/sitemap', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.filter(d => !englishOnly.has(d.slug)).map(d => `/${d.slug}`)];
-    return {keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions};
+    const {spinWheels} = await server.ssrLoadModule('/src/lib/spin-wheels/catalog.ts');
+    const {wheelGuides} = await server.ssrLoadModule('/src/lib/spin-wheels/guides.ts');
+    for (const wheel of spinWheels) {
+      collect(wheel, keys);
+      for (const entry of [...wheel.entries, ...wheel.presets.flatMap(preset => preset.entries)]) add(keys, entry);
+      collect(wheelGuides[wheel.slug], keys);
+    }
+    const wheelRuntime = new Set(), homeRuntime = new Set();
+    for (const file of ['src/components/spin-wheels/wheel-page.tsx', 'src/components/spin-wheels/library-page.tsx', 'src/components/spin-wheels/wheel-editor.tsx', 'src/lib/spin-wheels/engine.ts', 'src/components/home/home-explorer.tsx', 'src/components/home/featured-tools.tsx', 'src/lib/home-content.ts']) {
+      for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
+      if (file.endsWith('wheel-editor.tsx') || file.endsWith('spin-wheels/engine.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) wheelRuntime.add(key);
+      if (file.includes('/home/') || file.endsWith('home-content.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) homeRuntime.add(key);
+    }
+    for (const color of ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Teal','White','Black']) add(keys, color);
+    const paths = ['/', '/calculators', '/guides', '/sitemap', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    return {keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
   } finally { await server.close(); }
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

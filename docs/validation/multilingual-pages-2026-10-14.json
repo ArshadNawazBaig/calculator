@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-10-14T11:12:11.208586+00:00",
+  "baseCommit": "d930fe0",
+  "scope": "Local implementation and production validation; not deployed.",
+  "languages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "ar",
+    "hi",
+    "tl"
+  ],
+  "coverage": {
+    "contentRoutes": 264,
+    "sitemapUrls": 2112,
+    "wheelPagesIncludingCategory": 9,
+    "previouslyEnglishOnlyToolkitPages": 12,
+    "requiredMessagesPerTranslatedLocale": 10995,
+    "missingMessages": 0,
+    "placeholderErrors": 0,
+    "numericChanges": 0,
+    "formulaChanges": 0
+  },
+  "behavior": [
+    "Language changes retain the page, query, and fragment.",
+    "Homepage category filters, search, wheel controls, presets, results, guides, and metadata use the selected language.",
+    "CSV controls, invoice previews and PDF labels, net-worth history, and built-in toolkit examples are localized.",
+    "User-entered text, stored data, algorithm IDs, numeric inputs, and select option values are preserved.",
+    "Wheel edits and homepage filters wait for hydration.",
+    "Translated content is stored in the repository; no translation service runs in the website."
+  ],
+  "translationReview": {
+    "method": "Google machine-assisted drafts for missing public page copy; direct revisions for wheel terminology, names, key controls, and selected Filipino titles. Existing translations retained.",
+    "checks": "Complete message coverage, placeholders, numeric and formula notation, preserved proper names, valid preset lengths, identical numerical calculations, and visual Arabic/Hindi mobile review.",
+    "limit": "No comprehensive independent native-speaker review. Automated coverage checks do not establish linguistic accuracy."
+  },
+  "validation": {
+    "typecheck": "passed",
+    "eslint": "passed",
+    "productionBuild": {
+      "status": "passed",
+      "prerenderedPages": 2133
+    },
+    "unitTests": {
+      "passed": 87,
+      "files": [
+        "i18n.test.tsx",
+        "translated-content.test.tsx",
+        "multilingual-tools.test.ts",
+        "spin-wheels.test.ts",
+        "toolkit.test.ts"
+      ]
+    },
+    "browserTests": {
+      "passedDistinctTestsAcrossTargetedRuns": 31,
+      "newMultilingualToolCases": 16,
+      "otherRegressionCases": 15
+    },
+    "productionCrawl": {
+      "checkedPages": 2112,
+      "internalPaths": 2128,
+      "errors": [],
+      "duplicateTitles": 0,
+      "duplicateDescriptions": 0,
+      "scope": "All sitemap URLs; initial server HTML; unique internal path targets. No external links, fragment targets, JavaScript rendering, search-engine indexing status, or field performance measured."
+    },
+    "auxiliaryPages": {
+      "checked": 40,
+      "failures": [],
+      "paths": [
+        "search",
+        "workspace",
+        "offline",
+        "maintenance",
+        "network-error"
+      ]
+    },
+    "localizedNotFoundPages": [
+      {
+        "locale": "es",
+        "status": 404,
+        "heading": "Página no encontrada."
+      },
+      {
+        "locale": "fr",
+        "status": 404,
+        "heading": "Page introuvable."
+      },
+      {
+        "locale": "de",
+        "status": 404,
+        "heading": "Seite nicht gefunden."
+      },
+      {
+        "locale": "pt",
+        "status": 404,
+        "heading": "Página não encontrada."
+      },
+      {
+        "locale": "ar",
+        "status": 404,
+        "heading": "الصفحة غير موجودة."
+      },
+      {
+        "locale": "hi",
+        "status": 404,
+        "heading": "पेज नहीं मिला।"
+      },
+      {
+        "locale": "tl",
+        "status": 404,
+        "heading": "Hindi nahanap ang pahina."
+      }
+    ],
+    "arabicPdf": {
+      "name": "invoice-INV-001.pdf",
+      "failure": null
+    },
+    "arabicHistoryWorkspaceLink": true
+  },
+  "indexing": "Existing deployment-controlled indexing remains unchanged. The local SEO audit used a build with NEXT_PUBLIC_INDEXABLE=true and the canonical Host header."
+}

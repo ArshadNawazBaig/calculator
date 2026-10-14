@@ -1,5 +1,7 @@
 'use client';
 
+import {useI18n} from '@/components/i18n/provider';
+import {languages} from '@/lib/i18n/config';
 import {useEffect, useId, useRef, useState} from 'react';
 import NextImage from 'next/image';
 import {FileDown, FileText, Upload, X} from 'lucide-react';
@@ -13,13 +15,14 @@ import {ResultDataTable} from './result-table';
 import styles from './toolkit.module.css';
 
 export function InvoiceDocument({values, currency, example}: {values: Values; currency: string; example: boolean}) {
+  const {t,locale} = useI18n();
   const doc = calculateInvoice(values);
   const [logo, setLogo] = useState(''), [logoName, setLogoName] = useState(''), [accent, setAccent] = useState('brand'), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
   const logoInput = useRef<HTMLInputElement>(null), colorId = useId();
   const [file, setFile] = useState<{url: string; name: string} | null>(null);
   const operation = useRef<AbortController | null>(null), url = useRef<string | null>(null), logoRead = useRef(0);
   useEffect(() => () => {operation.current?.abort(); logoRead.current++; if (url.current) releaseDownload(url.current);}, []);
-  const amount = (value: number) => new Intl.NumberFormat('en', {style: 'currency', currency, minimumFractionDigits: doc.precision, maximumFractionDigits: doc.precision}).format(value === 0 ? 0 : value);
+  const amount = (value: number) => new Intl.NumberFormat(locale, {style: 'currency', currency, minimumFractionDigits: doc.precision, maximumFractionDigits: doc.precision}).format(value === 0 ? 0 : value);
   const totals: [string, number][] = [['Subtotal', doc.subtotal], ['Discount', -doc.discount], ['Shipping', doc.shipping], ['Tax', doc.tax], ['Document total', doc.total], ['Amount already paid', doc.paid], ['Balance due', doc.balance]];
   async function readLogo(file?: File) {
     const token = ++logoRead.current;
@@ -39,10 +42,10 @@ export function InvoiceDocument({values, currency, example}: {values: Values; cu
     setBusy(true); setMessage(''); setFile(null);
     try {
       const {resultPdf} = await import('@/lib/exports/pdf');
-      const blob = await resultPdf({title: doc.business, subtitle: `${doc.type} ${doc.number}`, caption: `${example ? 'EXAMPLE DOCUMENT — replace sample details before sharing.\n' : ''}Issued: ${doc.issueDate} | ${doc.type === 'Invoice' ? 'Payment due' : 'Valid until'}: ${doc.dueDate}\nCurrency: ${currency}`,
-        metrics: [['From', `${doc.business}\n${doc.businessDetails}`], ['Bill to', `${doc.customer}\n${doc.customerDetails}`], ...totals.map(([label, value]) => [label, amount(value)])],
-        table: [['Description', 'Quantity', 'Unit price', 'Amount'], ...doc.items.map(item => [item.description, String(item.quantity), amount(item.rate), amount(item.total)])],
-        tableTitle: 'Line items', notes: [], footer: doc.terms, direction: 'ltr', locale: 'en', fontFamily: getComputedStyle(document.body).fontFamily,
+      const blob = await resultPdf({title: doc.business, subtitle: `${t(doc.type)} ${doc.number}`, caption: `${example ? t('EXAMPLE DOCUMENT — replace sample details before sharing.') + '\n' : ''}${t('Issued')}: ${doc.issueDate} | ${t(doc.type === 'Invoice' ? 'Payment due' : 'Valid until')}: ${doc.dueDate}\n${t('Currency')}: ${currency}`,
+        metrics: [[t('From'), `${doc.business}\n${doc.businessDetails}`], [t('Bill to'), `${doc.customer}\n${doc.customerDetails}`], ...totals.map(([label, value]) => [t(label), amount(value)])],
+        table: [[t('Description'), t('Quantity'), t('Unit price'), t('Amount')], ...doc.items.map(item => [item.description, String(item.quantity), amount(item.rate), amount(item.total)])],
+        tableTitle: t('Line items'), notes: [], footer: doc.terms, direction: languages[locale].direction, locale, fontFamily: getComputedStyle(document.body).fontFamily,
         brand: {name: doc.business, accent: getComputedStyle(document.body).getPropertyValue(`--color-${accent}`).trim(), ...(logo ? {logo} : {})},
       }, controller.signal);
       controller.signal.throwIfAborted();
@@ -52,29 +55,29 @@ export function InvoiceDocument({values, currency, example}: {values: Values; cu
     } catch {if (!controller.signal.aborted) setMessage('The PDF could not be prepared. Please try again.');}
     finally {if (!controller.signal.aborted) setBusy(false);}
   }
-  return <ResultSection titleId="invoice-preview-heading" title={`${doc.type} preview`} icon={<FileText size={19} aria-hidden="true"/>}
-    description="Review your document, add your logo, and download a PDF."
-    action={<Button type="button" variant="secondary" onClick={pdf} disabled={busy}><FileDown size={16} aria-hidden="true"/>{busy ? 'Preparing PDF…' : `Download ${doc.type.toLowerCase()} PDF`}</Button>}>
+  return <ResultSection titleId="invoice-preview-heading" title={t("{type} preview", {type:t(doc.type)})} icon={<FileText size={19} aria-hidden="true"/>}
+    description={t("Review your document, add your logo, and download a PDF.")}
+    action={<Button type="button" variant="secondary" onClick={pdf} disabled={busy}><FileDown size={16} aria-hidden="true"/>{busy ? t('Preparing PDF…') : t('Download {type} PDF', {type:locale==='en'?doc.type.toLowerCase():t(doc.type)})}</Button>}>
     <div className={styles.body}>
     <div className={styles.brandControls}>
-      <div className="calculator-field"><span className={styles.fieldLabel}>Logo (optional PNG or JPEG)</span><div className={styles.uploadActions}>
-        <Button type="button" variant="secondary" disabled={busy} onClick={() => logoInput.current?.click()}><Upload size={16} aria-hidden="true"/>{logo ? 'Replace logo' : 'Upload logo'}</Button>
-        {logo && <Button type="button" variant="ghost" disabled={busy} onClick={() => void readLogo()}><X size={16} aria-hidden="true"/>Remove logo</Button>}
-      </div><input ref={logoInput} hidden type="file" accept="image/png,image/jpeg" aria-label="Logo (optional PNG or JPEG)" disabled={busy} onChange={event => {void readLogo(event.target.files?.[0]); event.target.value = '';}}/>
-        <p className={styles.fileName}>{logoName || 'PNG or JPEG, up to 2 MB.'}</p>
+      <div className="calculator-field"><span className={styles.fieldLabel}>{t("Logo (optional PNG or JPEG)")}</span><div className={styles.uploadActions}>
+        <Button type="button" variant="secondary" disabled={busy} onClick={() => logoInput.current?.click()}><Upload size={16} aria-hidden="true"/>{t(logo ? 'Replace logo' : 'Upload logo')}</Button>
+        {logo && <Button type="button" variant="ghost" disabled={busy} onClick={() => void readLogo()}><X size={16} aria-hidden="true"/>{t("Remove logo")}</Button>}
+      </div><input ref={logoInput} hidden type="file" accept="image/png,image/jpeg" aria-label={t("Logo (optional PNG or JPEG)")} disabled={busy} onChange={event => {void readLogo(event.target.files?.[0]); event.target.value = '';}}/>
+        <p className={styles.fileName}>{logoName || t('PNG or JPEG, up to 2 MB.')}</p>
       </div>
-      <div className="calculator-field"><label id={`${colorId}-label`} htmlFor={colorId}>Brand color</label><Dropdown id={colorId} aria-labelledby={`${colorId}-label`} value={accent} disabled={busy} onValueChange={value => {setAccent(value); setFile(null);}} options={[{value:'brand',label:'Finflo green'},{value:'brand-dark',label:'Dark green'},{value:'ink',label:'Ink'}]}/></div>
-      <p className={styles.brandNote}>Logo and color apply to this preview and PDF. Reattach your logo after changing inputs or reopening a saved document.</p>
+      <div className="calculator-field"><label id={`${colorId}-label`} htmlFor={colorId}>{t("Brand color")}</label><Dropdown id={colorId} aria-labelledby={`${colorId}-label`} value={accent} disabled={busy} onValueChange={value => {setAccent(value); setFile(null);}} options={[{value:'brand',label:t('Finflo green')},{value:'brand-dark',label:t('Dark green')},{value:'ink',label:t('Ink')}]}/></div>
+      <p className={styles.brandNote}>{t("Logo and color apply to this preview and PDF. Reattach your logo after changing inputs or reopening a saved document.")}</p>
     </div>
-    {example && <p className="stale-note">Example document. Enter your details and select Calculate before sharing.</p>}
+    {example && <p className="stale-note">{t("Example document. Enter your details and select Calculate before sharing.")}</p>}
     <div className={styles.invoice} style={{borderTopColor: `var(--color-${accent})`}}>
-      <div className={styles.parties}><div>{/* Local user-selected image; never fetched remotely. */}{logo && <NextImage unoptimized src={logo} alt="Business logo" width={150} height={60} className={styles.logo}/>}<h3>{doc.business}</h3><p>{doc.businessDetails}</p></div><div><h3>{doc.type} {doc.number}</h3><p>Issued: {doc.issueDate}<br/>{doc.type === 'Invoice' ? 'Payment due' : 'Valid until'}: {doc.dueDate}<br/>Currency: {currency}</p></div></div>
-      <div className={styles.customer}><strong>Bill to</strong><p>{doc.customer}<br/>{doc.customerDetails}</p></div>
-      <ResultDataTable label="Invoice line items" caption={`${doc.type} ${doc.number} line items`}><thead><tr><th scope="col">Description</th><th scope="col" data-money>Quantity</th><th scope="col" data-money>Unit price</th><th scope="col" data-money>Amount</th></tr></thead><tbody>{doc.items.map((item, i) => <tr key={i}><td>{item.description}</td><td data-numeric data-money>{item.quantity}</td><td data-numeric data-money>{amount(item.rate)}</td><td data-numeric data-money>{amount(item.total)}</td></tr>)}</tbody></ResultDataTable>
-      <dl className={styles.totals}>{totals.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{amount(value)}</dd></div>)}</dl>
-      {doc.terms && <div className={styles.terms}><strong>Terms & notes</strong><p>{doc.terms}</p></div>}
+      <div className={styles.parties}><div>{/* Local user-selected image; never fetched remotely. */}{logo && <NextImage unoptimized src={logo} alt={t("Business logo")} width={150} height={60} className={styles.logo}/>}<h3>{doc.business}</h3><p>{doc.businessDetails}</p></div><div><h3>{t(doc.type)} {doc.number}</h3><p>{t("Issued:")}{" "}{doc.issueDate}<br/>{t(doc.type === 'Invoice' ? 'Payment due' : 'Valid until')}: {doc.dueDate}<br/>{t("Currency:")}{" "}{currency}</p></div></div>
+      <div className={styles.customer}><strong>{t("Bill to")}</strong><p>{doc.customer}<br/>{doc.customerDetails}</p></div>
+      <ResultDataTable label={t("Invoice line items")} caption={t("{type} {number} line items", {type:t(doc.type),number:doc.number})}><thead><tr><th scope="col">{t("Description")}</th><th scope="col" data-money>{t("Quantity")}</th><th scope="col" data-money>{t("Unit price")}</th><th scope="col" data-money>{t("Amount")}</th></tr></thead><tbody>{doc.items.map((item, i) => <tr key={i}><td>{item.description}</td><td data-numeric data-money>{item.quantity}</td><td data-numeric data-money>{amount(item.rate)}</td><td data-numeric data-money>{amount(item.total)}</td></tr>)}</tbody></ResultDataTable>
+      <dl className={styles.totals}>{totals.map(([label, value]) => <div key={label}><dt>{t(label)}</dt><dd>{amount(value)}</dd></div>)}</dl>
+      {doc.terms && <div className={styles.terms}><strong>{t("Terms & notes")}</strong><p>{doc.terms}</p></div>}
     </div>
-    {message && <p className="form-error" role="alert">{message}</p>}{file && <p className={styles.status} role="status">Your PDF is ready. <a className="text-link" href={file.url} download={file.name}>Download again</a></p>}
+    {message && <p className="form-error" role="alert">{t(message)}</p>}{file && <p className={styles.status} role="status">{t("Your PDF is ready.")}{" "}<a className="text-link" href={file.url} download={file.name}>{t("Download again")}</a></p>}
     </div>
   </ResultSection>;
 }

@@ -3,6 +3,9 @@ import {getDictionary} from './dictionaries';
 import {type Dictionary, type Locale} from './config';
 import pageKeys from '@/data/locales/page-keys.json';
 import runtimeKeys from '@/data/locales/runtime-keys.json';
+import wheelRuntimeKeys from '@/data/locales/wheel-runtime-keys.json';
+import homeRuntimeKeys from '@/data/locales/home-runtime-keys.json';
+import {cardMessages} from './dictionaries';
 import type {CategoryId} from '@/lib/site';
 
 const content = {
@@ -24,4 +27,12 @@ export const getContentDictionary = cache(async (locale: Locale): Promise<Dictio
 export function calculatorMessages(messages: Dictionary, slug: string, category: CategoryId): Dictionary {
   const keys = [...runtimeKeys[category],...((pageKeys as Record<string,string[]>)[slug]||[])];
   return Object.fromEntries(keys.filter(key=>Object.hasOwn(messages,key)).map(key=>[key,messages[key]]));
+}
+
+const pickMessages = (messages: Dictionary, keys: string[]) => Object.fromEntries(keys.filter(key => Object.hasOwn(messages,key)).map(key => [key,messages[key]]));
+export function wheelMessages(messages: Dictionary, cards: ReadonlyArray<{slug:string}>) {
+  return {...pickMessages(messages,wheelRuntimeKeys),...cardMessages(messages,cards)};
+}
+export function homeMessages(messages: Dictionary, cards: ReadonlyArray<{slug:string}>) {
+  return {...pickMessages(messages,homeRuntimeKeys),...cardMessages(messages,cards)};
 }

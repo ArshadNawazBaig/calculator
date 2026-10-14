@@ -2,6 +2,25 @@ import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {spinWheels, wheelHref} from '../../src/lib/spin-wheels/catalog';
 
+test('wheel pages hydrate without warnings across server and browser trigonometry differences', async ({page}) => {
+  const errors: string[] = [];
+  page.on('console', message => {
+    if (['error', 'warning'].includes(message.type()) && /hydrat|didn.t match/i.test(message.text())) errors.push(message.text());
+  });
+  page.on('pageerror', error => errors.push(error.message));
+  await page.addInitScript(() => {
+    const {sin, cos} = Math;
+    Math.sin = angle => sin(angle) + Number.EPSILON;
+    Math.cos = angle => cos(angle) + Number.EPSILON;
+  });
+  const paths = [...spinWheels.map(wheel => wheelHref(wheel.slug)), '/ar/spin-wheels/activity-wheel', '/hi/spin-wheels/activity-wheel'];
+  for (const path of paths) {
+    await page.goto(path);
+    await expect(page.locator('#wheel-entries')).toBeEnabled();
+    expect(errors, path).toEqual([]);
+  }
+});
+
 test('wheel pages expose unique metadata, readable guides and structured data before JavaScript', async ({browser}) => {
   const context = await browser.newContext({javaScriptEnabled: false, baseURL: process.env.TEST_URL || 'http://127.0.0.1:3000'});
   const page = await context.newPage();

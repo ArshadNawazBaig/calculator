@@ -21,6 +21,9 @@ describe('multilingual navigation and content', () => {
     expect(localizedPath('/og.png', 'pt')).toBe('/og.png');
     expect(localizedPath('https://example.com/', 'fr')).toBe('https://example.com/');
     expect(localizedPath('//example.com/', 'ar')).toBe('//example.com/');
+    expect(localizedPath('/spin-wheels/yes-or-no-wheel?mode=custom#signals','ar')).toBe('/ar/spin-wheels/yes-or-no-wheel?mode=custom#signals');
+    expect(localizedPath('/fr/invoice-generator','es')).toBe('/es/invoice-generator');
+    expect(localizedPath('/tl/net-worth-tracker','hi')).toBe('/hi/net-worth-tracker');
   });
   it('has matching dictionaries and a translated name for every catalog entry', async () => {
     const dictionaries = await Promise.all(locales.filter(locale=>locale!=='en').map(getDictionary));
