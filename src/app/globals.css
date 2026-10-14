@@ -62,6 +62,37 @@
 :root { color-scheme: light dark; --radius: 10px; --shadow-soft: 0 8px 28px light-dark(#17191c14,#00000026); }
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"] { color-scheme: dark; }
+
+/* Branded page sections stay charcoal while the content follows the theme.
+   Declare tokens locally because inherited light-dark() values resolve at root. */
+@media screen {
+  [data-theme-surface="dark"] {
+    color-scheme: dark;
+    --color-background: #101113;
+    --color-card: #1b1d20;
+    --color-input: #141618;
+    --color-ink: #f5f5f6;
+    --color-muted: #a4a7ae;
+    --color-text-secondary: #c9ccd1;
+    --color-line: #32353a;
+    --color-line-strong: #686d76;
+    --color-line-hover: #91969f;
+    --color-soft: #191b1e;
+    --color-surface: #151719;
+    --color-selected: #38451b;
+    --color-focus: #d5f915;
+    --color-brand-soft: #242b16;
+    --color-brand-line: #515f25;
+    --color-brand-text: #d5f915;
+    --color-brand-text-strong: #c2e510;
+    --color-brand-tile: #242b16;
+    --color-brand-highlight: transparent;
+    --color-danger: #ff9690;
+    --color-warning: #efc575;
+    --color-warning-soft: #322817;
+    --shadow-soft: 0 8px 28px #00000026;
+  }
+}
 * { box-sizing: border-box; }
 
 /* Slim native scrollbars, with system styling retained in high-contrast mode. */
@@ -113,6 +144,9 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; border: 1px solid transparent; font-size: 15px; font-weight: 600; line-height: 1.4; min-height: 46px; padding: 12px 22px; }
 .button-primary { background: var(--color-action); color: var(--color-on-action); }
 .button-primary:hover { background: var(--color-action-hover); }
+.button-primary[data-calculator-submit] { background: light-dark(#191b1e,var(--color-action)); color: light-dark(var(--color-brand),var(--color-on-action)); border-color: light-dark(#191b1e,var(--color-action)); }
+.button-primary[data-calculator-submit]:not(:disabled):hover { background: light-dark(#272b30,var(--color-action-hover)); border-color: var(--color-brand); }
+.button-primary[data-calculator-submit]:not(:disabled):active { background: light-dark(#101113,var(--color-accent-dark)); }
 .button-secondary { background: var(--color-card); border-color: var(--color-line-strong); color: var(--color-ink); }
 .button-secondary:hover { background: var(--color-soft); }
 .button-ghost { background: transparent; color: var(--color-muted); }
@@ -258,7 +292,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .table-scroll { overflow: auto; max-height: 480px; max-width: 100%; margin-top: 14px; }
 table { border-collapse: collapse; font-size: 12px; width: 100%; text-align: right; font-variant-numeric: tabular-nums; }
 th, td { padding: 12px; border-bottom: 1px solid var(--color-line); white-space: nowrap; }
-th { background: var(--color-chart-track); position: sticky; top: 0; font-weight: 600; }
+th { background: var(--color-table-header); position: sticky; top: 0; font-weight: 600; }
 th:first-child, td:first-child { text-align: left; }
 .result-empty { min-height: 260px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--color-muted); padding: 30px; }
 .result-empty h3 { color: var(--color-text-secondary); margin: 18px 0 10px; font-size: 21px; letter-spacing: -.5px; }
@@ -542,6 +576,7 @@ th:first-child, td:first-child { text-align: left; }
     --color-table-alternate: #f7f8f9;
     --color-table-hover: #f1f5df;
   }
+  .button-primary[data-calculator-submit] { background: #fff; color: #17191c; border-color: #858a94; }
   .site-header, .site-footer, .search, .no-print, .related-tools, .breadcrumbs, .calculator-toolbar { display: none!important; }
   .container { width: 100%; }
   body { color: #000; background: #fff; }

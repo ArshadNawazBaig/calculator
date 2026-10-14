@@ -40,7 +40,7 @@
 .tableScroll table { width: 100%; min-width: 620px; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
 .tableScroll th,.tableScroll td { padding: 16px 18px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--color-line); overflow-wrap: anywhere; white-space: pre-wrap; }
 .tableScroll thead th { position: relative; background: var(--color-table-header); color: var(--color-ink); font-weight: 600; padding-inline-end: 40px; }
-.tableScroll tbody th { font-weight: 550; color: var(--color-muted); }
+.tableScroll tbody th { background: transparent; font-weight: 550; color: var(--color-muted); }
 .tableScroll tr[data-different] { background: var(--color-brand-soft); }
 .tableScroll small { display: block; margin-top: 6px; font-size: 11px; font-weight: 450; }
 .tableScroll thead button { position: absolute; inset-inline-end: 4px; top: 4px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; background: none; color: var(--color-ink); }

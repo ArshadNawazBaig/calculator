@@ -22,9 +22,9 @@ test('404, canonical, indexing, and structured data',async({page,request})=>{exp
 
 test('new logo and sharing assets load across page templates',async({page,request})=>{
   for(const path of ['/','/mortgage-calculator','/bmi-calculator']){
-    await page.goto(path);const logo=page.locator('header .logo img');await expect(logo).toHaveAttribute('src','/finflo-logo.webp');expect(await logo.evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0)).toBe(true);
+    await page.goto(path);const logo=page.locator('header .logo img:visible');await expect(logo).toHaveAttribute('src',/\/finflo-logo-(light|dark)\.webp/);await expect.poll(()=>logo.evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0)).toBe(true);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://finflo.org/og.png');await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://finflo.org/og.png');
     await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href','/apple-touch-icon.png');
   }
-  for(const asset of ['/favicon.ico','/favicon-16x16.png','/favicon-32x32.png','/apple-touch-icon.png','/icon-192.png','/icon-512.png','/site.webmanifest','/og.png'])expect((await request.get(asset)).status(),asset).toBe(200);
+  for(const asset of ['/finflo-logo-light.webp','/finflo-logo-dark.webp','/favicon.ico','/favicon-16x16.png','/favicon-32x32.png','/apple-touch-icon.png','/icon-192.png','/icon-512.png','/site.webmanifest','/og.png'])expect((await request.get(asset)).status(),asset).toBe(200);
 });

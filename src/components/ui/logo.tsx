@@ -14,13 +14,22 @@ export function Logo() {
       className={`logo cursor-pointer ${styles.logo}`}
     >
       <Image
-        className={styles.image}
-        src="/finflo-logo.webp"
-        width={568}
-        height={167}
+        className={`${styles.image} ${styles.light}`}
+        src="/finflo-logo-light.webp"
+        width={576}
+        height={175}
         alt="Finflo"
         unoptimized
-        loading="eager"
+        fetchPriority="high"
+      />
+      <Image
+        className={`${styles.image} ${styles.dark}`}
+        src="/finflo-logo-dark.webp"
+        width={576}
+        height={175}
+        alt="Finflo"
+        unoptimized
+        fetchPriority="high"
       />
     </Link>
   );

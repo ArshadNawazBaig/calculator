@@ -27,7 +27,7 @@ export function HeaderLanguage(){
     <Button isDisabled={!hydrated} className={styles.languageTrigger} aria-label={t('Language: {name}',{name:languages[locale].name})}>
       <Languages size={17} aria-hidden="true"/><span>{locale.toUpperCase()}</span><span className={styles.currencyCode}>· {currency}</span><ChevronDown size={12} aria-hidden="true"/>
     </Button>
-    <AnchoredPopover placement="bottom end" offset={10} className={styles.languagePopover}>
+    <AnchoredPopover placement="bottom end" offset={10} className={styles.languagePopover} data-theme-surface="dark">
       <Dialog aria-label={t('Website language')} className={styles.languageDialog}>
         <p>{t('Website language')}</p>
         <nav aria-label={t('Website language')}>{locales.map(language=><a key={language} className={styles.languageOption}

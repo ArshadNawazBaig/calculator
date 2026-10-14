@@ -50,7 +50,7 @@ export function ThemeSelector() {
     <Button className={styles.trigger} isDisabled={!hydrated} aria-label={t('Appearance')}>
       <ActiveIcon size={19} aria-hidden="true"/>
     </Button>
-    <AnchoredPopover placement="bottom end" offset={10} className={styles.popover}>
+    <AnchoredPopover placement="bottom end" offset={10} className={styles.popover} data-theme-surface="dark">
       <Dialog aria-label={t('Appearance')} className={styles.dialog}>
         <h2>{t('Appearance')}</h2>
         <div role="radiogroup" aria-label={t('Color theme')} className={styles.options}>

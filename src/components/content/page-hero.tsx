@@ -17,7 +17,7 @@ type PageHeroProps={
 export function PageHero({eyebrow,title,description,highlight,breadcrumbs,showBreadcrumbs=true,variant='default',children}:PageHeroProps){
   const accent=highlight??title.slice(title.lastIndexOf(' ')+1);
   const index=title.lastIndexOf(accent);
-  return <section className={`${styles.hero}${variant==='system'?` ${styles.system}`:''}`} aria-labelledby="page-title" data-page-hero data-system-page={variant==='system'||undefined}>
+  return <section className={`${styles.hero}${variant==='system'?` ${styles.system}`:''}`} aria-labelledby="page-title" data-page-hero data-theme-surface="dark" data-system-page={variant==='system'||undefined}>
     <div className="container">
       {showBreadcrumbs&&<Breadcrumbs items={breadcrumbs??[{label:title}]} className={styles.breadcrumbs}/>}
       <span className={styles.eyebrow}>{eyebrow}</span>

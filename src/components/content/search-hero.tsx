@@ -23,7 +23,7 @@ export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,c
  const {t,locale}=useI18n();
 
   const index=title.lastIndexOf(highlight);
-  return <section className={`${styles.intro}${compact?` ${styles.compact}`:""}`} aria-labelledby={id} data-search-hero>
+  return <section className={`${styles.intro}${compact?` ${styles.compact}`:""}`} aria-labelledby={id} data-search-hero data-theme-surface="dark">
     {breadcrumbs&&<div className={`container ${styles.heroBreadcrumbs}`}><Breadcrumbs items={breadcrumbs} tone="inverse"/></div>}
     <div className={`container ${styles.introInner}`}>
       <span className={styles.heroEyebrow}>{eyebrow}</span>

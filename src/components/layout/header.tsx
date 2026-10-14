@@ -23,7 +23,7 @@ const navigationLinks=[
 export function Header(){
   const pathname=splitLocale(usePathname()).path;
   const {t}=useI18n();
-  return <header className={`site-header ${styles.header}`}>
+  return <header className={`site-header ${styles.header}`} data-theme-surface="dark">
     <div className={`container ${styles.inner}`}>
       <Logo/>
       <nav aria-label={t('Main navigation')} className={styles.desktopNav}>

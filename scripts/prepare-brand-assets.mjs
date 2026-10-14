@@ -10,6 +10,7 @@ const roundedMark=await sharp(mark).resize(512,512).composite([{
   blend:'dest-in',
 }]).png().toBuffer();
 await sharp(logo).resize({width:626}).webp({quality:94}).toFile('public/finflo-logo.webp');
+await import('./prepare-theme-logos.mjs');
 for(const [size,name] of [[16,'favicon-16x16.png'],[32,'favicon-32x32.png'],[180,'apple-touch-icon.png'],[192,'icon-192.png'],[512,'icon-512.png']]){
   await sharp(size<=32?roundedMark:mark).resize(size,size).png().toFile(`public/${name}`);
 }

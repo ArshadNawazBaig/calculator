@@ -26,7 +26,7 @@ export function HeaderSearch(){
   return <DialogTrigger isOpen={open} onOpenChange={setOpen}>
     <Button className={styles.searchTrigger} aria-label={t("Search calculators")} aria-keyshortcuts="Control+k Meta+k"><SearchIcon size={18} aria-hidden="true"/></Button>
     <ModalOverlay isDismissable className={styles.searchOverlay}>
-      <Modal className={styles.searchModal}>
+      <Modal className={styles.searchModal} data-theme-surface="dark">
         <Dialog className={styles.searchDialog}>
           <div className={styles.searchHeading}><Heading slot="title">{t("Find a calculator")}</Heading><Button slot="close" className={styles.closeSearch} aria-label={t("Close search")}><X size={20} aria-hidden="true"/></Button></div>
           <Search autoFocus suggestionLayout="inline" onNavigate={()=>setOpen(false)} placeholder={t("Search calculators…")} emptyContent={<>

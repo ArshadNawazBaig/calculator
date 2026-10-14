@@ -1,7 +1,19 @@
-/* A charcoal backing keeps the supplied white-and-lime artwork intact. */
-.logo { position: relative; isolation: isolate; min-height: 44px; }
-.logo::before { content: ""; position: absolute; z-index: -1; inset: 0 -10px; border-radius: 9px; background: light-dark(#101113,transparent); pointer-events: none; }
+/* Transparent artwork follows the theme before hydration, without a backdrop. */
+.logo { min-height: 44px; }
 .image { display: block; width: 128px; height: auto; }
+.dark { display: none; }
+:global(html[data-theme="dark"]) .light { display: none; }
+:global(html[data-theme="dark"]) .dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :global(html:not([data-theme="light"])) .light { display: none; }
+  :global(html:not([data-theme="light"])) .dark { display: block; }
+}
+/* The transparent white wordmark belongs on fixed dark sections in either theme. */
+:global([data-theme-surface="dark"]) .logo .light { display: none; }
+:global([data-theme-surface="dark"]) .logo .dark { display: block; }
 @media(max-width:1000px) { .image { width: 116px; } }
 @media(max-width:360px) { .image { width: 80px; } }
-@media(max-width:360px) { .logo::before { inset-inline: -6px; } }
+@media print {
+  .logo .light { display: block !important; }
+  .logo .dark { display: none !important; }
+}
