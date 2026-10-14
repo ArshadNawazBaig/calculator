@@ -4,7 +4,6 @@ import Link from "@/components/i18n/link";
 import {Logo} from "@/components/ui/logo";
 import {HeaderLanguage} from "./header-language";
 import {HeaderSearch} from "./header-search";
-import {ThemeSelector} from "./theme-selector";
 import {MobileNavigation} from "./mobile-navigation";
 import styles from "./header.module.css";
 import {useI18n} from '@/components/i18n/provider';
@@ -31,7 +30,6 @@ export function Header(){
       </nav>
       <div className={styles.actions}>
         <HeaderLanguage/>
-        <ThemeSelector/>
         <HeaderSearch/>
         <MobileNavigation key={pathname} links={[...navigationLinks,{label:"About Finflo",href:"/about"}].map(link=>({...link,label:t(link.label)}))} pathname={pathname}/>
       </div>

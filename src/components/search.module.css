@@ -1,7 +1,7 @@
 .root { position: relative; text-align: start; }
 .root input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
 .clear { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 5px; padding: 0; color: var(--color-muted); background: transparent; }
-.clear:hover { color: var(--color-brand-dark); background: var(--color-brand-soft); }
+.clear:hover { color: var(--color-brand-text-strong); background: var(--color-brand-soft); }
 .menu { position: absolute; z-index: 60; inset-inline: -1px; top: calc(100% + 9px); padding: 0; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-card); box-shadow: 0 14px 38px #0000001f,0 3px 8px #0000000a; overflow: hidden; }
 .menuHeading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px 10px; color: var(--color-muted); font-size: 11px; line-height: 1.5; }
 .menuHeading>span:first-child { font-weight: 650; }
@@ -9,17 +9,17 @@
 .list { position: relative; list-style: none; padding: 0 7px 6px; margin: 0; max-height: min(352px,48dvh); overflow-y: auto; overscroll-behavior: contain; scroll-padding: 6px; }
 .option { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 11px; border-radius: 7px; cursor: pointer; color: var(--color-ink); outline-offset: -3px; }
 .option[aria-selected="true"] { background: var(--color-brand-soft); }
-.optionIcon { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 38px; border: 1px solid var(--color-line); border-radius: 9px; color: var(--color-brand); background: var(--color-surface); }
+.optionIcon { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 38px; border: 1px solid var(--color-line); border-radius: 9px; color: var(--color-brand-tile-ink); background: var(--color-brand-tile); }
 .optionCopy { display: grid; gap: 3px; min-width: 0; flex: 1; }
 .optionTitle { font-size: 14px; line-height: 1.5; font-weight: 600; }
 .optionCategory { color: var(--color-muted); font-size: 11px; line-height: 1.5; }
-.chevron { color: var(--color-brand); }
+.chevron { color: var(--color-brand-text); }
 .empty { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 16px 20px 24px; }
 .empty>svg { color: var(--color-muted); }
 .empty strong { color: var(--color-ink); font-size: 14px; font-weight: 600; }
 .empty p { color: var(--color-muted); font-size: 12px; line-height: 1.7; }
 .menuFooter { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 18px; border-top: 1px solid var(--color-line); background: var(--color-surface); }
-.menuFooter button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 0; border: 0; background: none; font-size: 12px; font-weight: 600; line-height: 1.6; color: var(--color-brand-dark); white-space: nowrap; }
+.menuFooter button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 0; border: 0; background: none; font-size: 12px; font-weight: 600; line-height: 1.6; color: var(--color-brand-text-strong); white-space: nowrap; }
 .menuFooter button:hover { text-decoration: underline; text-underline-offset: 4px; }
 .keyHint { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted); font-size: 10px; white-space: nowrap; }
 .keyHint kbd { display: inline-grid; place-items: center; height: 19px; min-width: 17px; padding-inline: 3px; font: inherit; color: var(--color-text-secondary); background: var(--color-input); border: 1px solid var(--color-line); border-radius: 3px; }

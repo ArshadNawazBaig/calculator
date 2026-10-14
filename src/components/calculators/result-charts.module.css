@@ -7,8 +7,8 @@
 .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 12px; color: var(--color-muted); }
 .legend span,.breakdown li>div>span { display: flex; align-items: center; gap: 8px; }
 .legend i,.breakdown li>div>span>i { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.plot { display: block; width: 100%; height: 240px; margin-top: 14px; overflow: visible; touch-action: pan-y; }
-.plot text { fill: var(--color-muted); font-size: 12px; font-family: inherit; }
+.plot { --color-line: var(--color-chart-line); --color-line-strong: var(--color-chart-axis); --color-line-hover: var(--color-chart-label); --color-card: var(--color-chart-surface); display: block; width: 100%; height: 240px; margin-top: 14px; overflow: visible; touch-action: pan-y; background: var(--color-chart-surface); border-radius: 8px; }
+.plot text { fill: var(--color-chart-label); font-size: 12px; font-family: inherit; }
 .selected { display: flex; align-items: start; justify-content: space-between; gap: 18px; margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--color-line); font-size: 12px; color: var(--color-muted); }
 .selected>span { display: grid; gap: 5px; flex-shrink: 0; }
 .selected strong { color: var(--color-ink); font-weight: 650; font-variant-numeric: tabular-nums; }
@@ -19,10 +19,10 @@
 .explore input { min-width: 0; flex: 1; accent-color: var(--color-brand); min-height: 28px; cursor: pointer; }
 .description { margin: 10px 0 0; font-size: 12px; color: var(--color-muted); line-height: 1.7; }
 .donut { position: relative; display: grid; place-items: center; width: min(230px,100%); margin: 16px auto; }
-.donut svg { display: block; width: 100%; }
+.donut svg { display: block; width: 100%; background: var(--color-chart-surface); border-radius: 50%; }
 .donut>div { position: absolute; width: 67%; text-align: center; pointer-events: none; }
-.donut span { display: block; color: var(--color-muted); font-size: 11px; margin-bottom: 4px; }
-.donut strong { display: block; color: var(--color-ink); font-size: clamp(13px,1.4vw,19px); letter-spacing: -.5px; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.donut span { display: block; color: var(--color-chart-label); font-size: 11px; margin-bottom: 4px; }
+.donut strong { display: block; color: var(--color-chart-ink); font-size: clamp(13px,1.4vw,19px); letter-spacing: -.5px; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
 .breakdown { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 13px; }
 .breakdown li>div:first-child { display: flex; align-items: baseline; gap: 12px; font-size: 12px; }
 .breakdown li>div>span { flex: 1; min-width: 0; color: var(--color-muted); }

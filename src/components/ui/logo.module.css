@@ -1,6 +1,3 @@
-.logo { position: relative; }
-/* Recolor only the supplied white wordmark; the lime symbol stays intact. */
-.logo::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: light-dark(#17191c,transparent); mask: url('/finflo-logo.webp') center / 100% auto no-repeat; clip-path: inset(0 0 0 34%); }
 .image { display: block; width: 128px; height: auto; }
 @media(max-width:1000px) { .image { width: 116px; } }
 @media(max-width:360px) { .image { width: 80px; } }

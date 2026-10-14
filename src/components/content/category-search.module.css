@@ -17,6 +17,6 @@
 .root input::placeholder { color: var(--color-muted); opacity: 1; }
 .root input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
 .root button { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--color-muted); outline-offset: 1px; }
-.root button:hover { color: var(--color-brand-dark); background: var(--color-brand-soft); }
+.root button:hover { color: var(--color-brand-text-strong); background: var(--color-brand-soft); }
 @media(max-width:600px) { .root input { font-size: 16px; } }
 @media print { .root { display: none; } }

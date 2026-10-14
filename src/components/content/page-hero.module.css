@@ -1,8 +1,8 @@
 .hero { color: var(--color-ink); background: var(--color-soft); border-bottom: 1px solid var(--color-line); padding-block: 24px 30px; }
 .breadcrumbs { margin-bottom: 18px; }
-.eyebrow { display: block; margin-bottom: 10px; color: var(--color-brand-dark); font-size: 12px; font-weight: 650; line-height: 1.6; letter-spacing: .09em; text-transform: uppercase; }
+.eyebrow { display: block; margin-bottom: 10px; color: var(--color-brand-text-strong); font-size: 12px; font-weight: 650; line-height: 1.6; letter-spacing: .09em; text-transform: uppercase; }
 .title { max-width: 1050px; margin: 0; font-size: clamp(32px,3.5vw,48px); font-weight: 750; line-height: 1.16; letter-spacing: -.035em; text-wrap: balance; overflow-wrap: anywhere; }
-.title span { color: var(--color-brand-dark); }
+.title span { color: var(--color-brand-dark); background: var(--color-brand-highlight); border-radius: .08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .description { max-width: 850px; margin: 14px 0 0; color: var(--color-muted); font-size: 16px; line-height: 1.7; text-wrap: pretty; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
 .system { flex: 1; display: flex; align-items: center; padding-block: 56px 72px; }

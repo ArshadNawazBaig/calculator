@@ -10,6 +10,8 @@ import {calculatorCardData} from '@/lib/calculator-cards';
 import {translator, type Dictionary} from '@/lib/i18n/config';
 import {cardMessages} from '@/lib/i18n/dictionaries';
 import {TranslationMessages} from './provider';
+import {PlanningPathways, FinanceToolkit, HealthToolkit, EverydayToolkit, HowItWorks, WorkspaceIntroduction} from '@/components/home/home-details';
+import {LearningGuides} from '@/components/home/learning-guides';
 import styles from '@/components/home/home.module.css';
 
 export function LocalizedHome({messages}: {messages: Dictionary}) {
@@ -35,6 +37,11 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
         <Link className={styles.categoryAll} href={`/calculators/${category.id}`}>{t('All calculators')}<ChevronRight size={15}/></Link>
       </article>)}</div>
     </section>
+    <PlanningPathways messages={messages}/>
+    <FinanceToolkit messages={messages}/>
+    <HealthToolkit messages={messages}/>
+    <EverydayToolkit messages={messages}/>
+    <HowItWorks messages={messages}/>
     <section className={styles.confidence} aria-labelledby="confidence-title"><div className={`container ${styles.confidenceInner}`}>
       <div className={styles.confidenceIntro}><span className={styles.eyebrow}>{t('Clarity comes from context')}</span><h2 id="confidence-title">{t('Understand the number.')}</h2><p>{t('Check units and assumptions before using a result.')}</p></div>
       <div className={styles.benefits}>{[
@@ -43,7 +50,9 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
         {icon: UserRoundCheck, title: 'No account needed', text: 'Most calculations run in your browser. Sharing a tool link does not include your inputs.'},
       ].map(({icon: BenefitIcon, title, text}) => <div className={styles.benefit} key={title}><BenefitIcon size={23}/><div><h3>{t(title)}</h3><p>{t(text)}</p></div></div>)}</div>
     </div></section>
+    <WorkspaceIntroduction messages={messages}/>
+    <LearningGuides messages={messages}/>
     <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>
-    <section className={`container ${styles.closing}`}><h2>{t('Your next answer is a calculation away.')}</h2><Link className="button button-primary" href="/calculators">{t('Browse all calculators')}<ChevronRight size={17}/></Link></section>
+    <section className={`container ${styles.closing}`} aria-labelledby="closing-title"><h2 id="closing-title">{t('Your next answer is a calculation away.')}</h2><Link className="button button-primary" href="/calculators">{t('Browse all calculators')}<ChevronRight size={17}/></Link></section>
   </>;
 }

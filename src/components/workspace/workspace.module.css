@@ -1,20 +1,20 @@
 .workspace { padding-block: 28px 72px; }
 .workspace>section { margin-top: 40px; }
-.deviceNote { display: flex; gap: 14px; align-items: start; padding: 20px 24px; border: 1px solid var(--color-brand-line); border-radius: 10px; background: var(--color-brand-soft); color: var(--color-brand-dark); }
+.deviceNote { display: flex; gap: 14px; align-items: start; padding: 20px 24px; border: 1px solid var(--color-brand-line); border-radius: 10px; background: var(--color-brand-soft); color: var(--color-brand-text-strong); }
 .deviceNote svg { flex-shrink: 0; margin-top: 3px; }
 .deviceNote p,.hint { font-size: 13px; line-height: 1.8; }
 .hint { color: var(--color-muted); }
 .backupActions,.cardActions,.editActions,.actionHeading { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .backupActions { margin-top: 20px; }
-.status { margin-top: 12px; color: var(--color-brand-dark); font-size: 14px; }
-.sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; color: var(--color-brand-dark); }
+.status { margin-top: 12px; color: var(--color-brand-text-strong); font-size: 14px; }
+.sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; color: var(--color-brand-text-strong); }
 .sectionHeading h2 { font-size: 25px; font-weight: 650; letter-spacing: -.6px; }
 .sectionHeading h2>span { margin-inline-start: 8px; padding: 4px 9px; border-radius: 5px; background: var(--color-soft); color: var(--color-muted); font-size: 13px; vertical-align: middle; }
 .favorites { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
 .empty { padding: 30px; border: 1px dashed var(--color-line-strong); border-radius: 10px; background: var(--color-surface); }
 .empty h3 { font-size: 18px; font-weight: 650; margin-bottom: 7px; }
 .empty p { font-size: 14px; color: var(--color-muted); line-height: 1.8; margin-bottom: 14px; }
-.workspaceLink { display: inline-flex; align-items: center; gap: 8px; color: var(--color-brand-dark); font-size: 13px; font-weight: 650; min-height: 40px; }
+.workspaceLink { display: inline-flex; align-items: center; gap: 8px; color: var(--color-brand-text-strong); font-size: 13px; font-weight: 650; min-height: 40px; }
 .workspaceLink:hover { text-decoration: underline; text-underline-offset: 4px; }
 .savedGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 20px; }
 .savedCard { min-width: 0; padding: 22px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); }
@@ -23,13 +23,13 @@
 .mode { margin-top: 6px; color: var(--color-muted); font-size: 12px; line-height: 1.7; }
 .summary { margin: 22px 0; }
 .summary dt { font-size: 12px; color: var(--color-muted); }
-.summary dd { margin: 7px 0 0; color: var(--color-brand-dark); font-size: 25px; font-weight: 650; overflow-wrap: anywhere; }
+.summary dd { margin: 7px 0 0; color: var(--color-brand-text-strong); font-size: 25px; font-weight: 650; overflow-wrap: anywhere; }
 .cardActions { justify-content: space-between; gap: 4px 12px; padding-top: 12px; border-top: 1px solid var(--color-line); }
 .compareCheckbox { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; cursor: pointer; }
 .compareCheckbox input { width: 17px; height: 17px; accent-color: var(--color-brand); }
 .editActions { gap: 18px; }
 .editActions button { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; border: 0; padding: 0; background: none; color: var(--color-muted); font-size: 12px; }
-.editActions button:hover { color: var(--color-brand-dark); }
+.editActions button:hover { color: var(--color-brand-text-strong); }
 .confirm { padding: 18px; margin-top: 16px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-soft); }
 .confirm p { font-size: 13px; line-height: 1.8; margin-bottom: 12px; }
 .confirm button { margin-inline-end: 8px; }
@@ -46,7 +46,7 @@
 .tableScroll thead button { position: absolute; inset-inline-end: 4px; top: 4px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; background: none; color: var(--color-ink); }
 .tableScroll tr:last-child td,.tableScroll tr:last-child th { border-bottom: 0; }
 .inputDetails { margin: 20px 0; }
-.inputDetails summary { cursor: pointer; font-size: 14px; font-weight: 650; color: var(--color-brand-dark); padding: 10px 0; }
+.inputDetails summary { cursor: pointer; font-size: 14px; font-weight: 650; color: var(--color-brand-text-strong); padding: 10px 0; }
 .calculatorActions { padding: 18px 24px 22px; border-top: 1px solid var(--color-line); }
 .actionHeading { justify-content: space-between; }
 .saveForm { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
@@ -55,7 +55,7 @@
 .saveForm .hint { flex-basis: 100%; }
 .favoriteWrap { display: inline-flex; flex-wrap: wrap; }
 .favorite { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 40px; min-height: 40px; padding: 7px 10px; border: 1px solid var(--color-line); border-radius: 6px; background: var(--color-card); color: var(--color-muted); font-size: 13px; font-weight: 600; }
-.favorite:hover,.favorite[aria-pressed="true"] { color: var(--color-brand-dark); background: var(--color-brand-soft); border-color: var(--color-brand-line); }
+.favorite:hover,.favorite[aria-pressed="true"] { color: var(--color-brand-text-strong); background: var(--color-brand-soft); border-color: var(--color-brand-line); }
 .favoriteCompact { position: absolute; inset-inline-end: 8px; top: 8px; z-index: 1; }
 .favoriteCompact .favorite { border-color: transparent; }
 .error { display: block; padding: 10px; font-size: 12px; line-height: 1.7; color: var(--color-danger); }

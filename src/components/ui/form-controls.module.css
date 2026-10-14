@@ -16,7 +16,7 @@
 .optionList { padding: 5px; overflow: auto; min-height: 0; outline: none; overscroll-behavior: contain; }
 .option { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 10px; border-radius: 5px; font-size: 14px; line-height: 1.5; cursor: pointer; outline: none; }
 .option[data-focused],.option[data-hovered] { background: var(--color-soft); }
-.option[data-selected] { color: var(--color-brand-dark); background: var(--color-brand-soft); font-weight: 600; }
+.option[data-selected] { color: var(--color-brand-text-strong); background: var(--color-brand-soft); font-weight: 600; }
 .option[data-focus-visible] { outline: 2px solid var(--color-brand); outline-offset: -2px; }
 .option[data-disabled] { opacity: .45; cursor: not-allowed; }
 .option>span { overflow-wrap: anywhere; }
@@ -37,29 +37,29 @@
 .dateSegment { padding: 2px; border-radius: 3px; min-width: fit-content; outline: none; }
 .dateSegment[data-type="literal"] { padding-inline: 1px; color: var(--color-muted); }
 .dateSegment[data-placeholder] { color: var(--color-muted); }
-.dateSegment:focus { background: var(--color-brand-soft); color: var(--color-brand-dark); outline: none; }
+.dateSegment:focus { background: var(--color-brand-soft); color: var(--color-brand-text-strong); outline: none; }
 .calendarTrigger { display: grid; place-items: center; flex-shrink: 0; height: 34px; width: 34px; border: 0; border-radius: 5px; background: transparent; color: var(--color-muted); }
-.calendarTrigger[data-hovered] { color: var(--color-brand); background: var(--color-brand-soft); }
+.calendarTrigger[data-hovered] { color: var(--color-brand-text); background: var(--color-brand-soft); }
 .calendarPopover { width: 328px; max-height: var(--available-height); overflow: auto; }
 .calendarDialog { outline: none; }
 .calendar { padding: 14px; }
 .calendarHeader { display: grid; grid-template-columns: minmax(0,1fr) 80px 28px 28px; align-items: center; gap: 6px; margin-bottom: 13px; }
 .calendarNav { display: grid; place-items: center; padding: 0; width: 28px; height: 34px; border: 0; border-radius: 5px; background: transparent; color: var(--color-muted); }
-.calendarNav[data-hovered] { color: var(--color-brand); background: var(--color-brand-soft); }
+.calendarNav[data-hovered] { color: var(--color-brand-text); background: var(--color-brand-soft); }
 .calendarGrid { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .calendarGrid th,.calendarGrid td { padding: 2px; border: 0; background: none; position: static; white-space: normal; text-align: center; }
 .calendarGrid .weekday { padding-bottom: 9px; color: var(--color-muted); font-size: 11px; line-height: 1.5; font-weight: 500; }
 .day { display: grid; place-items: center; width: 100%; aspect-ratio: 1; border-radius: 6px; font-size: 13px; cursor: pointer; outline: none; font-variant-numeric: tabular-nums; }
 .day[data-hovered] { background: var(--color-brand-soft); }
 .day[data-outside-month] { color: var(--color-muted); opacity: .55; }
-.day[data-today] { box-shadow: inset 0 0 0 1px var(--color-brand); color: var(--color-brand-dark); font-weight: 600; }
+.day[data-today] { box-shadow: inset 0 0 0 1px var(--color-brand); color: var(--color-brand-text-strong); font-weight: 600; }
 .day[data-selected] { background: var(--color-action); color: var(--color-on-action); font-weight: 600; }
 .day[data-focus-visible] { outline: 2px solid var(--color-brand-dark); outline-offset: 2px; }
 .day[data-disabled],.day[data-unavailable] { opacity: .3; cursor: not-allowed; }
 .calendarFooter { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--color-line); padding: 10px 14px; background: var(--color-surface); }
 .calendarFooter>span { font-size: 10px; color: var(--color-muted); }
 .calendarFooter>div { display: flex; gap: 12px; }
-.calendarAction { border: 0; background: none; padding: 5px 0; color: var(--color-brand-dark); font-size: 12px; font-weight: 600; }
+.calendarAction { border: 0; background: none; padding: 5px 0; color: var(--color-brand-text-strong); font-size: 12px; font-weight: 600; }
 .calendarAction[data-hovered] { text-decoration: underline; text-underline-offset: 4px; }
 @media(max-width:600px) {
   .optionSearch input { font-size: 16px; }

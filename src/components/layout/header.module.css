@@ -16,11 +16,11 @@
 .mobileToggle { width: 44px; border-color: transparent; padding: 0; }
 .mobileNav { position: absolute; inset-inline: 0; top: 100%; display: grid; gap: 4px; padding: 12px 20px 20px; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; border-bottom: 1px solid var(--color-line); background: var(--color-background); box-shadow: 0 12px 24px #00000024; }
 .mobileNav a { padding: 11px 12px; border-radius: 5px; color: var(--color-text-secondary); font-size: 15px; font-weight: 550; }
-.mobileNav a:hover,.mobileNav a[aria-current="page"] { color: var(--color-brand); background: var(--color-brand-soft); }
+.mobileNav a:hover,.mobileNav a[aria-current="page"] { color: var(--color-brand-text); background: var(--color-brand-soft); }
 .languagePopover { width: 340px; max-width: calc(100vw - 24px); max-height: var(--available-height); overflow-y: auto; z-index: 90; border: 1px solid var(--color-line); border-radius: 9px; background: var(--color-card); color: var(--color-ink); box-shadow: 0 10px 30px #00000026; }
 .languageDialog { padding: 8px; outline: none; }
 .languageDialog>p { padding: 6px 9px 10px; font-size: 11px; color: var(--color-muted); }
-.languageOption { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; border-radius: 5px; background: var(--color-brand-soft); color: var(--color-brand-dark); padding: 11px 9px; font-size: 13px; }
+.languageOption { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; border-radius: 5px; background: var(--color-brand-soft); color: var(--color-brand-text-strong); padding: 11px 9px; font-size: 13px; }
 .languageOption:hover { background: var(--color-selected); }
 .languageOption[aria-current="true"] { background: var(--color-action); color: var(--color-on-action); }
 .languageDialog>nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3px; }
@@ -28,7 +28,7 @@
 .regionPreferences label { display: block; margin-bottom: 7px; color: var(--color-ink); font-size: 12px; font-weight: 650; }
 .regionPreferences>p { margin: 0; font-size: 11px; line-height: 1.6; color: var(--color-muted); }
 .regionPreferences>p+p { margin-top: -7px; }
-.resetPreferences { justify-self: start; border: 0; background: none; color: var(--color-brand-dark); padding: 5px 0; font: inherit; font-size: 12px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+.resetPreferences { justify-self: start; border: 0; background: none; color: var(--color-brand-text-strong); padding: 5px 0; font: inherit; font-size: 12px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
 .searchOverlay { --search-top: min(14dvh,112px); position: fixed; inset: 0; z-index: 100; display: flex; align-items: start; justify-content: center; overflow-y: auto; padding: var(--search-top) 20px 24px; background: #00000070; backdrop-filter: blur(5px); }
 .searchModal { width: min(620px,100%); max-height: calc(100dvh - var(--search-top) - 24px); overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-card); box-shadow: 0 24px 80px #00000033; }
 .searchDialog { padding: 20px; outline: none; }
@@ -41,11 +41,11 @@
 .popularLinks { display: grid; gap: 3px; }
 .popularLinks a { display: flex; align-items: center; gap: 12px; border-radius: 7px; padding: 12px 8px; color: var(--color-ink); }
 .popularLinks a:hover { background: var(--color-brand-soft); }
-.popularIcon { display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; border-radius: 7px; color: var(--color-brand); background: var(--color-soft); }
+.popularIcon { display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; border-radius: 7px; color: var(--color-brand-tile-ink); background: var(--color-brand-tile); }
 .popularLinks a>span:nth-child(2) { display: grid; gap: 4px; min-width: 0; flex: 1; }
 .popularLinks strong { font-size: 14px; font-weight: 600; line-height: 1.5; }
 .popularLinks small { color: var(--color-muted); font-size: 12px; line-height: 1.5; }
-.popularLinks a>svg { color: var(--color-brand); }
+.popularLinks a>svg { color: var(--color-brand-text); }
 .searchFooter { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-line); color: var(--color-muted); font-size: 10px; }
 .searchFooter kbd { font: inherit; }
 @media(max-width:1150px) { .desktopNav { gap: 20px; } .desktopNav a { font-size: 14px; } .inner { gap: 22px; } }
