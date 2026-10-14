@@ -6,14 +6,24 @@
 .desktopNav a:hover,.desktopNav a[aria-current="page"] { color: var(--color-ink); }
 .desktopNav a[aria-current="page"]::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 2px; background: var(--color-brand); }
 .actions { display: flex; align-items: center; justify-content: end; gap: 12px; }
-.languageTrigger,.searchTrigger,.mobileToggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; height: 44px; border: 1px solid var(--color-line-strong); border-radius: 7px; background: transparent; color: var(--color-text-secondary); }
-.languageTrigger { gap: 5px; padding: 0 8px; font-size: 12px; }
-.languageTrigger[data-pressed] { border-color: var(--color-brand); }
-.searchTrigger { width: 44px; padding: 0; }
-.languageTrigger:hover,.searchTrigger:hover,.mobileToggle:hover { color: var(--color-ink); border-color: var(--color-brand); background: var(--color-brand-soft); }
+.utilities { display: flex; align-items: center; flex-shrink: 0; gap: 4px; }
+.utilityTrigger,.mobileToggle { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--color-text-secondary); }
+.utilityTrigger:hover,.utilityTrigger[data-pressed],.utilityTrigger[aria-expanded="true"],.mobileToggle:hover,.mobileToggle[aria-expanded="true"] { color: var(--color-brand-text); }
+.utilityTrigger:focus-visible,.utilityTrigger[data-focus-visible] { outline: 2px solid var(--color-focus); outline-offset: -3px; }
+.utilityTrigger:disabled { opacity: .6; cursor: default; }
+.languageTrigger { position: relative; gap: 8px; padding-inline: 12px; font-size: 12px; line-height: 1.4; }
+.languageTrigger::after { content: ''; position: absolute; inset-inline-end: 0; inset-block: 12px; width: 1px; background: var(--color-line); }
+.languageCode { color: var(--color-ink); font-weight: 650; letter-spacing: .03em; }
+.currencyCode { color: var(--color-text-secondary); font-size: 12px; letter-spacing: .02em; }
+.currencyCode::before { content: '·'; margin-inline-end: 8px; color: var(--color-muted); }
+.languageChevron { color: var(--color-muted); }
+.languageTrigger[aria-expanded="true"] .languageChevron { transform: rotate(180deg); color: var(--color-brand-text); }
+.iconTrigger { width: 44px; }
+.searchTrigger { color: var(--color-brand-text); }
+.searchTrigger:hover,.searchTrigger[data-pressed],.searchTrigger[aria-expanded="true"] { color: var(--color-ink); }
 .header :focus-visible { outline-color: var(--color-focus); }
 .mobileControl { display: none; }
-.mobileToggle { width: 44px; border-color: transparent; padding: 0; }
+.mobileToggle { width: 44px; }
 .mobileNav { position: absolute; inset-inline: 0; top: 100%; display: grid; gap: 4px; padding: 12px 20px 20px; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; border-bottom: 1px solid var(--color-line); background: var(--color-background); box-shadow: 0 12px 24px #00000024; }
 .mobileNav a { padding: 11px 12px; border-radius: 5px; color: var(--color-text-secondary); font-size: 15px; font-weight: 550; }
 .mobileNav a:hover,.mobileNav a[aria-current="page"] { color: var(--color-brand-text); background: var(--color-brand-soft); }
@@ -58,7 +68,7 @@
 }
 @media(max-width:600px) {
   .languageTrigger { width: 44px; padding: 0; }
-  .languageTrigger>span,.languageTrigger>svg:last-child { display: none; }
+  .languageCode,.currencyCode,.languageChevron { display: none; }
   .searchOverlay { --search-top: 16px; padding-inline: 12px; }
   .searchDialog { padding: 16px; }
   .searchHeading h2 { font-size: 18px; }

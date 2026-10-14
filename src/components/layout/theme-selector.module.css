@@ -1,5 +1,3 @@
-.trigger { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid var(--color-line-strong); border-radius: 7px; background: transparent; color: var(--color-text-secondary); }
-.trigger:hover,.trigger[data-pressed] { color: var(--color-brand-text); border-color: var(--color-brand-text); background: var(--color-brand-soft); }
 .popover { z-index: 90; width: 224px; max-width: calc(100vw - 24px); border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-ink); box-shadow: var(--shadow-soft); }
 .dialog { padding: 12px; outline: none; }
 .dialog h2 { padding: 3px 9px 10px; font-size: 13px; font-weight: 650; }

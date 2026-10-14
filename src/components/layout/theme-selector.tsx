@@ -7,6 +7,7 @@ import {useI18n} from '@/components/i18n/provider';
 import {useHydrated} from '@/lib/use-hydrated';
 import {applyTheme, parseTheme, themeChangeEvent, themeStorageKey, type ThemePreference} from '@/lib/theme';
 import styles from './theme-selector.module.css';
+import header from './header.module.css';
 
 const getSnapshot = () => parseTheme(document.documentElement.dataset.theme);
 const getServerSnapshot = (): ThemePreference => 'system';
@@ -46,9 +47,10 @@ export function ThemeSelector() {
   const groupId = useId();
   const preference = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const ActiveIcon = preference === 'system' ? Monitor : preference === 'light' ? Sun : Moon;
+  const themeLabel = t(preference === 'system' ? 'System' : preference === 'light' ? 'Light' : 'Dark');
   return <DialogTrigger>
-    <Button className={styles.trigger} isDisabled={!hydrated} aria-label={t('Appearance')}>
-      <ActiveIcon size={19} aria-hidden="true"/>
+    <Button className={`${header.utilityTrigger} ${header.iconTrigger}`} isDisabled={!hydrated} aria-label={t('Appearance')} aria-description={themeLabel}>
+      <ActiveIcon size={18} aria-hidden="true"/>
     </Button>
     <AnchoredPopover placement="bottom end" offset={10} className={styles.popover} data-theme-surface="dark">
       <Dialog aria-label={t('Appearance')} className={styles.dialog}>

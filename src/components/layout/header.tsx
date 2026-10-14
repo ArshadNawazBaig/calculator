@@ -30,9 +30,11 @@ export function Header(){
         {navigationLinks.map(({label,href})=><Link key={href} href={href} aria-current={(pathname===href||(href!=="/calculators"&&pathname.startsWith(`${href}/`)))?"page":undefined}>{t(label)}</Link>)}
       </nav>
       <div className={styles.actions}>
-        <HeaderLanguage/>
-        <ThemeSelector/>
-        <HeaderSearch/>
+        <div className={styles.utilities}>
+          <HeaderLanguage/>
+          <ThemeSelector/>
+          <HeaderSearch/>
+        </div>
         <MobileNavigation key={pathname} links={[...navigationLinks,{label:"About Finflo",href:"/about"}].map(link=>({...link,label:t(link.label)}))} pathname={pathname}/>
       </div>
     </div>

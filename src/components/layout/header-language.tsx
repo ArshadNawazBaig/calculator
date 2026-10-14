@@ -24,8 +24,8 @@ export function HeaderLanguage(){
   const hydrated=useHydrated();
   const pathname=usePathname();
   return <DialogTrigger isOpen={open} onOpenChange={setOpen}>
-    <Button isDisabled={!hydrated} className={styles.languageTrigger} aria-label={t('Language: {name}',{name:languages[locale].name})}>
-      <Languages size={17} aria-hidden="true"/><span>{locale.toUpperCase()}</span><span className={styles.currencyCode}>· {currency}</span><ChevronDown size={12} aria-hidden="true"/>
+    <Button isDisabled={!hydrated} className={`${styles.utilityTrigger} ${styles.languageTrigger}`} aria-label={t('Language: {name}',{name:languages[locale].name})} aria-description={`${t('Currency')}: ${currency}`}>
+      <Languages size={18} aria-hidden="true"/><span className={styles.languageCode}>{locale.toUpperCase()}</span><span className={styles.currencyCode}>{currency}</span><ChevronDown className={styles.languageChevron} size={12} aria-hidden="true"/>
     </Button>
     <AnchoredPopover placement="bottom end" offset={10} className={styles.languagePopover} data-theme-surface="dark">
       <Dialog aria-label={t('Website language')} className={styles.languageDialog}>
