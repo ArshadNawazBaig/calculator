@@ -2,6 +2,7 @@ import {notFound} from 'next/navigation';
 import Link from '@/components/i18n/link';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {PageHero} from '@/components/content/page-hero';
+import {Breadcrumbs} from '@/components/content/breadcrumbs';
 import {JsonLd} from '@/components/content/json-ld';
 import {translator, localizedPath, type Locale, type Dictionary} from '@/lib/i18n/config';
 import {timeTools, timeRoute, zones, clockZoneVersion} from '@/lib/time/catalog';
@@ -24,11 +25,16 @@ export function TimePage({path = '/time', locale = 'en', messages = {}}: {path?:
   const guide = timeGuides[mode];
   const countryNames = new Intl.DisplayNames([locale === 'tl' ? 'fil' : locale], {type: 'region'});
   const countries = Object.fromEntries(zones.filter(zone => zone.country).map(zone => [zone.country, countryNames.of(zone.country) || zone.country]));
+  const breadcrumbs = path === '/time' ? [{label: t('Time & clocks')}] : [{label: t('Time & clocks'), href: '/time'}, {label: title}];
+  const navigation = <nav className={styles.toolNav} aria-label={t('Time tools')}>{timeTools.map(tool => <Link key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>;
   return <TranslationMessages messages={timeMessages(messages)}>
-    <PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={path === '/time' ? [{label: t('Time & clocks')}] : [{label: t('Time & clocks'), href: '/time'}, {label: title}]}/>
-    <div className="container tool-page page-content">
-      <nav className={styles.toolNav} aria-label={t('Time tools')}>{timeTools.map(tool => <Link key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>
-      {mode === 'clock' && <WorldClock initialZone={zone}/>}
+    {mode === 'clock' ? <WorldClock initialZone={zone}
+      breadcrumbs={<Breadcrumbs items={breadcrumbs} tone="inverse"/>}
+      introduction={<div className={styles.clockIntro}><h1 id="page-title">{title}</h1><p>{description}</p></div>}
+      navigation={navigation}/>
+      : <PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={breadcrumbs}/>}
+    <div className={`container tool-page${mode === 'clock' ? '' : ' page-content'}`}>
+      {mode !== 'clock' && navigation}
       {(mode === 'timer' || mode === 'stopwatch') && <TimerTool stopwatch={mode === 'stopwatch'}/>}
       {(mode === 'clock' || mode === 'directory') && <ZoneDirectory countries={countries} compact={mode === 'clock'}/>}
       <div className={styles.guideLayout}>

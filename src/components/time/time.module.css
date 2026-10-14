@@ -3,6 +3,15 @@
 .toolNav a[aria-current] { color: #d5f915; background: #191b1e; }
 .toolNav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .clock { position: relative; min-width: 0; border: 1px solid var(--color-line); border-radius: 14px; padding: 28px 36px 22px; background: radial-gradient(ellipse at 65% 0%,var(--color-brand-soft),transparent 60%),var(--color-background); text-align: center; overflow: hidden; }
+.clockHero { width: 100%; min-width: 0; border-bottom: 1px solid var(--color-line); background: radial-gradient(ellipse at 65% 0%,var(--color-brand-soft),transparent 60%),var(--color-background); color: var(--color-ink); text-align: center; }
+.clockHeroInner { padding-block: 24px 32px; }
+.clockBreadcrumbs { text-align: start; margin-bottom: 20px; }
+.clockIntro { max-width: 780px; margin: 18px auto 0; }
+.clockIntro h1 { font-size: clamp(26px,3vw,38px); font-weight: 650; letter-spacing: -.035em; line-height: 1.25; }
+.clockIntro p { margin-top: 10px; color: var(--color-muted); font-size: 14px; line-height: 1.8; text-wrap: pretty; }
+.clockHero .location { margin-top: 24px; }
+.clockHero .toolNav { margin: 24px auto 0; }
+.clockHero .toolNav a[aria-current] { background: var(--color-card); box-shadow: inset 0 0 0 1px var(--color-line); }
 .clockTop { display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: start; }
 .live { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 650; letter-spacing: .12em; color: var(--color-brand); }
 .live>span { width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: var(--color-brand); box-shadow: 0 0 14px #d5f91555; }

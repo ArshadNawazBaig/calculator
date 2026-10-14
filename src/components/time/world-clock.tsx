@@ -1,5 +1,5 @@
 'use client';
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useMemo, useState, type ReactNode} from 'react';
 import {ArrowUpRight, Globe2, MapPin, Star, X} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {useI18n} from '@/components/i18n/provider';
@@ -11,7 +11,7 @@ import {useClock} from './use-clock';
 import styles from './time.module.css';
 
 const savedKey = 'finflo-world-clocks-v1', defaultKey = 'finflo-default-clock-v1';
-export function WorldClock({initialZone}: {initialZone?: ClockZone}) {
+export function WorldClock({initialZone, breadcrumbs, introduction, navigation}: {initialZone?: ClockZone; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode}) {
   const {t, locale} = useI18n(), hydrated = useHydrated();
   const clock = useClock();
   const [zone, setZone] = useState(initialZone || zoneById.get('UTC')!);
@@ -54,10 +54,13 @@ export function WorldClock({initialZone}: {initialZone?: ClockZone}) {
     else setFeedback(t('You can save up to 6 clocks. Remove one to add another.'));
   };
   return <>
-    <section className={styles.clock} data-theme-surface="dark" aria-label={t('Live clock')}>
+    <section className={styles.clockHero} data-theme-surface="dark" aria-labelledby="page-title">
+      <div className={`container ${styles.clockHeroInner}`}>
+      <div className={styles.clockBreadcrumbs}>{breadcrumbs}</div>
       <div className={styles.clockTop}><span className={styles.live}><span/>{t('LIVE · TIME NOW')}</span><div className={styles.segmented} role="group" aria-label={t('Time format')}>
         {[false, true].map(value => <button key={String(value)} type="button" disabled={!hydrated} aria-pressed={hour12 === value} onClick={() => setHour12(value)}>{t(value ? '12 hour' : '24 hour')}</button>)}
       </div></div>
+      {introduction}
       <div className={styles.location}><MapPin size={17} aria-hidden="true"/><h2>{zone.place}</h2><span dir="ltr">{zone.id}</span></div>
       <div className={styles.digital} role="timer" aria-live="off" data-live-clock dir="ltr">{now === null ? '—:—:—' : time(now, zone.id)}</div>
       <p className={styles.fullDate} data-clock-date>{now === null ? t('Loading your local date…') : date(now, zone.id)}</p>
@@ -71,7 +74,10 @@ export function WorldClock({initialZone}: {initialZone?: ClockZone}) {
       {clock.now !== null && !supported && <p role="alert">{t('This browser does not recognize this time zone. Update your browser to view its clock.')}</p>}
       <p className={styles.feedback} role="status">{feedback}</p>
       <noscript><p>{t('Enable JavaScript for live clocks and timer controls.')}</p></noscript>
+      {navigation}
+      </div>
     </section>
+    <div className="container">
     <section className={styles.section} aria-labelledby="saved-clocks-title">
       <div className={styles.heading}><div><span className="eyebrow">{t('YOUR WORLD, AT A GLANCE')}</span><h2 id="saved-clocks-title">{t('Your world clocks')}</h2></div><Link href="/time/time-zones" className="text-link">{t('Add a city')}<ArrowUpRight size={16} aria-hidden="true"/></Link></div>
       {favorites.length === 0 && <p className={styles.muted}>{t('Open a city clock and select Save clock to build your own collection.')}</p>}
@@ -90,5 +96,6 @@ export function WorldClock({initialZone}: {initialZone?: ClockZone}) {
       </div>
       <p className={styles.note}>{t('Clock changes use your browser’s time-zone data. Keep your browser updated for new local rules. Week numbers follow ISO 8601.')}</p>
     </section>
+    </div>
   </>;
 }
