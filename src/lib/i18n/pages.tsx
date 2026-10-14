@@ -1,3 +1,4 @@
+import {MethodologyNote} from '@/components/content/methodology-note';
 import {TimePage} from '@/components/time/time-page';
 import {TimeCollection} from '@/components/time/time-collection';
 import {timeRoute, prerenderTimePaths} from '@/lib/time/catalog';
@@ -119,7 +120,7 @@ export function localizedPage(locale: Locale) {
           {def&&<CalculatorNavigation messages={messages}/>}
           {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
           {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}
-          <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div></aside></div>
+          <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div>{def&&<MethodologyNote messages={messages}/>}</aside></div>
           {def&&<JsonLd data={{'@context':'https://schema.org','@type':'WebApplication',name:t(route.title),url:site.url+localizedPath(path,locale),description:t(route.description),inLanguage:locale,applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}}/>}
           {def&&<JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t(category.name),path:`/calculators/${tool.category}`},{name:t(route.title),path}],locale)}/>}
         </div></TranslationMessages>
