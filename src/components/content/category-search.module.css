@@ -11,7 +11,7 @@
   border: 1px solid var(--color-line-strong);
   border-radius: 6px;
 }
-.root:focus-within { border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
+.root:focus-within { border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .root input { min-width: 0; width: 100%; flex: 1; height: 100%; padding: 0; border: 0; background: transparent; color: var(--color-ink); font-size: 14px; }
 .root input:focus,.root input:focus-visible { outline: none; box-shadow: none; }
 .root input::placeholder { color: var(--color-muted); opacity: 1; }

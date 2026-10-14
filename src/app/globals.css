@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Dark charcoal surfaces with electric lime accents. */
+  /* Shared electric lime accents, with neutral light and charcoal dark surfaces. */
   --color-brand: #d5f915;
   --color-accent: #e3ff70;
   --color-accent-dark: #b8d944;
-  --color-brand-soft: #242b16;
+  --color-brand-soft: light-dark(#f3f4f6,#242b16);
   --color-brand-dark: #c2e510;
-  --color-background: #101113;
-  --color-card: #1b1d20;
-  --color-input: #141618;
-  --color-ink: #f5f5f6;
-  --color-muted: #a4a7ae;
-  --color-text-secondary: #c9ccd1;
-  --color-line: #32353a;
-  --color-line-strong: #686d76;
-  --color-line-hover: #91969f;
-  --color-soft: #191b1e;
-  --color-surface: #151719;
-  --color-selected: #38451b;
-  --color-focus: #d5f915;
+  --color-background: light-dark(#ffffff,#101113);
+  --color-card: light-dark(#ffffff,#1b1d20);
+  --color-input: light-dark(#ffffff,#141618);
+  --color-ink: light-dark(#17191c,#f5f5f6);
+  --color-muted: light-dark(#626873,#a4a7ae);
+  --color-text-secondary: light-dark(#414751,#c9ccd1);
+  --color-line: light-dark(#e1e4e9,#32353a);
+  --color-line-strong: light-dark(#858d99,#686d76);
+  --color-line-hover: light-dark(#5f6978,#91969f);
+  --color-soft: light-dark(#f5f6f8,#191b1e);
+  --color-surface: light-dark(#f8f9fb,#151719);
+  --color-selected: light-dark(#eaf4bd,#38451b);
+  --color-focus: light-dark(#343b46,#d5f915);
   --color-on-brand: #161a08;
   --color-on-brand-muted: #3b451b;
-  --color-brand-line: #515f25;
-  --color-danger: #ff9690;
-  --color-warning: #efc575;
-  --color-warning-soft: #322817;
+  --color-brand-line: light-dark(#d9dde4,#515f25);
+  --color-danger: light-dark(#b42318,#ff9690);
+  --color-warning: light-dark(#785719,#efc575);
+  --color-warning-soft: light-dark(#fff4dd,#322817);
   --color-chart-track: #34383e;
   --color-chart-1: #d5f915;
   --color-chart-2: #91b7e8;
@@ -36,17 +36,18 @@
   --color-chart-7: #aebac9;
   --color-chart-8: #a5ca7e;
   --color-illustration: #d5f915;
-  --color-map-land: #424b30;
+  --color-map-land: light-dark(#d2d8de,#424b30);
   --color-map-grid: #899476;
-  --color-table-header: #25282c;
-  --color-table-line: #34373c;
-  --color-table-alternate: #1f2225;
-  --color-table-hover: #2b3121;
-  --color-brand-text: #d5f915;
-  --color-brand-text-strong: #c2e510;
-  --color-brand-tile: #242b16;
+  --color-table-header: light-dark(#edf0f4,#25282c);
+  --color-table-line: light-dark(#e1e4e9,#34373c);
+  --color-table-alternate: light-dark(#f8f9fb,#1f2225);
+  --color-table-hover: light-dark(#f1f4f8,#2b3121);
+  --color-brand-text: light-dark(#252b34,#d5f915);
+  --color-brand-text-strong: light-dark(#17191c,#c2e510);
+  --color-brand-tile: light-dark(#191b1e,#242b16);
   --color-brand-tile-ink: #d5f915;
-  --color-brand-highlight: transparent;
+  --color-brand-tile-label: #c9ccd1;
+  --color-brand-highlight: light-dark(#d5f915,transparent);
   --color-chart-surface: #151719;
   --color-chart-label: #a4a7ae;
   --color-chart-line: #34383e;
@@ -58,7 +59,9 @@
   --font-sans: var(--font-site), "Segoe UI", Arial, sans-serif;
 }
 
-:root { color-scheme: dark; --radius: 10px; --shadow-soft: 0 6px 24px #00000026; }
+:root { color-scheme: light dark; --radius: 10px; --shadow-soft: 0 8px 28px light-dark(#17191c14,#00000026); }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
 * { box-sizing: border-box; }
 
 /* Slim native scrollbars, with system styling retained in high-contrast mode. */
@@ -118,7 +121,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .text-link:hover { text-decoration: underline; }
 .eyebrow { display: block; font-size: 12px; font-weight: 650; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); }
 .search { display: flex; align-items: center; gap: 13px; background: var(--color-card); padding: 6px 6px 6px 17px; border: 1px solid var(--color-line-strong); border-radius: 8px; max-width: 100%; color: var(--color-muted); }
-.search:focus-within { border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
+.search:focus-within { border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .search input { min-width: 0; width: 100%; flex: 1; background: none; border: 0; color: var(--color-ink); font-size: 15px; height: 42px; outline-offset: 0; }
 .search input:focus, .search input:focus-visible { outline: none; box-shadow: none; }
 .search input::placeholder { color: var(--color-muted); opacity: 1; }
@@ -131,7 +134,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .hero-copy { padding: 8px 0; min-width: 0; }
 .hero .eyebrow { color: var(--color-muted); font-size: 12px; letter-spacing: .09em; }
 .hero h1 { font-size: clamp(40px, 4.15vw, 58px); font-weight: 700; line-height: 1.16; letter-spacing: -.055em; margin: 22px 0; text-wrap: initial; }
-.hero h1 span { color: var(--color-brand-tile-ink); background: var(--color-brand-highlight); }
+.hero h1 span { color: var(--color-brand-text); background: linear-gradient(transparent 90%,var(--color-brand-highlight) 90%); }
 .hero-description { font-size: 17px; line-height: 1.85; color: var(--color-muted); margin-bottom: 28px; letter-spacing: -.2px; }
 .suggestions { display: flex; gap: 17px; align-items: center; margin-top: 16px; font-size: 13px; flex-wrap: wrap; }
 .suggestions>span { color: var(--color-muted); }
@@ -147,7 +150,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .quick-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-bottom: 20px; }
 .quick-fields label { font-size: 14px; font-weight: 500; color: var(--color-text-secondary); display: block; min-width: 0; }
 .input-affix { display: flex; align-items: center; border: 1px solid var(--color-line-strong); border-radius: 6px; gap: 6px; padding: 0 12px; margin-top: 7px; color: var(--color-muted); background: var(--color-card); }
-.input-affix:focus-within { border-color: var(--color-brand); }
+.input-affix:focus-within { border-color: var(--color-focus); }
 .input-affix input { border: 0; background: none; min-width: 0; width: 100%; height: 46px; color: var(--color-ink); font-size: 16px; appearance: textfield; font-variant-numeric: tabular-nums; }
 .input-affix input::-webkit-inner-spin-button { appearance: none; }
 .quick-fields [data-ui-control] { margin-top: 7px; }
@@ -224,7 +227,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .calculator-field label span { color: var(--color-muted); font-weight: 400; font-size: 12px; text-align: right; }
 .calculator-field input:not([type="hidden"]), .calculator-field textarea { width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-input); color: var(--color-ink); font-size: 16px; line-height: 1.4; }
 .calculator-field input:hover { border-color: var(--color-line-hover); }
-.calculator-field input:not([type="checkbox"]):not([type="hidden"]):focus, .calculator-field textarea:focus { outline: none; border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
+.calculator-field input:not([type="checkbox"]):not([type="hidden"]):focus, .calculator-field textarea:focus { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .calculator-field textarea { resize: vertical; }
 .calculator-field p { font-size: 13px; color: var(--color-muted); line-height: 1.65; margin-top: 7px; }
 .field-wide { grid-column: 1/-1; }
@@ -240,7 +243,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .metric dt { font-size: 14px; color: var(--color-muted); }
 .metric dd { font-size: 19px; font-weight: 650; margin: 6px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; font-variant-numeric: tabular-nums; }
 .metric.primary-metric { grid-column: 1/-1; border: 1px solid var(--color-brand-line); border-radius: 12px; background: var(--color-brand-tile); padding: 24px; margin-bottom: 6px; }
-.primary-metric dt { color: var(--color-text-secondary); font-size: 14px; }
+.primary-metric dt { color: var(--color-brand-tile-label); font-size: 14px; }
 .primary-metric dd { margin-top: 12px; font-size: clamp(30px,3.2vw,42px); letter-spacing: -.045em; line-height: 1.25; color: var(--color-brand-tile-ink); }
 .primary-metric[data-text] dd { font-size: clamp(20px,2vw,28px); line-height: 1.5; }
 .calculator-results>p { margin-top: 20px; font-size: 14px; color: var(--color-muted); }
@@ -486,11 +489,12 @@ th:first-child, td:first-child { text-align: left; }
 @media print {
   /* Paper keeps a readable light palette, including charts and table exports. */
   :root {
-    color-scheme: light;
+    color-scheme: light !important;
     --color-brand-text: #17191c;
     --color-brand-text-strong: #17191c;
     --color-brand-tile: #f1f5df;
     --color-brand-tile-ink: #17191c;
+    --color-brand-tile-label: #363b43;
     --color-brand-highlight: transparent;
     --color-chart-surface: #fff;
     --color-chart-label: #50555d;

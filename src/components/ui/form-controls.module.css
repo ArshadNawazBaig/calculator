@@ -2,7 +2,7 @@
 .label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 550; color: var(--color-text-secondary); }
 .control { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-input); color: var(--color-ink); font: inherit; text-align: start; transition: border-color .16s,box-shadow .16s; }
 .control:hover { border-color: var(--color-line-hover); }
-.control[data-focus-visible],.root[data-focus-within]>.control,.root[data-focused]>.control,.root[data-open]>.control { outline: none; border-color: var(--color-brand); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
+.control[data-focus-visible],.root[data-focus-within]>.control,.root[data-focused]>.control,.root[data-open]>.control { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .root[data-invalid]>.control { border-color: var(--color-danger); }
 .root[data-disabled] { opacity: .6; }
 .root[data-disabled] .control { cursor: not-allowed; background: var(--color-soft); }
@@ -11,17 +11,17 @@
 .root[data-open]>.selectTrigger>svg { transform: rotate(180deg); }
 .selectValue { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .selectValue[data-placeholder] { color: var(--color-muted); }
-.selectPopover,.calendarPopover { z-index: 110; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-ink); box-shadow: 0 12px 34px #00000066; outline: none; max-width: calc(100vw - 24px); }
+.selectPopover,.calendarPopover { z-index: 110; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-ink); box-shadow: var(--shadow-soft); outline: none; max-width: calc(100vw - 24px); }
 .selectPopover { width: var(--trigger-width); min-width: 140px; display: flex; flex-direction: column; overflow: hidden; }
 .optionList { padding: 5px; overflow: auto; min-height: 0; outline: none; overscroll-behavior: contain; }
 .option { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 10px; border-radius: 5px; font-size: 14px; line-height: 1.5; cursor: pointer; outline: none; }
 .option[data-focused],.option[data-hovered] { background: var(--color-soft); }
 .option[data-selected] { color: var(--color-brand-text-strong); background: var(--color-brand-soft); font-weight: 600; }
-.option[data-focus-visible] { outline: 2px solid var(--color-brand); outline-offset: -2px; }
+.option[data-focus-visible] { outline: 2px solid var(--color-focus); outline-offset: -2px; }
 .option[data-disabled] { opacity: .45; cursor: not-allowed; }
 .option>span { overflow-wrap: anywhere; }
 .optionSearch { display: flex; align-items: center; gap: 8px; margin: 7px 7px 0; padding: 8px 9px; border: 1px solid var(--color-line-strong); border-radius: 6px; color: var(--color-muted); flex-shrink: 0; }
-.optionSearch[data-focus-within] { border-color: var(--color-brand); }
+.optionSearch[data-focus-within] { border-color: var(--color-focus); }
 .optionSearch input { flex: 1; width: 100%; min-width: 0; font: inherit; font-size: 14px; line-height: 1.5; padding: 0; border: 0; color: var(--color-ink); background: none; outline: none; }
 .optionSearch input::-webkit-search-cancel-button { display: none; }
 .optionSearch button { display: grid; place-items: center; border: 0; background: none; color: var(--color-muted); padding: 2px; }
@@ -54,7 +54,7 @@
 .day[data-outside-month] { color: var(--color-muted); opacity: .55; }
 .day[data-today] { box-shadow: inset 0 0 0 1px var(--color-brand); color: var(--color-brand-text-strong); font-weight: 600; }
 .day[data-selected] { background: var(--color-action); color: var(--color-on-action); font-weight: 600; }
-.day[data-focus-visible] { outline: 2px solid var(--color-brand-dark); outline-offset: 2px; }
+.day[data-focus-visible] { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .day[data-disabled],.day[data-unavailable] { opacity: .3; cursor: not-allowed; }
 .calendarFooter { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--color-line); padding: 10px 14px; background: var(--color-surface); }
 .calendarFooter>span { font-size: 10px; color: var(--color-muted); }

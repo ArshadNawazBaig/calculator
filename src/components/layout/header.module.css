@@ -11,7 +11,7 @@
 .languageTrigger[data-pressed] { border-color: var(--color-brand); }
 .searchTrigger { width: 44px; padding: 0; }
 .languageTrigger:hover,.searchTrigger:hover,.mobileToggle:hover { color: var(--color-ink); border-color: var(--color-brand); background: var(--color-brand-soft); }
-.header :focus-visible { outline-color: var(--color-brand); }
+.header :focus-visible { outline-color: var(--color-focus); }
 .mobileControl { display: none; }
 .mobileToggle { width: 44px; border-color: transparent; padding: 0; }
 .mobileNav { position: absolute; inset-inline: 0; top: 100%; display: grid; gap: 4px; padding: 12px 20px 20px; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; border-bottom: 1px solid var(--color-line); background: var(--color-background); box-shadow: 0 12px 24px #00000024; }

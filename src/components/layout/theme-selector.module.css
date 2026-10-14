@@ -1,0 +1,13 @@
+.trigger { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid var(--color-line-strong); border-radius: 7px; background: transparent; color: var(--color-text-secondary); }
+.trigger:hover,.trigger[data-pressed] { color: var(--color-brand-text); border-color: var(--color-brand-text); background: var(--color-brand-soft); }
+.popover { z-index: 90; width: 224px; max-width: calc(100vw - 24px); border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-ink); box-shadow: var(--shadow-soft); }
+.dialog { padding: 12px; outline: none; }
+.dialog h2 { padding: 3px 9px 10px; font-size: 13px; font-weight: 650; }
+.options { display: grid; gap: 3px; }
+.option { position: relative; display: flex; align-items: center; gap: 11px; min-height: 44px; padding: 10px; border-radius: 6px; font-size: 14px; cursor: pointer; }
+.option input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.option span { flex: 1; }
+.option:hover { background: var(--color-soft); }
+.option:has(input:checked) { background: var(--color-action); color: var(--color-on-action); font-weight: 650; }
+.option:has(input:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.dialog p { padding: 11px 9px 2px; margin-top: 9px; border-top: 1px solid var(--color-line); color: var(--color-muted); font-size: 11px; line-height: 1.6; }

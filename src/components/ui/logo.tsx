@@ -11,7 +11,7 @@ export function Logo() {
     <Link
       href="/"
       aria-label={t("Finflo home")}
-      className="logo cursor-pointer"
+      className={`logo cursor-pointer ${styles.logo}`}
     >
       <Image
         className={styles.image}

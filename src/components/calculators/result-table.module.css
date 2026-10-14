@@ -1,5 +1,5 @@
 .scroll:global(.table-scroll) { margin: 0; max-height: none; overflow-x: auto; overflow-y: visible; max-width: 100%; border-radius: 0 0 12px 12px; }
-.scroll:focus-visible { outline: 2px solid var(--color-brand); outline-offset: -3px; }
+.scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -3px; }
 .table { width: 100%; font-size: 13px; text-align: start; }
 .table th { position: static; background: var(--color-table-header); color: var(--color-ink); font-weight: 650; font-size: 12px; white-space: normal; min-width: 110px; text-align: start; line-height: 1.6; }
 .table td { color: var(--color-text-secondary); text-align: start; white-space: normal; overflow-wrap: anywhere; max-width: 360px; }
