@@ -1,5 +1,6 @@
 import {toolCategoryLabels as categoryLabels,type CategoryId,type ToolCategoryId} from "@/lib/site";
 import {spinWheels,wheelHref} from "@/lib/spin-wheels/catalog";
+import {timeTools} from '@/lib/time/tools';
 export {toolCategoryLabels as categoryLabels} from "@/lib/site";
 
 export type HomeCategory = ToolCategoryId | "all";
@@ -7,6 +8,7 @@ export type FeaturedTool = {title:string; slug:string; category:ToolCategoryId; 
 export type Spotlight = {category:ToolCategoryId; title:string; description:string; links:{title:string;slug:string;href?:string}[]};
 export const homeFilters:{id:HomeCategory;label:string}[]=[{id:"all",label:"All tools"},...Object.entries(categoryLabels).map(([id,label])=>({id:id as ToolCategoryId,label}))];
 export const spotlights:Record<ToolCategoryId,Spotlight>={
+  time:{category:'time',title:'Make time work for you.',description:'Plan a call, check a date, or focus on what comes next.',links:timeTools.slice(0,3).map(tool=>({...tool}))},
   finance:{category:"finance",title:"Plan your next move.",description:"Run the numbers. Explore your options. Make more confident decisions.",links:[{title:"Mortgage calculator",slug:"mortgage-calculator"},{title:"Loan calculator",slug:"loan-calculator"},{title:"Retirement calculator",slug:"retirement-calculator"}]},
   health:{category:"health",title:"Know your numbers.",description:"Explore the estimates behind your nutrition, fitness, and everyday health.",links:[{title:"BMI calculator",slug:"bmi-calculator"},{title:"Calorie calculator",slug:"calorie-calculator"},{title:"BMR calculator",slug:"bmr-calculator"}]},
   math:{category:"math",title:"Make the numbers work.",description:"From a quick percentage to a complex equation, find the calculation you need.",links:[{title:"Percentage calculator",slug:"percent-calculator"},{title:"Fraction calculator",slug:"fraction-calculator"},{title:"Scientific calculator",slug:"scientific-calculator"}]},
@@ -18,6 +20,7 @@ const bmi:FeaturedTool={title:"BMI",slug:"bmi-calculator",category:"health",desc
 const percentage:FeaturedTool={title:"Percentage",slug:"percent-calculator",category:"math",description:"Calculate percentages, changes, and what-if scenarios."};
 const age:FeaturedTool={title:"Age",slug:"age-calculator",category:"everyday",description:"Find an exact age in years, months, and days."};
 export const featuredTools:Record<HomeCategory,FeaturedTool[]>={
+  time:timeTools.map(tool=>({...tool,category:'time',favorite:false})),
   all:[compound,bmi,percentage,age],
   finance:[compound,{title:"Salary",slug:"salary-calculator",category:"finance",description:"Compare hourly, monthly, and annual pay."},{title:"Investment",slug:"investment-calculator",category:"finance",description:"Explore contributions and potential returns."},{title:"Income tax",slug:"tax-calculator",category:"finance",description:"Estimate your US federal income tax."}],
   health:[{title:"Body fat",slug:"body-fat-calculator",category:"health",description:"Estimate body fat from your measurements."},{title:"Ideal weight",slug:"ideal-weight-calculator",category:"health",description:"Compare common weight reference formulas."},{title:"Calorie",slug:"calorie-calculator",category:"health",description:"Estimate your daily energy needs."},{title:"Pace",slug:"pace-calculator",category:"health",description:"Work out pace, distance, and finish time."}],

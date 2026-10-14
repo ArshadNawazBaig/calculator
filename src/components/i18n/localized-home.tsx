@@ -1,3 +1,5 @@
+import {TimeCollection} from '@/components/time/time-collection';
+import {timeTools} from '@/lib/time/tools';
 import Link from '@/components/i18n/link';
 import {HomeExplorer} from '@/components/home/home-explorer';
 import {featuredTools} from '@/lib/home-content';
@@ -29,11 +31,12 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
       <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} data-category={category.id} key={category.id}>
         <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span><h3><Link href={category.href}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
-        <ul>{category.links.map(link => <li key={link.slug}><Link href={category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
-        <Link className={styles.categoryAll} href={category.href}>{t(category.id==='spin-wheels'?'Explore spin wheels':'All calculators')}<ChevronRight size={15}/></Link>
+        <ul>{category.links.map(link => <li key={link.slug}><Link href={category.id==='time'?(timeTools.find(tool=>tool.slug===link.slug)?.href||'/time'):category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
+        <Link className={styles.categoryAll} href={category.href}>{t(category.id==='time'?'Explore time tools':category.id==='spin-wheels'?'Explore spin wheels':'All calculators')}<ChevronRight size={15}/></Link>
       </article>)}</div>
     </section>
     <WheelCollection messages={messages} homepage/>
+    <TimeCollection messages={messages} homepage/>
     <PlanningPathways messages={messages}/>
     <FinanceToolkit messages={messages}/>
     <HealthToolkit messages={messages}/>

@@ -1,3 +1,4 @@
+import {TimeCollection} from '@/components/time/time-collection';
 import {HomeExplorer} from "@/components/home/home-explorer";
 import {BrowseCategories} from "@/components/home/browse-categories";
 import {CalculationConfidence} from "@/components/home/calculation-confidence";
@@ -19,6 +20,7 @@ export default function Home() {
     <HomeExplorer/>
     <BrowseCategories/>
     <WheelCollection homepage/>
+    <TimeCollection homepage/>
     <PlanningPathways/>
     <FinanceToolkit/>
     <HealthToolkit/>

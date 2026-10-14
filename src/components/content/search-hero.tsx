@@ -37,7 +37,7 @@ export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,c
         </div>
         <div className={styles.promises}><span><Check size={16} aria-hidden="true"/>{t("Always free")}</span><span><UserRoundCheck size={16} aria-hidden="true"/>{t("No account needed")}</span><span><BookOpen size={16} aria-hidden="true"/>{t("Formulas explained")}</span></div>
       </div>
-      {category&&<p className={styles.searchScope}>{category==='spin-wheels'?t('Spin wheels'):t("Searching {category} calculators.",{category:t(categoryLabels[category]).toLowerCase()})} {onClearCategory&&<button type="button" onClick={onClearCategory}>{t("Search all categories")}</button>}</p>}
+      {category&&<p className={styles.searchScope}>{category==='time'?t('Time & clocks'):category==='spin-wheels'?t('Spin wheels'):t("Searching {category} calculators.",{category:t(categoryLabels[category]).toLowerCase()})} {onClearCategory&&<button type="button" onClick={onClearCategory}>{t("Search all categories")}</button>}</p>}
     </div>
   </section>;
 }

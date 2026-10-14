@@ -17,7 +17,7 @@ export function HomeExplorer() {
       description={t("Free calculators for life’s big and small decisions. From your next home to your everyday numbers.")}
       category={category==="all"?undefined:category} onClearCategory={()=>setCategory("all")}/>
     <section className={`container ${styles.section}`} aria-labelledby="featured-title">
-      <SectionHeading id="featured-title" eyebrow={t("Your everyday toolkit")} title={t("Start with a calculator.")} link={category==='spin-wheels'?{href:"/spin-wheels",label:t("Explore spin wheels")}:{href:"/calculators",label:t("View all calculators")}}/>
+      <SectionHeading id="featured-title" eyebrow={t("Your everyday toolkit")} title={t("Start with a calculator.")} link={category==='time'?{href:'/time',label:t('Explore time tools')}:category==='spin-wheels'?{href:"/spin-wheels",label:t("Explore spin wheels")}:{href:"/calculators",label:t("View all calculators")}}/>
       <div className={styles.filters} role="group" aria-label={t("Filter featured calculators")}>{homeFilters.map(filter=><button key={filter.id} type="button" disabled={!hydrated} aria-pressed={category===filter.id} aria-controls="featured-calculators" onClick={()=>setCategory(filter.id)}>{t(filter.label)}</button>)}</div>
       <div id="featured-calculators" className={styles.featuredLayout} aria-label={t("Featured tools")}>
         <div className={styles.featuredGrid}>{featuredTools[category].map(tool=><FeaturedToolCard key={tool.slug} tool={tool}/>)}</div>

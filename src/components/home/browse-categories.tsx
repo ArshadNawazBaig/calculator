@@ -1,3 +1,4 @@
+import {timeTools} from '@/lib/time/tools';
 import Link from "@/components/i18n/link";
 import {Icon} from "@/components/ui/icon";
 import {toolCategories,toolCategoryLabels,categoryHref} from "@/lib/site";
@@ -13,7 +14,7 @@ export function BrowseCategories() {
       <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span>
       <h3><Link href={category.href}>{toolCategoryLabels[category.id]}</Link></h3>
       <p>{category.description}</p>
-      <ul>{category.links.slice(0,2).map(link=><li key={link.slug}><Link href={category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{link.name}</Link></li>)}</ul>
+      <ul>{category.links.slice(0,2).map(link=><li key={link.slug}><Link href={category.id==='time'?(timeTools.find(tool=>tool.slug===link.slug)?.href||'/time'):category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{link.name}</Link></li>)}</ul>
       <Link className={styles.categoryAll} href={categoryHref(category.id)}>Explore {toolCategoryLabels[category.id].toLowerCase()}<ChevronRight size={15} aria-hidden="true"/></Link>
     </article>)}</div>
   </section>;

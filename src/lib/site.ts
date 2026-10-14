@@ -1,4 +1,5 @@
 import {wheelCategory} from './spin-wheels/catalog';
+import {timeCategory} from './time/tools';
 
 export const site = {
   name: "Finflo", url: process.env.NEXT_PUBLIC_SITE_URL || "https://finflo.org",
@@ -16,7 +17,7 @@ export type CategoryId = (typeof categories)[number]["id"];
 
 export const categoryLabels:Record<CategoryId,string>={finance:"Finance",health:"Health",math:"Math",everyday:"Everyday"};
 
-export const toolCategories = [...categories.map(category => ({...category, href: `/calculators/${category.id}`})), wheelCategory];
-export type ToolCategoryId = CategoryId | typeof wheelCategory.id;
-export const toolCategoryLabels: Record<ToolCategoryId, string> = {...categoryLabels, 'spin-wheels': wheelCategory.name};
-export const categoryHref = (category: ToolCategoryId) => category === 'spin-wheels' ? '/spin-wheels' : `/calculators/${category}`;
+export const toolCategories = [...categories.map(category => ({...category, href: `/calculators/${category.id}`})), wheelCategory, timeCategory];
+export type ToolCategoryId = CategoryId | typeof wheelCategory.id | typeof timeCategory.id;
+export const toolCategoryLabels: Record<ToolCategoryId, string> = {...categoryLabels, 'spin-wheels': wheelCategory.name, time: timeCategory.name};
+export const categoryHref = (category: ToolCategoryId) => category === 'spin-wheels' ? '/spin-wheels' : category === 'time' ? '/time' : `/calculators/${category}`;

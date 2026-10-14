@@ -1,3 +1,6 @@
+import {TimePage} from '@/components/time/time-page';
+import {TimeCollection} from '@/components/time/time-collection';
+import {timeRoute, prerenderTimePaths} from '@/lib/time/catalog';
 import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
 import {spinWheels, wheelMap} from '@/lib/spin-wheels/catalog';
 import {WheelPage} from '@/components/spin-wheels/wheel-page';
@@ -39,9 +42,11 @@ import {isTranslatedPage, localizedPath, translator, type Locale} from './config
 type PageProps = {params: Promise<{path?: string[]}>};
 export const localizedLandingPaths = ['/', '/calculators', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
 export function localizedStaticParams() {
-  return [...new Set([...localizedLandingPaths,...translatedPages,'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
+  return [...new Set([...localizedLandingPaths,...translatedPages.filter(path=>!path.startsWith('/time')||prerenderTimePaths.has(path)||!timeRoute(path)),'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
 }
 function routeInfo(path: string) {
+  const time = timeRoute(path);
+  if (time) return {...time, time: true};
   if (path === '/spin-wheels') return {title: wheelLibraryTitle, description: wheelLibraryDescription};
   if (path.startsWith('/spin-wheels/')) {
     const wheel = wheelMap.get(path.slice('/spin-wheels/'.length));
@@ -75,6 +80,7 @@ export function localizedMetadata(locale: Locale) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) return {title: '404', robots: {index: false, follow: true}};
     const t = translator(await getContentDictionary(locale));
+    if ('time' in route) {const values = {place: 'zone' in route ? route.zone?.place || '' : ''}; return pageMetadata(t(route.title, values) + ' | Finflo', t(route.description, values), path, true, locale);}
     const title='category' in route&&route.subcategory?`${t(route.subcategory)} · ${t(route.category.name)}`:t(route.title);
     return pageMetadata(title, t(route.description), path, isTranslatedPage(path), locale);
   };
@@ -84,6 +90,7 @@ export function localizedPage(locale: Locale) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
     const messages = await getContentDictionary(locale), t = translator(messages);
+    if ('time' in route) return <TimePage path={path} locale={locale} messages={messages}/>;
     if (path === '/spin-wheels') return <SpinWheelsPage locale={locale} messages={messages}/>;
     if ('wheel' in route && route.wheel) return <WheelPage slug={route.wheel.slug} locale={locale} messages={messages}/>;
     if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
@@ -91,9 +98,9 @@ export function localizedPage(locale: Locale) {
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
       <div className="container directory-page page-content">
-        <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}<a href="#spin-wheels">{t('Spin wheels')}<span>{spinWheels.length}</span></a></nav>
+        <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}<a href="#time">{t("Time & clocks")}<span>4</span></a><a href="#spin-wheels">{t('Spin wheels')}<span>{spinWheels.length}</span></a></nav>
         <TranslationMessages messages={cardMessages(messages,catalog)}>{categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}</TranslationMessages>
-        <WheelCollection messages={messages}/><DirectoryGuidance path={path} messages={messages} locale={locale}/>
+        <WheelCollection messages={messages}/><TimeCollection messages={messages}/><DirectoryGuidance path={path} messages={messages} locale={locale}/>
       </div>
     </>;
     if ('category' in route && route.category) {

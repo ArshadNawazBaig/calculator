@@ -157,9 +157,31 @@ export async function translationSource() {
       if (file.endsWith('wheel-editor.tsx') || file.endsWith('spin-wheels/engine.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) wheelRuntime.add(key);
       if (file.includes('/home/') || file.endsWith('home-content.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) homeRuntime.add(key);
     }
+    const {timePaths} = await server.ssrLoadModule('/src/lib/time/catalog.ts');
+    const {timeTools, timeCategory} = await server.ssrLoadModule('/src/lib/time/tools.ts');
+    const {timeGuides} = await server.ssrLoadModule('/src/lib/time/content.ts');
+    const timeRuntime = new Set();
+    collect(timeGuides, keys); collect(timeCategory, keys);
+    for (const tool of timeTools) {collect(tool, keys); descriptions[tool.slug] = tool.description;}
+    for (const file of ['src/lib/time/tools.ts', 'src/lib/time/catalog.ts', 'src/components/time/time-page.tsx', 'src/components/time/time-collection.tsx', 'src/components/time/world-clock.tsx', 'src/components/time/zone-directory.tsx', 'src/components/time/timer-tool.tsx']) {
+      // Explicit t() calls avoid translating code, selectors, or geographic identifiers.
+      const source = ts.createSourceFile(file, await readFile(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+      function visit(node) {
+        if (ts.isCallExpression(node) && node.expression.getText(source) === 't') {
+          function accept(part) {
+            if (ts.isStringLiteral(part)) {add(keys, part.text); if (/world-clock|zone-directory|timer-tool/.test(file)) add(timeRuntime, part.text);}
+            else if (ts.isConditionalExpression(part)) {accept(part.whenTrue); accept(part.whenFalse);}
+          }
+          if (node.arguments[0]) accept(node.arguments[0]);
+        }
+        ts.forEachChild(node, visit);
+      }
+      visit(source);
+    }
+    for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
     for (const color of ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Teal','White','Black']) add(keys, color);
-    const paths = ['/', '/calculators', '/guides', '/sitemap', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
-    return {keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
+    const paths = [...timePaths, '/', '/calculators', '/guides', '/sitemap', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    return {timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
   } finally { await server.close(); }
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
