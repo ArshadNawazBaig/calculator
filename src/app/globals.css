@@ -610,8 +610,6 @@ html[dir="rtl"] .formula-block, html[dir="rtl"] input[type="number"], html[dir="
 .translation-notice { border: 1px solid var(--color-line); border-inline-start: 3px solid var(--color-brand); border-radius: 6px; padding: 16px 20px; margin-bottom: 28px; background: var(--color-surface); font-size: 13px; line-height: 1.7; }
 .translation-notice p { margin-block: 4px 6px; color: var(--color-muted); }
 .translation-notice a { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
-html:not([lang="en"]) .site-header nav a { font-size: 13px; }
-@media (min-width:1001px) and (max-width:1250px) { html:not([lang="en"]) .site-header .container { width: calc(100% - 48px); } }
 
 .directory-guidance { max-width: 76ch; margin-top: 3rem; }
 

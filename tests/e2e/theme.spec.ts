@@ -33,7 +33,7 @@ test('manual choices persist across reloads, routes, languages, and tabs', async
   await choose(page, 'Dark');
   await page.reload();
   await expect.poll(() => background(page)).toBe('rgb(16, 17, 19)');
-  await page.getByRole('link', {name: 'All calculators', exact: true}).first().click();
+  await page.getByRole('navigation', {name: 'Main navigation'}).getByRole('link', {name: 'Calculators', exact: true}).click();
   await expect(page).toHaveURL(/\/calculators$/);
   await expect.poll(() => background(page)).toBe('rgb(16, 17, 19)');
   await expect(page.locator('meta[name="theme-color"]').first()).toHaveAttribute('content', '#101113');

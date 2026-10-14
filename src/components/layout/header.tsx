@@ -9,16 +9,7 @@ import {MobileNavigation} from "./mobile-navigation";
 import styles from "./header.module.css";
 import {useI18n} from '@/components/i18n/provider';
 import {splitLocale} from '@/lib/i18n/config';
-
-const navigationLinks=[
-  {label:"All calculators",href:"/calculators"},
-  {label:"Finance",href:"/calculators/finance"},
-  {label:"Health",href:"/calculators/health"},
-  {label:"Math",href:"/calculators/math"},
-  {label:"Everyday",href:"/calculators/everyday"},
-  {label:"Guides",href:"/guides"},
-  {label:"My workspace",href:"/workspace"},
-];
+import {navigationLinks,secondaryNavigationLinks,isNavigationActive} from './navigation';
 
 export function Header(){
   const pathname=splitLocale(usePathname()).path;
@@ -27,7 +18,7 @@ export function Header(){
     <div className={`container ${styles.inner}`}>
       <Logo/>
       <nav aria-label={t('Main navigation')} className={styles.desktopNav}>
-        {navigationLinks.map(({label,href})=><Link key={href} href={href} aria-current={(pathname===href||(href!=="/calculators"&&pathname.startsWith(`${href}/`)))?"page":undefined}>{t(label)}</Link>)}
+        {navigationLinks.map(({label,href,icon: NavIcon})=><Link key={href} href={href} className={href==='/workspace'?styles.workspaceLink:undefined} aria-current={isNavigationActive(pathname,href)?"page":undefined}>{href==='/workspace'&&<NavIcon size={16} aria-hidden="true"/>}{t(label)}</Link>)}
       </nav>
       <div className={styles.actions}>
         <div className={styles.utilities}>
@@ -35,7 +26,7 @@ export function Header(){
           <ThemeSelector/>
           <HeaderSearch/>
         </div>
-        <MobileNavigation key={pathname} links={[...navigationLinks,{label:"About Finflo",href:"/about"}].map(link=>({...link,label:t(link.label)}))} pathname={pathname}/>
+        <MobileNavigation key={pathname} links={navigationLinks.map(link=>({...link,label:t(link.label)}))} secondaryLinks={secondaryNavigationLinks.map(link=>({...link,label:t(link.label)}))} pathname={pathname}/>
       </div>
     </div>
   </header>;

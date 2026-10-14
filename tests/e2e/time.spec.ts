@@ -159,11 +159,13 @@ for (const theme of ['light','dark'] as const) test(`time tools remain accessibl
   }
 });
 
-test('time tools are discoverable without adding a navbar item', async ({page}) => {
+test('time tools are discoverable from the homepage and navbar', async ({page}) => {
+  await page.setViewportSize({width: 1440, height: 900});
   await page.goto('/');
   await page.getByRole('button', {name: 'Time & clocks', exact: true}).click();
   await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(4);
-  await expect(page.locator('header').getByRole('link', {name: 'Time & clocks'})).toHaveCount(0);
+  await page.locator('header').getByRole('link', {name: 'Time & clocks', exact: true}).click();
+  await expect(page).toHaveURL(/\/time$/);
   await page.goto('/search?q=stopwatch');
   await page.getByRole('link', {name: 'Online Stopwatch', exact: true}).click();
   await expect(page).toHaveURL(/\/time\/stopwatch$/);

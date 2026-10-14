@@ -24,7 +24,7 @@ export function HeaderSearch(){
     document.addEventListener("keydown",shortcut);return ()=>document.removeEventListener("keydown",shortcut);
   },[]);
   return <DialogTrigger isOpen={open} onOpenChange={setOpen}>
-    <Button className={`${styles.utilityTrigger} ${styles.iconTrigger} ${styles.searchTrigger}`} aria-label={t("Search calculators")} aria-keyshortcuts="Control+k Meta+k"><SearchIcon size={18} aria-hidden="true"/></Button>
+    <Button className={`${styles.utilityTrigger} ${styles.searchTrigger}`} aria-label={t("Search calculators")} aria-keyshortcuts="Control+k Meta+k"><SearchIcon size={18} aria-hidden="true"/><span className={styles.searchTriggerLabel}>{t('Search')}</span></Button>
     <ModalOverlay isDismissable className={styles.searchOverlay}>
       <Modal className={styles.searchModal} data-theme-surface="dark">
         <Dialog className={styles.searchDialog}>
