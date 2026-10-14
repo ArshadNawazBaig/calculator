@@ -4,7 +4,9 @@ import {CalculatorCard} from '@/components/calculators/calculator-card';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import {Icon} from '@/components/ui/icon';
 import {BookOpen, SlidersHorizontal, UserRoundCheck, ChevronRight} from 'lucide-react';
-import {categories} from '@/lib/site';
+import {toolCategories as categories} from '@/lib/site';
+import {wheelHref} from '@/lib/spin-wheels/catalog';
+import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
 import {catalog} from '@/lib/calculators/registry';
 import {calculatorCardData} from '@/lib/calculator-cards';
 import {translator, type Dictionary} from '@/lib/i18n/config';
@@ -33,11 +35,12 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
       <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} data-category={category.id} key={category.id}>
-        <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span><h3><Link href={`/calculators/${category.id}`}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
-        <ul>{category.links.map(link => <li key={link.slug}><Link href={`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
-        <Link className={styles.categoryAll} href={`/calculators/${category.id}`}>{t('All calculators')}<ChevronRight size={15}/></Link>
+        <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span><h3><Link href={category.href}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
+        <ul>{category.links.map(link => <li key={link.slug}><Link href={category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
+        <Link className={styles.categoryAll} href={category.href}>{t(category.id==='spin-wheels'?'Explore spin wheels':'All calculators')}<ChevronRight size={15}/></Link>
       </article>)}</div>
     </section>
+    <WheelCollection messages={messages} homepage/>
     <PlanningPathways messages={messages}/>
     <FinanceToolkit messages={messages}/>
     <HealthToolkit messages={messages}/>

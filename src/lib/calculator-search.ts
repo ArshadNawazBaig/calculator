@@ -1,20 +1,19 @@
 import type {Dictionary} from "@/lib/i18n/config";
-import data from "@/data/catalog.json";
-import type {CatalogEntry} from "@/lib/calculators/types";
-import type {CategoryId} from "@/lib/site";
+import {toolListings,type ToolListing} from "@/lib/tool-listings";
+import type {ToolCategoryId} from "@/lib/site";
 
 function normalize(value:string) {
   return value.normalize("NFKD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 }
 
-const index=(data as CatalogEntry[]).map(tool=>({
+const index=toolListings.map(tool=>({
   tool,
   title:normalize(tool.title),
   text:normalize(`${tool.title} ${tool.slug} ${tool.category} ${tool.subcategory} ${(tool.searchTerms||[]).join(" ")}`),
 }));
 
 /** Shared by live suggestions and the full results page. No calculation engines are loaded. */
-export function searchCalculators(query:string,category?:CategoryId,messages:Dictionary={}):CatalogEntry[] {
+export function searchCalculators(query:string,category?:ToolCategoryId,messages:Dictionary={}):ToolListing[] {
   const phrase=normalize(query);
   if(!phrase)return [];
   const terms=phrase.split(/\s+/);

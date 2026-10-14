@@ -1,3 +1,5 @@
+import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
+import {spinWheels} from '@/lib/spin-wheels/catalog';
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {Suspense} from 'react';
 import {notFound, redirect} from 'next/navigation';
@@ -79,9 +81,9 @@ export function localizedPage(locale: Locale) {
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
       <div className="container directory-page page-content">
-        <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}</nav>
+        <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}<a href="#spin-wheels">{t('Spin wheels')}<span>{spinWheels.length}</span></a></nav>
         <TranslationMessages messages={cardMessages(messages,catalog)}>{categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}</TranslationMessages>
-        <DirectoryGuidance path={path} messages={messages} locale={locale}/>
+        <WheelCollection messages={messages}/><DirectoryGuidance path={path} messages={messages} locale={locale}/>
       </div>
     </>;
     if ('category' in route && route.category) {

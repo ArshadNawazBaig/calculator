@@ -1,6 +1,6 @@
-import {Landmark,HeartPulse,Calculator,CalendarDays,type LucideProps} from "lucide-react";
+import {Landmark,HeartPulse,Calculator,CalendarDays,Disc3,type LucideProps} from "lucide-react";
 
-const icons={finance:Landmark,health:HeartPulse,math:Calculator,everyday:CalendarDays};
+const icons={finance:Landmark,health:HeartPulse,math:Calculator,everyday:CalendarDays,'spin-wheels':Disc3};
 
 export function Icon({name,...props}:{name:string}&LucideProps) {
   const Component=icons[name as keyof typeof icons]||Calculator;

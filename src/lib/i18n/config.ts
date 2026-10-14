@@ -28,6 +28,8 @@ export function isEnglishOnlyTool(path: string): boolean {return englishOnlyTool
 export function localizedPath(path: string, locale: Locale): string {
   if (!path.startsWith('/') || path.startsWith('//')) return path;
   const clean = splitLocale(path).path;
+  // Wheel tools currently have English pages; preserve their canonical routes from every locale.
+  if (/^\/spin-wheels(?:\/|[?#]|$)/.test(clean)) return clean;
   if(isEnglishOnlyTool(clean)) return clean;
   if (/^\/(?:api|_next)(?:\/|$)/.test(clean) || /\.[a-z0-9]+(?:[?#]|$)/i.test(clean)) return clean;
   return locale === 'en' ? clean : `/${locale}${clean === '/' ? '' : clean}`;

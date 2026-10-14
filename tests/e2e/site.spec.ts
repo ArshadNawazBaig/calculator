@@ -5,7 +5,7 @@ test('homepage category filters and keyboard search',async({page})=>{
   await page.goto('/');const input=page.getByRole('combobox',{name:'Search calculators'});
   await page.keyboard.press('/');await expect(input).toBeFocused();await input.fill('bmi');await page.keyboard.press('/');await expect(input).toHaveValue('bmi/');
   const filters=page.getByRole('group',{name:'Filter featured calculators'});
-  for(const [label,category] of [['Finance','finance'],['Health','health'],['Math','math'],['Everyday','everyday']]){
+  for(const [label,category] of [['Finance','finance'],['Health','health'],['Math','math'],['Everyday','everyday'],['Spin wheels','spin-wheels']]){
     await filters.getByRole('button',{name:label,exact:true}).click();await expect(filters.getByRole('button',{name:label,exact:true})).toHaveAttribute('aria-pressed','true');
     await expect(page.locator('#featured-calculators article')).toHaveCount(5);await expect(page.locator(`#featured-calculators article:not([data-category="${category}"])`)).toHaveCount(0);
   }

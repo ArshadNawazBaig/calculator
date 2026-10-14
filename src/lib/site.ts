@@ -1,3 +1,5 @@
+import {wheelCategory} from './spin-wheels/catalog';
+
 export const site = {
   name: "Finflo", url: process.env.NEXT_PUBLIC_SITE_URL || "https://finflo.org",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "erushbaig@gmail.com",
@@ -13,3 +15,8 @@ export const categories = [
 export type CategoryId = (typeof categories)[number]["id"];
 
 export const categoryLabels:Record<CategoryId,string>={finance:"Finance",health:"Health",math:"Math",everyday:"Everyday"};
+
+export const toolCategories = [...categories.map(category => ({...category, href: `/calculators/${category.id}`})), wheelCategory];
+export type ToolCategoryId = CategoryId | typeof wheelCategory.id;
+export const toolCategoryLabels: Record<ToolCategoryId, string> = {...categoryLabels, 'spin-wheels': wheelCategory.name};
+export const categoryHref = (category: ToolCategoryId) => category === 'spin-wheels' ? '/spin-wheels' : `/calculators/${category}`;

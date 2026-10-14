@@ -4,6 +4,7 @@ import {CalculationConfidence} from "@/components/home/calculation-confidence";
 import {LearningGuides} from "@/components/home/learning-guides";
 import {HomeFaq} from "@/components/home/home-faq";
 import {HomeCta} from "@/components/home/home-cta";
+import {WheelCollection} from "@/components/spin-wheels/wheel-collection";
 import {PlanningPathways,FinanceToolkit,HealthToolkit,EverydayToolkit,HowItWorks,WorkspaceIntroduction} from "@/components/home/home-details";
 import {site} from "@/lib/site";
 import {pageMetadata} from "@/lib/metadata";
@@ -17,6 +18,7 @@ export default function Home() {
     <JsonLd data={{"@context":"https://schema.org",...organizationData()}}/>
     <HomeExplorer/>
     <BrowseCategories/>
+    <WheelCollection homepage/>
     <PlanningPathways/>
     <FinanceToolkit/>
     <HealthToolkit/>

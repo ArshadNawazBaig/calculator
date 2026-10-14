@@ -9,7 +9,7 @@
 .sectionHeading>.sectionLink { white-space: nowrap; padding-block: 7px; }
 
 /* A consistent row of useful tools, with one separate topical feature. */
-.filters { display: flex; align-items: center; gap: 6px; margin-bottom: 22px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; width: fit-content; max-width: 100%; background: var(--color-soft); }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 22px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; width: fit-content; max-width: 100%; background: var(--color-soft); }
 .filters button { min-height: 44px; border: 1px solid transparent; border-radius: 8px; color: var(--color-muted); background: transparent; padding: 9px 18px; font-size: 14px; line-height: 1.5; font-weight: 550; }
 
 .filters button[aria-pressed="true"] { color: light-dark(var(--color-brand),var(--color-brand-dark)); border-color: light-dark(#191b1e,var(--color-line)); background: light-dark(#191b1e,var(--color-card)); box-shadow: 0 2px 4px light-dark(#17191c0a,#00000026); font-weight: 700; }
@@ -32,7 +32,7 @@
 
 /* Categories stay light and scannable instead of becoming another card wall. */
 .browse { padding-top: 0; }
-.categoryGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding-top: 8px; }
+.categoryGrid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); padding-top: 8px; }
 .category { display: flex; flex-direction: column; align-items: start; border-inline-start: 1px solid var(--color-line); padding: 0 28px; min-width: 0; }
 .category:first-child { border-inline-start: 0; padding-inline-start: 0; }
 .category:last-child { padding-inline-end: 0; }
@@ -78,6 +78,7 @@
 .closingPromises li { display: inline-flex; align-items: center; gap: 7px; color: var(--color-text-secondary); font-size: 12px; line-height: 1.6; }
 .closingPromises svg { color: var(--color-brand-text); }
 .closingCategories { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+.closingCategories>li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .closingCategory { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px 12px; align-content: start; height: 100%; padding: 22px; border: 1px solid var(--color-line); border-radius: 10px; background: color-mix(in srgb,var(--color-card) 55%,transparent); }
 .closingIcon { grid-area: 1 / 1; color: var(--color-brand-text); }
 .closingArrow { grid-area: 1 / 2; align-self: center; color: var(--color-brand-text); }
@@ -104,7 +105,7 @@
   .spotlight h3 { font-size: 27px; }
   .categoryGrid { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 32px; }
   .category { padding-inline: 28px; }
-  .category:nth-child(3) { border-inline-start: 0; padding-inline-start: 0; }
+  .category:nth-child(odd) { border-inline-start: 0; padding-inline-start: 0; }
   .category>p { max-width: 260px; }
   .browse,.faq { padding-top: 0; }
   .confidenceInner { gap: 36px; padding-block: 48px; }
@@ -122,7 +123,7 @@
   .eyebrow { font-size: 11px; }
   .sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: 28px; letter-spacing: -.85px; }
   .sectionHeading p { font-size: 14px; }
-  .filters { display: flex; width: 100%; gap: 2px; padding: 3px; margin-bottom: 18px; }
+  .filters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; gap: 2px; padding: 3px; margin-bottom: 18px; }
   .filters button { flex: 1; font-size: 12px; padding: 8px 3px; }
   .featuredGrid { gap: 12px; }
   .featuredLayout { gap: 20px; }

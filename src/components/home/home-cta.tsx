@@ -1,7 +1,7 @@
 import Link from "@/components/i18n/link";
 import {BookOpen, Check, ChevronRight, UserRoundCheck} from "lucide-react";
 import {Icon} from "@/components/ui/icon";
-import {categories} from "@/lib/site";
+import {toolCategories as categories} from "@/lib/site";
 import {translator, type Dictionary} from "@/lib/i18n/config";
 import styles from "./home.module.css";
 
@@ -21,7 +21,7 @@ export function HomeCta({messages = {}}: {messages?: Dictionary}) {
     </div>
     <ul className={styles.closingCategories}>
       {categories.map(category => <li key={category.id}>
-        <Link className={styles.closingCategory} href={`/calculators/${category.id}`}>
+        <Link className={styles.closingCategory} href={category.href}>
           <Icon className={styles.closingIcon} name={category.icon} size={24}/>
           <div><h3>{t(category.name)}</h3><p>{t(category.description)}</p></div>
           <ChevronRight className={styles.closingArrow} size={18} aria-hidden="true"/>

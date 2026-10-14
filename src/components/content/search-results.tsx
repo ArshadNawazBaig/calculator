@@ -2,7 +2,7 @@
 import {useI18n} from "@/components/i18n/provider";
 import Link from "@/components/i18n/link";
 import {useSearchParams} from "next/navigation";
-import {categories} from "@/lib/site";
+import {toolCategories as categories} from "@/lib/site";
 import {searchCalculators} from "@/lib/calculator-search";
 import {ToolDirectory} from "./tool-directory";
 import {Search} from "@/components/search";

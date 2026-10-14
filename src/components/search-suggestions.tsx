@@ -3,17 +3,17 @@ import {useI18n} from "@/components/i18n/provider";
 import {useEffect,useRef} from "react";
 import {ChevronRight,SearchX} from "lucide-react";
 import {ToolIcon} from "@/components/ui/tool-icon";
-import {categoryLabels,type CategoryId} from "@/lib/site";
-import type {CatalogEntry} from "@/lib/calculators/types";
+import {toolCategoryLabels as categoryLabels,type ToolCategoryId} from "@/lib/site";
+import type {ToolListing} from "@/lib/tool-listings";
 import styles from "./search.module.css";
 
 type SearchSuggestionsProps={
   inline?:boolean;
   id:string;
-  matches:CatalogEntry[];
+  matches:ToolListing[];
   total:number;
   activeIndex:number;
-  category?:CategoryId;
+  category?:ToolCategoryId;
   onActive:(index:number)=>void;
   onSelect:(slug:string)=>void;
   onBrowse:()=>void;

@@ -6,10 +6,11 @@ import {useEffect,useId,useMemo,useRef,useState,type KeyboardEvent,type ReactNod
 import {Button} from "@/components/ui/button";
 import {SearchSuggestions} from "@/components/search-suggestions";
 import {searchCalculators} from "@/lib/calculator-search";
-import type {CategoryId} from "@/lib/site";
+import {categoryHref,type ToolCategoryId} from "@/lib/site";
+import {toolHref} from "@/lib/tool-listings";
 import styles from "./search.module.css";
 
-type SearchProps={compact?:boolean;initialQuery?:string;iconOnly?:boolean;keyboardShortcut?:boolean;category?:CategoryId;placeholder?:string;autoFocus?:boolean;onNavigate?:()=>void;suggestionLayout?:'popover'|'inline';emptyContent?:ReactNode};
+type SearchProps={compact?:boolean;initialQuery?:string;iconOnly?:boolean;keyboardShortcut?:boolean;category?:ToolCategoryId;placeholder?:string;autoFocus?:boolean;onNavigate?:()=>void;suggestionLayout?:'popover'|'inline';emptyContent?:ReactNode};
 export function Search({compact=false,initialQuery="",iconOnly=false,keyboardShortcut=false,category,placeholder="What would you like to calculate?",autoFocus=false,onNavigate,suggestionLayout='popover',emptyContent}:SearchProps) {
  const {t,messages,href}=useI18n();
 
@@ -53,9 +54,9 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   },[isOpen,inline]);
 
   function closeMenu(){setOpen(false);setActiveIndex(-1);}
-  function openCalculator(slug:string){closeMenu();onNavigate?.();router.push(href(`/${slug}`));}
+  function openCalculator(slug:string){const tool=matches.find(item=>item.slug===slug);closeMenu();onNavigate?.();router.push(href(toolHref(tool||{slug})));}
   function searchHref(allCategories=false){
-    if(!query.trim())return category&&!allCategories?`/calculators/${category}`:"/calculators";
+    if(!query.trim())return category&&!allCategories?categoryHref(category):"/calculators";
     const params=new URLSearchParams({q:query.trim()});
     if(category&&!allCategories)params.set("category",category);
     return `/search?${params}`;

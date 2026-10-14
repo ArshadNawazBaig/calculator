@@ -3,7 +3,7 @@ import {useI18n} from "@/components/i18n/provider";
 import Link from '@/components/i18n/link';
 import {Check,BookOpen,UserRoundCheck} from 'lucide-react';
 import {Search} from '@/components/search';
-import {categoryLabels,type CategoryId} from '@/lib/site';
+import {toolCategoryLabels as categoryLabels,type ToolCategoryId} from '@/lib/site';
 import {Breadcrumbs,type BreadcrumbItem} from './breadcrumbs';
 import styles from './search-hero.module.css';
 
@@ -15,7 +15,7 @@ type SearchHeroProps={
   description:string;
   breadcrumbs?:BreadcrumbItem[];
   compact?:boolean;
-  category?:CategoryId;
+  category?:ToolCategoryId;
   onClearCategory?:()=>void;
 };
 
@@ -37,7 +37,7 @@ export function SearchHero({id,eyebrow,title,highlight,description,breadcrumbs,c
         </div>
         <div className={styles.promises}><span><Check size={16} aria-hidden="true"/>{t("Always free")}</span><span><UserRoundCheck size={16} aria-hidden="true"/>{t("No account needed")}</span><span><BookOpen size={16} aria-hidden="true"/>{t("Formulas explained")}</span></div>
       </div>
-      {category&&<p className={styles.searchScope}>{t("Searching {category} calculators.",{category:t(categoryLabels[category]).toLowerCase()})} {onClearCategory&&<button type="button" onClick={onClearCategory}>{t("Search all categories")}</button>}</p>}
+      {category&&<p className={styles.searchScope}>{category==='spin-wheels'?t('Spin wheels'):t("Searching {category} calculators.",{category:t(categoryLabels[category]).toLowerCase()})} {onClearCategory&&<button type="button" onClick={onClearCategory}>{t("Search all categories")}</button>}</p>}
     </div>
   </section>;
 }
