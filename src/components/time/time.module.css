@@ -1,7 +1,4 @@
-.toolNav { display: flex; flex-wrap: wrap; gap: 6px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-soft); width: fit-content; max-width: 100%; margin-bottom: 28px; }
-.toolNav a { padding: 12px 20px; border-radius: 8px; color: var(--color-text-secondary); font-size: 13px; font-weight: 600; }
-.toolNav a[aria-current] { color: #d5f915; background: #191b1e; }
-.toolNav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.toolNav { --tab-columns: 2; margin: 0 auto; }
 .clock { position: relative; min-width: 0; border: 1px solid var(--color-line); border-radius: 14px; padding: 28px 36px 22px; background: radial-gradient(ellipse at 65% 0%,var(--color-brand-soft),transparent 60%),var(--color-background); text-align: center; overflow: hidden; }
 .clockHero { width: 100%; min-width: 0; border-bottom: 1px solid var(--color-line); background: radial-gradient(ellipse at 65% 0%,var(--color-brand-soft),transparent 60%),var(--color-background); color: var(--color-ink); text-align: center; }
 .clockHeroInner { padding-block: 24px 32px; }
@@ -9,19 +6,16 @@
 .clockIntro { max-width: 780px; margin: 18px auto 0; }
 .clockIntro h1 { font-size: clamp(26px,3vw,38px); font-weight: 650; letter-spacing: -.035em; line-height: 1.25; }
 .clockIntro p { margin-top: 10px; color: var(--color-muted); font-size: 14px; line-height: 1.8; text-wrap: pretty; }
-.clockHero .location { margin-top: 24px; }
 .clockHero .toolNav { margin: 24px auto 0; }
-.clockHero .toolNav a[aria-current] { background: var(--color-card); box-shadow: inset 0 0 0 1px var(--color-line); }
 .clockTop { display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: start; }
 .live { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 650; letter-spacing: .12em; color: var(--color-brand); }
 .live>span { width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: var(--color-brand); box-shadow: 0 0 14px #d5f91555; }
 .segmented { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--color-line); border-radius: 7px; }
 .segmented button { min-height: 36px; padding: 7px 12px; font-size: 11px; color: var(--color-muted); border-radius: 4px; }
 .segmented button[aria-pressed="true"] { color: var(--color-brand); background: var(--color-card); }
-.location { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-top: 38px; }
-.location svg { color: var(--color-brand); }
-.location h2 { color: var(--color-ink); font-size: 23px; font-weight: 600; letter-spacing: -.5px; }
-.location>span { font-size: 11px; color: var(--color-muted); padding: 5px 9px; border: 1px solid var(--color-line); border-radius: 5px; overflow-wrap: anywhere; }
+.zonePicker { width: min(100%,420px); margin: 24px auto 0; text-align: start; }
+.zonePicker label { display: flex; align-items: center; gap: 8px; color: var(--color-text-secondary); font-size: 12px; font-weight: 550; margin-bottom: 9px; }
+.zonePicker label svg { color: var(--color-brand); }
 .digital { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; color: #f5f5f6; font-size: clamp(48px,10.6vw,140px); line-height: 1.18; letter-spacing: -.055em; font-weight: 600; margin: 14px auto; white-space: nowrap; }
 .fullDate { color: var(--color-text-secondary); font-size: clamp(15px,2vw,20px); line-height: 1.6; }
 .clockMeta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin-top: 17px; font-size: 12px; color: var(--color-muted); }
@@ -57,7 +51,7 @@
 .directoryControls label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 9px; }
 .search>div { position: relative; }
 .search svg { position: absolute; top: 15px; inset-inline-start: 15px; color: var(--color-muted); }
-.search input,.region select { min-height: 50px; width: 100%; border: 1px solid var(--color-line-strong); background: var(--color-input); color: var(--color-ink); border-radius: 8px; padding: 12px 16px; font-size: 14px; }
+.search input { min-height: 50px; width: 100%; border: 1px solid var(--color-line-strong); background: var(--color-input); color: var(--color-ink); border-radius: 8px; padding: 12px 16px; font-size: 14px; }
 .search input { padding-inline-start: 44px; }
 .region { width: 220px; }
 .zoneGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 18px; }
@@ -108,5 +102,5 @@
 .laps td,.laps th { padding: 12px 5px; text-align: start; border-bottom: 1px solid var(--color-line); white-space: nowrap; }
 .laps th { color: var(--color-muted); font-weight: 500; }
 @media(max-width:1000px) { .detailsGrid { grid-template-columns: repeat(2,minmax(0,1fr)); } .detail:nth-child(2) { border-inline-end: 0; } .detail:nth-child(-n+2) { border-bottom: 1px solid var(--color-line); } .guideLayout { gap: 32px; grid-template-columns: minmax(0,1fr) 230px; } .timerLayout { gap: 18px; } .timerLayout .clock,.timerSettings { padding: 22px; } }
-@media(max-width:700px) { .toolNav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; text-align: center; } .toolNav a { padding: 12px 8px; } .clock { padding: 22px 18px 18px; } .clockTop { gap: 10px; flex-wrap: wrap; } .location { margin-top: 26px; } .location h2 { font-size: 21px; } .digital { font-size: clamp(42px,11.7vw,80px); } .savedGrid,.zoneGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .savedCard a { padding: 18px; } .savedCard strong { font-size: 29px; } .heading { display: block; } .heading h2 { font-size: 25px; } .heading>a { margin-top: 15px; } .guideLayout { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; } .section { margin-top: 36px; } .timerLayout { grid-template-columns: 1fr; } .timerLayout .digital { font-size: clamp(44px,11vw,80px); } .timerLayout .stopwatchDigits { font-size: clamp(35px,9vw,65px); } .directoryControls { flex-direction: column; align-items: stretch; } .region { width: 100%; } .detail { padding: 19px; } .zoneCard { padding: 16px; } }
-@media(max-width:380px) { .zoneGrid { grid-template-columns: 1fr; } .live { font-size: 9px; } .segmented button { font-size: 10px; padding-inline: 8px; } .savedCard a { padding: 15px; } .savedCard strong { font-size: 25px; } .detailsGrid { grid-template-columns: 1fr; } .detail { border-inline-end: 0; border-bottom: 1px solid var(--color-line); } .detail:last-child { border-bottom: 0; } .clockActions { gap: 6px; } .clockActions button { padding-inline: 10px; } .location>span { font-size: 10px; } }
+@media(max-width:700px) { .clock { padding: 22px 18px 18px; } .clockTop { gap: 10px; flex-wrap: wrap; } .digital { font-size: clamp(42px,11.7vw,80px); } .savedGrid,.zoneGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .savedCard a { padding: 18px; } .savedCard strong { font-size: 29px; } .heading { display: block; } .heading h2 { font-size: 25px; } .heading>a { margin-top: 15px; } .guideLayout { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; } .section { margin-top: 36px; } .timerLayout { grid-template-columns: 1fr; } .timerLayout .digital { font-size: clamp(44px,11vw,80px); } .timerLayout .stopwatchDigits { font-size: clamp(35px,9vw,65px); } .directoryControls { flex-direction: column; align-items: stretch; } .region { width: 100%; } .detail { padding: 19px; } .zoneCard { padding: 16px; } }
+@media(max-width:380px) { .zoneGrid { grid-template-columns: 1fr; } .live { font-size: 9px; } .segmented button { font-size: 10px; padding-inline: 8px; } .savedCard a { padding: 15px; } .savedCard strong { font-size: 25px; } .detailsGrid { grid-template-columns: 1fr; } .detail { border-inline-end: 0; border-bottom: 1px solid var(--color-line); } .detail:last-child { border-bottom: 0; } .clockActions { gap: 6px; } .clockActions button { padding-inline: 10px; } }

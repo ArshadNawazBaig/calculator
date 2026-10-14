@@ -35,6 +35,51 @@ test('server clock failures are visibly labeled', async ({page}) => {
   await expect(page.locator('[data-live-clock]')).toHaveText(/\d{2}:\d{2}:\d{2}/);
 });
 
+test('clock dropdown searches zones, updates dates, saves the choice and keeps city pages in sync', async ({page}) => {
+  await page.route('**/api/time', route => route.fulfill({json: {timestamp: Date.parse('2026-01-01T00:30:00Z')}}));
+  await page.goto('/time');
+  await expect(page.locator('[data-clock-source]')).toContainText('Synchronized');
+  const picker = page.locator('#clock-zone');
+  await picker.click();
+  const search = page.getByRole('combobox', {name: 'Search options', exact: true});
+  await search.fill('Pakistan');
+  await expect(page.getByRole('option', {name: 'Pakistan · Karachi · Asia/Karachi', exact: true})).toBeVisible();
+  await search.fill('India');
+  await expect(page.getByRole('option', {name: 'India · Kolkata · Asia/Kolkata', exact: true})).toBeVisible();
+  await search.fill('Australia');
+  await expect(page.getByRole('option', {name: 'Australia · Sydney · Australia/Sydney', exact: true})).toBeVisible();
+  await expect(page.getByRole('option', {name: 'Australia · Perth · Australia/Perth', exact: true})).toBeVisible();
+  await search.fill('America');
+  await expect(page.getByRole('option', {name: 'United States · New York · America/New_York', exact: true})).toBeVisible();
+  await search.fill('Honolulu');
+  await search.press('ArrowDown');
+  await search.press('Enter');
+  await expect(picker).toContainText('Pacific/Honolulu');
+  await expect(page.locator('[data-live-clock]')).toContainText('14:30:');
+  await expect(page.locator('[data-clock-date]')).toContainText('December 31, 2025');
+  await expect(page.getByRole('heading', {name: 'Today in Honolulu'})).toBeVisible();
+  await expect(page.getByText('UTC−10:00', {exact: true}).first()).toBeVisible();
+  await page.getByRole('button', {name: 'Save clock', exact: true}).click();
+  await page.getByRole('button', {name: 'Make default'}).click();
+  await page.reload();
+  await expect(picker).toContainText('Pacific/Honolulu');
+  await expect(page.getByRole('button', {name: 'Saved clock', exact: true})).toBeVisible();
+  const localTime = await page.evaluate(() => new Intl.DateTimeFormat('en', {hour: '2-digit', minute: '2-digit', hourCycle: 'h23'}).format(Date.parse('2026-01-01T00:30:00Z')));
+  await page.getByRole('button', {name: 'Use my time zone'}).click();
+  await expect(page.locator('[data-live-clock]')).toContainText(localTime);
+
+  await page.goto('/time/asia-karachi');
+  await picker.click();
+  await search.fill('Japan');
+  await page.getByRole('option', {name: 'Japan · Tokyo · Asia/Tokyo', exact: true}).click();
+  await expect(page).toHaveURL(/\/time\/asia-tokyo$/);
+  await expect(page.getByRole('heading', {level: 1})).toHaveText('Current time in Tokyo');
+  await expect(page.locator('[data-live-clock]')).toContainText('09:30:');
+  await page.goBack();
+  await expect(picker).toContainText('Asia/Karachi');
+  await expect(page.locator('[data-live-clock]')).toContainText('05:30:');
+});
+
 test('timezone directory searches countries and aliases and filters regions', async ({page}) => {
   await page.goto('/time/time-zones');
   await page.getByLabel('Search time zones', {exact: true}).fill('Pakistan');
@@ -44,7 +89,8 @@ test('timezone directory searches countries and aliases and filters regions', as
   await page.getByLabel('Search time zones', {exact: true}).fill('Calcutta');
   await expect(page.getByRole('link', {name: /Kolkata.*India/})).toBeVisible();
   await page.getByLabel('Search time zones', {exact: true}).fill('');
-  await page.getByLabel('Region', {exact: true}).selectOption('Europe');
+  await page.locator('#zone-region').click();
+  await page.getByRole('option', {name: 'Europe', exact: true}).click();
   await expect(page.getByRole('link', {name: /Africa\/Abidjan/})).toHaveCount(0);
   await page.getByLabel('Search time zones', {exact: true}).fill('not-a-real-place');
   await expect(page.getByText('No time zones found. Try a city name or a shorter search.')).toBeVisible();

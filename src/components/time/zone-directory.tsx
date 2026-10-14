@@ -4,6 +4,7 @@ import {ArrowUpRight, Search} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {useI18n} from '@/components/i18n/provider';
 import {Button} from '@/components/ui/button';
+import {Dropdown} from '@/components/ui/dropdown';
 import {useHydrated} from '@/lib/use-hydrated';
 import {zones, zoneHref, popularZoneIds} from '@/lib/time/catalog';
 import styles from './time.module.css';
@@ -21,7 +22,7 @@ export function ZoneDirectory({countries, compact = false}: {countries: Record<s
   return <section className={styles.section} aria-labelledby="zone-directory-title">
     <div className={styles.heading}><div><span className="eyebrow">{t('ONE WORLD. EVERY TIME ZONE.')}</span><h2 id="zone-directory-title">{t(compact ? 'What time is it there?' : 'Find a time zone')}</h2><p>{t('Search by city, country, or time-zone name. Open a clock to see its local time and date.')}</p></div>{compact && <Link href="/time/time-zones" className="text-link">{t('All time zones')}<ArrowUpRight size={16} aria-hidden="true"/></Link>}</div>
     <div className={styles.directoryControls}><div className={styles.search}><label htmlFor="zone-search">{t('Search time zones')}</label><div><Search size={19} aria-hidden="true"/><input id="zone-search" type="search" disabled={!hydrated} value={query} onChange={event => {setQuery(event.target.value); setLimit(24);}} placeholder={t('Try London, Pakistan, or Asia/Tokyo')} autoComplete="off"/></div></div>
-      {!compact && <div className={styles.region}><label htmlFor="zone-region">{t('Region')}</label><select id="zone-region" disabled={!hydrated} value={region} onChange={event => {setRegion(event.target.value); setLimit(24);}}><option value="all">{t('All regions')}</option>{regions.map(value => <option key={value} value={value}>{t(value === 'Etc' ? 'Fixed UTC offsets' : value)}</option>)}</select></div>}
+      {!compact && <div className={styles.region}><label id="zone-region-label" htmlFor="zone-region">{t('Region')}</label><Dropdown id="zone-region" aria-labelledby="zone-region-label" disabled={!hydrated} value={region} onValueChange={value => {setRegion(value); setLimit(24);}} options={[{value: 'all', label: t('All regions')}, ...regions.map(value => ({value, label: t(value === 'Etc' ? 'Fixed UTC offsets' : value)}))]}/></div>}
     </div>
     <p className={styles.note} role="status">{t(compact && !query ? 'Popular clocks around the world' : '{count} time zones found', {count: results.length})}</p>
     <div className={styles.zoneGrid}>{visible.map(zone => <Link href={zoneHref(zone)} key={zone.id} className={styles.zoneCard} prefetch={false}>

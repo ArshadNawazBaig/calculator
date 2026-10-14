@@ -1,18 +1,22 @@
 'use client';
 import {useEffect, useMemo, useState, type ReactNode} from 'react';
+import {useRouter} from 'next/navigation';
 import {ArrowUpRight, Globe2, MapPin, Star, X} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {useI18n} from '@/components/i18n/provider';
 import {Button} from '@/components/ui/button';
+import {Dropdown} from '@/components/ui/dropdown';
 import {useHydrated} from '@/lib/use-hydrated';
 import {calendarFacts, nextClockChange, offsetLabel, offsetMinutes, supportsZone, timeFormatter} from '@/lib/time/engine';
-import {zoneById, zoneHref, type ClockZone} from '@/lib/time/catalog';
+import {zones, zoneById, zoneHref, type ClockZone} from '@/lib/time/catalog';
 import {useClock} from './use-clock';
 import styles from './time.module.css';
 
 const savedKey = 'finflo-world-clocks-v1', defaultKey = 'finflo-default-clock-v1';
-export function WorldClock({initialZone, breadcrumbs, introduction, navigation}: {initialZone?: ClockZone; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode}) {
-  const {t, locale} = useI18n(), hydrated = useHydrated();
+export function WorldClock({initialZone, countries, breadcrumbs, introduction, navigation}: {initialZone?: ClockZone; countries: Record<string, string>; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode}) {
+  const {t, locale, href} = useI18n(), hydrated = useHydrated();
+  const zoneOptions = useMemo(() => zones.map(zone => ({value: zone.id, label: [countries[zone.country], zone.place, zone.place === zone.id ? '' : zone.id].filter(Boolean).join(' · ')})), [countries]);
+  const router = useRouter();
   const clock = useClock();
   const [zone, setZone] = useState(initialZone || zoneById.get('UTC')!);
   const [localZone, setLocalZone] = useState('UTC');
@@ -24,7 +28,7 @@ export function WorldClock({initialZone, breadcrumbs, introduction, navigation}:
     // Client-only preferences must be restored after the identical server/client first render.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocalZone(local);
-    if (!initialZone) setZone(zoneById.get(local) || zoneById.get('UTC')!);
+    setZone(initialZone || zoneById.get(local) || zoneById.get('UTC')!);
     try {
       const stored = JSON.parse(localStorage.getItem(savedKey) || 'null');
       if (Array.isArray(stored)) setFavorites([...new Set(stored.filter((id): id is string => typeof id === 'string' && zoneById.has(id)))].slice(0, 6));
@@ -53,6 +57,13 @@ export function WorldClock({initialZone, breadcrumbs, introduction, navigation}:
     else if (favorites.length < 6) saveFavorites([...favorites, zone.id]);
     else setFeedback(t('You can save up to 6 clocks. Remove one to add another.'));
   };
+  const selectZone = (id: string) => {
+    const nextZone = zoneById.get(id);
+    if (!nextZone) return;
+    setZone(nextZone);
+    setFeedback('');
+    if (initialZone && nextZone.id !== initialZone.id) router.push(href(zoneHref(nextZone)), {scroll: false});
+  };
   return <>
     <section className={styles.clockHero} data-theme-surface="dark" aria-labelledby="page-title">
       <div className={`container ${styles.clockHeroInner}`}>
@@ -61,12 +72,15 @@ export function WorldClock({initialZone, breadcrumbs, introduction, navigation}:
         {[false, true].map(value => <button key={String(value)} type="button" disabled={!hydrated} aria-pressed={hour12 === value} onClick={() => setHour12(value)}>{t(value ? '12 hour' : '24 hour')}</button>)}
       </div></div>
       {introduction}
-      <div className={styles.location}><MapPin size={17} aria-hidden="true"/><h2>{zone.place}</h2><span dir="ltr">{zone.id}</span></div>
+      <div className={styles.zonePicker}>
+        <label id="clock-zone-label" htmlFor="clock-zone"><MapPin size={16} aria-hidden="true"/>{t('Time zone')}</label>
+        <Dropdown id="clock-zone" aria-labelledby="clock-zone-label" value={zone.id} onValueChange={selectZone} options={zoneOptions} searchable disabled={!hydrated} surface="dark"/>
+      </div>
       <div className={styles.digital} role="timer" aria-live="off" data-live-clock dir="ltr">{now === null ? '—:—:—' : time(now, zone.id)}</div>
       <p className={styles.fullDate} data-clock-date>{now === null ? t('Loading your local date…') : date(now, zone.id)}</p>
       <div className={styles.clockMeta}><span dir="ltr">{offset === null ? 'UTC —' : offsetLabel(offset)}</span><span>{now === null ? t('Finding your time zone…') : difference === 0 ? t('Same time as you') : t(difference > 0 ? '{hours} hours ahead of your time' : '{hours} hours behind your time', {hours: duration})}</span></div>
       <div className={styles.clockActions}>
-        <Button variant="secondary" disabled={!hydrated} onClick={() => setZone(zoneById.get(localZone) || zoneById.get('UTC')!)}><Globe2 size={16} aria-hidden="true"/>{t('Use my time zone')}</Button>
+        <Button variant="secondary" disabled={!hydrated} onClick={() => selectZone(zoneById.get(localZone)?.id || 'UTC')}><Globe2 size={16} aria-hidden="true"/>{t('Use my time zone')}</Button>
         <Button variant="secondary" disabled={!hydrated} aria-pressed={favorites.includes(zone.id)} onClick={favorite}><Star size={16} aria-hidden="true" fill={favorites.includes(zone.id) ? 'currentColor' : 'none'}/>{t(favorites.includes(zone.id) ? 'Saved clock' : 'Save clock')}</Button>
         <button className={styles.textButton} type="button" disabled={!hydrated} onClick={() => {try {localStorage.setItem(defaultKey, zone.id); setFeedback(t('Default clock saved.'));} catch {setFeedback(t('Your clocks work for this visit. Browser storage is unavailable.'));}}}>{t('Make default')}</button>
       </div>

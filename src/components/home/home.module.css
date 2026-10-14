@@ -9,11 +9,7 @@
 .sectionHeading>.sectionLink { white-space: nowrap; padding-block: 7px; }
 
 /* A consistent row of useful tools, with one separate topical feature. */
-.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 22px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; width: fit-content; max-width: 100%; background: var(--color-soft); }
-.filters button { min-height: 44px; border: 1px solid transparent; border-radius: 8px; color: var(--color-muted); background: transparent; padding: 9px 18px; font-size: 14px; line-height: 1.5; font-weight: 550; }
-
-.filters button[aria-pressed="true"] { color: light-dark(var(--color-brand),var(--color-brand-dark)); border-color: light-dark(#191b1e,var(--color-line)); background: light-dark(#191b1e,var(--color-card)); box-shadow: 0 2px 4px light-dark(#17191c0a,#00000026); font-weight: 700; }
-.filters button:not([aria-pressed="true"]):hover { color: var(--color-brand-text-strong); background: var(--color-surface); }
+.filters { margin-bottom: 22px; }
 .featuredLayout { display: grid; gap: 24px; }
 .featuredGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
 .spotlight { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,.65fr); gap: 72px; align-items: center; position: relative; isolation: isolate; overflow: hidden; border-radius: 12px; color: var(--color-ink); padding: 32px 38px; background: radial-gradient(ellipse at 80% 0%,var(--color-brand-soft) 0%,transparent 60%),var(--color-background); }
@@ -123,8 +119,7 @@
   .eyebrow { font-size: 11px; }
   .sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: 28px; letter-spacing: -.85px; }
   .sectionHeading p { font-size: 14px; }
-  .filters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; gap: 2px; padding: 3px; margin-bottom: 18px; }
-  .filters button { flex: 1; font-size: 12px; padding: 8px 3px; }
+  .filters { margin-bottom: 18px; }
   .featuredGrid { gap: 12px; }
   .featuredLayout { gap: 20px; }
   .spotlight { display: block; padding: 26px; border-radius: 10px; }

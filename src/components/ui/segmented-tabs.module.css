@@ -1,0 +1,8 @@
+.tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 5px; border: 1px solid var(--color-line); border-radius: 12px; width: fit-content; max-width: 100%; background: var(--color-soft); }
+.item { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid transparent; border-radius: 8px; color: var(--color-muted); background: transparent; padding: 9px 18px; font-size: 14px; line-height: 1.5; font-weight: 550; text-align: center; }
+.item:is([aria-pressed="true"],[aria-current="page"]) { color: light-dark(var(--color-brand),var(--color-brand-dark)); border-color: light-dark(#191b1e,var(--color-line)); background: light-dark(#191b1e,var(--color-card)); box-shadow: 0 2px 4px light-dark(#17191c0a,#00000026); font-weight: 700; }
+.item:not([aria-pressed="true"],[aria-current="page"]):hover { color: var(--color-brand-text-strong); background: var(--color-surface); }
+@media(max-width:600px) {
+  .tabs { display: grid; grid-template-columns: repeat(var(--tab-columns,3),minmax(0,1fr)); width: 100%; gap: 2px; padding: 3px; }
+  .item { flex: 1; font-size: 12px; padding: 8px 3px; }
+}

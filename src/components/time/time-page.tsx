@@ -14,6 +14,7 @@ import {WorldClock} from './world-clock';
 import {ZoneDirectory} from './zone-directory';
 import {TimerTool} from './timer-tool';
 import styles from './time.module.css';
+import tabStyles from '@/components/ui/segmented-tabs.module.css';
 
 export function TimePage({path = '/time', locale = 'en', messages = {}}: {path?: string; locale?: Locale; messages?: Dictionary}) {
   const route = timeRoute(path);
@@ -26,15 +27,14 @@ export function TimePage({path = '/time', locale = 'en', messages = {}}: {path?:
   const countryNames = new Intl.DisplayNames([locale === 'tl' ? 'fil' : locale], {type: 'region'});
   const countries = Object.fromEntries(zones.filter(zone => zone.country).map(zone => [zone.country, countryNames.of(zone.country) || zone.country]));
   const breadcrumbs = path === '/time' ? [{label: t('Time & clocks')}] : [{label: t('Time & clocks'), href: '/time'}, {label: title}];
-  const navigation = <nav className={styles.toolNav} aria-label={t('Time tools')}>{timeTools.map(tool => <Link key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>;
+  const navigation = <nav className={`${tabStyles.tabs} ${styles.toolNav}`} aria-label={t('Time tools')}>{timeTools.map(tool => <Link className={tabStyles.item} key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>;
   return <TranslationMessages messages={timeMessages(messages)}>
-    {mode === 'clock' ? <WorldClock initialZone={zone}
+    {mode === 'clock' ? <WorldClock initialZone={zone} countries={countries}
       breadcrumbs={<Breadcrumbs items={breadcrumbs} tone="inverse"/>}
       introduction={<div className={styles.clockIntro}><h1 id="page-title">{title}</h1><p>{description}</p></div>}
       navigation={navigation}/>
-      : <PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={breadcrumbs}/>}
+      : <PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={breadcrumbs}>{navigation}</PageHero>}
     <div className={`container tool-page${mode === 'clock' ? '' : ' page-content'}`}>
-      {mode !== 'clock' && navigation}
       {(mode === 'timer' || mode === 'stopwatch') && <TimerTool stopwatch={mode === 'stopwatch'}/>}
       {(mode === 'clock' || mode === 'directory') && <ZoneDirectory countries={countries} compact={mode === 'clock'}/>}
       <div className={styles.guideLayout}>

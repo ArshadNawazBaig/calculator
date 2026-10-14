@@ -17,13 +17,14 @@ export type DropdownProps={
   searchable?:boolean;
   placeholder?:string;
   size?:"default"|"compact";
+  surface?:"dark";
   className?:string;
   "aria-label"?:string;
   "aria-labelledby"?:string;
   "aria-describedby"?:string;
 };
 
-export function Dropdown({id,name,value,onValueChange,options,disabled=false,required=false,searchable=options.length>20,placeholder="Select an option",size="default",className="",...accessibility}:DropdownProps) {
+export function Dropdown({id,name,value,onValueChange,options,disabled=false,required=false,searchable=options.length>20,placeholder="Select an option",size="default",surface,className="",...accessibility}:DropdownProps) {
  const {t}=useI18n();
 
   const {contains}=useFilter({sensitivity:"base"});
@@ -33,9 +34,9 @@ export function Dropdown({id,name,value,onValueChange,options,disabled=false,req
 
   return <Select {...accessibility} name={name} value={options.some(option=>option.value===value)?value:null} onChange={next=>onValueChange(next===null?"":String(next))}
     isDisabled={disabled} isRequired={required} disabledKeys={options.filter(option=>option.disabled).map(option=>option.value)} validationBehavior="native"
-    placeholder={t(placeholder)} className={`${styles.root} ${size==="compact"?styles.compact:""} ${className}`} data-ui-control="dropdown">
+    placeholder={t(placeholder)} className={`${styles.root} ${size==="compact"?styles.compact:""} ${className}`} data-ui-control="dropdown" data-theme-surface={surface}>
     <Button id={id} className={`${styles.control} ${styles.selectTrigger}`}><SelectValue className={styles.selectValue}>{({selectedText,isPlaceholder})=>isPlaceholder?t(placeholder):selectedText}</SelectValue><ChevronDown size={17} aria-hidden="true"/></Button>
-    <AnchoredPopover placement="bottom start" offset={7} maxHeight={360} className={styles.selectPopover}>
+    <AnchoredPopover placement="bottom start" offset={7} maxHeight={360} className={styles.selectPopover} data-theme-surface={surface}>
       {searchable?<Autocomplete filter={contains}>
         <SearchField aria-label={t("Search options")} className={styles.optionSearch} autoFocus>
           <Search size={16} aria-hidden="true"/><Input role="combobox" aria-expanded={true} placeholder={t("Search options…")}/><Button aria-label={t("Clear options search")}><X size={14} aria-hidden="true"/></Button>
