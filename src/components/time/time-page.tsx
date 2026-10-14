@@ -1,4 +1,5 @@
 import {notFound} from 'next/navigation';
+import {ArrowUpRight} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {PageHero} from '@/components/content/page-hero';
@@ -44,7 +45,7 @@ export function TimePage({path = '/time', locale = 'en', messages = {}}: {path?:
           {guide.sections.map(section => <section key={section.title}><h2>{t(section.title)}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</section>)}
           <p className={styles.note}>{t('Time-zone directory: IANA {version}. Live regional rules come from your browser.', {version: clockZoneVersion})}{' '}<a href="https://www.iana.org/time-zones">{t('IANA Time Zone Database')}</a></p>
         </article>
-        <aside className={styles.related} aria-label={t('Related time tools')}><span className="eyebrow">{t('A LITTLE MORE CLARITY')}</span><h2>{t('Make time work for you.')}</h2><p>{t('Plan a call, check a date, or focus on what comes next.')}</p>{[...timeTools, {href: '/time-zone-calculator', title: 'Time Zone Calculator'}, {href: '/date-calculator', title: 'Date Calculator'}, {href: '/time-calculator', title: 'Time Calculator'}].filter(tool => tool.href !== path).map(tool => <Link href={tool.href} key={tool.href}>{t(tool.title)}<span aria-hidden="true">↗</span></Link>)}</aside>
+        <aside className={styles.related} aria-label={t('Related time tools')}><span className="eyebrow">{t('A LITTLE MORE CLARITY')}</span><h2>{t('Make time work for you.')}</h2><p>{t('Plan a call, check a date, or focus on what comes next.')}</p>{[...timeTools, {href: '/time-zone-calculator', title: 'Time Zone Calculator'}, {href: '/date-calculator', title: 'Date Calculator'}, {href: '/time-calculator', title: 'Time Calculator'}].filter(tool => tool.href !== path).map(tool => <Link href={tool.href} key={tool.href}>{t(tool.title)}<ArrowUpRight size={16} aria-hidden="true"/></Link>)}</aside>
       </div>
     </div>
     <JsonLd data={{'@context': 'https://schema.org', '@type': mode === 'directory' ? 'CollectionPage' : 'WebApplication', name: title, description, url: site.url + localizedPath(path, locale), inLanguage: locale, ...(mode !== 'directory' ? {applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', isAccessibleForFree: true, offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'}} : {})}}/>

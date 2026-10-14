@@ -10,7 +10,7 @@ import styles from "./home.module.css";
 export function BrowseCategories() {
   return <section className={`container ${styles.section} ${styles.browse}`} aria-labelledby="browse-title">
     <SectionHeading id="browse-title" eyebrow="A tool for every part of life" title="What’s on your mind?" description="Explore the whole collection, one category at a time."/>
-    <div className={styles.categoryGrid}>{toolCategories.map(category=><article className={styles.category} data-category={category.id} key={category.id}>
+    <div className={styles.categoryGrid}>{toolCategories.filter(category=>category.id!=='everyday').map(category=><article className={styles.category} data-category={category.id} key={category.id}>
       <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span>
       <h3><Link href={category.href}>{toolCategoryLabels[category.id]}</Link></h3>
       <p>{category.description}</p>

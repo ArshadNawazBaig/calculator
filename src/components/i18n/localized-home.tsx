@@ -29,7 +29,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     <TranslationMessages messages={homeMessages(messages, Object.values(featuredTools).flat())}><HomeExplorer/></TranslationMessages>
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
-      <div className={styles.categoryGrid}>{categories.map(category => <article className={styles.category} data-category={category.id} key={category.id}>
+      <div className={styles.categoryGrid}>{categories.filter(category => category.id !== 'everyday').map(category => <article className={styles.category} data-category={category.id} key={category.id}>
         <span className={styles.categoryIcon}><Icon name={category.icon} size={25}/></span><h3><Link href={category.href}>{t(category.name)}</Link></h3><p>{t(category.description)}</p>
         <ul>{category.links.map(link => <li key={link.slug}><Link href={category.id==='time'?(timeTools.find(tool=>tool.slug===link.slug)?.href||'/time'):category.id==='spin-wheels'?wheelHref(link.slug):`/${link.slug}`}>{t(`tool.${link.slug}`)}</Link></li>)}</ul>
         <Link className={styles.categoryAll} href={category.href}>{t(category.id==='time'?'Explore time tools':category.id==='spin-wheels'?'Explore spin wheels':'All calculators')}<ChevronRight size={15}/></Link>
