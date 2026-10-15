@@ -17,6 +17,8 @@ import {Suspense} from 'react';
 import {notFound} from 'next/navigation';
 import Link from '@/components/i18n/link';
 import {PageHero} from '@/components/content/page-hero';
+import {SystemPage} from '@/components/content/system-page';
+import {RetryButton} from '@/components/content/retry-button';
 import {SearchHero} from '@/components/content/search-hero';
 import {SearchResults} from '@/components/content/search-results';
 import {ToolDirectory} from '@/components/content/tool-directory';
@@ -30,7 +32,7 @@ import {WorkspacePage} from '@/components/workspace/workspace';
 import {CalculatorArticle} from '@/components/i18n/calculator-article';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
-import {cardMessages} from './dictionaries';
+import {cardMessages, getDictionary} from './dictionaries';
 import {localizeToolDefaults} from './tool-defaults';
 import {breadcrumbData, guideData, organizationData} from '@/lib/structured-data';
 import translatedPages from '@/data/locales/translated-pages.json';
@@ -85,7 +87,10 @@ function routeInfo(path: string) {
 export function localizedMetadata(locale: Locale) {
   return async ({params}: PageProps) => {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
-    if (!route) return {title: '404', robots: {index: false, follow: true}};
+    if (!route) {
+      const t = translator(await getDictionary(locale));
+      return {title: [t('Page not found.'), site.name].join(' | '), description: t('This page may have moved. Browse the directory to find a calculator.'), robots: {index: false, follow: true}};
+    }
     const t = translator(await getContentDictionary(locale));
     if ('time' in route) {const values = {place: 'zone' in route ? route.zone?.place || '' : ''}; return pageMetadata(t(route.title, values) + ' | Finflo', t(route.description, values), path, true, locale);}
     const searchTitle = 'tool' in route && route.tool ? getCalculatorSeoTitle(route.tool.slug) || route.title : path === '/methodology' ? 'Our methodology' : route.title;
@@ -98,6 +103,8 @@ export function localizedPage(locale: Locale) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
     const messages = await getContentDictionary(locale), t = translator(messages);
+    if (path === '/maintenance') return <SystemPage code="503" title={t(route.title)} description={t(route.description)}/>;
+    if (path === '/offline' || path === '/network-error') return <SystemPage code={path === '/offline' ? t('You’re offline.') : '↻'} title={t(route.title)} description={t(route.description)}><RetryButton label={t('Try again')}/></SystemPage>;
     if ('time' in route) return <TimePage path={path} locale={locale} messages={messages}/>;
     if (path === '/spin-wheels') return <SpinWheelsPage locale={locale} messages={messages}/>;
     if ('wheel' in route && route.wheel) return <WheelPage slug={route.wheel.slug} locale={locale} messages={messages}/>;

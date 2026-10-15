@@ -1,1 +1,3 @@
-export {LocalizedNotFound as default} from '@/components/i18n/not-found';
+import {localizedNotFound} from '@/components/i18n/not-found';
+
+export default localizedNotFound('ar');

@@ -42,4 +42,17 @@ describe('production indexing', () => {
     expect(response.headers.get('X-Robots-Tag')).toBe('noindex');
     expect(proxy(new NextRequest('https://finflo.org/api/health')).status).toBe(200);
   });
+
+  it('keeps maintenance in the requested language without rewriting its own page', () => {
+    vi.stubEnv('MAINTENANCE_MODE', 'true');
+    for (const prefix of ['', '/es', '/fr', '/de', '/pt', '/ar', '/hi', '/tl']) {
+      const response = proxy(new NextRequest(`https://finflo.org${prefix}/grade-calculator`));
+      expect(response.status).toBe(503);
+      expect(response.headers.get('x-middleware-rewrite')).toBe(`https://finflo.org${prefix}/maintenance`);
+      const maintenance = proxy(new NextRequest(`https://finflo.org${prefix}/maintenance`));
+      expect(maintenance.status).toBe(503);
+      expect(maintenance.headers.get('x-middleware-rewrite')).toBeNull();
+      expect(maintenance.headers.get('Cache-Control')).toBe('no-store');
+    }
+  });
 });

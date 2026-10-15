@@ -3,6 +3,9 @@ const config: NextConfig = {
   poweredByHeader: false,
   turbopack: { resolveAlias: { buffer: { browser: "buffer/" } } },
   reactStrictMode: true,
+  // There are separate root layouts for English and each translated site.
+  // Unknown routes (including dynamicParams=false misses) need a global 404.
+  experimental: { globalNotFound: true },
   async redirects() {
     return [
       {

@@ -1,0 +1,455 @@
+{
+  "checkedAt": "2026-10-15T12:30:36.266Z",
+  "baselineCommit": "eafd0951c51c733735324cbbd8d90757bedfffd7",
+  "deployment": "Local only; not deployed.",
+  "findings": {
+    "missingGlobal404": true,
+    "existingLocalized404": true,
+    "otherPublicPagesPresent": [
+      "/about",
+      "/contact",
+      "/privacy",
+      "/terms",
+      "/cookies",
+      "/accessibility",
+      "/disclaimer",
+      "/editorial-policy",
+      "/methodology",
+      "/sitemap"
+    ],
+    "existingSystemPages": [
+      "/offline",
+      "/network-error",
+      "/maintenance"
+    ],
+    "changes": [
+      "Global 404 uses the existing root layout, oversized typography, directory/home buttons, and four compact popular calculator cards.",
+      "English and translated 404 pages share one recovery component.",
+      "Unknown clock pages and translated 404s have descriptive titles.",
+      "Translated offline and network pages have retry and directory/home actions.",
+      "Maintenance rewrites preserve the language and return 503 without rewriting their own destination.",
+      "Global runtime errors carry noindex metadata."
+    ],
+    "newIndexablePages": 0
+  },
+  "validation": {
+    "build": {
+      "command": "NEXT_PUBLIC_SITE_URL=https://finflo.org NEXT_PUBLIC_INDEXABLE=true npm run build",
+      "exitCode": 0
+    },
+    "typecheck": {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    "lint": {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    "unitTests": {
+      "command": "npm test -- --maxWorkers=2",
+      "files": 51,
+      "passed": 3219,
+      "failed": 0,
+      "note": "A prior run with four workers while other checks were active hit the existing five-second dictionary-loading timeout. No assertions or timeout limits were changed."
+    },
+    "browserTests": {
+      "command": "TEST_URL=http://127.0.0.1:3102 npx playwright test tests/e2e/system-pages.spec.ts",
+      "stats": {
+        "startTime": "2026-10-15T12:50:10.735Z",
+        "duration": 47336.030999999995,
+        "expected": 23,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": []
+    },
+    "translations": {
+      "languages": 7,
+      "messagesPerLanguage": 11260,
+      "missing": 0,
+      "placeholderErrors": 0,
+      "numericChanges": 0,
+      "formulaChanges": 0
+    },
+    "seo": {
+      "measuredAt": "2026-10-15T12:29:44.406Z",
+      "base": "http://127.0.0.1:3102",
+      "canonical": "https://finflo.org",
+      "scope": "All sitemap URLs; initial server HTML; unique internal path targets. No external links, fragment targets, JavaScript rendering, search-engine indexing status, or field performance measured.",
+      "sitemapURLs": 5736,
+      "checkedPages": 5736,
+      "internalPaths": 5752,
+      "extraChecks": [
+        {
+          "path": "/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/es/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/pt/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/fr/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/de/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/ar/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/hi/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/tl/workspace",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/es/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/fr/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/de/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/pt/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/ar/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/hi/real-estate-calculator",
+          "status": 200,
+          "location": null
+        },
+        {
+          "path": "/tl/real-estate-calculator",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "errors": [],
+      "duplicateTitles": [],
+      "duplicateDescriptions": [],
+      "statusCounts": {
+        "200": 5736
+      }
+    },
+    "maintenance": [
+      {
+        "path": "/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "en",
+        "h1": "A short pause for an update.",
+        "homeLink": "/"
+      },
+      {
+        "path": "/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "en",
+        "h1": "A short pause for an update.",
+        "homeLink": "/"
+      },
+      {
+        "path": "/es/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "es",
+        "h1": "Volveremos pronto.",
+        "homeLink": "/es"
+      },
+      {
+        "path": "/es/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "es",
+        "h1": "Volveremos pronto.",
+        "homeLink": "/es"
+      },
+      {
+        "path": "/fr/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "fr",
+        "h1": "Nous revenons bientôt.",
+        "homeLink": "/fr"
+      },
+      {
+        "path": "/fr/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "fr",
+        "h1": "Nous revenons bientôt.",
+        "homeLink": "/fr"
+      },
+      {
+        "path": "/de/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "de",
+        "h1": "Wir sind gleich wieder da.",
+        "homeLink": "/de"
+      },
+      {
+        "path": "/de/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "de",
+        "h1": "Wir sind gleich wieder da.",
+        "homeLink": "/de"
+      },
+      {
+        "path": "/pt/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "pt",
+        "h1": "Voltaremos em breve.",
+        "homeLink": "/pt"
+      },
+      {
+        "path": "/pt/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "pt",
+        "h1": "Voltaremos em breve.",
+        "homeLink": "/pt"
+      },
+      {
+        "path": "/ar/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "ar",
+        "h1": "سنعود قريباً.",
+        "homeLink": "/ar"
+      },
+      {
+        "path": "/ar/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "ar",
+        "h1": "سنعود قريباً.",
+        "homeLink": "/ar"
+      },
+      {
+        "path": "/hi/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "hi",
+        "h1": "हम जल्द वापस आएँगे।",
+        "homeLink": "/hi"
+      },
+      {
+        "path": "/hi/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "hi",
+        "h1": "हम जल्द वापस आएँगे।",
+        "homeLink": "/hi"
+      },
+      {
+        "path": "/tl/grade-calculator",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "tl",
+        "h1": "Babalik kami sa lalong madaling panahon.",
+        "homeLink": "/tl"
+      },
+      {
+        "path": "/tl/maintenance",
+        "status": 503,
+        "retryAfter": "300",
+        "cacheControl": "no-store",
+        "robots": "noindex",
+        "lang": "tl",
+        "h1": "Babalik kami sa lalong madaling panahon.",
+        "homeLink": "/tl"
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      }
+    ],
+    "visualChecks": [
+      {
+        "path": "/404",
+        "width": 1440,
+        "theme": "light",
+        "overflow": false,
+        "font": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif"
+      },
+      {
+        "path": "/missing/deep/page",
+        "width": 390,
+        "theme": "light",
+        "overflow": false,
+        "font": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif"
+      },
+      {
+        "path": "/404",
+        "width": 1440,
+        "theme": "dark",
+        "overflow": false,
+        "font": "Manrope, \"Manrope Fallback\", \"Segoe UI\", Arial, sans-serif"
+      },
+      {
+        "path": "/ar/missing/deep/page",
+        "width": 390,
+        "theme": "light",
+        "overflow": false,
+        "font": "\"Noto Sans Arabic\", \"Noto Sans Arabic Fallback\", Tahoma, sans-serif"
+      }
+    ],
+    "visualInspection": "Desktop light and dark themes, mobile English and mobile Arabic screenshots inspected.",
+    "visualRedesign": {
+      "checkedAt": "2026-10-15T12:51:43.150521+00:00",
+      "design": "Centered 404 message with two recovery buttons and a separate Popular calculators section using the shared CalculatorCard component.",
+      "popularCalculators": [
+        "compound-interest-calculator",
+        "bmi-calculator",
+        "percent-calculator",
+        "age-calculator"
+      ],
+      "build": "passed",
+      "typecheck": "passed",
+      "lint": "passed",
+      "browserTestsPassed": 23,
+      "mobileChecks": [
+        {
+          "locale": "en",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "es",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "fr",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "de",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "pt",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "ar",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "hi",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        },
+        {
+          "locale": "tl",
+          "width": 320,
+          "status": 404,
+          "cards": 4,
+          "descriptions": 4,
+          "overflow": false
+        }
+      ],
+      "popularDestinations": "All four English destinations returned HTTP 200; browser tests also verify localized links and navigation without JavaScript.",
+      "accessibility": "Zero axe violations on English and Arabic mobile 404s in the production build.",
+      "visualInspection": "Desktop light/dark and mobile English/Arabic screenshots inspected.",
+      "scopeNote": "Unit tests, translation validation, maintenance HTTP probes and the full SEO crawl were completed before this visual redesign and were not rerun for the styling and card changes."
+    }
+  },
+  "implementationNote": "The installed Next.js 16.4 documents globalNotFound as an experimental option for applications with multiple root layouts. Verified with the production build."
+}

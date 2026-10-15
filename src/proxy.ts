@@ -1,4 +1,5 @@
 import {NextRequest, NextResponse} from 'next/server';
+import {localizedPath, splitLocale} from '@/lib/i18n/config';
 
 export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
@@ -11,7 +12,8 @@ export function proxy(request: NextRequest) {
   }
   if (process.env.MAINTENANCE_MODE === 'true' && !path.startsWith('/_next/') && !path.includes('.') && path !== '/api/health') {
     const options = {status: 503, headers: {'Retry-After': '300', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex'}};
-    return path === '/maintenance' ? NextResponse.next(options) : NextResponse.rewrite(new URL('/maintenance', request.url), options);
+    const maintenancePath = localizedPath('/maintenance', splitLocale(path).locale);
+    return path === maintenancePath ? NextResponse.next(options) : NextResponse.rewrite(new URL(maintenancePath, request.url), options);
   }
 
   const response = NextResponse.next();
