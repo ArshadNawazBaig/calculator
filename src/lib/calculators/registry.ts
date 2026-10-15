@@ -93,6 +93,9 @@ definitions.find(d=>d.slug==='golf-handicap-calculator')!.sources.push({title:'U
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'OpenStax: conduction and thermal resistance',url:'https://openstax.org/books/college-physics-2e/pages/14-5-conduction'},{title:'NREL: building thermal envelope tests, dry-air assumptions (Table A10)',url:'https://docs.nlr.gov/docs/fy08osti/42059.pdf'});
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'EPA: county design temperature limits, 2019 edition revised 2020',url:'https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits'},{title:'2015 IECC: assembly U-factor references, Table R402.1.4',url:'https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency'});
 definitions.find(d=>d.slug==='target-heart-rate-calculator')!.sources.push({title:'CDC: measuring physical activity intensity',url:'https://www.cdc.gov/physical-activity-basics/measuring/index.html'});
+definitions.find(d=>d.slug==='debt-ratio-calculator')!.sources.unshift({title:'CFPB: debt-to-income ratio',url:'https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/'});
+definitions.find(d=>d.slug==='refinance-calculator')!.sources.unshift({title:'CFPB: mortgage refinancing and loan terms',url:'https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/'});
+definitions.find(d=>d.slug==='confidence-interval-calculator')!.sources.unshift({title:'NIST: confidence limits for the mean',url:'https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm'});
 separateStudentCalculators(definitions);
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));

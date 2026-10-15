@@ -217,7 +217,7 @@ describe('CSV rows and discoverable original guides', () => {
     expect([entry.quickAnswer,...entry.sections.flatMap(section=>section.paragraphs),...entry.faqs.flatMap(faq=>[faq.question,faq.answer])].join(' ').split(/\s+/).length).toBeGreaterThan(600);
     expect(entry.seoTitle.length).toBeLessThan(81); expect(entry.description.length).toBeLessThan(181);
     const html=renderToStaticMarkup(createElement(ToolkitSummary,{slug})); expect(html).toContain('quick-answer-heading'); expect(html).toContain('href="#common-questions"');
-    const structured=renderToStaticMarkup(createElement(ToolkitArticleData,{definition:def})); expect(structured).toContain('"@type":"Article"'); expect(structured).toContain('"@type":"Question"'); expect(structured).toContain('"dateModified":"2026-10-14"');
+    const structured=renderToStaticMarkup(createElement(ToolkitArticleData,{definition:def})); expect(structured).toContain('"@type":"Article"'); expect(structured).toContain('"@type":"Question"'); expect(structured).toContain(`"dateModified":"${entry.reviewedAt}"`);
     expect(searchCalculators(toolMap.get(slug)!.title)[0].slug).toBe(slug);
   });
   it.each([['stripe','payment-fee-calculator'],['etsy profit','seller-profit-calculator'],['gasoline','ev-vs-petrol-calculator'],['rainy day','emergency-fund-calculator']])('finds %s by a useful synonym', (query,slug) => {expect(searchCalculators(query).map(tool=>tool.slug)).toContain(slug);});

@@ -29,15 +29,14 @@
       },
       {
         "question": "Are public holidays excluded automatically?",
-        "answer": "The business-day modes exclude the holiday dates you supply. Custom modes also let you choose which weekdays count as working days."
+        "answer": "The standard business-day modes exclude the holiday dates you supply. Custom business-day modes can also apply the listed holiday preset, selected holiday rules, recurring exclusions, and chosen working weekdays. No preset automatically represents every employer or local calendar."
       }
     ],
     "sections": [
       {
         "title": "Choosing elapsed days or business days",
         "paragraphs": [
-          "Elapsed calendar days and business days answer different scheduling questions. Select the mode that matches whether weekends and entered holidays should be excluded. Check the treatment of start and end dates before comparing a duration with a deadline. A custom holiday list only accounts for the dates supplied; it does not automatically establish every local workplace or legal-calendar rule.",
-          "The basic business-day modes use entered holidays. The custom modes can also apply selected holiday presets, observation rules and recurring dates. Check which rules are enabled; a preset does not establish every workplace or legal deadline."
+          "From January 1 to January 3, the elapsed calendar difference is 2 days; including the end date gives 3 counted dates. Adding one calendar month to January 31, 2026 gives February 28, because this tool clamps to the last available day rather than treating a month as 30 days. For business dates, use the standard Monday–Friday mode or choose working weekdays in the custom mode. Custom modes also support the stated holiday preset and additional exclusions; check the selected calendar before using a deadline."
         ]
       }
     ],
@@ -228,7 +227,7 @@
       {
         "title": "Keeping mass, volume, and density consistent",
         "paragraphs": [
-          "Density relates mass to volume, so the two measurements must describe the same material sample and use compatible units. Select the unknown quantity before entering the known values. A bulk material's density may depend on how it is packed or measured, which is outside the arithmetic itself. The calculator does not identify a substance from a density value alone."
+          "A sample with mass 54 g and volume 20 cm³ has density 54 ÷ 20 = 2.7 g/cm³, equivalent to 2,700 kg/m³. For this calculator's basic mode, enter 0.054 kg and 0.00002 m³; changing only the unit label would give the wrong answer. Measure mass and volume for the same sample and distinguish material volume from container capacity or a pile's volume including air gaps. The calculator derives density from your measurements; it does not identify a substance or supply its temperature-dependent properties."
         ]
       }
     ]
@@ -316,7 +315,7 @@
       {
         "title": "Using solution volume in concentration calculations",
         "paragraphs": [
-          "Molarity relates the amount of solute to the volume of the final solution under the displayed model. Check whether a field requests mass, molar mass, or an amount in moles before entering values. The required-mass and missing-quantity modes answer preparation arithmetic questions. They do not account for chemical hazards, reaction behavior, or laboratory handling requirements."
+          "For 5.844 g of a pure solute with molar mass 58.44 g/mol, the amount is 0.1 mol. At a final solution volume of 1 L, the concentration is 0.1 mol/L; at 100 mL it is 1 mol/L. Final solution volume means the volume after dissolving, not the solvent poured in beforehand. Keep mass, molar mass, and volume units consistent. Mass-fraction ppm and ppb conversions additionally require solution density; the tool does not assume every solution has water's density."
         ]
       }
     ]
@@ -536,7 +535,7 @@
       {
         "title": "Comparing nominal tire dimensions",
         "paragraphs": [
-          "A tire-size comparison uses the entered nominal width, aspect ratio, and wheel diameter to estimate overall dimensions. Review diameter and circumference changes together when comparing alternatives. The alternative-rim mode addresses a dimensional target, not complete vehicle compatibility. Clearance, wheel width, load rating, and manufacturer requirements need separate checks before choosing an actual replacement tire."
+          "In 205/55R16, 205 is nominal width in millimeters, 55 is sidewall height as a percentage of width, and 16 is rim diameter in inches. Sidewall height is 205 × 0.55 = 112.75 mm; nominal overall diameter is 16 × 25.4 + 2 × 112.75 = 631.90 mm. Compare the resulting diameters when estimating a speedometer change. These are unloaded geometric dimensions, not measured rolling circumference. Matching diameter alone does not establish clearance, load capacity, rim compatibility, or vehicle approval."
         ]
       }
     ]
@@ -741,7 +740,7 @@
       {
         "title": "Estimating energy use from power and time",
         "paragraphs": [
-          "Electricity cost depends on power use, operating time, and the entered energy price. A device's rated power may differ from its average use, so the load-factor mode can model a chosen utilization assumption. Keep watts and kilowatts distinct, and check the billing period. Fixed charges, tiered rates, and other bill components need separate treatment if they are not entered."
+          "An appliance drawing 1,500 watts uses 1.5 kW. Running at that power for 4 hours per day over 30 days consumes 1.5 × 4 × 30 = 180 kWh. At an entered price of 0.20 per kWh, the energy cost is 36 in the selected currency. Watts describe power; kilowatt-hours describe energy used over time. Use realistic running time or average draw for equipment that cycles on and off. Fixed charges and unentered tariff tiers are not included."
         ]
       }
     ]
@@ -762,7 +761,7 @@
       {
         "title": "Choosing two known electrical quantities",
         "paragraphs": [
-          "Ohm's law relates voltage, current, and resistance under the displayed circuit model. Select the two known quantities and verify unit prefixes before calculating the others. A small prefix error can change the result by a large factor. The calculation does not assess component ratings, heating, insulation, or whether a physical circuit is safe to build or energize."
+          "Across a 6-ohm resistor, 12 volts gives current 12 ÷ 6 = 2 amperes and power 12 × 2 = 24 watts. Check that the selected pair of known values refers to the same component. Prefixes matter: 6 kilohms is 6,000 ohms, giving 0.002 amperes at the same voltage. This model uses resistive relationships; it does not determine component ratings, safe wiring, or AC behavior involving phase and reactance. Use the resistor tool when first combining a series or parallel network."
         ]
       }
     ]
@@ -896,7 +895,7 @@
       {
         "title": "Distinguishing transfer speed from data volume",
         "paragraphs": [
-          "Bandwidth describes a rate, while a file size or monthly transfer allowance describes an amount of data. Check bits versus bytes and the selected unit scale before calculating a duration. Website estimates combine assumptions about traffic and page size; they do not measure actual server usage. Protocol overhead, contention, and changing connection speed can make real transfers take longer than an idealized estimate."
+          "A 100 MB file contains 800 megabits, so at a constant 20 Mbps its theoretical transfer time is 40 seconds. A 100 MiB file is larger: the same calculation gives about 41.94 seconds. MB uses decimal bytes, MiB uses binary bytes, and Mbps measures bits per second. Real transfers also include overhead and changing throughput. The hosting modes calculate average traffic across a reporting period; that average is not the peak connection capacity needed for a busy moment."
         ]
       }
     ]
@@ -930,8 +929,8 @@
         "answer": "No. Base64 is a reversible encoding, not encryption. Anyone with the encoded value can decode it."
       },
       {
-        "question": "Is this an arbitrary binary-file converter?",
-        "answer": "This tool is a UTF-8 text encoder and decoder. Binary data that is not valid UTF-8 is outside that text interpretation."
+        "question": "Can I encode or decode binary files?",
+        "answer": "Yes. Use the separate local-file panel for binary files up to 10 MiB, or decode a Base64 text file back to bytes. The text modes instead interpret bytes with UTF-8 or another selected supported encoding. Files are processed in this browser; decoding does not establish that a file is safe to open."
       }
     ],
     "sections": [
@@ -1701,7 +1700,7 @@
       {
         "title": "Making income and debt periods comparable",
         "paragraphs": [
-          "A debt-to-income ratio only makes sense when income and debt payments refer to the same time period. The mixed-period mode helps convert entries before comparing them. Review whether the income figure is gross or take-home pay and use the definition requested by the selected mode. A ratio describes the entered obligations; it does not capture every expense in a household budget."
+          "Monthly debt payments of 1,200, 300, and 100 total 1,600. With gross monthly income of 5,000, the modeled debt-to-income ratio is 1,600 ÷ 5,000 × 100 = 32%. Using take-home income of 4,000 would produce 40%, which answers a different question. Enter required debt payments rather than outstanding loan balances. A DTI ratio is not the cash left for living expenses; use the budget worksheet for that, and check the obligations counted by the relevant lender."
         ]
       }
     ]
@@ -1722,8 +1721,7 @@
       {
         "title": "Comparing refinancing over your own time horizon",
         "paragraphs": [
-          "A refinance can lower the payment while adding closing costs or extending repayment. Compare the existing and replacement loans over the same period, especially if you expect to move or repay early. The common-horizon mode helps avoid comparing one loan's full lifetime with only part of another. Review the remaining balances together with interest and upfront costs.",
-          "For example, 3,000 in upfront costs divided by a 100 monthly payment reduction gives a simple break-even of 30 months. This does not establish total savings: compare the remaining loan balances at the same date, especially when extending the term."
+          "If upfront refinancing costs are 3,000 and the monthly payment falls by 150, simple payment break-even is 20 months. That comparison only recovers the upfront cost through smaller payments; it does not account for a different remaining loan balance. A longer new term can lower the payment while leaving more debt at your planned sale date. Use the common-horizon mode to compare payments, fees, cash-out proceeds, and both ending balances over the same number of months."
         ]
       }
     ]
@@ -2403,7 +2401,7 @@
       {
         "title": "Choosing an average that matches the question",
         "paragraphs": [
-          "An arithmetic average summarizes individual period returns, while a compounded result describes growth across periods. Deposits and withdrawals introduce another question: the return on money invested at different times. Use the dated money-weighted mode for that cash-flow perspective. Two accounts can have the same sequence of market returns but different investor outcomes when their contributions occur at different dates."
+          "A gain of 50% followed by a loss of 50% has an arithmetic average of 0%, but 100 invested becomes 150 and then 75. The total loss is 25%; the geometric average is about −13.40% per period. Use equal-length periods for this comparison. If you added or withdrew money between dates, use the dated money-weighted mode instead: the timing and size of those cash flows affect your personal return."
         ]
       }
     ]
@@ -2512,7 +2510,7 @@
       {
         "title": "Distinguishing profit margin from markup",
         "paragraphs": [
-          "Profit margin compares profit with the selling price, while markup compares it with cost. Confusing the denominator can produce a price that misses the intended margin. Use the missing-cost or missing-price mode when working backward from a target. The stock and foreign-exchange margin modes answer separate collateral questions and should not be interpreted as product-pricing calculations."
+          "An item that costs 80 and sells for 100 earns 20 before other costs. Its margin is 20 ÷ 100 = 20%, while its markup is 20 ÷ 80 = 25%. To achieve a 30% margin on a cost of 80, divide 80 by 0.70 to get approximately 114.29; adding 30% to cost would give only 104. Include the costs you intend the margin to cover. Stock and foreign-exchange margin modes calculate collateral requirements, a different use of the word margin."
         ]
       }
     ]
@@ -2551,14 +2549,14 @@
       },
       {
         "question": "Is sales tax included in the discounted price?",
-        "answer": "No. This tool does not decide how a discount or coupon affects the taxable amount."
+        "answer": "The optional tax field applies your entered rate to the price after the percentage and fixed discounts. It does not determine the applicable rate or the legal tax treatment of a coupon; delivery charges are not included."
       }
     ],
     "sections": [
       {
         "title": "Checking the price before and after a discount",
         "paragraphs": [
-          "Choose the discount mode based on which two values you already know. A reduction amount, a percentage, and a final price describe related but different quantities. Check that the original price is the comparison base before interpreting the percentage saved. Taxes, delivery charges, and other fees need separate consideration if they are not part of the entered price."
+          "For an original price of 120, a 25% discount removes 30 and leaves 90. If you also enter a fixed discount of 10, this calculator applies it afterward, giving a final price of 80. Reversing the order would give 82.50, so check the promotion's terms before comparing the result with a checkout total. Use the known-pair mode when you know the sale price and need the original price or discount. The optional tax rate applies after the discounts; delivery charges are not included."
         ]
       }
     ],
@@ -2601,7 +2599,7 @@
       {
         "title": "Working with tax-inclusive and pre-tax prices",
         "paragraphs": [
-          "The sales-tax modes distinguish a pre-tax amount from a price that already includes tax. Choose the known pair that matches your receipt or estimate so that tax is not added twice. Enter the applicable rate yourself; selecting a display currency does not supply a local tax rate. The result follows that rate and does not decide whether a transaction is taxable."
+          "At an entered rate of 8%, a pre-tax price of 100 becomes 108. If 108 already includes tax, divide by 1.08 to recover the pre-tax price of 100; the tax is 8. Multiplying 108 by 8% would incorrectly calculate tax on the tax-inclusive total. Choose the inclusive or exclusive mode to match your receipt. You supply the rate: the calculator does not look up an address, determine taxability, or apply exemptions."
         ]
       }
     ]
@@ -2622,7 +2620,7 @@
       {
         "title": "Extracting VAT from an inclusive price",
         "paragraphs": [
-          "When a price already includes VAT, the tax component must be separated from the total using the inclusive-price relationship. Multiplying the inclusive total by the rate would use the wrong base. Select the known-pair mode that matches the figures available. The calculator performs the arithmetic for an entered rate and does not establish registration, exemption, or input-tax recovery eligibility."
+          "A price of 120 including VAT at an illustrative rate of 20% contains 100 net and 20 VAT: 120 ÷ 1.20 = 100. Taking 20% of 120 would give 24 because it uses the wrong base. To add VAT instead, multiply the net price by 1.20. Use one currency consistently and select whether your known amount includes VAT. The entered rate is an assumption; the tool does not determine the applicable rate or whether VAT can be recovered."
         ]
       }
     ]
@@ -2682,7 +2680,7 @@
     "faqs": [
       {
         "question": "Does this produce one complete federal tax result?",
-        "answer": "No. The ordinary-income, self-employment, investment-income, credit and AMT modules are separate bounded worksheets. Some totals overlap, so do not add every displayed metric together."
+        "answer": "No. The composed federal mode combines its supported income and additional-tax calculations, while the individual worksheets answer narrower questions. Unsupported deductions, credits, state taxes, and special cases can still change an actual return. Do not add a composed total to its component figures or to overlapping worksheet totals."
       },
       {
         "question": "Which years and income rules are covered?",
@@ -2731,8 +2729,8 @@
     "description": "Compare 2025 or 2026 ordinary-income tax for two eligible single-filer scenarios and one joint scenario, with selected deductions.",
     "faqs": [
       {
-        "question": "What does the year-based comparison include?",
-        "answer": "It compares the selected year’s ordinary-income brackets using basic standard deductions or the deduction amounts you enter."
+        "question": "How do the marriage-tax comparison modes differ?",
+        "answer": "The ordinary-income comparison uses the selected brackets and deductions. The composed federal comparison also recalculates its supported income types, additional taxes, and credits for the two individual scenarios and the joint scenario. Separately verified adjustments remain your inputs. Neither comparison implements every rule of a complete return."
       },
       {
         "question": "Does it decide whether a married couple should file separately?",
@@ -2919,7 +2917,7 @@
       {
         "title": "Resting energy versus daily energy needs",
         "paragraphs": [
-          "A BMR estimate concerns energy used at rest under the selected equation. It should not be confused with a complete daily-energy estimate that also models activity. Check the age, height, weight, and equation inputs before comparing results. The energy-conversion modes answer a separate units question; converting calories and joules does not determine an individual's food or exercise needs."
+          "For a 30-year-old using the male coefficient, weighing 70 kg and measuring 175 cm, the displayed equation gives 10 × 70 + 6.25 × 175 − 5 × 30 + 5 = 1,648.75 kcal/day. This is estimated resting energy expenditure. For an activity-adjusted estimate of total daily expenditure, use the TDEE Calculator. Neither number measures metabolism directly or sets a personal eating target. Enter height in the requested unit; substituting 1.75 meters where centimeters are expected produces a substantial error."
         ]
       }
     ]
@@ -2961,7 +2959,7 @@
       {
         "title": "How activity assumptions affect TDEE",
         "paragraphs": [
-          "Total daily energy expenditure is an estimate built from the selected body measurements and activity setting. Changing the activity input can substantially change the result even when weight and height stay the same. Use a consistent interpretation of activity when comparing scenarios. This model does not directly measure metabolism or track day-to-day changes in food intake and movement."
+          "An estimated resting expenditure of 1,600 kcal/day becomes 1,920 with an activity factor of 1.2, or 2,480 with a factor of 1.55. That 560 kcal/day difference comes entirely from the activity assumption, not a new measurement of metabolism. When comparing results, keep body measurements and the resting-energy equation unchanged so you can see that effect. The activity-adjusted total already includes modeled activity; adding a separate exercise estimate may count part of that expenditure twice. This is a scenario estimate, not a personalized intake prescription."
         ]
       }
     ]
@@ -3188,8 +3186,8 @@
     "description": "Calculate waist-to-hip and waist-to-height proportions from measurements, without assigning unvalidated body-shape categories.",
     "faqs": [
       {
-        "question": "Why does this tool show ratios rather than a body-shape label?",
-        "answer": "Ratios describe measured proportions. Informal labels such as apple or hourglass are not medical diagnoses and are not assigned here."
+        "question": "Does this calculator show body-shape labels?",
+        "answer": "The Body proportions mode shows ratios. The separate revised FFIT mode shows apparel descriptors from its stated measurement rules. Neither mode assigns a medical category, and the descriptors do not determine health or fitness."
       },
       {
         "question": "Must waist, hip and height use the same unit?",
@@ -3200,7 +3198,7 @@
       {
         "title": "Using body proportion and clothing descriptors",
         "paragraphs": [
-          "Body-proportion results and fashion descriptors are ways to summarize entered measurements for the selected model. They are not medical categories or judgments about appearance. Use consistent measurement locations and avoid mixing garment dimensions with body dimensions unless instructed. Differences between modes can reflect different classification rules, so read the explanation for the descriptor rather than treating the label as an absolute."
+          "Body proportions and apparel descriptors answer different questions. A waist of 80 cm and hips of 100 cm give a waist-to-hip ratio of 0.80; with height of 175 cm, waist-to-height is approximately 0.46. The ratios mode reports these relationships. The separate revised FFIT mode uses bust, waist, hip, and high-hip measurements to show matching apparel-research rules. A descriptor is not a medical category or a guarantee of garment fit; measurement placement can change which rules match."
         ]
       }
     ]
@@ -3502,7 +3500,7 @@
       {
         "title": "Choosing what an average should describe",
         "paragraphs": [
-          "A dataset can have several useful summaries. Compare the arithmetic mean with the median to see whether unusually large or small observations affect the center. Check that every entry uses the same unit and represents the same kind of observation. An average describes the entered values; it does not show their full spread or establish that the sample represents a wider population."
+          "For the values 10, 12, 14, and 100, the sum is 136 and the arithmetic mean is 34. The median is 13, halfway between the two middle values after sorting. The large value of 100 pulls the mean upward, which is why reporting only the average can hide the shape of the data. Include each observation once and use consistent units. For course grades or other weighted observations, use a tool that accepts weights rather than treating every value equally."
         ]
       }
     ]
@@ -3565,7 +3563,7 @@
       {
         "title": "Population and sample standard deviation",
         "paragraphs": [
-          "Standard deviation describes how spread out observations are around their mean. Check whether the selected result treats the entered values as an entire population or as a sample from a larger population. That choice affects the denominator used in the calculation. Keep units consistent: the standard deviation uses the data's original unit, while variance uses the squared unit."
+          "For 2, 4, and 6, the mean is 4. Squared deviations are 4, 0, and 4, totaling 8. Treating the list as the whole population gives variance 8 ÷ 3 and standard deviation about 1.63. Treating it as a sample gives variance 8 ÷ 2 = 4 and standard deviation 2. Choose the interpretation that matches your data, not the smaller answer. Standard deviation uses the original unit; variance uses its square."
         ]
       }
     ]
@@ -3715,7 +3713,7 @@
       {
         "title": "Keeping the order of a ratio consistent",
         "paragraphs": [
-          "The order of quantities matters in a ratio. A ratio of one ingredient to another is not interchangeable with the reversed comparison. Simplifying preserves the relationship, while scaling changes both terms by the same factor. In a proportion, place corresponding quantities in matching positions before solving for the missing term, and make sure their measurement units are compatible."
+          "A 2:3 mixture contains 5 parts in total. To make 20 units of mixture, each part is 20 ÷ 5 = 4 units, so the two ingredients need 8 and 12 units. The first ingredient is 2/5 of the total, not 2/3: 2/3 compares the ingredients with each other. Keep their order consistent when scaling or solving a proportion, and convert measurements to compatible units before comparing them."
         ]
       }
     ]
@@ -4072,7 +4070,7 @@
       {
         "title": "Deciding whether order matters",
         "paragraphs": [
-          "Use permutations when changing the order creates a different outcome, and combinations when the same selected items count once regardless of order. Check the replacement or repetition assumptions supported by the mode before entering the population and selection size. A counting formula gives the number of outcomes under those assumptions; it does not automatically assign probabilities to outcomes with unequal chances."
+          "Choosing 3 people from 5 for an unordered team gives 5! ÷ (3! × 2!) = 10 combinations. Assigning 3 different positions to people from the same group gives 5 × 4 × 3 = 60 permutations, because changing the order changes the assignment. Both calculations assume distinct people and no repeated selection. Decide whether positions matter before choosing the result; the number of outcomes alone does not establish that every outcome is equally likely."
         ]
       }
     ]
@@ -4135,7 +4133,7 @@
       {
         "title": "Planning precision before collecting data",
         "paragraphs": [
-          "A required sample size depends on the confidence level, margin of error, and other assumptions in the selected model. Tightening the desired precision can increase the required sample. The calculation does not fix biased recruitment, measurement errors, or a nonrepresentative sample. Use the margin-of-error mode when the sample size is already fixed and you want to examine the modeled precision."
+          "With 95% confidence, a 50% expected proportion, a 5-percentage-point margin of error, and unlimited population, the normal approximation requires 385 observations after rounding up. Halving the margin to 2.5 percentage points increases the requirement to 1,537, roughly four times as many. The 50% proportion gives the largest p(1−p) when no better estimate is available. This count assumes random independent sampling; it does not correct selection bias or include extra invitations needed for nonresponse."
         ]
       }
     ]
@@ -4156,7 +4154,7 @@
       {
         "title": "Interpreting a mean confidence interval",
         "paragraphs": [
-          "A confidence interval combines the estimated mean with uncertainty under the selected statistical model. Check whether the method and spread input match your sample information. The interval is not a guarantee that every observation falls inside it, and it does not remove bias in how data were collected. Report the confidence level and assumptions alongside the endpoints so the result retains its context."
+          "With a sample mean of 100, known population standard deviation of 15, and sample size of 100, the standard error is 15 ÷ √100 = 1.5. A 95% normal-z interval is approximately 100 ± 1.96 × 1.5, or 97.06 to 102.94. If the standard deviation is estimated from the sample, select Student t instead. The interval estimates the population mean; it is not a range containing 95% of individual observations. Its coverage relies on the sampling and distribution assumptions."
         ]
       }
     ]
@@ -4198,7 +4196,7 @@
       {
         "title": "Checking dependence and event definitions",
         "paragraphs": [
-          "Probability formulas depend on whether events overlap, are independent, or are repeated under the same assumptions. Define the events before choosing a mode. Adding probabilities without accounting for overlap can count outcomes twice, while multiplying them requires the appropriate relationship. The normal-distribution modes use a separate continuous model and should not be mixed with event formulas without a reason."
+          "For independent events with probabilities 0.4 and 0.3, the chance of both is 0.4 × 0.3 = 0.12. The chance of at least one is 0.4 + 0.3 − 0.12 = 0.58, because outcomes where both happen must not be counted twice. Independence is an assumption, not something established by entering two probabilities. If the events are dependent, use their actual intersection or conditional information rather than the independent-event shortcut. Probability fields use decimals from 0 to 1."
         ]
       }
     ]
@@ -4442,7 +4440,7 @@
     "description": "Calculate freelance hourly and day rates, plus project quotes, from your income goal, expenses, tax reserve, time off, and billable hours.",
     "seoTitle": "Freelance Rate Calculator: Hourly, Daily & Project Pricing",
     "quickAnswer": "A freelance hourly rate is your required annual business revenue divided by your realistic annual billable hours. First allow for business expenses, a planning tax reserve, and time off. Then divide by hours you expect to invoice, rather than every hour you work. This calculator also converts that rate into a day rate and a project quote.",
-    "reviewedAt": "2026-10-14",
+    "reviewedAt": "2026-10-15",
     "sections": [
       {
         "title": "Build a freelance rate around hours you can actually invoice",
@@ -4461,7 +4459,7 @@
       {
         "title": "Turn the hourly baseline into a usable project quote",
         "paragraphs": [
-          "The hourly result is a revenue-planning baseline. A project estimate multiplies it by the time you expect the work to take, including the extra project allowance you enter. Use that allowance for identifiable uncertainty such as additional review rounds or coordination. It does not add third-party purchases automatically. Include those costs in the project hours or agree a separate expense line with the client.",
+          "The hourly result is a revenue-planning baseline. A project quote multiplies it by estimated billable hours, including the project allowance. Use that allowance for extra work, such as review rounds or coordination. Materials, travel, and other purchases are money costs, not hours; agree a separate expense line with the client rather than adding their price to the hours input.",
           "A day rate uses the billable hours in the quoted day, which need not equal the total time you spend working. Compare alternative workloads by saving named calculations, such as a steady-client scenario and a lower-utilization scenario. Once you have a quote, the invoice generator can turn the agreed work into a downloadable document. The payment fee calculator can estimate the effect of processing charges."
         ]
       },
@@ -5000,7 +4998,7 @@
     "description": "Estimate online selling profit after product costs, shipping, platform fees, processing, advertising, returns, and overhead. Includes a US Etsy example.",
     "seoTitle": "Online Seller Profit Calculator: Fees, Costs & Etsy Example",
     "quickAnswer": "Online seller profit starts with item revenue and shipping charged to the customer, then subtracts product, fulfillment, advertising, return allowances, and selling fees. Monthly operating profit also subtracts fixed overhead. Finflo separates these components so you can see whether an order contributes positively before you scale the number of sales.",
-    "reviewedAt": "2026-10-14",
+    "reviewedAt": "2026-10-15",
     "sections": [
       {
         "title": "Include the costs that sit between a sale and your profit",
@@ -5019,7 +5017,7 @@
       {
         "title": "Use the dated US Etsy example with its stated scope",
         "paragraphs": [
-          "The Etsy mode models a US bank-account case using USD listing and settlement, with one item per order and one listing-fee allocation. It uses the published transaction and processing rates and lets you choose whether the order has an Offsite Ads fee. The selected advertising percentage is capped at 100 per order. The preset was checked against Etsy’s official policies on October 13, 2026.",
+          "The Etsy mode models a US bank-account case using USD listing and settlement, with one item per order and one listing-fee allocation. It uses the published transaction and processing rates and lets you choose whether the order has an Offsite Ads fee. The Offsite Ads fee amount, not the percentage, is capped at USD 100 per order. The preset was checked against Etsy’s official policies on October 13, 2026.",
           "This is not a complete reproduction of every Etsy statement. Multiple-item orders, gift wrapping, different bank countries, currency conversion, fee taxes, setup charges, and other services can change actual charges. Enter applicable extra per-order fees or monthly overhead, or use custom rates for a different scenario. Selecting an Offsite Ads rate does not establish which rate or eligibility applies to your account."
         ]
       },

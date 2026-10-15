@@ -1,0 +1,48 @@
+.rowGroup {
+  grid-column: 1 / -1;
+}
+
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+}
+
+.tableScroll table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+.tableScroll th,
+.tableScroll td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: top;
+  min-width: 6rem;
+}
+
+.tableScroll th {
+  font-weight: 600;
+  background: var(--color-surface);
+}
+
+.tableScroll tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tableScroll:focus-visible {
+  outline: 2px solid var(--color-brand-text);
+  outline-offset: 3px;
+}
+
+.blank {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.notes {
+  padding-inline-start: 1.25rem;
+}

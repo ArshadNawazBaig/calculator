@@ -132,7 +132,7 @@ export async function translationSource() {
       runtime[category] = [...new Set([...common, ...categoryKeys, ...rendered[category]])].sort();
       runtime[category].forEach(key => keys.add(key));
     }
-    for (const file of ['src/components/i18n/calculator-article.tsx', 'src/lib/i18n/pages.tsx', 'src/components/content/student-tools.tsx', 'src/components/content/category-navigation.tsx', 'src/components/content/student-directory.tsx', 'src/lib/student-tools.ts']) {
+    for (const file of ['src/components/i18n/calculator-article.tsx', 'src/components/content/worked-example.tsx', 'src/lib/i18n/pages.tsx', 'src/components/content/student-tools.tsx', 'src/components/content/category-navigation.tsx', 'src/components/content/student-directory.tsx', 'src/lib/student-tools.ts']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
     }
     for (const entry of await readdir('src/components/workspace')) {

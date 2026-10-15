@@ -17,6 +17,7 @@
     "coverage:manifest": "node scripts/export-coverage.mjs",
     "i18n:check": "node scripts/check-translations.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
+    "audit:content": "node scripts/audit-content.mjs",
     "audit:performance": "node scripts/lab-performance.mjs",
     "audit:sources": "node scripts/audit-sources.mjs",
     "audit:field": "node scripts/audit-field-performance.mjs",
