@@ -30,16 +30,43 @@ test('mobile calculator shortcuts cross the full table and return keyboard focus
   await expect(page.locator('#calculation-table tbody tr').last()).toBeVisible();
 });
 
-test('directory categories remain reachable after a long scroll', async ({page}) => {
+test('directory categories open their pages and remain reachable after a long scroll', async ({page}) => {
   await page.setViewportSize({width: 390, height: 844});
-  await page.goto('/calculators');
-  const nav = page.getByRole('navigation', {name: 'Jump to category'});
-  await nav.getByRole('link', {name: /Everyday/}).click();
+  const nav = page.getByRole('navigation', {name: 'Browse by category'});
+  for (const path of ['/calculators/students', '/calculators/finance', '/calculators/health', '/calculators/math', '/calculators/everyday', '/time', '/spin-wheels']) {
+    await page.goto('/calculators');
+    await nav.locator(`a[href="${path}"]`).click();
+    await expect(page).toHaveURL(new RegExp(path + '$'));
+    await expect(page.getByRole('heading', {level: 1})).toBeVisible();
+    if (path.startsWith('/calculators/')) await expect(nav.locator('[aria-current="page"]')).toHaveAttribute('href', path);
+  }
+  await page.goto('/calculators/everyday');
+  await page.evaluate(() => window.scrollTo(0, 1200));
   expect((await nav.boundingBox())!.y).toBe(0);
-  expect((await page.locator('#everyday').boundingBox())!.y).toBeGreaterThan((await nav.boundingBox())!.height);
   await nav.getByRole('link', {name: /Finance/}).click();
-  await expect(page.locator('#finance h2').first()).toBeInViewport();
+  await expect(page).toHaveURL(/\/calculators\/finance$/);
+  await expect(page.getByRole('heading', {level: 1})).toHaveText('Financial calculators');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('category links keep the language and the student hub links to its four calculators', async ({page}) => {
+  await page.setViewportSize({width: 320, height: 740});
+  for (const locale of ['es', 'ar']) {
+    await page.goto(`/${locale}/calculators`);
+    const nav = page.locator('[data-category-navigation]');
+    const students = nav.locator(`a[href="/${locale}/calculators/students"]`);
+    await students.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`/${locale}/calculators/students$`));
+    await expect(page.getByRole('heading', {level: 1})).not.toHaveText('Student calculators');
+    await expect(nav.locator('[aria-current="page"]')).toHaveAttribute('href', `/${locale}/calculators/students`);
+    for (const slug of ['grade-calculator', 'final-exam-grade-calculator', 'gpa-calculator', 'gpa-goal-calculator']) {
+      await expect(page.locator(`#student-calculators a[href="/${locale}/${slug}"]`)).toHaveCount(1);
+    }
+    await expect(nav.locator(`a[href="/${locale}/time"]`)).toHaveCount(1);
+    await expect(nav.locator(`a[href="/${locale}/spin-wheels"]`)).toHaveCount(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
 });
 
 test('localized calculator shortcuts fit and target the same sections', async ({page}) => {

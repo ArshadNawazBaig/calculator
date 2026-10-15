@@ -364,46 +364,52 @@
     ]
   },
   "gpa-calculator": {
-    "description": "Calculate credit-weighted course or semester GPA and estimate the future GPA needed to reach a cumulative target.",
+    "description": "Calculate semester and cumulative GPA using course grades, credit hours, and your institution’s grading scale.",
     "faqs": [
       {
         "question": "Why is cumulative GPA weighted by credits?",
         "answer": "A course or semester with more graded credits contributes more quality points. Averaging GPA figures without their credit weights can give the wrong result."
-      },
-      {
-        "question": "What if the required future GPA exceeds my school's maximum?",
-        "answer": "The target is unattainable under the entered credit plan and scale. Changing future credits or the target changes the scenario."
       }
     ],
     "sections": [
       {
-        "title": "Weighting grades by course credits",
+        "title": "Calculate semester and cumulative GPA with credit hours",
         "paragraphs": [
-          "A GPA calculation depends on both the grade values and the credits assigned to each course. A simple average of course grades can differ from a credit-weighted result. Check that the grading scale matches the institution's system before entering values. The target planner models the remaining performance needed under those assumptions, rather than changing an official transcript or predicting future grades."
+          "Use Courses & semester GPA to enter each course, semester, grade, and credit hours. Choose letter grades, grade points, or percentages, and check the editable scale against your institution’s rules. Previous cumulative GPA and previous graded credits combine your existing record with the new courses. Do not also enter those previous courses in the course rows.",
+          "Each course contributes grade points × credits. An A worth 4 points in a 3-credit course and a B worth 3 points in a 4-credit course produce 24 quality points over 7 credits: a semester GPA of 3.43. The results table groups courses by semester, and the cumulative result weights all included courses by credits."
         ]
       }
-    ]
+    ],
+    "seoTitle": "College GPA Calculator: Semester & Cumulative GPA"
   },
   "grade-calculator": {
-    "description": "Calculate weighted or points-based grades and estimate the final-assessment score needed to reach a chosen course result.",
+    "description": "Calculate weighted or points-based grades, exclude ungraded work, and compare what-if scores.",
     "faqs": [
       {
         "question": "What does a weighted result mean when weights total less than 100%?",
         "answer": "The calculator normalizes the entered weights. The result is the average of the included completed work, not necessarily the final course grade."
       },
       {
-        "question": "What does a required final score above 100% mean?",
-        "answer": "The target cannot be reached under the entered assumptions without extra credit or another change permitted by the course rules."
+        "question": "Do ungraded assignments count as zero?",
+        "answer": "In Category weights & what-if grades, a blank current score is excluded from the current average. An entered zero counts as a graded score. Enter a what-if score to include ungraded work in a projection."
       }
     ],
     "sections": [
       {
-        "title": "Checking weights before averaging grades",
+        "title": "Weighted grades, category weights, and ungraded work",
         "paragraphs": [
-          "A weighted grade uses each assessment's contribution to the course total. Make sure percentages refer to course weight rather than points earned, and select the points mode when that is how the course is organized. The required-final-score mode works backward from a target. A result outside the available score range indicates that the target cannot be met under the entered assumptions."
+          "Choose Category weights & what-if grades to enter each category once with its weight from the syllabus. Use the category average from your gradebook, such as Homework at 30% and Midterm at 40%. Leave a current score blank for ungraded work; a zero means the work was graded and earned zero. Optional what-if scores affect only the projection.",
+          "For example, 90% on Homework worth 30% and 80% on a Midterm worth 40% gives a current average of 84.29% over the graded 70% of the course. A planned 90% on the remaining 30% Final exam gives a projected course grade of 86%. A projection covering less than 100% is labeled as an average of entered scores."
+        ]
+      },
+      {
+        "title": "When to use points instead of weights",
+        "paragraphs": [
+          "Choose Earned and possible points when each point has the same value across the course. For example, 80 out of 100 and 45 out of 50 combine to 125 out of 150, or 83.33%. Do not mix raw points with category percentages. Use the GPA calculator for course credits and grade points after determining your course grades."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Weighted Grade Calculator: Categories & Points"
   },
   "tip-calculator": {
     "description": "Calculate a tip from a chosen percentage and divide the bill plus tip evenly among a selected number of people.",
@@ -5175,5 +5181,54 @@
         "answer": "No. You enter local prices and the share of charging at home. The values remain constant throughout this projection and should be updated when you compare a new scenario."
       }
     ]
+  },
+  "final-exam-grade-calculator": {
+    "sections": [
+      {
+        "title": "Final exam grade calculator: what score do you need?",
+        "paragraphs": [
+          "Choose Required final score and enter your current grade before the final, your target overall grade, and the final exam weight. Required final score = (target grade − current grade × (1 − exam weight / 100)) / (exam weight / 100). Your current grade must exclude the final; do not use a grade that already counts an ungraded final as zero.",
+          "For example, an 85% current grade, an 88% target, and a final worth 30% require 95% on the exam. A result above 100% is flagged as unattainable without extra credit. A negative result means the target is already secured even with a zero on the final under these weights. Displayed values are rounded to two decimal places; use your course’s rounding and completion rules."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does a required final score above 100% mean?",
+        "answer": "The target cannot be reached under the entered assumptions without extra credit or another change permitted by the course rules."
+      },
+      {
+        "question": "What current grade should I enter for the final exam calculation?",
+        "answer": "Enter your average on the work that makes up the non-final portion of the course. It must exclude the final exam. If your gradebook already counts the final as a zero, recalculate the current average before using it."
+      }
+    ],
+    "description": "Calculate the final exam score you need from your current grade, target grade, and final exam weight.",
+    "seoTitle": "Final Exam Grade Calculator: Required Score"
+  },
+  "gpa-goal-calculator": {
+    "sections": [
+      {
+        "title": "GPA goal calculator: plan the GPA you need",
+        "paragraphs": [
+          "Choose Target GPA planner to enter your current cumulative GPA, completed graded credits, target GPA, future graded credits, and maximum grade points. The required future GPA is the credit-weighted average you need across those upcoming credits. A target above the selected scale is rejected, and a required average above its maximum is flagged as unattainable.",
+          "With a 3.2 GPA over 60 completed credits, reaching a 3.5 cumulative GPA after 30 more credits requires a 4.1 future GPA. On a 4.0 scale, the highest possible cumulative result is 3.47, so this credit plan cannot reach the target. Keeping the same current record and target but completing 60 future credits would require a 3.8 average."
+        ]
+      },
+      {
+        "title": "Compare future GPA scenarios",
+        "paragraphs": [
+          "Each scenario row represents a separate possible average over the same future credits. For a 3.2 GPA over 60 completed credits and 30 future credits, future averages of 3.0, 3.5, and 4.0 produce cumulative GPAs of 3.13, 3.30, and 3.47. The table shows whether each scenario reaches the target using unrounded values.",
+          "If you are planning several semesters, total their graded credits and use their credit-weighted average in a scenario, or enter planned courses by semester in Courses & semester GPA. Exclude pass/fail work where your institution excludes it, and check rules for repeated courses, transfers, and rounding."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What if the required future GPA exceeds my school's maximum?",
+        "answer": "The target is unattainable under the entered credit plan and scale. Changing future credits or the target changes the scenario."
+      }
+    ],
+    "description": "Calculate the future GPA needed to reach your cumulative GPA goal and compare scenarios for your remaining credits.",
+    "seoTitle": "GPA Goal Calculator: Required Future GPA"
   }
 }

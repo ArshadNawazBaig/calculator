@@ -1,5 +1,6 @@
 import Decimal from "decimal.js";
 import {num,positive,integer,list,result,dateUTC,isoDate,dayMs} from './helpers';
+import {gpaTarget} from './student-engine';
 import {triangleSides} from './geometry';
 import {metric as m,type Result,type Values} from './types';
 export const extraEverydayAlgorithms=new Set(['power-work','gpa-target','grade-points','density-inverse','molarity-inverse','dated-duration','datetime-add','duration-expression','business-add','floor-shapes','concrete-tube','concrete-stairs','landscape-area','gravel-circle','stairs-rise-run','conductor-resistance','heat-dew','dew-inverse','electricity-load','bandwidth-hosting','fuel-odometer','sleep-duration','roman-date','golf-differential']);
@@ -7,7 +8,7 @@ function seconds(t:string){const p=t.split(':').map(Number);if(!/^\d{2}:\d{2}(:\
 const time=(seconds:number)=>`${Math.floor(seconds/3600).toString().padStart(2,'0')}:${Math.floor(seconds%3600/60).toString().padStart(2,'0')}:${Math.floor(seconds%60).toString().padStart(2,'0')}`;
 export function runExtraEveryday(op:string,v:Values,core:(op:string,v:Values)=>Result):Result{const n=(key:string)=>num(v,key);
  if(op==='power-work'){const watts=n('force')*n('distance')/positive(n('time'),'Time');return result(m('Power',watts,'number','W'),m('Mechanical horsepower',watts/745.6998715822702,'number','hp'));}
- if(op==='gpa-target')return result(m('Required future GPA',(n('target')*(n('credits')+n('future'))-n('current')*n('credits'))/positive(n('future'),'Future credits')));
+ if(op==='gpa-target')return gpaTarget(v);
  if(op==='grade-points'){const rows=v.scores.trim().split(/\n+/).map(line=>list(line));if(rows.length>1000||rows.some(r=>r.length!==2||r[0]<0||r[1]<=0))throw Error('Enter earned, possible points on each row; possible points must be positive.');const earned=rows.reduce((s,r)=>s+r[0],0),possible=rows.reduce((s,r)=>s+r[1],0);return result(m('Grade',100*earned/possible,'percent'),m('Earned points',earned),m('Possible points',possible));}
  if(op==='density-inverse')return v.solve==='mass'?result(m('Mass',n('density')*n('volume'),'number','kg')):result(m('Volume',n('mass')/positive(n('density'),'Density'),'number','m³'));
  if(op==='molarity-inverse')return v.solve==='volume'?result(m('Solution volume',n('mass')/positive(n('concentration')*n('molarMass'),'Molarity and molar mass'),'number','L')):result(m('Molar mass',n('mass')/positive(n('concentration')*n('volume'),'Molarity and volume'),'number','g/mol'));

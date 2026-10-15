@@ -23,6 +23,15 @@ function storage(raw: string | null = null, fails = false) {
 afterEach(() => vi.unstubAllGlobals());
 
 describe('local workspace persistence', () => {
+  it('preserves saved inputs while moving student modes to their new pages', () => {
+    for (const [oldSlug, newSlug, modeId] of [['grade-calculator', 'final-exam-grade-calculator', 'final'], ['grade-calculator', 'final-exam-grade-calculator', 'letter-final'], ['gpa-calculator', 'gpa-goal-calculator', 'target']]) {
+      const mode = definitionMap.get(newSlug)!.modes.find(mode => mode.id === modeId)!;
+      const record = {...saved, slug: oldSlug, modeId, algorithm: mode.algorithm, values: defaults(mode)};
+      const parsed = parseWorkspace(JSON.stringify({...emptyWorkspace, calculations: [record]}))!;
+      expect(parsed.calculations[0]).toEqual({...record, slug: newSlug});
+      expect(restoreInputs(parsed.calculations[0], mode)).toEqual(record.values);
+    }
+  });
   it('round trips exact input strings and unrounded result precision', () => {
     const item = {...saved, values: {...saved.values, rate: '4.125'}, metrics: [{label: 'Payment', value: 123.456789}]};
     const parsed = parseWorkspace(JSON.stringify({...document, calculations: [item]}))!;

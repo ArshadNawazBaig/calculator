@@ -1,10 +1,14 @@
+import {isStudentCalculator, studentDirectory} from '@/lib/student-tools';
+import {StudentDirectory} from '@/components/content/student-directory';
+import {CategoryNavigation} from '@/components/content/category-navigation';
+import {StudentTools} from '@/components/content/student-tools';
 import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
 import {MethodologyNote} from '@/components/content/methodology-note';
 import {TimePage} from '@/components/time/time-page';
 import {TimeCollection} from '@/components/time/time-collection';
 import {timeRoute, prerenderTimePaths} from '@/lib/time/catalog';
 import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
-import {spinWheels, wheelMap} from '@/lib/spin-wheels/catalog';
+import {wheelMap} from '@/lib/spin-wheels/catalog';
 import {WheelPage} from '@/components/spin-wheels/wheel-page';
 import {SpinWheelsPage, wheelLibraryTitle, wheelLibraryDescription} from '@/components/spin-wheels/library-page';
 import {toolListings} from '@/lib/tool-listings';
@@ -42,7 +46,7 @@ import {pageMetadata} from '@/lib/metadata';
 import {isTranslatedPage, localizedPath, translator, type Locale} from './config';
 
 type PageProps = {params: Promise<{path?: string[]}>};
-export const localizedLandingPaths = ['/', '/calculators', ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
+export const localizedLandingPaths = ['/', '/calculators', studentDirectory.path, ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
 export function localizedStaticParams() {
   return [...new Set([...localizedLandingPaths,...translatedPages.filter(path=>!path.startsWith('/time')||prerenderTimePaths.has(path)||!timeRoute(path)),'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
 }
@@ -57,6 +61,7 @@ function routeInfo(path: string) {
   if (path === '/workspace') return {title: 'My workspace', description: 'Your favorite tools, saved calculations, and scenarios in one place.'};
   if (path === '/') return {title: 'Find your answer.', description: 'Free calculators for money, health, math, and everyday life.'};
   if (path === '/sitemap') return {title:'Sitemap', description:'Browse Finflo’s calculators, categories, guides, and website information.'};
+  if (path === studentDirectory.path) return {title: studentDirectory.title, description: studentDirectory.description};
   if (path === '/calculators') return {title:'All calculators', description:directoryContent[path].description};
   const parts = path.split('/').filter(Boolean);
   const category = categories.find(c => c.id === parts[1]);
@@ -98,10 +103,12 @@ export function localizedPage(locale: Locale) {
     if ('wheel' in route && route.wheel) return <WheelPage slug={route.wheel.slug} locale={locale} messages={messages}/>;
     if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
     if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
+    if (path === studentDirectory.path) return <StudentDirectory locale={locale} messages={messages}/>;
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
       <div className="container directory-page page-content">
-        <nav className="category-pills" aria-label={t('Browse by category')}>{categories.map(c => <a href={`#${c.id}`} key={c.id}>{t(c.name)}<span>{catalog.filter(tool => tool.category === c.id).length}</span></a>)}<a href="#time">{t("Time & clocks")}<span>4</span></a><a href="#spin-wheels">{t('Spin wheels')}<span>{spinWheels.length}</span></a></nav>
+        <CategoryNavigation currentPath={path} locale={locale} messages={messages}/>
+        {path==='/calculators'&&<StudentTools locale={locale} messages={messages}/>}
         <TranslationMessages messages={cardMessages(messages,catalog)}>{categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}</TranslationMessages>
         <WheelCollection messages={messages}/><TimeCollection messages={messages}/><DirectoryGuidance path={path} messages={messages} locale={locale}/>
       </div>
@@ -109,7 +116,7 @@ export function localizedPage(locale: Locale) {
     if ('category' in route && route.category) {
       const category = route.category;
       const tools = catalog.filter(tool => tool.category === category.id && (!route.subcategory || tool.subcategory === route.subcategory));
-      return <><PageHero eyebrow={t('The calculator library')} title={route.subcategory?`${t(route.subcategory)} · ${t(category.name)}`:t(route.title)} description={t(route.description)} breadcrumbs={[{label:t('All calculators'),href:'/calculators'},{label:t(category.name),...(route.subcategory?{href:`/calculators/${category.id}`}:{})},...(route.subcategory?[{label:t(route.subcategory)}]:[])]}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,tools)}><FilterableToolDirectory category={category.id} tools={tools} grouped={!route.subcategory}/></TranslationMessages><DirectoryGuidance path={path} messages={messages} locale={locale}/></div></>;
+      return <><PageHero eyebrow={t('The calculator library')} title={route.subcategory?`${t(route.subcategory)} · ${t(category.name)}`:t(route.title)} description={t(route.description)} breadcrumbs={[{label:t('All calculators'),href:'/calculators'},{label:t(category.name),...(route.subcategory?{href:`/calculators/${category.id}`}:{})},...(route.subcategory?[{label:t(route.subcategory)}]:[])]}/><div className="container directory-page page-content"><CategoryNavigation currentPath={path} locale={locale} messages={messages}/><TranslationMessages messages={cardMessages(messages,tools)}><FilterableToolDirectory category={category.id} tools={tools} grouped={!route.subcategory}/></TranslationMessages><DirectoryGuidance path={path} messages={messages} locale={locale}/></div></>;
     }
     if (path === '/search') return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,toolListings)}><Suspense fallback={null}><SearchResults/></Suspense></TranslationMessages></div></>;
     if ('tool' in route && route.tool) {
@@ -119,6 +126,7 @@ export function localizedPage(locale: Locale) {
       return <>
         <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}/>
         <TranslationMessages messages={cardMessages(messages,relatedTools(tool))}><div className="container tool-page page-content">
+          {def&&isStudentCalculator(tool.slug)&&<StudentTools compact locale={locale} messages={messages}/>}
           {def&&<CalculatorNavigation messages={messages}/>}
           {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
           {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}

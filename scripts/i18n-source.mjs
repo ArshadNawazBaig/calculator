@@ -132,7 +132,7 @@ export async function translationSource() {
       runtime[category] = [...new Set([...common, ...categoryKeys, ...rendered[category]])].sort();
       runtime[category].forEach(key => keys.add(key));
     }
-    for (const file of ['src/components/i18n/calculator-article.tsx', 'src/lib/i18n/pages.tsx']) {
+    for (const file of ['src/components/i18n/calculator-article.tsx', 'src/lib/i18n/pages.tsx', 'src/components/content/student-tools.tsx', 'src/components/content/category-navigation.tsx', 'src/components/content/student-directory.tsx', 'src/lib/student-tools.ts']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
     }
     for (const entry of await readdir('src/components/workspace')) {
@@ -180,7 +180,7 @@ export async function translationSource() {
     }
     for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
     for (const color of ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Teal','White','Black']) add(keys, color);
-    const paths = [...timePaths, '/', '/calculators', '/guides', '/sitemap', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    const paths = [...timePaths, '/', '/calculators', '/calculators/students', '/guides', '/sitemap', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
     return {timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
   } finally { await server.close(); }
 }

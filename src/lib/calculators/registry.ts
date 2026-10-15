@@ -1,3 +1,4 @@
+import {separateStudentCalculators} from './student-definitions';
 import methodCopy from '@/data/method-copy.json';
 import {toolkitDefinitions} from './toolkit-definitions';
 import {calculatorFamilies, relatedCalculatorSlugs} from '@/data/calculator-relationships';
@@ -92,6 +93,7 @@ definitions.find(d=>d.slug==='golf-handicap-calculator')!.sources.push({title:'U
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'OpenStax: conduction and thermal resistance',url:'https://openstax.org/books/college-physics-2e/pages/14-5-conduction'},{title:'NREL: building thermal envelope tests, dry-air assumptions (Table A10)',url:'https://docs.nlr.gov/docs/fy08osti/42059.pdf'});
 definitions.find(d=>d.slug==='btu-calculator')!.sources.push({title:'EPA: county design temperature limits, 2019 edition revised 2020',url:'https://www.energystar.gov/partner-resources/residential_new/working/hvac/hvac_designers/design_temp_limits'},{title:'2015 IECC: assembly U-factor references, Table R402.1.4',url:'https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency'});
 definitions.find(d=>d.slug==='target-heart-rate-calculator')!.sources.push({title:'CDC: measuring physical activity intensity',url:'https://www.cdc.gov/physical-activity-basics/measuring/index.html'});
+separateStudentCalculators(definitions);
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));
 export const blocked:Record<string,string>={};

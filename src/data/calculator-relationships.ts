@@ -40,5 +40,5 @@ export const calculatorFamilies: string[][] = [
   ['fuel-cost-calculator', 'gas-mileage-calculator', 'mileage-calculator', 'tire-size-calculator', 'auto-loan-calculator'],
   ['heat-index-calculator', 'dew-point-calculator', 'wind-chill-calculator', 'btu-calculator'],
   ['molecular-weight-calculator', 'molarity-calculator', 'density-calculator', 'mass-calculator'],
-  ['gpa-calculator', 'grade-calculator', 'college-cost-calculator', 'student-loan-calculator'],
+  ['grade-calculator', 'final-exam-grade-calculator', 'gpa-calculator', 'gpa-goal-calculator', 'college-cost-calculator', 'student-loan-calculator'],
 ];

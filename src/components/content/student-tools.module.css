@@ -1,0 +1,18 @@
+.cluster { margin-bottom: 36px; scroll-margin-top: 80px; }
+.heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.heading :global(.eyebrow) { display: flex; align-items: center; gap: 7px; }
+.heading h2 { margin: 8px 0 0; font-size: clamp(22px, 3vw, 28px); letter-spacing: -.6px; }
+.intro { color: var(--color-muted); margin: -4px 0 20px; }
+.grid, .compact { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.card { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--color-card); border: 1px solid var(--color-line); border-radius: 12px; }
+.card:hover { border-color: var(--color-brand-text); }
+.card:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin: 0; font-size: 16px; font-weight: 650; line-height: 1.5; }
+.title svg { flex-shrink: 0; margin-top: 4px; color: var(--color-brand-text); }
+.description { margin: 0; color: var(--color-muted); font-size: 14px; line-height: 1.7; }
+.compact .card { padding: 14px; }
+.compact .title { font-size: 14px; }
+.points { margin: 12px 0 0; font-size: 14px; }
+.points a { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) { .grid, .compact { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .grid, .compact { grid-template-columns: minmax(0, 1fr); } }

@@ -71,7 +71,7 @@ export function translator(messages: Dictionary) {
   };
 }
 export function isTranslatedLanding(path: string): boolean {
-  return path === '/' || path === '/calculators' || /^\/calculators\/(finance|health|math|everyday)(?:\/[^/?#]+)?$/.test(path);
+  return path === '/' || path === '/calculators' || path === '/calculators/students' || /^\/calculators\/(finance|health|math|everyday)(?:\/[^/?#]+)?$/.test(path);
 }
 const translatedPageSet = new Set<string>(translatedPages);
 export function isTranslatedPage(path: string): boolean {

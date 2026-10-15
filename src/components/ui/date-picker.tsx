@@ -44,11 +44,14 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
     <AriaDatePicker {...accessibility} id={id} name={name} value={dateValue(value)} onChange={date=>onValueChange(date?.toString()??"")}
       minValue={minimum??undefined} maxValue={maximum??undefined} isDisabled={disabled} isRequired={required} validationBehavior="native"
       granularity="day" shouldForceLeadingZeros isOpen={open} onOpenChange={setOpen} className={`${styles.root} ${size==="compact"?styles.compact:""}`} data-ui-control="date-picker">
-      {label&&<Label className={styles.label}>{label}</Label>}
-      <Group className={`${styles.control} ${styles.dateControl}`}>
-        <DateInput className={styles.dateInput}>{segment=><DateSegment segment={segment} className={styles.dateSegment}/>}</DateInput>
-        <Button className={styles.calendarTrigger} aria-label={t("Open calendar")}><CalendarDays size={19} aria-hidden="true"/></Button>
-      </Group>
+      {label&&<Label className={styles.label} data-date-field-label>{label}</Label>}
+      <div data-date-field-body>
+        <Group className={`${styles.control} ${styles.dateControl}`}>
+          <DateInput className={styles.dateInput}>{segment=><DateSegment segment={segment} className={styles.dateSegment}/>}</DateInput>
+          <Button className={styles.calendarTrigger} aria-label={t("Open calendar")}><CalendarDays size={19} aria-hidden="true"/></Button>
+        </Group>
+        <FieldError className={styles.error}/>
+      </div>
       <AnchoredPopover placement="bottom start" offset={7} className={styles.calendarPopover}>
         <Dialog className={styles.calendarDialog}>
           <Calendar className={styles.calendar}>
@@ -67,7 +70,6 @@ export function DatePicker({id,name,label,value,onValueChange,disabled=false,req
           <div className={styles.calendarFooter}><span>{new Intl.DateTimeFormat(languages[locale].tag,{year:"numeric",month:"2-digit",day:"2-digit",calendar:"gregory"}).formatToParts(new Date(Date.UTC(2000,10,22))).filter(part=>["day","month","year","literal"].includes(part.type)).map(part=>part.type==='literal'?part.value:part.type==='day'?'DD':part.type==='month'?'MM':'YYYY').join('')}</span><div><Button slot={null} className={styles.calendarAction} onPress={chooseToday}>{t("Today")}</Button><Button slot={null} className={styles.calendarAction} isDisabled={!value} onPress={()=>{onValueChange("");setOpen(false);}}>{t("Clear")}</Button></div></div>
         </Dialog>
       </AnchoredPopover>
-      <FieldError className={styles.error}/>
     </AriaDatePicker>
   </I18nProvider>;
 }

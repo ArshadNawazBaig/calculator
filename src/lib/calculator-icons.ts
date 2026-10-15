@@ -1,4 +1,4 @@
-import {BriefcaseConveyorBelt, FileText, BadgeCent, ChartNoAxesCombined, ChartCandlestick, LifeBuoy, Repeat, UsersRound, ChartNoAxesGantt, Store, Sun, BatteryCharging} from 'lucide-react';
+import {NotebookPen, Goal, BriefcaseConveyorBelt, FileText, BadgeCent, ChartNoAxesCombined, ChartCandlestick, LifeBuoy, Repeat, UsersRound, ChartNoAxesGantt, Store, Sun, BatteryCharging} from 'lucide-react';
 import {
   Accessibility, Activity, Anvil, Apple, Armchair, ArrowLeftRight,
   Atom, Award, Baby, BadgeAlert, BadgeCheck, BadgeDollarSign,
@@ -130,6 +130,8 @@ export const calculatorIcons:Readonly<Record<string,LucideIcon>>={
   'gfr-calculator':Bean,
   'golf-handicap-calculator':Flag,
   'gpa-calculator':Award,
+  'gpa-goal-calculator':Goal,
+  'final-exam-grade-calculator':NotebookPen,
   'grade-calculator':ClipboardCheck,
   'gravel-calculator':Mountain,
   'half-life-calculator':Atom,

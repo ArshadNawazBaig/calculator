@@ -1,5 +1,6 @@
 import type {Field, Metric, Mode, Values} from '@/lib/calculators/types';
 import {currencyLabel, isCurrency} from '@/lib/i18n/preferences';
+import {movedStudentMode} from '@/lib/student-tools';
 
 export const workspaceKey = 'finflo-workspace-v1';
 export const maxSavedCalculations = 100;
@@ -78,7 +79,11 @@ export function parseWorkspace(raw: string | null): Workspace | null {
       || !value.favorites.every(identifier) || !Array.isArray(value.calculations)
       || value.calculations.length > maxSavedCalculations || !value.calculations.every(isSavedCalculation)
       || new Set(value.calculations.map(item => item.id)).size !== value.calculations.length) return null;
-    return {version: 1, favorites: [...new Set(value.favorites)], calculations: value.calculations};
+    const calculations = value.calculations.map(item => {
+      const slug = movedStudentMode(item.slug, item.modeId);
+      return slug ? {...item, slug} : item;
+    });
+    return {version: 1, favorites: [...new Set(value.favorites)], calculations};
   } catch {return null;}
 }
 

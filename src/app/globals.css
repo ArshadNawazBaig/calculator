@@ -249,7 +249,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .calculator-settings .mode-picker label { font-size: 13px; }
 .calculator-settings .mode-picker>[data-ui-control] { max-width: none; flex: none; }
 .calculator-columns { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); }
-.calculator-form { padding: 32px; min-width: 0; }
+.calculator-form { padding: 32px; min-width: 0; container-type: inline-size; }
 .form-heading { display: flex; align-items: center; gap: 10px; color: var(--color-brand-text); margin-bottom: 25px; }
 .form-heading h2 { font-size: 18px; font-weight: 650; color: var(--color-ink); letter-spacing: -.4px; }
 .form-heading { align-items: start; }
@@ -257,7 +257,13 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .form-heading p { margin: 4px 0 0; color: var(--color-muted); font-size: 14px; font-weight: 400; }
 .calculator-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
 .calculator-field { min-width: 0; }
-.calculator-field label { font-size: 15px; font-weight: 550; display: flex; gap: 6px; justify-content: space-between; margin-bottom: 8px; color: var(--color-text-secondary); }
+/* Share label, control, and help tracks so wrapped labels do not shift inputs. */
+.calculator-fields>.calculator-field:not(.field-wide) { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 0; }
+.calculator-fields>.calculator-field:not(.field-wide)>label { grid-row: 1; align-self: end; }
+.calculator-fields>.calculator-field:not(.field-wide)>input,
+.calculator-fields>.calculator-field:not(.field-wide)>[data-ui-control="dropdown"] { grid-row: 2; align-self: start; }
+.calculator-fields>.calculator-field:not(.field-wide)>p { grid-row: 3; }
+.calculator-field label,.calculator-field [data-date-field-label] { font-size: 15px; font-weight: 550; display: flex; gap: 6px; justify-content: space-between; margin-bottom: 8px; color: var(--color-text-secondary); }
 .calculator-field label span { color: var(--color-muted); font-weight: 400; font-size: 12px; text-align: right; }
 .calculator-field input:not([type="hidden"]), .calculator-field textarea { width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-input); color: var(--color-ink); font-size: 16px; line-height: 1.4; }
 .calculator-field input:hover { border-color: var(--color-line-hover); }
@@ -341,10 +347,6 @@ th:first-child, td:first-child { text-align: left; }
 .guide-card p { color: var(--color-muted); font-size: 15px; margin-bottom: 22px; }
 
 /* The directory uses compact, scannable rows and meaningful tool icons. */
-.category-pills { position: sticky; top: 0; z-index: 40; display: flex; gap: 12px; overflow-x: auto; padding: 10px 2px; margin-bottom: 32px; border-bottom: 1px solid var(--color-line); background: var(--color-background); }
-.category-pills a { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; min-height: 44px; padding: 8px 12px; border-radius: 8px; background: var(--color-soft); font-size: 14px; font-weight: 600; }
-.category-pills a:hover { color: var(--color-brand-text); }
-.category-pills span { background: var(--color-soft); color: var(--color-muted); padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 500; }
 .category-directory { scroll-margin-top: 88px; margin-bottom: 52px; }
 .category-directory>.section-heading { padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--color-line); }
 .category-directory .section-heading h2 { font-size: 28px; }
@@ -503,8 +505,6 @@ th:first-child, td:first-child { text-align: left; }
   .mode-picker>[data-ui-control] { min-width: 0; }
   .directory-grid, .guide-grid, .related-card-grid { grid-template-columns: minmax(0,1fr); }
   .directory-grid { column-gap: 0; }
-  .category-pills { gap: 8px; }
-  .category-pills a { font-size: 13px; }
   .page-content { padding-top: 12px; }
   .breadcrumbs { font-size: 12px; }
   .result-metrics { gap: 0 14px; }
@@ -622,3 +622,28 @@ html[dir="rtl"] .formula-block, html[dir="rtl"] input[type="number"], html[dir="
 .record-csv-controls>div { display: flex; gap: 8px; flex-wrap: wrap; }
 .record-csv-controls p { font-size: 13px; line-height: 1.65; color: var(--color-muted); margin: 10px 0 0; }
 .record-row .record-remove { min-width: 40px; min-height: 44px; border-radius: 6px; }
+/* Repeated rows use the same column widths, including two-digit row numbers. */
+.record-row { gap: 8px; }
+.record-number { flex: 0 0 2ch; }
+.record-remove { flex-shrink: 0; }
+.record-cell { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 0; }
+.record-cell>label { grid-row: 1; align-self: end; }
+.record-cell>input,.record-cell>[data-ui-control="dropdown"] { grid-row: 2; align-self: start; }
+.calculator-field input:not([type="hidden"]):not([type="checkbox"]) { min-height: 48px; }
+.calculator-fields>.calculator-field:not(.field-wide)>[data-ui-control="date-picker"],
+.record-cell>[data-ui-control="date-picker"] { display: grid; grid-template-rows: subgrid; grid-row: 1 / span 2; row-gap: 0; }
+.calculator-field [data-date-field-label] { grid-row: 1; align-self: end; }
+.calculator-field [data-date-field-body] { grid-row: 2; min-width: 0; align-self: start; }
+.record-cells [data-date-field-label] { font-size: 12px; font-weight: 500; color: var(--color-muted); margin-bottom: 7px; }
+@container (max-width: 378px) {
+  .calculator-fields { grid-template-columns: minmax(0,1fr); }
+}
+@media (min-width: 601px) {
+  .record-cells:has([data-ui-control="date-picker"],input[type="time"]) { grid-template-columns: repeat(auto-fit,minmax(min(100%,180px),1fr)); }
+}
+@media (max-width: 600px) {
+  .record-row { display: grid; grid-template-columns: minmax(0,1fr) auto; }
+  .record-number,.record-remove { grid-row: 1; margin-top: 0; align-self: center; }
+  .record-remove { grid-column: 2; }
+  .record-cells { grid-column: 1/-1; grid-row: 2; }
+}

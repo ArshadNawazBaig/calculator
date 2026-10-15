@@ -77,7 +77,7 @@ describe('calculator display precision',()=>{
 
 describe('bounded grade targets and probabilities',()=>{
  it('explains the screenshot case without presenting an impossible score as attainable',async()=>{
-  const result=await run('grade-calculator','final-grade',{current:'85',target:'90',weight:'30'});
+  const result=await run('final-exam-grade-calculator','final-grade',{current:'85',target:'90',weight:'30'});
   expect(result.metrics[0].value).toBeCloseTo(101.6666666667,8);
   expect(formatMetric(result.metrics[0])).toBe('Target not attainable');
   expect(result.metrics.find(m=>m.label==='Highest possible overall grade')?.value).toBe(89.5);
@@ -87,7 +87,7 @@ describe('bounded grade targets and probabilities',()=>{
   expect(html).toContain('data-text="true"');
  });
  it('applies the same rule to letter inputs',async()=>{
-  const result=await run('grade-calculator','grade-letter-final',{current:'B',target:'A',remainingWeight:'20'});
+  const result=await run('final-exam-grade-calculator','grade-letter-final',{current:'B',target:'A',remainingWeight:'20'});
   expect(result.metrics[0].value).toBe(135);
   expect(formatMetric(result.metrics[0])).toBe('Target not attainable');
   expect(formatMetric(result.metrics[1])).toBe('88%');

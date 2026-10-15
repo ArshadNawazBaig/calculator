@@ -114,6 +114,7 @@ test('sensitive tools never offer to save their contents', async ({page}) => {
 
 test('saved currency is restored and different currencies cannot be compared', async ({page}) => {
   await page.goto('/loan-calculator');await saveLoan(page, 'Dollar loan', '1200');
+  await page.locator('[data-calculator-currency] summary').click();
   await page.locator('#calculator-currency').click();await page.getByRole('option', {name: /^EUR ·/}).click();
   await saveLoan(page, 'Euro loan', '1200');
   await page.goto('/workspace');
