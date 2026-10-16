@@ -21,7 +21,9 @@
     "audit:performance": "node scripts/lab-performance.mjs",
     "audit:sources": "node scripts/audit-sources.mjs",
     "audit:field": "node scripts/audit-field-performance.mjs",
-    "research:search": "node scripts/build-search-map.mjs"
+    "research:search": "node scripts/build-search-map.mjs",
+    "audit:value": "node scripts/audit-page-value.mjs",
+    "audit:value:rendered": "node scripts/audit-page-value-rendered.mjs"
   },
   "engines": {
     "node": "22.x"

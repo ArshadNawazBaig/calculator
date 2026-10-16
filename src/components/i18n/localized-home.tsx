@@ -1,3 +1,4 @@
+import {PercentageDemo} from '@/components/home/percentage-demo';
 import {TimeCollection} from '@/components/time/time-collection';
 import {timeTools} from '@/lib/time/tools';
 import Link from '@/components/i18n/link';
@@ -42,6 +43,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     <HealthToolkit messages={messages}/>
     <EverydayToolkit messages={messages}/>
     <HowItWorks messages={messages}/>
+    <PercentageDemo/>
     <section className={styles.confidence} aria-labelledby="confidence-title"><div className={`container ${styles.confidenceInner}`}>
       <div className={styles.confidenceIntro}><span className={styles.eyebrow}>{t('Clarity comes from context')}</span><h2 id="confidence-title">{t('Understand the number.')}</h2><p>{t('Check units and assumptions before using a result.')}</p></div>
       <div className={styles.benefits}>{[
@@ -52,7 +54,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     </div></section>
     <WorkspaceIntroduction messages={messages}/>
     <LearningGuides messages={messages}/>
-    <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>
+    <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2><p><Link href="/faq">{t('Browse all FAQs')}</Link></p></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>
     <HomeCta messages={messages}/>
   </>;
 }

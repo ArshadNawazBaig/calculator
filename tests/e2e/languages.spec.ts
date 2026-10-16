@@ -57,8 +57,8 @@ test('Arabic pages use RTL, localized navigation, and calculate without changing
   await expect(page.locator('.primary-metric dd')).toContainText('٥٠');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   await page.getByRole('button',{name:'فتح قائمة التنقل'}).click();
-  await page.getByRole('navigation',{name:'التنقل على الهاتف'}).getByRole('link',{name:'المالية',exact:true}).click();
-  await expect(page).toHaveURL(/\/ar\/calculators\/finance$/);
+  await page.getByRole('navigation',{name:'التنقل على الهاتف'}).getByRole('link',{name:'الحاسبات',exact:true}).click();
+  await expect(page).toHaveURL(/\/ar\/calculators$/);
 });
 
 test('server HTML has localized metadata and invalid localized routes return 404',async({request})=>{

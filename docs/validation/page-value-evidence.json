@@ -1,0 +1,959 @@
+{
+  "reviewedAt": "2026-10-16T22:01:08.573Z",
+  "scope": "Page-specific supplemental content and explanation interfaces across all eight locales. Existing calculation engines and model limitations retained.",
+  "editorial": {
+    "finance": {
+      "scope": {
+        "file": "src/data/insights/finance.json",
+        "implementedFinanceCalculators": 83,
+        "locales": [
+          "en",
+          "es",
+          "fr",
+          "de",
+          "pt",
+          "ar",
+          "hi",
+          "tl"
+        ],
+        "insights": 664,
+        "excluded": "real-estate-calculator directory is handled outside implemented calculator definitions"
+      },
+      "method": "Read every finance calculator’s composed registry fields, modes, explanations and existing content. Wrote one distinct decision insight per calculator, then translated it into all seven additional locales. No keyword or generic ranking boilerplate.",
+      "checks": {
+        "exactRegistryCoverage": true,
+        "completeLocaleFields": true,
+        "headingsThreeToSevenWhitespaceWords": true,
+        "duplicateBodiesPerLocale": 0,
+        "engineSampleScenarios": 13,
+        "englishBodyWordRange": [
+          30,
+          38
+        ]
+      },
+      "numericExamplesExecuted": [
+        {
+          "slug": "average-return-calculator",
+          "mode": "returns",
+          "overrides": {
+            "returns": "50,-50"
+          },
+          "metrics": [
+            {
+              "label": "Arithmetic average",
+              "value": 0,
+              "format": "percent"
+            },
+            {
+              "label": "Geometric average",
+              "value": -13.397459621556141,
+              "format": "percent"
+            },
+            {
+              "label": "Cumulative return",
+              "value": -25,
+              "format": "percent"
+            }
+          ]
+        },
+        {
+          "slug": "annuity-calculator",
+          "mode": "dual-streams",
+          "overrides": {
+            "initial": "0",
+            "monthlyContribution": "200",
+            "annualContribution": "2400",
+            "months": "12",
+            "nominalRatePercent": "0",
+            "monthlyContributionGrowthPercent": "0",
+            "annualContributionGrowthPercent": "0",
+            "taxRatePercent": "0",
+            "inflationPercent": "0"
+          },
+          "metrics": [
+            {
+              "label": "Ending balance",
+              "value": 4800,
+              "format": "money"
+            },
+            {
+              "label": "Contributions after opening balance",
+              "value": 4800,
+              "format": "money"
+            },
+            {
+              "label": "Gross interest",
+              "value": 0,
+              "format": "money"
+            },
+            {
+              "label": "Tax paid",
+              "value": 0,
+              "format": "money"
+            },
+            {
+              "label": "Net investment gain",
+              "value": 0,
+              "format": "money"
+            },
+            {
+              "label": "Inflation-adjusted balance",
+              "value": 4800,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "break-even-calculator",
+          "mode": "units",
+          "overrides": {
+            "fixedCost": "3000",
+            "price": "50",
+            "variableCost": "30",
+            "targetProfit": "0",
+            "plannedUnits": "200"
+          },
+          "metrics": [
+            {
+              "label": "Break-even whole units",
+              "value": 150,
+              "format": "number"
+            },
+            {
+              "label": "Break-even sales revenue",
+              "value": 7500,
+              "format": "money"
+            },
+            {
+              "label": "Contribution per unit",
+              "value": 20,
+              "format": "money"
+            },
+            {
+              "label": "Contribution margin",
+              "value": 40,
+              "format": "percent"
+            },
+            {
+              "label": "Units for target profit",
+              "value": 150,
+              "format": "number"
+            },
+            {
+              "label": "Profit at planned sales",
+              "value": 1000,
+              "format": "money"
+            },
+            {
+              "label": "Margin of safety",
+              "value": 25,
+              "format": "percent"
+            }
+          ]
+        },
+        {
+          "slug": "break-even-calculator",
+          "mode": "units",
+          "overrides": {
+            "fixedCost": "3000",
+            "price": "45",
+            "variableCost": "30",
+            "targetProfit": "0",
+            "plannedUnits": "200"
+          },
+          "metrics": [
+            {
+              "label": "Break-even whole units",
+              "value": 200,
+              "format": "number"
+            },
+            {
+              "label": "Break-even sales revenue",
+              "value": 9000,
+              "format": "money"
+            },
+            {
+              "label": "Contribution per unit",
+              "value": 15,
+              "format": "money"
+            },
+            {
+              "label": "Contribution margin",
+              "value": 33.33333333333333,
+              "format": "percent"
+            },
+            {
+              "label": "Units for target profit",
+              "value": 200,
+              "format": "number"
+            },
+            {
+              "label": "Profit at planned sales",
+              "value": 0,
+              "format": "money"
+            },
+            {
+              "label": "Margin of safety",
+              "value": 0,
+              "format": "percent"
+            }
+          ]
+        },
+        {
+          "slug": "down-payment-calculator",
+          "mode": "price",
+          "overrides": {
+            "cash": "50000",
+            "down": "20",
+            "closing": "5"
+          },
+          "metrics": [
+            {
+              "label": "Purchase price supported",
+              "value": 200000,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "interest-calculator",
+          "mode": "growth",
+          "overrides": {
+            "initial": "1000",
+            "contribution": "0",
+            "rate": "5",
+            "frequency": "1",
+            "years": "1",
+            "taxRate": "20",
+            "inflation": "4"
+          },
+          "metrics": [
+            {
+              "label": "Projected balance",
+              "value": 1040.0000000000002,
+              "format": "money"
+            },
+            {
+              "label": "Total contributions",
+              "value": 1000,
+              "format": "money"
+            },
+            {
+              "label": "Growth after modeled tax",
+              "value": 40.00000000000023,
+              "format": "money"
+            },
+            {
+              "label": "Modeled investment tax",
+              "value": 10,
+              "format": "money"
+            },
+            {
+              "label": "Inflation-adjusted value",
+              "value": 1000.0000000000002,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "irr-calculator",
+          "mode": "irr",
+          "overrides": {
+            "flows": "-100,230,-132",
+            "rate": "0"
+          },
+          "metrics": [
+            {
+              "label": "Detected IRR",
+              "value": "10.000000%, 20.000000%",
+              "format": "number",
+              "numericText": true
+            },
+            {
+              "label": "Net present value",
+              "value": -2,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "present-value-calculator",
+          "mode": "pv",
+          "overrides": {
+            "future": "1000",
+            "payment": "0",
+            "rate": "10",
+            "years": "1"
+          },
+          "metrics": [
+            {
+              "label": "Present value",
+              "value": 909.090909090909,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "simple-interest-calculator",
+          "mode": "simple",
+          "overrides": {
+            "principal": "1000",
+            "rate": "6",
+            "years": "3",
+            "timeUnit": "months"
+          },
+          "metrics": [
+            {
+              "label": "Interest",
+              "value": 15,
+              "format": "money"
+            },
+            {
+              "label": "Final amount",
+              "value": 1015,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "roi-calculator",
+          "mode": "roi",
+          "overrides": {
+            "cost": "100",
+            "proceeds": "120",
+            "fees": "0",
+            "years": "0.5"
+          },
+          "metrics": [
+            {
+              "label": "Return on investment",
+              "value": 19.999999999999996,
+              "format": "percent"
+            },
+            {
+              "label": "Net profit",
+              "value": 20,
+              "format": "money"
+            },
+            {
+              "label": "Annualized return",
+              "value": 43.99999999999999,
+              "format": "percent"
+            }
+          ]
+        },
+        {
+          "slug": "payback-period-calculator",
+          "mode": "payback",
+          "overrides": {
+            "flows": "-1000,600,600,-1000",
+            "rate": "0"
+          },
+          "metrics": [
+            {
+              "label": "Simple payback",
+              "value": 1.6666666666666665,
+              "format": "number"
+            },
+            {
+              "label": "Discounted payback",
+              "value": 1.6666666666666665,
+              "format": "number"
+            }
+          ]
+        },
+        {
+          "slug": "credit-card-calculator",
+          "mode": "payoff",
+          "overrides": {
+            "principal": "5000",
+            "rate": "24",
+            "payment": "110",
+            "extra": "0"
+          },
+          "metrics": [
+            {
+              "label": "Regular monthly payment",
+              "value": 110,
+              "format": "money"
+            },
+            {
+              "label": "Loan amount",
+              "value": 5000,
+              "format": "money"
+            },
+            {
+              "label": "Total interest",
+              "value": 8319.96218960825,
+              "format": "money"
+            },
+            {
+              "label": "Total payments",
+              "value": 13319.96218960825,
+              "format": "money"
+            },
+            {
+              "label": "Payoff time",
+              "value": 122,
+              "format": "number",
+              "unit": "months"
+            }
+          ],
+          "firstRow": [
+            1,
+            "2026-11",
+            110,
+            10,
+            100,
+            4990
+          ]
+        },
+        {
+          "slug": "credit-card-calculator",
+          "mode": "payoff",
+          "overrides": {
+            "principal": "5000",
+            "rate": "24",
+            "payment": "150",
+            "extra": "0"
+          },
+          "metrics": [
+            {
+              "label": "Regular monthly payment",
+              "value": 150,
+              "format": "money"
+            },
+            {
+              "label": "Loan amount",
+              "value": 5000,
+              "format": "money"
+            },
+            {
+              "label": "Total interest",
+              "value": 3322.0867837911164,
+              "format": "money"
+            },
+            {
+              "label": "Total payments",
+              "value": 8322.086783791117,
+              "format": "money"
+            },
+            {
+              "label": "Payoff time",
+              "value": 56,
+              "format": "number",
+              "unit": "months"
+            }
+          ],
+          "firstRow": [
+            1,
+            "2026-11",
+            150,
+            50,
+            100,
+            4950
+          ]
+        }
+      ],
+      "primarySourcesVerified": [
+        {
+          "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/",
+          "supports": "Payment reductions and repayment-term distinctions; refinance context."
+        },
+        {
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+          "supports": "Fees remove assets that could generate later growth."
+        },
+        {
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/mutual-fund-and-etf-fees-and-expenses-investor-bulletin",
+          "supports": "Fund loads and ongoing expenses differ; actual prospectus controls product fees."
+        },
+        {
+          "url": "https://www.irs.gov/taxtopics/tc451",
+          "supports": "Traditional IRA deductibility and Roth qualified-distribution conditions; comparisons retain these as assumptions."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes",
+          "supports": "Gross estate and allowable deduction separation."
+        },
+        {
+          "url": "https://www.ecb.europa.eu/stats/pdf/exchange/Frameworkfortheeuroforeignexchangereferencerates.en.pdf",
+          "supports": "Reference rates are informational and do not establish transaction proceeds."
+        },
+        {
+          "url": "https://www.hud.gov/hud-partners/housing-upfront-mip",
+          "supports": "FHA upfront premiums are distinct from periodic premiums."
+        },
+        {
+          "url": "https://entp.hud.gov/wink/files/mtg_limts.html",
+          "supports": "Financed upfront FHA premium belongs in mortgage amount."
+        },
+        {
+          "url": "https://www.irs.gov/publications/p590b",
+          "supports": "Owner RMD calculations use prior December 31 balances and appropriate tables."
+        },
+        {
+          "url": "https://www.ssa.gov/benefits/retirement/matrix.html",
+          "supports": "Claiming-time comparisons involve different benefit starting dates and amounts."
+        },
+        {
+          "url": "https://www.irs.gov/individuals/employees/tax-withholding",
+          "supports": "Withholding is a tax prepayment; changing it changes cash timing without alone changing final liability."
+        }
+      ],
+      "limitations": [
+        "Content supplements existing explanations and sources; it does not rewrite calculation engines or change supported modes.",
+        "All numeric rates and amounts in new copy are examples or user assumptions, not current product quotes or eligibility determinations.",
+        "No new year-specific tax thresholds, legal entitlements, review credentials or ranking guarantees were asserted.",
+        "Translations were authored and checked for mathematical consistency; no external native-language editorial review is claimed."
+      ]
+    },
+    "healthAndMath": {
+      "files": [
+        "src/data/insights/health.json",
+        "src/data/insights/math.json"
+      ],
+      "coverage": {
+        "health": {
+          "pages": 30,
+          "localizedInsights": 240
+        },
+        "math": {
+          "pages": 44,
+          "localizedInsights": 352
+        },
+        "locales": [
+          "en",
+          "es",
+          "fr",
+          "de",
+          "pt",
+          "ar",
+          "hi",
+          "tl"
+        ]
+      },
+      "validation": [
+        "Exact slug coverage checked against ACTUAL composed registry exported by Vite SSR",
+        "All 592 locale records contain exactly heading/body, both nonempty",
+        "Zero duplicate bodies within each locale across each assigned category",
+        "All locale headings contain 3–7 whitespace-separated words",
+        "All English bodies contain 25–40 whitespace-separated words",
+        "17 numerical examples checked against actual calculator engines; all 17 passed"
+      ],
+      "engineEvidence": {
+        "command": "node /tmp/finflo-insights-check.mjs",
+        "result": "Passed numerical examples 17 of 17",
+        "algorithms": [
+          "bmi",
+          "bmr",
+          "calories-burned",
+          "healthy-weight",
+          "lean-fat",
+          "one-rep",
+          "protein",
+          "expression (arithmetic)",
+          "big-integer (exact modulo)",
+          "circle",
+          "gcd",
+          "half-life",
+          "root",
+          "round-increment",
+          "expression (degrees)",
+          "expression (radians)",
+          "slope"
+        ]
+      },
+      "sourcesVerified": [
+        {
+          "title": "CDC: Adult BMI categories",
+          "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+          "supports": "Screening context, adult categories, exclusive BMI 25 boundary"
+        },
+        {
+          "title": "NIMH: Eating Disorders—What You Need to Know",
+          "url": "https://www.nimh.nih.gov/health/publications/eating-disorders",
+          "supports": "Support based on eating-related distress and behavior; concerns can occur at any body weight"
+        },
+        {
+          "title": "NIDDK: eGFR Equations for Adults",
+          "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults",
+          "supports": "2021 adult CKD-EPI inputs, estimate limitations and equation consistency for comparison"
+        },
+        {
+          "title": "ACOG: Methods for Estimating the Due Date",
+          "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date",
+          "supports": "ART-derived gestational age from embryo age and transfer date",
+          "access": "Official search excerpt accessible; direct open returned 402"
+        },
+        {
+          "title": "CDC: How to Measure Physical Activity Intensity",
+          "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html",
+          "supports": "MET and intensity context"
+        },
+        {
+          "title": "NIST: Confidence Limits for the Mean",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "supports": "Confidence coefficient, critical value and width interpretation"
+        },
+        {
+          "title": "ASA: Statement on Statistical Significance and P-Values",
+          "url": "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+          "supports": "Threshold-only conclusions are inappropriate; p-values do not measure effect size"
+        },
+        {
+          "title": "OpenStax: A Population Proportion",
+          "url": "https://openstax.org/books/introductory-statistics-2e/pages/8-3-a-population-proportion",
+          "supports": "p(1-p) symmetry in normal-approximation sample size"
+        },
+        {
+          "title": "NIAAA: What Is a Standard Drink?",
+          "url": "https://www.niaaa.nih.gov/alcohols-effects-health/what-standard-drink",
+          "supports": "Serving volume and ABV jointly determine pure alcohol amount; drink count alone does not specify exposure"
+        }
+      ],
+      "readOnlyReview": {
+        "reviewed": [
+          "src/lib/scenario-comparison.ts",
+          "src/components/calculators/scenario-comparison.tsx",
+          "src/components/content/guide-illustration.tsx",
+          "src/lib/guide-illustrations.ts",
+          "src/components/time/clock-comparison.tsx",
+          "src/components/content/tool-chooser.tsx"
+        ],
+        "findingsReportedToRoot": [
+          "Header-only comparison table after changing output unit (reproduced 20 m² -> 200000 cm², compareMetrics returns []). Root owns fix.",
+          "US-formatted numeric literals in translated guide prose disagree with localized table conventions. Root owns fix."
+        ],
+        "otherChecks": "Dirty snapshot suppression and mode/currency baseline resets verified in integration. Date-aware clock snapshots, logical RTL spacing, overflow wrappers, chooser mode links and active-field logic reviewed without another substantive issue.",
+        "findingsResolved": true
+      },
+      "limitations": [
+        "Editorial translations were authored and checked here; they have not received an independent professional/native-language review.",
+        "Numerical examples are illustrative and preserve existing model limits; no engines or medical guidance algorithms changed.",
+        "This batch supplements current content; root owns rendering, integration, broader regression checks and publication."
+      ]
+    },
+    "everydayAndInformation": {
+      "coverage": {
+        "everydayPages": 59,
+        "everydayLocalizedEntries": 472,
+        "informationPages": 9,
+        "informationLocalizedEntries": 72
+      },
+      "checks": [
+        {
+          "slug": "date-calculator",
+          "algorithm": "date-add",
+          "changes": {
+            "start": "2026-01-31",
+            "months": "1",
+            "years": "0",
+            "weeks": "0",
+            "days": "0"
+          },
+          "metrics": [
+            {
+              "label": "Result date",
+              "value": "2026-02-28",
+              "format": "number"
+            }
+          ]
+        },
+        {
+          "slug": "date-calculator",
+          "algorithm": "date-add",
+          "changes": {
+            "start": "2026-02-28",
+            "months": "1",
+            "years": "0",
+            "weeks": "0",
+            "days": "0"
+          },
+          "metrics": [
+            {
+              "label": "Result date",
+              "value": "2026-03-28",
+              "format": "number"
+            }
+          ]
+        },
+        {
+          "slug": "date-calculator",
+          "algorithm": "date-add",
+          "changes": {
+            "start": "2026-01-31",
+            "months": "2",
+            "years": "0",
+            "weeks": "0",
+            "days": "0"
+          },
+          "metrics": [
+            {
+              "label": "Result date",
+              "value": "2026-03-31",
+              "format": "number"
+            }
+          ]
+        },
+        {
+          "slug": "time-card-calculator",
+          "algorithm": "shift-card",
+          "changes": {
+            "shifts": "[{\"workDate\":\"2026-10-09\",\"start\":\"09:07\",\"end\":\"17:08\",\"breakMinutes\":0}]",
+            "roundMinutes": "15"
+          },
+          "metrics": [
+            {
+              "label": "Raw hours",
+              "value": 8.016666666666667,
+              "format": "number"
+            },
+            {
+              "label": "Total hours",
+              "value": 8.25,
+              "format": "number"
+            },
+            {
+              "label": "Regular hours",
+              "value": 8.25,
+              "format": "number"
+            },
+            {
+              "label": "Overtime hours",
+              "value": 0,
+              "format": "number"
+            },
+            {
+              "label": "Estimated gross pay",
+              "value": 165,
+              "format": "money"
+            }
+          ]
+        },
+        {
+          "slug": "roofing-calculator",
+          "algorithm": "roof",
+          "changes": {
+            "length": "10",
+            "width": "10",
+            "pitch": "6",
+            "waste": "0"
+          },
+          "metrics": [
+            {
+              "label": "Roof surface",
+              "value": 111.80339887498948,
+              "format": "number",
+              "unit": "ft²"
+            },
+            {
+              "label": "With allowance",
+              "value": 111.80339887498948,
+              "format": "number",
+              "unit": "ft²"
+            },
+            {
+              "label": "Roofing squares",
+              "value": 1.118033988749895,
+              "format": "number"
+            }
+          ]
+        },
+        {
+          "slug": "gas-mileage-calculator",
+          "algorithm": "mpg",
+          "changes": {
+            "distance": "600",
+            "fuel": "25"
+          },
+          "metrics": [
+            {
+              "label": "US fuel economy",
+              "value": 24,
+              "format": "number",
+              "unit": "mpg"
+            },
+            {
+              "label": "Consumption",
+              "value": 9.800607637499999,
+              "format": "number",
+              "unit": "L/100 km"
+            }
+          ]
+        },
+        {
+          "slug": "speed-calculator",
+          "algorithm": "speed",
+          "changes": {
+            "solve": "speed",
+            "distance": "120",
+            "time": "3"
+          },
+          "metrics": [
+            {
+              "label": "Speed",
+              "value": 40,
+              "format": "number",
+              "unit": "km/h"
+            }
+          ]
+        },
+        {
+          "slug": "sleep-calculator",
+          "algorithm": "sleep-duration",
+          "changes": {
+            "time": "07:00",
+            "hours": "8",
+            "latency": "30",
+            "direction": "wake"
+          },
+          "metrics": [
+            {
+              "label": "Suggested bedtime",
+              "value": "22:30",
+              "format": "number"
+            },
+            {
+              "label": "Day relative to entered time",
+              "value": "Previous day",
+              "format": "number"
+            }
+          ]
+        }
+      ],
+      "sources": {
+        "gdp-calculator": [
+          "https://bea.gov/index.php/news/blog/2025-06-03/expenditures-approach-measuring-gdp"
+        ],
+        "wind-chill-calculator": [
+          "https://www.weather.gov/safety/cold-faqs"
+        ],
+        "heat-index-calculator": [
+          "https://www.weather.gov/safety/heat-index"
+        ],
+        "dew-point-calculator": [
+          "https://www.weather.gov/source/zhu/ZHU_Training_Page/definitions/dry_wet_bulb_definition/dry_wet_bulb.html"
+        ],
+        "base64-encode-decode": [
+          "https://www.rfc-editor.org/rfc/rfc4648.html"
+        ],
+        "url-encode-decode": [
+          "https://datatracker.ietf.org/doc/rfc3986/"
+        ],
+        "ip-subnet-calculator": [
+          "https://www.rfc-editor.org/info/rfc4632/"
+        ],
+        "password-generator": [
+          "https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password"
+        ],
+        "shoe-size-conversion": [
+          "https://www.nike.com/size-fit/mens-footwear",
+          "https://www.nike.com/size-fit/womens-footwear"
+        ],
+        "golf-handicap-calculator": [
+          "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/world-handicap-system-usga-golf-faqs.html"
+        ],
+        "sleep-calculator": [
+          "https://www.nhlbi.nih.gov/files/docs/public/sleep/healthy_sleep"
+        ]
+      }
+    }
+  },
+  "peerReviewFixes": [
+    "Explain incompatible output units instead of rendering an empty comparison table.",
+    "Use locale-aware numerical formatting in guide prose and tables.",
+    "Use a positive percentage slider minimum for the reversal demonstration.",
+    "Correct the Filipino translation of relative effect in the voltage-drop insight.",
+    "Ignore a queued pre-open scroll event when mobile menu coordinates have not changed.",
+    "Remove page-anchor scroll offsets from popup option IDs so focusing an option does not move the page and close the popup.",
+    "Updated the Arabic mobile-navigation regression to follow the current Calculators link; the old Finance menu item no longer exists."
+  ],
+  "verification": {
+    "sourceRoutes": 717,
+    "localizedURLs": 5736,
+    "calculatorInsights": 1728,
+    "informationInsights": 72,
+    "engineScenarioSpotChecks": 38,
+    "unitTests": {
+      "passed": 3234,
+      "files": 52,
+      "command": "npm test -- --maxWorkers=4"
+    },
+    "build": {
+      "passed": true,
+      "staticPages": 2277,
+      "command": "npm run build",
+      "includesFinalMenuAndDropdownFixes": true
+    },
+    "translationDictionaryCheck": {
+      "passed": true,
+      "messagesPerNonEnglishLocale": 11249
+    },
+    "browserTests": {
+      "distinctTestsPassed": 39,
+      "unresolvedFailures": 0,
+      "initialRun": {
+        "passed": 32,
+        "failed": 2,
+        "files": [
+          "learning-content.spec.ts",
+          "seo-discovery.spec.ts",
+          "languages.spec.ts",
+          "site.spec.ts"
+        ]
+      },
+      "afterUIFixes": {
+        "passed": 18,
+        "failed": 1,
+        "files": [
+          "learning-content.spec.ts",
+          "popover-scroll.spec.ts",
+          "header-navigation.spec.ts",
+          "languages.spec.ts"
+        ],
+        "remainingFailure": "Outdated Arabic navigation test expected the removed Finance menu link."
+      },
+      "finalRecheck": {
+        "passed": 1,
+        "failed": 0,
+        "command": "TEST_URL=http://127.0.0.1:3100 npx playwright test tests/e2e/languages.spec.ts --grep 'Arabic pages use RTL'",
+        "correction": "Follow the current localized Calculators link and verify its destination."
+      },
+      "coverage": [
+        "Scenario pin/change/recalculate and mode reset",
+        "Output-unit compatibility and changed-input details",
+        "Keyboard-operated percentage demonstration",
+        "All eight languages",
+        "Mobile widths and RTL",
+        "Accessible tables and contrast",
+        "Search, saved input workflow integration, export, offline calculations",
+        "Navigation, focus, outside dismissal and intentional scroll dismissal",
+        "Canonicals, structured data and localized sitemap discovery"
+      ]
+    },
+    "renderedURLAudit": {
+      "passed": 5736,
+      "failed": 0,
+      "localizedNoteChecks": 1800,
+      "report": "docs/validation/page-value-rendered.json",
+      "scope": "Every published source route in all eight languages; crawl preceded final CSS and menu-scroll-only fixes."
+    },
+    "typecheck": {
+      "passed": true,
+      "command": "npm run typecheck; production build TypeScript check"
+    },
+    "lint": {
+      "passed": true,
+      "command": "npm run lint; targeted ESLint after final script and navigation changes"
+    }
+  },
+  "limitations": [
+    "Translations have not had an independent professional native-language review.",
+    "Automated route coverage is distinct from manual visual inspection; browser checks sample each page family and interaction.",
+    "No publication, search-engine indexing, traffic improvement, or ranking outcome is claimed."
+  ],
+  "verifiedAt": "2026-10-16T22:11:01.243Z",
+  "designFollowup": "docs/validation/design-alignment.json",
+  "faqFollowup": "docs/validation/faq-page.json"
+}

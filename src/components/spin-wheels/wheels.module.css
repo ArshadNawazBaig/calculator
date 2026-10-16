@@ -54,6 +54,7 @@
 .intro p { color: var(--color-muted); font-size: 14px; line-height: 1.8; margin-top: 9px; max-width: 650px; }
 .count { color: var(--color-brand-text); font-size: 12px; white-space: nowrap; }
 .articleLayout { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 72px; margin-top: 56px; }
+.article { min-width: 0; }
 .article section { margin-bottom: 38px; }
 .article h2 { font-size: 25px; line-height: 1.35; font-weight: 650; letter-spacing: -.65px; margin-bottom: 16px; }
 .article h3 { font-size: 17px; line-height: 1.5; font-weight: 650; margin: 22px 0 8px; }
@@ -76,7 +77,7 @@
 .facts svg { color: var(--color-brand-text); }
 .byline { border-top: 1px solid var(--color-line); padding-top: 18px; font-size: 12px !important; color: var(--color-muted) !important; }
 @media(max-width:1000px) { .workspace { gap: 18px; } .editor { padding: 22px; } .stage { padding: 24px 22px 18px; } .articleLayout { grid-template-columns: minmax(0,1fr) 240px; gap: 36px; } }
-@media(max-width:700px) { .workspace { grid-template-columns: 1fr; } .editor { order: 1; } .stage { order: 2; } .history { order: 3; } .editor textarea { min-height: 175px; height: 190px; } .articleLayout { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; } .related>div { grid-template-columns: repeat(2,minmax(0,1fr)); } .onThisPage { display: none; } .intro { display: block; } .count { display: block; margin-top: 14px; } }
+@media(max-width:700px) { .workspace { grid-template-columns: 1fr; } .editor { order: 1; } .stage { order: 2; } .history { order: 3; } .editor textarea { min-height: 175px; height: 190px; } .articleLayout { grid-template-columns: minmax(0,1fr); gap: 32px; margin-top: 40px; } .related>div { grid-template-columns: repeat(2,minmax(0,1fr)); } .onThisPage { display: none; } .intro { display: block; } .count { display: block; margin-top: 14px; } }
 @media(max-width:420px) { .editor,.history { padding: 20px; } .stage { padding: 22px 16px 18px; } .stageHeading { gap: 8px; } .eyebrow { font-size: 9px; } .statusDot { font-size: 10px; } .hub { width: 58px; height: 58px; } .article h2 { font-size: 23px; } .related>div { grid-template-columns: 1fr; } .answer { padding: 20px; } }
 @media(prefers-reduced-motion:reduce) { .wheelGraphic { transition: none !important; } }
 @media print { .workspace { display: block; } .editor,.spinButton,.resultActions,.feedback,.presets,.related { display: none; } .stage { background: #fff; color: #17191c; break-inside: avoid; } .wheelFrame { max-width: 260px; } .articleLayout { display: block; } .history { margin-top: 20px; } }

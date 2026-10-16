@@ -1,0 +1,2008 @@
+{
+  "age-calculator": {
+    "en": {
+      "heading": "Check the birthday boundary",
+      "body": "Compare the day before a birthday with the birthday itself. Completed years change at that boundary; elapsed days keep increasing steadily. This helps explain why nearly identical date ranges can display different whole-year ages."
+    },
+    "es": {
+      "heading": "Comprueba el cambio de edad",
+      "body": "Compara el día anterior al cumpleaños con el propio cumpleaños. Los años cumplidos cambian en ese límite; los días transcurridos aumentan continuamente. Por eso intervalos casi idénticos pueden mostrar edades distintas en años completos."
+    },
+    "fr": {
+      "heading": "Vérifier le passage de l’anniversaire",
+      "body": "Comparez la veille d’un anniversaire au jour même. Le nombre d’années révolues change à cette date, tandis que les jours écoulés augmentent régulièrement. Des intervalles presque identiques peuvent donc afficher des âges différents en années entières."
+    },
+    "de": {
+      "heading": "Den Geburtstag als Grenze prüfen",
+      "body": "Vergleiche den Tag vor einem Geburtstag mit dem Geburtstag selbst. Die vollendeten Lebensjahre wechseln an dieser Grenze; die vergangenen Tage steigen gleichmäßig weiter. Deshalb können fast gleiche Zeiträume unterschiedliche Altersangaben in ganzen Jahren ergeben."
+    },
+    "pt": {
+      "heading": "Observe a mudança no aniversário",
+      "body": "Compare a véspera do aniversário com o próprio dia. Os anos completos mudam nessa data; os dias decorridos continuam aumentando regularmente. Isso explica por que intervalos quase idênticos podem mostrar idades diferentes em anos completos."
+    },
+    "ar": {
+      "heading": "تحقق من حد عيد الميلاد",
+      "body": "قارن اليوم السابق لعيد الميلاد بيوم الميلاد نفسه. يتغير عدد السنوات المكتملة عند هذا الحد، بينما تزداد الأيام المنقضية باستمرار. لذلك قد تُظهر فترتان متقاربتان جدًا عمرين مختلفين بالسنوات الكاملة."
+    },
+    "hi": {
+      "heading": "जन्मदिन पर उम्र का बदलाव",
+      "body": "जन्मदिन से एक दिन पहले और जन्मदिन की तारीख की तुलना करें। पूरे हुए वर्षों की संख्या इस सीमा पर बदलती है, जबकि बीते दिन लगातार बढ़ते हैं। इसलिए लगभग समान अवधि में पूरे वर्षों वाली उम्र अलग दिख सकती है।"
+    },
+    "tl": {
+      "heading": "Tingnan ang hangganan ng kaarawan",
+      "body": "Ihambing ang araw bago ang kaarawan sa mismong kaarawan. Doon nagbabago ang buong taong edad, habang tuloy-tuloy ang pagdagdag ng lumipas na araw. Kaya maaaring magkaiba ang edad sa halos magkaparehong pagitan."
+    }
+  },
+  "date-calculator": {
+    "en": {
+      "heading": "Repeated months can drift",
+      "body": "Starting January 31, 2026, adding one month twice gives March 28 under this tool’s month-end rule. Adding two months at once gives March 31. Choose whether a recurring schedule follows the original date or each previous result."
+    },
+    "es": {
+      "heading": "Los meses sucesivos pueden desplazarse",
+      "body": "Desde el 31 de enero de 2026, sumar un mes dos veces da el 28 de marzo con esta regla de fin de mes. Sumar dos meses directamente da el 31 de marzo. Define qué fecha sirve de referencia."
+    },
+    "fr": {
+      "heading": "Les ajouts mensuels peuvent dériver",
+      "body": "À partir du 31 janvier 2026, ajouter deux fois un mois donne le 28 mars selon cette règle de fin de mois. Ajouter deux mois directement donne le 31 mars. Choisissez la date de référence des échéances successives."
+    },
+    "de": {
+      "heading": "Monatliche Termine können sich verschieben",
+      "body": "Vom 31. Januar 2026 aus ergeben zwei einzelne Monatsadditionen nach dieser Monatsendregel den 28. März. Zwei Monate auf einmal ergeben den 31. März. Entscheide, ob Folgetermine vom ursprünglichen Datum oder vom jeweiligen Zwischenergebnis ausgehen."
+    },
+    "pt": {
+      "heading": "Adições mensais podem deslocar datas",
+      "body": "Partindo de 31 de janeiro de 2026, somar um mês duas vezes resulta em 28 de março pela regra de fim de mês. Somar dois meses de uma vez resulta em 31 de março. Defina a data de referência."
+    },
+    "ar": {
+      "heading": "قد تنزاح المواعيد الشهرية المتتابعة",
+      "body": "بدءًا من 31 يناير 2026، تؤدي إضافة شهر مرتين إلى 28 مارس وفق قاعدة نهاية الشهر هنا. أما إضافة شهرين دفعة واحدة فتعطي 31 مارس. حدد هل يرتبط الموعد المتكرر بالتاريخ الأصلي أم بالنتيجة السابقة."
+    },
+    "hi": {
+      "heading": "मासिक तारीखें खिसक सकती हैं",
+      "body": "31 जनवरी 2026 से एक महीना दो बार जोड़ने पर यहाँ की महीने के अंत वाली पद्धति से 28 मार्च मिलता है। दो महीने एक साथ जोड़ने पर 31 मार्च। तय करें कि अगली तारीख मूल तारीख से गिनी जाए या पिछले परिणाम से।"
+    },
+    "tl": {
+      "heading": "Maaaring umurong ang buwanang petsa",
+      "body": "Mula Enero 31, 2026, dalawang magkahiwalay na dagdag na isang buwan ay magiging Marso 28 sa tuntunin dito. Dalawang buwan nang sabay ay Marso 31. Piliin kung orihinal na petsa o huling resulta ang susundin."
+    }
+  },
+  "day-counter": {
+    "en": {
+      "heading": "Match the actual working week",
+      "body": "A Monday-to-Friday calendar overstates available days for a team working Monday through Thursday. Use custom weekdays before excluding holidays; otherwise the count can look precise while describing a schedule nobody actually works."
+    },
+    "es": {
+      "heading": "Usa la semana laboral real",
+      "body": "Un calendario de lunes a viernes sobreestima los días disponibles de un equipo que trabaja de lunes a jueves. Personaliza los días antes de excluir festivos; de lo contrario, contarás un horario que nadie cumple."
+    },
+    "fr": {
+      "heading": "Respecter la véritable semaine travaillée",
+      "body": "Un calendrier du lundi au vendredi surestime les jours disponibles pour une équipe travaillant du lundi au jeudi. Personnalisez les jours avant d’exclure les fêtes, sinon le résultat décrit un planning différent de la réalité."
+    },
+    "de": {
+      "heading": "Die tatsächliche Arbeitswoche abbilden",
+      "body": "Ein Kalender von Montag bis Freitag überschätzt verfügbare Tage, wenn ein Team nur Montag bis Donnerstag arbeitet. Passe zunächst die Wochentage an und schließe danach Feiertage aus. Sonst beschreibt die genaue Zahl den falschen Arbeitsplan."
+    },
+    "pt": {
+      "heading": "Use a semana de trabalho real",
+      "body": "Um calendário de segunda a sexta superestima os dias disponíveis de uma equipe que trabalha de segunda a quinta. Personalize os dias antes de excluir feriados; caso contrário, a contagem descreve uma rotina que ninguém segue."
+    },
+    "ar": {
+      "heading": "طابق أسبوع العمل الفعلي",
+      "body": "يُبالغ تقويم الاثنين إلى الجمعة في الأيام المتاحة لفريق يعمل من الاثنين إلى الخميس. خصص أيام الأسبوع قبل استبعاد العطلات؛ وإلا فقد يبدو العدد دقيقًا لكنه يصف جدولًا لا يعمل به الفريق."
+    },
+    "hi": {
+      "heading": "वास्तविक कार्य सप्ताह चुनें",
+      "body": "सोमवार से गुरुवार काम करने वाली टीम के लिए सोमवार से शुक्रवार वाला कैलेंडर उपलब्ध दिनों को अधिक गिनेगा। छुट्टियाँ हटाने से पहले कार्यदिवस चुनें; वरना सटीक दिखने वाला परिणाम किसी दूसरे कार्यक्रम का होगा।"
+    },
+    "tl": {
+      "heading": "Itugma sa totoong linggo ng trabaho",
+      "body": "Sobra ang bilang ng Lunes hanggang Biyernes para sa pangkat na Lunes hanggang Huwebes lamang nagtatrabaho. Itakda muna ang tamang mga araw bago alisin ang mga holiday upang tumugma ang bilang sa aktuwal na iskedyul."
+    }
+  },
+  "day-of-the-week-calculator": {
+    "en": {
+      "heading": "Annual dates move across weekdays",
+      "body": "The same month and day usually moves one weekday forward the next year, or two when the interval includes February 29. Check each year separately when planning anniversaries instead of reusing last year’s weekday."
+    },
+    "es": {
+      "heading": "Las fechas anuales cambian de día",
+      "body": "La misma fecha suele avanzar un día de la semana al año siguiente, o dos si el intervalo incluye el 29 de febrero. Comprueba cada año al planificar aniversarios, sin reutilizar el día del año anterior."
+    },
+    "fr": {
+      "heading": "Les anniversaires changent de jour",
+      "body": "Une même date avance généralement d’un jour de la semaine l’année suivante, ou de deux si l’intervalle comprend le 29 février. Vérifiez chaque année lorsque vous planifiez un anniversaire au lieu de reprendre le jour précédent."
+    },
+    "de": {
+      "heading": "Jährliche Termine wechseln den Wochentag",
+      "body": "Dasselbe Kalenderdatum liegt im nächsten Jahr meist einen Wochentag später, bei einem dazwischenliegenden 29. Februar zwei. Prüfe jedes Jahr einzeln, wenn du Jahrestage planst, statt den Wochentag des Vorjahres zu übernehmen."
+    },
+    "pt": {
+      "heading": "Datas anuais mudam de dia",
+      "body": "A mesma data geralmente avança um dia da semana no ano seguinte, ou dois quando o intervalo inclui 29 de fevereiro. Confira cada ano ao planejar aniversários, em vez de reutilizar o dia da semana anterior."
+    },
+    "ar": {
+      "heading": "تتغير أيام المناسبات السنوية",
+      "body": "ينتقل اليوم والشهر نفسيهما عادةً يومًا واحدًا للأمام في الأسبوع خلال السنة التالية، أو يومين إذا شملت الفترة 29 فبراير. تحقق من كل سنة عند تخطيط المناسبات بدلًا من تكرار يوم الأسبوع السابق."
+    },
+    "hi": {
+      "heading": "सालाना तारीख का दिन बदलता है",
+      "body": "अगले वर्ष वही तारीख सामान्यतः सप्ताह में एक दिन आगे आती है; बीच में 29 फरवरी हो तो दो दिन। सालाना अवसर की योजना बनाते समय पिछले वर्ष का वार मानने के बजाय हर वर्ष जाँचें।"
+    },
+    "tl": {
+      "heading": "Nagbabago ang araw ng anibersaryo",
+      "body": "Karaniwang sumusulong ng isang araw ng linggo ang parehong petsa sa susunod na taon, o dalawa kapag may Pebrero 29 sa pagitan. Suriin bawat taon sa halip na gamitin muli ang dating araw ng linggo."
+    }
+  },
+  "hours-calculator": {
+    "en": {
+      "heading": "Decimal hours are not minutes",
+      "body": "Seven hours and 45 minutes equals 7.75 decimal hours, not 7.45. Use the decimal result when multiplying by an hourly rate; interpreting minute digits as decimals would undercount this shift by 18 minutes."
+    },
+    "es": {
+      "heading": "Las horas decimales no son minutos",
+      "body": "Siete horas y 45 minutos equivalen a 7,75 horas decimales, no a 7,45. Usa el resultado decimal al multiplicar por una tarifa horaria; confundir minutos con decimales restaría 18 minutos a este turno."
+    },
+    "fr": {
+      "heading": "Les décimales ne sont pas des minutes",
+      "body": "Sept heures et 45 minutes correspondent à 7,75 heures décimales, et non 7,45. Utilisez le résultat décimal avec un tarif horaire : prendre les minutes pour des décimales retrancherait 18 minutes à ce service."
+    },
+    "de": {
+      "heading": "Dezimalstunden sind keine Minutenangaben",
+      "body": "Sieben Stunden und 45 Minuten entsprechen 7,75 Dezimalstunden, nicht 7,45. Verwende beim Multiplizieren mit einem Stundenlohn den Dezimalwert. Wer die Minutenziffern als Dezimalstellen liest, verkürzt diese Schicht rechnerisch um 18 Minuten."
+    },
+    "pt": {
+      "heading": "Horas decimais não são minutos",
+      "body": "Sete horas e 45 minutos equivalem a 7,75 horas decimais, não 7,45. Use o resultado decimal ao multiplicar pelo valor da hora; interpretar os minutos como decimais reduziria esse turno em 18 minutos."
+    },
+    "ar": {
+      "heading": "الساعات العشرية ليست دقائق",
+      "body": "سبع ساعات و45 دقيقة تساوي 7.75 ساعة عشرية، لا 7.45. استخدم القيمة العشرية عند الضرب في أجر الساعة؛ فقراءة أرقام الدقائق ككسور عشرية تُنقص مدة هذه الوردية حسابيًا بمقدار 18 دقيقة."
+    },
+    "hi": {
+      "heading": "दशमलव घंटे मिनट नहीं हैं",
+      "body": "सात घंटे 45 मिनट का अर्थ 7.75 दशमलव घंटे है, 7.45 नहीं। प्रति घंटे की दर से गुणा करते समय दशमलव परिणाम लें; मिनटों को दशमलव मानने पर इस पाली के 18 मिनट कम गिने जाएँगे।"
+    },
+    "tl": {
+      "heading": "Hindi minuto ang desimal na oras",
+      "body": "Ang pitong oras at 45 minuto ay 7.75 desimal na oras, hindi 7.45. Gamitin ang desimal sa pagmultiplika sa bayad bawat oras; kung ituturing na desimal ang minuto, kukulang ng 18 minuto ang bilang."
+    }
+  },
+  "time-duration-calculator": {
+    "en": {
+      "heading": "Midnight does not identify the date",
+      "body": "A 09:00 start and 10:00 finish could mean one hour or 25 hours. Clock fields alone cannot distinguish them. Enter both dates for overnight bookings, equipment rentals or any interval potentially longer than one day."
+    },
+    "es": {
+      "heading": "La hora no identifica la fecha",
+      "body": "Un inicio a las 09:00 y un final a las 10:00 pueden representar una hora o 25. Las horas solas no distinguen ambos casos. Introduce las fechas para reservas, alquileres o intervalos que puedan superar un día."
+    },
+    "fr": {
+      "heading": "L’heure ne précise pas la date",
+      "body": "Un début à 09:00 et une fin à 10:00 peuvent représenter une heure ou 25 heures. Les heures seules ne suffisent pas. Renseignez les dates pour les réservations, locations ou intervalles pouvant dépasser une journée."
+    },
+    "de": {
+      "heading": "Die Uhrzeit verrät kein Datum",
+      "body": "Ein Beginn um 09:00 und ein Ende um 10:00 können eine Stunde oder 25 Stunden bedeuten. Uhrzeiten allein unterscheiden das nicht. Gib beide Daten für Buchungen, Mietzeiträume und mögliche Intervalle über einen Tag an."
+    },
+    "pt": {
+      "heading": "O horário não determina a data",
+      "body": "Começar às 09:00 e terminar às 10:00 pode significar uma hora ou 25 horas. Só os horários não distinguem os casos. Informe ambas as datas para reservas, locações ou intervalos que possam ultrapassar um dia."
+    },
+    "ar": {
+      "heading": "الساعة لا تحدد التاريخ",
+      "body": "قد تعني البداية عند 09:00 والنهاية عند 10:00 ساعة واحدة أو 25 ساعة. لا تكفي الساعة وحدها للتمييز. أدخل التاريخين للحجوزات وتأجير المعدات وأي فترة يمكن أن تتجاوز يومًا واحدًا."
+    },
+    "hi": {
+      "heading": "घड़ी का समय तारीख नहीं बताता",
+      "body": "09:00 से 10:00 तक का अंतर एक घंटा या 25 घंटे हो सकता है। केवल समय से यह अंतर स्पष्ट नहीं होता। बुकिंग, उपकरण किराए या एक दिन से लंबी संभावित अवधि के लिए दोनों तारीखें भरें।"
+    },
+    "tl": {
+      "heading": "Hindi sapat ang oras lamang",
+      "body": "Ang simula na 09:00 at pagtatapos na 10:00 ay maaaring isang oras o 25 oras. Hindi ito matutukoy sa oras lamang. Ilagay ang dalawang petsa para sa booking, pagrenta o pagitan na maaaring lumampas sa isang araw."
+    }
+  },
+  "time-calculator": {
+    "en": {
+      "heading": "Carry minutes before comparing totals",
+      "body": "Adding 1 hour 50 minutes and 20 minutes produces 2 hours 10 minutes. The extra hour comes from carrying 60 minutes. Keep duration notation consistent when combining task estimates, recordings or split-session totals."
+    },
+    "es": {
+      "heading": "Convierte los minutos acumulados",
+      "body": "Sumar 1 hora y 50 minutos más 20 minutos da 2 horas y 10 minutos. La hora adicional aparece al completar 60 minutos. Mantén una notación uniforme al combinar tareas, grabaciones o sesiones."
+    },
+    "fr": {
+      "heading": "Reporter les minutes en heures",
+      "body": "Ajouter 20 minutes à 1 heure 50 donne 2 heures 10. L’heure supplémentaire provient du report de 60 minutes. Gardez une notation uniforme pour additionner des durées de tâches, d’enregistrements ou de séances."
+    },
+    "de": {
+      "heading": "Minuten richtig in Stunden übertragen",
+      "body": "Eine Stunde 50 Minuten plus 20 Minuten ergeben zwei Stunden zehn Minuten. Die zusätzliche Stunde entsteht durch den Übertrag von 60 Minuten. Nutze einheitliche Dauerangaben, wenn du Aufgaben, Aufnahmen oder einzelne Sitzungen addierst."
+    },
+    "pt": {
+      "heading": "Converta os minutos acumulados",
+      "body": "Somar 1 hora e 50 minutos com 20 minutos resulta em 2 horas e 10 minutos. A hora adicional vem dos 60 minutos completos. Use a mesma notação ao combinar tarefas, gravações ou sessões."
+    },
+    "ar": {
+      "heading": "رحّل الدقائق إلى ساعات",
+      "body": "إضافة 20 دقيقة إلى ساعة و50 دقيقة تعطي ساعتين و10 دقائق. تأتي الساعة الإضافية من اكتمال 60 دقيقة. حافظ على صيغة موحدة للمدد عند جمع تقديرات المهام أو التسجيلات أو الجلسات المتفرقة."
+    },
+    "hi": {
+      "heading": "मिनट पूरे होने पर घंटा जोड़ें",
+      "body": "1 घंटा 50 मिनट और 20 मिनट जोड़ने पर 2 घंटे 10 मिनट होते हैं। अतिरिक्त घंटा 60 मिनट पूरे होने से आता है। कार्यों, रिकॉर्डिंग या अलग-अलग सत्रों की अवधि जोड़ते समय एक ही प्रारूप रखें।"
+    },
+    "tl": {
+      "heading": "Ipalit ang buong minuto sa oras",
+      "body": "Ang 1 oras 50 minuto at dagdag na 20 minuto ay 2 oras 10 minuto. Nagiging isang oras ang bawat 60 minuto. Gumamit ng pare-parehong format sa pagsasama ng tagal ng gawain, recording o magkakahiwalay na sesyon."
+    }
+  },
+  "time-card-calculator": {
+    "en": {
+      "heading": "Rounding both punches changes totals",
+      "body": "With nearest-15-minute rounding, 09:07–17:08 becomes 09:00–17:15: 8 hours 15 minutes instead of 8 hours 1 minute before breaks. Compare rounded and unrounded entries to see the effect of your chosen policy."
+    },
+    "es": {
+      "heading": "Redondear fichajes cambia el total",
+      "body": "Al redondear al cuarto de hora más cercano, 09:07–17:08 pasa a 09:00–17:15: 8 horas y 15 minutos en lugar de 8 horas y 1 minuto, antes de descansos. Compara ambas configuraciones para ver su efecto."
+    },
+    "fr": {
+      "heading": "Arrondir les pointages change le total",
+      "body": "Avec un arrondi au quart d’heure le plus proche, 09:07–17:08 devient 09:00–17:15 : 8 heures 15 au lieu de 8 heures 1 avant pauses. Comparez les saisies arrondies et exactes pour mesurer cet effet."
+    },
+    "de": {
+      "heading": "Gerundete Stempelzeiten verändern die Summe",
+      "body": "Beim Runden auf die nächste Viertelstunde wird 09:07–17:08 zu 09:00–17:15: vor Pausen also 8 Stunden 15 Minuten statt 8 Stunden 1 Minute. Vergleiche gerundete und ungerundete Einträge, um den Effekt der Einstellung zu erkennen."
+    },
+    "pt": {
+      "heading": "Arredondar registros altera o total",
+      "body": "Com arredondamento ao quarto de hora mais próximo, 09:07–17:08 vira 09:00–17:15: 8 horas e 15 minutos em vez de 8 horas e 1 minuto, antes dos intervalos. Compare os registros com e sem arredondamento."
+    },
+    "ar": {
+      "heading": "تقريب البصمتين يغير المجموع",
+      "body": "عند التقريب لأقرب 15 دقيقة، تتحول 09:07–17:08 إلى 09:00–17:15: أي 8 ساعات و15 دقيقة بدلًا من 8 ساعات ودقيقة قبل الاستراحات. قارن النتائج مع التقريب وبدونه لتعرف أثر السياسة المختارة."
+    },
+    "hi": {
+      "heading": "दोनों समय गोल करने का असर",
+      "body": "निकटतम 15 मिनट पर गोल करने से 09:07–17:08 बदलकर 09:00–17:15 हो जाता है: विराम घटाने से पहले 8 घंटे 1 मिनट के बजाय 8 घंटे 15 मिनट। चुनी हुई नीति का असर देखने के लिए दोनों परिणाम तुलना करें।"
+    },
+    "tl": {
+      "heading": "Nababago ng pag-round ang kabuuan",
+      "body": "Sa pinakamalapit na 15 minuto, ang 09:07–17:08 ay nagiging 09:00–17:15: 8 oras 15 minuto sa halip na 8 oras 1 minuto bago ang break. Ihambing ang may rounding at wala upang makita ang epekto."
+    }
+  },
+  "time-zone-calculator": {
+    "en": {
+      "heading": "Recheck recurring meetings by date",
+      "body": "A meeting’s time difference can change when regions move their clocks on different dates. Convert each occurrence around seasonal transitions; copying a single converted time into a repeating invitation can shift attendance by an hour."
+    },
+    "es": {
+      "heading": "Revisa cada reunión recurrente",
+      "body": "La diferencia horaria de una reunión puede cambiar si las regiones ajustan sus relojes en fechas distintas. Convierte cada sesión cercana al cambio estacional; repetir una única conversión puede desplazar la asistencia una hora."
+    },
+    "fr": {
+      "heading": "Revérifier les réunions récurrentes",
+      "body": "Le décalage d’une réunion peut changer lorsque les régions modifient leurs horloges à des dates différentes. Reconvertissez les occurrences proches des changements saisonniers : recopier une seule conversion dans une invitation récurrente peut décaler la présence d’une heure."
+    },
+    "de": {
+      "heading": "Wiederkehrende Treffen nach Datum prüfen",
+      "body": "Der Zeitunterschied eines Treffens kann wechseln, wenn Regionen ihre Uhren an verschiedenen Tagen umstellen. Rechne Termine nahe saisonaler Umstellungen einzeln um. Eine unverändert wiederholte Uhrzeit kann die Teilnahme um eine Stunde verschieben."
+    },
+    "pt": {
+      "heading": "Confira cada reunião recorrente",
+      "body": "A diferença de horário pode mudar quando regiões ajustam seus relógios em datas diferentes. Converta cada ocorrência próxima das mudanças sazonais; copiar uma única conversão para um convite recorrente pode deslocar a participação em uma hora."
+    },
+    "ar": {
+      "heading": "راجع كل اجتماع متكرر بتاريخه",
+      "body": "قد يتغير فرق توقيت الاجتماع عندما تعدل المناطق ساعاتها في تواريخ مختلفة. حوّل كل موعد قريب من الانتقال الموسمي؛ فتكرار توقيت محوّل واحد في جميع الدعوات قد يزيح الحضور ساعة كاملة."
+    },
+    "hi": {
+      "heading": "हर आवर्ती बैठक की तारीख जाँचें",
+      "body": "अलग-अलग क्षेत्रों में घड़ियाँ अलग तारीखों पर बदलने से बैठक का समय-अंतर बदल सकता है। मौसमी बदलाव के आसपास हर बैठक का समय अलग बदलें; एक ही परिवर्तित समय दोहराने से उपस्थिति एक घंटा आगे-पीछे हो सकती है।"
+    },
+    "tl": {
+      "heading": "Suriin bawat petsa ng paulit-ulit na pulong",
+      "body": "Maaaring magbago ang agwat kapag magkaibang petsa nagpapalit ng oras ang mga rehiyon. I-convert bawat pulong malapit sa pagbabago ng panahon; ang pagkopya ng iisang oras sa paulit-ulit na imbitasyon ay maaaring magpalihis ng isang oras."
+    }
+  },
+  "conversion-calculator": {
+    "en": {
+      "heading": "Area factors must be squared",
+      "body": "One meter equals 100 centimeters, but one square meter equals 10,000 square centimeters. Volume scales again to 1,000,000 cubic centimeters. Select area or volume explicitly instead of applying the length conversion to a measured surface or container."
+    },
+    "es": {
+      "heading": "Eleva al cuadrado el factor",
+      "body": "Un metro equivale a 100 centímetros, pero un metro cuadrado equivale a 10.000 centímetros cuadrados. Un metro cúbico contiene 1.000.000 de centímetros cúbicos. Selecciona área o volumen antes de convertir superficies o recipientes."
+    },
+    "fr": {
+      "heading": "Le facteur de surface se multiplie",
+      "body": "Un mètre vaut 100 centimètres, mais un mètre carré vaut 10 000 centimètres carrés. Un mètre cube vaut 1 000 000 de centimètres cubes. Sélectionnez bien surface ou volume avant de convertir une mesure."
+    },
+    "de": {
+      "heading": "Flächenfaktoren müssen quadriert werden",
+      "body": "Ein Meter entspricht 100 Zentimetern, ein Quadratmeter aber 10.000 Quadratzentimetern. Ein Kubikmeter entspricht 1.000.000 Kubikzentimetern. Wähle ausdrücklich Fläche oder Volumen, statt den Längenfaktor auf eine gemessene Oberfläche oder einen Behälter anzuwenden."
+    },
+    "pt": {
+      "heading": "Eleve o fator de área ao quadrado",
+      "body": "Um metro equivale a 100 centímetros, mas um metro quadrado equivale a 10.000 centímetros quadrados. Um metro cúbico equivale a 1.000.000 de centímetros cúbicos. Selecione área ou volume ao converter superfícies ou recipientes."
+    },
+    "ar": {
+      "heading": "عامل المساحة يُرفع للتربيع",
+      "body": "المتر يساوي 100 سنتيمتر، لكن المتر المربع يساوي 10,000 سنتيمتر مربع. والمتر المكعب يساوي 1,000,000 سنتيمتر مكعب. اختر المساحة أو الحجم صراحةً بدل تطبيق عامل الطول على سطح مقاس أو سعة وعاء."
+    },
+    "hi": {
+      "heading": "क्षेत्रफल का गुणक वर्ग होता है",
+      "body": "एक मीटर 100 सेंटीमीटर है, लेकिन एक वर्ग मीटर 10,000 वर्ग सेंटीमीटर है। एक घन मीटर 1,000,000 घन सेंटीमीटर होता है। सतह या पात्र मापते समय लंबाई का गुणक लगाने के बजाय क्षेत्रफल या आयतन चुनें।"
+    },
+    "tl": {
+      "heading": "I-square ang salik para sa lawak",
+      "body": "Ang isang metro ay 100 sentimetro, ngunit ang isang metro kuwadrado ay 10,000 sentimetro kuwadrado. Ang isang metro kubiko ay 1,000,000 sentimetro kubiko. Piliin ang lawak o dami sa halip na gamitin ang salik ng haba."
+    }
+  },
+  "density-calculator": {
+    "en": {
+      "heading": "Volume errors amplify density estimates",
+      "body": "If mass is correct but measured volume is 10% too low, calculated density is about 11.1% too high. Recheck small-volume measurements before interpreting a surprising density; the denominator can explain the discrepancy without a different material."
+    },
+    "es": {
+      "heading": "El volumen puede distorsionar la densidad",
+      "body": "Si la masa es correcta pero el volumen medido es un 10% menor, la densidad calculada resulta aproximadamente un 11,1% mayor. Revisa los volúmenes pequeños antes de atribuir una densidad sorprendente a otro material."
+    },
+    "fr": {
+      "heading": "Le volume peut fausser la densité",
+      "body": "Si la masse est correcte mais le volume mesuré inférieur de 10%, la masse volumique calculée est supérieure d’environ 11,1%. Revérifiez les petits volumes avant d’attribuer un résultat étonnant à un matériau différent."
+    },
+    "de": {
+      "heading": "Volumenfehler verstärken den Dichtefehler",
+      "body": "Ist die Masse richtig, das gemessene Volumen aber 10% zu klein, liegt die berechnete Dichte etwa 11,1% zu hoch. Prüfe kleine Volumina erneut, bevor du aus einer ungewöhnlichen Dichte auf ein anderes Material schließt."
+    },
+    "pt": {
+      "heading": "Erros de volume ampliam a densidade",
+      "body": "Se a massa estiver correta, mas o volume medido for 10% menor, a densidade calculada será aproximadamente 11,1% maior. Confira volumes pequenos antes de atribuir uma densidade inesperada a um material diferente."
+    },
+    "ar": {
+      "heading": "أخطاء الحجم تضخم تقدير الكثافة",
+      "body": "إذا كانت الكتلة صحيحة لكن الحجم المقاس أقل بنسبة 10%، تصبح الكثافة المحسوبة أعلى بنحو 11.1%. راجع قياسات الأحجام الصغيرة قبل تفسير كثافة مفاجئة؛ فقد يفسر المقام الفرق دون اختلاف المادة."
+    },
+    "hi": {
+      "heading": "आयतन की गलती घनत्व बढ़ाती है",
+      "body": "द्रव्यमान सही हो लेकिन मापा गया आयतन 10% कम हो, तो गणना किया गया घनत्व लगभग 11.1% अधिक होगा। असामान्य घनत्व को अलग पदार्थ मानने से पहले छोटे आयतन का माप दोबारा जाँचें।"
+    },
+    "tl": {
+      "heading": "Lumalaki ang epekto ng maling volume",
+      "body": "Kung tama ang masa ngunit 10% na kulang ang nasukat na volume, mga 11.1% na sobra ang makukuhang density. Suriin muli ang maliliit na volume bago isipin na ibang materyal ang dahilan ng kakaibang resulta."
+    }
+  },
+  "mass-calculator": {
+    "en": {
+      "heading": "Two small changes multiply together",
+      "body": "Increasing both assumed density and volume by 10% raises estimated mass by 21%, not 20%. Compare a baseline with your combined scenario when material density and dimensions are both uncertain; their effects multiply rather than simply add."
+    },
+    "es": {
+      "heading": "Dos cambios pequeños se multiplican",
+      "body": "Aumentar un 10% tanto la densidad supuesta como el volumen eleva la masa estimada un 21%, no un 20%. Compara el caso inicial con el escenario combinado cuando ambas cantidades sean inciertas: sus efectos se multiplican."
+    },
+    "fr": {
+      "heading": "Deux petites variations se multiplient",
+      "body": "Augmenter de 10% la densité supposée et le volume accroît la masse estimée de 21%, et non 20%. Comparez un scénario initial au scénario combiné lorsque ces deux données sont incertaines : leurs effets se multiplient."
+    },
+    "de": {
+      "heading": "Zwei kleine Änderungen multiplizieren sich",
+      "body": "Steigen angenommene Dichte und Volumen jeweils um 10%, steigt die geschätzte Masse um 21%, nicht 20%. Vergleiche Ausgangsfall und kombiniertes Szenario, wenn beide Größen unsicher sind: Ihre Wirkungen werden multipliziert und nicht einfach addiert."
+    },
+    "pt": {
+      "heading": "Duas pequenas mudanças se multiplicam",
+      "body": "Aumentar em 10% tanto a densidade assumida quanto o volume eleva a massa estimada em 21%, não 20%. Compare o cenário inicial com o combinado quando ambas as medidas forem incertas: os efeitos se multiplicam."
+    },
+    "ar": {
+      "heading": "التغيرات الصغيرة تتضاعف معًا",
+      "body": "زيادة الكثافة المفترضة والحجم بنسبة 10% لكل منهما ترفع الكتلة المقدرة بنسبة 21%، لا 20%. قارن الحالة الأساسية بالسيناريو المشترك عندما تكون القيمتان غير مؤكدتين؛ فأثرهما يتضاعف بالضرب ولا يُجمع مباشرةً."
+    },
+    "hi": {
+      "heading": "दो छोटे बदलाव मिलकर गुणा होते हैं",
+      "body": "अनुमानित घनत्व और आयतन दोनों को 10% बढ़ाने से अनुमानित द्रव्यमान 20% नहीं, 21% बढ़ता है। दोनों मान अनिश्चित हों तो मूल और संयुक्त परिदृश्य की तुलना करें; इनके प्रभाव केवल जुड़ते नहीं, गुणा होते हैं।"
+    },
+    "tl": {
+      "heading": "Nagmu-multiply ang dalawang pagbabago",
+      "body": "Kapag parehong tumaas ng 10% ang ipinapalagay na density at volume, tataas ng 21% ang masa, hindi 20%. Ihambing ang panimulang sitwasyon sa pinagsamang pagbabago kapag hindi tiyak ang dalawa; nagmu-multiply ang kanilang epekto."
+    }
+  },
+  "weight-calculator": {
+    "en": {
+      "heading": "A scale reading needs context",
+      "body": "A force of 98.1 N corresponds to 10 kg only when the assumed gravitational acceleration is 9.81 m/s². Changing gravity changes that inferred mass conversion, while ordinary kilogram-to-pound conversion remains independent of location."
+    },
+    "es": {
+      "heading": "La lectura necesita contexto",
+      "body": "Una fuerza de 98,1 N corresponde a 10 kg solo si la aceleración gravitatoria supuesta es 9,81 m/s². Otra gravedad cambia esa relación entre fuerza y masa; la conversión habitual de kilogramos a libras no depende del lugar."
+    },
+    "fr": {
+      "heading": "Une mesure de poids demande un contexte",
+      "body": "Une force de 98,1 N correspond à 10 kg uniquement avec une accélération gravitationnelle de 9,81 m/s². Changer cette hypothèse modifie la relation force-masse, tandis que convertir des kilogrammes en livres reste indépendant du lieu."
+    },
+    "de": {
+      "heading": "Ein Kraftwert braucht die Schwerkraft",
+      "body": "Eine Kraft von 98,1 N entspricht nur bei angenommener Erdbeschleunigung von 9,81 m/s² einer Masse von 10 kg. Andere Schwerkraft verändert diese Zuordnung; die gewöhnliche Umrechnung zwischen Kilogramm und Pfund bleibt dagegen ortsunabhängig."
+    },
+    "pt": {
+      "heading": "A leitura precisa de contexto",
+      "body": "Uma força de 98,1 N corresponde a 10 kg somente com aceleração gravitacional de 9,81 m/s². Alterar a gravidade muda essa relação entre força e massa; converter quilogramas em libras continua independente do local."
+    },
+    "ar": {
+      "heading": "قراءة الوزن تحتاج إلى سياق",
+      "body": "تقابل قوة 98.1 نيوتن كتلة 10 كغ فقط بافتراض تسارع جاذبية 9.81 م/ث². تغيير الجاذبية يغير هذه العلاقة بين القوة والكتلة، بينما يبقى التحويل المعتاد من الكيلوغرام إلى الرطل مستقلًا عن الموقع."
+    },
+    "hi": {
+      "heading": "बल की रीडिंग का संदर्भ समझें",
+      "body": "98.1 N बल केवल 9.81 m/s² गुरुत्वीय त्वरण मानने पर 10 kg के बराबर होता है। गुरुत्व बदलने से बल और द्रव्यमान का संबंध बदलता है, जबकि किलोग्राम से पाउंड का सामान्य रूपांतरण स्थान से स्वतंत्र रहता है।"
+    },
+    "tl": {
+      "heading": "Kailangan ng konteksto ang timbang",
+      "body": "Ang puwersang 98.1 N ay katumbas ng 10 kg lamang kung 9.81 m/s² ang ipinapalagay na gravity. Nagbabago ang ugnayang iyon sa ibang gravity, ngunit hindi nakadepende sa lugar ang karaniwang conversion ng kilogram sa pound."
+    }
+  },
+  "speed-calculator": {
+    "en": {
+      "heading": "Equal distances need weighted averaging",
+      "body": "Traveling 60 km at 60 km/h and another 60 km at 30 km/h gives 40 km/h overall, not 45. Enter the combined 120 km and three hours because the slower leg occupies more time."
+    },
+    "es": {
+      "heading": "Distancias iguales requieren ponderar tiempos",
+      "body": "Recorrer 60 km a 60 km/h y otros 60 km a 30 km/h da una media de 40 km/h, no 45. Introduce 120 km y tres horas: el tramo lento ocupa más tiempo."
+    },
+    "fr": {
+      "heading": "Des distances égales exigent une pondération",
+      "body": "Parcourir 60 km à 60 km/h puis 60 km à 30 km/h donne une moyenne de 40 km/h, pas 45. Saisissez 120 km et trois heures : le trajet lent dure plus longtemps."
+    },
+    "de": {
+      "heading": "Gleiche Strecken brauchen gewichtete Mittelwerte",
+      "body": "60 km mit 60 km/h und weitere 60 km mit 30 km/h ergeben insgesamt 40 km/h, nicht 45. Gib die gesamten 120 km und drei Stunden ein, denn die langsamere Etappe dauert länger."
+    },
+    "pt": {
+      "heading": "Distâncias iguais exigem média ponderada",
+      "body": "Percorrer 60 km a 60 km/h e outros 60 km a 30 km/h resulta em 40 km/h de média, não 45. Informe 120 km e três horas, pois o trecho mais lento ocupa mais tempo."
+    },
+    "ar": {
+      "heading": "المسافات المتساوية تحتاج متوسطًا موزونًا",
+      "body": "قطع 60 كم بسرعة 60 كم/س ثم 60 كم بسرعة 30 كم/س يعطي متوسطًا إجماليًا 40 كم/س، لا 45. أدخل مجموع 120 كم وثلاث ساعات؛ فالجزء الأبطأ يستغرق وقتًا أطول."
+    },
+    "hi": {
+      "heading": "बराबर दूरी का औसत अलग होता है",
+      "body": "60 km को 60 km/h और अगले 60 km को 30 km/h से तय करने पर औसत 45 नहीं, 40 km/h होता है। कुल 120 km और तीन घंटे भरें, क्योंकि धीमे हिस्से में अधिक समय लगता है।"
+    },
+    "tl": {
+      "heading": "Timbangin ayon sa kabuuang oras",
+      "body": "Ang 60 km sa 60 km/h at isa pang 60 km sa 30 km/h ay may average na 40 km/h, hindi 45. Ilagay ang kabuuang 120 km at tatlong oras dahil mas matagal ang mabagal na bahagi."
+    }
+  },
+  "molarity-calculator": {
+    "en": {
+      "heading": "Dilution preserves the solute amount",
+      "body": "For the same dissolved solute mass and molar mass, doubling final solution volume halves molarity. Compare two volume entries to see dilution clearly; changing the concentration does not mean the original amount of solute has disappeared."
+    },
+    "es": {
+      "heading": "Diluir conserva la cantidad de soluto",
+      "body": "Con la misma masa de soluto y masa molar, duplicar el volumen final de solución reduce la molaridad a la mitad. Compara dos volúmenes: cambiar la concentración no significa que haya desaparecido parte del soluto."
+    },
+    "fr": {
+      "heading": "La dilution conserve le soluté",
+      "body": "À masse de soluté et masse molaire identiques, doubler le volume final de solution divise la molarité par deux. Comparez deux volumes : une concentration réduite ne signifie pas qu’une partie du soluté a disparu."
+    },
+    "de": {
+      "heading": "Verdünnung erhält die gelöste Stoffmenge",
+      "body": "Bei gleicher gelöster Masse und molarer Masse halbiert ein verdoppeltes Endvolumen die Molarität. Vergleiche zwei Volumeneingaben, um Verdünnung sichtbar zu machen: Eine andere Konzentration bedeutet nicht, dass ein Teil des ursprünglichen gelösten Stoffes verschwunden ist."
+    },
+    "pt": {
+      "heading": "Diluir preserva a quantidade de soluto",
+      "body": "Com a mesma massa de soluto e massa molar, dobrar o volume final da solução reduz a molaridade à metade. Compare dois volumes: mudar a concentração não significa que parte do soluto original desapareceu."
+    },
+    "ar": {
+      "heading": "التخفيف يحفظ كمية المذاب",
+      "body": "مع ثبات كتلة المذاب وكتلته المولية، تؤدي مضاعفة الحجم النهائي للمحلول إلى خفض المولارية للنصف. قارن قيمتين للحجم لفهم التخفيف؛ فتغير التركيز لا يعني اختفاء شيء من كمية المذاب الأصلية."
+    },
+    "hi": {
+      "heading": "तनुकरण में विलेय की मात्रा बचती है",
+      "body": "विलेय का द्रव्यमान और मोलर द्रव्यमान समान रखने पर अंतिम विलयन का आयतन दोगुना करने से मोलरता आधी होती है। दो आयतन डालकर तुलना करें; सांद्रता बदलने का अर्थ मूल विलेय का गायब होना नहीं है।"
+    },
+    "tl": {
+      "heading": "Nananatili ang dami ng solute",
+      "body": "Kung pareho ang masa at molar mass ng solute, kalahati ang molarity kapag dinoble ang huling volume ng solusyon. Ihambing ang dalawang volume; ang pagbaba ng konsentrasyon ay hindi nangangahulugang nabawasan ang orihinal na solute."
+    }
+  },
+  "molecular-weight-calculator": {
+    "en": {
+      "heading": "Capitalization changes the substance",
+      "body": "Co represents cobalt, while CO contains carbon and oxygen. These entries produce different element breakdowns and molar masses. Check the parsed element list before trusting a copied formula, especially when text formatting has changed its capitalization."
+    },
+    "es": {
+      "heading": "Las mayúsculas cambian la sustancia",
+      "body": "Co representa cobalto, mientras que CO contiene carbono y oxígeno. Estas entradas generan composiciones y masas molares distintas. Revisa la lista de elementos antes de confiar en una fórmula copiada, especialmente si cambió el formato."
+    },
+    "fr": {
+      "heading": "Les majuscules changent la substance",
+      "body": "Co désigne le cobalt, tandis que CO contient du carbone et de l’oxygène. Ces saisies donnent des compositions et masses molaires différentes. Vérifiez les éléments reconnus avant d’utiliser une formule copiée dont la casse a pu changer."
+    },
+    "de": {
+      "heading": "Großschreibung verändert den Stoff",
+      "body": "Co steht für Cobalt, während CO Kohlenstoff und Sauerstoff enthält. Diese Eingaben ergeben unterschiedliche Elementlisten und molare Massen. Prüfe die erkannten Elemente, bevor du einer kopierten Formel vertraust, besonders nach Änderungen an der Großschreibung."
+    },
+    "pt": {
+      "heading": "Maiúsculas mudam a substância",
+      "body": "Co representa cobalto, enquanto CO contém carbono e oxigênio. Essas entradas produzem composições e massas molares diferentes. Confira a lista de elementos antes de confiar em uma fórmula copiada, especialmente se a formatação alterou as maiúsculas."
+    },
+    "ar": {
+      "heading": "حالة الحروف تغير المادة",
+      "body": "يرمز Co إلى الكوبالت، بينما يتكون CO من الكربون والأكسجين. يعطي المدخلان عناصر وكتلًا مولية مختلفة. راجع قائمة العناصر التي قرأتها الأداة قبل اعتماد صيغة منسوخة، خصوصًا إذا غيّر التنسيق حالة الأحرف."
+    },
+    "hi": {
+      "heading": "अक्षरों का आकार पदार्थ बदलता है",
+      "body": "Co कोबाल्ट है, जबकि CO में कार्बन और ऑक्सीजन हैं। दोनों से तत्वों की सूची और मोलर द्रव्यमान अलग मिलते हैं। कॉपी की गई सूत्र-पंक्ति पर भरोसा करने से पहले पहचाने गए तत्व देखें, खासकर यदि बड़े-छोटे अक्षर बदले हों।"
+    },
+    "tl": {
+      "heading": "Binabago ng malaking titik ang sangkap",
+      "body": "Ang Co ay cobalt, samantalang ang CO ay may carbon at oxygen. Magkaiba ang elementong mababasa at molar mass. Suriin ang listahan ng mga elemento bago pagkatiwalaan ang kinopyang formula, lalo na kung nagbago ang capitalization."
+    }
+  },
+  "gdp-calculator": {
+    "en": {
+      "heading": "Imports correct the production boundary",
+      "body": "Imports are subtracted because consumption, investment and government purchases can already include foreign production. Reducing imports alone while holding those linked spending entries unchanged describes a different scenario, not the accounting effect of simply removing an imported purchase."
+    },
+    "es": {
+      "heading": "Las importaciones delimitan la producción",
+      "body": "Se restan las importaciones porque consumo, inversión y compras públicas pueden incluir producción extranjera. Reducir solo las importaciones sin ajustar el gasto relacionado representa otro escenario, no eliminar contablemente una compra importada."
+    },
+    "fr": {
+      "heading": "Les importations délimitent la production",
+      "body": "Les importations sont déduites car consommation, investissement et achats publics peuvent inclure une production étrangère. Diminuer seulement les importations sans ajuster les dépenses liées décrit un autre scénario, pas la simple suppression comptable d’un achat importé."
+    },
+    "de": {
+      "heading": "Importe grenzen die Produktion ab",
+      "body": "Importe werden abgezogen, weil Konsum, Investitionen und Staatskäufe ausländische Produktion enthalten können. Nur Importe zu senken, ohne verknüpfte Ausgaben anzupassen, beschreibt ein anderes Szenario als das bloße Herausnehmen eines Importkaufs aus der Rechnung."
+    },
+    "pt": {
+      "heading": "Importações delimitam a produção interna",
+      "body": "Importações são subtraídas porque consumo, investimento e compras públicas podem incluir produção estrangeira. Reduzir apenas importações sem ajustar os gastos relacionados descreve outro cenário, não o efeito contábil de simplesmente retirar uma compra importada."
+    },
+    "ar": {
+      "heading": "الواردات تحدد نطاق الإنتاج المحلي",
+      "body": "تُطرح الواردات لأن الاستهلاك والاستثمار والمشتريات الحكومية قد تشمل إنتاجًا أجنبيًا. خفض الواردات وحدها دون تعديل الإنفاق المرتبط بها يصف سيناريو مختلفًا، وليس الأثر المحاسبي لمجرد حذف عملية شراء مستوردة."
+    },
+    "hi": {
+      "heading": "आयात घरेलू उत्पादन की सीमा स्पष्ट करता है",
+      "body": "आयात घटाया जाता है क्योंकि उपभोग, निवेश और सरकारी खरीद में विदेशी उत्पादन शामिल हो सकता है। संबंधित खर्च बदले बिना केवल आयात घटाना अलग परिदृश्य है, किसी आयातित खरीद को हटाने का सीधा लेखांकन प्रभाव नहीं।"
+    },
+    "tl": {
+      "heading": "Nililinaw ng imports ang saklaw",
+      "body": "Ibinabawas ang imports dahil maaaring kasama na ang produksiyong dayuhan sa consumption, investment at pagbili ng pamahalaan. Ang pagbawas lamang ng imports nang hindi inaayos ang kaugnay na gastos ay ibang sitwasyon kaysa pag-alis ng isang imported na pagbili."
+    }
+  },
+  "gpa-calculator": {
+    "en": {
+      "heading": "Extra credits increase a grade’s influence",
+      "body": "On the same grade-point scale, improving a four-credit course by one point adds twice the quality points of improving a two-credit course by one point. Compare course-level scenarios before assuming every grade change affects cumulative GPA equally."
+    },
+    "es": {
+      "heading": "Más créditos dan mayor influencia",
+      "body": "En la misma escala, mejorar un punto una asignatura de cuatro créditos suma el doble de puntos ponderados que mejorar uno en una de dos créditos. Compara asignaturas antes de suponer que cualquier mejora afecta igual al promedio acumulado."
+    },
+    "fr": {
+      "heading": "Les crédits renforcent le poids d’une note",
+      "body": "Sur une même échelle, gagner un point dans un cours de quatre crédits ajoute deux fois plus de points pondérés que dans un cours de deux crédits. Comparez les scénarios par cours avant d’évaluer l’effet sur le GPA."
+    },
+    "de": {
+      "heading": "Mehr Credits erhöhen den Noteneinfluss",
+      "body": "Auf derselben Notenpunktskala bringt ein Punkt Verbesserung in einem Kurs mit vier Credits doppelt so viele gewichtete Punkte wie bei zwei Credits. Vergleiche Kursszenarien, bevor du allen Notenänderungen denselben Einfluss auf den kumulierten GPA zuschreibst."
+    },
+    "pt": {
+      "heading": "Mais créditos ampliam o peso da nota",
+      "body": "Na mesma escala, melhorar um ponto em uma disciplina de quatro créditos acrescenta o dobro de pontos ponderados que numa de dois créditos. Compare cenários por disciplina antes de supor que toda mudança afeta igualmente o GPA acumulado."
+    },
+    "ar": {
+      "heading": "الساعات المعتمدة تزيد تأثير الدرجة",
+      "body": "على مقياس النقاط نفسه، رفع درجة مقرر من أربع ساعات معتمدة بنقطة يضيف ضعف النقاط الموزونة مقارنة بمقرر من ساعتين. قارن سيناريوهات المقررات قبل افتراض أن كل تحسن يؤثر بالتساوي في المعدل التراكمي."
+    },
+    "hi": {
+      "heading": "अधिक क्रेडिट से अंक का असर बढ़ता है",
+      "body": "एक ही ग्रेड-पॉइंट पैमाने पर चार क्रेडिट वाले विषय में एक अंक की बढ़ोतरी, दो क्रेडिट वाले विषय की तुलना में दोगुने भारित अंक जोड़ती है। हर सुधार का संचयी GPA पर समान असर मानने से पहले विषयवार तुलना करें।"
+    },
+    "tl": {
+      "heading": "Mas maraming credit, mas malaking epekto",
+      "body": "Sa parehong grade-point scale, ang isang puntos na pagtaas sa kursong apat na credit ay doble ang dagdag na weighted points kaysa sa dalawang credit. Ihambing bawat kurso bago ipalagay na pantay ang epekto sa cumulative GPA."
+    }
+  },
+  "grade-calculator": {
+    "en": {
+      "heading": "Target the category with leverage",
+      "body": "A ten-point improvement in a category worth 40% raises the fully specified course grade by four points. The same improvement in a 10% category adds one point. Use what-if scores to compare where improvement changes the outcome most."
+    },
+    "es": {
+      "heading": "Compara el peso de cada categoría",
+      "body": "Mejorar diez puntos una categoría que vale el 40% aumenta cuatro puntos la nota final completa. La misma mejora en una categoría del 10% añade uno. Usa escenarios para comparar qué mejora cambia más el resultado."
+    },
+    "fr": {
+      "heading": "Comparer le poids des catégories",
+      "body": "Gagner dix points dans une catégorie pesant 40% augmente de quatre points la note finale entièrement renseignée. Le même gain dans une catégorie de 10% ajoute un point. Comparez les simulations pour repérer l’amélioration la plus influente."
+    },
+    "de": {
+      "heading": "Den Einfluss der Kategorien vergleichen",
+      "body": "Zehn Punkte Verbesserung in einer Kategorie mit 40% Gewicht erhöhen die vollständig erfasste Gesamtnote um vier Punkte. Bei 10% Gewicht ist es ein Punkt. Vergleiche Was-wäre-wenn-Werte, um den größten Einfluss einer Verbesserung zu erkennen."
+    },
+    "pt": {
+      "heading": "Compare o peso das categorias",
+      "body": "Melhorar dez pontos em uma categoria de peso 40% aumenta quatro pontos a nota final completa. A mesma melhora numa categoria de 10% acrescenta um ponto. Use simulações para comparar onde uma melhora altera mais o resultado."
+    },
+    "ar": {
+      "heading": "قارن تأثير وزن كل فئة",
+      "body": "تحسن عشر نقاط في فئة وزنها 40% يرفع الدرجة النهائية المكتملة بأربع نقاط. التحسن نفسه في فئة وزنها 10% يضيف نقطة واحدة. استخدم الدرجات الافتراضية لمقارنة مواضع التحسن الأكثر تأثيرًا."
+    },
+    "hi": {
+      "heading": "अधिक भार वाली श्रेणी का असर देखें",
+      "body": "40% भार वाली श्रेणी में दस अंक सुधारने से पूरी तरह भरी गई अंतिम ग्रेड चार अंक बढ़ती है। 10% भार वाली श्रेणी में वही सुधार एक अंक जोड़ता है। संभावित स्कोर बदलकर प्रभाव की तुलना करें।"
+    },
+    "tl": {
+      "heading": "Ihambing ang bigat ng bawat kategorya",
+      "body": "Ang dagdag na sampung puntos sa kategoryang may 40% na bigat ay apat na puntos sa kumpletong final grade. Sa 10% na kategorya, isa lamang. Gumamit ng what-if scores upang makita kung aling pagbuti ang pinakamalaking epekto."
+    }
+  },
+  "tip-calculator": {
+    "en": {
+      "heading": "Rounding each share leaves a remainder",
+      "body": "A total of 100 split three ways displays about 33.33 each, leaving 0.01 unpaid if everyone pays exactly that amount. Check the original total and assign the rounding remainder when settling the actual bill."
+    },
+    "es": {
+      "heading": "Redondear cada parte deja un resto",
+      "body": "Un total de 100 dividido entre tres muestra aproximadamente 33,33 por persona; faltaría 0,01 si todos pagaran eso. Comprueba el total original y asigna la diferencia de redondeo al saldar la cuenta."
+    },
+    "fr": {
+      "heading": "L’arrondi individuel laisse un reste",
+      "body": "Un total de 100 partagé en trois affiche environ 33,33 par personne, laissant 0,01 impayé si chacun verse ce montant. Vérifiez le total initial et attribuez le reste d’arrondi au moment de régler."
+    },
+    "de": {
+      "heading": "Gerundete Anteile hinterlassen einen Rest",
+      "body": "100 geteilt durch drei ergibt angezeigt etwa 33,33 pro Person. Zahlen alle genau diesen Betrag, fehlt 0,01. Prüfe die ursprüngliche Gesamtsumme und verteile den Rundungsrest beim tatsächlichen Bezahlen der Rechnung."
+    },
+    "pt": {
+      "heading": "Arredondar cada parte deixa uma diferença",
+      "body": "Um total de 100 dividido entre três mostra cerca de 33,33 por pessoa, deixando 0,01 em aberto se todos pagarem isso. Confira o total original e distribua a diferença de arredondamento ao quitar a conta."
+    },
+    "ar": {
+      "heading": "تقريب الحصص يترك فرقًا",
+      "body": "تقسيم إجمالي 100 على ثلاثة يعرض نحو 33.33 لكل شخص، ويترك 0.01 غير مدفوع إذا دفع الجميع هذا المبلغ تحديدًا. راجع الإجمالي الأصلي وحدد من يتحمل فرق التقريب عند تسوية الفاتورة."
+    },
+    "hi": {
+      "heading": "हर हिस्से को गोल करने का अंतर",
+      "body": "100 को तीन लोगों में बाँटने पर लगभग 33.33 प्रति व्यक्ति दिखता है। सब यही दें तो 0.01 बाकी रहेगा। वास्तविक बिल चुकाते समय मूल कुल राशि जाँचें और गोल करने का बचा अंतर किसी हिस्से में जोड़ें।"
+    },
+    "tl": {
+      "heading": "May natitira kapag ni-round bawat bahagi",
+      "body": "Ang kabuuang 100 na hinati sa tatlo ay humigit-kumulang 33.33 bawat isa. Kulang ng 0.01 kung iyon lang ang ibabayad ng lahat. Suriin ang orihinal na total at italaga ang natitirang halaga sa pagbabayad."
+    }
+  },
+  "fuel-cost-calculator": {
+    "en": {
+      "heading": "Mileage gains and savings differ",
+      "body": "Improving from 20 to 25 mpg is a 25% mileage gain but a 20% fuel-cost reduction for the same trip and pump price. Compare calculated trip costs rather than treating the mpg percentage as the saving."
+    },
+    "es": {
+      "heading": "Mejor rendimiento no equivale a igual ahorro",
+      "body": "Pasar de 20 a 25 mpg mejora el rendimiento un 25%, pero reduce el coste de combustible un 20% para el mismo viaje y precio. Compara costes calculados en lugar de usar el porcentaje de mejora como ahorro."
+    },
+    "fr": {
+      "heading": "Rendement et économies évoluent différemment",
+      "body": "Passer de 20 à 25 mpg améliore le rendement de 25%, mais réduit le coût du carburant de 20% à trajet et prix identiques. Comparez les coûts calculés plutôt que d’assimiler le pourcentage de rendement aux économies."
+    },
+    "de": {
+      "heading": "Verbrauchsvorteil und Ersparnis unterscheiden sich",
+      "body": "Von 20 auf 25 mpg bedeutet 25% mehr Strecke pro Gallone, aber nur 20% weniger Kraftstoffkosten bei gleicher Strecke und gleichem Preis. Vergleiche die berechneten Fahrtkosten, statt die mpg-Steigerung als prozentuale Ersparnis zu übernehmen."
+    },
+    "pt": {
+      "heading": "Rendimento e economia são diferentes",
+      "body": "Passar de 20 para 25 mpg melhora o rendimento em 25%, mas reduz o custo do combustível em 20% no mesmo trajeto e preço. Compare os custos calculados em vez de tratar o ganho percentual como economia."
+    },
+    "ar": {
+      "heading": "تحسن الكفاءة يختلف عن التوفير",
+      "body": "الانتقال من 20 إلى 25 ميلًا لكل غالون يحسن الكفاءة بنسبة 25%، لكنه يخفض تكلفة الوقود 20% للرحلة والسعر نفسيهما. قارن تكاليف الرحلة المحسوبة بدل اعتبار نسبة تحسن الكفاءة هي نسبة التوفير."
+    },
+    "hi": {
+      "heading": "माइलेज बढ़ना और बचत अलग हैं",
+      "body": "20 से 25 mpg होना माइलेज में 25% सुधार है, लेकिन समान यात्रा और ईंधन दर पर लागत केवल 20% घटती है। माइलेज की प्रतिशत वृद्धि को बचत मानने के बजाय गणना की गई यात्रा लागतों की तुलना करें।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang mileage at matitipid",
+      "body": "Ang pagtaas mula 20 tungong 25 mpg ay 25% na dagdag sa mileage, ngunit 20% lamang na bawas sa gastos para sa parehong biyahe at presyo. Ihambing ang kalkuladong gastos, hindi ang porsiyento ng mpg."
+    }
+  },
+  "gas-mileage-calculator": {
+    "en": {
+      "heading": "Combine fuel before averaging mileage",
+      "body": "Two 300-mile intervals using 10 and 15 gallons produce 24 mpg overall: 600 ÷ 25. Averaging the separate 30 and 20 mpg figures gives 25 mpg and overstates economy. Sum distance and fuel first."
+    },
+    "es": {
+      "heading": "Suma el combustible antes de promediar",
+      "body": "Dos trayectos de 300 millas que usan 10 y 15 galones dan 24 mpg en total: 600 ÷ 25. Promediar 30 y 20 mpg da 25 y sobreestima el rendimiento. Suma primero distancia y combustible."
+    },
+    "fr": {
+      "heading": "Additionner le carburant avant de moyenner",
+      "body": "Deux trajets de 300 miles consommant 10 et 15 gallons donnent 24 mpg au total : 600 ÷ 25. La moyenne de 30 et 20 mpg donne 25 et surestime le rendement. Additionnez d’abord distance et carburant."
+    },
+    "de": {
+      "heading": "Kraftstoffmengen vor dem Mitteln addieren",
+      "body": "Zwei Strecken von je 300 Meilen mit 10 und 15 Gallonen ergeben insgesamt 24 mpg: 600 ÷ 25. Der Mittelwert aus 30 und 20 mpg ergibt dagegen irreführende 25 mpg. Addiere zunächst Strecke und Kraftstoff."
+    },
+    "pt": {
+      "heading": "Some o combustível antes de calcular",
+      "body": "Dois trechos de 300 milhas usando 10 e 15 galões resultam em 24 mpg no total: 600 ÷ 25. A média de 30 e 20 mpg dá 25 e superestima o rendimento. Some distância e combustível primeiro."
+    },
+    "ar": {
+      "heading": "اجمع الوقود قبل حساب المتوسط",
+      "body": "فترتان طول كل منهما 300 ميل وتستهلكان 10 و15 غالونًا تعطيان إجمالًا 24 ميلًا لكل غالون: 600 ÷ 25. أما متوسط 30 و20 فيعطي 25 ويبالغ في الكفاءة. اجمع المسافة والوقود أولًا."
+    },
+    "hi": {
+      "heading": "औसत से पहले ईंधन जोड़ें",
+      "body": "300 मील की दो यात्राओं में 10 और 15 गैलन लगे तो कुल माइलेज 24 mpg है: 600 ÷ 25। अलग-अलग 30 और 20 mpg का औसत 25 लेना दक्षता बढ़ाकर दिखाता है। दूरी और ईंधन पहले जोड़ें।"
+    },
+    "tl": {
+      "heading": "Pagsamahin muna ang distansiya at gasolina",
+      "body": "Dalawang 300-milyang biyahe na gumamit ng 10 at 15 gallon ay 24 mpg sa kabuuan: 600 ÷ 25. Ang average ng 30 at 20 mpg ay 25 at sobra ang tantiya. Pagsamahin muna ang distansiya at gasolina."
+    }
+  },
+  "horsepower-calculator": {
+    "en": {
+      "heading": "Equal power can hide different torque",
+      "body": "At 100 lb-ft and 3,000 RPM, calculated power equals that at 200 lb-ft and 1,500 RPM. The matching horsepower does not imply matching torque. Compare both operating values when interpreting two machines with similar power labels."
+    },
+    "es": {
+      "heading": "La misma potencia oculta distinto par",
+      "body": "A 100 lb-ft y 3.000 RPM, la potencia calculada iguala la de 200 lb-ft y 1.500 RPM. Tener los mismos caballos no implica el mismo par. Compara ambos valores de funcionamiento entre máquinas con potencia similar."
+    },
+    "fr": {
+      "heading": "Une même puissance peut cacher des couples différents",
+      "body": "À 100 lb-ft et 3 000 tr/min, la puissance calculée égale celle obtenue à 200 lb-ft et 1 500 tr/min. Une puissance identique ne signifie pas un couple identique. Comparez les deux valeurs de fonctionnement."
+    },
+    "de": {
+      "heading": "Gleiche Leistung bei unterschiedlichem Drehmoment",
+      "body": "100 lb-ft bei 3.000 U/min ergeben dieselbe berechnete Leistung wie 200 lb-ft bei 1.500 U/min. Gleiche Pferdestärken bedeuten kein gleiches Drehmoment. Vergleiche beide Betriebswerte, wenn Maschinen ähnliche Leistungsangaben tragen."
+    },
+    "pt": {
+      "heading": "Mesma potência pode esconder outro torque",
+      "body": "Com 100 lb-ft e 3.000 RPM, a potência calculada é igual à de 200 lb-ft e 1.500 RPM. A mesma potência não significa o mesmo torque. Compare ambos os valores de operação entre máquinas com potência semelhante."
+    },
+    "ar": {
+      "heading": "القدرة المتساوية قد تخفي عزمًا مختلفًا",
+      "body": "عند عزم 100 رطل-قدم و3,000 دورة/دقيقة، تساوي القدرة المحسوبة حالة 200 رطل-قدم و1,500 دورة/دقيقة. تساوي القدرة الحصانية لا يعني تساوي العزم. قارن القيمتين التشغيليتين عند تفسير قدرة آلتين متشابهة."
+    },
+    "hi": {
+      "heading": "समान शक्ति में टॉर्क अलग हो सकता है",
+      "body": "100 lb-ft और 3,000 RPM पर गणना की गई शक्ति, 200 lb-ft और 1,500 RPM जितनी है। समान हॉर्सपावर का अर्थ समान टॉर्क नहीं। समान शक्ति वाली मशीनों को समझते समय दोनों परिचालन मान देखें।"
+    },
+    "tl": {
+      "heading": "Parehong lakas, maaaring magkaiba ang torque",
+      "body": "Ang 100 lb-ft sa 3,000 RPM ay kapareho ng kalkuladong lakas ng 200 lb-ft sa 1,500 RPM. Hindi ibig sabihin ng parehong horsepower na pareho ang torque. Ihambing ang parehong operating value ng mga makina."
+    }
+  },
+  "engine-horsepower-calculator": {
+    "en": {
+      "heading": "Small speed errors grow when cubed",
+      "body": "In the quarter-mile trap-speed model, entering a speed 10% too high increases estimated horsepower by 33.1% at unchanged race weight. Check the measured trap speed carefully; the cubic relationship magnifies an input error."
+    },
+    "es": {
+      "heading": "El cubo amplifica errores de velocidad",
+      "body": "En el modelo de velocidad final del cuarto de milla, introducir una velocidad un 10% mayor eleva la potencia estimada un 33,1% con el mismo peso. Comprueba la medición: la relación cúbica amplifica el error."
+    },
+    "fr": {
+      "heading": "Le cube amplifie les erreurs de vitesse",
+      "body": "Dans le modèle fondé sur la vitesse finale au quart de mile, une vitesse surestimée de 10% augmente la puissance estimée de 33,1% à masse identique. Vérifiez la mesure : la relation cubique amplifie l’erreur."
+    },
+    "de": {
+      "heading": "Kubische Beziehungen verstärken kleine Geschwindigkeitsfehler",
+      "body": "Im Viertelmeilenmodell mit Zielgeschwindigkeit erhöht eine um 10% zu hoch eingegebene Geschwindigkeit die geschätzte Leistung bei gleichem Renngewicht um 33,1%. Prüfe den gemessenen Wert sorgfältig: Die dritte Potenz verstärkt Eingabefehler deutlich."
+    },
+    "pt": {
+      "heading": "O cubo amplia erros de velocidade",
+      "body": "No modelo de velocidade final do quarto de milha, informar uma velocidade 10% maior aumenta a potência estimada em 33,1% com o mesmo peso. Confira a velocidade medida: a relação cúbica amplia o erro de entrada."
+    },
+    "ar": {
+      "heading": "التكعيب يضخم أخطاء السرعة",
+      "body": "في نموذج سرعة نهاية ربع الميل، تؤدي زيادة السرعة المدخلة خطأً بنسبة 10% إلى رفع القدرة المقدرة 33.1% مع ثبات وزن السباق. تحقق من السرعة المقاسة بعناية؛ فالعلاقة التكعيبية تضخم خطأ الإدخال."
+    },
+    "hi": {
+      "heading": "घन संबंध गति की गलती बढ़ाता है",
+      "body": "क्वार्टर-माइल की अंतिम मापी गति वाले मॉडल में गति 10% अधिक भरने से समान रेस-वजन पर अनुमानित हॉर्सपावर 33.1% बढ़ती है। गति सावधानी से जाँचें; घन वाला संबंध छोटी इनपुट गलती को बड़ा करता है।"
+    },
+    "tl": {
+      "heading": "Lumalaki ang mali kapag naka-cube",
+      "body": "Sa modelong quarter-mile trap speed, ang 10% na sobrang bilis na inilagay ay nagpapataas ng tinantiyang horsepower nang 33.1% sa parehong race weight. Suriin ang nasukat na trap speed; pinalalaki ng cubic relationship ang pagkakamali."
+    }
+  },
+  "tire-size-calculator": {
+    "en": {
+      "heading": "The same ratio changes sidewall height",
+      "body": "Changing from 205/55 to 225/55 on the same rim adds 11 mm to each nominal sidewall and 22 mm to overall diameter. Keeping the aspect-ratio number unchanged therefore does not preserve tire diameter."
+    },
+    "es": {
+      "heading": "La misma proporción cambia el flanco",
+      "body": "Pasar de 205/55 a 225/55 con la misma llanta añade 11 mm a cada flanco nominal y 22 mm al diámetro total. Mantener el número de perfil no conserva, por tanto, el diámetro del neumático."
+    },
+    "fr": {
+      "heading": "Un rapport identique change le flanc",
+      "body": "Passer de 205/55 à 225/55 sur la même jante ajoute 11 mm à chaque flanc nominal et 22 mm au diamètre total. Conserver le même rapport hauteur-largeur ne préserve donc pas le diamètre du pneu."
+    },
+    "de": {
+      "heading": "Gleiches Verhältnis verändert die Seitenwandhöhe",
+      "body": "Der Wechsel von 205/55 auf 225/55 bei gleicher Felge erhöht jede nominale Seitenwand um 11 mm und den Gesamtdurchmesser um 22 mm. Eine unveränderte Querschnittszahl erhält deshalb nicht automatisch den Reifendurchmesser."
+    },
+    "pt": {
+      "heading": "A mesma proporção muda o flanco",
+      "body": "Trocar 205/55 por 225/55 no mesmo aro acrescenta 11 mm a cada flanco nominal e 22 mm ao diâmetro total. Portanto, manter o número do perfil não preserva o diâmetro do pneu."
+    },
+    "ar": {
+      "heading": "النسبة نفسها تغير ارتفاع الجدار",
+      "body": "الانتقال من 205/55 إلى 225/55 مع الجنط نفسه يضيف 11 مم إلى كل جدار جانبي اسمي و22 مم إلى القطر الكلي. لذلك لا يحافظ تثبيت رقم نسبة الارتفاع على قطر الإطار."
+    },
+    "hi": {
+      "heading": "समान अनुपात पर साइडवॉल बदलती है",
+      "body": "उसी रिम पर 205/55 से 225/55 करने से हर नाममात्र साइडवॉल 11 mm और कुल व्यास 22 mm बढ़ता है। इसलिए आस्पेक्ट-रेशियो का अंक समान रखने से टायर का व्यास समान नहीं रहता।"
+    },
+    "tl": {
+      "heading": "Nagbabago ang taas kahit pareho ang ratio",
+      "body": "Ang pagpapalit ng 205/55 tungong 225/55 sa parehong rim ay dagdag na 11 mm bawat nominal sidewall at 22 mm sa buong diameter. Kaya hindi napapanatili ng parehong aspect ratio ang diameter ng gulong."
+    }
+  },
+  "square-footage-calculator": {
+    "en": {
+      "heading": "Perimeter does not determine floor area",
+      "body": "A 10-by-10-foot square and a 5-by-15-foot rectangle both have a 40-foot perimeter, but their areas are 100 and 75 square feet. Measure the sides or component shapes; boundary length alone cannot establish coverage."
+    },
+    "es": {
+      "heading": "El perímetro no determina el área",
+      "body": "Un cuadrado de 10 por 10 pies y un rectángulo de 5 por 15 tienen perímetro de 40 pies, pero áreas de 100 y 75 pies cuadrados. Mide lados o figuras; el contorno no basta."
+    },
+    "fr": {
+      "heading": "Le périmètre ne détermine pas la surface",
+      "body": "Un carré de 10 pieds de côté et un rectangle de 5 × 15 pieds ont chacun 40 pieds de périmètre, mais des surfaces de 100 et 75 pieds carrés. Mesurez les dimensions, pas seulement le contour."
+    },
+    "de": {
+      "heading": "Der Umfang bestimmt nicht die Fläche",
+      "body": "Ein Quadrat mit 10 × 10 Fuß und ein Rechteck mit 5 × 15 Fuß haben beide 40 Fuß Umfang, aber 100 beziehungsweise 75 Quadratfuß Fläche. Miss die Seiten; die Randlänge allein bestimmt keine Abdeckung."
+    },
+    "pt": {
+      "heading": "O perímetro não determina a área",
+      "body": "Um quadrado de 10 por 10 pés e um retângulo de 5 por 15 têm perímetro de 40 pés, mas áreas de 100 e 75 pés quadrados. Meça os lados; apenas o contorno não determina a cobertura."
+    },
+    "ar": {
+      "heading": "المحيط لا يحدد مساحة الأرضية",
+      "body": "مربع أبعاده 10 × 10 أقدام ومستطيل 5 × 15 قدمًا لهما محيط 40 قدمًا، لكن مساحتيهما 100 و75 قدمًا مربعًا. قس الأضلاع أو الأشكال المكونة؛ فلا يكفي طول الحدود لتحديد التغطية."
+    },
+    "hi": {
+      "heading": "परिमाप से क्षेत्रफल तय नहीं होता",
+      "body": "10 × 10 फुट का वर्ग और 5 × 15 फुट का आयत, दोनों का परिमाप 40 फुट है, लेकिन क्षेत्रफल 100 और 75 वर्ग फुट। किनारे या हिस्सों के आकार मापें; केवल सीमा की लंबाई पर्याप्त नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi sapat ang perimeter para sa lawak",
+      "body": "Ang 10-by-10-foot na parisukat at 5-by-15-foot na parihaba ay parehong may 40-foot perimeter, pero 100 at 75 square feet ang lawak. Sukatin ang mga gilid; hindi sapat ang haba ng hangganan para malaman ang sakop."
+    }
+  },
+  "concrete-calculator": {
+    "en": {
+      "heading": "Thickness errors affect the entire slab",
+      "body": "For a fixed slab footprint, increasing thickness from 4 to 5 inches raises net concrete volume by 25%. Check depth measurements before adjusting the allowance; an extra percentage cannot reliably correct an incorrectly specified slab thickness."
+    },
+    "es": {
+      "heading": "El espesor afecta a toda la losa",
+      "body": "Con la misma superficie, aumentar el espesor de 4 a 5 pulgadas eleva un 25% el volumen neto de hormigón. Revisa la profundidad antes del margen adicional; un porcentaje extra no corrige de forma fiable un espesor incorrecto."
+    },
+    "fr": {
+      "heading": "L’épaisseur affecte toute la dalle",
+      "body": "À surface identique, passer de 4 à 5 pouces d’épaisseur augmente de 25% le volume net de béton. Vérifiez l’épaisseur avant d’ajuster la marge : un pourcentage supplémentaire ne corrige pas de façon fiable une dimension erronée."
+    },
+    "de": {
+      "heading": "Die Dicke wirkt auf die gesamte Platte",
+      "body": "Bei gleicher Grundfläche erhöht eine Plattendicke von 5 statt 4 Zoll das Nettobetonvolumen um 25%. Prüfe die Dicke vor dem Zuschlag: Ein zusätzlicher Prozentsatz kann eine falsch angegebene Plattendicke nicht zuverlässig ausgleichen."
+    },
+    "pt": {
+      "heading": "A espessura afeta toda a laje",
+      "body": "Com a mesma área, aumentar a espessura de 4 para 5 polegadas eleva o volume líquido de concreto em 25%. Confira a profundidade antes da margem adicional; um percentual extra não corrige com segurança uma espessura incorreta."
+    },
+    "ar": {
+      "heading": "السماكة تؤثر في كامل البلاطة",
+      "body": "مع ثبات مساحة البلاطة، ترفع زيادة السماكة من 4 إلى 5 بوصات حجم الخرسانة الصافي بنسبة 25%. راجع العمق قبل تعديل الهامش الإضافي؛ فلا يمكن الاعتماد على نسبة زائدة لتصحيح سماكة محددة خطأً."
+    },
+    "hi": {
+      "heading": "मोटाई पूरी स्लैब को प्रभावित करती है",
+      "body": "स्लैब का आधार क्षेत्र समान हो तो मोटाई 4 से 5 इंच करने से शुद्ध कंक्रीट आयतन 25% बढ़ता है। अतिरिक्त भत्ता बदलने से पहले गहराई जाँचें; अतिरिक्त प्रतिशत गलत मोटाई को भरोसेमंद ढंग से ठीक नहीं करता।"
+    },
+    "tl": {
+      "heading": "Apektado ng kapal ang buong slab",
+      "body": "Sa parehong lawak, ang pagdagdag ng kapal mula 4 tungong 5 pulgada ay 25% na dagdag sa netong concrete volume. Suriin muna ang lalim bago ang allowance; hindi maaasahang itama ng dagdag na porsiyento ang maling kapal."
+    }
+  },
+  "mulch-calculator": {
+    "en": {
+      "heading": "Combine beds before buying bags",
+      "body": "If two beds each need 1.2 bags, ordering separately rounds to four bags. Combining their volume needs only three. Use the multiple-bed input when the same material and depth apply so leftovers can serve both beds."
+    },
+    "es": {
+      "heading": "Agrupa los parterres antes de comprar",
+      "body": "Si dos parterres necesitan 1,2 bolsas cada uno, comprarlos por separado redondea a cuatro bolsas. Juntar el volumen requiere solo tres. Usa varias áreas cuando material y profundidad coincidan, para aprovechar los sobrantes entre ellas."
+    },
+    "fr": {
+      "heading": "Regrouper les massifs avant l’achat",
+      "body": "Si deux massifs nécessitent chacun 1,2 sac, des achats séparés arrondissent le total à quatre sacs. Regrouper les volumes n’en demande que trois. Utilisez plusieurs massifs avec le même matériau et la même profondeur pour partager les restes."
+    },
+    "de": {
+      "heading": "Beete vor dem Sackkauf zusammenfassen",
+      "body": "Brauchen zwei Beete jeweils 1,2 Säcke, ergeben getrennte Bestellungen aufgerundet vier Säcke. Zusammen reichen rechnerisch drei. Nutze mehrere Beete bei gleichem Material und gleicher Schichtdicke, damit Reste für beide Flächen verwendet werden können."
+    },
+    "pt": {
+      "heading": "Agrupe os canteiros antes da compra",
+      "body": "Se dois canteiros precisam de 1,2 sacos cada, comprar separadamente arredonda para quatro sacos. Juntar os volumes exige apenas três. Use vários canteiros quando material e profundidade forem iguais, aproveitando as sobras entre eles."
+    },
+    "ar": {
+      "heading": "اجمع الأحواض قبل شراء الأكياس",
+      "body": "إذا احتاج كل حوض من حوضين إلى 1.2 كيس، يرفع الطلب المنفصل العدد إلى أربعة أكياس. جمع الحجمين يحتاج ثلاثة فقط. استخدم إدخال الأحواض المتعددة عند تطابق المادة والعمق للاستفادة من البقايا بينهما."
+    },
+    "hi": {
+      "heading": "बोरियाँ खरीदने से पहले क्यारियाँ जोड़ें",
+      "body": "दो क्यारियों में प्रत्येक को 1.2 बोरी चाहिए तो अलग-अलग खरीद पर चार बोरियाँ होंगी। कुल आयतन जोड़ने पर तीन पर्याप्त हैं। सामग्री और गहराई समान हों तो अनेक क्यारियों वाला इनपुट लें, ताकि बची सामग्री साझा हो सके।"
+    },
+    "tl": {
+      "heading": "Pagsamahin ang mga taniman bago bumili",
+      "body": "Kung dalawang taniman ay nangangailangan ng tig-1.2 bag, apat ang mabibili kapag magkahiwalay ang pag-round. Tatlo lamang kapag pinagsama. Gamitin ang maraming taniman kung pareho ang materyal at lalim upang mapakinabangan ang natira."
+    }
+  },
+  "gravel-calculator": {
+    "en": {
+      "heading": "Density matters differently across price units",
+      "body": "Raising bulk density by 10% increases estimated weight by 10% at the same bed volume. It changes a weight-based quotation, but not a volume-based one. Match the supplier’s charging unit before comparing delivered material prices."
+    },
+    "es": {
+      "heading": "La densidad afecta según cómo se cobre",
+      "body": "Aumentar un 10% la densidad aparente eleva un 10% el peso estimado para el mismo volumen. Cambia un presupuesto por peso, pero no uno por volumen. Confirma la unidad del proveedor antes de comparar precios."
+    },
+    "fr": {
+      "heading": "L’effet de la densité dépend du tarif",
+      "body": "Augmenter la masse volumique apparente de 10% augmente le poids estimé de 10% à volume identique. Cela modifie un devis au poids, mais pas au volume. Vérifiez l’unité de facturation avant de comparer les prix."
+    },
+    "de": {
+      "heading": "Dichte wirkt je nach Preiseinheit anders",
+      "body": "10% mehr Schüttdichte erhöhen bei gleichem Beetvolumen die geschätzte Masse um 10%. Das verändert ein Angebot nach Gewicht, aber keines nach Volumen. Prüfe die Abrechnungseinheit des Lieferanten, bevor du Materialpreise vergleichst."
+    },
+    "pt": {
+      "heading": "A densidade pesa diferente no preço",
+      "body": "Aumentar a densidade aparente em 10% eleva o peso estimado em 10% no mesmo volume. Isso altera um orçamento por peso, mas não por volume. Confira a unidade cobrada pelo fornecedor antes de comparar preços."
+    },
+    "ar": {
+      "heading": "تأثير الكثافة يختلف حسب التسعير",
+      "body": "رفع الكثافة الحجمية بنسبة 10% يزيد الوزن المقدر 10% مع ثبات حجم المساحة. يغير ذلك عرض السعر بالوزن، لكنه لا يغير عرض السعر بالحجم. طابق وحدة تسعير المورد قبل مقارنة أسعار المادة."
+    },
+    "hi": {
+      "heading": "घनत्व का असर मूल्य इकाई पर निर्भर है",
+      "body": "समान आयतन पर थोक घनत्व 10% बढ़ाने से अनुमानित वजन 10% बढ़ता है। इससे वजन के आधार वाला कोटेशन बदलता है, आयतन वाला नहीं। सामग्री की कीमतें तुलना करने से पहले विक्रेता की बिलिंग इकाई मिलाएँ।"
+    },
+    "tl": {
+      "heading": "Depende sa presyo ang epekto ng density",
+      "body": "Ang 10% na dagdag sa bulk density ay 10% ding dagdag sa timbang sa parehong volume. Binabago nito ang presyong batay sa timbang, hindi sa volume. Itugma ang yunit ng singil bago maghambing ng presyo."
+    }
+  },
+  "roofing-calculator": {
+    "en": {
+      "heading": "Pitch percentage is not extra area",
+      "body": "A 6-in-12 pitch has a 50% rise-to-run ratio, but its slope multiplier is about 1.118. The modeled roof surface is therefore about 11.8% above horizontal area before allowance, not 50% larger."
+    },
+    "es": {
+      "heading": "La pendiente no es área adicional",
+      "body": "Una pendiente de 6 sobre 12 tiene una relación de subida del 50%, pero su multiplicador de superficie es aproximadamente 1,118. El tejado modelado supera el área horizontal alrededor de un 11,8% antes del margen, no un 50%."
+    },
+    "fr": {
+      "heading": "La pente ne donne pas l’aire supplémentaire",
+      "body": "Une pente de 6 pour 12 représente 50% de dénivelé, mais son multiplicateur de surface vaut environ 1,118. La toiture modélisée dépasse donc l’aire horizontale d’environ 11,8% avant marge, et non de 50%."
+    },
+    "de": {
+      "heading": "Steigungsprozent sind keine zusätzliche Dachfläche",
+      "body": "Eine Dachneigung von 6 zu 12 entspricht 50% Steigung, hat aber einen Flächenfaktor von ungefähr 1,118. Die modellierte Dachfläche liegt vor Zuschlägen deshalb etwa 11,8% über der horizontalen Fläche, nicht 50%."
+    },
+    "pt": {
+      "heading": "Percentual de inclinação não é área extra",
+      "body": "Uma inclinação de 6 para 12 tem razão de subida de 50%, mas o multiplicador da superfície é cerca de 1,118. A área modelada fica aproximadamente 11,8% acima da horizontal antes da margem, não 50%."
+    },
+    "ar": {
+      "heading": "نسبة الميل ليست مساحة إضافية",
+      "body": "ميل 6 إلى 12 يعني نسبة ارتفاع إلى امتداد أفقي قدرها 50%، لكن معامل المساحة المائلة نحو 1.118. لذلك تزيد مساحة السقف المحسوبة عن الأفقية نحو 11.8% قبل الهامش الإضافي، لا 50%."
+    },
+    "hi": {
+      "heading": "ढलान प्रतिशत अतिरिक्त क्षेत्रफल नहीं है",
+      "body": "6-में-12 ढलान में ऊँचाई और क्षैतिज दूरी का अनुपात 50% है, लेकिन सतह का गुणक लगभग 1.118 है। इसलिए अतिरिक्त भत्ते से पहले छत का क्षेत्रफल क्षैतिज क्षेत्र से लगभग 11.8% अधिक है, 50% नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi dagdag na lawak ang slope percentage",
+      "body": "Ang 6-in-12 pitch ay 50% na rise-to-run ratio, ngunit mga 1.118 ang slope multiplier. Kaya humigit-kumulang 11.8% lang ang dagdag na roof surface kumpara sa horizontal area bago ang allowance, hindi 50%."
+    }
+  },
+  "tile-calculator": {
+    "en": {
+      "heading": "Rotate rectangular tiles before comparing orders",
+      "body": "In a straight grid without offcut reuse, rotating rectangular tiles can change row and column rounding even when tile area stays identical. Swap tile length and width, keeping room dimensions, grout and allowance unchanged, then compare order quantities."
+    },
+    "es": {
+      "heading": "Gira las baldosas antes de comparar pedidos",
+      "body": "En una cuadrícula sin reutilizar recortes, girar baldosas rectangulares puede cambiar el redondeo de filas y columnas aunque su área sea igual. Intercambia largo y ancho manteniendo habitación, juntas y margen; después compara las cantidades."
+    },
+    "fr": {
+      "heading": "Tourner les carreaux avant de commander",
+      "body": "Dans une grille sans réemploi des chutes, tourner des carreaux rectangulaires peut modifier les arrondis des rangées et colonnes malgré une surface identique. Inversez longueur et largeur en conservant pièce, joints et marge, puis comparez les quantités."
+    },
+    "de": {
+      "heading": "Rechteckige Fliesen vor dem Bestellen drehen",
+      "body": "Im geraden Raster ohne Wiederverwendung von Abschnitten kann Drehen rechteckiger Fliesen die aufgerundete Reihen- und Spaltenzahl ändern. Vertausche Fliesenlänge und -breite bei unverändertem Raum, Fugenmaß und Zuschlag; vergleiche anschließend die Bestellmengen."
+    },
+    "pt": {
+      "heading": "Gire as peças antes de comparar pedidos",
+      "body": "Numa grade sem reaproveitar recortes, girar peças retangulares pode mudar o arredondamento de linhas e colunas mesmo com área idêntica. Troque comprimento e largura mantendo ambiente, juntas e margem; depois compare as quantidades."
+    },
+    "ar": {
+      "heading": "دوّر البلاط المستطيل قبل مقارنة الطلب",
+      "body": "في شبكة مستقيمة دون إعادة استخدام القصاصات، قد يغير تدوير البلاط تقريب عدد الصفوف والأعمدة رغم ثبات مساحته. بدّل طول البلاطة وعرضها مع تثبيت الغرفة والفواصل والهامش، ثم قارن كميات الطلب."
+    },
+    "hi": {
+      "heading": "ऑर्डर तुलना से पहले टाइल घुमाएँ",
+      "body": "कटे टुकड़े दोबारा इस्तेमाल न करने वाली सीधी ग्रिड में आयताकार टाइल घुमाने से पंक्तियों और स्तंभों की पूर्णांक संख्या बदल सकती है। कमरा, जोड़ और भत्ता समान रखकर टाइल की लंबाई-चौड़ाई बदलें और मात्रा तुलना करें।"
+    },
+    "tl": {
+      "heading": "Iikot muna ang parihabang tile",
+      "body": "Sa tuwid na grid na hindi gumagamit muli ng pinagputulan, maaaring magbago ang pag-round ng hilera at hanay kapag inikot ang tile. Pagpalitin ang haba at lapad habang pareho ang silid, grout at allowance; ihambing ang order."
+    }
+  },
+  "stair-calculator": {
+    "en": {
+      "heading": "Lower risers can need more space",
+      "body": "At fixed floor-to-floor rise and tread run, adding a riser lowers each step but adds one tread to the standard layout. Compare both riser height and total run; a gentler stair may exceed the available footprint."
+    },
+    "es": {
+      "heading": "Peldaños más bajos requieren más espacio",
+      "body": "Con la misma altura total y huella, añadir una contrahuella reduce la altura de cada escalón, pero añade una huella al diseño estándar. Compara altura y recorrido total: una escalera más suave puede superar el espacio disponible."
+    },
+    "fr": {
+      "heading": "Des marches plus basses prennent plus de place",
+      "body": "À hauteur totale et giron constants, ajouter une contremarche réduit chaque hauteur mais ajoute un giron au tracé standard. Comparez hauteur des marches et reculement total : un escalier moins raide peut dépasser l’emprise disponible."
+    },
+    "de": {
+      "heading": "Niedrigere Stufen brauchen möglicherweise mehr Platz",
+      "body": "Bei gleicher Geschosshöhe und Auftrittslänge senkt eine zusätzliche Steigung die einzelne Stufenhöhe, ergänzt im Standardlayout aber einen Auftritt. Vergleiche Stufenhöhe und gesamten Lauf: Eine flachere Treppe kann die verfügbare Grundfläche überschreiten."
+    },
+    "pt": {
+      "heading": "Degraus mais baixos podem ocupar mais espaço",
+      "body": "Com altura entre pisos e profundidade do degrau fixas, acrescentar um espelho reduz cada altura, mas adiciona um piso ao modelo padrão. Compare altura e avanço total: uma escada mais suave pode ultrapassar o espaço disponível."
+    },
+    "ar": {
+      "heading": "الدرجات الأقل ارتفاعًا تحتاج مساحة أكبر",
+      "body": "مع ثبات الارتفاع بين الطابقين وعمق النائمة، تقلل إضافة قائمة ارتفاع كل درجة لكنها تضيف نائمة إلى التخطيط القياسي. قارن ارتفاع القائمة والامتداد الكلي؛ فقد يتجاوز السلم الأقل انحدارًا المساحة المتاحة."
+    },
+    "hi": {
+      "heading": "कम ऊँची सीढ़ी अधिक जगह ले सकती है",
+      "body": "मंजिलों की कुल ऊँचाई और पायदान की गहराई समान रखने पर एक राइज़र बढ़ाने से प्रत्येक सीढ़ी नीची होती है, लेकिन मानक लेआउट में एक पायदान जुड़ता है। ऊँचाई के साथ कुल क्षैतिज लंबाई भी तुलना करें।"
+    },
+    "tl": {
+      "heading": "Mas mababang hakbang, mas malaking espasyo",
+      "body": "Sa parehong taas ng palapag at tread run, ang dagdag na riser ay nagpapababa sa bawat hakbang ngunit nagdaragdag ng isang tread sa karaniwang layout. Ihambing ang taas at kabuuang run; baka lumampas sa espasyo ang mas banayad na hagdan."
+    }
+  },
+  "btu-calculator": {
+    "en": {
+      "heading": "Insulation changes only part of heat loss",
+      "body": "Halving wall U-values halves the modeled wall-conduction loss, not the entire heating requirement. Windows, other surfaces and outdoor-air exchange remain. Compare the component totals to see which improvement actually reduces the largest part of your entered load."
+    },
+    "es": {
+      "heading": "El aislamiento modifica solo parte de la pérdida",
+      "body": "Reducir a la mitad la transmitancia de las paredes divide su pérdida por conducción entre dos, no toda la calefacción necesaria. Ventanas, otras superficies y renovación de aire permanecen. Compara componentes para identificar la mejora de mayor impacto."
+    },
+    "fr": {
+      "heading": "L’isolation ne réduit qu’une partie des pertes",
+      "body": "Diviser par deux le coefficient U des murs divise leurs pertes conductives par deux, pas le besoin total. Fenêtres, autres parois et renouvellement d’air restent présents. Comparez les composantes pour repérer l’amélioration la plus influente."
+    },
+    "de": {
+      "heading": "Dämmung verändert nur einen Wärmeverlustanteil",
+      "body": "Halbierte Wand-U-Werte halbieren den modellierten Wärmeleitverlust der Wände, nicht den gesamten Heizbedarf. Fenster, andere Flächen und Außenluftaustausch bleiben bestehen. Vergleiche die Komponenten, um die wirkungsvollste Verbesserung innerhalb deiner eingegebenen Last zu erkennen."
+    },
+    "pt": {
+      "heading": "O isolamento altera parte da perda térmica",
+      "body": "Reduzir pela metade o valor U das paredes divide sua perda por condução, não toda a necessidade de aquecimento. Janelas, outras superfícies e troca de ar permanecem. Compare os componentes para identificar a melhoria de maior impacto."
+    },
+    "ar": {
+      "heading": "العزل يغير جزءًا من فقد الحرارة",
+      "body": "خفض معاملات انتقال الحرارة للجدران إلى النصف يخفض فقد التوصيل فيها للنصف، وليس احتياج التدفئة كله. تبقى النوافذ والأسطح الأخرى وتبادل الهواء الخارجي. قارن مكونات الحمل لمعرفة التحسين الذي يخفض أكبر جزء فعليًا."
+    },
+    "hi": {
+      "heading": "इन्सुलेशन केवल कुछ ऊष्मा-हानि बदलता है",
+      "body": "दीवारों का U-मान आधा करने से उनकी गणितीय चालन-हानि आधी होती है, पूरी हीटिंग जरूरत नहीं। खिड़कियाँ, अन्य सतहें और बाहरी हवा का आदान-प्रदान बाकी रहते हैं। घटकों की तुलना करके सबसे असरदार सुधार पहचानें।"
+    },
+    "tl": {
+      "heading": "Bahagi lang ng pagkawala ang insulation",
+      "body": "Kapag hinati sa dalawa ang U-value ng dingding, kalahati ang modeled conduction loss nito, hindi ang buong heating requirement. Nananatili ang bintana, ibang ibabaw at palitan ng hangin. Ihambing ang mga bahagi upang makita ang pinakamalaking mababawas."
+    }
+  },
+  "electricity-calculator": {
+    "en": {
+      "heading": "Avoid applying the load factor twice",
+      "body": "If measured average power is already 400 W for a 1,000 W appliance, enter 400 W at full load or 1,000 W at 40%. Entering 400 W and 40% understates modeled energy by applying the adjustment twice."
+    },
+    "es": {
+      "heading": "No apliques dos veces la carga",
+      "body": "Si la potencia media medida es 400 W en un aparato de 1.000 W, introduce 400 W al 100% o 1.000 W al 40%. Introducir 400 W y 40% reduce la energía indebidamente al ajustar dos veces."
+    },
+    "fr": {
+      "heading": "Ne pas appliquer deux fois la charge",
+      "body": "Si la puissance moyenne mesurée est de 400 W pour un appareil de 1 000 W, entrez 400 W à 100% ou 1 000 W à 40%. Entrer 400 W et 40% sous-estime l’énergie en doublant l’ajustement."
+    },
+    "de": {
+      "heading": "Den Lastfaktor nicht doppelt anwenden",
+      "body": "Beträgt die gemessene Durchschnittsleistung eines 1.000-W-Geräts bereits 400 W, gib 400 W bei voller Last oder 1.000 W bei 40% ein. 400 W mit 40% unterschätzen den Energieverbrauch durch eine doppelte Korrektur."
+    },
+    "pt": {
+      "heading": "Não aplique a carga duas vezes",
+      "body": "Se a potência média medida for 400 W num aparelho de 1.000 W, informe 400 W a 100% ou 1.000 W a 40%. Informar 400 W e 40% subestima a energia ao aplicar o ajuste duas vezes."
+    },
+    "ar": {
+      "heading": "لا تطبق معامل الحمل مرتين",
+      "body": "إذا كان متوسط القدرة المقاس 400 واط لجهاز قدرته الاسمية 1,000 واط، فأدخل 400 واط بحمل كامل أو 1,000 واط عند 40%. إدخال 400 واط و40% يقلل الطاقة المقدرة بتطبيق التخفيض مرتين."
+    },
+    "hi": {
+      "heading": "लोड फैक्टर दो बार न लगाएँ",
+      "body": "1,000 W उपकरण की मापी औसत शक्ति पहले से 400 W हो तो 400 W पर 100% या 1,000 W पर 40% भरें। 400 W और 40% दोनों भरने से समायोजन दो बार लगता है और ऊर्जा कम दिखती है।"
+    },
+    "tl": {
+      "heading": "Huwag ilapat nang dalawang beses ang load",
+      "body": "Kung 400 W na ang nasukat na average ng 1,000 W na appliance, ilagay ang 400 W sa 100% o 1,000 W sa 40%. Ang 400 W at 40% ay sobrang baba dahil dalawang beses ang adjustment."
+    }
+  },
+  "ohms-law-calculator": {
+    "en": {
+      "heading": "Doubling voltage quadruples resistive power",
+      "body": "For an unchanged ideal resistance, twice the voltage gives twice the current and four times the dissipated power. Compare both current and power after changing voltage; proportional voltage changes do not imply proportional heating power."
+    },
+    "es": {
+      "heading": "Duplicar voltaje cuadruplica la potencia resistiva",
+      "body": "Con una resistencia ideal constante, duplicar el voltaje duplica la corriente y cuadruplica la potencia disipada. Compara corriente y potencia tras cambiar el voltaje; el calentamiento no aumenta en la misma proporción que la tensión."
+    },
+    "fr": {
+      "heading": "Doubler la tension quadruple la puissance",
+      "body": "À résistance idéale constante, doubler la tension double le courant et quadruple la puissance dissipée. Comparez courant et puissance après une modification : une variation proportionnelle de tension n’entraîne pas une variation proportionnelle de puissance thermique."
+    },
+    "de": {
+      "heading": "Doppelte Spannung vervierfacht die Widerstandsleistung",
+      "body": "Bei unverändertem idealem Widerstand erzeugt die doppelte Spannung den doppelten Strom und die vierfache Verlustleistung. Vergleiche nach Spannungsänderungen Strom und Leistung: Proportionale Spannungsänderungen bedeuten keine proportionalen Änderungen der Wärmeleistung."
+    },
+    "pt": {
+      "heading": "Dobrar a tensão quadruplica a potência",
+      "body": "Com resistência ideal constante, dobrar a tensão duplica a corrente e quadruplica a potência dissipada. Compare corrente e potência após mudar a tensão; variações proporcionais de tensão não significam variações proporcionais na potência de aquecimento."
+    },
+    "ar": {
+      "heading": "مضاعفة الجهد تضاعف القدرة أربع مرات",
+      "body": "عند ثبات مقاومة مثالية، تعطي مضاعفة الجهد ضعف التيار وأربعة أمثال القدرة المبددة. قارن التيار والقدرة بعد تغيير الجهد؛ فالتغير النسبي في الجهد لا يعني تغيرًا بالنسبة نفسها في قدرة التسخين."
+    },
+    "hi": {
+      "heading": "वोल्टेज दोगुना तो प्रतिरोधी शक्ति चौगुनी",
+      "body": "आदर्श प्रतिरोध स्थिर हो तो वोल्टेज दोगुना करने पर धारा दोगुनी और व्यय होने वाली शक्ति चार गुनी होती है। वोल्टेज बदलने पर दोनों परिणाम देखें; समान अनुपात में वोल्टेज बदलने से ऊष्मा-शक्ति उसी अनुपात में नहीं बदलती।"
+    },
+    "tl": {
+      "heading": "Dobleng boltahe, apat na beses na power",
+      "body": "Sa hindi nagbabagong ideal resistance, dobleng boltahe ay dobleng current at apat na beses na dissipated power. Ihambing ang current at power pagkatapos baguhin ang boltahe; hindi pareho ang proporsiyon ng boltahe at pag-init."
+    }
+  },
+  "resistor-calculator": {
+    "en": {
+      "heading": "Diameter matters through its square",
+      "body": "Doubling a round conductor’s diameter gives four times the cross-sectional area and one-quarter the modeled resistance at the same length and conductivity. Distinguish diameter from area when comparing wire dimensions; they affect resistance differently."
+    },
+    "es": {
+      "heading": "El diámetro actúa al cuadrado",
+      "body": "Duplicar el diámetro de un conductor redondo cuadruplica su sección y reduce la resistencia calculada a una cuarta parte con longitud y conductividad constantes. Distingue diámetro de área al comparar cables: afectan de forma distinta a la resistencia."
+    },
+    "fr": {
+      "heading": "Le diamètre intervient au carré",
+      "body": "Doubler le diamètre d’un conducteur rond quadruple sa section et réduit sa résistance calculée au quart, à longueur et conductivité identiques. Distinguez diamètre et section lorsque vous comparez les dimensions : leur effet n’est pas le même."
+    },
+    "de": {
+      "heading": "Der Durchmesser wirkt im Quadrat",
+      "body": "Doppelter Durchmesser eines runden Leiters bedeutet vierfache Querschnittsfläche und ein Viertel des modellierten Widerstands bei gleicher Länge und Leitfähigkeit. Unterscheide Durchmesser und Fläche beim Vergleich von Drahtmaßen: Sie beeinflussen den Widerstand unterschiedlich."
+    },
+    "pt": {
+      "heading": "O diâmetro atua ao quadrado",
+      "body": "Dobrar o diâmetro de um condutor redondo quadruplica sua área transversal e reduz a resistência modelada a um quarto, com comprimento e condutividade iguais. Diferencie diâmetro e área ao comparar fios: seus efeitos são distintos."
+    },
+    "ar": {
+      "heading": "تأثير القطر يعتمد على مربعه",
+      "body": "مضاعفة قطر موصل دائري تجعل مساحة مقطعه أربعة أمثال وتخفض مقاومته المحسوبة إلى الربع مع ثبات الطول والموصلية. ميّز القطر عن المساحة عند مقارنة أبعاد الأسلاك؛ فلكل منهما تأثير مختلف في المقاومة."
+    },
+    "hi": {
+      "heading": "व्यास का असर उसके वर्ग से है",
+      "body": "गोल चालक का व्यास दोगुना करने से अनुप्रस्थ क्षेत्रफल चार गुना और समान लंबाई व चालकता पर प्रतिरोध एक चौथाई होता है। तारों के आयाम तुलना करते समय व्यास और क्षेत्रफल अलग रखें; उनका प्रभाव अलग है।"
+    },
+    "tl": {
+      "heading": "Nakadepende sa parisukat ng diameter",
+      "body": "Dobleng diameter ng bilog na conductor ay apat na beses na cross-sectional area at isang-kapat na resistance sa parehong haba at conductivity. Ihiwalay ang diameter sa area kapag naghahambing ng wire; magkaiba ang epekto nila sa resistance."
+    }
+  },
+  "voltage-drop-calculator": {
+    "en": {
+      "heading": "Percent drop depends on supply voltage",
+      "body": "The same 3 V drop is 2.5% of a 120 V supply but 12.5% of 24 V. Compare both volts and percentage when evaluating scenarios; an identical absolute drop has a different relative effect at lower voltage."
+    },
+    "es": {
+      "heading": "La caída porcentual depende de la alimentación",
+      "body": "Una caída de 3 V equivale al 2,5% de 120 V, pero al 12,5% de 24 V. Compara voltios y porcentaje: la misma caída absoluta tiene un efecto relativo distinto a menor tensión."
+    },
+    "fr": {
+      "heading": "La chute relative dépend de l’alimentation",
+      "body": "Une chute de 3 V représente 2,5% d’une alimentation de 120 V, mais 12,5% de 24 V. Comparez volts et pourcentage : une même chute absolue a un effet relatif différent à tension plus basse."
+    },
+    "de": {
+      "heading": "Prozentualer Spannungsfall hängt von der Versorgung ab",
+      "body": "Derselbe Spannungsfall von 3 V entspricht bei 120 V Versorgung 2,5%, bei 24 V aber 12,5%. Vergleiche Volt und Prozent: Ein identischer absoluter Spannungsfall hat bei niedrigerer Spannung eine andere relative Bedeutung."
+    },
+    "pt": {
+      "heading": "A queda percentual depende da alimentação",
+      "body": "A mesma queda de 3 V representa 2,5% de uma alimentação de 120 V, mas 12,5% de 24 V. Compare volts e porcentagem: uma queda absoluta idêntica tem efeito relativo diferente em tensões menores."
+    },
+    "ar": {
+      "heading": "نسبة الهبوط تعتمد على جهد التغذية",
+      "body": "هبوط 3 فولت يساوي 2.5% من تغذية 120 فولت، لكنه يساوي 12.5% من 24 فولت. قارن الفولت والنسبة المئوية معًا؛ فالهبوط المطلق نفسه له أثر نسبي مختلف عند الجهد المنخفض."
+    },
+    "hi": {
+      "heading": "प्रतिशत गिरावट आपूर्ति वोल्टेज पर निर्भर है",
+      "body": "एक ही 3 V गिरावट, 120 V आपूर्ति का 2.5% लेकिन 24 V का 12.5% है। परिदृश्य तुलना में वोल्ट और प्रतिशत दोनों देखें; समान निरपेक्ष गिरावट का कम वोल्टेज पर सापेक्ष प्रभाव अलग होता है।"
+    },
+    "tl": {
+      "heading": "Depende sa supply ang porsiyentong pagbaba",
+      "body": "Ang parehong 3 V na pagbaba ay 2.5% ng 120 V na supply pero 12.5% ng 24 V. Ihambing ang volts at porsiyento; ibang relatibong epekto ang parehong pagbaba kapag mas mababa ang boltahe."
+    }
+  },
+  "wind-chill-calculator": {
+    "en": {
+      "heading": "Pipes do not reach wind chill",
+      "body": "Wind speeds an object’s cooling toward air temperature; wind chill alone does not cool it below that temperature. Use measured air temperature when interpreting freezing conditions for pipes, rather than substituting the apparent-cold index."
+    },
+    "es": {
+      "heading": "Las tuberías no alcanzan la sensación térmica",
+      "body": "El viento acelera el enfriamiento hacia la temperatura del aire; la sensación térmica por sí sola no enfría más. Para interpretar condiciones de congelación en tuberías, usa la temperatura medida del aire."
+    },
+    "fr": {
+      "heading": "Les canalisations ne suivent pas l’indice",
+      "body": "Le vent accélère le refroidissement vers la température de l’air ; le refroidissement éolien seul ne fait pas descendre plus bas. Pour interpréter le gel des canalisations, utilisez la température de l’air mesurée."
+    },
+    "de": {
+      "heading": "Rohre erreichen nicht die gefühlte Temperatur",
+      "body": "Wind beschleunigt die Abkühlung eines Gegenstands auf Lufttemperatur; Windchill allein kühlt ihn nicht darunter. Nutze beim Einordnen möglicher Frostbedingungen für Rohre die gemessene Lufttemperatur statt des gefühlten Kältewerts."
+    },
+    "pt": {
+      "heading": "Tubos não atingem a sensação térmica",
+      "body": "O vento acelera o resfriamento até a temperatura do ar; a sensação térmica sozinha não reduz além disso. Use a temperatura medida do ar ao interpretar condições de congelamento de tubulações."
+    },
+    "ar": {
+      "heading": "الأنابيب لا تبلغ البرودة المحسوسة",
+      "body": "تسرّع الرياح تبريد الجسم نحو حرارة الهواء؛ ولا يخفضه تأثير برودة الرياح وحده دونها. استخدم حرارة الهواء المقاسة عند تفسير ظروف تجمد الأنابيب، لا مؤشر البرودة المحسوسة."
+    },
+    "hi": {
+      "heading": "पाइप महसूस होने वाले तापमान तक नहीं पहुँचते",
+      "body": "हवा वस्तु को वायु-तापमान तक जल्दी ठंडा करती है; विंड चिल अकेले उससे नीचे नहीं ठंडा करता। पाइप जमने की परिस्थितियाँ समझने के लिए महसूस होने वाले सूचकांक के बजाय मापा वायु-तापमान लें।"
+    },
+    "tl": {
+      "heading": "Hindi wind chill ang temperatura ng tubo",
+      "body": "Pinabibilis ng hangin ang paglamig hanggang temperatura ng hangin; hindi pinapababa pa ng wind chill lamang. Gamitin ang nasukat na temperatura ng hangin sa pag-unawa sa posibilidad ng pagyeyelo ng tubo."
+    }
+  },
+  "heat-index-calculator": {
+    "en": {
+      "heading": "Lower humidity can still feel hotter",
+      "body": "A falling relative-humidity percentage does not by itself mean a lower heat index. Compare complete temperature-and-humidity pairs: hotter air can have a lower humidity percentage yet produce a higher apparent temperature under this model."
+    },
+    "es": {
+      "heading": "Menos humedad puede sentirse más caliente",
+      "body": "Un porcentaje menor de humedad relativa no significa por sí solo un índice de calor más bajo. Compara temperatura y humedad juntas: aire más caliente puede tener menor humedad relativa y aun así producir mayor sensación térmica."
+    },
+    "fr": {
+      "heading": "Moins d’humidité peut sembler plus chaud",
+      "body": "Une humidité relative plus faible ne signifie pas à elle seule un indice de chaleur inférieur. Comparez les couples température-humidité : un air plus chaud peut présenter un pourcentage moindre tout en produisant une température ressentie supérieure."
+    },
+    "de": {
+      "heading": "Weniger Feuchte kann sich heißer anfühlen",
+      "body": "Ein sinkender Prozentsatz relativer Luftfeuchte bedeutet allein keinen niedrigeren Hitzeindex. Vergleiche vollständige Temperatur-Feuchte-Paare: Heißere Luft kann trotz geringerer relativer Feuchte in diesem Modell eine höhere gefühlte Temperatur ergeben."
+    },
+    "pt": {
+      "heading": "Menor umidade ainda pode parecer mais quente",
+      "body": "Uma porcentagem menor de umidade relativa não significa, sozinha, um índice de calor inferior. Compare temperatura e umidade juntas: ar mais quente pode ter umidade relativa menor e ainda produzir sensação térmica maior neste modelo."
+    },
+    "ar": {
+      "heading": "رطوبة أقل قد تعني إحساسًا أحر",
+      "body": "انخفاض نسبة الرطوبة النسبية لا يعني وحده انخفاض مؤشر الحرارة. قارن الحرارة والرطوبة معًا؛ فقد تكون نسبة رطوبة الهواء الأشد حرارة أقل، ومع ذلك يعطي درجة حرارة محسوسة أعلى وفق هذا النموذج."
+    },
+    "hi": {
+      "heading": "कम आर्द्रता में भी अधिक गर्मी लग सकती है",
+      "body": "सापेक्ष आर्द्रता का प्रतिशत घटना अकेले हीट इंडेक्स कम होने का संकेत नहीं है। तापमान और आर्द्रता की जोड़ियाँ तुलना करें; अधिक गर्म हवा में कम प्रतिशत आर्द्रता के बावजूद इस मॉडल का महसूस होने वाला तापमान अधिक हो सकता है।"
+    },
+    "tl": {
+      "heading": "Mas mababang humidity, maaari pa ring mas mainit",
+      "body": "Hindi awtomatikong mas mababa ang heat index kapag bumaba ang relative humidity. Ihambing ang buong pares ng temperatura at humidity; maaaring mas mainit ang hangin at mas mataas ang apparent temperature kahit mas mababa ang porsiyentong humidity."
+    }
+  },
+  "dew-point-calculator": {
+    "en": {
+      "heading": "Condensation depends on the surface temperature",
+      "body": "A cold window can reach the dew point while the room air stays warmer. Compare the calculated dew point with the surface temperature when investigating condensation; room temperature alone cannot explain where droplets first appear."
+    },
+    "es": {
+      "heading": "La condensación depende de la superficie",
+      "body": "Una ventana fría puede alcanzar el punto de rocío mientras el aire interior sigue más caliente. Compara el punto calculado con la temperatura superficial; la temperatura ambiente sola no explica dónde aparecen primero las gotas."
+    },
+    "fr": {
+      "heading": "La condensation dépend de la surface",
+      "body": "Une vitre froide peut atteindre le point de rosée alors que l’air ambiant reste plus chaud. Comparez le point calculé à la température de surface : la température de la pièce seule n’explique pas l’apparition des gouttes."
+    },
+    "de": {
+      "heading": "Kondensation hängt von der Oberflächentemperatur ab",
+      "body": "Ein kaltes Fenster kann den Taupunkt erreichen, während die Raumluft wärmer bleibt. Vergleiche den berechneten Taupunkt mit der Oberflächentemperatur, wenn du Kondensation untersuchst: Die Raumtemperatur allein erklärt nicht, wo zuerst Tropfen entstehen."
+    },
+    "pt": {
+      "heading": "A condensação depende da temperatura superficial",
+      "body": "Uma janela fria pode atingir o ponto de orvalho enquanto o ar do ambiente permanece mais quente. Compare o ponto calculado com a temperatura da superfície; a temperatura ambiente sozinha não explica onde surgem as primeiras gotas."
+    },
+    "ar": {
+      "heading": "التكاثف يعتمد على حرارة السطح",
+      "body": "قد تبلغ نافذة باردة نقطة الندى بينما يبقى هواء الغرفة أدفأ. قارن نقطة الندى المحسوبة بحرارة السطح عند فحص التكاثف؛ فلا تفسر حرارة الغرفة وحدها الموضع الذي تظهر فيه القطرات أولًا."
+    },
+    "hi": {
+      "heading": "संघनन सतह के तापमान पर निर्भर है",
+      "body": "ठंडी खिड़की ओसांक तक पहुँच सकती है, जबकि कमरे की हवा अधिक गर्म रहे। संघनन समझते समय गणना किए ओसांक की सतह के तापमान से तुलना करें; केवल कमरे का तापमान नहीं बताता कि बूंदें पहले कहाँ बनेंगी।"
+    },
+    "tl": {
+      "heading": "Nakasalalay sa temperatura ng ibabaw ang condensation",
+      "body": "Maaaring umabot sa dew point ang malamig na bintana habang mas mainit pa ang hangin sa silid. Ihambing ang dew point sa temperatura ng ibabaw; hindi sapat ang temperatura ng silid upang ipaliwanag kung saan unang may patak."
+    }
+  },
+  "bandwidth-calculator": {
+    "en": {
+      "heading": "Smaller pages can offset traffic growth",
+      "body": "If page views rise 20% while transferred page size falls 25%, total modeled traffic falls 10%: 1.20 × 0.75 = 0.90. Compare both inputs together when estimating whether image optimization can offset a larger audience."
+    },
+    "es": {
+      "heading": "Páginas más ligeras compensan más visitas",
+      "body": "Si las visitas aumentan un 20% y el tamaño transferido por página baja un 25%, el tráfico total calculado cae un 10%: 1,20 × 0,75 = 0,90. Compara ambos cambios al evaluar la optimización de imágenes."
+    },
+    "fr": {
+      "heading": "Des pages légères compensent plus de visites",
+      "body": "Si les pages vues augmentent de 20% et leur taille transférée diminue de 25%, le trafic total modélisé baisse de 10% : 1,20 × 0,75 = 0,90. Comparez les deux changements pour évaluer l’optimisation des images."
+    },
+    "de": {
+      "heading": "Kleinere Seiten können mehr Aufrufe ausgleichen",
+      "body": "Steigen Seitenaufrufe um 20%, während die übertragene Seitengröße um 25% sinkt, fällt der modellierte Gesamtverkehr um 10%: 1,20 × 0,75 = 0,90. Vergleiche beide Eingaben, um den Ausgleich durch Bildoptimierung zu beurteilen."
+    },
+    "pt": {
+      "heading": "Páginas menores podem compensar mais visitas",
+      "body": "Se as visualizações aumentam 20% e o tamanho transferido por página cai 25%, o tráfego total modelado diminui 10%: 1,20 × 0,75 = 0,90. Compare os dois fatores ao avaliar a otimização de imagens."
+    },
+    "ar": {
+      "heading": "الصفحات الأصغر قد تعوض نمو الزيارات",
+      "body": "إذا زادت مشاهدات الصفحات 20% وانخفض حجم الصفحة المنقول 25%، يقل إجمالي النقل المحسوب 10%: 1.20 × 0.75 = 0.90. قارن المدخلين معًا لتقدير قدرة تحسين الصور على تعويض زيادة الجمهور."
+    },
+    "hi": {
+      "heading": "छोटे पेज बढ़ी विज़िट की भरपाई करते हैं",
+      "body": "पेज व्यू 20% बढ़ें और प्रति पेज ट्रांसफर आकार 25% घटे तो कुल अनुमानित ट्रैफिक 10% घटता है: 1.20 × 0.75 = 0.90। तस्वीरों का अनुकूलन बढ़ते दर्शकों की भरपाई करेगा या नहीं, दोनों इनपुट साथ तुलना करें।"
+    },
+    "tl": {
+      "heading": "Mas maliit na pahina, mas magaang trapiko",
+      "body": "Kung tumaas ng 20% ang page views at bumaba ng 25% ang transferred page size, bababa ng 10% ang kabuuang trapiko: 1.20 × 0.75 = 0.90. Ihambing ang dalawang pagbabago sa pagtantiyang epekto ng image optimization."
+    }
+  },
+  "ip-subnet-calculator": {
+    "en": {
+      "heading": "Subdivision uses more reserved addresses",
+      "body": "Splitting a conventional IPv4 /24 into two /25 networks preserves 256 total addresses but reduces ordinary host slots from 254 to 252. Each subnet needs its own network and broadcast addresses; total address count is not usable capacity."
+    },
+    "es": {
+      "heading": "Dividir reserva más direcciones",
+      "body": "Dividir una red IPv4 /24 convencional en dos /25 conserva 256 direcciones totales, pero reduce los espacios de host habituales de 254 a 252. Cada subred necesita direcciones de red y difusión propias; total no equivale a capacidad utilizable."
+    },
+    "fr": {
+      "heading": "La subdivision réserve davantage d’adresses",
+      "body": "Diviser un réseau IPv4 /24 classique en deux /25 conserve 256 adresses, mais réduit les emplacements d’hôtes ordinaires de 254 à 252. Chaque sous-réseau réserve ses adresses réseau et diffusion : total et capacité utilisable diffèrent."
+    },
+    "de": {
+      "heading": "Unterteilung benötigt zusätzliche reservierte Adressen",
+      "body": "Die Aufteilung eines üblichen IPv4-/24-Netzes in zwei /25-Netze erhält insgesamt 256 Adressen, reduziert gewöhnliche Hostplätze aber von 254 auf 252. Jedes Teilnetz braucht eigene Netzwerk- und Broadcast-Adressen; Gesamtzahl ist nicht gleich nutzbare Kapazität."
+    },
+    "pt": {
+      "heading": "Subdividir reserva mais endereços",
+      "body": "Dividir uma rede IPv4 /24 convencional em duas /25 mantém 256 endereços totais, mas reduz os espaços comuns de host de 254 para 252. Cada sub-rede reserva endereços de rede e broadcast; total não equivale à capacidade utilizável."
+    },
+    "ar": {
+      "heading": "التقسيم يحجز عناوين إضافية",
+      "body": "تقسيم شبكة IPv4 تقليدية ببادئة /24 إلى شبكتي /25 يُبقي الإجمالي 256 عنوانًا، لكنه يخفض عناوين الأجهزة المعتادة من 254 إلى 252. لكل شبكة فرعية عنوانا شبكة وبث خاصان؛ فالإجمالي لا يساوي السعة القابلة للاستخدام."
+    },
+    "hi": {
+      "heading": "उपविभाजन में अधिक पते आरक्षित होते हैं",
+      "body": "सामान्य IPv4 /24 को दो /25 नेटवर्क में बाँटने पर कुल 256 पते रहते हैं, लेकिन सामान्य होस्ट स्थान 254 से 252 होते हैं। हर सबनेट के अलग नेटवर्क और ब्रॉडकास्ट पते होते हैं; कुल संख्या उपयोगी क्षमता नहीं है।"
+    },
+    "tl": {
+      "heading": "Mas maraming address ang nakalaan sa paghahati",
+      "body": "Ang paghati ng karaniwang IPv4 /24 sa dalawang /25 ay may 256 address pa rin, pero 254 tungong 252 ang ordinaryong host slot. Bawat subnet ay may sariling network at broadcast address; hindi lahat ng address ay magagamit."
+    }
+  },
+  "base64-encode-decode": {
+    "en": {
+      "heading": "Encoding usually makes data larger",
+      "body": "Standard padded Base64 turns 1,000 input bytes into 1,336 characters before any surrounding markup. Use the byte count, not the visible text length, when estimating encoded size; non-ASCII text can occupy several bytes per character."
+    },
+    "es": {
+      "heading": "Codificar suele aumentar el tamaño",
+      "body": "Base64 estándar con relleno convierte 1.000 bytes en 1.336 caracteres, sin contar marcas adicionales. Usa los bytes, no la longitud visible del texto, para estimar el tamaño codificado; los caracteres no ASCII pueden ocupar varios bytes."
+    },
+    "fr": {
+      "heading": "L’encodage augmente généralement la taille",
+      "body": "Base64 standard avec remplissage transforme 1 000 octets en 1 336 caractères, hors balisage ajouté. Utilisez le nombre d’octets plutôt que la longueur visible : un caractère non ASCII peut occuper plusieurs octets."
+    },
+    "de": {
+      "heading": "Kodierung vergrößert Daten meistens",
+      "body": "Standard-Base64 mit Auffüllung macht aus 1.000 Eingabebytes 1.336 Zeichen, noch ohne zusätzliches Markup. Verwende beim Abschätzen die Bytezahl statt der sichtbaren Textlänge: Nicht-ASCII-Zeichen können jeweils mehrere Bytes belegen."
+    },
+    "pt": {
+      "heading": "Codificar geralmente aumenta o tamanho",
+      "body": "Base64 padrão com preenchimento transforma 1.000 bytes em 1.336 caracteres, antes de qualquer marcação adicional. Use a quantidade de bytes, não o tamanho visível do texto; caracteres não ASCII podem ocupar vários bytes cada."
+    },
+    "ar": {
+      "heading": "الترميز يزيد حجم البيانات غالبًا",
+      "body": "يحوّل Base64 القياسي مع الحشو 1,000 بايت إلى 1,336 محرفًا قبل أي وسوم إضافية. استخدم عدد البايتات لا طول النص المرئي لتقدير الحجم؛ فقد يشغل المحرف غير ASCII عدة بايتات."
+    },
+    "hi": {
+      "heading": "एन्कोडिंग अक्सर आकार बढ़ाती है",
+      "body": "पैडिंग वाला मानक Base64, 1,000 इनपुट बाइट को अतिरिक्त मार्कअप से पहले 1,336 अक्षरों में बदलता है। आकार अनुमान में दिखने वाली अक्षर संख्या नहीं, बाइट गिनें; गैर-ASCII अक्षर कई बाइट ले सकते हैं।"
+    },
+    "tl": {
+      "heading": "Karaniwang lumalaki ang datos sa encoding",
+      "body": "Ginagawang 1,336 character ng standard padded Base64 ang 1,000 byte bago ang dagdag na markup. Bilangin ang bytes, hindi nakikitang haba ng teksto; maaaring maraming byte ang bawat non-ASCII character."
+    }
+  },
+  "url-encode-decode": {
+    "en": {
+      "heading": "Recognize a double-encoded space",
+      "body": "A space encodes as %20; encoding that output again produces %2520 because the percent sign is encoded too. Decoding once returns %20, not a space. Check which encoding layer the receiving application expects before transforming again."
+    },
+    "es": {
+      "heading": "Reconoce un espacio codificado dos veces",
+      "body": "Un espacio se codifica como %20; codificarlo otra vez produce %2520 porque también se codifica el porcentaje. Decodificar una vez devuelve %20, no un espacio. Comprueba qué capa espera la aplicación antes de transformar de nuevo."
+    },
+    "fr": {
+      "heading": "Reconnaître une espace encodée deux fois",
+      "body": "Une espace devient %20 ; encoder ce résultat donne %2520, car le signe pourcentage est aussi encodé. Un seul décodage rend %20, pas une espace. Vérifiez la couche attendue par l’application avant une nouvelle transformation."
+    },
+    "de": {
+      "heading": "Ein doppelt kodiertes Leerzeichen erkennen",
+      "body": "Ein Leerzeichen wird zu %20; erneutes Kodieren erzeugt %2520, weil auch das Prozentzeichen kodiert wird. Einmaliges Dekodieren liefert %20 statt eines Leerzeichens. Prüfe vor weiteren Umwandlungen, welche Kodierungsebene die empfangende Anwendung erwartet."
+    },
+    "pt": {
+      "heading": "Reconheça um espaço codificado duas vezes",
+      "body": "Um espaço vira %20; codificar esse resultado novamente produz %2520 porque o sinal de porcentagem também é codificado. Decodificar uma vez retorna %20, não um espaço. Confira a camada esperada pela aplicação antes de transformar novamente."
+    },
+    "ar": {
+      "heading": "تعرف على المسافة المرمزة مرتين",
+      "body": "تُرمز المسافة إلى %20، وإعادة ترميز الناتج تعطي %2520 لأن علامة النسبة تُرمز أيضًا. فك الترميز مرة واحدة يعيد %20 لا مسافة. تحقق من طبقة الترميز التي يتوقعها التطبيق قبل التحويل مجددًا."
+    },
+    "hi": {
+      "heading": "दो बार एन्कोड हुआ स्पेस पहचानें",
+      "body": "स्पेस %20 बनता है; उसी परिणाम को फिर एन्कोड करने पर %2520 मिलता है क्योंकि प्रतिशत चिह्न भी बदलता है। एक बार डिकोड करने पर %20 लौटता है, स्पेस नहीं। दोबारा बदलने से पहले एप्लिकेशन की अपेक्षित परत जाँचें।"
+    },
+    "tl": {
+      "heading": "Kilalanin ang dobleng encoded na space",
+      "body": "Ang space ay %20; kapag in-encode muli, nagiging %2520 dahil pati percent sign ay encoded. Isang decode ay %20 pa rin, hindi space. Alamin muna kung anong encoding layer ang inaasahan ng tatanggap na application."
+    }
+  },
+  "password-generator": {
+    "en": {
+      "heading": "Unique characters differ from unique passwords",
+      "body": "The no-repeat option controls characters inside one password; it does not make reusing that password across accounts safe. Generate a separate password for each account. Avoid interpreting a character restriction as a substitute for account-by-account uniqueness."
+    },
+    "es": {
+      "heading": "Caracteres únicos no son contraseñas únicas",
+      "body": "La opción sin repeticiones controla los caracteres dentro de una contraseña; no hace seguro reutilizarla en varias cuentas. Genera una contraseña diferente para cada cuenta. Restringir caracteres no sustituye la exclusividad entre cuentas."
+    },
+    "fr": {
+      "heading": "Caractères uniques et mots de passe distincts",
+      "body": "L’option sans répétition concerne les caractères d’un mot de passe ; elle ne sécurise pas sa réutilisation entre comptes. Générez un mot de passe différent pour chaque compte. Une contrainte de caractères ne remplace pas cette distinction."
+    },
+    "de": {
+      "heading": "Einmalige Zeichen sind keine einmaligen Passwörter",
+      "body": "Die Option ohne Wiederholungen betrifft Zeichen innerhalb eines Passworts; sie macht dessen Wiederverwendung für mehrere Konten nicht sicher. Erzeuge für jedes Konto ein eigenes Passwort. Eine Zeichenbeschränkung ersetzt keine getrennten Zugangsdaten."
+    },
+    "pt": {
+      "heading": "Caracteres únicos não são senhas exclusivas",
+      "body": "A opção sem repetição controla caracteres dentro de uma senha; não torna seguro reutilizá-la entre contas. Gere uma senha diferente para cada conta. Uma restrição de caracteres não substitui a exclusividade de senha por conta."
+    },
+    "ar": {
+      "heading": "المحارف الفريدة تختلف عن كلمات المرور الفريدة",
+      "body": "يضبط خيار منع التكرار المحارف داخل كلمة المرور، ولا يجعل استخدامها لحسابات متعددة آمنًا. ولّد كلمة مستقلة لكل حساب؛ فتقييد المحارف لا يعوض تخصيص كلمة مرور مختلفة لكل حساب."
+    },
+    "hi": {
+      "heading": "अलग अक्षर और अलग पासवर्ड भिन्न हैं",
+      "body": "बिना दोहराव वाला विकल्प एक पासवर्ड के भीतर अक्षर नियंत्रित करता है; वही पासवर्ड कई खातों में दोहराना सुरक्षित नहीं बनाता। हर खाते के लिए अलग पासवर्ड बनाएँ। अक्षर प्रतिबंध खातों के बीच विशिष्टता का विकल्प नहीं है।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang unique character at password",
+      "body": "Ang no-repeat option ay para sa character sa loob ng isang password; hindi nito ginagawang ligtas ang paggamit nito sa maraming account. Gumawa ng hiwalay na password bawat account. Hindi kapalit ng magkakaibang password ang pagbabawal ng paulit-ulit na character."
+    }
+  },
+  "dice-roller": {
+    "en": {
+      "heading": "Fair dice produce unequal sum probabilities",
+      "body": "With two six-sided dice, seven has six ordered combinations while two has only one. A fair roller therefore produces seven more often over many rolls. Equal chances for individual faces do not make every total equally likely."
+    },
+    "es": {
+      "heading": "Dados justos dan sumas con distintas probabilidades",
+      "body": "Con dos dados de seis caras, siete tiene seis combinaciones ordenadas y dos solo una. Por eso un generador justo obtiene siete más a menudo a largo plazo. Caras equiprobables no implican totales equiprobables."
+    },
+    "fr": {
+      "heading": "Des dés équilibrés donnent des sommes inégales",
+      "body": "Avec deux dés à six faces, sept possède six combinaisons ordonnées et deux une seule. Un tirage équitable produit donc davantage de sept à long terme. Des faces équiprobables ne rendent pas toutes les sommes équiprobables."
+    },
+    "de": {
+      "heading": "Faire Würfel ergeben unterschiedlich wahrscheinliche Summen",
+      "body": "Bei zwei sechsseitigen Würfeln hat sieben sechs geordnete Kombinationen, zwei dagegen nur eine. Ein fairer Würfelgenerator erzeugt deshalb langfristig häufiger sieben. Gleiche Chancen einzelner Seiten bedeuten keine gleichen Chancen sämtlicher Summen."
+    },
+    "pt": {
+      "heading": "Dados justos produzem somas com chances diferentes",
+      "body": "Com dois dados de seis faces, sete tem seis combinações ordenadas e dois apenas uma. Um gerador justo, portanto, produz sete mais vezes em muitos lançamentos. Faces equiprováveis não tornam todos os totais igualmente prováveis."
+    },
+    "ar": {
+      "heading": "النرد العادل يعطي مجاميع باحتمالات مختلفة",
+      "body": "مع نردين من ستة أوجه، للمجموع سبعة ستة أزواج مرتبة، وللمجموع اثنين زوج واحد. لذلك يظهر السبعة أكثر عبر رميات كثيرة عادلة. تساوي احتمال الأوجه لا يعني تساوي احتمال كل مجموع."
+    },
+    "hi": {
+      "heading": "निष्पक्ष पासों के योग समान संभावित नहीं",
+      "body": "दो छह-मुखी पासों में सात के छह क्रमबद्ध संयोजन हैं, जबकि दो का केवल एक। इसलिए अनेक निष्पक्ष फेंकों में सात अधिक बार आएगा। प्रत्येक मुख की समान संभावना से हर कुल योग समान संभावित नहीं हो जाता।"
+    },
+    "tl": {
+      "heading": "Hindi pantay ang tsansa ng mga kabuuan",
+      "body": "Sa dalawang anim-na-panig na dice, anim na ordered combination ang nagbibigay ng pito, ngunit isa lang ng dalawa. Kaya mas madalas ang pito sa maraming patas na roll. Hindi nangangahulugang pantay ang lahat ng total ang pantay na mukha."
+    }
+  },
+  "roman-numeral-converter": {
+    "en": {
+      "heading": "Date order survives the numeral change",
+      "body": "Converting a date to Roman numerals changes its notation, not its day-month order. IV/V/MMXXVI can be ambiguous without an order label. Confirm the selected format before using the result on an invitation, engraving or permanent design."
+    },
+    "es": {
+      "heading": "El orden de fecha se conserva",
+      "body": "Pasar una fecha a números romanos cambia la escritura, no el orden día-mes. IV/V/MMXXVI puede ser ambiguo sin indicar el formato. Confirma el orden elegido antes de usarlo en una invitación, grabado o diseño permanente."
+    },
+    "fr": {
+      "heading": "L’ordre reste essentiel après la conversion",
+      "body": "Convertir une date en chiffres romains change son écriture, pas l’ordre jour-mois. IV/V/MMXXVI peut être ambigu sans indication de format. Vérifiez l’ordre choisi avant de l’utiliser sur une invitation, une gravure ou un motif permanent."
+    },
+    "de": {
+      "heading": "Die Datumsreihenfolge bleibt beim Umwandeln bestehen",
+      "body": "Römische Ziffern ändern die Schreibweise eines Datums, nicht die Reihenfolge von Tag und Monat. IV/V/MMXXVI bleibt ohne Formatangabe mehrdeutig. Prüfe die gewählte Reihenfolge vor der Verwendung auf Einladungen, Gravuren oder dauerhaften Gestaltungen."
+    },
+    "pt": {
+      "heading": "A ordem da data continua importante",
+      "body": "Converter uma data para algarismos romanos muda a escrita, não a ordem dia-mês. IV/V/MMXXVI pode ser ambíguo sem identificar o formato. Confirme a ordem selecionada antes de usar em convite, gravação ou desenho permanente."
+    },
+    "ar": {
+      "heading": "ترتيب التاريخ يبقى بعد التحويل",
+      "body": "تحويل التاريخ إلى أرقام رومانية يغير كتابته لا ترتيب اليوم والشهر. قد يكون IV/V/MMXXVI ملتبسًا دون بيان الترتيب. تحقق من الصيغة المختارة قبل استخدام الناتج في دعوة أو نقش أو تصميم دائم."
+    },
+    "hi": {
+      "heading": "अंक बदलने पर तारीख का क्रम रहता है",
+      "body": "तारीख को रोमन अंकों में बदलने से लिखावट बदलती है, दिन-महीने का क्रम नहीं। क्रम बताए बिना IV/V/MMXXVI अस्पष्ट हो सकता है। निमंत्रण, खुदाई या स्थायी डिज़ाइन में उपयोग से पहले चुना प्रारूप जाँचें।"
+    },
+    "tl": {
+      "heading": "Nananatili ang pagkakasunod ng petsa",
+      "body": "Binabago ng Roman numerals ang pagsulat, hindi ang ayos ng araw at buwan. Maaaring malabo ang IV/V/MMXXVI kung walang label ng format. Suriin ang napiling ayos bago gamitin sa imbitasyon, ukit o permanenteng disenyo."
+    }
+  },
+  "sleep-calculator": {
+    "en": {
+      "heading": "Time in bed exceeds planned sleep",
+      "body": "For a 07:00 wake time, eight hours asleep plus 30 minutes to fall asleep calls for getting into bed at 22:30 in this model. A 23:00 bedtime provides only 7.5 planned sleep hours before unmodeled nighttime awakenings."
+    },
+    "es": {
+      "heading": "El tiempo en cama supera el sueño",
+      "body": "Para despertar a las 07:00, ocho horas de sueño más 30 minutos para dormirse requieren acostarse a las 22:30 en este modelo. Acostarse a las 23:00 permite solo 7,5 horas, antes de despertares nocturnos no modelados."
+    },
+    "fr": {
+      "heading": "Le temps au lit dépasse le sommeil",
+      "body": "Pour se lever à 07:00, huit heures de sommeil et 30 minutes d’endormissement nécessitent un coucher à 22:30 dans ce modèle. Un coucher à 23:00 prévoit seulement 7,5 heures, avant les réveils nocturnes non modélisés."
+    },
+    "de": {
+      "heading": "Bettzeit ist länger als geplante Schlafzeit",
+      "body": "Für das Aufstehen um 07:00 erfordern acht Stunden Schlaf plus 30 Minuten Einschlafzeit in diesem Modell eine Bettzeit von 22:30. Um 23:00 bleiben nur 7,5 geplante Schlafstunden, noch ohne nicht modellierte nächtliche Wachphasen."
+    },
+    "pt": {
+      "heading": "Tempo na cama supera o sono planejado",
+      "body": "Para acordar às 07:00, oito horas de sono mais 30 minutos para adormecer exigem deitar às 22:30 neste modelo. Deitar às 23:00 permite apenas 7,5 horas planejadas, antes de despertares noturnos não modelados."
+    },
+    "ar": {
+      "heading": "وقت السرير أطول من النوم المخطط",
+      "body": "للاستيقاظ عند 07:00، تتطلب ثماني ساعات نوم مع 30 دقيقة للاستغراق فيه دخول السرير عند 22:30 وفق النموذج. أما 23:00 فتتيح 7.5 ساعات مخططة فقط، قبل أي استيقاظ ليلي غير ممثل بالحساب."
+    },
+    "hi": {
+      "heading": "बिस्तर का समय नींद से अधिक है",
+      "body": "07:00 बजे उठने के लिए आठ घंटे सोना और सोने में 30 मिनट लगना मानें तो इस मॉडल में 22:30 बजे बिस्तर पर जाना होगा। 23:00 बजे जाने पर रात में जागना गिने बिना केवल 7.5 घंटे नियोजित नींद मिलती है।"
+    },
+    "tl": {
+      "heading": "Mas mahaba ang oras sa kama",
+      "body": "Para gumising nang 07:00, walong oras na tulog at 30 minutong paghihintay makatulog ay nangangailangan ng 22:30 na paghiga. Ang 23:00 ay 7.5 oras lang na planong tulog, bago ibawas ang hindi namodelong paggising sa gabi."
+    }
+  },
+  "height-calculator": {
+    "en": {
+      "heading": "Decimal feet are not feet-and-inches",
+      "body": "A height written as 5.8 feet means 5 feet 9.6 inches, not 5 feet 8 inches. Enter whole feet and remaining inches separately; confusing the formats introduces a measurement error before any conversion or parental-height estimate begins."
+    },
+    "es": {
+      "heading": "Pies decimales no son pies y pulgadas",
+      "body": "Una altura de 5,8 pies significa 5 pies y 9,6 pulgadas, no 5 pies y 8 pulgadas. Introduce pies enteros y pulgadas restantes por separado; confundir formatos introduce un error antes de convertir o estimar la altura familiar."
+    },
+    "fr": {
+      "heading": "Pieds décimaux et pieds-pouces diffèrent",
+      "body": "Une taille de 5,8 pieds signifie 5 pieds et 9,6 pouces, pas 5 pieds et 8 pouces. Saisissez séparément les pieds entiers et les pouces restants ; confondre les formats fausse la mesure avant tout calcul."
+    },
+    "de": {
+      "heading": "Dezimalfuß sind keine Fuß-und-Zoll-Angabe",
+      "body": "5,8 Fuß bedeuten 5 Fuß und 9,6 Zoll, nicht 5 Fuß und 8 Zoll. Gib ganze Fuß und verbleibende Zoll getrennt ein; eine Formatverwechslung verursacht bereits vor der Umrechnung oder Elternhöhen-Schätzung einen Messfehler."
+    },
+    "pt": {
+      "heading": "Pés decimais não são pés e polegadas",
+      "body": "Uma altura de 5,8 pés significa 5 pés e 9,6 polegadas, não 5 pés e 8 polegadas. Informe pés inteiros e polegadas restantes separadamente; confundir os formatos gera erro antes da conversão ou estimativa familiar."
+    },
+    "ar": {
+      "heading": "الأقدام العشرية ليست أقدامًا وبوصات",
+      "body": "ارتفاع 5.8 قدم يعني 5 أقدام و9.6 بوصة، لا 5 أقدام و8 بوصات. أدخل الأقدام الكاملة والبوصات الباقية منفصلة؛ فالخلط بين الصيغتين يسبب خطأ قياس قبل التحويل أو تقدير الطول من الوالدين."
+    },
+    "hi": {
+      "heading": "दशमलव फुट, फुट-इंच नहीं है",
+      "body": "5.8 फुट की ऊँचाई का अर्थ 5 फुट 9.6 इंच है, 5 फुट 8 इंच नहीं। पूरे फुट और शेष इंच अलग भरें; दोनों प्रारूप मिलाने से रूपांतरण या माता-पिता आधारित अनुमान शुरू होने से पहले ही माप गलत होता है।"
+    },
+    "tl": {
+      "heading": "Hindi feet-and-inches ang desimal na feet",
+      "body": "Ang taas na 5.8 feet ay 5 feet 9.6 inches, hindi 5 feet 8 inches. Ilagay nang hiwalay ang buong feet at natitirang inches; ang pagkalito sa format ay nagdudulot ng maling sukat bago pa ang anumang pagtatantiya."
+    }
+  },
+  "bra-size-calculator": {
+    "en": {
+      "heading": "Compare methods with identical measurements",
+      "body": "Keep bust and underbust fixed when comparing direct-underbust and traditional +4/+5 methods. A changed band or cup then reflects the convention, not a body change. Record the method alongside the label when comparing recommendations from different shops."
+    },
+    "es": {
+      "heading": "Compara métodos con las mismas medidas",
+      "body": "Mantén busto y contorno bajo pecho iguales al comparar el método directo y el tradicional +4/+5. Si cambia banda o copa, cambia la convención, no el cuerpo. Anota el método al comparar recomendaciones de tiendas."
+    },
+    "fr": {
+      "heading": "Comparer les méthodes à mesures identiques",
+      "body": "Gardez les mêmes tours de poitrine et sous-poitrine pour comparer la méthode directe et la méthode traditionnelle +4/+5. Une autre bande ou bonnet reflète alors la convention, pas un changement corporel. Notez la méthode avec la taille."
+    },
+    "de": {
+      "heading": "Methoden mit identischen Maßen vergleichen",
+      "body": "Halte Brust- und Unterbrustumfang beim Vergleich der direkten und traditionellen +4/+5-Methode konstant. Geänderte Band- oder Cupgrößen spiegeln dann die Konvention wider, keine Körperänderung. Notiere die Methode neben der Größe beim Vergleich verschiedener Geschäftsempfehlungen."
+    },
+    "pt": {
+      "heading": "Compare métodos com medidas idênticas",
+      "body": "Mantenha busto e abaixo do busto iguais ao comparar o método direto e o tradicional +4/+5. Alterar faixa ou bojo reflete a convenção, não uma mudança corporal. Registre o método ao comparar recomendações de lojas."
+    },
+    "ar": {
+      "heading": "قارن الطرائق بقياسات متطابقة",
+      "body": "ثبّت محيط الصدر وتحته عند مقارنة الطريقة المباشرة والطريقة التقليدية +4/+5. عندها يعكس تغير الحزام أو الكوب اختلاف القاعدة لا تغير الجسم. سجّل الطريقة بجوار المقاس عند مقارنة توصيات المتاجر."
+    },
+    "hi": {
+      "heading": "समान माप पर तरीकों की तुलना करें",
+      "body": "सीधे अंडरबस्ट और पारंपरिक +4/+5 तरीके तुलना करते समय बस्ट और अंडरबस्ट माप समान रखें। तब बैंड या कप बदलना पद्धति का असर है, शरीर का बदलाव नहीं। दुकानों की सलाह तुलना करते समय तरीके का नाम भी लिखें।"
+    },
+    "tl": {
+      "heading": "Ihambing ang paraan gamit ang parehong sukat",
+      "body": "Panatilihing pareho ang bust at underbust sa direct at tradisyonal na +4/+5 na paraan. Ang nagbagong band o cup ay bunga ng tuntunin, hindi pagbabago ng katawan. Isulat ang paraan kasama ng size kapag naghahambing ng tindahan."
+    }
+  },
+  "shoe-size-conversion": {
+    "en": {
+      "heading": "A centimeter label is not foot length",
+      "body": "Nike’s CM/JP shoe label differs from its measured-foot-length column. Use the foot-length input for an actual measurement and the label input for a box size; treating the two as interchangeable can select a different chart row."
+    },
+    "es": {
+      "heading": "La etiqueta en centímetros no mide el pie",
+      "body": "La etiqueta CM/JP de Nike difiere de su columna de longitud medida del pie. Usa longitud para una medición real y etiqueta para la talla de la caja; intercambiarlas puede seleccionar otra fila de la tabla."
+    },
+    "fr": {
+      "heading": "L’étiquette en centimètres ne mesure pas le pied",
+      "body": "L’étiquette CM/JP de Nike diffère de sa colonne de longueur du pied. Utilisez l’entrée de mesure pour un pied mesuré et l’entrée d’étiquette pour une boîte ; les confondre peut sélectionner une autre ligne du tableau."
+    },
+    "de": {
+      "heading": "Ein Zentimeterlabel ist keine gemessene Fußlänge",
+      "body": "Nikes CM/JP-Schuhlabel unterscheidet sich von der Spalte für gemessene Fußlänge. Nutze für Messungen die Fußlängeneingabe und für Kartonangaben die Größeneingabe. Wer beide verwechselt, kann eine andere Tabellenzeile auswählen."
+    },
+    "pt": {
+      "heading": "A etiqueta em centímetros não mede o pé",
+      "body": "A etiqueta CM/JP da Nike difere da coluna de comprimento medido do pé. Use comprimento para uma medição real e etiqueta para o tamanho da caixa; trocar os dois pode selecionar outra linha da tabela."
+    },
+    "ar": {
+      "heading": "ملصق السنتيمترات ليس طول القدم",
+      "body": "يختلف مقاس CM/JP على حذاء Nike عن خانة طول القدم المقاس. استخدم مدخل طول القدم للقياس الفعلي ومدخل الملصق لمقاس العلبة؛ فالخلط بينهما قد يختار صفًا مختلفًا في الجدول."
+    },
+    "hi": {
+      "heading": "सेंटीमीटर वाला लेबल पैर की लंबाई नहीं",
+      "body": "Nike का CM/JP जूता लेबल उसके मापे पैर की लंबाई वाले कॉलम से अलग है। वास्तविक माप के लिए फुट-लेंथ इनपुट और बॉक्स के आकार के लिए लेबल इनपुट लें; इन्हें मिलाने से अलग तालिका-पंक्ति चुनी जा सकती है।"
+    },
+    "tl": {
+      "heading": "Hindi haba ng paa ang label na sentimetro",
+      "body": "Magkaiba ang CM/JP label ng Nike at measured-foot-length column nito. Gamitin ang foot-length input para sa totoong sukat at label input para sa nasa kahon; ang pagpalit sa dalawa ay maaaring pumili ng ibang row."
+    }
+  },
+  "golf-handicap-calculator": {
+    "en": {
+      "heading": "Slope alone does not set strokes",
+      "body": "Two tees with the same slope can produce different course handicaps when course rating minus par differs. Keep your index fixed and compare both tee records; using slope alone omits a separate term in this 18-hole calculation."
+    },
+    "es": {
+      "heading": "El slope no determina todos los golpes",
+      "body": "Dos salidas con el mismo slope pueden producir hándicaps de campo distintos si difiere la valoración menos el par. Mantén fijo tu índice y compara ambos registros; usar solo slope omite otro término del cálculo de 18 hoyos."
+    },
+    "fr": {
+      "heading": "Le slope ne détermine pas tout",
+      "body": "Deux départs au même slope peuvent donner des handicaps de parcours différents si la différence entre évaluation et par varie. Gardez l’index constant et comparez les deux fiches : le slope seul omet un terme du calcul sur 18 trous."
+    },
+    "de": {
+      "heading": "Slope allein bestimmt nicht die Schlagzahl",
+      "body": "Zwei Abschläge mit gleichem Slope können unterschiedliche Course Handicaps ergeben, wenn Course Rating minus Par abweicht. Halte deinen Index fest und vergleiche beide Datensätze: Nur Slope zu verwenden lässt einen Term der 18-Loch-Rechnung aus."
+    },
+    "pt": {
+      "heading": "O slope não determina todos os golpes",
+      "body": "Dois tees com o mesmo slope podem gerar handicaps de campo diferentes quando course rating menos par difere. Mantenha seu índice fixo e compare ambos; usar apenas slope omite outro termo deste cálculo de 18 buracos."
+    },
+    "ar": {
+      "heading": "الميل وحده لا يحدد الضربات",
+      "body": "قد يعطي موقعا انطلاق لهما تقييم ميل متساوٍ هانديكاب ملعب مختلفًا إذا اختلف تقييم الملعب ناقص البار. ثبّت مؤشرك وقارن بيانات الموقعين؛ فالاعتماد على الميل وحده يهمل حدًا مستقلًا في حساب 18 حفرة."
+    },
+    "hi": {
+      "heading": "केवल स्लोप से स्ट्रोक तय नहीं होते",
+      "body": "समान स्लोप वाले दो टी के कोर्स हैंडीकैप अलग हो सकते हैं, यदि कोर्स रेटिंग और पार का अंतर अलग हो। अपना इंडेक्स स्थिर रखकर दोनों रिकॉर्ड तुलना करें; केवल स्लोप लेना 18-होल गणना का एक अलग पद छोड़ता है।"
+    },
+    "tl": {
+      "heading": "Hindi slope lang ang batayan ng strokes",
+      "body": "Maaaring magkaiba ang course handicap ng dalawang tee na pareho ang slope kung magkaiba ang course rating minus par. Panatilihin ang index at ihambing ang buong record; kulang ang slope lang sa 18-hole na kalkulasyong ito."
+    }
+  },
+  "love-calculator": {
+    "en": {
+      "heading": "Matching scores do not connect couples",
+      "body": "Different name pairs can receive the same fictional score because many inputs map to a limited score range. That coincidence says nothing about shared compatibility. Compare spellings only as an experiment with the game, not as relationship evidence."
+    },
+    "es": {
+      "heading": "Coincidir en puntuación no conecta parejas",
+      "body": "Nombres diferentes pueden recibir la misma puntuación ficticia porque muchas entradas comparten un rango limitado. La coincidencia no indica compatibilidad común. Comparar escrituras sirve como experimento con el juego, no como prueba sobre una relación."
+    },
+    "fr": {
+      "heading": "Un même score ne relie pas les couples",
+      "body": "Des paires de noms différentes peuvent obtenir le même score fictif, car les résultats possibles sont limités. Cette coïncidence ne révèle aucune compatibilité commune. Comparez les orthographes comme expérience du jeu, sans en tirer de conclusion relationnelle."
+    },
+    "de": {
+      "heading": "Gleiche Ergebnisse verbinden keine Paare",
+      "body": "Verschiedene Namenspaare können denselben fiktiven Wert erhalten, weil viele Eingaben auf einen begrenzten Wertebereich abgebildet werden. Diese Übereinstimmung sagt nichts über gemeinsame Kompatibilität. Vergleiche Schreibweisen als Spielversuch, ohne daraus Beziehungsaussagen abzuleiten."
+    },
+    "pt": {
+      "heading": "Pontuações iguais não conectam casais",
+      "body": "Pares de nomes diferentes podem receber a mesma pontuação fictícia porque muitas entradas compartilham uma faixa limitada de resultados. A coincidência não indica compatibilidade semelhante. Compare grafias apenas como experiência com o jogo, sem tirar conclusões sobre relacionamentos."
+    },
+    "ar": {
+      "heading": "تطابق الدرجات لا يربط الأزواج",
+      "body": "قد تحصل أزواج أسماء مختلفة على الدرجة الخيالية نفسها لأن المدخلات الكثيرة تُحوّل إلى نطاق درجات محدود. لا تقول المصادفة شيئًا عن التوافق المشترك. قارن التهجئات كتجربة للعبة فقط، لا كدليل على علاقة."
+    },
+    "hi": {
+      "heading": "समान स्कोर जोड़ों को नहीं जोड़ता",
+      "body": "अलग नाम-जोड़े एक ही काल्पनिक स्कोर पा सकते हैं क्योंकि अनेक इनपुट सीमित स्कोर-सीमा में बदलते हैं। यह संयोग समान अनुकूलता नहीं बताता। वर्तनी की तुलना खेल के प्रयोग की तरह करें, रिश्ते के प्रमाण की तरह नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi nag-uugnay ng magkasintahan ang parehong score",
+      "body": "Maaaring pareho ang kathang score ng magkaibang pangalan dahil limitado ang saklaw ng resulta. Walang sinasabi ang pagkakataong iyon tungkol sa parehong compatibility. Ihambing ang spelling bilang eksperimento sa laro, hindi ebidensiya tungkol sa relasyon."
+    }
+  },
+  "mileage-calculator": {
+    "en": {
+      "heading": "Calculate the return route separately",
+      "body": "A return journey need not match the outward mileage because one-way streets and access restrictions can change the route. Reverse the origin and destination and calculate again before doubling a one-way figure for a travel or fuel estimate."
+    },
+    "es": {
+      "heading": "Calcula el regreso por separado",
+      "body": "El regreso puede tener otra distancia por calles de sentido único y restricciones de acceso. Invierte origen y destino y calcula otra vez antes de duplicar una cifra de ida para estimar viaje o combustible."
+    },
+    "fr": {
+      "heading": "Calculer le trajet retour séparément",
+      "body": "Le retour peut avoir une distance différente à cause des rues à sens unique et restrictions d’accès. Inversez départ et destination puis recalculez avant de doubler la distance aller pour estimer un trajet ou du carburant."
+    },
+    "de": {
+      "heading": "Die Rückfahrt getrennt berechnen",
+      "body": "Die Rückfahrt muss wegen Einbahnstraßen und Zufahrtsbeschränkungen nicht dieselbe Strecke haben wie die Hinfahrt. Vertausche Start und Ziel und rechne erneut, bevor du einen einfachen Streckenwert für Reise- oder Kraftstoffschätzungen verdoppelst."
+    },
+    "pt": {
+      "heading": "Calcule a volta separadamente",
+      "body": "A volta pode ter distância diferente por causa de ruas de mão única e restrições de acesso. Inverta origem e destino e calcule novamente antes de dobrar a distância de ida numa estimativa de viagem ou combustível."
+    },
+    "ar": {
+      "heading": "احسب طريق العودة بصورة مستقلة",
+      "body": "قد تختلف مسافة العودة عن الذهاب بسبب الشوارع أحادية الاتجاه وقيود الوصول. اعكس نقطة الانطلاق والوجهة واحسب مجددًا قبل مضاعفة مسافة اتجاه واحد لتقدير السفر أو استهلاك الوقود."
+    },
+    "hi": {
+      "heading": "वापसी का मार्ग अलग गणना करें",
+      "body": "एकतरफा सड़कों और प्रवेश प्रतिबंधों के कारण वापसी की दूरी जाने जितनी होना जरूरी नहीं। यात्रा या ईंधन अनुमान में एकतरफा दूरी दोगुनी करने से पहले आरंभ और गंतव्य बदलकर फिर गणना करें।"
+    },
+    "tl": {
+      "heading": "Kalkulahin nang hiwalay ang pabalik",
+      "body": "Maaaring magkaiba ang papunta at pabalik dahil sa one-way na kalye at limitadong daanan. Pagpalitin ang pinagmulan at destinasyon at kalkulahin muli bago doblehin ang one-way distance para sa tantiyang biyahe o gasolina."
+    }
+  },
+  "expense-splitter": {
+    "en": {
+      "heading": "Share weights express ratios, not amounts",
+      "body": "Weights of 1 and 2 allocate the same shares as 10 and 20. Multiplying every included person’s weight by the same positive number changes neither the proportions nor the rounded allocation; change relative weights to change responsibility."
+    },
+    "es": {
+      "heading": "Los pesos expresan proporciones, no importes",
+      "body": "Pesos de 1 y 2 reparten igual que 10 y 20. Multiplicar todos los pesos por el mismo número positivo no cambia proporciones ni reparto redondeado. Cambia los pesos relativos si quieres modificar la responsabilidad."
+    },
+    "fr": {
+      "heading": "Les coefficients expriment des proportions",
+      "body": "Des poids de 1 et 2 répartissent comme 10 et 20. Multiplier tous les poids inclus par le même nombre positif ne change ni proportions ni répartition arrondie. Modifiez les poids relatifs pour changer la contribution."
+    },
+    "de": {
+      "heading": "Gewichte beschreiben Verhältnisse und keine Beträge",
+      "body": "Gewichte von 1 und 2 verteilen genauso wie 10 und 20. Derselbe positive Faktor für alle beteiligten Gewichte ändert weder Anteile noch gerundete Zuteilung. Ändere relative Gewichte, wenn sich die Kostenverantwortung ändern soll."
+    },
+    "pt": {
+      "heading": "Pesos representam proporções, não valores",
+      "body": "Pesos de 1 e 2 dividem igual a 10 e 20. Multiplicar todos os pesos pelo mesmo número positivo não muda proporções nem distribuição arredondada. Altere os pesos relativos para mudar a responsabilidade de cada pessoa."
+    },
+    "ar": {
+      "heading": "الأوزان تعبر عن نسب لا مبالغ",
+      "body": "الأوزان 1 و2 توزع الحصص مثل 10 و20. ضرب أوزان جميع المشمولين في العدد الموجب نفسه لا يغير النسب ولا التوزيع المقرب؛ غيّر الأوزان النسبية إذا أردت تغيير مسؤولية كل شخص."
+    },
+    "hi": {
+      "heading": "शेयर के भार अनुपात हैं, रकम नहीं",
+      "body": "1 और 2 के भार वही हिस्से देते हैं जो 10 और 20 देते हैं। सभी शामिल लोगों के भार एक ही धनात्मक संख्या से गुणा करने पर अनुपात या गोल किया आवंटन नहीं बदलता। जिम्मेदारी बदलने के लिए सापेक्ष भार बदलें।"
+    },
+    "tl": {
+      "heading": "Proporsiyon ang timbang, hindi halaga",
+      "body": "Pareho ang hatian sa bigat na 1 at 2 at sa 10 at 20. Ang pagmultiplika sa lahat ng kasamang bigat gamit ang parehong positibong numero ay hindi nagpapalit ng proporsiyon o rounded allocation. Baguhin ang relatibong bigat."
+    }
+  },
+  "solar-savings-calculator": {
+    "en": {
+      "heading": "Value the next self-used kilowatt-hour",
+      "body": "Moving 1,000 kWh from export to self-use adds 150 in annual benefit when import and export prices are 0.20 and 0.05. That gain uses their difference, with generation unchanged and enough household demand to absorb the shift."
+    },
+    "es": {
+      "heading": "Valora cada kilovatio-hora adicional de autoconsumo",
+      "body": "Pasar 1.000 kWh de exportación a autoconsumo añade 150 de beneficio anual si compra y exportación valen 0,20 y 0,05. Se usa la diferencia de precios, manteniendo generación y demanda doméstica suficiente para absorber el cambio."
+    },
+    "fr": {
+      "heading": "Valoriser le prochain kilowattheure autoconsommé",
+      "body": "Passer 1 000 kWh d’exportation à autoconsommation ajoute 150 de bénéfice annuel avec des tarifs d’achat de 0,20 et d’exportation de 0,05. Le gain repose sur leur différence, à production constante et demande domestique suffisante."
+    },
+    "de": {
+      "heading": "Den nächsten selbst genutzten Kilowattstundenwert bestimmen",
+      "body": "1.000 kWh vom Export zur Eigennutzung umzuschichten erhöht den jährlichen Nutzen um 150, wenn Bezugs- und Exportpreis 0,20 und 0,05 betragen. Entscheidend ist die Preisdifferenz bei unveränderter Erzeugung und ausreichend Haushaltsbedarf."
+    },
+    "pt": {
+      "heading": "Valorize cada quilowatt-hora adicional de autoconsumo",
+      "body": "Transferir 1.000 kWh da exportação para autoconsumo acrescenta 150 de benefício anual com tarifas de compra de 0,20 e exportação de 0,05. O ganho usa a diferença, mantendo geração e demanda doméstica suficiente para absorver a mudança."
+    },
+    "ar": {
+      "heading": "قيّم الكيلوواط ساعة الإضافي للاستهلاك الذاتي",
+      "body": "تحويل 1,000 ك.و.س من التصدير للاستهلاك الذاتي يضيف 150 منفعة سنوية إذا كان سعرا الشراء والتصدير 0.20 و0.05. يعتمد المكسب على فرق السعرين، مع ثبات التوليد وتوافر طلب منزلي كافٍ لاستيعاب التحويل."
+    },
+    "hi": {
+      "heading": "अगले स्व-उपयोग वाले किलोवाट-घंटे का मूल्य",
+      "body": "खरीद और निर्यात दरें 0.20 और 0.05 हों तो 1,000 kWh निर्यात से स्व-उपयोग में बदलने पर सालाना लाभ 150 बढ़ता है। लाभ दरों के अंतर से है; उत्पादन समान और घरेलू मांग बदलाव खपाने जितनी होनी चाहिए।"
+    },
+    "tl": {
+      "heading": "Halaga ng dagdag na sariling paggamit",
+      "body": "Ang paglilipat ng 1,000 kWh mula export sa sariling gamit ay dagdag na 150 taunang benepisyo kung 0.20 ang import at 0.05 ang export price. Pagkakaiba ng presyo ang gamit, sa parehong generation at sapat na demand."
+    }
+  },
+  "ev-vs-petrol-calculator": {
+    "en": {
+      "heading": "Charging location changes the cost advantage",
+      "body": "With 3,000 kWh purchased yearly, shifting ten percentage points of charging from a 0.40 public rate to a 0.15 home rate saves 75 annually. Test your realistic charging mix before attributing savings solely to vehicle efficiency."
+    },
+    "es": {
+      "heading": "Dónde cargas cambia la ventaja económica",
+      "body": "Con 3.000 kWh comprados al año, trasladar diez puntos porcentuales de carga pública a 0,40 hacia doméstica a 0,15 ahorra 75 anuales. Prueba una mezcla realista antes de atribuir el ahorro solo a la eficiencia del vehículo."
+    },
+    "fr": {
+      "heading": "Le lieu de recharge change l’avantage",
+      "body": "Pour 3 000 kWh achetés par an, déplacer dix points de pourcentage de recharge publique à 0,40 vers le domicile à 0,15 économise 75 annuels. Testez votre répartition réelle avant d’attribuer les économies uniquement à l’efficacité du véhicule."
+    },
+    "de": {
+      "heading": "Der Ladeort verändert den Kostenvorteil",
+      "body": "Bei jährlich 3.000 gekauften kWh spart eine Verschiebung von zehn Prozentpunkten vom öffentlichen Tarif 0,40 zum Heimtarif 0,15 jährlich 75. Prüfe deinen realistischen Lademix, bevor du Einsparungen ausschließlich der Fahrzeugeffizienz zuschreibst."
+    },
+    "pt": {
+      "heading": "O local de recarga muda a vantagem",
+      "body": "Com 3.000 kWh comprados por ano, transferir dez pontos percentuais da recarga pública a 0,40 para doméstica a 0,15 economiza 75 anuais. Teste uma combinação realista antes de atribuir a economia apenas à eficiência do veículo."
+    },
+    "ar": {
+      "heading": "مكان الشحن يغير ميزة التكلفة",
+      "body": "عند شراء 3,000 ك.و.س سنويًا، يوفر تحويل عشر نقاط مئوية من الشحن العام بسعر 0.40 إلى المنزلي بسعر 0.15 مبلغ 75 سنويًا. اختبر مزيج شحن واقعيًا قبل نسبة التوفير إلى كفاءة السيارة وحدها."
+    },
+    "hi": {
+      "heading": "चार्जिंग की जगह लागत का लाभ बदलती है",
+      "body": "सालाना 3,000 kWh खरीदने पर 0.40 दर वाली सार्वजनिक चार्जिंग के दस प्रतिशत अंक, 0.15 दर वाली घरेलू चार्जिंग में बदलने से सालाना 75 बचते हैं। बचत केवल वाहन-दक्षता से जोड़ने से पहले वास्तविक चार्जिंग मिश्रण जाँचें।"
+    },
+    "tl": {
+      "heading": "Binabago ng lugar ng charging ang tipid",
+      "body": "Sa 3,000 kWh na binibili taun-taon, ang paglilipat ng sampung percentage points mula pampublikong singil na 0.40 tungong pambahay na 0.15 ay tipid na 75 bawat taon. Subukan ang makatotohanang halo bago iugnay lahat sa efficiency."
+    }
+  },
+  "final-exam-grade-calculator": {
+    "en": {
+      "heading": "A small target change can matter",
+      "body": "When the final is worth 20% of the course, raising your overall target by one percentage point raises the required exam score by five points. Compare nearby targets to see how exam weight amplifies the remaining task."
+    },
+    "es": {
+      "heading": "Un pequeño cambio de objetivo importa",
+      "body": "Si el examen final vale el 20% del curso, aumentar la meta global un punto porcentual exige cinco puntos más en el examen. Compara objetivos cercanos para ver cómo el peso amplifica el esfuerzo pendiente."
+    },
+    "fr": {
+      "heading": "Un petit objectif supplémentaire peut compter",
+      "body": "Lorsque l’examen final pèse 20% du cours, relever l’objectif global d’un point de pourcentage augmente de cinq points la note nécessaire à l’examen. Comparez des objectifs proches pour voir l’effet amplificateur de cette pondération."
+    },
+    "de": {
+      "heading": "Kleine Zieländerungen können viel ausmachen",
+      "body": "Zählt die Abschlussprüfung 20% der Gesamtnote, erhöht ein zusätzlicher Prozentpunkt im Gesamtziel die benötigte Prüfungsnote um fünf Punkte. Vergleiche benachbarte Ziele, um zu sehen, wie das Prüfungsgewicht die verbleibende Aufgabe verstärkt."
+    },
+    "pt": {
+      "heading": "Uma pequena mudança de meta importa",
+      "body": "Quando a prova final vale 20% da disciplina, aumentar a meta geral em um ponto percentual exige cinco pontos a mais na prova. Compare metas próximas para ver como o peso amplia a tarefa restante."
+    },
+    "ar": {
+      "heading": "قد يؤثر تغير صغير في الهدف",
+      "body": "عندما يمثل النهائي 20% من المقرر، فإن رفع هدفك الإجمالي نقطة مئوية واحدة يرفع درجة الامتحان المطلوبة خمس نقاط. قارن أهدافًا متقاربة لتعرف كيف يضخم وزن الامتحان المطلوب في الجزء المتبقي."
+    },
+    "hi": {
+      "heading": "छोटा लक्ष्य बदलाव बड़ा असर डाल सकता है",
+      "body": "अंतिम परीक्षा का भार 20% हो तो कुल लक्ष्य एक प्रतिशत अंक बढ़ाने पर जरूरी परीक्षा स्कोर पाँच अंक बढ़ता है। पास-पास के लक्ष्य तुलना करें ताकि दिखे कि परीक्षा का भार बाकी काम को कितना बढ़ाता है।"
+    },
+    "tl": {
+      "heading": "Maliit na target, maaaring malaking dagdag",
+      "body": "Kung 20% ng kurso ang final exam, ang dagdag na isang percentage point sa pangkalahatang target ay limang puntos na dagdag sa kailangang exam score. Ihambing ang magkakalapit na target upang makita ang epekto ng bigat ng exam."
+    }
+  },
+  "gpa-goal-calculator": {
+    "en": {
+      "heading": "Perfect future grades approach the ceiling",
+      "body": "If your existing GPA is below the scale maximum, adding perfect grades can approach that maximum but cannot reach it exactly with finite additional credits in this model. A rounded display at the ceiling can conceal a lower unrounded result."
+    },
+    "es": {
+      "heading": "Notas futuras perfectas se acercan al máximo",
+      "body": "Si tu GPA actual está por debajo del máximo, añadir notas perfectas permite acercarse, pero no alcanzarlo exactamente con créditos adicionales finitos en este modelo. Una cifra redondeada al máximo puede ocultar un resultado real inferior."
+    },
+    "fr": {
+      "heading": "Des notes parfaites approchent le plafond",
+      "body": "Si votre GPA actuel est inférieur au maximum, ajouter des notes parfaites permet de s’en approcher sans l’atteindre exactement avec un nombre fini de crédits supplémentaires. Un affichage arrondi au maximum peut masquer une valeur exacte inférieure."
+    },
+    "de": {
+      "heading": "Perfekte künftige Noten nähern sich der Obergrenze",
+      "body": "Liegt dein bisheriger GPA unter dem Skalenmaximum, nähern ihn perfekte weitere Noten diesem an, erreichen es bei endlich vielen zusätzlichen Credits aber nicht exakt. Eine auf das Maximum gerundete Anzeige kann einen niedrigeren ungerundeten Wert verdecken."
+    },
+    "pt": {
+      "heading": "Notas futuras perfeitas se aproximam do limite",
+      "body": "Se o GPA atual estiver abaixo do máximo, acrescentar notas perfeitas permite se aproximar, mas não chegar exatamente a ele com créditos adicionais finitos neste modelo. Um resultado arredondado ao teto pode esconder um valor exato menor."
+    },
+    "ar": {
+      "heading": "الدرجات الكاملة تقترب من السقف",
+      "body": "إذا كان معدلك الحالي دون الحد الأعلى، تقرّبه الدرجات الكاملة اللاحقة منه لكنها لا تبلغه تمامًا بعدد محدود من الساعات الإضافية في هذا النموذج. قد يخفي العرض المقرب إلى السقف نتيجة فعلية أقل."
+    },
+    "hi": {
+      "heading": "आगे के पूर्ण अंक सीमा के करीब पहुँचाते हैं",
+      "body": "मौजूदा GPA अधिकतम से कम हो तो आगे पूर्ण अंक जोड़ने से वह अधिकतम के पास पहुँच सकता है, लेकिन सीमित अतिरिक्त क्रेडिट में बिल्कुल बराबर नहीं होगा। अधिकतम तक गोल किया परिणाम वास्तविक कम मान छिपा सकता है।"
+    },
+    "tl": {
+      "heading": "Lumalapit lang sa pinakamataas ang perpektong grado",
+      "body": "Kung mas mababa sa maximum ang kasalukuyang GPA, mapapalapit ito ng perpektong grado ngunit hindi eksaktong maaabot sa limitadong dagdag na credit. Maaaring magmukhang maximum ang rounded display kahit mas mababa ang hindi ni-round na resulta."
+    }
+  }
+}

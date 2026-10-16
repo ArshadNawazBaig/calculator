@@ -1,0 +1,223 @@
+{
+  "title": "Frequently asked questions",
+  "seoTitle": "Calculator FAQs: Results, Saving & Privacy | Finflo",
+  "description": "Practical answers about choosing a calculator, checking results, comparing scenarios, changing units, saving your work, and using Finflo privately.",
+  "eyebrow": "HELP WITH FINFLO",
+  "topicsLabel": "Browse by topic",
+  "homeLinkLabel": "Browse all FAQs",
+  "navLabel": "FAQs",
+  "contactTitle": "Need help with a specific calculation?",
+  "contactText": "Send the page address, selected method, and a small example that shows the issue. Include the result you expected and use fictional values instead of personal information.",
+  "contactLinkLabel": "Contact Finflo",
+  "groups": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "description": "Choose the right tool and set up a calculation that answers your question.",
+      "questions": [
+        {
+          "id": "free-without-account",
+          "question": "Is Finflo free, and do I need an account?",
+          "answer": "Finflo's calculators are free to use without creating an account. Open a tool, enter your values, and select Calculate; favorites and saved calculations use your browser's storage instead of an account.",
+          "link": {"href": "/calculators", "label": "Explore the calculators"}
+        },
+        {
+          "id": "choose-calculator",
+          "question": "How do I choose between calculators with similar names?",
+          "answer": "Start with the quantity you want to find, then compare the inputs and methods each tool supports. For example, a mortgage calculator estimates payments from a balance, rate, and term, while a mortgage payoff calculator explores how repayments change the remaining schedule.",
+          "link": {"href": "/calculators", "label": "Browse calculators by topic"}
+        },
+        {
+          "id": "choose-method",
+          "question": "What does the calculation method selector change?",
+          "answer": "A method selects a particular model or question within the same tool, so its fields, formula, and assumptions can differ. Read that method's explanation before entering values; switching methods resets the form to the new method's example inputs."
+        },
+        {
+          "id": "prepare-inputs",
+          "question": "What should I check before selecting Calculate?",
+          "answer": "Replace the example values with your own and check each field's unit, time period, and required format. Keep related inputs consistent: a monthly budget needs monthly amounts, and an annual rate field needs an annual rate."
+        },
+        {
+          "id": "input-error",
+          "question": "What should I do when a calculator rejects my input?",
+          "answer": "Use the message beside the form to identify the field or condition that needs attention, such as a missing number, an unsupported range, or an impossible date. Check the selected method and its input instructions, then calculate again; if a valid example still fails, send it to Finflo with the page address.",
+          "link": {"href": "/contact", "label": "Report a calculation issue"}
+        }
+      ]
+    },
+    {
+      "id": "understanding-results",
+      "title": "Understanding results",
+      "description": "Read examples, rounding, percentage changes, and scenario differences correctly.",
+      "questions": [
+        {
+          "id": "example-result",
+          "question": "Why does a calculator show a result before I enter anything?",
+          "answer": "Some tools show an example result to demonstrate the output using their supplied values. It becomes your result after you enter or confirm your inputs and select Calculate; the example is not an assessment of your circumstances."
+        },
+        {
+          "id": "recalculate-results",
+          "question": "Why did the result stay the same after I edited a value?",
+          "answer": "Editing a field marks the existing result as needing an update. Select Calculate to run the new inputs, and do this before saving, exporting, or interpreting the result so you are using the current scenario."
+        },
+        {
+          "id": "rounding-differences",
+          "question": "Why can displayed numbers differ slightly from my manual calculation?",
+          "answer": "Displayed results may be rounded while calculations use more precision internally, so adding visible rounded rows can differ from the displayed total. Compare the formula, intermediate rounding, units, and timing assumptions before treating a small difference as an error."
+        },
+        {
+          "id": "percentage-points",
+          "question": "What is the difference between a percentage change and percentage points?",
+          "answer": "A change from 20% to 25% is an increase of 5 percentage points. Relative to the original 20%, it is a 25% increase because 5 divided by 20 equals 0.25; Finflo's scenario comparison uses percentage points when subtracting percentage results.",
+          "link": {"href": "/percent-calculator", "label": "Explore percentage calculations"}
+        },
+        {
+          "id": "compare-scenarios",
+          "question": "How can I see what changes when I adjust one assumption?",
+          "answer": "On supported calculators, calculate a result and pin it as the baseline, then change one input and calculate again. The comparison shows compatible numeric results and changed inputs, with differences measured against that baseline; changing the method or currency clears the pinned comparison."
+        }
+      ]
+    },
+    {
+      "id": "units-and-regions",
+      "title": "Units, currencies, and regions",
+      "description": "Keep language preferences separate from measurement units and regional rules.",
+      "questions": [
+        {
+          "id": "language-and-rules",
+          "question": "Does changing the website language change the calculation?",
+          "answer": "Language changes the presentation and may supply regional display defaults, but it does not replace a calculator's formula or jurisdiction. A translated US tax model still uses the US rules stated on that page, so check the tool's region and year separately."
+        },
+        {
+          "id": "currency-conversion",
+          "question": "Does the currency selector convert the amounts I entered?",
+          "answer": "On calculators with a currency preference, changing currency keeps the numbers unchanged and changes their currency labels; no exchange rate is applied. Enter every monetary amount in the selected currency, or use the currency calculator when you actually need to convert between currencies.",
+          "link": {"href": "/currency-calculator", "label": "Convert between currencies"}
+        },
+        {
+          "id": "fixed-currency",
+          "question": "Why is the currency fixed on some financial calculators?",
+          "answer": "Some models depend on a country's tax bands, account limits, or lending conventions and therefore keep their specified currency. A language, country, or currency preference does not change those rules; use a model that matches the region and period you need."
+        },
+        {
+          "id": "measurement-units",
+          "question": "How do I avoid mixing metric and imperial measurements?",
+          "answer": "Check the unit shown beside every field, including any unit selector, before entering a measurement. After changing units, verify the displayed values instead of assuming they were converted, and convert separate measurements first if the tool requires one common unit."
+        },
+        {
+          "id": "rate-periods",
+          "question": "Should I enter an annual rate or a monthly rate?",
+          "answer": "Use the period named by the field and check whether the method expects a nominal or effective rate. An annual rate of 12% is not interchangeable with a monthly rate of 12%, and compounding and payment frequency can affect the result even when the headline annual rate matches.",
+          "link": {"href": "/compound-interest-calculator", "label": "Compare compounding methods"}
+        }
+      ]
+    },
+    {
+      "id": "saving-and-sharing",
+      "title": "Saving and sharing",
+      "description": "Keep useful scenarios, move a workspace, and share the output you intend.",
+      "questions": [
+        {
+          "id": "save-calculation",
+          "question": "How do I save a calculation and reopen it later?",
+          "answer": "Calculate with your inputs, enter a name, and select Save calculation where that option is available. Open it from My workspace to restore the inputs, then select Calculate for an updated result; saved items remain in that browser and are removed if its site data is cleared.",
+          "link": {"href": "/workspace", "label": "Open My workspace"}
+        },
+        {
+          "id": "move-workspace",
+          "question": "Can I use my saved calculations on another device?",
+          "answer": "Export a backup from My workspace, move the JSON file to the other device, and choose Import backup there. Workspaces do not sync automatically, and importing keeps existing saved items; the backup contains saved inputs and results, so store it somewhere you trust.",
+          "link": {"href": "/workspace", "label": "Export or import a workspace"}
+        },
+        {
+          "id": "export-result",
+          "question": "How can I download or print a result?",
+          "answer": "Use CSV for result data, PDF for a formatted document, or Print where these controls appear. Recalculate any edited inputs first; if an automatic download does not start, use the Download file link, and use PDF if your browser's print dialog is unavailable."
+        },
+        {
+          "id": "share-tool-link",
+          "question": "Does Copy tool link share my numbers and result?",
+          "answer": "Copy tool link includes the calculator's address and selected method, without your entered values or result. Share an exported result if you want someone to see the output, and include the relevant assumptions separately when they need to reproduce it."
+        },
+        {
+          "id": "save-unavailable",
+          "question": "Why is Save calculation unavailable on a tool?",
+          "answer": "Saving needs a completed calculation with unchanged inputs, so example results and edited forms must be calculated first. Password and encoding tools intentionally do not save their contents to My workspace, and browser storage must be available for supported tools to save successfully."
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-access",
+      "title": "Privacy and access",
+      "description": "Understand browser processing, network requests, offline limits, and accessibility.",
+      "questions": [
+        {
+          "id": "inputs-and-network",
+          "question": "Do my calculator inputs leave my browser?",
+          "answer": "Most calculations run locally, but road mileage sends selected searches or route coordinates to map services through Finflo. Reference-data modes request public snapshots without sending your entered amount or selected currency pair; ordinary page requests and any results you choose to share involve their respective services.",
+          "link": {"href": "/privacy", "label": "Read the privacy details"}
+        },
+        {
+          "id": "local-files",
+          "question": "Does the Base64 file tool upload my file?",
+          "answer": "The Base64 tool reads the file you select and converts it inside your browser, without uploading the file or its filename to Finflo. Downloads remain wherever you save them, and any application or service you later use to open or share them handles that copy under its own settings.",
+          "link": {"href": "/base64-encode-decode", "label": "Open the Base64 tool"}
+        },
+        {
+          "id": "offline-use",
+          "question": "Can I use Finflo without an internet connection?",
+          "answer": "A calculator whose required code is already loaded may keep working offline, but new pages, unloaded calculation methods, and network data can require a connection. If the calculation engine cannot load, reconnect and select Calculate again; Finflo does not promise that every tool works offline."
+        },
+        {
+          "id": "keyboard-access",
+          "question": "Can I use calculators with a keyboard or assistive technology?",
+          "answer": "Finflo uses labelled inputs, keyboard controls, and result announcements, with accessibility details on a dedicated page. If a control is difficult to use, report the page, your browser or assistive technology, and the action you were trying to complete so the issue can be reproduced.",
+          "link": {"href": "/accessibility", "label": "Read accessibility information"}
+        },
+        {
+          "id": "browser-assistants",
+          "question": "What happens if I use a browser assistant with a calculator?",
+          "answer": "A compatible assistant may supply inputs to supported tools and receive their results and notes when you invoke that integration. Its own privacy practices apply to what it handles; the ordinary calculator controls work without an assistant, and password and encoding tools are not registered for this integration.",
+          "link": {"href": "/privacy", "label": "Review assistant and browser privacy"}
+        }
+      ]
+    },
+    {
+      "id": "specialist-tools",
+      "title": "Finance, health, clocks, and wheels",
+      "description": "Check the assumptions behind estimates, time-zone differences, and random choices.",
+      "questions": [
+        {
+          "id": "financial-estimates",
+          "question": "Why can a financial estimate differ from a lender's statement or quote?",
+          "answer": "A calculator uses the rates, dates, fees, and payment rules represented by its selected model. A provider may use different daily-interest rules, posting dates, charges, or rounding, so compare those assumptions and included costs before expecting the figures to match.",
+          "link": {"href": "/calculators/finance", "label": "Explore financial models"}
+        },
+        {
+          "id": "health-estimates",
+          "question": "What can a health calculator tell me about an individual person?",
+          "answer": "A health calculator applies a stated equation to the measurements you enter; many such equations estimate population patterns and have limits for age, pregnancy, or other circumstances. Read the specific tool's intended use and limitations: a calculated value alone cannot establish a diagnosis or determine an individual treatment.",
+          "link": {"href": "/calculators/health", "label": "Read health calculator methods"}
+        },
+        {
+          "id": "future-time-zones",
+          "question": "Can I use today's time difference to plan a future meeting?",
+          "answer": "The difference between two regional time zones can change when either place changes its clocks. Use the Time Zone Calculator with the meeting's actual date and named zones, and check the resulting local dates as well as the hours.",
+          "link": {"href": "/time-zone-calculator", "label": "Compare zones for a specific date"}
+        },
+        {
+          "id": "clock-source",
+          "question": "How does Finflo set the World Clock, and how accurate is it?",
+          "answer": "The clock checks Finflo's server time and estimates network delay; when that connection fails, it labels the fallback to your device clock. The displayed network uncertainty does not measure the server's own clock error or guarantee atomic-clock accuracy, and regional offsets follow the time-zone rules available in your browser.",
+          "link": {"href": "/time", "label": "Open the time tools"}
+        },
+        {
+          "id": "wheel-probabilities",
+          "question": "Are spin-wheel choices equally likely if a label appears more than once?",
+          "answer": "Each entry has an equal chance, so repeating a label gives that label more chances: two matching entries in a five-entry list have a combined probability of 40%. Removing a winning entry changes the next spin's probabilities, and the starting-odds explanation describes the published example rather than your edited list.",
+          "link": {"href": "/spin-wheels", "label": "Explore spin wheels"}
+        }
+      ]
+    }
+  ]
+}

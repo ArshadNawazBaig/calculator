@@ -1,0 +1,12 @@
+.demo { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); align-items: center; gap: 40px; padding: 28px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-card); min-width: 0; }
+.controls { min-width: 0; }
+.controls label { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; color: var(--color-text-secondary); font-size: 14px; line-height: 1.7; font-weight: 550; }
+.controls label span { min-width: 0; }
+.controls label strong { flex-shrink: 0; color: var(--color-ink); font-size: 22px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.controls input { display: block; width: 100%; min-width: 0; min-height: 28px; margin-block: 16px 24px; accent-color: var(--color-brand); cursor: pointer; }
+.controls .formula { margin: 0; font-size: 14px; line-height: 1.8; }
+.demo .results { margin: 0; min-width: 0; }
+.results output { font-weight: 650; color: var(--color-ink); }
+@media(max-width:800px) { .demo { grid-template-columns: minmax(0,1fr); gap: 24px; } }
+@media(max-width:600px) { .demo { padding: 20px 18px; } .controls label { font-size: 13px; } }
+@media print { .demo { display: block; padding: 0; border: 0; } .controls { margin-bottom: 20px; } .controls input { display: none; } }

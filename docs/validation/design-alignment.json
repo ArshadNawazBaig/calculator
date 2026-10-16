@@ -1,0 +1,199 @@
+{
+  "checkedAt": "2026-10-16T22:21:42.418Z",
+  "scope": "Shared new explanatory components aligned with existing site design; production-browser checks sample every affected page family, light/dark themes and RTL.",
+  "reused": [
+    "ResultSection",
+    "Button",
+    "SectionHeading",
+    "Accordion/AccordionItem",
+    "result-table.module.css",
+    "Existing theme tokens and article typography"
+  ],
+  "verification": {
+    "productionBuild": true,
+    "typecheck": true,
+    "lint": true,
+    "componentTests": 15,
+    "featureBrowserTests": 6,
+    "visualAndAccessibilityCases": 12,
+    "failures": 0
+  },
+  "results": [
+    {
+      "path": "/",
+      "target": "[aria-labelledby=\"percentage-demo-title\"]",
+      "theme": "light",
+      "width": 1440,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "34px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/ar",
+      "target": "[aria-labelledby=\"percentage-demo-title\"]",
+      "theme": "dark",
+      "width": 390,
+      "actualTheme": "dark",
+      "overflow": false,
+      "headingSize": "28px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/percent-calculator",
+      "target": "[data-calculator-insight]",
+      "theme": "light",
+      "width": 1440,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "23px",
+      "tables": [],
+      "violations": []
+    },
+    {
+      "path": "/ar/percent-calculator",
+      "target": "[data-calculator-insight]",
+      "theme": "dark",
+      "width": 390,
+      "actualTheme": "dark",
+      "overflow": false,
+      "headingSize": "21px",
+      "tables": [],
+      "violations": []
+    },
+    {
+      "path": "/guides/understanding-mortgage-payments",
+      "target": "[data-guide-illustration]",
+      "theme": "light",
+      "width": 1440,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "23px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/es/calculators/math/statistics",
+      "target": "[data-tool-chooser]",
+      "theme": "light",
+      "width": 390,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "21px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/ar/time/asia-karachi",
+      "target": "[data-clock-comparison]",
+      "theme": "dark",
+      "width": 390,
+      "actualTheme": "dark",
+      "overflow": false,
+      "headingSize": "23px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/spin-wheels/yes-or-no-wheel",
+      "target": "#starting-odds",
+      "theme": "dark",
+      "width": 1440,
+      "actualTheme": "dark",
+      "overflow": false,
+      "headingSize": "25px",
+      "tables": [
+        {
+          "font": "13px",
+          "firstHeader": "start",
+          "wrap": "normal",
+          "headerPosition": "static"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "path": "/fr/sitemap",
+      "target": "[data-sitemap-index]",
+      "theme": "light",
+      "width": 390,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "23px",
+      "tables": [],
+      "violations": []
+    },
+    {
+      "path": "/privacy",
+      "target": "[data-information-insight]",
+      "theme": "light",
+      "width": 390,
+      "actualTheme": "light",
+      "overflow": false,
+      "headingSize": "21px",
+      "tables": [],
+      "violations": []
+    },
+    {
+      "path": "/percent-calculator",
+      "target": "[data-scenario-comparison]",
+      "theme": "light",
+      "width": 1440,
+      "actualTheme": "light",
+      "overflow": false,
+      "sectionRadius": "12px",
+      "headingSize": "19px",
+      "tables": 2,
+      "violations": []
+    },
+    {
+      "path": "/ar/percent-calculator",
+      "target": "[data-scenario-comparison]",
+      "theme": "dark",
+      "width": 390,
+      "actualTheme": "dark",
+      "overflow": false,
+      "sectionRadius": "12px",
+      "headingSize": "17px",
+      "tables": 2,
+      "violations": []
+    }
+  ]
+}

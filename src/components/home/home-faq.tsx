@@ -11,7 +11,7 @@ const questions=[
 
 export function HomeFaq() {
   return <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title">
-    <div className={styles.faqIntro}><span className={styles.eyebrow}>A few helpful answers</span><h2 id="faq-title">Good to know.</h2><p>Have something else in mind?<br/><Link href="/contact">Get in touch with Finflo.</Link></p></div>
+    <div className={styles.faqIntro}><span className={styles.eyebrow}>A few helpful answers</span><h2 id="faq-title">Good to know.</h2><p><Link href="/faq">Browse all FAQs</Link></p><p>Have something else in mind?<br/><Link href="/contact">Get in touch with Finflo.</Link></p></div>
     <Accordion>{questions.map(({question,answer})=><AccordionItem key={question} title={question}><p>{answer}</p></AccordionItem>)}</Accordion>
   </section>;
 }

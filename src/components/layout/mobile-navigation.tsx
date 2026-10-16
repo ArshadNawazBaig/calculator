@@ -13,9 +13,11 @@ export function MobileNavigation({links,secondaryLinks,pathname}:{links:Navigati
   const root=useRef<HTMLDivElement>(null),trigger=useRef<HTMLButtonElement>(null);
   useEffect(()=>{
     if(!open)return;
+    const openedAt={x:window.scrollX,y:window.scrollY};
     function dismiss(event:PointerEvent){if(event.target instanceof Node&&!root.current?.contains(event.target))setOpen(false);}
     function escape(event:KeyboardEvent){if(event.key==="Escape"){setOpen(false);trigger.current?.focus();}}
-    function scroll(){setOpen(false);}
+    // Ignore a queued scroll event from bringing the trigger into view.
+    function scroll(){if(window.scrollX!==openedAt.x||window.scrollY!==openedAt.y)setOpen(false);}
     // Match the desktop breakpoint in header.module.css.
     const desktop=window.matchMedia('(min-width: 1280px)');
     function resize(){if(desktop.matches)setOpen(false);}

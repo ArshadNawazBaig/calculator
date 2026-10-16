@@ -1,0 +1,1498 @@
+{
+  "area-calculator": {
+    "en": {
+      "heading": "Convert both dimensions before multiplying",
+      "body": "A rectangle 2 m long and 50 cm wide covers 1 m², or 10,000 cm². Multiplying the unconverted numbers gives 100 with incompatible units; the independent unit selectors prevent that mismatch."
+    },
+    "es": {
+      "heading": "Convierte ambas dimensiones antes de multiplicar",
+      "body": "Un rectángulo de 2 m por 50 cm ocupa 1 m², o 10.000 cm². Multiplicar los números sin convertir da 100 con unidades incompatibles; los selectores independientes evitan esa confusión."
+    },
+    "fr": {
+      "heading": "Convertir les dimensions avant de multiplier",
+      "body": "Un rectangle de 2 m sur 50 cm couvre 1 m², soit 10 000 cm². Multiplier les nombres sans conversion donne 100 avec des unités incompatibles ; les sélecteurs indépendants évitent cette erreur."
+    },
+    "de": {
+      "heading": "Beide Maße vor dem Multiplizieren umrechnen",
+      "body": "Ein Rechteck mit 2 m Länge und 50 cm Breite hat 1 m² beziehungsweise 10.000 cm² Fläche. Unumgerechnet ergibt die Multiplikation 100 mit gemischten Einheiten. Die getrennten Einheitenauswahlen verhindern diese Verwechslung."
+    },
+    "pt": {
+      "heading": "Converta as dimensões antes de multiplicar",
+      "body": "Um retângulo de 2 m por 50 cm cobre 1 m², ou 10.000 cm². Multiplicar os números sem conversão dá 100 com unidades incompatíveis; os seletores independentes evitam essa confusão."
+    },
+    "ar": {
+      "heading": "حوّل البعدين قبل إجراء الضرب",
+      "body": "مستطيل طوله 2 م وعرضه 50 سم يغطي 1 م²، أي 10,000 سم². ضرب العددين دون تحويل يعطي 100 بوحدات غير متجانسة؛ وتمنع خيارات الوحدات المستقلة هذا الخلط."
+    },
+    "hi": {
+      "heading": "गुणा से पहले दोनों माप बदलें",
+      "body": "2 मीटर लंबे और 50 सेमी चौड़े आयत का क्षेत्रफल 1 वर्ग मीटर, यानी 10,000 वर्ग सेमी है। बिना रूपांतरण गुणा करने पर असंगत इकाइयों में 100 मिलता है; अलग इकाई विकल्प यह गलती रोकते हैं।"
+    },
+    "tl": {
+      "heading": "Itugma ang yunit bago magparami",
+      "body": "Ang parihabang 2 m ang haba at 50 cm ang lapad ay 1 m², o 10,000 cm². Magbibigay ng 100 na may magkahalong yunit ang direktang pagpaparami; gamitin ang magkahiwalay na unit selector."
+    }
+  },
+  "average-calculator": {
+    "en": {
+      "heading": "Group averages need group sizes",
+      "body": "Ten observations averaging 20 and thirty averaging 40 combine to a mean of 35, not 30. To use this unweighted list tool, enter the original observations rather than just the two group averages."
+    },
+    "es": {
+      "heading": "Los promedios necesitan tamaños de grupo",
+      "body": "Diez observaciones con media 20 y treinta con media 40 dan una media conjunta de 35, no 30. En esta herramienta sin ponderación, introduce las observaciones originales, no solo las dos medias."
+    },
+    "fr": {
+      "heading": "Les moyennes nécessitent les effectifs",
+      "body": "Dix observations de moyenne 20 et trente de moyenne 40 donnent une moyenne globale de 35, pas 30. Dans cet outil non pondéré, saisissez les observations d’origine plutôt que les deux moyennes."
+    },
+    "de": {
+      "heading": "Gruppenmittelwerte brauchen die jeweiligen Gruppengrößen",
+      "body": "Zehn Beobachtungen mit Mittelwert 20 und dreißig mit Mittelwert 40 ergeben zusammen 35, nicht 30. Geben Sie in diesem ungewichteten Listenrechner die ursprünglichen Beobachtungen ein, statt nur die beiden Gruppenmittelwerte."
+    },
+    "pt": {
+      "heading": "Médias de grupos precisam dos tamanhos",
+      "body": "Dez observações com média 20 e trinta com média 40 dão média conjunta de 35, não 30. Nesta ferramenta sem ponderação, informe as observações originais em vez das duas médias dos grupos."
+    },
+    "ar": {
+      "heading": "متوسطات المجموعات تحتاج أحجامها",
+      "body": "عشر ملاحظات متوسطها 20 وثلاثون متوسطها 40 تعطي معًا متوسطًا 35، لا 30. لاستخدام أداة القائمة غير المرجحة هذه، أدخل الملاحظات الأصلية بدلًا من متوسطي المجموعتين فقط."
+    },
+    "hi": {
+      "heading": "समूह औसत में समूह आकार चाहिए",
+      "body": "20 औसत वाले दस मान और 40 औसत वाले तीस मान मिलकर 35 औसत देते हैं, 30 नहीं। इस बिना भार वाली सूची में दोनों समूहों के औसत नहीं, मूल मान भरें।"
+    },
+    "tl": {
+      "heading": "Kailangan ang laki ng bawat grupo",
+      "body": "Sampung obserbasyon na may average na 20 at tatlumpung may average na 40 ay may pinagsamang mean na 35, hindi 30. Ilagay ang orihinal na obserbasyon sa unweighted tool, hindi lamang dalawang average."
+    }
+  },
+  "basic-calculator": {
+    "en": {
+      "heading": "Equal precedence still needs an order",
+      "body": "Multiplication and division share precedence and proceed left to right: 24 / 3 * 2 gives 16. Writing 24 / (3 * 2) gives 4 because the parentheses make the whole product the divisor."
+    },
+    "es": {
+      "heading": "La misma prioridad exige un orden",
+      "body": "Multiplicación y división tienen igual prioridad y avanzan de izquierda a derecha: 24 / 3 * 2 da 16. Escribir 24 / (3 * 2) da 4, porque el producto completo es el divisor."
+    },
+    "fr": {
+      "heading": "Une même priorité garde un ordre",
+      "body": "Multiplication et division ont la même priorité et se lisent de gauche à droite : 24 / 3 * 2 donne 16. Avec 24 / (3 * 2), le produit entier devient le diviseur et donne 4."
+    },
+    "de": {
+      "heading": "Gleicher Vorrang braucht trotzdem eine Reihenfolge",
+      "body": "Multiplikation und Division sind gleichrangig und werden von links nach rechts ausgeführt: 24 / 3 * 2 ergibt 16. Bei 24 / (3 * 2) wird das gesamte Produkt zum Divisor; Ergebnis: 4."
+    },
+    "pt": {
+      "heading": "A mesma prioridade exige uma ordem",
+      "body": "Multiplicação e divisão têm a mesma prioridade e seguem da esquerda para a direita: 24 / 3 * 2 dá 16. Já 24 / (3 * 2) dá 4, pois o produto inteiro vira divisor."
+    },
+    "ar": {
+      "heading": "الأولوية المتساوية تحتاج ترتيبًا أيضًا",
+      "body": "للضرب والقسمة الأولوية نفسها ويُنفذان من اليسار إلى اليمين: 24 / 3 * 2 تساوي 16. أما 24 / (3 * 2) فتساوي 4، لأن الأقواس تجعل حاصل الضرب كله مقسومًا عليه."
+    },
+    "hi": {
+      "heading": "समान प्राथमिकता में भी क्रम है",
+      "body": "गुणा और भाग की प्राथमिकता समान है और वे बाएँ से दाएँ होते हैं: 24 / 3 * 2 का उत्तर 16 है। 24 / (3 * 2) में पूरा गुणनफल भाजक बनता है, इसलिए उत्तर 4 है।"
+    },
+    "tl": {
+      "heading": "May ayos kahit pareho ang precedence",
+      "body": "Magkapantay ang multiplication at division at sinusunod mula kaliwa pakanan: 24 / 3 * 2 ay 16. Ang 24 / (3 * 2) ay 4 dahil ginagawang divisor ng parentheses ang buong produkto."
+    }
+  },
+  "big-number-calculator": {
+    "en": {
+      "heading": "One final digit can matter",
+      "body": "The integer 9007199254740993 leaves remainder 1 when divided by 2. Use the exact integer modulo mode for this check; converting a long integer through ordinary floating-point arithmetic can lose its final digit."
+    },
+    "es": {
+      "heading": "El último dígito puede importar",
+      "body": "El entero 9007199254740993 deja resto 1 al dividirlo entre 2. Usa el modo módulo de enteros exactos; convertir un entero largo mediante aritmética habitual de coma flotante puede perder su último dígito."
+    },
+    "fr": {
+      "heading": "Le dernier chiffre peut compter",
+      "body": "L’entier 9007199254740993 donne un reste de 1 lorsqu’on le divise par 2. Utilisez le modulo entier exact ; une conversion en virgule flottante ordinaire peut faire perdre le dernier chiffre d’un grand entier."
+    },
+    "de": {
+      "heading": "Eine letzte Ziffer kann entscheidend sein",
+      "body": "Die ganze Zahl 9007199254740993 ergibt bei Division durch 2 den Rest 1. Nutzen Sie dafür den exakten Ganzzahl-Modulo-Modus. Gewöhnliche Gleitkommaarithmetik kann beim Umwandeln großer Ganzzahlen die letzte Ziffer verlieren."
+    },
+    "pt": {
+      "heading": "O último dígito pode importar",
+      "body": "O inteiro 9007199254740993 deixa resto 1 quando dividido por 2. Use o modo de módulo inteiro exato; converter inteiros longos pela aritmética comum de ponto flutuante pode perder o último dígito."
+    },
+    "ar": {
+      "heading": "قد تكون الخانة الأخيرة مهمة",
+      "body": "العدد الصحيح 9007199254740993 يعطي باقيًا 1 عند قسمته على 2. استخدم وضع باقي القسمة الصحيح الدقيق؛ فتحويل عدد صحيح طويل عبر حساب الفاصلة العائمة المعتاد قد يفقد خانته الأخيرة."
+    },
+    "hi": {
+      "heading": "अंतिम अंक भी महत्वपूर्ण है",
+      "body": "पूर्णांक 9007199254740993 को 2 से भाग देने पर शेष 1 है। इसके लिए सटीक पूर्णांक मॉड्यूलो मोड लें; बड़े पूर्णांक को साधारण फ्लोटिंग-पॉइंट अंकगणित में बदलने से अंतिम अंक खो सकता है।"
+    },
+    "tl": {
+      "heading": "Mahalaga kahit ang huling digit",
+      "body": "Ang integer na 9007199254740993 ay may remainder na 1 kapag hinati sa 2. Gamitin ang exact integer modulo mode; maaaring mawala ang huling digit ng mahabang integer kapag dinaan sa ordinaryong floating-point arithmetic."
+    }
+  },
+  "binary-calculator": {
+    "en": {
+      "heading": "A sign is different from bit encoding",
+      "body": "In this signed-integer calculator, 11111111 represents decimal 255. It does not automatically mean −1 as it can in eight-bit two’s-complement encoding. Enter an explicit minus sign when you mean a negative value."
+    },
+    "es": {
+      "heading": "El signo difiere de codificar bits",
+      "body": "En esta calculadora de enteros con signo, 11111111 representa 255 decimal. No significa automáticamente −1 como en complemento a dos de ocho bits. Escribe un signo menos explícito para indicar un valor negativo."
+    },
+    "fr": {
+      "heading": "Le signe diffère du codage binaire",
+      "body": "Dans ce calculateur d’entiers signés, 11111111 représente 255 en décimal. Il ne signifie pas automatiquement −1 comme en complément à deux sur huit bits. Saisissez un signe moins explicite pour une valeur négative."
+    },
+    "de": {
+      "heading": "Vorzeichen ist etwas anderes als Bitkodierung",
+      "body": "In diesem Rechner für vorzeichenbehaftete Ganzzahlen steht 11111111 für dezimal 255. Es bedeutet nicht automatisch −1 wie beim Acht-Bit-Zweierkomplement. Geben Sie negative Werte mit einem ausdrücklichen Minuszeichen ein."
+    },
+    "pt": {
+      "heading": "O sinal difere da codificação binária",
+      "body": "Nesta calculadora de inteiros com sinal, 11111111 representa 255 decimal. Não significa automaticamente −1 como no complemento de dois em oito bits. Digite um sinal de menos explícito para representar um valor negativo."
+    },
+    "ar": {
+      "heading": "الإشارة تختلف عن ترميز البتات",
+      "body": "في حاسبة الأعداد الصحيحة الموقعة هذه، يمثل 11111111 العدد العشري 255. ولا يعني تلقائيًا −1 كما في ترميز المتمم الثنائي بثمانية بتات. أدخل علامة ناقص صريحة عندما تقصد قيمة سالبة."
+    },
+    "hi": {
+      "heading": "चिह्न और बिट एन्कोडिंग अलग हैं",
+      "body": "इस चिह्नित पूर्णांक कैलकुलेटर में 11111111 का दशमलव मान 255 है। यह अपने-आप आठ-बिट टूज़ कॉम्प्लीमेंट जैसा −1 नहीं है। ऋणात्मक मान के लिए स्पष्ट ऋण चिह्न दर्ज करें।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang sign at bit encoding",
+      "body": "Sa signed-integer calculator na ito, ang 11111111 ay decimal 255. Hindi ito awtomatikong −1 tulad sa eight-bit two’s-complement encoding. Maglagay ng malinaw na minus sign kung negatibong halaga ang ibig mong sabihin."
+    }
+  },
+  "circle-calculator": {
+    "en": {
+      "heading": "Equal increases affect area differently",
+      "body": "Increasing a circle’s radius by 10% increases circumference by 10% but area by 21%. Compare the original and scaled radius to see why a slightly wider circle can need noticeably more covering material."
+    },
+    "es": {
+      "heading": "El área responde de otra manera",
+      "body": "Aumentar el radio un 10% aumenta la circunferencia un 10%, pero el área un 21%. Compara ambos radios para entender por qué un círculo un poco más ancho puede requerir bastante más material."
+    },
+    "fr": {
+      "heading": "L’aire réagit différemment à l’agrandissement",
+      "body": "Augmenter le rayon de 10% augmente la circonférence de 10%, mais l’aire de 21%. Comparez les deux rayons pour comprendre pourquoi un cercle légèrement plus large nécessite sensiblement plus de matériau de couverture."
+    },
+    "de": {
+      "heading": "Gleiche Vergrößerung wirkt unterschiedlich auf Flächen",
+      "body": "10% mehr Radius ergeben 10% mehr Umfang, aber 21% mehr Fläche. Vergleichen Sie Ausgangs- und vergrößerten Radius: So wird deutlich, weshalb ein etwas breiterer Kreis merklich mehr Abdeckmaterial benötigt."
+    },
+    "pt": {
+      "heading": "A área responde de outra forma",
+      "body": "Aumentar o raio em 10% aumenta a circunferência em 10%, mas a área em 21%. Compare os dois raios para entender por que um círculo um pouco mais largo exige mais material de cobertura."
+    },
+    "ar": {
+      "heading": "زيادة متساوية وتأثير مختلف للمساحة",
+      "body": "زيادة نصف قطر الدائرة 10% تزيد محيطها 10%، لكن مساحتها 21%. قارن نصف القطر الأصلي بالمكبر لتفهم لماذا قد تحتاج دائرة أعرض قليلًا إلى كمية أكبر بوضوح من مادة التغطية."
+    },
+    "hi": {
+      "heading": "समान वृद्धि, क्षेत्रफल पर अलग असर",
+      "body": "वृत्त की त्रिज्या 10% बढ़ाने पर परिधि 10%, लेकिन क्षेत्रफल 21% बढ़ता है। मूल और बढ़ी त्रिज्या की तुलना दिखाती है कि थोड़ा चौड़ा वृत्त ढकने में अधिक सामग्री क्यों लगती है।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang epekto sa area",
+      "body": "Kapag dinagdagan ng 10% ang radius, tumataas ang circumference nang 10% ngunit ang area nang 21%. Ihambing ang dalawang radius upang makita kung bakit mas maraming pantakip ang kailangan sa bahagyang mas malapad na bilog."
+    }
+  },
+  "common-factor-calculator": {
+    "en": {
+      "heading": "Shared group sizes offer different choices",
+      "body": "For 24 and 36 items, both 6 and 12 are common group sizes. Groups of 12 minimize the total group count; groups of 6 create more smaller groups. The full factor list preserves both options."
+    },
+    "es": {
+      "heading": "Los tamaños compartidos ofrecen opciones",
+      "body": "Para 24 y 36 objetos, 6 y 12 son tamaños de grupo comunes. Agrupar de 12 minimiza el número de grupos; hacerlo de 6 crea más grupos pequeños. La lista completa conserva ambas opciones."
+    },
+    "fr": {
+      "heading": "Les tailles communes offrent plusieurs choix",
+      "body": "Pour 24 et 36 objets, 6 et 12 sont des tailles de groupe communes. Des groupes de 12 minimisent leur nombre ; des groupes de 6 donnent davantage de petits groupes. La liste conserve les deux possibilités."
+    },
+    "de": {
+      "heading": "Gemeinsame Gruppengrößen bieten verschiedene Möglichkeiten",
+      "body": "Für 24 und 36 Gegenstände sind 6 und 12 gemeinsame Gruppengrößen. Zwölfergruppen minimieren die Gesamtzahl der Gruppen; Sechsergruppen ergeben mehr kleinere Gruppen. Die vollständige Teilerliste erhält beide Möglichkeiten."
+    },
+    "pt": {
+      "heading": "Tamanhos comuns oferecem escolhas diferentes",
+      "body": "Para 24 e 36 itens, 6 e 12 são tamanhos comuns de grupo. Grupos de 12 minimizam a quantidade total de grupos; grupos de 6 criam mais grupos menores. A lista completa preserva ambas as opções."
+    },
+    "ar": {
+      "heading": "أحجام التجميع المشتركة تتيح خيارات",
+      "body": "للعددين 24 و36، يصلح كل من 6 و12 حجمًا مشتركًا للمجموعات. مجموعات من 12 تقلل عدد المجموعات الإجمالي، بينما مجموعات من 6 تعطي مجموعات أصغر وأكثر. قائمة العوامل الكاملة تحتفظ بالخيارين."
+    },
+    "hi": {
+      "heading": "साझा समूह आकार कई विकल्प देते हैं",
+      "body": "24 और 36 वस्तुओं के लिए 6 और 12 दोनों साझा समूह आकार हैं। 12 के समूह कुल समूह संख्या घटाते हैं; 6 के समूह अधिक छोटे समूह बनाते हैं। पूरी गुणनखंड सूची दोनों विकल्प रखती है।"
+    },
+    "tl": {
+      "heading": "May pagpipilian sa laki ng grupo",
+      "body": "Para sa 24 at 36 na bagay, parehong puwedeng laki ng grupo ang 6 at 12. Mas kaunting grupo ang tig-12; mas maraming maliliit na grupo ang tig-6. Makikita ang dalawang opsiyon sa kumpletong factor list."
+    }
+  },
+  "confidence-interval-calculator": {
+    "en": {
+      "heading": "More confidence produces wider intervals",
+      "body": "Using the same sample, raising confidence from 95% to 99% increases the critical value and widens the interval. A narrower interval is not automatically better if it was obtained simply by accepting lower coverage."
+    },
+    "es": {
+      "heading": "Más confianza produce intervalos más amplios",
+      "body": "Con la misma muestra, subir la confianza de 95% a 99% aumenta el valor crítico y ensancha el intervalo. Uno más estrecho no es automáticamente mejor si solo se obtuvo aceptando menor cobertura."
+    },
+    "fr": {
+      "heading": "Plus de confiance élargit l’intervalle",
+      "body": "Sur le même échantillon, passer de 95% à 99% de confiance augmente la valeur critique et élargit l’intervalle. Un intervalle plus étroit n’est pas forcément meilleur s’il accepte simplement une couverture plus faible."
+    },
+    "de": {
+      "heading": "Mehr Konfidenz ergibt breitere Intervalle",
+      "body": "Bei derselben Stichprobe erhöht ein Konfidenzniveau von 99% statt 95% den kritischen Wert und verbreitert das Intervall. Ein engeres Intervall ist nicht automatisch besser, wenn es lediglich durch geringere Überdeckung entsteht."
+    },
+    "pt": {
+      "heading": "Mais confiança produz intervalos mais amplos",
+      "body": "Na mesma amostra, elevar a confiança de 95% para 99% aumenta o valor crítico e alarga o intervalo. Um intervalo mais estreito não é automaticamente melhor se resulta apenas de aceitar menor cobertura."
+    },
+    "ar": {
+      "heading": "الثقة الأعلى تعطي فترات أوسع",
+      "body": "باستخدام العينة نفسها، رفع الثقة من 95% إلى 99% يزيد القيمة الحرجة ويوسع الفترة. الفترة الأضيق ليست أفضل تلقائيًا إذا نتجت فقط عن قبول تغطية أقل، لا عن بيانات أدق."
+    },
+    "hi": {
+      "heading": "अधिक विश्वास से अंतराल चौड़ा होता है",
+      "body": "एक ही नमूने में विश्वास स्तर 95% से 99% करने पर क्रांतिक मान बढ़ता है और अंतराल चौड़ा होता है। केवल कम कवरेज स्वीकार करके मिला संकरा अंतराल अपने-आप बेहतर नहीं होता।"
+    },
+    "tl": {
+      "heading": "Mas mataas na confidence, mas malawak",
+      "body": "Sa parehong sample, ang pagtaas ng confidence mula 95% tungong 99% ay nagpapalaki ng critical value at interval. Hindi awtomatikong mas mahusay ang mas makitid na interval kung mas mababang coverage lamang ang kapalit."
+    }
+  },
+  "distance-calculator": {
+    "en": {
+      "heading": "Longitude wraps around the date line",
+      "body": "Locations at 179° east and 179° west are only 2° apart in longitude across the date line. Enter hemisphere signs correctly; treating them as 358° apart gives the wrong intuition about their shortest surface separation."
+    },
+    "es": {
+      "heading": "La longitud cruza la línea de fecha",
+      "body": "Los puntos a 179° este y 179° oeste están separados solo 2° de longitud a través de la línea de fecha. Indica bien los hemisferios; pensar en 358° confunde la separación superficial más corta."
+    },
+    "fr": {
+      "heading": "La longitude traverse la ligne de date",
+      "body": "Des lieux à 179° est et 179° ouest ne sont séparés que de 2° de longitude à travers la ligne de date. Respectez les signes des hémisphères ; 358° donne une intuition trompeuse de la distance minimale."
+    },
+    "de": {
+      "heading": "Längengrade schließen sich an der Datumsgrenze",
+      "body": "Orte bei 179° Ost und 179° West liegen über die Datumsgrenze nur 2° Längengrad auseinander. Geben Sie die Hemisphären richtig ein. Eine angenommene Trennung von 358° verzerrt das Verständnis der kürzesten Oberflächenstrecke."
+    },
+    "pt": {
+      "heading": "A longitude atravessa a linha de data",
+      "body": "Locais a 179° leste e 179° oeste estão separados por apenas 2° de longitude através da linha de data. Informe corretamente os hemisférios; pensar em 358° confunde a menor separação pela superfície."
+    },
+    "ar": {
+      "heading": "خط الطول يلتف عند خط التاريخ",
+      "body": "الموقعان عند 179° شرقًا و179° غربًا يفصل بينهما درجتان فقط من خط الطول عبر خط التاريخ. أدخل إشارات نصفي الكرة بدقة؛ فاعتبار الفصل 358° يعطي تصورًا خاطئًا عن أقصر مسافة سطحية."
+    },
+    "hi": {
+      "heading": "देशांतर तिथि रेखा पर घूमता है",
+      "body": "179° पूर्व और 179° पश्चिम वाले स्थान तिथि रेखा के पार केवल 2° देशांतर दूर हैं। गोलार्ध के चिह्न सही भरें; उन्हें 358° दूर मानना सबसे छोटी सतही दूरी का गलत आभास देता है।"
+    },
+    "tl": {
+      "heading": "Umiikot ang longitude sa date line",
+      "body": "Ang mga lokasyon sa 179° east at 179° west ay 2° longitude lamang ang pagitan sa date line. Ilagay nang tama ang hemisphere; nakalilinlang ang 358° para sa pag-unawa sa pinakamaikling pagitan sa ibabaw."
+    }
+  },
+  "exponent-calculator": {
+    "en": {
+      "heading": "Repeated growth compounds the multiplier",
+      "body": "A 10% increase repeated three times uses 1.1³ = 1.331, so the total increase is 33.1%, not 30%. Enter the growth multiplier as the base and the number of repeated steps as the exponent."
+    },
+    "es": {
+      "heading": "El crecimiento repetido compone el multiplicador",
+      "body": "Tres aumentos del 10% usan 1,1³ = 1,331: el aumento total es 33,1%, no 30%. Introduce el multiplicador de crecimiento como base y el número de pasos repetidos como exponente."
+    },
+    "fr": {
+      "heading": "La croissance répétée compose le multiplicateur",
+      "body": "Trois hausses de 10% utilisent 1,1³ = 1,331 : la hausse totale est 33,1%, pas 30%. Saisissez le multiplicateur de croissance comme base et le nombre d’étapes répétées comme exposant."
+    },
+    "de": {
+      "heading": "Wiederholtes Wachstum multipliziert die Faktoren",
+      "body": "Drei aufeinanderfolgende Erhöhungen um 10% ergeben 1,1³ = 1,331, also insgesamt 33,1% statt 30%. Geben Sie den Wachstumsfaktor als Basis und die Anzahl der wiederholten Schritte als Exponenten ein."
+    },
+    "pt": {
+      "heading": "O crescimento repetido compõe o multiplicador",
+      "body": "Três aumentos de 10% usam 1,1³ = 1,331: o aumento total é 33,1%, não 30%. Informe o multiplicador de crescimento como base e o número de etapas repetidas como expoente."
+    },
+    "ar": {
+      "heading": "النمو المتكرر يضاعف عامل النمو",
+      "body": "زيادة 10% تتكرر ثلاث مرات تستخدم 1.1³ = 1.331، فتكون الزيادة الإجمالية 33.1% لا 30%. أدخل عامل النمو بوصفه الأساس، وعدد الخطوات المتكررة بوصفه الأس عند نمذجة هذه العملية."
+    },
+    "hi": {
+      "heading": "बार-बार वृद्धि गुणक को चक्रवृद्धि करती है",
+      "body": "10% वृद्धि तीन बार होने पर 1.1³ = 1.331 होता है; कुल वृद्धि 33.1% है, 30% नहीं। वृद्धि गुणक को आधार और दोहराए गए चरणों की संख्या को घात के रूप में भरें।"
+    },
+    "tl": {
+      "heading": "Naiipon ang paulit-ulit na growth multiplier",
+      "body": "Ang 10% pagtaas nang tatlong beses ay 1.1³ = 1.331, kaya 33.1% ang kabuuang dagdag, hindi 30%. Ilagay ang growth multiplier bilang base at bilang ng pag-uulit bilang exponent."
+    }
+  },
+  "factor-calculator": {
+    "en": {
+      "heading": "Square factors meet in the middle",
+      "body": "Factors of 36 pair as 1×36, 2×18, 3×12, 4×9 and 6×6. The square-root factor appears only once in the list, which explains why perfect squares have an odd number of positive factors."
+    },
+    "es": {
+      "heading": "Los factores cuadrados coinciden en medio",
+      "body": "Los factores de 36 forman pares: 1×36, 2×18, 3×12, 4×9 y 6×6. La raíz cuadrada aparece una sola vez en la lista; por eso los cuadrados perfectos tienen un número impar de divisores positivos."
+    },
+    "fr": {
+      "heading": "Les facteurs carrés se rejoignent au milieu",
+      "body": "Les diviseurs de 36 forment les paires 1×36, 2×18, 3×12, 4×9 et 6×6. La racine carrée figure une seule fois dans la liste, d’où un nombre impair de diviseurs positifs pour les carrés parfaits."
+    },
+    "de": {
+      "heading": "Bei Quadratzahlen trifft sich das Teilerpaar",
+      "body": "Die Teiler von 36 bilden 1×36, 2×18, 3×12, 4×9 und 6×6. Der Quadratwurzelteiler erscheint nur einmal in der Liste. Deshalb haben Quadratzahlen eine ungerade Anzahl positiver Teiler."
+    },
+    "pt": {
+      "heading": "Os fatores quadrados se encontram no meio",
+      "body": "Os fatores de 36 formam pares: 1×36, 2×18, 3×12, 4×9 e 6×6. A raiz quadrada aparece uma vez na lista; por isso quadrados perfeitos têm uma quantidade ímpar de divisores positivos."
+    },
+    "ar": {
+      "heading": "عوامل المربع تلتقي في المنتصف",
+      "body": "تتقابل عوامل 36 في الأزواج 1×36 و2×18 و3×12 و4×9 و6×6. يظهر عامل الجذر التربيعي مرة واحدة في القائمة، وهذا يفسر امتلاك المربعات الكاملة عددًا فرديًا من العوامل الموجبة."
+    },
+    "hi": {
+      "heading": "वर्ग के गुणनखंड बीच में मिलते हैं",
+      "body": "36 के गुणनखंड 1×36, 2×18, 3×12, 4×9 और 6×6 जोड़े बनाते हैं। वर्गमूल वाला गुणनखंड सूची में एक बार आता है; इसलिए पूर्ण वर्गों के धनात्मक गुणनखंडों की संख्या विषम होती है।"
+    },
+    "tl": {
+      "heading": "Nagtatagpo sa gitna ang square factors",
+      "body": "Ang factors ng 36 ay pares na 1×36, 2×18, 3×12, 4×9 at 6×6. Isang beses lang nakalista ang square-root factor, kaya odd ang bilang ng positive factors ng perfect squares."
+    }
+  },
+  "fraction-calculator": {
+    "en": {
+      "heading": "Dividing can make a quantity larger",
+      "body": "Dividing 3/4 by 1/2 gives 3/2: there are one and a half half-units in three quarters. Division by a positive fraction below one increases the result because the unit being counted is smaller."
+    },
+    "es": {
+      "heading": "Dividir puede aumentar una cantidad",
+      "body": "Dividir 3/4 entre 1/2 da 3/2: en tres cuartos caben una unidad y media de tamaño medio. Dividir entre una fracción positiva menor que uno aumenta el resultado porque la unidad contada es menor."
+    },
+    "fr": {
+      "heading": "Diviser peut agrandir une quantité",
+      "body": "Diviser 3/4 par 1/2 donne 3/2 : trois quarts contiennent une unité et demie de taille un demi. Diviser par une fraction positive inférieure à un augmente le résultat, car l’unité comptée est plus petite."
+    },
+    "de": {
+      "heading": "Division kann eine Zahl vergrößern",
+      "body": "3/4 geteilt durch 1/2 ergibt 3/2: In drei Vierteln stecken anderthalb halbe Einheiten. Die Division durch einen positiven Bruch unter eins vergrößert das Ergebnis, weil kleinere Einheiten gezählt werden."
+    },
+    "pt": {
+      "heading": "Dividir pode aumentar uma quantidade",
+      "body": "Dividir 3/4 por 1/2 dá 3/2: em três quartos cabem uma unidade e meia de tamanho meio. Dividir por uma fração positiva menor que um aumenta o resultado porque a unidade contada é menor."
+    },
+    "ar": {
+      "heading": "القسمة قد تكبّر القيمة الناتجة",
+      "body": "قسمة 3/4 على 1/2 تعطي 3/2: في ثلاثة أرباع وحدة ونصف من الأنصاف. القسمة على كسر موجب أقل من واحد تزيد الناتج لأن الوحدة التي نعدها أصغر."
+    },
+    "hi": {
+      "heading": "भाग देने से संख्या बढ़ सकती है",
+      "body": "3/4 को 1/2 से भाग देने पर 3/2 मिलता है: तीन चौथाई में आधे आकार की डेढ़ इकाइयाँ हैं। एक से छोटे धनात्मक भिन्न से भाग देने पर छोटी इकाइयाँ गिनी जाती हैं, इसलिए परिणाम बढ़ता है।"
+    },
+    "tl": {
+      "heading": "Maaaring lumaki ang resulta ng paghahati",
+      "body": "Ang 3/4 na hinati sa 1/2 ay 3/2: may isa at kalahating half-unit sa three quarters. Lumalaki ang resulta kapag positibong fraction na mas mababa sa isa ang divisor dahil mas maliit ang binibilang na yunit."
+    }
+  },
+  "gcf-calculator": {
+    "en": {
+      "heading": "One common factor must fit every input",
+      "body": "The GCF of 18 and 24 is 6, but adding 35 makes the three-number GCF equal 1. A large factor shared by one pair need not divide every value in a longer list."
+    },
+    "es": {
+      "heading": "Un factor debe servir para todos",
+      "body": "El MCD de 18 y 24 es 6, pero al añadir 35 el MCD de los tres pasa a 1. Un factor grande compartido por un par no necesariamente divide toda una lista."
+    },
+    "fr": {
+      "heading": "Un diviseur doit convenir à tous",
+      "body": "Le PGCD de 18 et 24 est 6, mais ajouter 35 ramène le PGCD des trois nombres à 1. Un grand diviseur commun à une paire ne divise pas forcément toute la liste."
+    },
+    "de": {
+      "heading": "Ein gemeinsamer Teiler muss überall passen",
+      "body": "Der ggT von 18 und 24 ist 6; mit zusätzlicher 35 beträgt der ggT aller drei Zahlen 1. Ein großer gemeinsamer Teiler eines Paares muss nicht jede Zahl einer längeren Liste teilen."
+    },
+    "pt": {
+      "heading": "Um divisor precisa servir para todos",
+      "body": "O MDC de 18 e 24 é 6, mas acrescentar 35 torna o MDC dos três igual a 1. Um divisor grande compartilhado por um par não necessariamente divide toda a lista."
+    },
+    "ar": {
+      "heading": "العامل المشترك يجب أن يناسب الجميع",
+      "body": "القاسم المشترك الأكبر للعددين 18 و24 هو 6، لكن إضافة 35 تجعل قاسم الأعداد الثلاثة 1. العامل الكبير المشترك بين زوج لا يلزم أن يقسم جميع قيم قائمة أطول."
+    },
+    "hi": {
+      "heading": "साझा गुणनखंड सभी मानों पर लागू हो",
+      "body": "18 और 24 का महत्तम समापवर्तक 6 है, लेकिन 35 जोड़ने पर तीनों का 1 हो जाता है। एक जोड़ी का बड़ा साझा गुणनखंड लंबी सूची के हर मान को विभाजित करे, यह ज़रूरी नहीं।"
+    },
+    "tl": {
+      "heading": "Dapat mahati ang bawat input",
+      "body": "Ang GCF ng 18 at 24 ay 6, ngunit kapag idinagdag ang 35, nagiging 1 ang GCF ng tatlo. Hindi kailangang mahati ng malaking common factor ng isang pares ang lahat ng nasa mas mahabang listahan."
+    }
+  },
+  "half-life-calculator": {
+    "en": {
+      "heading": "Equal intervals remove unequal amounts",
+      "body": "Starting with 100 units, successive half-lives leave 50, 25 and 12.5. The losses are 50, 25 and 12.5 units, so constant half-life means a constant fraction disappears, not a constant amount per interval."
+    },
+    "es": {
+      "heading": "Intervalos iguales eliminan cantidades distintas",
+      "body": "Partiendo de 100 unidades, las semividas sucesivas dejan 50, 25 y 12,5. Las pérdidas son 50, 25 y 12,5 unidades: una semivida constante elimina una fracción constante, no una cantidad fija por intervalo."
+    },
+    "fr": {
+      "heading": "Intervalles égaux, quantités perdues différentes",
+      "body": "À partir de 100 unités, les demi-vies successives laissent 50, 25 puis 12,5. Les pertes valent 50, 25 puis 12,5 unités : une demi-vie constante élimine une fraction constante, pas une quantité fixe."
+    },
+    "de": {
+      "heading": "Gleiche Zeiträume entfernen unterschiedliche Mengen",
+      "body": "Aus 100 Einheiten bleiben nach aufeinanderfolgenden Halbwertszeiten 50, 25 und 12,5. Die Verluste betragen 50, 25 und 12,5 Einheiten. Konstante Halbwertszeit bedeutet einen konstanten verschwundenen Anteil, keine konstante Menge pro Zeitraum."
+    },
+    "pt": {
+      "heading": "Intervalos iguais removem quantidades diferentes",
+      "body": "Partindo de 100 unidades, meias-vidas sucessivas deixam 50, 25 e 12,5. As perdas são 50, 25 e 12,5 unidades: meia-vida constante significa uma fração constante perdida, não uma quantidade fixa por intervalo."
+    },
+    "ar": {
+      "heading": "الفترات المتساوية تزيل كميات مختلفة",
+      "body": "بدءًا من 100 وحدة، تُبقي أنصاف الأعمار المتتالية 50 ثم 25 ثم 12.5. والكميات المفقودة 50 و25 و12.5؛ فثبات نصف العمر يعني اختفاء نسبة ثابتة، لا كمية ثابتة في كل فترة."
+    },
+    "hi": {
+      "heading": "समान अंतराल, अलग घटती मात्रा",
+      "body": "100 इकाइयों से शुरू करने पर लगातार अर्ध-आयु के बाद 50, 25 और 12.5 बचती हैं। हानियाँ 50, 25 और 12.5 हैं; स्थिर अर्ध-आयु का अर्थ स्थिर अंश घटना है, स्थिर मात्रा नहीं।"
+    },
+    "tl": {
+      "heading": "Magkakapantay na pagitan, magkaibang nababawas",
+      "body": "Mula sa 100 units, naiiwan ang 50, 25 at 12.5 sa sunod-sunod na half-life. Ang nababawas ay 50, 25 at 12.5; pareho ang fraction na nawawala, hindi ang dami bawat pagitan."
+    }
+  },
+  "hex-calculator": {
+    "en": {
+      "heading": "Crossing a byte boundary does not wrap",
+      "body": "FF + 1 returns 100 in hexadecimal, equivalent to decimal 256. This calculator keeps the integer result; an eight-bit storage system would need separate overflow handling rather than silently assuming this result fits one byte."
+    },
+    "es": {
+      "heading": "Superar un byte no reinicia el valor",
+      "body": "FF + 1 devuelve 100 hexadecimal, equivalente a 256 decimal. La calculadora conserva el entero; un sistema de ocho bits necesita tratar el desbordamiento por separado, sin asumir que el resultado cabe en un byte."
+    },
+    "fr": {
+      "heading": "Dépasser un octet ne reboucle pas",
+      "body": "FF + 1 donne 100 en hexadécimal, soit 256 en décimal. Le calculateur conserve l’entier ; un stockage sur huit bits exige une gestion distincte du dépassement, sans supposer que ce résultat tient dans un octet."
+    },
+    "de": {
+      "heading": "Eine Bytegrenze erzeugt keinen automatischen Überlauf",
+      "body": "FF + 1 ergibt hexadezimal 100, also dezimal 256. Dieser Rechner behält das ganzzahlige Ergebnis. Ein Acht-Bit-Speicher benötigt eine gesonderte Überlaufbehandlung, statt anzunehmen, dass dieser Wert in ein Byte passt."
+    },
+    "pt": {
+      "heading": "Ultrapassar um byte não reinicia o valor",
+      "body": "FF + 1 retorna 100 hexadecimal, equivalente a 256 decimal. A calculadora mantém o inteiro; um sistema de oito bits precisa tratar o estouro separadamente, sem presumir que o resultado cabe em um byte."
+    },
+    "ar": {
+      "heading": "تجاوز البايت لا يعيد القيمة للصفر",
+      "body": "تعطي FF + 1 القيمة 100 بالنظام الست عشري، أي 256 عشريًا. تحتفظ الحاسبة بالعدد الصحيح؛ أما تخزين ثمانية بتات فيحتاج معالجة منفصلة للتجاوز، بدل افتراض أن النتيجة تتسع في بايت واحد."
+    },
+    "hi": {
+      "heading": "बाइट सीमा पार करना स्वतः रैप नहीं",
+      "body": "FF + 1 का हेक्साडेसिमल उत्तर 100, यानी दशमलव 256 है। कैलकुलेटर पूर्णांक परिणाम रखता है; आठ-बिट भंडारण में अलग ओवरफ़्लो प्रबंधन चाहिए, क्योंकि यह मान एक बाइट में नहीं समाता।"
+    },
+    "tl": {
+      "heading": "Hindi awtomatikong umiikot ang byte value",
+      "body": "Ang FF + 1 ay 100 sa hexadecimal, katumbas ng decimal 256. Pinananatili ng calculator ang integer; kailangan ng hiwalay na overflow handling sa eight-bit storage, dahil hindi kasya ang resultang ito sa isang byte."
+    }
+  },
+  "lcm-calculator": {
+    "en": {
+      "heading": "Repeating schedules also need matching starts",
+      "body": "Events every 6 and 8 days align every 24 days if they start together. If their starting dates differ, the LCM alone does not identify the next meeting date; the offsets must also be considered."
+    },
+    "es": {
+      "heading": "Los horarios necesitan inicios compatibles",
+      "body": "Eventos cada 6 y 8 días coinciden cada 24 si empiezan juntos. Si las fechas iniciales difieren, el MCM por sí solo no identifica la próxima coincidencia; también deben considerarse los desfases."
+    },
+    "fr": {
+      "heading": "Les calendriers nécessitent des départs compatibles",
+      "body": "Des événements tous les 6 et 8 jours coïncident tous les 24 jours s’ils commencent ensemble. Si leurs départs diffèrent, le PPCM seul ne donne pas la prochaine rencontre ; il faut aussi considérer les décalages."
+    },
+    "de": {
+      "heading": "Wiederholungen brauchen auch passende Startzeitpunkte",
+      "body": "Ereignisse alle 6 und 8 Tage treffen alle 24 Tage zusammen, wenn sie gemeinsam starten. Bei unterschiedlichen Startdaten liefert das kgV allein nicht den nächsten gemeinsamen Termin; die Verschiebungen müssen ebenfalls berücksichtigt werden."
+    },
+    "pt": {
+      "heading": "As repetições precisam de inícios compatíveis",
+      "body": "Eventos a cada 6 e 8 dias coincidem a cada 24 se começarem juntos. Com datas iniciais diferentes, o MMC sozinho não identifica a próxima coincidência; é necessário considerar também os deslocamentos."
+    },
+    "ar": {
+      "heading": "الجداول المتكررة تحتاج بدايات متوافقة",
+      "body": "حدثان يتكرران كل 6 و8 أيام يلتقيان كل 24 يومًا إذا بدآ معًا. إذا اختلف تاريخ البدء، فلا يحدد المضاعف المشترك الأصغر وحده الموعد التالي؛ بل يجب مراعاة الإزاحة الزمنية أيضًا."
+    },
+    "hi": {
+      "heading": "दोहराव में शुरुआती समय भी देखें",
+      "body": "हर 6 और 8 दिन वाले कार्यक्रम साथ शुरू हों तो हर 24 दिन मिलते हैं। शुरुआती तारीखें अलग हों तो केवल लघुत्तम समापवर्त्य अगली साझा तारीख नहीं बताता; शुरुआती अंतर भी देखना होगा।"
+    },
+    "tl": {
+      "heading": "Mahalaga rin ang magkatugmang simula",
+      "body": "Ang mga event bawat 6 at 8 araw ay nagsasabay bawat 24 araw kung sabay nagsimula. Kung magkaiba ang simula, hindi sapat ang LCM para sa susunod na pagsabay; isama rin ang mga offset."
+    }
+  },
+  "log-calculator": {
+    "en": {
+      "heading": "A negative logarithm can be valid",
+      "body": "log₁₀(0.01) equals −2 because 10⁻² = 0.01. A negative answer does not imply an invalid input: with a base greater than one, positive arguments below one naturally produce negative logarithms."
+    },
+    "es": {
+      "heading": "Un logaritmo negativo puede ser válido",
+      "body": "log₁₀(0,01) es −2 porque 10⁻² = 0,01. Un resultado negativo no implica un dato inválido: con base mayor que uno, los argumentos positivos menores que uno producen logaritmos negativos."
+    },
+    "fr": {
+      "heading": "Un logarithme négatif peut être valide",
+      "body": "log₁₀(0,01) vaut −2 car 10⁻² = 0,01. Une réponse négative ne rend pas l’entrée invalide : avec une base supérieure à un, les arguments positifs inférieurs à un donnent des logarithmes négatifs."
+    },
+    "de": {
+      "heading": "Ein negativer Logarithmus kann gültig sein",
+      "body": "log₁₀(0,01) ist −2, denn 10⁻² = 0,01. Ein negatives Ergebnis bedeutet keine ungültige Eingabe: Bei einer Basis größer als eins ergeben positive Argumente unter eins ganz regulär negative Logarithmen."
+    },
+    "pt": {
+      "heading": "Um logaritmo negativo pode ser válido",
+      "body": "log₁₀(0,01) é −2 porque 10⁻² = 0,01. Uma resposta negativa não indica entrada inválida: com base maior que um, argumentos positivos menores que um produzem naturalmente logaritmos negativos."
+    },
+    "ar": {
+      "heading": "اللوغاريتم السالب قد يكون صحيحًا",
+      "body": "لوغاريتم 0.01 للأساس 10 يساوي −2، لأن 10⁻² = 0.01. الناتج السالب لا يعني مدخلًا غير صالح؛ فالمدخلات الموجبة الأقل من واحد تعطي لوغاريتمات سالبة عندما يكون الأساس أكبر من واحد."
+    },
+    "hi": {
+      "heading": "ऋणात्मक लघुगणक भी सही हो सकता है",
+      "body": "log₁₀(0.01) = −2, क्योंकि 10⁻² = 0.01 है। ऋणात्मक उत्तर गलत इनपुट नहीं दर्शाता; आधार एक से बड़ा होने पर एक से छोटे धनात्मक मानों के लघुगणक स्वाभाविक रूप से ऋणात्मक होते हैं।"
+    },
+    "tl": {
+      "heading": "Maaaring tama ang negatibong logarithm",
+      "body": "Ang log₁₀(0.01) ay −2 dahil 10⁻² = 0.01. Hindi invalid ang input dahil negatibo ang sagot: kung lampas isa ang base, negatibo ang logarithm ng positibong argument na mas mababa sa isa."
+    }
+  },
+  "long-division-calculator": {
+    "en": {
+      "heading": "The remainder decides how to round",
+      "body": "Packing 125 items into boxes holding 7 gives 17 full boxes with 6 items left. You need 18 boxes to hold everything, but only 17 complete boxes are filled; the practical question determines which count matters."
+    },
+    "es": {
+      "heading": "El resto determina cómo redondear",
+      "body": "Guardar 125 objetos en cajas de 7 da 17 cajas completas y sobran 6 objetos. Necesitas 18 cajas para guardarlo todo, pero solo 17 quedan llenas; la pregunta práctica determina qué cantidad importa."
+    },
+    "fr": {
+      "heading": "Le reste détermine comment arrondir",
+      "body": "Répartir 125 objets dans des boîtes de 7 remplit 17 boîtes et laisse 6 objets. Il faut 18 boîtes pour tout ranger, mais seules 17 sont complètes ; la question détermine le nombre pertinent."
+    },
+    "de": {
+      "heading": "Der Rest bestimmt das passende Runden",
+      "body": "125 Gegenstände in Schachteln für je 7 ergeben 17 volle Schachteln und 6 übrige Gegenstände. Für alles braucht man 18 Schachteln, vollständig gefüllt sind nur 17. Die praktische Frage bestimmt die relevante Anzahl."
+    },
+    "pt": {
+      "heading": "O resto determina como arredondar",
+      "body": "Distribuir 125 itens em caixas de 7 dá 17 caixas cheias e sobram 6 itens. São necessárias 18 caixas para guardar tudo, mas apenas 17 ficam completas; a pergunta determina qual contagem importa."
+    },
+    "ar": {
+      "heading": "الباقي يحدد اتجاه التقريب المناسب",
+      "body": "تعبئة 125 قطعة في صناديق تسع 7 تعطي 17 صندوقًا كاملًا و6 قطع متبقية. تحتاج 18 صندوقًا لاحتواء الجميع، لكن 17 فقط تمتلئ؛ والسؤال العملي يحدد أي العددين يهمك."
+    },
+    "hi": {
+      "heading": "शेषफल तय करता है पूर्णांकन",
+      "body": "125 वस्तुएँ, 7 की क्षमता वाले डिब्बों में रखने पर 17 पूरे डिब्बे और 6 बची वस्तुएँ मिलती हैं। सब रखने के लिए 18 डिब्बे चाहिए, लेकिन केवल 17 भरे हैं; व्यावहारिक प्रश्न सही संख्या तय करता है।"
+    },
+    "tl": {
+      "heading": "Remainder ang batayan ng pag-round",
+      "body": "Ang 125 bagay sa mga kahong tig-7 ay 17 punong kahon at 6 na natira. Kailangan ng 18 kahon para sa lahat, ngunit 17 lang ang puno; ang praktikal na tanong ang nagtatakda ng mahalagang bilang."
+    }
+  },
+  "matrix-calculator": {
+    "en": {
+      "heading": "A power is repeated matrix multiplication",
+      "body": "For A = [[1,1],[0,1]], A² is [[1,2],[0,1]], not [[1,1],[0,1]]. Matrix powers multiply rows by columns; they do not square each entry independently. Check this distinction before using powers to repeat a transformation."
+    },
+    "es": {
+      "heading": "Una potencia repite la multiplicación matricial",
+      "body": "Para A = [[1,1],[0,1]], A² es [[1,2],[0,1]], no [[1,1],[0,1]]. Las potencias multiplican filas por columnas, no elevan cada entrada al cuadrado. Comprueba la distinción al repetir una transformación."
+    },
+    "fr": {
+      "heading": "Une puissance répète la multiplication matricielle",
+      "body": "Pour A = [[1,1],[0,1]], A² vaut [[1,2],[0,1]], pas [[1,1],[0,1]]. Les puissances multiplient lignes et colonnes, sans mettre chaque entrée au carré. Vérifiez cette distinction avant de répéter une transformation."
+    },
+    "de": {
+      "heading": "Eine Potenz wiederholt die Matrixmultiplikation",
+      "body": "Für A = [[1,1],[0,1]] ist A² gleich [[1,2],[0,1]], nicht [[1,1],[0,1]]. Matrixpotenzen multiplizieren Zeilen mit Spalten; sie quadrieren nicht einzelne Einträge. Beachten Sie diesen Unterschied bei wiederholten Transformationen."
+    },
+    "pt": {
+      "heading": "Uma potência repete a multiplicação matricial",
+      "body": "Para A = [[1,1],[0,1]], A² é [[1,2],[0,1]], não [[1,1],[0,1]]. Potências multiplicam linhas por colunas; não elevam cada entrada ao quadrado. Verifique essa distinção ao repetir uma transformação."
+    },
+    "ar": {
+      "heading": "القوة تعني تكرار ضرب المصفوفات",
+      "body": "إذا كانت A = [[1,1],[0,1]] فإن A² = [[1,2],[0,1]]، لا [[1,1],[0,1]]. تضرب قوى المصفوفات الصفوف في الأعمدة، ولا تربع كل عنصر منفردًا. انتبه للفرق عند تكرار تحويل باستخدام القوى."
+    },
+    "hi": {
+      "heading": "घात में मैट्रिक्स गुणा दोहरता है",
+      "body": "A = [[1,1],[0,1]] के लिए A² = [[1,2],[0,1]] है, [[1,1],[0,1]] नहीं। मैट्रिक्स घात पंक्तियों को स्तंभों से गुणा करती है, हर तत्व का अलग वर्ग नहीं; रूपांतरण दोहराते समय यह अंतर देखें।"
+    },
+    "tl": {
+      "heading": "Paulit-ulit na matrix multiplication ang power",
+      "body": "Para sa A = [[1,1],[0,1]], ang A² ay [[1,2],[0,1]], hindi [[1,1],[0,1]]. Rows at columns ang minumultiply, hindi basta sini-square ang bawat entry. Tandaan ito kapag inuulit ang isang transformation gamit ang power."
+    }
+  },
+  "mean-median-mode-range-calculator": {
+    "en": {
+      "heading": "Range can miss changes in the middle",
+      "body": "The lists 0,5,5,10 and 0,0,10,10 share mean 5, median 5 and range 10. Their observations cluster differently. Compare the actual values and frequencies before treating matching summaries as equivalent datasets."
+    },
+    "es": {
+      "heading": "El rango puede ocultar el interior",
+      "body": "Las listas 0,5,5,10 y 0,0,10,10 comparten media 5, mediana 5 y rango 10. Sus observaciones se agrupan de manera distinta. Revisa los valores y frecuencias antes de considerar equivalentes los conjuntos."
+    },
+    "fr": {
+      "heading": "L’étendue peut masquer le centre",
+      "body": "Les listes 0,5,5,10 et 0,0,10,10 ont moyenne 5, médiane 5 et étendue 10. Pourtant, leurs observations se regroupent différemment. Comparez valeurs et fréquences avant de considérer ces jeux de données comme équivalents."
+    },
+    "de": {
+      "heading": "Die Spannweite übersieht Änderungen im Inneren",
+      "body": "Die Listen 0,5,5,10 und 0,0,10,10 haben Mittelwert 5, Median 5 und Spannweite 10. Ihre Werte häufen sich dennoch unterschiedlich. Vergleichen Sie Beobachtungen und Häufigkeiten, bevor Sie gleiche Kennzahlen als gleichwertige Datensätze interpretieren."
+    },
+    "pt": {
+      "heading": "A amplitude pode esconder o interior",
+      "body": "As listas 0,5,5,10 e 0,0,10,10 têm média 5, mediana 5 e amplitude 10. As observações se agrupam de modos diferentes. Compare valores e frequências antes de considerar equivalentes os conjuntos."
+    },
+    "ar": {
+      "heading": "المدى قد يخفي تغيرات الوسط",
+      "body": "القائمتان 0،5،5،10 و0،0،10،10 لهما متوسط 5 ووسيط 5 ومدى 10، لكن القيم تتجمع بطريقة مختلفة. قارن القيم الفعلية وتكراراتها قبل اعتبار مجموعتي بيانات متكافئتين لمجرد تطابق هذه الملخصات."
+    },
+    "hi": {
+      "heading": "परास बीच के बदलाव छिपाता है",
+      "body": "सूचियों 0,5,5,10 और 0,0,10,10 का औसत 5, माध्यिका 5 और परास 10 है। फिर भी मानों का जमाव अलग है। समान सारांशों को समान डेटा समझने से पहले वास्तविक मान और आवृत्तियाँ देखें।"
+    },
+    "tl": {
+      "heading": "Maaaring hindi makita ng range ang gitna",
+      "body": "Ang 0,5,5,10 at 0,0,10,10 ay parehong may mean 5, median 5 at range 10, ngunit magkaiba ang pagkakagrupo. Ihambing ang aktuwal na values at frequencies bago sabihing magkapareho ang datasets dahil pareho ang summaries."
+    }
+  },
+  "number-sequence-calculator": {
+    "en": {
+      "heading": "A term and a sum answer differently",
+      "body": "For 2,5,8,11, the fourth term is 11 but the sum of four terms is 26. Use the term to identify a position and the sum to describe accumulated quantity across those positions."
+    },
+    "es": {
+      "heading": "Un término y una suma difieren",
+      "body": "En 2,5,8,11, el cuarto término es 11, pero la suma de cuatro términos es 26. Usa el término para identificar una posición y la suma para describir la cantidad acumulada entre esas posiciones."
+    },
+    "fr": {
+      "heading": "Un terme et une somme diffèrent",
+      "body": "Pour 2,5,8,11, le quatrième terme vaut 11, mais la somme des quatre termes vaut 26. Le terme identifie une position ; la somme décrit la quantité accumulée sur ces positions."
+    },
+    "de": {
+      "heading": "Ein Glied und eine Summe unterscheiden sich",
+      "body": "Bei 2,5,8,11 ist das vierte Glied 11, die Summe der vier Glieder aber 26. Verwenden Sie das Glied für einen einzelnen Platz und die Summe für die über diese Plätze angesammelte Menge."
+    },
+    "pt": {
+      "heading": "Um termo e uma soma diferem",
+      "body": "Em 2,5,8,11, o quarto termo é 11, mas a soma dos quatro termos é 26. Use o termo para identificar uma posição e a soma para descrever a quantidade acumulada nessas posições."
+    },
+    "ar": {
+      "heading": "الحد والمجموع يجيبان بشكل مختلف",
+      "body": "في المتتالية 2،5،8،11، الحد الرابع 11، لكن مجموع الحدود الأربعة 26. استخدم الحد لتحديد قيمة موضع معين، والمجموع لوصف الكمية المتراكمة عبر هذه المواضع، وفق السؤال الذي تحاول حله."
+    },
+    "hi": {
+      "heading": "पद और योग अलग उत्तर देते हैं",
+      "body": "2,5,8,11 में चौथा पद 11 है, लेकिन चार पदों का योग 26 है। किसी स्थान की संख्या के लिए पद और उन स्थानों की संचित मात्रा जानने के लिए योग का उपयोग करें।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang sagot ng term at sum",
+      "body": "Sa 2,5,8,11, ang ikaapat na term ay 11 ngunit ang sum ng apat ay 26. Gamitin ang term para sa isang posisyon at ang sum para sa naipong dami sa mga posisyong iyon."
+    }
+  },
+  "p-value-calculator": {
+    "en": {
+      "heading": "A threshold does not create a cliff",
+      "body": "Results of p = 0.049 and p = 0.051 offer very similar evidence under otherwise comparable analyses. Report the values with effect estimates and uncertainty; crossing 0.05 alone does not establish a meaningful scientific difference."
+    },
+    "es": {
+      "heading": "Un umbral no crea un salto",
+      "body": "Los valores p = 0,049 y p = 0,051 aportan evidencia muy similar en análisis comparables. Comunícalos junto con estimaciones del efecto e incertidumbre; cruzar 0,05 no establece por sí solo una diferencia científica relevante."
+    },
+    "fr": {
+      "heading": "Un seuil ne crée pas une rupture",
+      "body": "Des valeurs p = 0,049 et p = 0,051 apportent des indications très proches dans des analyses comparables. Présentez-les avec l’effet estimé et l’incertitude ; franchir 0,05 n’établit pas seul une différence scientifique importante."
+    },
+    "de": {
+      "heading": "Ein Schwellenwert erzeugt keinen wissenschaftlichen Sprung",
+      "body": "p = 0,049 und p = 0,051 liefern bei sonst vergleichbaren Analysen sehr ähnliche Evidenz. Berichten Sie die Werte mit Effektschätzung und Unsicherheit. Das Überschreiten von 0,05 allein belegt keinen bedeutsamen wissenschaftlichen Unterschied."
+    },
+    "pt": {
+      "heading": "Um limiar não cria uma ruptura",
+      "body": "Valores p = 0,049 e p = 0,051 oferecem evidências muito semelhantes em análises comparáveis. Relate-os com estimativas do efeito e incerteza; cruzar 0,05 sozinho não estabelece uma diferença científica relevante."
+    },
+    "ar": {
+      "heading": "العتبة لا تصنع قفزة في الأدلة",
+      "body": "تعطي القيمتان p = 0.049 وp = 0.051 أدلة متقاربة جدًا في تحليلات متشابهة. اعرضهما مع تقديرات الأثر وعدم اليقين؛ فعبور 0.05 وحده لا يثبت فرقًا علميًا ذا معنى."
+    },
+    "hi": {
+      "heading": "सीमा से प्रमाण में छलाँग नहीं आती",
+      "body": "अन्यथा तुलनीय विश्लेषणों में p = 0.049 और p = 0.051 बहुत समान प्रमाण देते हैं। प्रभाव अनुमान और अनिश्चितता के साथ मान बताएँ; केवल 0.05 पार करना सार्थक वैज्ञानिक अंतर स्थापित नहीं करता।"
+    },
+    "tl": {
+      "heading": "Hindi matarik na hangganan ang threshold",
+      "body": "Ang p = 0.049 at p = 0.051 ay nagbibigay ng halos magkatulad na ebidensiya sa maihahambing na analyses. Iulat kasama ng effect estimates at uncertainty; hindi sapat ang pagtawid sa 0.05 para sa makabuluhang siyentipikong pagkakaiba."
+    }
+  },
+  "percent-calculator": {
+    "en": {
+      "heading": "Equal gains and losses do not cancel",
+      "body": "A value rising 20% and then falling 20% goes from 100 to 120 to 96. The second change uses the larger base, so the combined result is a 4% loss, not a return to 100."
+    },
+    "es": {
+      "heading": "Aumentos y caídas iguales no se cancelan",
+      "body": "Un valor que sube 20% y luego baja 20% pasa de 100 a 120 y a 96. El segundo cambio usa una base mayor: el resultado es una pérdida del 4%, no volver a 100."
+    },
+    "fr": {
+      "heading": "Hausses et baisses égales ne s’annulent pas",
+      "body": "Une valeur augmentant de 20% puis baissant de 20% passe de 100 à 120 puis 96. Le second changement utilise une base supérieure : le résultat est une perte de 4%, pas un retour à 100."
+    },
+    "de": {
+      "heading": "Gleiche Prozentänderungen gleichen sich nicht aus",
+      "body": "Eine Erhöhung um 20% mit anschließender Senkung um 20% führt von 100 über 120 auf 96. Die zweite Änderung nutzt die größere Basis; insgesamt entstehen 4% Verlust, keine Rückkehr zu 100."
+    },
+    "pt": {
+      "heading": "Altas e quedas iguais não se anulam",
+      "body": "Um valor que sobe 20% e depois cai 20% passa de 100 para 120 e 96. A segunda mudança usa uma base maior: o resultado é perda de 4%, não retorno a 100."
+    },
+    "ar": {
+      "heading": "الزيادة والنقصان المتساويان لا يتعادلان",
+      "body": "قيمة ترتفع 20% ثم تنخفض 20% تنتقل من 100 إلى 120 ثم إلى 96. يستخدم التغير الثاني أساسًا أكبر؛ لذا تكون النتيجة الإجمالية خسارة 4%، وليست عودة إلى 100."
+    },
+    "hi": {
+      "heading": "बराबर बढ़त और गिरावट नहीं मिटतीं",
+      "body": "20% बढ़कर फिर 20% घटने वाला मान 100 से 120 और फिर 96 होता है। दूसरा बदलाव बड़े आधार पर लगता है; संयुक्त परिणाम 4% हानि है, 100 पर वापसी नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi nagkakansela ang pantay na porsiyento",
+      "body": "Ang 20% pagtaas at kasunod na 20% pagbaba ay mula 100 tungong 120 at 96. Mas malaking base ang gamit sa ikalawang pagbabago, kaya 4% ang kabuuang pagkawala, hindi pagbabalik sa 100."
+    }
+  },
+  "percent-error-calculator": {
+    "en": {
+      "heading": "Small references amplify relative errors",
+      "body": "An observed 0.02 against a reference of 0.01 gives 100% error, although the absolute gap is only 0.01 units. Report the absolute difference too when a reference near zero makes percentages look disproportionately large."
+    },
+    "es": {
+      "heading": "Las referencias pequeñas amplifican errores relativos",
+      "body": "Observar 0,02 frente a una referencia de 0,01 da 100% de error, aunque la diferencia absoluta es solo 0,01 unidades. Informa también esa diferencia cuando una referencia cercana a cero produce porcentajes desproporcionados."
+    },
+    "fr": {
+      "heading": "Les petites références amplifient l’erreur relative",
+      "body": "Une observation de 0,02 pour une référence de 0,01 donne 100% d’erreur, malgré un écart absolu de 0,01 unité. Indiquez aussi cet écart lorsqu’une référence proche de zéro rend les pourcentages disproportionnés."
+    },
+    "de": {
+      "heading": "Kleine Referenzen vergrößern relative Fehler",
+      "body": "Ein Messwert von 0,02 gegenüber einer Referenz von 0,01 ergibt 100% Fehler, obwohl der absolute Abstand nur 0,01 Einheiten beträgt. Berichten Sie auch diesen Abstand, wenn nahezu null liegende Referenzen übergroße Prozentwerte erzeugen."
+    },
+    "pt": {
+      "heading": "Referências pequenas ampliam erros relativos",
+      "body": "Um valor observado de 0,02 diante da referência 0,01 dá 100% de erro, embora a diferença absoluta seja apenas 0,01 unidade. Informe também essa diferença quando referências próximas de zero gerarem porcentagens desproporcionais."
+    },
+    "ar": {
+      "heading": "المراجع الصغيرة تضخم الأخطاء النسبية",
+      "body": "قيمة مرصودة 0.02 مقارنة بمرجع 0.01 تعطي خطأ 100%، رغم أن الفارق المطلق 0.01 وحدة فقط. اعرض الفارق المطلق أيضًا عندما يجعل المرجع القريب من الصفر النسبة المئوية كبيرة بصورة مضللة."
+    },
+    "hi": {
+      "heading": "छोटा संदर्भ सापेक्ष त्रुटि बढ़ाता है",
+      "body": "0.01 संदर्भ के मुकाबले 0.02 अवलोकन 100% त्रुटि देता है, जबकि निरपेक्ष अंतर केवल 0.01 इकाई है। शून्य के पास संदर्भ से प्रतिशत बहुत बड़ा दिखे तो निरपेक्ष अंतर भी बताएँ।"
+    },
+    "tl": {
+      "heading": "Pinalalaki ng maliit na reference ang porsiyento",
+      "body": "Ang observed na 0.02 laban sa reference na 0.01 ay 100% error, kahit 0.01 unit lang ang absolute gap. Iulat din ang absolute difference kapag halos zero ang reference at napakalaki ng porsiyento."
+    }
+  },
+  "permutation-and-combination-calculator": {
+    "en": {
+      "heading": "Selecting everyone can still involve ordering",
+      "body": "Choosing all 5 people gives one combination, but placing those same people in 5 distinct positions gives 120 permutations. Selecting the same membership does not eliminate the different arrangements when position still matters."
+    },
+    "es": {
+      "heading": "Elegir a todos aún permite ordenar",
+      "body": "Elegir a las 5 personas da una combinación, pero asignarlas a 5 posiciones distintas da 120 permutaciones. Seleccionar los mismos integrantes no elimina las diferentes disposiciones cuando la posición sigue importando."
+    },
+    "fr": {
+      "heading": "Choisir tout le monde laisse des ordres",
+      "body": "Choisir les 5 personnes donne une combinaison, mais les placer dans 5 positions distinctes donne 120 permutations. Une composition identique du groupe n’élimine pas les arrangements différents lorsque la position compte."
+    },
+    "de": {
+      "heading": "Alle auswählen kann weiterhin Anordnung bedeuten",
+      "body": "Alle 5 Personen auszuwählen ergibt eine Kombination; dieselben Personen auf 5 verschiedene Positionen zu verteilen ergibt 120 Permutationen. Gleiche Gruppenmitglieder beseitigen die verschiedenen Anordnungen nicht, solange die Position wichtig ist."
+    },
+    "pt": {
+      "heading": "Escolher todos ainda pode envolver ordem",
+      "body": "Escolher as 5 pessoas dá uma combinação, mas distribuí-las em 5 posições distintas dá 120 permutações. Selecionar os mesmos integrantes não elimina as diferentes disposições quando a posição continua importante."
+    },
+    "ar": {
+      "heading": "اختيار الجميع قد يظل يتضمن ترتيبًا",
+      "body": "اختيار الأشخاص الخمسة جميعًا يعطي توافقًا واحدًا، لكن وضعهم في خمسة مواقع مميزة يعطي 120 تبديلًا. ثبات أعضاء المجموعة لا يلغي اختلاف الترتيبات عندما يظل للموقع دور في تعريف النتيجة."
+    },
+    "hi": {
+      "heading": "सभी चुने जाने पर भी क्रम",
+      "body": "सभी 5 व्यक्तियों को चुनने का एक संयोजन है, लेकिन उन्हीं को 5 अलग पदों पर रखने के 120 क्रमचय हैं। सदस्य समान होने से अलग व्यवस्थाएँ नहीं मिटतीं, यदि स्थान महत्वपूर्ण हो।"
+    },
+    "tl": {
+      "heading": "May ayos pa rin kahit lahat pinili",
+      "body": "Ang pagpili sa lahat ng 5 tao ay isang combination, ngunit ang paglalagay sa kanila sa 5 magkaibang posisyon ay 120 permutations. Hindi nawawala ang magkakaibang ayos dahil pareho ang mga miyembro kung mahalaga ang posisyon."
+    }
+  },
+  "prime-factorization-calculator": {
+    "en": {
+      "heading": "Exponents reveal the number of divisors",
+      "body": "Since 72 = 2³ × 3², each positive divisor chooses zero through three twos and zero through two threes. There are (3 + 1)(2 + 1) = 12 choices, giving 12 positive divisors."
+    },
+    "es": {
+      "heading": "Los exponentes revelan cuántos divisores hay",
+      "body": "Como 72 = 2³ × 3², cada divisor positivo elige de cero a tres doses y de cero a dos treses. Hay (3 + 1)(2 + 1) = 12 posibilidades, es decir, 12 divisores positivos."
+    },
+    "fr": {
+      "heading": "Les exposants donnent le nombre de diviseurs",
+      "body": "Puisque 72 = 2³ × 3², chaque diviseur positif choisit zéro à trois facteurs 2 et zéro à deux facteurs 3. Cela donne (3 + 1)(2 + 1) = 12 choix, donc 12 diviseurs positifs."
+    },
+    "de": {
+      "heading": "Exponenten verraten die Anzahl der Teiler",
+      "body": "Weil 72 = 2³ × 3², wählt jeder positive Teiler null bis drei Zweier und null bis zwei Dreier. Das ergibt (3 + 1)(2 + 1) = 12 Möglichkeiten und damit 12 positive Teiler."
+    },
+    "pt": {
+      "heading": "Os expoentes revelam quantos divisores existem",
+      "body": "Como 72 = 2³ × 3², cada divisor positivo escolhe de zero a três fatores 2 e de zero a dois fatores 3. Existem (3 + 1)(2 + 1) = 12 possibilidades, dando 12 divisores positivos."
+    },
+    "ar": {
+      "heading": "الأسس تكشف عدد القواسم الموجبة",
+      "body": "بما أن 72 = 2³ × 3²، يختار كل قاسم موجب من صفر إلى ثلاثة عوامل 2، ومن صفر إلى عاملين 3. توجد (3 + 1)(2 + 1) = 12 إمكانية، أي 12 قاسمًا موجبًا."
+    },
+    "hi": {
+      "heading": "घातें भाजकों की संख्या बताती हैं",
+      "body": "72 = 2³ × 3² होने से हर धनात्मक भाजक में शून्य से तीन 2 और शून्य से दो 3 चुने जाते हैं। (3 + 1)(2 + 1) = 12 विकल्प हैं, यानी 12 धनात्मक भाजक।"
+    },
+    "tl": {
+      "heading": "Ipinakikita ng exponents ang bilang ng divisors",
+      "body": "Dahil 72 = 2³ × 3², pumipili ang bawat positive divisor ng zero hanggang tatlong 2 at zero hanggang dalawang 3. May (3 + 1)(2 + 1) = 12 pagpipilian, kaya 12 positive divisors."
+    }
+  },
+  "probability-calculator": {
+    "en": {
+      "heading": "At least one avoids double counting",
+      "body": "With three independent trials each having a 10% success chance, the chance of at least one success is 1 − 0.9³ = 27.1%. Adding 10% three times counts some multiple-success outcomes more than once."
+    },
+    "es": {
+      "heading": "Al menos uno evita duplicar resultados",
+      "body": "Con tres intentos independientes de 10% de éxito cada uno, la probabilidad de al menos un éxito es 1 − 0,9³ = 27,1%. Sumar tres veces 10% cuenta algunos resultados con varios éxitos repetidamente."
+    },
+    "fr": {
+      "heading": "Au moins un évite les doubles comptes",
+      "body": "Avec trois essais indépendants ayant chacun 10% de réussite, la probabilité d’au moins une réussite est 1 − 0,9³ = 27,1%. Additionner trois fois 10% compte plusieurs fois certains résultats comportant plusieurs réussites."
+    },
+    "de": {
+      "heading": "Mindestens ein Erfolg vermeidet Doppelzählungen",
+      "body": "Bei drei unabhängigen Versuchen mit je 10% Erfolgschance beträgt die Wahrscheinlichkeit mindestens eines Erfolgs 1 − 0,9³ = 27,1%. Dreimal 10% zu addieren zählt manche Ergebnisse mit mehreren Erfolgen mehrfach."
+    },
+    "pt": {
+      "heading": "Pelo menos um evita contagem duplicada",
+      "body": "Com três tentativas independentes de 10% de sucesso cada, a chance de pelo menos um sucesso é 1 − 0,9³ = 27,1%. Somar 10% três vezes conta alguns resultados com múltiplos sucessos mais de uma vez."
+    },
+    "ar": {
+      "heading": "نجاح واحد على الأقل يمنع التكرار",
+      "body": "في ثلاث محاولات مستقلة احتمال النجاح بكل منها 10%، يكون احتمال نجاح واحد على الأقل 1 − 0.9³ = 27.1%. جمع 10% ثلاث مرات يعد بعض النتائج ذات النجاحات المتعددة أكثر من مرة."
+    },
+    "hi": {
+      "heading": "पूरक संभावना से दोहरी गिनती रोकें",
+      "body": "तीन स्वतंत्र प्रयासों में प्रत्येक की सफलता संभावना 10% हो तो कम से कम एक सफलता की संभावना 1 − 0.9³ = 27.1% है। तीन बार 10% जोड़ना कुछ बहु-सफलता परिणामों को दोबारा गिनता है।"
+    },
+    "tl": {
+      "heading": "Iwas dobleng bilang sa kahit isang tagumpay",
+      "body": "Sa tatlong independent trials na may tig-10% chance ng tagumpay, ang kahit isang tagumpay ay 1 − 0.9³ = 27.1%. Ang pagdaragdag ng 10% nang tatlong beses ay muling binibilang ang ilang multiple-success outcomes."
+    }
+  },
+  "pythagorean-theorem-calculator": {
+    "en": {
+      "heading": "Scaling preserves the right-angle relationship",
+      "body": "A 3–4–5 triangle and a 6–8–10 triangle satisfy the same relationship because every side doubles. Their areas differ by a factor of four, so doubling a diagonal does not merely double the enclosed area."
+    },
+    "es": {
+      "heading": "Escalar conserva la relación del ángulo recto",
+      "body": "Los triángulos 3–4–5 y 6–8–10 cumplen la misma relación porque se duplican todos los lados. Sus áreas difieren por un factor de cuatro; duplicar la diagonal no solo duplica el área encerrada."
+    },
+    "fr": {
+      "heading": "L’agrandissement préserve la relation d’angle droit",
+      "body": "Les triangles 3–4–5 et 6–8–10 satisfont la même relation car chaque côté double. Leurs aires diffèrent d’un facteur quatre : doubler une diagonale ne fait pas simplement doubler l’aire correspondante."
+    },
+    "de": {
+      "heading": "Skalierung erhält die Beziehung des rechten Winkels",
+      "body": "Ein 3–4–5- und ein 6–8–10-Dreieck erfüllen dieselbe Beziehung, da jede Seite verdoppelt wird. Ihre Flächen unterscheiden sich um Faktor vier. Eine verdoppelte Diagonale bedeutet daher nicht nur doppelte Fläche."
+    },
+    "pt": {
+      "heading": "A escala preserva o ângulo reto",
+      "body": "Os triângulos 3–4–5 e 6–8–10 satisfazem a mesma relação porque todos os lados dobram. Suas áreas diferem por um fator de quatro; dobrar a diagonal não apenas dobra a área correspondente."
+    },
+    "ar": {
+      "heading": "التكبير يحافظ على علاقة الزاوية القائمة",
+      "body": "المثلثان 3–4–5 و6–8–10 يحققان العلاقة نفسها لأن كل ضلع يتضاعف. لكن مساحة الثاني أربعة أمثال الأول؛ لذا فإن مضاعفة القطر عند تكبير الشكل لا تعني مجرد مضاعفة المساحة المحصورة."
+    },
+    "hi": {
+      "heading": "पैमाना बदलने पर समकोण संबंध रहता है",
+      "body": "3–4–5 और 6–8–10 त्रिभुज समान संबंध मानते हैं क्योंकि हर भुजा दोगुनी होती है। उनकी क्षेत्रफल मात्रा चार गुनी अलग है; विकर्ण दोगुना करने से घिरा क्षेत्रफल केवल दोगुना नहीं होता।"
+    },
+    "tl": {
+      "heading": "Nananatili ang right-angle relationship sa scaling",
+      "body": "Ang 3–4–5 at 6–8–10 na triangles ay may parehong relasyon dahil doble ang bawat side. Apat na beses ang pagkakaiba ng area, kaya ang pagdoble ng diagonal ay hindi simpleng pagdoble ng nakapaloob na area."
+    }
+  },
+  "quadratic-formula-calculator": {
+    "en": {
+      "heading": "Move every term before copying coefficients",
+      "body": "For x² = 5x − 6, rewrite the equation as x² − 5x + 6 = 0, then enter 1, −5 and 6. Copying the right-hand signs directly would solve a different equation."
+    },
+    "es": {
+      "heading": "Mueve todos los términos antes de copiar",
+      "body": "Para x² = 5x − 6, reescribe x² − 5x + 6 = 0 e introduce 1, −5 y 6. Copiar directamente los signos del lado derecho resolvería una ecuación distinta."
+    },
+    "fr": {
+      "heading": "Déplacer les termes avant de saisir",
+      "body": "Pour x² = 5x − 6, réécrivez x² − 5x + 6 = 0, puis saisissez 1, −5 et 6. Copier directement les signes du membre droit résoudrait une autre équation."
+    },
+    "de": {
+      "heading": "Vor der Koeffizienteneingabe alle Terme umstellen",
+      "body": "Schreiben Sie x² = 5x − 6 zunächst als x² − 5x + 6 = 0 und geben Sie 1, −5 und 6 ein. Direkt übernommene Vorzeichen der rechten Seite würden eine andere Gleichung lösen."
+    },
+    "pt": {
+      "heading": "Mova os termos antes de copiar",
+      "body": "Para x² = 5x − 6, reescreva x² − 5x + 6 = 0 e informe 1, −5 e 6. Copiar diretamente os sinais do lado direito resolveria uma equação diferente."
+    },
+    "ar": {
+      "heading": "انقل الحدود قبل نسخ المعاملات",
+      "body": "للمعادلة x² = 5x − 6، أعد كتابتها x² − 5x + 6 = 0، ثم أدخل 1 و−5 و6. نسخ إشارات الطرف الأيمن مباشرة سيؤدي إلى حل معادلة مختلفة."
+    },
+    "hi": {
+      "heading": "गुणांक भरने से पहले पद स्थानांतरित करें",
+      "body": "x² = 5x − 6 को x² − 5x + 6 = 0 लिखें, फिर 1, −5 और 6 भरें। दाएँ पक्ष के चिह्न सीधे नकल करने से आप दूसरी समीकरण हल करेंगे।"
+    },
+    "tl": {
+      "heading": "Ilipat ang mga term bago kumopya",
+      "body": "Para sa x² = 5x − 6, isulat muna bilang x² − 5x + 6 = 0, saka ilagay ang 1, −5 at 6. Ibang equation ang malulutas kapag direktang kinopya ang signs sa kanan."
+    }
+  },
+  "random-number-generator": {
+    "en": {
+      "heading": "Decimal precision determines the available pool",
+      "body": "From 0 to 1 inclusive with two decimal places, there are 101 possible values: 0.00, 0.01, through 1.00. Requesting 102 unique results is impossible even though the underlying interval contains infinitely many real numbers."
+    },
+    "es": {
+      "heading": "La precisión decimal determina las opciones",
+      "body": "De 0 a 1 incluidos, con dos decimales, hay 101 valores: 0,00, 0,01, hasta 1,00. Pedir 102 resultados únicos es imposible, aunque el intervalo contenga infinitos números reales."
+    },
+    "fr": {
+      "heading": "La précision décimale détermine les possibilités",
+      "body": "De 0 à 1 inclus, avec deux décimales, il existe 101 valeurs possibles : 0,00, 0,01, jusqu’à 1,00. Demander 102 résultats distincts est impossible, même si l’intervalle contient une infinité de réels."
+    },
+    "de": {
+      "heading": "Die Dezimalpräzision bestimmt den verfügbaren Vorrat",
+      "body": "Zwischen 0 und 1 einschließlich gibt es mit zwei Nachkommastellen 101 mögliche Werte: 0,00, 0,01 bis 1,00. 102 eindeutige Ergebnisse sind unmöglich, obwohl das zugrunde liegende Intervall unendlich viele reelle Zahlen enthält."
+    },
+    "pt": {
+      "heading": "A precisão decimal determina as opções",
+      "body": "De 0 a 1 inclusive, com duas casas decimais, existem 101 valores: 0,00, 0,01, até 1,00. Pedir 102 resultados únicos é impossível, embora o intervalo contenha infinitos números reais."
+    },
+    "ar": {
+      "heading": "الدقة العشرية تحدد مجموعة القيم",
+      "body": "من 0 إلى 1 شاملًا الطرفين، مع منزلتين عشريتين، توجد 101 قيمة ممكنة: 0.00 و0.01 حتى 1.00. طلب 102 نتيجة فريدة مستحيل، رغم أن الفترة الأصلية تحتوي أعدادًا حقيقية لا نهائية."
+    },
+    "hi": {
+      "heading": "दशमलव सटीकता उपलब्ध मान तय करती है",
+      "body": "0 से 1 तक दोनों सिरों सहित दो दशमलव स्थानों पर 101 मान हैं: 0.00, 0.01 से 1.00 तक। 102 अद्वितीय परिणाम असंभव हैं, भले मूल अंतराल में अनंत वास्तविक संख्याएँ हों।"
+    },
+    "tl": {
+      "heading": "Precision ang nagtatakda ng posibleng values",
+      "body": "Mula 0 hanggang 1 kasama ang endpoints at may dalawang decimal places, may 101 values: 0.00, 0.01, hanggang 1.00. Imposible ang 102 unique results kahit may walang katapusang real numbers sa interval."
+    }
+  },
+  "ratio-calculator": {
+    "en": {
+      "heading": "Adding equally does not preserve proportion",
+      "body": "The ratio 12:18 simplifies to 2:3, but adding 2 to each side gives 14:20, which simplifies to 7:10. Preserve a ratio by multiplying both parts by the same factor, not by adding equal amounts."
+    },
+    "es": {
+      "heading": "Sumar lo mismo no conserva proporciones",
+      "body": "La razón 12:18 se simplifica a 2:3, pero sumar 2 a cada parte da 14:20, equivalente a 7:10. Conserva la proporción multiplicando ambas partes por el mismo factor, no sumando cantidades iguales."
+    },
+    "fr": {
+      "heading": "Ajouter autant ne préserve pas la proportion",
+      "body": "Le rapport 12:18 se réduit à 2:3, mais ajouter 2 à chaque terme donne 14:20, soit 7:10. Préservez le rapport en multipliant les deux termes par le même facteur, sans ajouter une même quantité."
+    },
+    "de": {
+      "heading": "Gleiches Addieren erhält das Verhältnis nicht",
+      "body": "12:18 vereinfacht sich zu 2:3. Addiert man auf beiden Seiten 2, entsteht 14:20 beziehungsweise 7:10. Ein Verhältnis bleibt durch Multiplikation beider Teile mit demselben Faktor erhalten, nicht durch gleiche Zuschläge."
+    },
+    "pt": {
+      "heading": "Somar igualmente não preserva a proporção",
+      "body": "A razão 12:18 simplifica para 2:3, mas somar 2 a cada termo dá 14:20, equivalente a 7:10. Preserve a proporção multiplicando ambos pelo mesmo fator, não somando quantidades iguais."
+    },
+    "ar": {
+      "heading": "الإضافة المتساوية لا تحفظ التناسب",
+      "body": "النسبة 12:18 تختزل إلى 2:3، لكن إضافة 2 لكل طرف تعطي 14:20، أي 7:10. احفظ النسبة بضرب الطرفين في العامل نفسه، لا بإضافة المقدار نفسه إلى كليهما."
+    },
+    "hi": {
+      "heading": "बराबर जोड़ना अनुपात नहीं बचाता",
+      "body": "12:18 का सरल रूप 2:3 है, लेकिन दोनों ओर 2 जोड़ने से 14:20 यानी 7:10 मिलता है। अनुपात बनाए रखने के लिए दोनों भाग समान गुणक से गुणा करें, समान मात्रा जोड़ें नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi sapat ang pantay na dagdag",
+      "body": "Ang 12:18 ay nagiging 2:3, pero ang pagdagdag ng 2 sa magkabilang bahagi ay 14:20, o 7:10. Panatilihin ang ratio sa pagpaparami ng parehong factor, hindi sa pagdaragdag ng parehong dami."
+    }
+  },
+  "right-triangle-calculator": {
+    "en": {
+      "heading": "The hypotenuse altitude is a separate length",
+      "body": "In a 3–4–5 right triangle, the altitude to the hypotenuse is 2.4, while the legs are 3 and 4. Select the altitude field only for that perpendicular segment; substituting a leg changes the problem."
+    },
+    "es": {
+      "heading": "La altura a la hipotenusa es distinta",
+      "body": "En un triángulo rectángulo 3–4–5, la altura sobre la hipotenusa es 2,4, mientras los catetos son 3 y 4. Usa el campo de altura solo para ese segmento perpendicular; sustituirlo por un cateto cambia el problema."
+    },
+    "fr": {
+      "heading": "La hauteur sur l’hypoténuse est distincte",
+      "body": "Dans un triangle rectangle 3–4–5, la hauteur sur l’hypoténuse vaut 2,4, contre 3 et 4 pour les côtés de l’angle droit. Le champ hauteur désigne ce segment perpendiculaire ; substituer un côté change le problème."
+    },
+    "de": {
+      "heading": "Die Hypotenusenhöhe ist eine eigene Länge",
+      "body": "Im rechtwinkligen 3–4–5-Dreieck beträgt die Höhe auf die Hypotenuse 2,4; die Katheten sind 3 und 4. Verwenden Sie das Höhenfeld nur für dieses Lot. Eine eingesetzte Kathete verändert die Aufgabe."
+    },
+    "pt": {
+      "heading": "A altura à hipotenusa é distinta",
+      "body": "No triângulo retângulo 3–4–5, a altura à hipotenusa é 2,4, enquanto os catetos são 3 e 4. Use o campo de altura para esse segmento perpendicular; substituí-lo por um cateto muda o problema."
+    },
+    "ar": {
+      "heading": "الارتفاع على الوتر طول مستقل",
+      "body": "في مثلث قائم أضلاعه 3–4–5، يبلغ الارتفاع على الوتر 2.4، بينما الضلعان القائمان 3 و4. اختر حقل الارتفاع لهذا العمود فقط؛ فوضع أحد الضلعين مكانه يغير المسألة نفسها."
+    },
+    "hi": {
+      "heading": "कर्ण पर ऊँचाई अलग लंबाई है",
+      "body": "3–4–5 समकोण त्रिभुज में कर्ण पर ऊँचाई 2.4 है, जबकि लंबवत भुजाएँ 3 और 4 हैं। ऊँचाई वाला खाना उसी लंब खंड के लिए है; भुजा भरने से प्रश्न बदल जाता है।"
+    },
+    "tl": {
+      "heading": "Hiwalay na haba ang altitude sa hypotenuse",
+      "body": "Sa 3–4–5 right triangle, ang altitude sa hypotenuse ay 2.4, habang 3 at 4 ang legs. Gamitin ang altitude field para lamang sa perpendicular segment na iyon; binabago ng pagpalit ng leg ang problema."
+    }
+  },
+  "root-calculator": {
+    "en": {
+      "heading": "A principal root is one answer",
+      "body": "The square-root result for 9 is 3, while the equation x² = 9 has two real solutions, 3 and −3. Use the root result as a function value, not as a complete equation solution list."
+    },
+    "es": {
+      "heading": "La raíz principal es una respuesta",
+      "body": "La raíz cuadrada de 9 devuelve 3, mientras que x² = 9 tiene dos soluciones reales: 3 y −3. Usa la raíz como valor de una función, no como lista completa de soluciones."
+    },
+    "fr": {
+      "heading": "La racine principale est une réponse",
+      "body": "La racine carrée de 9 vaut 3, tandis que l’équation x² = 9 possède deux solutions réelles, 3 et −3. Utilisez la racine comme valeur de fonction, pas comme liste complète des solutions."
+    },
+    "de": {
+      "heading": "Eine Hauptwurzel ist nur ein Funktionswert",
+      "body": "Die Quadratwurzel von 9 ergibt 3, während x² = 9 zwei reelle Lösungen hat: 3 und −3. Nutzen Sie das Wurzelergebnis als Funktionswert, nicht als vollständige Lösungsliste einer Gleichung."
+    },
+    "pt": {
+      "heading": "A raiz principal é uma resposta",
+      "body": "A raiz quadrada de 9 retorna 3, enquanto x² = 9 possui duas soluções reais, 3 e −3. Use a raiz como valor de uma função, não como lista completa das soluções da equação."
+    },
+    "ar": {
+      "heading": "الجذر الرئيسي يمثل إجابة واحدة",
+      "body": "نتيجة الجذر التربيعي للعدد 9 هي 3، بينما للمعادلة x² = 9 حلان حقيقيان: 3 و−3. استخدم نتيجة الجذر بوصفها قيمة دالة، لا قائمة كاملة بحلول المعادلة."
+    },
+    "hi": {
+      "heading": "मुख्य मूल केवल एक मान है",
+      "body": "9 का वर्गमूल परिणाम 3 है, जबकि समीकरण x² = 9 के दो वास्तविक हल 3 और −3 हैं। मूल परिणाम को फलन का मान समझें, समीकरण के सभी हलों की सूची नहीं।"
+    },
+    "tl": {
+      "heading": "Isang sagot ang principal root",
+      "body": "Ang square root ng 9 ay 3, ngunit may dalawang real solution ang x² = 9: 3 at −3. Gamitin ang root bilang function value, hindi bilang kumpletong listahan ng mga solusyon ng equation."
+    }
+  },
+  "rounding-calculator": {
+    "en": {
+      "heading": "Decimal places do not enforce cash increments",
+      "body": "Rounding 1.03 to two decimal places leaves 1.03, while rounding to the nearest 0.05 gives 1.05. Choose increment rounding when permitted amounts follow fixed steps rather than simply a fixed number of decimal digits."
+    },
+    "es": {
+      "heading": "Los decimales no imponen incrementos monetarios",
+      "body": "Redondear 1,03 a dos decimales deja 1,03; al múltiplo de 0,05 más cercano da 1,05. Usa redondeo por incremento cuando los importes permitidos sigan pasos fijos, no solo cierto número de decimales."
+    },
+    "fr": {
+      "heading": "Les décimales n’imposent pas les pas monétaires",
+      "body": "Arrondir 1,03 à deux décimales conserve 1,03, tandis qu’au multiple de 0,05 le plus proche cela donne 1,05. Choisissez l’arrondi par pas lorsque les montants suivent des incréments fixes."
+    },
+    "de": {
+      "heading": "Dezimalstellen erzwingen keine festen Geldschritte",
+      "body": "1,03 auf zwei Nachkommastellen gerundet bleibt 1,03; auf das nächste Vielfache von 0,05 gerundet ergibt es 1,05. Wählen Sie Schrittrundung, wenn erlaubte Beträge festen Abständen folgen statt nur einer festen Dezimalstellenzahl."
+    },
+    "pt": {
+      "heading": "Casas decimais não impõem incrementos monetários",
+      "body": "Arredondar 1,03 para duas casas mantém 1,03; para o múltiplo de 0,05 mais próximo dá 1,05. Use arredondamento por incremento quando os valores permitidos seguirem passos fixos, não apenas certa quantidade de decimais."
+    },
+    "ar": {
+      "heading": "المنازل العشرية لا تفرض خطوات نقدية",
+      "body": "تقريب 1.03 إلى منزلتين عشريتين يبقيه 1.03، بينما تقريبه لأقرب مضاعف 0.05 يعطي 1.05. اختر التقريب بزيادة محددة عندما تتبع القيم المسموحة خطوات ثابتة، لا مجرد عدد ثابت من المنازل."
+    },
+    "hi": {
+      "heading": "दशमलव स्थान नकद अंतराल तय नहीं करते",
+      "body": "1.03 को दो दशमलव स्थानों पर पूर्णांकित करने से 1.03 रहता है; निकटतम 0.05 पर करने से 1.05 मिलता है। अनुमत राशियाँ निश्चित कदमों में हों तो increment rounding चुनें, केवल दशमलव संख्या नहीं।"
+    },
+    "tl": {
+      "heading": "Hindi sapat ang bilang ng decimal places",
+      "body": "Ang 1.03 na ni-round sa dalawang decimal places ay 1.03 pa rin; sa pinakamalapit na 0.05, nagiging 1.05. Piliin ang increment rounding kung nakatakdang pagitan ang pinapayagang halaga, hindi basta bilang ng decimal digits."
+    }
+  },
+  "sample-size-calculator": {
+    "en": {
+      "heading": "Complementary proportions need equal sample sizes",
+      "body": "Expected proportions of 20% and 80% produce the same p(1−p) and therefore the same sample-size estimate when other settings match. The uncertainty depends on the balance between outcomes, not which outcome you call a success."
+    },
+    "es": {
+      "heading": "Las proporciones complementarias requieren igual muestra",
+      "body": "Proporciones esperadas de 20% y 80% dan el mismo p(1−p) y la misma muestra estimada si los demás ajustes coinciden. La incertidumbre depende del equilibrio de resultados, no de cuál llames éxito."
+    },
+    "fr": {
+      "heading": "Des proportions complémentaires exigent autant d’observations",
+      "body": "Des proportions attendues de 20% et 80% donnent le même p(1−p), donc le même effectif estimé à réglages identiques. L’incertitude dépend de l’équilibre entre résultats, pas de celui que vous nommez réussite."
+    },
+    "de": {
+      "heading": "Komplementäre Anteile brauchen gleich große Stichproben",
+      "body": "Erwartete Anteile von 20% und 80% ergeben dasselbe p(1−p) und bei gleichen Einstellungen dieselbe Stichprobengröße. Die Unsicherheit hängt vom Verhältnis der Ergebnisse ab, nicht davon, welches Sie als Erfolg bezeichnen."
+    },
+    "pt": {
+      "heading": "Proporções complementares exigem amostras iguais",
+      "body": "Proporções esperadas de 20% e 80% geram o mesmo p(1−p) e a mesma amostra estimada com os demais ajustes iguais. A incerteza depende do equilíbrio entre resultados, não de qual você chama de sucesso."
+    },
+    "ar": {
+      "heading": "النسب المتكاملة تحتاج حجم عينة واحدًا",
+      "body": "النسبتان المتوقعتان 20% و80% تعطيان القيمة نفسها لـp(1−p)، وبالتالي حجم العينة المقدر نفسه عند ثبات الإعدادات. يعتمد عدم اليقين على توازن النتائج، لا على النتيجة التي تسميها نجاحًا."
+    },
+    "hi": {
+      "heading": "पूरक अनुपात समान नमूना आकार देते हैं",
+      "body": "20% और 80% अपेक्षित अनुपात समान p(1−p) देते हैं, इसलिए अन्य सेटिंग समान हों तो नमूना आकार भी समान है। अनिश्चितता परिणामों के संतुलन पर निर्भर है, किसे सफलता कहते हैं उस पर नहीं।"
+    },
+    "tl": {
+      "heading": "Pareho ang sample size ng complementary proportions",
+      "body": "Ang inaasahang 20% at 80% ay may parehong p(1−p), kaya pareho ang sample-size estimate kung magkapareho ang ibang setting. Balanse ng outcomes ang batayan ng uncertainty, hindi kung alin ang tinatawag na success."
+    }
+  },
+  "scientific-calculator": {
+    "en": {
+      "heading": "The angle setting changes function inputs",
+      "body": "sin(30) equals 0.5 in degree mode but approximately −0.988 in radian mode. Both calculations are valid for different angles. Match the selected unit to your source problem before interpreting a surprising trigonometric result."
+    },
+    "es": {
+      "heading": "La unidad angular cambia las funciones",
+      "body": "sin(30) vale 0,5 en grados, pero aproximadamente −0,988 en radianes. Ambos cálculos son válidos para ángulos distintos. Ajusta la unidad al problema original antes de interpretar un resultado trigonométrico inesperado."
+    },
+    "fr": {
+      "heading": "L’unité angulaire change l’entrée des fonctions",
+      "body": "sin(30) vaut 0,5 en degrés, mais environ −0,988 en radians. Les deux calculs sont valides pour des angles différents. Accordez l’unité au problème d’origine avant d’interpréter un résultat trigonométrique surprenant."
+    },
+    "de": {
+      "heading": "Die Winkeleinstellung verändert die Funktionseingabe",
+      "body": "sin(30) ergibt im Gradmodus 0,5, im Bogenmaßmodus jedoch ungefähr −0,988. Beide Rechnungen sind für unterschiedliche Winkel richtig. Stimmen Sie die Einheit mit der Aufgabenstellung ab, bevor Sie ein unerwartetes trigonometrisches Ergebnis interpretieren."
+    },
+    "pt": {
+      "heading": "A unidade angular altera as funções",
+      "body": "sin(30) vale 0,5 em graus, mas aproximadamente −0,988 em radianos. Ambos os cálculos são válidos para ângulos diferentes. Ajuste a unidade ao problema original antes de interpretar um resultado trigonométrico inesperado."
+    },
+    "ar": {
+      "heading": "إعداد الزاوية يغير مدخل الدالة",
+      "body": "تساوي sin(30) مقدار 0.5 في وضع الدرجات، ونحو −0.988 في وضع الراديان. الحسابان صحيحان لزاويتين مختلفتين. طابق الوحدة المختارة مع المسألة الأصلية قبل تفسير نتيجة مثلثية غير متوقعة."
+    },
+    "hi": {
+      "heading": "कोण सेटिंग फलन का इनपुट बदलती है",
+      "body": "sin(30) डिग्री मोड में 0.5 और रेडियन मोड में लगभग −0.988 है। दोनों अलग कोणों के लिए सही हैं। अप्रत्याशित त्रिकोणमितीय परिणाम समझने से पहले चुनी इकाई मूल प्रश्न से मिलाएँ।"
+    },
+    "tl": {
+      "heading": "Binabago ng angle setting ang function input",
+      "body": "Ang sin(30) ay 0.5 sa degree mode ngunit mga −0.988 sa radian mode. Parehong tama para sa magkaibang anggulo. Itugma ang unit sa orihinal na problema bago bigyang-kahulugan ang nakakagulat na trigonometric result."
+    }
+  },
+  "scientific-notation-calculator": {
+    "en": {
+      "heading": "Align powers before adding coefficients",
+      "body": "3×10⁶ + 2×10⁵ equals 3.2×10⁶ because 2×10⁵ is 0.2×10⁶. Adding coefficients and exponents independently would mix the rules for addition and multiplication and produce a completely different magnitude."
+    },
+    "es": {
+      "heading": "Iguala exponentes antes de sumar coeficientes",
+      "body": "3×10⁶ + 2×10⁵ es 3,2×10⁶ porque 2×10⁵ equivale a 0,2×10⁶. Sumar coeficientes y exponentes por separado mezcla las reglas de suma y multiplicación y produce una magnitud totalmente distinta."
+    },
+    "fr": {
+      "heading": "Aligner les puissances avant d’additionner",
+      "body": "3×10⁶ + 2×10⁵ vaut 3,2×10⁶, car 2×10⁵ est 0,2×10⁶. Additionner séparément coefficients et exposants mélange les règles d’addition et de multiplication et produit un ordre de grandeur complètement différent."
+    },
+    "de": {
+      "heading": "Vor der Addition die Zehnerpotenzen angleichen",
+      "body": "3×10⁶ + 2×10⁵ ergibt 3,2×10⁶, weil 2×10⁵ gleich 0,2×10⁶ ist. Koeffizienten und Exponenten getrennt zu addieren vermischt Additions- und Multiplikationsregeln und erzeugt eine völlig andere Größenordnung."
+    },
+    "pt": {
+      "heading": "Iguale as potências antes de somar",
+      "body": "3×10⁶ + 2×10⁵ é 3,2×10⁶ porque 2×10⁵ equivale a 0,2×10⁶. Somar coeficientes e expoentes separadamente mistura as regras de adição e multiplicação e produz uma magnitude completamente diferente."
+    },
+    "ar": {
+      "heading": "وحّد القوى قبل جمع المعاملات",
+      "body": "تساوي 3×10⁶ + 2×10⁵ القيمة 3.2×10⁶، لأن 2×10⁵ تساوي 0.2×10⁶. جمع المعاملات والأسس كل على حدة يخلط قواعد الجمع والضرب، وينتج مقدارًا مختلفًا تمامًا عن المطلوب."
+    },
+    "hi": {
+      "heading": "गुणांक जोड़ने से पहले घात मिलाएँ",
+      "body": "3×10⁶ + 2×10⁵ = 3.2×10⁶, क्योंकि 2×10⁵ = 0.2×10⁶ है। गुणांक और घात अलग-अलग जोड़ने से जोड़ और गुणा के नियम मिल जाते हैं तथा परिमाण बिल्कुल बदल जाता है।"
+    },
+    "tl": {
+      "heading": "Pagtugmain ang powers bago idagdag ang coefficients",
+      "body": "Ang 3×10⁶ + 2×10⁵ ay 3.2×10⁶ dahil 0.2×10⁶ ang 2×10⁵. Ang magkahiwalay na pagdaragdag ng coefficients at exponents ay naghahalo ng tuntunin ng addition at multiplication at nagbibigay ng ibang magnitude."
+    }
+  },
+  "slope-calculator": {
+    "en": {
+      "heading": "A percent grade is not an angle",
+      "body": "A rise of 5 over a horizontal run of 100 gives slope 0.05, or 5% grade. Its angle is approximately 2.86°, not 5°. Keep rise and run in matching length units before converting."
+    },
+    "es": {
+      "heading": "Una pendiente porcentual no es un ángulo",
+      "body": "Subir 5 sobre un avance horizontal de 100 da pendiente 0,05, o 5%. El ángulo es aproximadamente 2,86°, no 5°. Expresa desnivel y distancia horizontal en las mismas unidades antes de convertir."
+    },
+    "fr": {
+      "heading": "Pente en pourcentage et angle diffèrent",
+      "body": "Une montée de 5 pour 100 horizontal donne une pente de 0,05, soit 5%. Son angle est environ 2,86°, pas 5°. Utilisez les mêmes unités de longueur avant de convertir."
+    },
+    "de": {
+      "heading": "Eine Prozentsteigung ist kein Winkel",
+      "body": "5 Höhenzunahme bei 100 waagerechter Strecke ergeben Steigung 0,05 beziehungsweise 5%. Der Winkel beträgt etwa 2,86°, nicht 5°. Verwenden Sie vor dem Umrechnen für Höhe und Strecke dieselben Längeneinheiten."
+    },
+    "pt": {
+      "heading": "Uma inclinação percentual não é um ângulo",
+      "body": "Uma subida de 5 para avanço horizontal de 100 dá inclinação 0,05, ou 5%. O ângulo é aproximadamente 2,86°, não 5°. Use unidades de comprimento iguais antes de converter."
+    },
+    "ar": {
+      "heading": "الميل المئوي ليس زاوية",
+      "body": "ارتفاع 5 مقابل امتداد أفقي 100 يعطي ميلًا 0.05، أي 5%. زاويته نحو 2.86°، لا 5°. استخدم وحدات طول متطابقة للارتفاع والامتداد الأفقي قبل تحويل النسبة إلى زاوية."
+    },
+    "hi": {
+      "heading": "प्रतिशत ढाल कोण नहीं है",
+      "body": "100 क्षैतिज दूरी पर 5 ऊँचाई का अंतर ढाल 0.05, यानी 5% देता है। इसका कोण लगभग 2.86° है, 5° नहीं। रूपांतरण से पहले ऊँचाई और क्षैतिज दूरी समान लंबाई इकाइयों में रखें।"
+    },
+    "tl": {
+      "heading": "Hindi anggulo ang percent grade",
+      "body": "Ang rise na 5 sa horizontal run na 100 ay slope na 0.05, o 5% grade. Mga 2.86° ang anggulo, hindi 5°. Pagtugmain ang length units ng rise at run bago mag-convert."
+    }
+  },
+  "standard-deviation-calculator": {
+    "en": {
+      "heading": "Changing units changes spread predictably",
+      "body": "Multiplying every observation by 10 multiplies standard deviation by 10 and variance by 100. Adding 10 to every observation changes the mean but leaves both spread measures unchanged, because distances from the mean stay the same."
+    },
+    "es": {
+      "heading": "Cambiar unidades transforma la dispersión",
+      "body": "Multiplicar cada observación por 10 multiplica la desviación estándar por 10 y la varianza por 100. Sumar 10 cambia la media, pero no ambas medidas de dispersión, porque las distancias a la media permanecen iguales."
+    },
+    "fr": {
+      "heading": "Changer d’unité transforme la dispersion",
+      "body": "Multiplier chaque observation par 10 multiplie l’écart-type par 10 et la variance par 100. Ajouter 10 change la moyenne, mais laisse ces dispersions inchangées, car les écarts à la moyenne restent identiques."
+    },
+    "de": {
+      "heading": "Einheitenwechsel verändert die Streuung vorhersehbar",
+      "body": "Alle Beobachtungen mit 10 zu multiplizieren verzehnfacht die Standardabweichung und verhundertfacht die Varianz. Überall 10 zu addieren verändert den Mittelwert, aber keine dieser Streuungen, weil die Abstände zum Mittelwert gleich bleiben."
+    },
+    "pt": {
+      "heading": "Mudar unidades transforma a dispersão",
+      "body": "Multiplicar cada observação por 10 multiplica o desvio padrão por 10 e a variância por 100. Somar 10 muda a média, mas mantém ambas as dispersões, pois as distâncias à média continuam iguais."
+    },
+    "ar": {
+      "heading": "تغيير الوحدات يغير التشتت بنمط معلوم",
+      "body": "ضرب كل ملاحظة في 10 يضرب الانحراف المعياري في 10 والتباين في 100. إضافة 10 لكل ملاحظة تغير المتوسط، لكنها تبقي مقياسي التشتت دون تغيير، لأن المسافات عن المتوسط تبقى نفسها."
+    },
+    "hi": {
+      "heading": "इकाई बदलने से फैलाव नियमानुसार बदलता है",
+      "body": "हर मान को 10 से गुणा करने पर मानक विचलन 10 गुना और प्रसरण 100 गुना होता है। हर मान में 10 जोड़ने से औसत बदलता है, दोनों फैलाव नहीं, क्योंकि औसत से दूरियाँ समान रहती हैं।"
+    },
+    "tl": {
+      "heading": "Nagbabago ang spread kapag nagbago ang unit",
+      "body": "Kapag minultiply sa 10 ang bawat obserbasyon, nagiging 10 beses ang standard deviation at 100 beses ang variance. Ang pagdagdag ng 10 ay nagbabago lamang ng mean; pareho pa rin ang layo mula rito."
+    }
+  },
+  "statistics-calculator": {
+    "en": {
+      "heading": "Duplicate rows are not new evidence",
+      "body": "Duplicating every row preserves the mean and population standard deviation while doubling the displayed count. It does not create additional independent observations. Check imports for duplicated records before using the summary to describe your dataset."
+    },
+    "es": {
+      "heading": "Las filas duplicadas no aportan evidencia",
+      "body": "Duplicar cada fila conserva la media y la desviación estándar poblacional, pero duplica el recuento. No crea observaciones independientes adicionales. Revisa los registros importados antes de usar el resumen para describir tus datos."
+    },
+    "fr": {
+      "heading": "Les doublons ne créent pas d’observations",
+      "body": "Dupliquer chaque ligne conserve la moyenne et l’écart-type de population, mais double l’effectif affiché. Cela ne crée pas d’observations indépendantes supplémentaires. Vérifiez les imports avant d’utiliser le résumé pour décrire vos données."
+    },
+    "de": {
+      "heading": "Doppelte Zeilen sind keine neue Evidenz",
+      "body": "Jede Zeile zu verdoppeln erhält Mittelwert und Populationsstandardabweichung, verdoppelt aber die angezeigte Anzahl. Dadurch entstehen keine zusätzlichen unabhängigen Beobachtungen. Prüfen Sie importierte Daten auf doppelte Datensätze, bevor Sie die Zusammenfassung verwenden."
+    },
+    "pt": {
+      "heading": "Linhas duplicadas não são novas evidências",
+      "body": "Duplicar cada linha preserva a média e o desvio padrão populacional, mas dobra a contagem exibida. Isso não cria observações independentes adicionais. Verifique duplicações nos registros importados antes de usar o resumo dos dados."
+    },
+    "ar": {
+      "heading": "الصفوف المكررة ليست أدلة جديدة",
+      "body": "تكرار كل صف يحافظ على المتوسط والانحراف المعياري للمجتمع، لكنه يضاعف العدد المعروض. لا ينشئ ذلك ملاحظات مستقلة إضافية. افحص البيانات المستوردة بحثًا عن سجلات مكررة قبل استخدام الملخص لوصف مجموعة البيانات."
+    },
+    "hi": {
+      "heading": "दोहराई पंक्तियाँ नया प्रमाण नहीं हैं",
+      "body": "हर पंक्ति दोहराने से औसत और समष्टि मानक विचलन समान रहते हैं, लेकिन गिनती दोगुनी होती है। इससे अतिरिक्त स्वतंत्र अवलोकन नहीं बनते। सारांश इस्तेमाल करने से पहले आयातित रिकॉर्ड में दोहराव जाँचें।"
+    },
+    "tl": {
+      "heading": "Hindi bagong ebidensiya ang duplicate rows",
+      "body": "Kapag dinoble ang bawat row, pareho ang mean at population standard deviation ngunit doble ang count. Hindi ito dagdag na independent observations. Suriin ang imported records para sa duplicates bago gamitin ang summary ng dataset."
+    }
+  },
+  "surface-area-calculator": {
+    "en": {
+      "heading": "An open container needs one fewer face",
+      "body": "The cylinder mode includes both circular ends. For an ideal cylinder open at the top, subtract one base area, πr², from the total. Decide which faces actually need covering before estimating material from the result."
+    },
+    "es": {
+      "heading": "Un recipiente abierto tiene una cara menos",
+      "body": "El modo cilindro incluye ambas bases circulares. Para un cilindro ideal abierto arriba, resta un área de base, πr², del total. Decide qué caras necesitan cobertura antes de estimar material con el resultado."
+    },
+    "fr": {
+      "heading": "Un récipient ouvert perd une face",
+      "body": "Le mode cylindre inclut les deux bases circulaires. Pour un cylindre idéal ouvert en haut, soustrayez πr² du total. Déterminez les faces à couvrir avant d’estimer la quantité de matériau nécessaire."
+    },
+    "de": {
+      "heading": "Ein offener Behälter hat eine Fläche weniger",
+      "body": "Der Zylindermodus schließt beide Kreisflächen ein. Bei einem idealen oben offenen Zylinder ziehen Sie eine Grundfläche πr² vom Gesamtwert ab. Entscheiden Sie vor der Materialschätzung, welche Flächen tatsächlich bedeckt werden sollen."
+    },
+    "pt": {
+      "heading": "Recipientes abertos têm uma face a menos",
+      "body": "O modo cilindro inclui as duas bases circulares. Para um cilindro ideal aberto em cima, subtraia πr² do total. Decida quais faces precisam de cobertura antes de estimar o material necessário."
+    },
+    "ar": {
+      "heading": "الوعاء المفتوح يحتاج وجهًا أقل",
+      "body": "يشمل وضع الأسطوانة النهايتين الدائريتين. لأسطوانة مثالية مفتوحة من الأعلى، اطرح مساحة قاعدة واحدة، πr²، من الإجمالي. حدد الوجوه التي تحتاج تغطية فعلًا قبل تقدير كمية المادة من النتيجة."
+    },
+    "hi": {
+      "heading": "खुले पात्र में एक सतह कम है",
+      "body": "सिलेंडर मोड दोनों गोल सिरे शामिल करता है। ऊपर से खुले आदर्श सिलेंडर के लिए कुल से एक आधार क्षेत्रफल πr² घटाएँ। सामग्री अनुमान से पहले तय करें कि वास्तव में कौन-सी सतहें ढकनी हैं।"
+    },
+    "tl": {
+      "heading": "Bawas isang face kapag bukas",
+      "body": "Kasama sa cylinder mode ang dalawang bilog na dulo. Para sa ideal cylinder na bukas sa itaas, ibawas ang isang base area na πr². Alamin muna kung aling faces ang tatakpan bago magtantya ng materyal."
+    }
+  },
+  "triangle-calculator": {
+    "en": {
+      "heading": "An angle label determines the SSA case",
+      "body": "For a = 10, b = 12 and A = 30°, A must be opposite side a. Entering an angle between a and b instead describes SAS; the same three numbers can therefore represent a different triangle problem."
+    },
+    "es": {
+      "heading": "La etiqueta angular determina el caso SSA",
+      "body": "Con a = 10, b = 12 y A = 30°, A debe estar frente a a. Un ángulo entre a y b corresponde a SAS; los mismos números pueden representar un problema triangular distinto."
+    },
+    "fr": {
+      "heading": "Le nom de l’angle définit SSA",
+      "body": "Avec a = 10, b = 12 et A = 30°, A doit être opposé à a. L’angle entre a et b décrit plutôt SAS ; les mêmes nombres peuvent représenter un autre problème triangulaire."
+    },
+    "de": {
+      "heading": "Die Winkelbezeichnung bestimmt den SSA-Fall",
+      "body": "Bei a = 10, b = 12 und A = 30° muss A gegenüber a liegen. Ein Winkel zwischen a und b gehört zum SAS-Fall. Dieselben drei Zahlen können daher eine andere Dreiecksaufgabe beschreiben."
+    },
+    "pt": {
+      "heading": "O nome do ângulo define SSA",
+      "body": "Com a = 10, b = 12 e A = 30°, A deve estar oposto a a. Um ângulo entre a e b descreve SAS; os mesmos números podem representar outro problema de triângulo."
+    },
+    "ar": {
+      "heading": "تسمية الزاوية تحدد حالة ضلعين وزاوية",
+      "body": "عند a = 10 وb = 12 وA = 30°، يجب أن تقابل A الضلع a. إدخال الزاوية بين a وb يصف حالة SAS بدلًا من SSA؛ لذا قد تمثل الأرقام نفسها مسألة مثلث مختلفة."
+    },
+    "hi": {
+      "heading": "कोण की पहचान से SSA तय होता",
+      "body": "a = 10, b = 12 और A = 30° में A को भुजा a के सामने होना चाहिए। a और b के बीच का कोण SAS बनाता है; वही तीन संख्याएँ अलग त्रिभुज प्रश्न बता सकती हैं।"
+    },
+    "tl": {
+      "heading": "Label ng anggulo ang batayan ng SSA",
+      "body": "Para sa a = 10, b = 12 at A = 30°, dapat katapat ng a ang A. Kung nasa pagitan ng a at b ang anggulo, SAS iyon; maaaring ibang problema ang parehong tatlong numero."
+    }
+  },
+  "volume-calculator": {
+    "en": {
+      "heading": "A capsule length excludes its rounded ends",
+      "body": "In capsule mode, cylinder length means the straight middle section. A capsule with overall length 10 and radius 2 has cylinder length 6. Entering 10 for that field would count the rounded ends’ length twice."
+    },
+    "es": {
+      "heading": "La longitud cilíndrica excluye los extremos",
+      "body": "En el modo cápsula, la longitud del cilindro es la parte central recta. Una cápsula de longitud total 10 y radio 2 tiene parte cilíndrica 6. Introducir 10 contaría dos veces la longitud de los extremos."
+    },
+    "fr": {
+      "heading": "La longueur cylindrique exclut les extrémités",
+      "body": "En mode capsule, la longueur du cylindre désigne la partie centrale droite. Une longueur totale de 10 avec rayon 2 donne une partie cylindrique de 6. Saisir 10 compterait deux fois la longueur des extrémités."
+    },
+    "de": {
+      "heading": "Die Zylinderlänge schließt runde Enden aus",
+      "body": "Im Kapselmodus meint Zylinderlänge den geraden Mittelteil. Bei Gesamtlänge 10 und Radius 2 beträgt die Zylinderlänge 6. Eine Eingabe von 10 würde die Länge der abgerundeten Enden doppelt berücksichtigen."
+    },
+    "pt": {
+      "heading": "O comprimento cilíndrico exclui as extremidades",
+      "body": "No modo cápsula, o comprimento do cilindro é a parte central reta. Comprimento total 10 e raio 2 dão parte cilíndrica 6. Informar 10 contaria duas vezes o comprimento das extremidades arredondadas."
+    },
+    "ar": {
+      "heading": "طول الأسطوانة يستبعد النهايات المستديرة",
+      "body": "في وضع الكبسولة، طول الأسطوانة هو الجزء الأوسط المستقيم. كبسولة طولها الكلي 10 ونصف قطرها 2 يكون طول أسطوانتها 6. إدخال 10 في الحقل يحسب طول النهايات المستديرة مرتين."
+    },
+    "hi": {
+      "heading": "सिलेंडर लंबाई में गोल सिरे नहीं",
+      "body": "कैप्सूल मोड में सिलेंडर की लंबाई सीधा बीच का हिस्सा है। कुल लंबाई 10 और त्रिज्या 2 वाले कैप्सूल की सिलेंडर लंबाई 6 है। उस खाने में 10 भरने से गोल सिरों की लंबाई दो बार गिनेगी।"
+    },
+    "tl": {
+      "heading": "Hindi kasama ang bilog na dulo",
+      "body": "Sa capsule mode, cylinder length ang tuwid na gitnang bahagi. Kung 10 ang kabuuang haba at 2 ang radius, 6 ang cylinder length. Madodoble ang pagbilang sa haba ng rounded ends kung 10 ang ilalagay."
+    }
+  },
+  "z-score-calculator": {
+    "en": {
+      "heading": "Central coverage and percentile are different",
+      "body": "Under a standard normal model, z = 1.96 is about the 97.5th percentile, while the interval from −1.96 to 1.96 covers about 95%. A one-sided percentile and a central interval describe different shaded regions."
+    },
+    "es": {
+      "heading": "Cobertura central y percentil son distintos",
+      "body": "En el modelo normal estándar, z = 1,96 corresponde aproximadamente al percentil 97,5, mientras el intervalo de −1,96 a 1,96 cubre cerca del 95%. El percentil unilateral y el intervalo central describen regiones distintas."
+    },
+    "fr": {
+      "heading": "Couverture centrale et percentile sont distincts",
+      "body": "Sous une loi normale standard, z = 1,96 correspond environ au percentile 97,5, tandis que l’intervalle −1,96 à 1,96 couvre environ 95%. Un percentile unilatéral et un intervalle central désignent des régions différentes."
+    },
+    "de": {
+      "heading": "Zentrale Überdeckung und Perzentil unterscheiden sich",
+      "body": "Im Standardnormalmodell entspricht z = 1,96 ungefähr dem 97,5. Perzentil; das Intervall von −1,96 bis 1,96 umfasst dagegen etwa 95%. Ein einseitiges Perzentil und ein zentrales Intervall beschreiben unterschiedliche Flächen."
+    },
+    "pt": {
+      "heading": "Cobertura central e percentil são diferentes",
+      "body": "No modelo normal padrão, z = 1,96 corresponde aproximadamente ao percentil 97,5, enquanto o intervalo de −1,96 a 1,96 cobre cerca de 95%. Um percentil unilateral e um intervalo central descrevem regiões diferentes."
+    },
+    "ar": {
+      "heading": "التغطية المركزية تختلف عن المئين",
+      "body": "في النموذج الطبيعي المعياري، تقابل z = 1.96 المئين 97.5 تقريبًا، بينما تغطي الفترة من −1.96 إلى 1.96 نحو 95%. يصف المئين أحادي الطرف والفترة المركزية منطقتين مختلفتين تحت المنحنى."
+    },
+    "hi": {
+      "heading": "केंद्रीय कवरेज और प्रतिशतक अलग हैं",
+      "body": "मानक सामान्य मॉडल में z = 1.96 लगभग 97.5वाँ प्रतिशतक है, जबकि −1.96 से 1.96 का अंतराल लगभग 95% ढकता है। एकतरफ़ा प्रतिशतक और केंद्रीय अंतराल वक्र के नीचे अलग क्षेत्र बताते हैं।"
+    },
+    "tl": {
+      "heading": "Magkaiba ang central coverage at percentile",
+      "body": "Sa standard normal model, ang z = 1.96 ay mga ika-97.5 percentile, habang mga 95% ang saklaw ng −1.96 hanggang 1.96. Magkaibang shaded regions ang inilalarawan ng one-sided percentile at central interval."
+    }
+  }
+}

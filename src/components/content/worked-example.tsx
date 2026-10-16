@@ -1,3 +1,5 @@
+import copy from '@/data/locales/explanations.json';
+import explanationStyles from './explanation.module.css';
 import {defaults, type Field, type Mode, type Result} from '@/lib/calculators/types';
 import {isFieldActive} from '@/lib/calculators/field-visibility';
 import {displayField} from '@/lib/calculators/input-display';
@@ -34,6 +36,7 @@ export function WorkedExample({mode, result, currency, messages = {}, locale = '
     {(result.metrics.some(metric => metric.format === 'money') || mode.fields.some(field => /\$|£|USD|CAD/.test(field.unit || ''))) &&
       <p>{t('Reference example currency: {currency}. These fixed examples do not change with your calculator preferences.', {currency})}</p>}
     <p>{t('Using the {mode} example:', {mode: t(mode.title)})}</p>
+    <div className={explanationStyles.step}><span aria-hidden="true">1</span>{copy[locale].inputStep}</div>
     <dl className="worked-inputs">{mode.fields.filter(field => isFieldActive(mode, field, values)).map(field => {
       const displayed = displayField(mode, field, values);
       const options = displayed.options?.filter(option => field.type === 'multiselect'
@@ -46,6 +49,9 @@ export function WorkedExample({mode, result, currency, messages = {}, locale = '
         <dd dir="auto">{field.type === 'rows' ? <ExampleRows field={displayed} t={t}/> : value}</dd>
       </div>;
     })}</dl>
+    <div className={explanationStyles.step}><span aria-hidden="true">2</span>{copy[locale].methodStep}</div>
+    <p className={explanationStyles.formula} dir="auto">{t(mode.formula)}</p>
+    <div className={explanationStyles.step}><span aria-hidden="true">3</span>{copy[locale].outputStep}</div>
     <h3>{t('Example result')}</h3>
     <div className="example-answer">{result.metrics.map(metric => <p key={metric.label}>
       {t(metric.label)}: <strong dir="auto">{formatMetric({...metric, unit: metric.unit ? t(metric.unit) : undefined}, currency, languages[locale].tag, t)}</strong>

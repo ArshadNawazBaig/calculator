@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-16T22:05:48.950Z",
+  "baseURL": "http://127.0.0.1:3100/",
+  "canonicalBaseURL": "https://finflo.org/",
+  "sourceRoutes": 717,
+  "localizedURLs": 5736,
+  "concurrency": 2,
+  "checked": 5736,
+  "passed": 5736,
+  "failed": 0,
+  "localizedNoteChecks": 1800,
+  "elapsedSeconds": 254,
+  "receivedBytes": 1023734448,
+  "httpStatuses": {
+    "200": 5736
+  },
+  "byKind": {
+    "time-tool": {
+      "checked": 32,
+      "passed": 32
+    },
+    "regional-clock": {
+      "checked": 3568,
+      "passed": 3568
+    },
+    "homepage": {
+      "checked": 8,
+      "passed": 8
+    },
+    "directory": {
+      "checked": 208,
+      "passed": 208
+    },
+    "student-directory": {
+      "checked": 8,
+      "passed": 8
+    },
+    "guide-directory": {
+      "checked": 8,
+      "passed": 8
+    },
+    "sitemap": {
+      "checked": 8,
+      "passed": 8
+    },
+    "wheel-directory": {
+      "checked": 8,
+      "passed": 8
+    },
+    "spin-wheel": {
+      "checked": 64,
+      "passed": 64
+    },
+    "information": {
+      "checked": 72,
+      "passed": 72
+    },
+    "guide": {
+      "checked": 24,
+      "passed": 24
+    },
+    "calculator": {
+      "checked": 1728,
+      "passed": 1728
+    }
+  },
+  "byLocale": {
+    "en": {
+      "checked": 717,
+      "passed": 717
+    },
+    "es": {
+      "checked": 717,
+      "passed": 717
+    },
+    "fr": {
+      "checked": 717,
+      "passed": 717
+    },
+    "de": {
+      "checked": 717,
+      "passed": 717
+    },
+    "pt": {
+      "checked": 717,
+      "passed": 717
+    },
+    "ar": {
+      "checked": 717,
+      "passed": 717
+    },
+    "tl": {
+      "checked": 717,
+      "passed": 717
+    },
+    "hi": {
+      "checked": 717,
+      "passed": 717
+    }
+  },
+  "checks": [
+    "HTTP 200 and HTML content type",
+    "Exactly one nonempty rendered H1",
+    "Exact localized canonical URL after standard URL normalization",
+    "Actual opening HTML tag for the page-family addition, excluding scripts and comments",
+    "Exact escaped localized heading and body inside calculator and information note sections"
+  ],
+  "scope": "HTTP response HTML for every manifest route and language. This verifies rendered content, not client interaction, visual layout, or the substantive correctness of every calculation.",
+  "failures": [],
+  "followupChecks": [
+    {
+      "checkedAt": "2026-10-16T22:06:33.453Z",
+      "path": "/",
+      "passed": true,
+      "reason": "Normalized canonical URLs after recognizing that https://finflo.org and https://finflo.org/ serialize to the same root URL.",
+      "actualCanonical": "https://finflo.org",
+      "normalizedCanonical": "https://finflo.org/",
+      "checks": [
+        "HTTP200 and HTML content type",
+        "One nonempty rendered H1",
+        "Normalized localized canonical URL",
+        "Opening H2 tag with id percentage-demo-title"
+      ]
+    }
+  ]
+}

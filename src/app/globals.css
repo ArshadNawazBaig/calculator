@@ -136,6 +136,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .skip-link:focus { top: 12px; }
 
 :where([id]) { scroll-margin-top: 88px; }
+/* Menu options are not page anchors; focus must not scroll their parent page. */
+[data-anchored-popover][id], [data-anchored-popover] [id] { scroll-margin-top: 0; }
 
 /* Shared navigation */
 .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 33px; font-weight: 800; letter-spacing: -1.7px; line-height: 1; }

@@ -1,3 +1,5 @@
+import {CalculatorInsight} from '@/components/content/calculator-insight';
+import {MethodNavigation} from '@/components/content/method-navigation';
 import Link from './link';
 import {CalculatorGuidance} from '@/components/content/calculator-guidance';
 import {RelatedGuides} from '@/components/content/related-guides';
@@ -13,9 +15,8 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
   const t=translator(messages);
   const entry=(content as Record<string,{faqs:{question:string;answer:string}[]}>)[definition.slug];
   return <article className="document-body">
-    <section id="how-it-works" tabIndex={-1}><h2>{t('How to use this calculator')}</h2>
-      <p>{t(definition.modes.length>1?'Select the calculation mode that matches your question, then enter the values shown.':'Enter the values in the labeled fields.')} {t('Check the displayed units before calculating. Results reflect the selected model and your inputs.')}</p>
-    </section>
+    <section id="how-it-works" tabIndex={-1}><h2>{t('How it works')}</h2><MethodNavigation modes={definition.modes} messages={messages} locale={locale}/></section>
+    <CalculatorInsight slug={definition.slug} locale={locale}/>
     <CalculatorGuidance slug={definition.slug} messages={messages}/>
     <RelatedGuides slug={definition.slug} messages={messages} locale={locale}/>
     {definition.modes.map(mode=><section key={mode.id} id={`method-${mode.id}`}>
@@ -30,11 +31,6 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
       <p>{t('References explain the underlying methods; they do not imply endorsement or individual professional review of Finflo.')}</p>
     </section>}
     {!!entry?.faqs.length&&<section id="common-questions"><h2>{t('Common questions')}</h2><Accordion>{entry.faqs.map(faq=><AccordionItem key={faq.question} title={t(faq.question)}><p>{t(faq.answer)}</p></AccordionItem>)}</Accordion></section>}
-    <section><h2>{t('About your results')}</h2><Accordion>
-      <AccordionItem title={t('Are my inputs saved?')}><p>{t(definition.slug==='mileage-calculator'?'Road mileage sends selected locations to map providers through Finflo, with temporary server caching. The tool-sharing link contains only the page address.':'Inputs stay in this browser only when you choose Save calculation. Manage saved results and backups in My workspace.')} {definition.slug==='mileage-calculator'&&t('Inputs stay in this browser only when you choose Save calculation. Manage saved results and backups in My workspace.')} <Link href="/privacy">{t('Privacy policy')}</Link></p></AccordionItem>
-      <AccordionItem title={t('Why might another calculator give a different answer?')}><p>{t('Compare units, compounding or timing assumptions, the selected formula, and rounding. A different model can produce a different estimate even when the headline inputs look similar.')}</p></AccordionItem>
-      <AccordionItem title={t('How do I report a result that looks wrong?')}><p><Link href="/contact">{t('Contact Finflo')}</Link>. {t('Use fictional inputs to reproduce the issue. Include the calculation mode, formula, and reference result when possible.')}</p></AccordionItem>
-    </Accordion></section>
     <p className="editorial-note">{t('Prepared by Finflo.')} <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link> · <Link href="/disclaimer">{t('Disclaimer')}</Link></p>
   </article>;
 }

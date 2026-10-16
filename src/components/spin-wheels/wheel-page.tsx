@@ -1,3 +1,4 @@
+import {WheelOdds} from './wheel-odds';
 import Link from '@/components/i18n/link';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {translator, localizedPath, type Dictionary, type Locale} from '@/lib/i18n/config';
@@ -32,6 +33,7 @@ export function WheelPage({slug, locale = 'en', messages = {}}: {slug: string; l
           <section className={styles.answer} id="about-wheel"><h2>{t(guide.question)}</h2><p>{t(guide.answer)}</p></section>
           <section id="how-to-use"><h2>{t("How to use {wheel}", {wheel: wheel.title})}</h2><ol>{guide.steps.map(step => <li key={step}>{t(step)}</li>)}</ol></section>
           {guide.sections.map((section, index) => <section id={`wheel-guide-${index + 1}`} key={t(section.title)}><h2>{t(section.title)}</h2>{section.paragraphs.map(paragraph => <p key={t(paragraph)}>{t(paragraph)}</p>)}</section>)}
+          <WheelOdds entries={wheel.entries} locale={locale}/>
           <section id="how-it-works"><h2>{t("How the random selection works")}</h2>
             <p>{t("Finflo uses your browser’s random-number generator to select an entry when you press Spin the wheel. Each nonempty line has the same probability. The animation then turns the wheel so the fixed pointer lands in the center of the selected entry. Spin speed, slice color, and the position of your click do not change the selected result.")}</p>
             <p>{t("The selection uses the browser’s")}{" "}<a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues" target="_blank" rel="noreferrer">{t("Web Crypto random values")}<span className="sr-only">{" "}{t("(opens in a new tab)")}</span></a>{" "}{t("and discards values that would give some entries an extra chance. Consecutive spins can still repeat. Remove a picked entry to change the available pool before the next spin. With reduced motion enabled on your device, the result appears without the spinning animation.")}</p>

@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-10-16T22:33:54.447968+00:00",
+  "path": "/faq",
+  "languages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "ar",
+    "hi",
+    "tl"
+  ],
+  "questionsPerLanguage": 30,
+  "topicsPerLanguage": 6,
+  "entryPoints": [
+    "Homepage FAQ section",
+    "Global footer",
+    "HTML sitemap",
+    "Production XML sitemap"
+  ],
+  "design": "Existing PageHero, document typography, Accordion/AccordionItem, topic links and theme tokens; no separate visual system.",
+  "verification": {
+    "productionBuild": true,
+    "staticPages": 2285,
+    "typecheck": true,
+    "targetedLint": true,
+    "contentAndRoutingTests": 22,
+    "productionBrowserTests": 12,
+    "translationDictionaryCheck": true,
+    "contentRouteAudit": {
+      "routes": 718,
+      "localizedURLs": 5744,
+      "issues": 0
+    },
+    "schemaMatchesVisibleAnswers": true,
+    "keyboardAndNoJavaScript": true,
+    "mobileAccessibility": true
+  },
+  "sitemap": {
+    "localPreviewIndexing": false,
+    "localXML": "Empty, as configured for a non-indexable local build.",
+    "productionCheck": "Unit test enables indexing and verifies all eight FAQ URLs with reciprocal language alternates."
+  },
+  "visualChecks": [
+    {
+      "path": "/faq",
+      "theme": "light",
+      "width": 1440,
+      "overflow": false,
+      "actualTheme": "light",
+      "direction": "",
+      "questionFont": "15px",
+      "answerFont": "14px",
+      "headingFont": "23px",
+      "questions": 30,
+      "errors": []
+    },
+    {
+      "path": "/ar/faq",
+      "theme": "dark",
+      "width": 390,
+      "overflow": false,
+      "actualTheme": "dark",
+      "direction": "rtl",
+      "questionFont": "14px",
+      "answerFont": "13px",
+      "headingFont": "21px",
+      "questions": 30,
+      "errors": []
+    },
+    {
+      "path": "/hi/faq",
+      "theme": "light",
+      "width": 390,
+      "overflow": false,
+      "actualTheme": "light",
+      "direction": "ltr",
+      "questionFont": "14px",
+      "answerFont": "13px",
+      "headingFont": "21px",
+      "questions": 30,
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Translations have not had independent professional native-language review.",
+    "Changes are local; no deployment or indexing outcome is claimed."
+  ]
+}

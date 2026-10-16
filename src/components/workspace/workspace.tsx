@@ -1,4 +1,5 @@
 'use client';
+import {UtilityGuidance} from '@/components/content/utility-guidance';
 
 import {useEffect, useRef, useState} from 'react';
 import {ArrowRight, Download, FolderHeart, GitCompareArrows, Pencil, Star, Trash2, Upload, X} from 'lucide-react';
@@ -128,6 +129,7 @@ export function WorkspacePage({tools}: {tools: CalculatorCardData[]}) {
     <PageHero eyebrow="FINFLO" title={t('My workspace')} description={t('Your favorite tools, saved calculations, and scenarios in one place.')} breadcrumbs={[{label: t('My workspace')}]}/>
     <div className={`container page-content ${styles.workspace}`}>
       <div className={styles.deviceNote}><FolderHeart size={22} aria-hidden="true"/><p>{t('Saved only in this browser. Clear site data and your saved items will be removed.')} {t('Export a backup to keep a copy or move your workspace to another device.')}</p></div>
+      <UtilityGuidance page="workspace"/>
       {error && <p role="alert" className={styles.error}>{t(error === 'storage' ? 'Browser storage is unavailable. Enable site storage to save your workspace.' : 'Saved data could not be read. Import a backup or clear workspace data.')}</p>}
       <div className={styles.backupActions}>
         <Button type="button" variant="secondary" disabled={!hydrated || Boolean(error) || !data.favorites.length && !data.calculations.length} onClick={exportBackup}><Download size={16} aria-hidden="true"/>{t('Export backup')}</Button>

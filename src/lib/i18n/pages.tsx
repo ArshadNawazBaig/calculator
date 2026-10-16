@@ -1,3 +1,10 @@
+import {FaqPage} from '@/components/content/faq-page';
+import {getFaqContent} from '@/lib/faq';
+import {InformationInsight} from '@/components/content/information-insight';
+import homeSeo from '@/data/locales/home-seo.json';
+import {ToolChooser} from '@/components/content/tool-chooser';
+import {SitemapIndex} from '@/components/content/sitemap-index';
+import {GuideIllustration} from '@/components/content/guide-illustration';
 import {isStudentCalculator, studentDirectory} from '@/lib/student-tools';
 import {StudentDirectory} from '@/components/content/student-directory';
 import {CategoryNavigation} from '@/components/content/category-navigation';
@@ -60,6 +67,7 @@ function routeInfo(path: string) {
     const wheel = wheelMap.get(path.slice('/spin-wheels/'.length));
     return wheel ? {title: wheel.seoTitle, description: wheel.description, wheel} : null;
   }
+  if (path === '/faq') return {title: 'FAQs', description: ''};
   if (path === '/workspace') return {title: 'My workspace', description: 'Your favorite tools, saved calculations, and scenarios in one place.'};
   if (path === '/') return {title: 'Find your answer.', description: 'Free calculators for money, health, math, and everyday life.'};
   if (path === '/sitemap') return {title:'Sitemap', description:'Browse Finflo’s calculators, categories, guides, and website information.'};
@@ -91,10 +99,14 @@ export function localizedMetadata(locale: Locale) {
       const t = translator(await getDictionary(locale));
       return {title: [t('Page not found.'), site.name].join(' | '), description: t('This page may have moved. Browse the directory to find a calculator.'), robots: {index: false, follow: true}};
     }
+    if (path === '/faq') {
+      const copy = await getFaqContent(locale);
+      return pageMetadata(copy.seoTitle, copy.description, path, true, locale);
+    }
     const t = translator(await getContentDictionary(locale));
     if ('time' in route) {const values = {place: 'zone' in route ? route.zone?.place || '' : ''}; return pageMetadata(t(route.title, values) + ' | Finflo', t(route.description, values), path, true, locale);}
     const searchTitle = 'tool' in route && route.tool ? getCalculatorSeoTitle(route.tool.slug) || route.title : path === '/methodology' ? 'Our methodology' : route.title;
-    const title='category' in route&&route.subcategory?`${t(route.subcategory)} · ${t(route.category.name)}`:t(searchTitle);
+    const title=path==='/'?homeSeo[locale]:'category' in route&&route.subcategory?`${t(route.subcategory)} · ${t(route.category.name)}`:t(searchTitle);
     return pageMetadata(title, t(route.description), path, isTranslatedPage(path), locale);
   };
 }
@@ -102,6 +114,7 @@ export function localizedPage(locale: Locale) {
   return async function LocalizedPage({params}: PageProps) {
     const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
     if (!route) notFound();
+    if (path === '/faq') return <FaqPage locale={locale}/>;
     const messages = await getContentDictionary(locale), t = translator(messages);
     if (path === '/maintenance') return <SystemPage code="503" title={t(route.title)} description={t(route.description)}/>;
     if (path === '/offline' || path === '/network-error') return <SystemPage code={path === '/offline' ? t('You’re offline.') : '↻'} title={t(route.title)} description={t(route.description)}><RetryButton label={t('Try again')}/></SystemPage>;
@@ -114,6 +127,7 @@ export function localizedPage(locale: Locale) {
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
       <div className="container directory-page page-content">
+        {path==='/sitemap'&&<SitemapIndex locale={locale} messages={messages}/>}
         <CategoryNavigation currentPath={path} locale={locale} messages={messages}/>
         {path==='/calculators'&&<StudentTools locale={locale} messages={messages}/>}
         <TranslationMessages messages={cardMessages(messages,catalog)}>{categories.map(c => <section className="category-directory" key={c.id} id={c.id}><div className="section-heading"><h2>{t(c.name)}</h2><Link className="text-link" href={`/calculators/${c.id}`}>{t(c.label)}</Link></div><ToolDirectory tools={catalog.filter(tool => tool.category === c.id)}/></section>)}</TranslationMessages>
@@ -147,10 +161,12 @@ export function localizedPage(locale: Locale) {
       const guide = path.startsWith('/guides/');
       return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)} breadcrumbs={[...(guide?[{label:t('Guides'),href:'/guides'}]:[]),{label:t(route.title)}]}/><div className="container document-page page-content"><article className="document-body">
         {guide&&<p className="editorial-note"><Link href="/about">{t('Prepared by Finflo.')}</Link> <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link></p>}
+        {guide&&<GuideIllustration slug={path.split('/').at(-1)!} locale={locale} messages={messages}/>}
+        {!guide&&<InformationInsight slug={path.slice(1)} locale={locale}/>}
         {route.info.sections.map((section,index) => <section key={index}><h2>{t(section.title)}</h2>{section.paragraphs.map((paragraph,i) => <p key={i}>{t(paragraph)}</p>)}{section.links && <ul>{section.links.map(link => <li key={link.href}><Link href={link.href}>{t(link.label)}</Link></li>)}</ul>}</section>)}
       </article></div>{guide&&<><JsonLd data={guideData(t(route.title),t(route.description),path,locale)}/><JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t('Guides'),path:'/guides'},{name:t(route.title),path}],locale)}/></>}</>;
     }
-    if (path === '/guides') return <><PageHero eyebrow="FINFLO" title={t('Guides')} description={t('Practical guides to the formulas, assumptions, and limits behind your calculations.')}/><div className="container directory-page page-content"><div className="guide-grid">{Object.entries(guides).map(([slug,guide]) => <article className="guide-card" key={slug}><h2><Link href={`/guides/${slug}`}>{t(guide.title)}</Link></h2><p>{t(guide.description)}</p></article>)}</div></div></>;
+    if (path === '/guides') return <><PageHero eyebrow="FINFLO" title={t('Guides')} description={t('Practical guides to the formulas, assumptions, and limits behind your calculations.')}/><div className="container directory-page page-content"><div className="guide-grid">{Object.entries(guides).map(([slug,guide]) => <article className="guide-card" key={slug}><h2><Link href={`/guides/${slug}`}>{t(guide.title)}</Link></h2><p>{t(guide.description)}</p></article>)}</div><ToolChooser slugs={['mortgage-calculator','compound-interest-calculator','bmi-calculator']} locale={locale} messages={messages}/></div></>;
     return <PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}><Link className="button button-primary" href="/">{t('Go home')}</Link></PageHero>;
   };
 }

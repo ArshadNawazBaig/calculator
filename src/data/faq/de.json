@@ -1,0 +1,274 @@
+{
+  "title": "Häufige Fragen",
+  "seoTitle": "Rechner-FAQ: Ergebnisse, Speichern und Datenschutz | Finflo",
+  "description": "Praktische Antworten zur Wahl des Rechners, zum Prüfen von Ergebnissen, zum Vergleich von Szenarien, zu Einheiten, zum Speichern und zum Datenschutz bei Finflo.",
+  "eyebrow": "HILFE ZU FINFLO",
+  "topicsLabel": "Nach Thema suchen",
+  "homeLinkLabel": "Alle häufigen Fragen ansehen",
+  "navLabel": "Häufige Fragen",
+  "contactTitle": "Benötigen Sie Hilfe bei einer bestimmten Berechnung?",
+  "contactText": "Senden Sie die Seitenadresse, die gewählte Methode und ein kleines Beispiel, das das Problem zeigt. Nennen Sie das erwartete Ergebnis und verwenden Sie erfundene Werte statt persönlicher Informationen.",
+  "contactLinkLabel": "Finflo kontaktieren",
+  "groups": [
+    {
+      "id": "getting-started",
+      "title": "Erste Schritte",
+      "description": "Wählen Sie das passende Werkzeug und richten Sie die Berechnung auf Ihre Frage aus.",
+      "questions": [
+        {
+          "id": "free-without-account",
+          "question": "Ist Finflo kostenlos und brauche ich ein Konto?",
+          "answer": "Die Rechner von Finflo sind kostenlos und ohne Konto nutzbar. Öffnen Sie ein Werkzeug, geben Sie Ihre Werte ein und wählen Sie Berechnen. Favoriten und gespeicherte Berechnungen verwenden den Speicher Ihres Browsers statt eines Kontos.",
+          "link": {
+            "href": "/calculators",
+            "label": "Rechner entdecken"
+          }
+        },
+        {
+          "id": "choose-calculator",
+          "question": "Wie wähle ich zwischen Rechnern mit ähnlichen Namen?",
+          "answer": "Überlegen Sie zuerst, welche Größe Sie bestimmen möchten, und vergleichen Sie dann die Eingaben und Methoden der einzelnen Werkzeuge. Ein Hypothekenrechner schätzt beispielsweise die Raten anhand von Restschuld, Zinssatz und Laufzeit. Ein Rechner zur vorzeitigen Hypothekentilgung zeigt dagegen, wie Rückzahlungen den verbleibenden Zahlungsplan verändern.",
+          "link": {
+            "href": "/calculators",
+            "label": "Rechner nach Thema durchsuchen"
+          }
+        },
+        {
+          "id": "choose-method",
+          "question": "Was ändert die Auswahl der Berechnungsmethode?",
+          "answer": "Eine Methode wählt ein bestimmtes Modell oder eine Fragestellung innerhalb desselben Werkzeugs. Deshalb können sich Eingabefelder, Formel und Annahmen unterscheiden. Lesen Sie die Erklärung zur Methode, bevor Sie Werte eingeben. Beim Methodenwechsel wird das Formular auf die Beispieleingaben der neuen Methode zurückgesetzt."
+        },
+        {
+          "id": "prepare-inputs",
+          "question": "Was sollte ich vor dem Berechnen prüfen?",
+          "answer": "Ersetzen Sie die Beispielwerte durch Ihre eigenen und prüfen Sie für jedes Feld die Einheit, den Zeitraum und das erforderliche Format. Zusammengehörige Eingaben müssen zueinander passen: Ein Monatsbudget braucht monatliche Beträge, und ein Feld für den Jahreszinssatz braucht einen jährlichen Zinssatz."
+        },
+        {
+          "id": "input-error",
+          "question": "Was kann ich tun, wenn ein Rechner meine Eingabe ablehnt?",
+          "answer": "Die Meldung am Formular nennt das Feld oder die Bedingung, die Aufmerksamkeit erfordert, etwa eine fehlende Zahl, einen Wert außerhalb des zulässigen Bereichs oder ein unmögliches Datum. Prüfen Sie die gewählte Methode und ihre Eingabehinweise und berechnen Sie erneut. Falls auch ein gültiges Beispiel fehlschlägt, senden Sie es mit der Seitenadresse an Finflo.",
+          "link": {
+            "href": "/contact",
+            "label": "Ein Berechnungsproblem melden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "understanding-results",
+      "title": "Ergebnisse verstehen",
+      "description": "Ordnen Sie Beispiele, Rundungen, prozentuale Veränderungen und Unterschiede zwischen Szenarien richtig ein.",
+      "questions": [
+        {
+          "id": "example-result",
+          "question": "Warum zeigt ein Rechner bereits vor meiner Eingabe ein Ergebnis?",
+          "answer": "Manche Werkzeuge zeigen ein Beispielergebnis, um die Ausgabe anhand der vorgegebenen Werte zu veranschaulichen. Zu Ihrem Ergebnis wird es, nachdem Sie die Eingaben vorgenommen oder bestätigt und Berechnen gewählt haben. Das Beispiel ist keine Einschätzung Ihrer persönlichen Situation."
+        },
+        {
+          "id": "recalculate-results",
+          "question": "Warum blieb das Ergebnis gleich, nachdem ich einen Wert geändert habe?",
+          "answer": "Wenn Sie ein Feld bearbeiten, wird das bestehende Ergebnis als aktualisierungsbedürftig markiert. Wählen Sie Berechnen, um die neuen Eingaben auszuwerten. Tun Sie dies vor dem Speichern, Exportieren oder Interpretieren des Ergebnisses, damit Sie mit dem aktuellen Szenario arbeiten."
+        },
+        {
+          "id": "rounding-differences",
+          "question": "Warum können angezeigte Zahlen leicht von meiner manuellen Berechnung abweichen?",
+          "answer": "Die angezeigten Ergebnisse können gerundet sein, während intern mit höherer Genauigkeit gerechnet wird. Die Summe sichtbarer gerundeter Zeilen kann deshalb von der angezeigten Gesamtsumme abweichen. Vergleichen Sie Formel, Zwischenrundungen, Einheiten und zeitliche Annahmen, bevor Sie einen kleinen Unterschied als Fehler einstufen."
+        },
+        {
+          "id": "percentage-points",
+          "question": "Was unterscheidet eine prozentuale Veränderung von Prozentpunkten?",
+          "answer": "Ein Anstieg von 20 % auf 25 % beträgt 5 Prozentpunkte. Bezogen auf die ursprünglichen 20 % ist das eine Zunahme um 25 %, denn 5 geteilt durch 20 ergibt 0,25. Beim Subtrahieren von Prozentwerten verwendet der Szenariovergleich von Finflo Prozentpunkte.",
+          "link": {
+            "href": "/percent-calculator",
+            "label": "Prozentrechnungen erkunden"
+          }
+        },
+        {
+          "id": "compare-scenarios",
+          "question": "Wie erkenne ich, was sich durch eine einzelne geänderte Annahme verändert?",
+          "answer": "Berechnen Sie in unterstützten Rechnern ein Ergebnis und heften Sie es als Ausgangswert an. Ändern Sie dann eine Eingabe und berechnen Sie erneut. Der Vergleich zeigt passende numerische Ergebnisse und geänderte Eingaben mit ihren Abweichungen vom Ausgangswert. Ein Wechsel der Methode oder Währung löscht den angehefteten Vergleich."
+        }
+      ]
+    },
+    {
+      "id": "units-and-regions",
+      "title": "Einheiten, Währungen und Regionen",
+      "description": "Unterscheiden Sie Spracheinstellungen von Maßeinheiten und regionalen Regeln.",
+      "questions": [
+        {
+          "id": "language-and-rules",
+          "question": "Ändert ein Wechsel der Website-Sprache die Berechnung?",
+          "answer": "Die Sprache ändert die Darstellung und kann regionale Anzeigevorgaben festlegen. Sie ersetzt aber weder die Formel noch den rechtlichen Geltungsbereich eines Rechners. Ein übersetztes US-Steuermodell verwendet weiterhin die auf der Seite genannten US-Regeln. Prüfen Sie deshalb die Region und das Jahr des Werkzeugs gesondert."
+        },
+        {
+          "id": "currency-conversion",
+          "question": "Rechnet die Währungsauswahl meine eingegebenen Beträge um?",
+          "answer": "Bei Rechnern mit Währungseinstellung bleiben die Zahlen beim Währungswechsel unverändert; nur ihre Währungsangaben ändern sich. Es wird kein Wechselkurs angewendet. Geben Sie alle Geldbeträge in der gewählten Währung ein oder nutzen Sie den Währungsrechner, wenn Sie tatsächlich zwischen Währungen umrechnen möchten.",
+          "link": {
+            "href": "/currency-calculator",
+            "label": "Währungen umrechnen"
+          }
+        },
+        {
+          "id": "fixed-currency",
+          "question": "Warum ist die Währung bei manchen Finanzrechnern festgelegt?",
+          "answer": "Einige Modelle hängen von den Steuerstufen, Kontolimits oder Kreditkonventionen eines Landes ab und behalten deshalb die vorgegebene Währung bei. Sprach-, Länder- oder Währungseinstellungen ändern diese Regeln nicht. Verwenden Sie ein Modell, das zur benötigten Region und zum Zeitraum passt."
+        },
+        {
+          "id": "measurement-units",
+          "question": "Wie vermeide ich eine Mischung aus metrischen und imperialen Maßen?",
+          "answer": "Prüfen Sie vor jeder Eingabe die Einheit am Feld und eine gegebenenfalls vorhandene Einheitenauswahl. Kontrollieren Sie nach einem Einheitenwechsel die angezeigten Werte, statt eine automatische Umrechnung anzunehmen. Rechnen Sie einzelne Maße vorher um, wenn das Werkzeug eine gemeinsame Einheit verlangt."
+        },
+        {
+          "id": "rate-periods",
+          "question": "Soll ich einen jährlichen oder monatlichen Zinssatz eingeben?",
+          "answer": "Verwenden Sie den im Feld genannten Zeitraum und prüfen Sie, ob die Methode einen nominalen oder effektiven Zinssatz erwartet. Ein Jahreszinssatz von 12 % ist nicht mit einem Monatszinssatz von 12 % austauschbar. Auch Verzinsungs- und Zahlungshäufigkeit können das Ergebnis verändern, obwohl der angegebene Jahreszinssatz übereinstimmt.",
+          "link": {
+            "href": "/compound-interest-calculator",
+            "label": "Verzinsungsmethoden vergleichen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "saving-and-sharing",
+      "title": "Speichern und Teilen",
+      "description": "Bewahren Sie nützliche Szenarien auf, übertragen Sie Ihren Arbeitsbereich und teilen Sie die gewünschte Ausgabe.",
+      "questions": [
+        {
+          "id": "save-calculation",
+          "question": "Wie speichere ich eine Berechnung und öffne sie später wieder?",
+          "answer": "Berechnen Sie mit Ihren Eingaben ein Ergebnis, vergeben Sie einen Namen und wählen Sie Berechnung speichern, sofern diese Option verfügbar ist. Öffnen Sie den Eintrag unter Mein Arbeitsbereich, um die Eingaben wiederherzustellen, und wählen Sie Berechnen für ein aktuelles Ergebnis. Gespeicherte Einträge bleiben in diesem Browser und werden beim Löschen seiner Websitedaten entfernt.",
+          "link": {
+            "href": "/workspace",
+            "label": "Mein Arbeitsbereich öffnen"
+          }
+        },
+        {
+          "id": "move-workspace",
+          "question": "Kann ich meine gespeicherten Berechnungen auf einem anderen Gerät nutzen?",
+          "answer": "Exportieren Sie unter Mein Arbeitsbereich eine Sicherung, übertragen Sie die JSON-Datei auf das andere Gerät und wählen Sie dort Sicherung importieren. Arbeitsbereiche werden nicht automatisch synchronisiert. Beim Import bleiben vorhandene Einträge erhalten. Die Sicherung enthält gespeicherte Eingaben und Ergebnisse; bewahren Sie sie daher an einem vertrauenswürdigen Ort auf.",
+          "link": {
+            "href": "/workspace",
+            "label": "Einen Arbeitsbereich exportieren oder importieren"
+          }
+        },
+        {
+          "id": "export-result",
+          "question": "Wie kann ich ein Ergebnis herunterladen oder drucken?",
+          "answer": "Nutzen Sie CSV für Ergebnisdaten, PDF für ein formatiertes Dokument oder Drucken, sofern diese Bedienelemente vorhanden sind. Berechnen Sie geänderte Eingaben zuerst neu. Falls der automatische Download nicht startet, nutzen Sie den Link Datei herunterladen. Verwenden Sie PDF, wenn der Druckdialog Ihres Browsers nicht verfügbar ist."
+        },
+        {
+          "id": "share-tool-link",
+          "question": "Teilt Tool-Link kopieren auch meine Zahlen und mein Ergebnis?",
+          "answer": "Tool-Link kopieren enthält die Adresse des Rechners und die gewählte Methode, aber keine eingegebenen Werte oder Ergebnisse. Teilen Sie ein exportiertes Ergebnis, wenn jemand die Ausgabe sehen soll. Wenn diese Person die Berechnung nachvollziehen möchte, geben Sie die relevanten Annahmen zusätzlich an."
+        },
+        {
+          "id": "save-unavailable",
+          "question": "Warum ist Berechnung speichern bei einem Werkzeug nicht verfügbar?",
+          "answer": "Zum Speichern ist eine abgeschlossene Berechnung mit unveränderten Eingaben erforderlich. Beispielergebnisse und bearbeitete Formulare müssen daher zuerst berechnet werden. Passwort- und Kodierungswerkzeuge speichern ihre Inhalte bewusst nicht unter Mein Arbeitsbereich. Bei unterstützten Werkzeugen muss außerdem der Browserspeicher verfügbar sein, damit das Speichern gelingt."
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-access",
+      "title": "Datenschutz und Zugang",
+      "description": "Erfahren Sie mehr über die Verarbeitung im Browser, Netzwerkanfragen, Offline-Grenzen und Barrierefreiheit.",
+      "questions": [
+        {
+          "id": "inputs-and-network",
+          "question": "Verlassen meine Rechnereingaben den Browser?",
+          "answer": "Die meisten Berechnungen erfolgen lokal. Bei Straßenstrecken werden jedoch ausgewählte Suchanfragen oder Routenkoordinaten über Finflo an Kartendienste gesendet. Modi mit Referenzdaten rufen öffentliche Datenstände ab, ohne Ihren eingegebenen Betrag oder das gewählte Währungspaar zu übertragen. Gewöhnliche Seitenaufrufe und Ergebnisse, die Sie selbst teilen, beziehen die jeweils zuständigen Dienste ein.",
+          "link": {
+            "href": "/privacy",
+            "label": "Datenschutzdetails lesen"
+          }
+        },
+        {
+          "id": "local-files",
+          "question": "Lädt das Base64-Dateiwerkzeug meine Datei hoch?",
+          "answer": "Das Base64-Werkzeug liest die ausgewählte Datei und wandelt sie in Ihrem Browser um. Weder die Datei noch ihr Name werden dabei an Finflo hochgeladen. Downloads bleiben dort, wo Sie sie speichern. Anwendungen oder Dienste, mit denen Sie sie später öffnen oder teilen, verarbeiten diese Kopie nach ihren eigenen Einstellungen.",
+          "link": {
+            "href": "/base64-encode-decode",
+            "label": "Das Base64-Werkzeug öffnen"
+          }
+        },
+        {
+          "id": "offline-use",
+          "question": "Kann ich Finflo ohne Internetverbindung nutzen?",
+          "answer": "Ein Rechner kann offline weiterarbeiten, wenn sein benötigter Programmcode bereits geladen ist. Neue Seiten, noch nicht geladene Berechnungsmethoden und Netzwerkdaten können jedoch eine Verbindung erfordern. Falls das Rechenmodul nicht geladen werden kann, stellen Sie die Verbindung wieder her und wählen Sie erneut Berechnen. Finflo garantiert nicht, dass jedes Werkzeug offline funktioniert."
+        },
+        {
+          "id": "keyboard-access",
+          "question": "Kann ich die Rechner mit Tastatur oder assistiver Technologie bedienen?",
+          "answer": "Finflo verwendet beschriftete Eingaben, Tastatursteuerung und Ergebnisansagen. Einzelheiten zur Barrierefreiheit stehen auf einer eigenen Seite. Wenn ein Bedienelement schwer nutzbar ist, melden Sie die Seite, Ihren Browser oder Ihre assistive Technologie und die beabsichtigte Aktion, damit sich das Problem nachvollziehen lässt.",
+          "link": {
+            "href": "/accessibility",
+            "label": "Informationen zur Barrierefreiheit lesen"
+          }
+        },
+        {
+          "id": "browser-assistants",
+          "question": "Was geschieht, wenn ich einen Browser-Assistenten mit einem Rechner nutze?",
+          "answer": "Ein kompatibler Assistent kann unterstützten Werkzeugen Eingaben übergeben und deren Ergebnisse und Hinweise erhalten, wenn Sie diese Integration aufrufen. Für die von ihm verarbeiteten Inhalte gelten seine eigenen Datenschutzregeln. Die üblichen Rechnerfunktionen arbeiten auch ohne Assistenten. Passwort- und Kodierungswerkzeuge sind für diese Integration nicht registriert.",
+          "link": {
+            "href": "/privacy",
+            "label": "Datenschutz zu Assistenten und Browsern prüfen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "specialist-tools",
+      "title": "Finanzen, Gesundheit, Uhren und Glücksräder",
+      "description": "Prüfen Sie die Annahmen hinter Schätzungen, Zeitzonenunterschieden und Zufallsauswahlen.",
+      "questions": [
+        {
+          "id": "financial-estimates",
+          "question": "Warum kann eine Finanzschätzung vom Kontoauszug oder Angebot eines Kreditgebers abweichen?",
+          "answer": "Ein Rechner verwendet die Zinssätze, Termine, Gebühren und Zahlungsregeln des gewählten Modells. Ein Anbieter kann andere Regeln für Tageszinsen, Buchungstermine, Kosten oder Rundungen anwenden. Vergleichen Sie diese Annahmen und die enthaltenen Kosten, bevor Sie übereinstimmende Zahlen erwarten.",
+          "link": {
+            "href": "/calculators/finance",
+            "label": "Finanzmodelle erkunden"
+          }
+        },
+        {
+          "id": "health-estimates",
+          "question": "Was kann ein Gesundheitsrechner über eine einzelne Person aussagen?",
+          "answer": "Ein Gesundheitsrechner wendet eine angegebene Gleichung auf Ihre Messwerte an. Viele solcher Gleichungen schätzen Muster in Bevölkerungsgruppen und sind hinsichtlich Alter, Schwangerschaft oder anderer Umstände nur eingeschränkt anwendbar. Lesen Sie den vorgesehenen Einsatz und die Grenzen des jeweiligen Werkzeugs: Ein berechneter Wert allein kann weder eine Diagnose begründen noch eine individuelle Behandlung festlegen.",
+          "link": {
+            "href": "/calculators/health",
+            "label": "Methoden der Gesundheitsrechner lesen"
+          }
+        },
+        {
+          "id": "future-time-zones",
+          "question": "Kann ich mit dem heutigen Zeitunterschied eine spätere Besprechung planen?",
+          "answer": "Der Unterschied zwischen zwei regionalen Zeitzonen kann sich ändern, wenn einer der Orte die Uhr umstellt. Verwenden Sie den Zeitzonenrechner mit dem tatsächlichen Besprechungsdatum und den benannten Zeitzonen. Prüfen Sie neben den Uhrzeiten auch die daraus entstehenden lokalen Kalenderdaten.",
+          "link": {
+            "href": "/time-zone-calculator",
+            "label": "Zeitzonen für ein bestimmtes Datum vergleichen"
+          }
+        },
+        {
+          "id": "clock-source",
+          "question": "Wie stellt Finflo die Weltzeituhr ein und wie genau ist sie?",
+          "answer": "Die Uhr prüft die Serverzeit von Finflo und schätzt die Netzwerkverzögerung. Scheitert diese Verbindung, kennzeichnet sie den Rückgriff auf die Uhr Ihres Geräts. Die angezeigte Netzwerkunsicherheit misst nicht den Fehler der Serveruhr selbst und garantiert keine Atomuhrgenauigkeit. Regionale Zeitversätze folgen den Zeitzonenregeln, die in Ihrem Browser verfügbar sind.",
+          "link": {
+            "href": "/time",
+            "label": "Die Zeitwerkzeuge öffnen"
+          }
+        },
+        {
+          "id": "wheel-probabilities",
+          "question": "Sind alle Glücksradoptionen gleich wahrscheinlich, wenn eine Beschriftung mehrfach vorkommt?",
+          "answer": "Jeder Eintrag hat dieselbe Chance. Eine wiederholte Beschriftung erhält dadurch mehr Chancen: Zwei gleiche Einträge in einer Liste mit fünf Einträgen haben zusammen eine Wahrscheinlichkeit von 40 %. Wird ein gewinnender Eintrag entfernt, ändern sich die Chancen beim nächsten Drehen. Die Erklärung zu den anfänglichen Wahrscheinlichkeiten beschreibt das veröffentlichte Beispiel und nicht Ihre bearbeitete Liste.",
+          "link": {
+            "href": "/spin-wheels",
+            "label": "Glücksräder entdecken"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "title": "Questions fréquentes",
+  "seoTitle": "FAQ calculatrices : résultats, sauvegarde et confidentialité | Finflo",
+  "description": "Des réponses pratiques pour choisir une calculatrice, vérifier les résultats, comparer des scénarios, changer d’unités, enregistrer votre travail et utiliser Finflo en toute confidentialité.",
+  "eyebrow": "AIDE FINFLO",
+  "topicsLabel": "Parcourir par thème",
+  "homeLinkLabel": "Voir toutes les questions fréquentes",
+  "navLabel": "Questions fréquentes",
+  "contactTitle": "Besoin d’aide pour un calcul précis ?",
+  "contactText": "Envoyez l’adresse de la page, la méthode sélectionnée et un petit exemple illustrant le problème. Précisez le résultat attendu et utilisez des valeurs fictives plutôt que des informations personnelles.",
+  "contactLinkLabel": "Contacter Finflo",
+  "groups": [
+    {
+      "id": "getting-started",
+      "title": "Premiers pas",
+      "description": "Choisissez le bon outil et préparez un calcul qui répond à votre question.",
+      "questions": [
+        {
+          "id": "free-without-account",
+          "question": "Finflo est-il gratuit et faut-il créer un compte ?",
+          "answer": "Les calculatrices de Finflo sont gratuites et utilisables sans créer de compte. Ouvrez un outil, saisissez vos valeurs et sélectionnez Calculer ; les favoris et les calculs enregistrés utilisent le stockage de votre navigateur plutôt qu’un compte.",
+          "link": {
+            "href": "/calculators",
+            "label": "Découvrir les calculatrices"
+          }
+        },
+        {
+          "id": "choose-calculator",
+          "question": "Comment choisir entre des calculatrices aux noms proches ?",
+          "answer": "Commencez par la quantité que vous souhaitez déterminer, puis comparez les données et les méthodes proposées par chaque outil. Par exemple, une calculatrice de prêt immobilier estime les échéances à partir du capital, du taux et de la durée, tandis qu’une calculatrice de remboursement anticipé de prêt immobilier permet d’étudier l’effet des remboursements sur l’échéancier restant.",
+          "link": {
+            "href": "/calculators",
+            "label": "Parcourir les calculatrices par thème"
+          }
+        },
+        {
+          "id": "choose-method",
+          "question": "Que change le sélecteur de méthode de calcul ?",
+          "answer": "Une méthode correspond à un modèle ou à une question particulière au sein du même outil : les champs, la formule et les hypothèses peuvent donc varier. Lisez l’explication de la méthode avant de saisir vos valeurs ; changer de méthode réinitialise le formulaire avec les données d’exemple de la nouvelle méthode."
+        },
+        {
+          "id": "prepare-inputs",
+          "question": "Que vérifier avant de sélectionner Calculer ?",
+          "answer": "Remplacez les valeurs d’exemple par les vôtres et vérifiez l’unité, la période et le format demandé pour chaque champ. Veillez à la cohérence des données liées : un budget mensuel exige des montants mensuels, et un champ de taux annuel exige un taux annuel."
+        },
+        {
+          "id": "input-error",
+          "question": "Que faire si une calculatrice refuse mes données ?",
+          "answer": "Consultez le message à côté du formulaire pour repérer le champ ou la condition à corriger : nombre manquant, valeur hors de la plage autorisée ou date impossible, par exemple. Vérifiez la méthode sélectionnée et ses consignes, puis relancez le calcul ; si un exemple valide échoue toujours, transmettez-le à Finflo avec l’adresse de la page.",
+          "link": {
+            "href": "/contact",
+            "label": "Signaler un problème de calcul"
+          }
+        }
+      ]
+    },
+    {
+      "id": "understanding-results",
+      "title": "Comprendre les résultats",
+      "description": "Interprétez correctement les exemples, les arrondis, les variations en pourcentage et les écarts entre scénarios.",
+      "questions": [
+        {
+          "id": "example-result",
+          "question": "Pourquoi une calculatrice affiche-t-elle un résultat avant toute saisie ?",
+          "answer": "Certains outils affichent un résultat d’exemple pour illustrer la présentation à partir des valeurs fournies. Il devient votre résultat lorsque vous saisissez ou confirmez vos données et sélectionnez Calculer ; l’exemple n’est pas une évaluation de votre situation."
+        },
+        {
+          "id": "recalculate-results",
+          "question": "Pourquoi le résultat n’a-t-il pas changé après la modification d’une valeur ?",
+          "answer": "Modifier un champ indique que le résultat existant doit être actualisé. Sélectionnez Calculer pour traiter les nouvelles données, avant d’enregistrer, d’exporter ou d’interpréter le résultat, afin de travailler sur le scénario actuel."
+        },
+        {
+          "id": "rounding-differences",
+          "question": "Pourquoi les nombres affichés peuvent-ils différer légèrement de mon calcul manuel ?",
+          "answer": "Les résultats affichés peuvent être arrondis alors que les calculs internes utilisent davantage de précision ; la somme des lignes arrondies visibles peut donc différer du total affiché. Comparez la formule, les arrondis intermédiaires, les unités et les hypothèses de calendrier avant de considérer un petit écart comme une erreur."
+        },
+        {
+          "id": "percentage-points",
+          "question": "Quelle différence entre une variation en pourcentage et des points de pourcentage ?",
+          "answer": "Passer de 20 % à 25 % représente une hausse de 5 points de pourcentage. Par rapport aux 20 % initiaux, la hausse est de 25 %, car 5 divisé par 20 vaut 0,25 ; la comparaison de scénarios de Finflo utilise des points de pourcentage pour soustraire des résultats exprimés en pourcentage.",
+          "link": {
+            "href": "/percent-calculator",
+            "label": "Explorer les calculs de pourcentage"
+          }
+        },
+        {
+          "id": "compare-scenarios",
+          "question": "Comment voir ce qui change lorsque je modifie une hypothèse ?",
+          "answer": "Dans les calculatrices compatibles, calculez un résultat et épinglez-le comme référence, puis modifiez une donnée et relancez le calcul. La comparaison affiche les résultats numériques compatibles et les données modifiées, avec des écarts mesurés par rapport à cette référence ; changer de méthode ou de devise efface la comparaison épinglée."
+        }
+      ]
+    },
+    {
+      "id": "units-and-regions",
+      "title": "Unités, devises et régions",
+      "description": "Distinguez les préférences linguistiques des unités de mesure et des règles régionales.",
+      "questions": [
+        {
+          "id": "language-and-rules",
+          "question": "Changer la langue du site modifie-t-il le calcul ?",
+          "answer": "La langue modifie la présentation et peut définir des paramètres régionaux d’affichage par défaut, mais elle ne remplace ni la formule ni la juridiction d’une calculatrice. Un modèle fiscal américain traduit applique toujours les règles américaines indiquées sur la page : vérifiez donc séparément la région et l’année de l’outil."
+        },
+        {
+          "id": "currency-conversion",
+          "question": "Le sélecteur de devise convertit-il les montants saisis ?",
+          "answer": "Dans les calculatrices dotées d’une préférence de devise, le changement de devise conserve les nombres et modifie leurs libellés monétaires ; aucun taux de change n’est appliqué. Saisissez tous les montants dans la devise sélectionnée, ou utilisez le convertisseur de devises lorsque vous avez besoin d’une véritable conversion.",
+          "link": {
+            "href": "/currency-calculator",
+            "label": "Convertir des devises"
+          }
+        },
+        {
+          "id": "fixed-currency",
+          "question": "Pourquoi la devise est-elle fixe dans certaines calculatrices financières ?",
+          "answer": "Certains modèles dépendent des tranches d’imposition, des plafonds de compte ou des conventions de crédit d’un pays et conservent donc la devise prévue. Une préférence de langue, de pays ou de devise ne change pas ces règles ; utilisez un modèle adapté à la région et à la période recherchées."
+        },
+        {
+          "id": "measurement-units",
+          "question": "Comment éviter de mélanger les mesures métriques et impériales ?",
+          "answer": "Vérifiez l’unité indiquée à côté de chaque champ, y compris tout sélecteur d’unités, avant de saisir une mesure. Après un changement d’unités, contrôlez les valeurs affichées sans supposer qu’elles ont été converties, et convertissez d’abord les mesures séparées si l’outil exige une unité commune."
+        },
+        {
+          "id": "rate-periods",
+          "question": "Faut-il saisir un taux annuel ou mensuel ?",
+          "answer": "Utilisez la période indiquée dans le champ et vérifiez si la méthode attend un taux nominal ou effectif. Un taux annuel de 12 % n’est pas interchangeable avec un taux mensuel de 12 % ; les fréquences de capitalisation et de paiement peuvent aussi modifier le résultat, même lorsque le taux annuel annoncé est identique.",
+          "link": {
+            "href": "/compound-interest-calculator",
+            "label": "Comparer les méthodes de capitalisation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "saving-and-sharing",
+      "title": "Enregistrer et partager",
+      "description": "Conservez les scénarios utiles, transférez votre espace de travail et partagez le résultat souhaité.",
+      "questions": [
+        {
+          "id": "save-calculation",
+          "question": "Comment enregistrer un calcul pour le rouvrir plus tard ?",
+          "answer": "Effectuez le calcul avec vos données, saisissez un nom et sélectionnez Enregistrer le calcul lorsque cette option est disponible. Ouvrez-le depuis Mon espace pour restaurer les données, puis sélectionnez Calculer afin d’actualiser le résultat ; les éléments enregistrés restent dans ce navigateur et disparaissent si ses données de site sont effacées.",
+          "link": {
+            "href": "/workspace",
+            "label": "Ouvrir Mon espace"
+          }
+        },
+        {
+          "id": "move-workspace",
+          "question": "Puis-je utiliser mes calculs enregistrés sur un autre appareil ?",
+          "answer": "Exportez une sauvegarde depuis Mon espace, transférez le fichier JSON sur l’autre appareil et choisissez Importer une sauvegarde sur celui-ci. Les espaces de travail ne se synchronisent pas automatiquement, et l’importation conserve les éléments existants ; la sauvegarde contient les données et résultats enregistrés, conservez-la donc dans un emplacement de confiance.",
+          "link": {
+            "href": "/workspace",
+            "label": "Exporter ou importer un espace de travail"
+          }
+        },
+        {
+          "id": "export-result",
+          "question": "Comment télécharger ou imprimer un résultat ?",
+          "answer": "Utilisez CSV pour les données du résultat, PDF pour un document mis en forme, ou Imprimer lorsque ces commandes sont disponibles. Recalculez d’abord si vous avez modifié les données ; si le téléchargement automatique ne démarre pas, utilisez le lien Télécharger le fichier, et choisissez PDF si la boîte de dialogue d’impression de votre navigateur est indisponible."
+        },
+        {
+          "id": "share-tool-link",
+          "question": "Copier le lien partage-t-il mes nombres et mon résultat ?",
+          "answer": "Copier le lien inclut l’adresse de la calculatrice et la méthode sélectionnée, sans les valeurs saisies ni le résultat. Partagez un résultat exporté si vous souhaitez montrer la sortie à quelqu’un, et fournissez séparément les hypothèses pertinentes si cette personne doit reproduire le calcul."
+        },
+        {
+          "id": "save-unavailable",
+          "question": "Pourquoi l’option Enregistrer le calcul est-elle indisponible dans un outil ?",
+          "answer": "L’enregistrement exige un calcul terminé dont les données n’ont pas changé : les résultats d’exemple et les formulaires modifiés doivent donc être calculés au préalable. Les outils de mots de passe et d’encodage n’enregistrent volontairement pas leur contenu dans Mon espace ; le stockage du navigateur doit également être disponible pour enregistrer dans les outils compatibles."
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-access",
+      "title": "Confidentialité et accès",
+      "description": "Comprenez le traitement dans le navigateur, les requêtes réseau, les limites hors connexion et l’accessibilité.",
+      "questions": [
+        {
+          "id": "inputs-and-network",
+          "question": "Les données saisies dans les calculatrices quittent-elles mon navigateur ?",
+          "answer": "La plupart des calculs s’effectuent localement, mais le calcul des distances routières transmet les recherches sélectionnées ou les coordonnées d’itinéraire à des services cartographiques via Finflo. Les modes fondés sur des données de référence demandent des jeux de données publics sans transmettre votre montant saisi ni la paire de devises choisie ; les requêtes de pages ordinaires et les résultats que vous décidez de partager font intervenir leurs services respectifs.",
+          "link": {
+            "href": "/privacy",
+            "label": "Lire les détails sur la confidentialité"
+          }
+        },
+        {
+          "id": "local-files",
+          "question": "L’outil de fichiers Base64 téléverse-t-il mon fichier ?",
+          "answer": "L’outil Base64 lit le fichier sélectionné et le convertit dans votre navigateur, sans envoyer le fichier ni son nom à Finflo. Les téléchargements restent à l’endroit où vous les enregistrez ; toute application ou tout service utilisé ensuite pour les ouvrir ou les partager traite cette copie selon ses propres paramètres.",
+          "link": {
+            "href": "/base64-encode-decode",
+            "label": "Ouvrir l’outil Base64"
+          }
+        },
+        {
+          "id": "offline-use",
+          "question": "Puis-je utiliser Finflo sans connexion internet ?",
+          "answer": "Une calculatrice dont le code nécessaire est déjà chargé peut continuer à fonctionner hors connexion, mais les nouvelles pages, les méthodes de calcul non chargées et les données réseau peuvent nécessiter une connexion. Si le moteur de calcul ne se charge pas, reconnectez-vous et sélectionnez à nouveau Calculer ; Finflo ne garantit pas que chaque outil fonctionne hors connexion."
+        },
+        {
+          "id": "keyboard-access",
+          "question": "Puis-je utiliser les calculatrices au clavier ou avec une technologie d’assistance ?",
+          "answer": "Finflo utilise des champs étiquetés, des commandes au clavier et des annonces de résultats ; une page dédiée présente les détails d’accessibilité. Si une commande est difficile à utiliser, signalez la page, votre navigateur ou technologie d’assistance et l’action que vous tentiez d’effectuer afin que le problème puisse être reproduit.",
+          "link": {
+            "href": "/accessibility",
+            "label": "Lire les informations d’accessibilité"
+          }
+        },
+        {
+          "id": "browser-assistants",
+          "question": "Que se passe-t-il si j’utilise un assistant de navigateur avec une calculatrice ?",
+          "answer": "Un assistant compatible peut fournir des données aux outils pris en charge et recevoir leurs résultats et notes lorsque vous activez cette intégration. Ses propres pratiques de confidentialité s’appliquent aux informations qu’il traite ; les commandes habituelles fonctionnent sans assistant, et les outils de mots de passe et d’encodage ne sont pas enregistrés pour cette intégration.",
+          "link": {
+            "href": "/privacy",
+            "label": "Consulter la confidentialité des assistants et du navigateur"
+          }
+        }
+      ]
+    },
+    {
+      "id": "specialist-tools",
+      "title": "Finance, santé, horloges et roues",
+      "description": "Vérifiez les hypothèses des estimations, des écarts horaires et des choix aléatoires.",
+      "questions": [
+        {
+          "id": "financial-estimates",
+          "question": "Pourquoi une estimation financière peut-elle différer du relevé ou de l’offre d’un prêteur ?",
+          "answer": "Une calculatrice utilise les taux, les dates, les frais et les règles de paiement représentés par le modèle sélectionné. Un prestataire peut appliquer d’autres règles d’intérêts quotidiens, dates de comptabilisation, frais ou arrondis ; comparez ces hypothèses et les coûts inclus avant de vous attendre à des chiffres identiques.",
+          "link": {
+            "href": "/calculators/finance",
+            "label": "Explorer les modèles financiers"
+          }
+        },
+        {
+          "id": "health-estimates",
+          "question": "Que peut indiquer une calculatrice de santé sur une personne en particulier ?",
+          "answer": "Une calculatrice de santé applique une équation précisée aux mesures saisies ; beaucoup de ces équations estiment des tendances dans une population et présentent des limites liées à l’âge, à la grossesse ou à d’autres circonstances. Lisez l’usage prévu et les limites de l’outil concerné : une valeur calculée ne permet pas, à elle seule, d’établir un diagnostic ni de déterminer un traitement individuel.",
+          "link": {
+            "href": "/calculators/health",
+            "label": "Lire les méthodes des calculatrices de santé"
+          }
+        },
+        {
+          "id": "future-time-zones",
+          "question": "Puis-je utiliser le décalage horaire d’aujourd’hui pour planifier une réunion future ?",
+          "answer": "Le décalage entre deux fuseaux horaires régionaux peut changer lorsque l’un des lieux change d’heure. Utilisez la calculatrice de fuseaux horaires avec la date réelle de la réunion et les fuseaux désignés par leur nom, puis vérifiez les dates locales obtenues autant que les heures.",
+          "link": {
+            "href": "/time-zone-calculator",
+            "label": "Comparer les fuseaux à une date précise"
+          }
+        },
+        {
+          "id": "clock-source",
+          "question": "Comment Finflo règle-t-il l’horloge mondiale et quelle est sa précision ?",
+          "answer": "L’horloge consulte l’heure du serveur Finflo et estime le délai réseau ; si la connexion échoue, elle indique qu’elle utilise l’horloge de votre appareil. L’incertitude réseau affichée ne mesure pas l’erreur de l’horloge du serveur et ne garantit pas une précision d’horloge atomique ; les décalages régionaux suivent les règles de fuseaux horaires disponibles dans votre navigateur.",
+          "link": {
+            "href": "/time",
+            "label": "Ouvrir les outils de temps"
+          }
+        },
+        {
+          "id": "wheel-probabilities",
+          "question": "Les choix d’une roue ont-ils la même probabilité si un libellé apparaît plusieurs fois ?",
+          "answer": "Chaque entrée a la même chance d’être choisie ; répéter un libellé lui donne donc davantage de chances : deux entrées identiques dans une liste de cinq ont une probabilité combinée de 40 %. Retirer une entrée gagnante modifie les probabilités du tour suivant, et l’explication des probabilités initiales décrit l’exemple publié, pas votre liste modifiée.",
+          "link": {
+            "href": "/spin-wheels",
+            "label": "Découvrir les roues de tirage"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import {TimeExample} from './time-examples';
+import {ClockComparison} from './clock-comparison';
 import {notFound} from 'next/navigation';
 import {connection} from 'next/server';
 import {ArrowUpRight} from 'lucide-react';
@@ -49,9 +51,11 @@ export async function TimePage({path = '/time', locale = 'en', messages = {}}: {
       {(mode === 'clock' || mode === 'directory') && <ZoneDirectory countries={countries} compact={mode === 'clock'}/>}
       <div className={styles.guideLayout}>
         <article className={styles.article} aria-label={t('Guide to {title}', {title})}>
-          <section className={styles.answer}><h2>{t(guide.question)}</h2><p>{t(guide.answer)}</p></section>
+          {!zone&&<section className={styles.answer}><h2>{t(guide.question)}</h2><p>{t(guide.answer)}</p></section>}
           {zone && <section><h2>{t('About the {place} clock', {place: zone.place})}</h2><p>{t('This page displays the current local time for {zone}. Its representative location is {place}. The clock’s date, UTC offset, and calendar information all use this selected zone.', {zone: zone.id, place: zone.place})}</p>{zone.country && <p>{t('Country or territory: {country}. Search the directory for other regional clocks and save the places you want to compare.', {country: countries[zone.country]})}</p>}{zone.aliases.length > 0 && <p>{t('Alternate time-zone names: {aliases}.', {aliases: zone.aliases.join(', ')})}</p>}</section>}
-          {guide.sections.map(section => <section key={section.title}><h2>{t(section.title)}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</section>)}
+          {mode !== 'clock' && <TimeExample mode={mode} locale={locale}/>}
+          {initialSnapshot && <ClockComparison zoneId={zone?.id || 'UTC'} at={initialSnapshot.at} locale={locale}/>}
+          {(zone ? [] : guide.sections).map(section => <section key={section.title}><h2>{t(section.title)}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</section>)}
           <p className={styles.note}>{t('Time-zone directory: IANA {version}. Live regional rules come from your browser.', {version: clockZoneVersion})}{' '}<a href="https://www.iana.org/time-zones">{t('IANA Time Zone Database')}</a></p>
         </article>
         <aside className={styles.related} aria-label={t('Related time tools')}><span className="eyebrow">{t('A LITTLE MORE CLARITY')}</span><h2>{t('Make time work for you.')}</h2><p>{t('Plan a call, check a date, or focus on what comes next.')}</p>{[...timeTools, {href: '/time-zone-calculator', title: 'Time Zone Calculator'}, {href: '/date-calculator', title: 'Date Calculator'}, {href: '/time-calculator', title: 'Time Calculator'}].filter(tool => tool.href !== path).map(tool => <Link href={tool.href} key={tool.href}>{t(tool.title)}<ArrowUpRight size={16} aria-hidden="true"/></Link>)}</aside>

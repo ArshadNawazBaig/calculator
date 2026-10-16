@@ -1,0 +1,62 @@
+/* Editorial sections follow their host article's heading and spacing rules. */
+.panel { margin-block: 32px; min-width: 0; }
+:where(.panel) h2 { margin-block: 0 16px; color: var(--color-ink); font-size: 23px; line-height: 1.45; font-weight: 650; letter-spacing: -.5px; }
+:where(.panel) h3 { margin-block: 24px 12px; font-size: 17px; line-height: 1.5; font-weight: 650; }
+:where(.panel)>p { margin-block: 14px; color: var(--color-muted); font-size: 15px; line-height: 1.9; }
+
+/* Match the existing formula-block and guide-summary callouts, including RTL. */
+.insight,.formula { padding: 20px 22px; background: var(--color-soft); border-inline-start: 3px solid var(--color-focus); border-start-end-radius: 6px; border-end-end-radius: 6px; }
+.panel.insight>p { margin: 0; color: var(--color-text-secondary); font-size: 15px; line-height: 1.9; }
+.eyebrow { margin-bottom: 8px; color: var(--color-brand-text); }
+.formula { color: var(--color-text-secondary); font-size: 15px; overflow-wrap: anywhere; }
+
+/* Share the calculator result table's typography, spacing and theme tokens. */
+.scroll { overflow-x: auto; max-width: 100%; margin-block: 20px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-card); }
+.scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -3px; }
+.table { composes: table from '../calculators/result-table.module.css'; }
+.table th,.table td { vertical-align: top; }
+.table th:first-child,.table td:first-child { text-align: start; }
+.table tbody th { position: static; background: transparent; color: var(--color-ink); font-size: inherit; font-weight: 600; }
+.table tbody tr:nth-child(even)>th { background: var(--color-table-alternate); }
+.table tbody tr:hover>th { background: var(--color-table-hover); }
+.table tbody tr:last-child>th { border-bottom: 0; }
+.table caption:not(:global(.sr-only)) { padding: 14px 22px; color: var(--color-muted); font-size: 12px; line-height: 1.7; text-align: start; }
+.table tr :is(p,li) { font-size: inherit; line-height: 1.7; color: inherit; }
+.table tr p { margin-block: 8px; }
+.table tr ul { padding-inline-start: 18px; padding-inline-end: 0; margin-block: 0; }
+.table tr li { margin-block: 0 6px; padding: 0; }
+.table tr li:last-child { margin-bottom: 0; }
+.track { display: block; height: 10px; margin-top: 10px; border-radius: 3px; background: var(--color-chart-track); overflow: hidden; }
+.fill { display: block; height: 100%; background: var(--color-chart-1); border-radius: 2px; }
+
+.step { display: flex; align-items: center; gap: 10px; margin-block: 24px 12px; color: var(--color-text-secondary); font-size: 15px; font-weight: 650; }
+.step span { display: grid; place-items: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-brand-tile); color: var(--color-brand-tile-ink); font-size: 13px; }
+.methodLinks { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 16px; }
+.methodLinks a { display: inline-flex; align-items: center; min-height: 44px; padding: 9px 14px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-card); color: var(--color-text-secondary); font-size: 14px; line-height: 1.5; font-weight: 550; text-decoration: none; }
+.methodLinks a:hover { border-color: var(--color-line-hover); background: var(--color-soft); color: var(--color-brand-text-strong); }
+.methodLinks a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.panel .snapshot { font-size: 12px; line-height: 1.7; color: var(--color-muted); }
+
+.comparisonBody { padding: 0 28px 24px; min-width: 0; }
+.comparisonBody h3 { margin-block: 24px 12px; font-size: 17px; font-weight: 650; letter-spacing: -.3px; }
+.comparisonBody>p { color: var(--color-muted); font-size: 13px; line-height: 1.7; }
+.comparisonBody>:last-child { margin-bottom: 0; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.sitemapLinks { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 24px; margin: 0; padding: 0; list-style: none; }
+.sitemapLinks a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 8px; color: var(--color-brand-text); font-size: 14px; line-height: 1.7; text-underline-offset: 4px; }
+.sitemapLinks a:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .comparisonBody { padding: 0 18px 20px; }
+  .table caption:not(:global(.sr-only)) { padding: 13px 16px; }
+}
+@media (max-width: 600px) {
+  .insight,.formula { padding: 18px; }
+  .methodLinks a { font-size: 13px; padding-inline: 12px; }
+  .sitemapLinks { grid-template-columns: minmax(0,1fr); }
+}
+@media print {
+  .scroll { overflow: visible; }
+  .actions { display: none; }
+  .comparisonBody { padding: 0; }
+}

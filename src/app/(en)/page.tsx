@@ -1,3 +1,4 @@
+import {PercentageDemo} from '@/components/home/percentage-demo';
 import {TimeCollection} from '@/components/time/time-collection';
 import {HomeExplorer} from "@/components/home/home-explorer";
 import {BrowseCategories} from "@/components/home/browse-categories";
@@ -26,6 +27,7 @@ export default function Home() {
     <HealthToolkit/>
     <EverydayToolkit/>
     <HowItWorks/>
+    <PercentageDemo/>
     <CalculationConfidence/>
     <WorkspaceIntroduction/>
     <LearningGuides/>
