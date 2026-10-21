@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -99,11 +100,13 @@ test('mobile workspace is accessible and comparison scrolls inside its container
   expect(await region.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);
   const audit = await new AxeBuilder({page}).include('#main').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(audit.violations).toEqual([]);
-  await page.goto('/ar/workspace');
-  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-  await expect(page.getByRole('heading', {level: 1})).not.toHaveText('My workspace');
-  await expect(page.locator('[data-saved-calculation]')).toHaveCount(2);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  if (isPublishedLocale('ar')) {
+    await page.goto('/ar/workspace');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    await expect(page.getByRole('heading', {level: 1})).not.toHaveText('My workspace');
+    await expect(page.locator('[data-saved-calculation]')).toHaveCount(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
 });
 
 test('sensitive tools never offer to save their contents', async ({page}) => {

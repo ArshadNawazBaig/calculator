@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
-import {translator} from '../../src/lib/i18n/config';
+import {translator,isPublishedLocale,splitLocale} from '../../src/lib/i18n/config';
 
 for (const path of ['/404', '/missing-calculator', '/missing/deep/page', '/calculators/missing', '/calculators/finance/missing', '/guides/missing', '/spin-wheels/missing', '/time/missing']) {
   test(`${path} returns a branded 404 instead of the framework fallback`, async ({page}) => {
@@ -25,6 +25,7 @@ for (const path of ['/404', '/missing-calculator', '/missing/deep/page', '/calcu
 
 for (const locale of ['es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const) {
   test(`${locale} missing pages preserve language, direction and recovery links`, async ({page}) => {
+    test.skip(!isPublishedLocale(locale), 'This translation is not published.');
     const t = translator(JSON.parse(await readFile(`src/data/locales/${locale}.json`, 'utf8')));
     const response = await page.goto(`/${locale}/missing/deep/page`);
     expect(response?.status()).toBe(404);
@@ -69,6 +70,7 @@ test('global 404 retains its layout and recovery links without JavaScript', asyn
 });
 
 for (const path of ['/missing/deep/page', '/ar/missing/deep/page']) test(`${path} fits mobile screens and has accessible recovery controls`, async ({page}) => {
+  test.skip(!isPublishedLocale(splitLocale(path).locale), 'This translation is not published.');
   await page.setViewportSize({width: 360, height: 800});
   await page.goto(path);
   await expect(page.locator('[data-system-page] a.button-primary')).toBeVisible();
@@ -89,6 +91,7 @@ test('existing support and policy pages are reachable and retain the shared desi
 });
 
 for (const prefix of ['', '/es', '/ar']) test(`${prefix || 'English'} connection and maintenance pages use the shared system layout`, async ({page}) => {
+  test.skip(!isPublishedLocale(splitLocale(prefix).locale), 'This translation is not published.');
   for (const path of ['/offline', '/network-error', '/maintenance']) {
     const response = await page.goto(prefix + path);
     expect(response?.status()).toBe(200);

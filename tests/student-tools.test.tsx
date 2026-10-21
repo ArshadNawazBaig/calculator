@@ -11,7 +11,7 @@ import {site} from '@/lib/site';
 import {pageMetadata} from '@/lib/metadata';
 import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
 import {getContentDictionary} from '@/lib/i18n/content';
-import {locales} from '@/lib/i18n/config';
+import {locales, isPublishedLocale} from '@/lib/i18n/config';
 
 async function run(slug: string, modeId: string, values: Values = {}) {
   const mode = definitionMap.get(slug)!.modes.find(mode => mode.id === modeId)!;
@@ -30,7 +30,7 @@ describe('student calculator discovery', () => {
     }
     site.indexable = true;
     const urls = sitemap().map(entry => entry.url);
-    for (const locale of locales) expect(urls).toContain(`${site.url}${locale === 'en' ? '' : '/' + locale}${studentDirectory.path}`);
+    for (const locale of locales) expect(urls.includes(`${site.url}${locale === 'en' ? '' : '/' + locale}${studentDirectory.path}`)).toBe(isPublishedLocale(locale));
     for (const {slug, title, seoTitle, description} of studentTools) {
       expect(urls.filter(url => url === `${site.url}/${slug}`)).toHaveLength(1);
       expect(toolMap.get(slug)?.title).toBe(title);

@@ -1,10 +1,12 @@
+import {isPublishedLocale,publishedLocales,localizedPath} from '../../src/lib/i18n/config';
 import {test, expect} from '@playwright/test';
 
 for (const language of [
   {locale:'hi', name:'हिन्दी', currency:'INR', calculate:'गणना करें', title:'प्रतिशत कैलकुलेटर'},
   {locale:'tl', name:'Filipino', currency:'PHP', calculate:'Kalkulahin', title:'Kalkulador ng porsiyento'},
-]) {
+] as const) {
   test(`${language.name} calculates, renders translated guidance, and keeps the language on navigation`, async ({page}) => {
+    test.skip(!isPublishedLocale(language.locale), 'This translation is not published.');
     await page.setViewportSize({width:390, height:844});
     await page.goto(`/${language.locale}/percent-calculator`);
     await expect(page.locator('html')).toHaveAttribute('lang', language.locale);
@@ -28,24 +30,33 @@ for (const language of [
   });
 }
 
-test('all eight languages fit the menu and retain query parameters and fragment', async ({page}) => {
+test('published languages fit the menu and retain query parameters and fragment', async ({page}) => {
   await page.setViewportSize({width:360, height:640});
   await page.goto('/search?q=loan&category=finance#main');
   await page.getByRole('button', {name:'Language: English'}).click();
   const dialog = page.getByRole('dialog', {name:'Website language'});
-  await expect(dialog.getByRole('link')).toHaveCount(8);
-  await dialog.getByRole('link', {name:'Filipino', exact:true}).click();
-  await expect(page).toHaveURL(/\/tl\/search\?q=loan&category=finance#main$/);
+  await expect(dialog.getByRole('link')).toHaveCount(publishedLocales.length);
+  await expect(dialog.getByRole('link', {name:'English', exact:true})).toHaveAttribute('href', '/search');
+  if(isPublishedLocale('tl')){
+    await dialog.getByRole('link', {name:'Filipino', exact:true}).click();
+    await expect(page).toHaveURL(/\/tl\/search\?q=loan&category=finance#main$/);
+  }else{
+    await expect(dialog.getByRole('link', {name:'Filipino', exact:true})).toHaveCount(0);
+    await dialog.getByRole('link', {name:'English', exact:true}).click();
+    await expect(page).toHaveURL(/\/search\?q=loan&category=finance#main$/);
+  }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
 test('new language pages advertise reciprocal alternatives and support legacy redirects', async ({request}) => {
-  for (const locale of ['hi','tl']) {
+  test.skip(!isPublishedLocale('hi')&&!isPublishedLocale('tl'), 'These translations are not published.');
+  for (const locale of ['hi','tl'] as const) {
+    if(!isPublishedLocale(locale))continue;
     const response = await request.get(`/${locale}/mortgage-calculator`);
     expect(response.status()).toBe(200);
     const html = await response.text();
     expect(html).toContain(`rel="canonical" href="https://finflo.org/${locale}/mortgage-calculator"`);
-    for (const alternate of ['hi','tl']) expect(html).toContain(`hrefLang="${alternate}" href="https://finflo.org/${alternate}/mortgage-calculator"`);
+    for (const alternate of publishedLocales) expect(html).toContain(`hrefLang="${alternate}" href="https://finflo.org${localizedPath('/mortgage-calculator',alternate)}"`);
     expect(html).toContain('id="understanding-1"');
     const alias = await request.get(`/${locale}/percentage-calculator`, {maxRedirects:0});
     expect(alias.status()).toBe(308);

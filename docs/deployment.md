@@ -1,6 +1,8 @@
 # Deployment
 
-Finflo runs on Railway at `https://finflo.org`. The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains are verified with valid Railway certificates. The registry delegates to Vercel DNS, and the original HTTPS indexing audit covered 377 sitemap URLs; see [that historical report](validation/live-indexing-readiness.json). The current eight-language inventory contains 1,944 sitemap URLs. The October 2026 implementation and current validation scope are documented in [the SEO change record](seo-improvements-2026-10-11.md).
+Finflo is hosted on Railway at `https://finflo.org`. The October 22 release source contains 216 calculators, 572 modes, six guides and **721 English sitemap URLs** when production indexing is enabled. Publication is limited to English; the seven other language implementations remain drafts. Consult the [October 22 release record](adsense-release-2026-10-22.md) for the tested commit, deployment result and live verification. The source inventory is not evidence that the release is already deployed.
+
+The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains were verified with valid Railway certificates. The registry delegates to Vercel DNS. The [377-URL HTTPS audit](validation/live-indexing-readiness.json), later 1,944-URL multilingual inventory and [October 11 SEO change record](seo-improvements-2026-10-11.md) describe earlier releases, not the current publication scope.
 
 ## Railway
 
@@ -17,6 +19,16 @@ npx @railway/cli config apply
 ```
 
 Pushes to `main` trigger application deployments. Changes to the infrastructure file also need `config plan` and `config apply`. The `finflo` partial manages only this service and leaves environment variables under Railway's control.
+
+### Release verification
+
+Run type checks, lint, unit tests, the active translation audit, a production build, browser checks and the relevant crawl audits before pushing. Railway deploys `main` independently of GitHub quality checks, so a push must contain the already verified source. Record the commit and deployment ID, then wait for Railway health checks and verify the custom domain against that release. Updating these documents or passing a local build does not establish deployment.
+
+The language publication gate is `publishedLocales` in `src/lib/i18n/config.ts`, currently `['en']`; it is not an environment variable. Requests under `/es`, `/fr`, `/de`, `/pt`, `/ar`, `/hi` and `/tl` receive temporary HTTP 307 redirects to the equivalent unprefixed English path. The redirect preserves the query, supplies no replacement fragment so the browser retains it, and leaves local storage intact. Responses include `Cache-Control: no-store` and `X-Robots-Tag: noindex, follow`. Verify calculator links, saved-workspace links, query strings and fragments after deployment, along with their English destinations.
+
+Only published languages appear in navigation, sitemap entries and alternate metadata. With English alone there are no translated `hreflang` alternatives. `npm run i18n:check` enforces published-language dictionaries and reports unpublished dictionaries as explicit draft diagnostics; `npm run i18n:check -- --all-locales` also makes draft errors fail. `--write-manifests` updates translation-development data and cannot publish a language. See [internationalization](internationalization.md) for the review process.
+
+Keep the previous successful Railway deployment ID in the release record. If post-release verification finds a regression, use Railway's rollback for that verified deployment and recheck `/api/health`, canonical pages and the sitemap. Preserve the failing release evidence before a replacement deployment.
 
 ### Custom domain
 

@@ -8,3 +8,7 @@ export const viewport:Viewport={
   themeColor:[{media:'(prefers-color-scheme: light)',color:themeColors.light},{media:'(prefers-color-scheme: dark)',color:themeColors.dark}],
   colorScheme:'light dark',
 };
+
+// Verify ownership during review without loading Auto ads on utility/error pages.
+// Keep this account in sync with public/ads.txt. Serving ads is a separate integration.
+metadata.other = {'google-adsense-account': 'ca-pub-1970746421579261'};

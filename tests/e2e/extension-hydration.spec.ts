@@ -1,7 +1,9 @@
+import {isPublishedLocale, publishedLocales} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 
 // Run against `next dev` to exercise React's attribute mismatch diagnostics.
-for(const locale of ['en','ar','hi'])test(`${locale}: extension body attributes do not interrupt hydration`,async({page})=>{
+for(const locale of ['en','ar','hi'] as const)test(`${locale}: extension body attributes do not interrupt hydration`,async({page})=>{
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const hydrationErrors:string[]=[];
   const pageErrors:string[]=[];
   page.on('console',message=>{
@@ -27,7 +29,7 @@ for(const locale of ['en','ar','hi'])test(`${locale}: extension body attributes 
   const language=page.locator('header button').filter({has:page.locator('svg.lucide-languages')});
   await language.click();
   const dialog=page.getByRole('dialog');
-  await expect(dialog.getByRole('link')).toHaveCount(8);
+  await expect(dialog.getByRole('link')).toHaveCount(publishedLocales.length);
   await expect(dialog.locator('a[aria-current="true"]')).toHaveAttribute('lang',locale);
   await page.keyboard.press('Escape');
   await expect(language).toBeFocused();

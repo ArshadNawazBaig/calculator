@@ -1,9 +1,10 @@
 import {expect, test} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
-import {locales, localizedPath} from '../../src/lib/i18n/config';
+import {locales, localizedPath, isPublishedLocale, publishedLocales} from '../../src/lib/i18n/config';
 
 for (const locale of locales) test(`${locale} FAQ page publishes localized questions, metadata and navigation`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const copy = JSON.parse(await readFile(`src/data/faq/${locale}.json`, 'utf8'));
   const path = localizedPath('/faq', locale);
   const response = await page.goto(path);
@@ -12,7 +13,7 @@ for (const locale of locales) test(`${locale} FAQ page publishes localized quest
   await expect(page).toHaveTitle(copy.seoTitle.replace(/\s*\|\s*Finflo\s*$/i, ''));
   await expect(page.locator('html')).toHaveAttribute('lang', locale);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://finflo.org${path}`);
-  await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(9);
+  await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(publishedLocales.length>1?publishedLocales.length+1:0);
   await expect(page.locator('[data-faq-page] details')).toHaveCount(30);
   const first = page.locator('[data-faq-page] details').first();
   await first.locator('summary').focus();
@@ -38,6 +39,7 @@ test('FAQ answers and accordions work without JavaScript', async ({browser, base
 
 test('homepages and the sitemap lead to the localized FAQ page', async ({page}) => {
   for (const locale of ['en', 'es', 'ar'] as const) {
+    if(!isPublishedLocale(locale))continue;
     const faqPath = localizedPath('/faq', locale);
     await page.goto(localizedPath('/', locale));
     await page.locator(`main a[href="${faqPath}"]`).click();
@@ -49,6 +51,7 @@ test('homepages and the sitemap lead to the localized FAQ page', async ({page}) 
 });
 
 for (const [locale, theme] of [['en', 'light'], ['ar', 'dark']] as const) test(`${locale} FAQ fits mobile and passes accessibility checks in ${theme} mode`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   await page.setViewportSize({width: 390, height: 844});
   await page.addInitScript(theme => localStorage.setItem('finflo.theme.v1', theme), theme);
   await page.goto(localizedPath('/faq', locale));

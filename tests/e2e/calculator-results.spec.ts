@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -41,6 +42,7 @@ test('negative and zero growth remain truthful and currency-aware',async({page})
   await expect(comparison).toContainText('-$');
   await expect(page.locator('[data-chart="composition"]')).toHaveCount(0);
   await expect(page.locator('[data-chart="timeline"] path')).toHaveCount(2);
+  await page.locator('[data-calculator-currency] summary').click();
   await page.locator('#calculator-currency').click();await page.getByRole('option',{name:/^EUR ·/}).click();
   await expect(comparison).toContainText('-€');
   await expect(page.getByRole('slider')).toHaveAttribute('aria-valuetext',/€/);
@@ -51,6 +53,7 @@ test('negative and zero growth remain truthful and currency-aware',async({page})
 });
 
 test('mobile Arabic charts and full tables are accessible without page overflow',async({page})=>{
+  test.skip(!isPublishedLocale('ar'), 'This translation is not published.');
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.setViewportSize({width:360,height:800});await page.goto('/ar/loan-calculator');
   await page.locator('#loan-principal').fill('1200');await page.locator('#loan-years').fill('1');

@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 
 async function pageGeometry(page: Page) {
@@ -13,7 +14,8 @@ async function expectPageUnchanged(page: Page, before: Awaited<ReturnType<typeof
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY)).not.toMatch(/hidden|clip/);
 }
 
-for (const locale of ['en', 'ar']) test(`${locale}: dropdowns and nested preferences keep the page scrollbar`, async ({page}) => {
+for (const locale of ['en', 'ar'] as const) test(`${locale}: dropdowns and nested preferences keep the page scrollbar`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const prefix = locale === 'en' ? '' : '/ar';
   await page.goto(`${prefix}/loan-calculator`);
   const mode = page.locator('#calculation-mode');

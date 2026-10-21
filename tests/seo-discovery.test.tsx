@@ -14,8 +14,34 @@ import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
 import {getCalculatorSeoTitle} from '@/lib/toolkit-editorial';
 import content from '@/data/calculator-content.json';
+import {practicalGuides} from '@/data/practical-guides';
+import {information} from '@/data/information';
 
 describe('calculator discovery and translated payloads', () => {
+  it('opens the card tool with a card payoff example without mutating shared loan fields',async()=>{
+    const card=definitionMap.get('credit-card-calculator')!;
+    const loan=definitionMap.get('loan-calculator')!;
+    expect(card.modes[0].id).toBe('payoff');
+    expect(defaults(card.modes[0])).toMatchObject({principal:'5000',rate:'20',payment:'200'});
+    expect(card.modes[0].fields.find(field=>field.key==='principal')?.label).toBe('Balance');
+    expect(defaults(loan.modes[0])).toMatchObject({principal:'250000',rate:'6.5',years:'30'});
+    expect(loan.modes[0].fields.find(field=>field.key==='principal')?.label).toBe('Loan amount');
+    // Independent month-by-month ledger: $5,000 at 20% / 12, $200 payments.
+    const result=await calculate('finance',card.modes[0],defaults(card.modes[0]));
+    const values=Object.fromEntries(result.metrics.map(metric=>[metric.label,metric.value]));
+    expect(result.table?.rows).toHaveLength(33);
+    expect(values['Total interest']).toBeCloseTo(1522.1026920391578,8);
+  });
+  it('links worked guides to real tools, modes, and information pages',()=>{
+    for(const guide of Object.values(practicalGuides))for(const section of guide.sections)for(const link of section.links||[]){
+      if(!link.href.startsWith('/'))continue;
+      const [path,fragment]=link.href.split('#'),slug=path.slice(1);
+      expect(definitionMap.has(slug)||Boolean(information[slug])||path==='/calculators/students',link.href).toBe(true);
+      if(fragment)expect(definitionMap.get(slug)?.modes.some(mode=>`mode-${mode.id}`===fragment),link.href).toBe(true);
+    }
+    expect(renderToStaticMarkup(<RelatedGuides slug="grade-calculator"/>)).toContain('/guides/weighted-grades-and-final-exam-targets');
+    for(const locale of locales.filter(locale=>locale!=='en'))expect(renderToStaticMarkup(<RelatedGuides slug="grade-calculator" locale={locale}/>)).toBe('');
+  });
   it('omits brand suffixes from search and social titles and translates descriptive calculator titles', async () => {
     for (const [title, expected] of [['Loan Calculator', 'Loan Calculator'], ['Loan Calculator | Finflo', 'Loan Calculator'], ['About Finflo', 'About Finflo']]) {
       const metadata = pageMetadata(title, 'Description', '/loan-calculator');

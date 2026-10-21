@@ -5,7 +5,7 @@ import {Dropdown} from '@/components/ui/dropdown';
 import {VehiclePolicy} from './vehicle-policy';
 import {RoadLocations,RoadAttribution} from './road-locations';
 import {CurrencySwap} from './currency-swap';
-import {useRef,useState,useCallback,useEffect} from 'react';
+import {useRef,useState,useCallback,useEffect,useEffectEvent} from 'react';
 import {Calculator,RotateCcw,Link as LinkIcon} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import type {Definition,Result,Values} from '@/lib/calculators/types';
@@ -74,12 +74,15 @@ export function CalculatorForm({definition,title,category,initial,currency:baseC
   inputs:[...mode.fields.filter(field=>isFieldActive(mode,field,values)).map(field=>{const shown=displayField(mode,field,values);return {key:field.key,label:t(shown.label),value:summarizeInput(shown,values[field.key],t,displayCurrency),...(shown.unit?{unit:displayCurrency?currencyText(t(shown.unit),currency):t(shown.unit)}:{})};}),...(mode.algorithm==='expression'&&/\bAns\b/.test(values.expression)&&savedExpressionAnswer!==null?[{key:'expressionAnswer',label:'Ans',value:String(savedExpressionAnswer)}]:[])],
  }:null;
  const selectMode=useCallback((id:string)=>{const next=definition.modes.find(m=>m.id===id);if(!next)return;revision.current++;setBusy(false);setModeId(id);setValues(defaults(next));setOutput(null);setError('');setNotice('');setDirty(false);setExample(false);setResetVersion(value=>value+1);},[definition]);
+ // A delayed initial hash check must not reset edits in the active mode.
+ // Read the latest selection, including browser-tool and saved-plan changes.
+ const selectHashMode=useEffectEvent((id:string)=>{if(id!==modeId)selectMode(id);});
  useEffect(()=>{
-  const syncMode=()=>{const hash=window.location.hash;const moved=movedStudentMode(definition.slug,hash.replace(/^#(?:mode|method)-/,''));if(moved){window.location.replace(href('/'+moved)+hash);return;}const selected=definition.modes.find(m=>calculatorModeHash(m.id)===hash);if(selected)selectMode(selected.id);};
+  const syncMode=()=>{const hash=window.location.hash;const moved=movedStudentMode(definition.slug,hash.replace(/^#(?:mode|method)-/,''));if(moved){window.location.replace(href('/'+moved)+hash);return;}const selected=definition.modes.find(m=>calculatorModeHash(m.id)===hash);if(selected)selectHashMode(selected.id);};
   const initialSelection=window.setTimeout(syncMode,0);
   window.addEventListener('hashchange',syncMode);
   return ()=>{window.clearTimeout(initialSelection);window.removeEventListener('hashchange',syncMode);};
- },[definition,selectMode,href]);
+ },[definition,href]);
  function changeMode(id:string){selectMode(id);window.history.replaceState(null,'',window.location.pathname+window.location.search+calculatorModeHash(id));}
  async function submit(event:React.FormEvent){event.preventDefault();const run=++revision.current;setBusy(true);setError('');setNotice('');try{const context=expressionContext();const result=await calculate(category,mode,values,context);if(run!==revision.current)return;setSavedExpressionAnswer(context.answer);setOutput(result);if(mode.algorithm==='expression')commitAnswer(result);setExample(false);setDirty(false);setTimeout(()=>resultRef.current?.focus(),0);}catch(e){if(run!==revision.current)return;const message=e instanceof Error?e.message:'Unable to calculate. Check the inputs and try again.';setError(/Failed to fetch|Loading chunk|dynamically imported|load chunk/i.test(message)?'The calculation engine could not load. Reconnect and select Calculate to retry.':message);setOutput(null);}finally{if(run===revision.current)setBusy(false);}}
  async function memoryAction(action:'add'|'subtract'|'clear'){if(action==='clear'){setMemory(null);setNotice('Memory cleared.');return;}const run=++revision.current;setBusy(true);setError('');try{const result=await calculate(category,mode,values,expressionContext()),value=result.metrics.find(m=>m.label==='Result')?.value;if(run!==revision.current)return;if(typeof value!=='number'||!Number.isFinite(value))throw Error('Memory requires a finite numeric result.');const next=(memory??0)+(action==='add'?value:-value);if(!Number.isFinite(next))throw Error('Memory result exceeds the finite numeric range.');setMemory(next);setNotice('Memory updated from the current expression.');}catch(e){if(run===revision.current)setError(e instanceof Error?e.message:'Unable to update memory.');}finally{if(run===revision.current)setBusy(false);}}

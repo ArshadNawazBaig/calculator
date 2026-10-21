@@ -10,8 +10,7 @@ const json = async path => JSON.parse(await readFile(resolve(root, path), 'utf8'
 const manifest = await json('docs/validation/page-value-review.json');
 const calculatorNotes = Object.assign({}, ...await Promise.all(['finance', 'health', 'math', 'everyday'].map(category => json(`src/data/insights/${category}.json`))));
 const informationNotes = await json('src/data/insights/information.json');
-const locales = manifest.languages;
-const jobs = manifest.pages.flatMap(page => locales.map(locale => ({...page, locale, pathname: locale === 'en' ? page.path : `/${locale}${page.path === '/' ? '' : page.path}`})));
+const jobs = manifest.pages.flatMap(page => page.languages.map(locale => ({...page, locale, pathname: locale === 'en' ? page.path : `/${locale}${page.path === '/' ? '' : page.path}`})));
 if (new Set(jobs.map(job => job.pathname)).size !== jobs.length) throw Error('The review manifest contains duplicate localized routes.');
 
 const htmlEscape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;');
@@ -26,6 +25,7 @@ const markerFor = page => {
   if (page.kind === 'regional-clock' || page.kind === 'time-tool' && page.path === '/time') return ['data-clock-comparison'];
   if (['directory', 'student-directory', 'guide-directory'].includes(page.kind)) return ['data-tool-chooser'];
   if (page.kind === 'guide') return ['data-guide-illustration'];
+  if (page.kind === 'worked-guide') return ['id', 'guide-section-1'];
   if (page.kind === 'information') return ['data-information-insight'];
   if (page.kind === 'time-tool') return ['data-time-example'];
   if (['spin-wheel', 'wheel-directory'].includes(page.kind)) return ['id', 'starting-odds'];

@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test,expect,type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
@@ -43,14 +44,25 @@ test('country suggests a currency, manual override persists across reloads and l
   await page.reload();
   await expect(page.locator('#calculator-currency')).toContainText('EUR');
   await page.getByRole('button',{name:'Language: English'}).click();
-  await page.getByRole('link',{name:'Français',exact:true}).click();
-  await expect(page.locator('#calculator-currency')).toContainText('EUR');
+  if(isPublishedLocale('fr')){
+    await page.getByRole('link',{name:'Français',exact:true}).click();
+    await expect(page.locator('#calculator-currency')).toContainText('EUR');
+    await page.getByRole('button',{name:'Langue : Français'}).click();
+  }else{
+    await expect(page.getByRole('link',{name:'Français',exact:true})).toHaveCount(0);
+    await expect(page.locator('#calculator-currency')).toContainText('EUR');
+  }
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('finflo.preferences.v1')!))).toEqual({country:'CA',currency:'EUR'});
-  await page.getByRole('button',{name:'Langue : Français'}).click();
-  await page.getByRole('button',{name:'Utiliser les valeurs par défaut de la langue'}).click();
+  await page.getByRole('button',{name:isPublishedLocale('fr')?'Utiliser les valeurs par défaut de la langue':'Use language defaults'}).click();
   expect(await page.evaluate(()=>localStorage.getItem('finflo.preferences.v1'))).toBeNull();
-  await page.getByRole('link',{name:'Português',exact:true}).click();
-  await expect(page.locator('#calculator-currency')).toContainText('BRL');
+  if(isPublishedLocale('pt')){
+    await page.getByRole('link',{name:'Português',exact:true}).click();
+    await expect(page.locator('#calculator-currency')).toContainText('BRL');
+  }else{
+    await expect(page.getByRole('link',{name:'Português',exact:true})).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#calculator-currency')).toContainText(isPublishedLocale('fr')?'EUR':'USD');
+  }
 });
 
 test('currency changes preserve inputs and calculations and label table and CSV currency',async({page})=>{
@@ -94,6 +106,7 @@ test('regional tools keep their rules and currencies despite preferences',async(
 });
 
 test('Arabic defaults and preference popovers work on small screens',async({page})=>{
+  test.skip(!isPublishedLocale('ar'), 'This translation is not published.');
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.setViewportSize({width:360,height:800});
   await page.goto('/ar/loan-calculator');

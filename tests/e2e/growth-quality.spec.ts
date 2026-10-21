@@ -1,9 +1,10 @@
+import {publishedLocales} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import review from '../../docs/research/editorial/copy-review-2026-10-11.json';
 
-test('publishes the authorized operator in every language',async({page})=>{
+test('publishes the authorized operator in every published language',async({page})=>{
   const entry=review.entries.find(row=>row.source.startsWith('Finflo is operated by Erush'))!;
-  for(const locale of ['en','es','fr','de','pt','ar','hi','tl'] as const) {
+  for(const locale of publishedLocales) {
     await page.goto(`${locale==='en'?'':`/${locale}`}/about`);
     await expect(page.locator('main')).toContainText(locale==='en'?entry.source:entry.translations[locale]);
   }

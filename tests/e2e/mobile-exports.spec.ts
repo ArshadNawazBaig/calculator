@@ -1,6 +1,10 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import {PDFDocument} from 'pdf-lib';
+
+// These controls depend on touch capabilities, even under the default desktop project.
+test.use({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 
 test('CSV downloads contain the full schedule and the retry link stays usable',async({page})=>{
   await page.goto('/loan-calculator');
@@ -114,8 +118,9 @@ test('PDF creation failures show a retryable message',async({page})=>{
   expect((await pending).suggestedFilename()).toBe('finflo-grade-calculator.pdf');
 });
 
-for(const [locale,downloadText,title] of [['hi','फ़ाइल डाउनलोड करें','ग्रेड कैलकुलेटर'],['ar','تنزيل الملف','الدرجات الدراسية']]) {
+for(const [locale,downloadText,title] of [['hi','फ़ाइल डाउनलोड करें','ग्रेड कैलकुलेटर'],['ar','تنزيل الملف','الدرجات الدراسية']] as const) {
   test(`${locale} PDF renders localized text and a mobile save link`,async({page},info)=>{
+    test.skip(!isPublishedLocale(locale), 'This translation is not published.');
     await page.goto(`/${locale}/grade-calculator`);
     const pending=page.waitForEvent('download');
     await page.getByRole('button',{name:'PDF',exact:true}).click();

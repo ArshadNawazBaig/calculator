@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 
@@ -48,6 +49,7 @@ test('matrix cards, expanded tables and CSV use the same display precision',asyn
 });
 
 test('Hindi final-grade warnings fit a narrow screen and show translated guidance',async({page})=>{
+  test.skip(!isPublishedLocale('hi'), 'This translation is not published.');
  await page.setViewportSize({width:360,height:800});
  await page.goto('/hi/final-exam-grade-calculator');
  await page.getByRole('button',{name:'गणना करें',exact:true}).click();

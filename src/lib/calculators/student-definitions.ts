@@ -35,8 +35,8 @@ export function separateStudentCalculators(definitions: Definition[]) {
   const semester = gpa.modes.find(mode => mode.id === 'semester-grades')!;
   gpa.modes = [semester, ...gpa.modes.filter(mode => mode !== target && mode !== semester)];
   definitions.push(
-    {slug: 'final-exam-grade-calculator', description: '', modes: finalModes, sources: []},
-    {slug: 'gpa-goal-calculator', description: '', modes: [target], sources: []},
+    {slug: 'final-exam-grade-calculator', description: '', modes: finalModes, sources: structuredClone(grade.sources)},
+    {slug: 'gpa-goal-calculator', description: '', modes: [target], sources: structuredClone(gpa.sources)},
   );
   for (const tool of studentTools) definitions.find(definition => definition.slug === tool.slug)!.description = tool.description;
 }

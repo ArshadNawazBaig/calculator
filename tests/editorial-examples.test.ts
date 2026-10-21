@@ -9,6 +9,41 @@ async function metrics(slug:string,id:string,inputs:Values) {
   return Object.fromEntries(result.metrics.map(metric=>[metric.label,metric.value]));
 }
 describe('published editorial examples and regional assumptions',()=>{
+  it.each([
+    ['25','0','0',90], ['20','10','0',86], ['20','10','8',92.88], ['25','0','8',97.20],
+  ])('checks the discount guide offer at %s%% with coupon %s and tax %s', async(rate,fixed,tax,price)=>{
+    const result=await metrics('discount-calculator','calculate',{price:'120',rate,fixed,tax});
+    expect(result['Final price with tax']).toBeCloseTo(price,8);
+  });
+  it('reproduces reversed coupon order and successive discounts',async()=>{
+    const couponFirst=await metrics('discount-calculator','calculate',{price:'110',rate:'20',fixed:'0',tax:'0'});
+    expect(couponFirst['Price before tax']).toBe(88);
+    const successive=await metrics('discount-calculator','calculate',{price:'96',rate:'10',fixed:'0',tax:'0'});
+    expect(successive['Price before tax']).toBeCloseTo(86.4,8);
+  });
+  it('distinguishes an ungraded final from a scored zero in the grade guide',async()=>{
+    const rows=[{name:'Homework',weight:30,score:90},{name:'Midterm',weight:40,score:80},{name:'Final exam',weight:30,score:'',plannedScore:90}];
+    const ungraded=await metrics('grade-calculator','categories',{categories:JSON.stringify(rows)});
+    expect(ungraded['Current weighted grade']).toBeCloseTo(84.28571428571429,10);
+    expect(ungraded['Graded course weight']).toBe(70);
+    expect(ungraded['Projected course grade']).toBe(86);
+    rows[2].score=0;
+    const zero=await metrics('grade-calculator','categories',{categories:JSON.stringify(rows)});
+    expect(zero['Current weighted grade']).toBe(59);
+  });
+  it.each([[80,70],[85,86.66666666666667],[90,103.33333333333333]])('checks the grade guide target of %s',async(target,required)=>{
+    const result=await metrics('final-exam-grade-calculator','final',{current:String(59/.7),target:String(target),weight:'30'});
+    expect(result['Required final score']).toBeCloseTo(required,8);
+    expect(result['Highest possible overall grade']).toBe(89);
+  });
+  it.each([['4','0',2.469135802469136],['4','5',2.592592592592593],['4','10',2.7160493827160495],['4.5','0',2.777777777777778]])('checks the concrete guide at %s inches and %s%% allowance',async(depth,waste,volume)=>{
+    const result=await metrics('concrete-calculator','slab',{length:'20',width:'10',depth,waste});
+    expect(result['With allowance']).toBeCloseTo(volume,10);
+  });
+  it.each([['ordered',434.5679012345679],['net',395.0617283950617]])('prices concrete using the guide’s %s basis',async(priceBasis,cost)=>{
+    const result=await metrics('concrete-calculator','measured',{shape:'slab',length:'20',lengthUnit:'ft',width:'10',widthUnit:'ft',depth:'4',depthUnit:'in',quantity:'1',waste:'10',price:'160',priceVolumeUnit:'yd3',priceBasis});
+    expect(result['Material cost']).toBeCloseTo(cost,8);
+  });
   // Independently evaluated annuity formulas; see docs/growth-quality-2026-10-11.md.
   it.each([['end',2395.07533145183],['beginning',2407.75783446503]])('checks monthly deposits at period %s',async(timing,balance)=>{
     const result=await metrics('compound-interest-calculator','growth',{initial:'1000',contribution:'100',rate:'12',years:'1',frequency:'12',contributionFrequency:'12',timing:String(timing),taxRate:'0',inflation:'0'});

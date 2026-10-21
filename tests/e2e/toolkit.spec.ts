@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {PDFDocument} from 'pdf-lib';
@@ -100,6 +101,7 @@ test('group expense rows show exact settlements and export them',async({page})=>
 });
 
 test('toolkit tools retain the language selected in the directory',async({page})=>{
+  test.skip(!isPublishedLocale('es'), 'This translation is not published.');
   await page.goto('/es/calculators/finance/other');
   const card=page.locator('[data-calculator-card="invoice-generator"]');
   await expect(card).toContainText('Generador de facturas y presupuestos');

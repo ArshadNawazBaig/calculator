@@ -1390,7 +1390,8 @@
       {
         "title": "Choosing a payment or a payoff target",
         "paragraphs": [
-          "Use the scheduled-loan mode when the amount, rate, and term are known. Use fixed-payment payoff when you want to see what a chosen payment does to an existing balance. Check whether that payment covers accruing interest and reduces principal. A payment that looks manageable today may extend repayment considerably, so review the payoff duration as well as the installment amount."
+          "Use the scheduled-loan mode when the amount, rate, and term are known. Use fixed-payment payoff when you want to see what a chosen payment does to an existing balance. Check whether that payment covers accruing interest and reduces principal. A payment that looks manageable today may extend repayment considerably, so review the payoff duration as well as the installment amount.",
+          "For a $10,000 loan at an 8% nominal annual rate over 3 years, Loan & schedule uses 36 monthly payments and a monthly rate of 0.08 / 12. The calculated payment is about $313.36 before fees. The schedule totals about $1,281.09 of interest using unrounded calculations; a lender that rounds each installment or accrues interest daily can produce a different final payment."
         ]
       }
     ]
@@ -1411,7 +1412,8 @@
       {
         "title": "Planning a repayment schedule",
         "paragraphs": [
-          "A repayment plan depends on how much is owed, how interest is charged, and how much is paid each period. Compare a fixed term with a fixed payment to see which constraint fits your question. Keep any extra payments separate from the regular installment. The schedule assumes the entered terms continue, so a variable rate or missed payment can change the outcome."
+          "A repayment plan depends on how much is owed, how interest is charged, and how much is paid each period. Compare a fixed term with a fixed payment to see which constraint fits your question. Keep any extra payments separate from the regular installment. The schedule assumes the entered terms continue, so a variable rate or missed payment can change the outcome.",
+          "For a $10,000 balance at 8% with a fixed $300 monthly payment, the model reaches payoff in 38 installments and charges about $1,346.95 in interest. Keeping the regular payment at $300 and adding $100 each month reduces this to 28 installments and about $976.04 in interest: 10 fewer installments and $370.91 less interest. Both scenarios include a smaller final installment and assume no new borrowing or fees."
         ]
       }
     ]
@@ -1457,7 +1459,8 @@
       {
         "title": "Why a fixed card payment matters",
         "paragraphs": [
-          "A credit-card balance can take much longer to repay when the payment only slightly exceeds the interest charged. The fixed-payment mode helps you compare larger regular payments on the same balance. This projection assumes the modeled balance and rate, rather than reproducing every issuer's statement rules. New purchases, changing rates, or additional fees can alter the actual payoff path."
+          "A credit-card balance can take much longer to repay when the payment only slightly exceeds the interest charged. The fixed-payment mode helps you compare larger regular payments on the same balance. This projection assumes the modeled balance and rate, rather than reproducing every issuer's statement rules. New purchases, changing rates, or additional fees can alter the actual payoff path.",
+          "In the opening example, a $5,000 balance at 20% has about $83.33 of first-month interest in this monthly model. A $200 payment therefore reduces the balance by about $116.67 in that first month. With the same payment and no new charges, payoff takes 33 installments and about $1,522.10 in total interest. The final installment is smaller; your issuer may use daily balances and different payment rules."
         ]
       }
     ]
@@ -2938,7 +2941,8 @@
       {
         "title": "Understanding a daily calorie estimate",
         "paragraphs": [
-          "The daily calorie result combines the selected resting-energy method with an activity assumption. An activity setting describes a modeled average rather than measuring everything done during a day. Compare the assumptions before treating a difference between calculators as an error. The estimate is not a personalized meal prescription, and the displayed limitations explain situations where a simple model is less informative."
+          "The daily calorie result combines the selected resting-energy method with an activity assumption. An activity setting describes a modeled average rather than measuring everything done during a day. Compare the assumptions before treating a difference between calculators as an error. The estimate is not a personalized meal prescription, and the displayed limitations explain situations where a simple model is less informative.",
+          "The opening Mifflin–St Jeor example uses age 30, the male coefficient, 70 kg and 175 cm. Resting expenditure is 1,648.75 kcal/day. The selected sedentary scenario multiplies this by 1.2 to give 1,978.50 kcal/day; selecting Resting energy only returns 1,648.75 instead. The multiplier adds an activity assumption rather than measuring it. A food Calorie is one kcal, so the output should not be multiplied by 1,000 when reading a food label."
         ]
       }
     ]
@@ -2980,7 +2984,8 @@
       {
         "title": "Connecting macro amounts with an energy target",
         "paragraphs": [
-          "The macro calculator distributes a stated or estimated energy target into macronutrient amounts. Check whether you are entering calories directly or deriving them from body measurements and activity. A different split can change carbohydrate, fat, and protein grams without changing the total energy target. The output illustrates the selected assumptions and does not assess dietary adequacy or individual medical requirements."
+          "The macro calculator distributes a stated or estimated energy target into macronutrient amounts. Check whether you are entering calories directly or deriving them from body measurements and activity. A different split can change carbohydrate, fat, and protein grams without changing the total energy target. The output illustrates the selected assumptions and does not assess dietary adequacy or individual medical requirements.",
+          "For an entered target of 2,000 kcal with 20% protein, 50% carbohydrate and 30% fat, the allocation is 400, 1,000 and 600 kcal respectively. Dividing by 4, 4 and 9 gives 100 g protein, 250 g carbohydrate and about 66.67 g fat. Changing protein to 30% while leaving the other shares unchanged totals 110%, so the calculator asks you to correct the split. This arithmetic checks energy allocation; it does not choose an appropriate intake for you."
         ]
       }
     ]

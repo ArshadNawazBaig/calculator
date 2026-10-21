@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
@@ -6,7 +7,8 @@ const choose = async (page: Page, id: string, label: string) => {
   await page.locator(`#${id}`).click();
   await page.getByRole('option', {name: label, exact: true}).click();
 };
-for (const locale of ['en', 'es', 'fr', 'de', 'pt', 'ar']) test(`${locale}: free intensity guide works and unfinished tools are removed`, async ({page, request}) => {
+for (const locale of ['en', 'es', 'fr', 'de', 'pt', 'ar'] as const) test(`${locale}: free intensity guide works and unfinished tools are removed`, async ({page, request}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const messages: Record<string, string> = locale === 'en' ? {} : {...JSON.parse(readFileSync(`src/data/locales/${locale}.json`, 'utf8')), ...JSON.parse(readFileSync(`src/data/locales/content/${locale}.json`, 'utf8'))};
   const t = (key: string) => messages[key] || key;
   const prefix = locale === 'en' ? '' : `/${locale}`;

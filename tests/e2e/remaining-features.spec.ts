@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFileSync} from 'node:fs';
@@ -90,7 +91,8 @@ test('new forms fit mobile and the map controls are accessible', async ({page}) 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-for (const locale of ['es', 'fr', 'de', 'pt', 'ar']) test(`${locale}: new mode labels and map errors are translated`, async ({page}) => {
+for (const locale of ['es', 'fr', 'de', 'pt', 'ar'] as const) test(`${locale}: new mode labels and map errors are translated`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const content: Record<string, string> = JSON.parse(readFileSync(`src/data/locales/content/${locale}.json`, 'utf8'));
   const ui: Record<string, string> = JSON.parse(readFileSync(`src/data/locales/${locale}.json`, 'utf8'));
   const t = (key: string) => ui[key] || content[key];

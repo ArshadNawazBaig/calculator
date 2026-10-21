@@ -1,3 +1,4 @@
+import {isPublishedLocale, splitLocale} from '../../src/lib/i18n/config';
 import {expect, test} from '@playwright/test';
 import {studentTools} from '../../src/lib/student-tools';
 
@@ -22,6 +23,7 @@ test('old mode links open the new page and preserve the selected language', asyn
     ['/gpa-calculator#mode-target', '/gpa-goal-calculator#mode-target', '#target-current'],
     ['/es/gpa-calculator#mode-target', '/es/gpa-goal-calculator#mode-target', '#target-current'],
   ]) {
+    if (!isPublishedLocale(splitLocale(from).locale)) continue;
     await page.goto(from);
     await expect(page).toHaveURL(new RegExp(to + '$'));
     await expect(page.locator(input)).toBeVisible();
@@ -89,4 +91,49 @@ test('mobile category scores distinguish a zero from ungraded work', async ({pag
   await page.getByRole('link', {name: 'Calculate a grade from earned and possible points'}).click();
   await page.getByRole('button', {name: 'Calculate', exact: true}).click();
   await expect(page.locator('.primary-metric dd')).toHaveText('83.33%');
+});
+
+test('delayed initial mode synchronization preserves edited category scores', async ({page}) => {
+  // Hold the initial hash callback until after a real edit. Delaying only this
+  // timer keeps hydration and unrelated UI timers running normally.
+  await page.addInitScript(() => {
+    const schedule = window.setTimeout.bind(window), cancel = window.clearTimeout.bind(window);
+    const pending = new Map<number, () => void>();
+    window.setTimeout = ((callback: TimerHandler, delay?: number, ...args: unknown[]) => {
+      if (delay === 0 && typeof callback === 'function' && callback.toString().includes('location.hash')) {
+        const id = schedule(() => {}, 60_000);
+        pending.set(id, () => callback(...args));
+        return id;
+      }
+      return schedule(callback, delay, ...args);
+    }) as typeof window.setTimeout;
+    window.clearTimeout = id => {if (typeof id === 'number') pending.delete(id); cancel(id);};
+    Object.assign(window, {
+      pendingInitialHashSync: () => pending.size,
+      releaseInitialHashSync: () => {
+        for (const [id, callback] of pending) {cancel(id); callback();}
+        pending.clear();
+      },
+    });
+  });
+  await page.goto('/grade-calculator#mode-categories');
+  await expect.poll(() => page.evaluate(() => (window as unknown as {pendingInitialHashSync: () => number}).pendingInitialHashSync())).toBe(1);
+  const score = page.locator('#categories-categories-2-score');
+  await score.fill('0');
+  await expect(score).toHaveValue('0');
+  await page.evaluate(() => (window as unknown as {releaseInitialHashSync: () => void}).releaseInitialHashSync());
+  await expect(score).toHaveValue('0');
+  await page.getByRole('button', {name: 'Calculate', exact: true}).click();
+  await expect(page.locator('.primary-metric dd')).toHaveText('59%');
+  // A genuine mode change still starts that mode with its own defaults.
+  await page.getByRole('link', {name: 'Calculate a grade from earned and possible points'}).click();
+  await page.getByRole('button', {name: 'Calculate', exact: true}).click();
+  await expect(page.locator('.primary-metric dd')).toHaveText('83.33%');
+  // Returning to the original mode reads the current selection, not a stale
+  // value captured on mount, and genuinely changing modes resets the inputs.
+  await page.evaluate(() => {window.location.hash = '#mode-categories';});
+  await expect(score).toBeVisible();
+  await expect(score).toHaveValue('');
+  await page.getByRole('button', {name: 'Calculate', exact: true}).click();
+  await expect(page.locator('.primary-metric dd')).toHaveText('84.29%');
 });

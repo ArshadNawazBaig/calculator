@@ -1,0 +1,110 @@
+{
+  "releaseDate": "2026-10-22",
+  "scope": "AdSense low-value-content remediation; functional and technical verification, not Google approval or complete expert editorial certification.",
+  "publication": {
+    "publishedLanguages": [
+      "en"
+    ],
+    "unpublishedDrafts": [
+      "es",
+      "fr",
+      "de",
+      "pt",
+      "ar",
+      "hi",
+      "tl"
+    ],
+    "calculatorPages": 216,
+    "calculationModes": 572,
+    "guides": 6,
+    "sitemapURLs": 721,
+    "oldLanguageURLs": "307 to the same English path with query and browser fragment preserved; no-store and noindex headers; unchanged browser storage"
+  },
+  "localChecks": {
+    "verify": {
+      "status": "passed",
+      "unitTests": 3294,
+      "unitFiles": 55,
+      "typecheck": true,
+      "lint": true,
+      "productionBuild": true,
+      "scope": "Final runtime, including source URL correction and calculator hash-synchronization fix."
+    },
+    "seo": {
+      "measuredAt": "2026-10-21T19:15:05.388Z",
+      "base": "http://127.0.0.1:3102",
+      "scope": "All sitemap URLs; initial server HTML; unique internal path targets. No external links, fragment targets, JavaScript rendering, search-engine indexing status, or field performance measured.",
+      "sitemapURLs": 721,
+      "checkedPages": 721,
+      "internalPaths": 723,
+      "errors": [],
+      "duplicateTitles": [],
+      "duplicateDescriptions": []
+    },
+    "renderedContent": {
+      "checkedAt": "2026-10-21T19:15:05.845Z",
+      "checked": 721,
+      "passed": 721,
+      "failed": 0,
+      "scope": "HTTP response HTML for every manifest route and language. This verifies rendered content, not client interaction, visual layout, or the substantive correctness of every calculation."
+    },
+    "translationDiagnostics": {
+      "publishedLanguagesPass": true,
+      "unpublishedDraftsMissingMessagesPerLocale": 16,
+      "draftsRequireFluentEditorialReview": true
+    },
+    "browser": {
+      "status": "passed",
+      "firstRun": {
+        "passed": 164,
+        "skipped": 76,
+        "failed": 8
+      },
+      "testCorrections": [
+        "Resolve relative Location headers against response URL",
+        "Open collapsed currency panel before selecting currency",
+        "Run mobile export tests with touch/mobile emulation"
+      ],
+      "runtimeFollowup": "Fixed redundant same-mode hash synchronization with latest-state comparison. Deterministic delayed-timer regression fails against old build and passes updated runtime; actual mode changes and saved restoration remain covered.",
+      "finalRun": {
+        "startTime": "2026-10-21T19:27:07.768Z",
+        "duration": 286903.322,
+        "expected": 173,
+        "skipped": 76,
+        "unexpected": 0,
+        "flaky": 0,
+        "scope": "Full final Chromium suite against the production build; mobile export spec explicitly uses touch/mobile emulation.76 unpublished-language cases intentionally skipped."
+      }
+    }
+  },
+  "sources": {
+    "rawAudit": {
+      "checkedAt": "2026-10-21T19:13:45.022Z",
+      "total": 213,
+      "counts": {
+        "reachable": 177,
+        "access_unverified": 33,
+        "request_unverified": 3
+      }
+    },
+    "remainingDistinctURLsAfterCorrection": 212,
+    "report": "adsense-release-sources-2026-10-22.md",
+    "limitations": [
+      "Successful HTTP responses do not establish source accuracy.",
+      "CAPTCHA/cookie challenges, blocked URLs and the FFIT PDF timeout remain access-verification limits."
+    ]
+  },
+  "deployment": {
+    "status": "release candidate; deployment and live verification follow the tested commit",
+    "service": "finflo",
+    "environment": "production",
+    "previousVerifiedCommit": "32b8c03825eb9d3f0a98540a1cb15a56303550d1",
+    "rollbackDeployment": "65fcc934-4e87-4b66-a135-0d7bb82bb508"
+  },
+  "adsenseAccountReviewRequested": false,
+  "limits": [
+    "Unpublished translations require fluent editorial review before republication.",
+    "All-page crawls check response HTML and structure, not editorial approval of each page.",
+    "The AdSense decision remains with Google."
+  ]
+}

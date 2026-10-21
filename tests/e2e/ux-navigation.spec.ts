@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect} from '@playwright/test';
 
 test('mobile calculator shortcuts cross the full table and return keyboard focus to inputs', async ({page}) => {
@@ -50,8 +51,10 @@ test('directory categories open their pages and remain reachable after a long sc
 });
 
 test('category links keep the language and the student hub links to its four calculators', async ({page}) => {
+  test.skip(!isPublishedLocale('es')&&!isPublishedLocale('ar'), 'These translations are not published.');
   await page.setViewportSize({width: 320, height: 740});
-  for (const locale of ['es', 'ar']) {
+  for (const locale of ['es', 'ar'] as const) {
+    if(!isPublishedLocale(locale))continue;
     await page.goto(`/${locale}/calculators`);
     const nav = page.locator('[data-category-navigation]');
     const students = nav.locator(`a[href="/${locale}/calculators/students"]`);
@@ -70,8 +73,10 @@ test('category links keep the language and the student hub links to its four cal
 });
 
 test('localized calculator shortcuts fit and target the same sections', async ({page}) => {
+  test.skip(!(['ar','de','hi'] as const).some(isPublishedLocale), 'These translations are not published.');
   await page.setViewportSize({width: 320, height: 740});
-  for (const locale of ['ar', 'de', 'hi']) {
+  for (const locale of ['ar', 'de', 'hi'] as const) {
+    if(!isPublishedLocale(locale))continue;
     await page.goto(`/${locale}/bmi-calculator`);
     const nav = page.locator('nav').filter({has: page.locator('a[href="#calculation-summary"]')});
     await expect(nav.getByRole('link')).toHaveCount(3);

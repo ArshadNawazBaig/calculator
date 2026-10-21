@@ -21,7 +21,7 @@ import {SpinWheelsPage, wheelLibraryTitle, wheelLibraryDescription} from '@/comp
 import {toolListings} from '@/lib/tool-listings';
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {Suspense} from 'react';
-import {notFound} from 'next/navigation';
+import {notFound, redirect} from 'next/navigation';
 import Link from '@/components/i18n/link';
 import {PageHero} from '@/components/content/page-hero';
 import {SystemPage} from '@/components/content/system-page';
@@ -52,11 +52,12 @@ import {categories, site} from '@/lib/site';
 import {information} from '@/data/information';
 import {guides} from '@/data/guides';
 import {pageMetadata} from '@/lib/metadata';
-import {isTranslatedPage, localizedPath, translator, type Locale} from './config';
+import {isPublishedLocale, isTranslatedPage, localizedPath, translator, type Locale} from './config';
 
-type PageProps = {params: Promise<{path?: string[]}>};
+type PageProps = {params: Promise<{path?: string[]}>; searchParams?: Promise<Record<string, string | string[] | undefined>>};
 export const localizedLandingPaths = ['/', '/calculators', studentDirectory.path, ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`))];
-export function localizedStaticParams() {
+export function localizedStaticParams(locale: Locale) {
+  if (!isPublishedLocale(locale)) return [];
   return [...new Set([...localizedLandingPaths,...translatedPages.filter(path=>!path.startsWith('/time')||prerenderTimePaths.has(path)||!timeRoute(path)),'/workspace'])].map(path => ({path: path.split('/').filter(Boolean)}));
 }
 function routeInfo(path: string) {
@@ -82,7 +83,7 @@ function routeInfo(path: string) {
   }
   if (path === '/search') return {title: 'Search calculators', description: 'Find the right tool for your next question.'};
   if (path === '/guides') return {title: 'Guides', description: 'Practical guides to the formulas, assumptions, and limits behind your calculations.'};
-  if (parts[0] === 'guides' && parts.length === 2 && guides[parts[1]]) return {title: guides[parts[1]].title, description: guides[parts[1]].description, info: guides[parts[1]]};
+  if (parts[0] === 'guides' && parts.length === 2 && guides[parts[1]] && isTranslatedPage(path)) return {title: guides[parts[1]].title, description: guides[parts[1]].description, info: guides[parts[1]]};
   if (parts.length !== 1) return null;
   const slug = parts[0];
   if (information[slug]) return {title: ({about:'About Finflo',contact:'Contact',privacy:'Privacy',terms:'Terms','editorial-policy':'Editorial policy',accessibility:'Accessibility',disclaimer:'Disclaimer',cookies:'Cookies'} as Record<string,string>)[slug] || information[slug].title, description: information[slug].description, info: information[slug]};
@@ -111,8 +112,21 @@ export function localizedMetadata(locale: Locale) {
   };
 }
 export function localizedPage(locale: Locale) {
-  return async function LocalizedPage({params}: PageProps) {
-    const path = '/' + ((await params).path || []).join('/'), route = routeInfo(path);
+  return async function LocalizedPage({params, searchParams}: PageProps) {
+    const segments = (await params).path || [];
+    const path = '/' + segments.join('/');
+    // Proxy handles public requests first. Guard the renderer as well so a
+    // disabled locale cannot expose content through an alternate serving path.
+    if (!isPublishedLocale(locale)) {
+      const query = new URLSearchParams();
+      for (const [key, value] of Object.entries(await searchParams || {})) {
+        if (Array.isArray(value)) value.forEach(item => query.append(key, item));
+        else if (value !== undefined) query.append(key, value);
+      }
+      const destination = '/' + segments.map(encodeURIComponent).join('/');
+      redirect(destination + (query.size ? `?${query}` : ''));
+    }
+    const route = routeInfo(path);
     if (!route) notFound();
     if (path === '/faq') return <FaqPage locale={locale}/>;
     const messages = await getContentDictionary(locale), t = translator(messages);
@@ -166,7 +180,7 @@ export function localizedPage(locale: Locale) {
         {route.info.sections.map((section,index) => <section key={index}><h2>{t(section.title)}</h2>{section.paragraphs.map((paragraph,i) => <p key={i}>{t(paragraph)}</p>)}{section.links && <ul>{section.links.map(link => <li key={link.href}><Link href={link.href}>{t(link.label)}</Link></li>)}</ul>}</section>)}
       </article></div>{guide&&<><JsonLd data={guideData(t(route.title),t(route.description),path,locale)}/><JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t('Guides'),path:'/guides'},{name:t(route.title),path}],locale)}/></>}</>;
     }
-    if (path === '/guides') return <><PageHero eyebrow="FINFLO" title={t('Guides')} description={t('Practical guides to the formulas, assumptions, and limits behind your calculations.')}/><div className="container directory-page page-content"><div className="guide-grid">{Object.entries(guides).map(([slug,guide]) => <article className="guide-card" key={slug}><h2><Link href={`/guides/${slug}`}>{t(guide.title)}</Link></h2><p>{t(guide.description)}</p></article>)}</div><ToolChooser slugs={['mortgage-calculator','compound-interest-calculator','bmi-calculator']} locale={locale} messages={messages}/></div></>;
+    if (path === '/guides') return <><PageHero eyebrow="FINFLO" title={t('Guides')} description={t('Practical guides to the formulas, assumptions, and limits behind your calculations.')}/><div className="container directory-page page-content"><div className="guide-grid">{Object.entries(guides).filter(([slug])=>isTranslatedPage(`/guides/${slug}`)).map(([slug,guide]) => <article className="guide-card" key={slug}><h2><Link href={`/guides/${slug}`}>{t(guide.title)}</Link></h2><p>{t(guide.description)}</p></article>)}</div><ToolChooser slugs={['mortgage-calculator','compound-interest-calculator','bmi-calculator']} locale={locale} messages={messages}/></div></>;
     return <PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}><Link className="button button-primary" href="/">{t('Go home')}</Link></PageHero>;
   };
 }

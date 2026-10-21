@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-16T21:57:31.451Z",
+  "checkedAt": "2026-10-21T19:10:52.551Z",
   "scope": "English source routes and their shared templates. Translation coverage and rendered URLs are checked separately.",
   "criteria": [
     "Completes the stated task",
@@ -19,12 +19,13 @@
     "navigation-hub": 4,
     "calculator-directory": 26,
     "student-directory": 1,
+    "faq": 1,
     "spin-wheel": 8,
     "information": 9,
-    "guide": 3,
+    "guide": 6,
     "calculator": 216
   },
-  "sourceRoutes": 717,
+  "sourceRoutes": 721,
   "calculatorModes": 572,
   "issues": [],
   "pages": [
@@ -3429,6 +3430,10 @@
       "kind": "navigation-hub"
     },
     {
+      "path": "/faq",
+      "kind": "faq"
+    },
+    {
       "path": "/spin-wheels",
       "kind": "navigation-hub"
     },
@@ -3818,32 +3823,6 @@
       "fixedWorkedExample": true
     },
     {
-      "path": "/payment-calculator",
-      "kind": "calculator",
-      "title": "Payment Calculator",
-      "modes": [
-        "Loan & schedule",
-        "Fixed-payment payoff"
-      ],
-      "guideSections": 1,
-      "faqs": 2,
-      "references": 2,
-      "fixedWorkedExample": true
-    },
-    {
-      "path": "/repayment-calculator",
-      "kind": "calculator",
-      "title": "Repayment Calculator",
-      "modes": [
-        "Loan & schedule",
-        "Fixed-payment payoff"
-      ],
-      "guideSections": 1,
-      "faqs": 2,
-      "references": 2,
-      "fixedWorkedExample": true
-    },
-    {
       "path": "/mortgage-payoff-calculator",
       "kind": "calculator",
       "title": "Mortgage Payoff Calculator",
@@ -3859,16 +3838,42 @@
       "fixedWorkedExample": true
     },
     {
-      "path": "/credit-card-calculator",
+      "path": "/payment-calculator",
       "kind": "calculator",
-      "title": "Credit Card Calculator",
+      "title": "Payment Calculator",
       "modes": [
         "Loan & schedule",
         "Fixed-payment payoff"
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 1,
+      "fixedWorkedExample": true
+    },
+    {
+      "path": "/repayment-calculator",
+      "kind": "calculator",
+      "title": "Repayment Calculator",
+      "modes": [
+        "Fixed-payment payoff",
+        "Loan & schedule"
+      ],
+      "guideSections": 1,
+      "faqs": 2,
+      "references": 1,
+      "fixedWorkedExample": true
+    },
+    {
+      "path": "/credit-card-calculator",
+      "kind": "calculator",
+      "title": "Credit Card Calculator",
+      "modes": [
+        "Fixed-payment payoff",
+        "Loan & schedule"
+      ],
+      "guideSections": 1,
+      "faqs": 2,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -4047,7 +4052,7 @@
       ],
       "guideSections": 2,
       "faqs": 3,
-      "references": 3,
+      "references": 2,
       "fixedWorkedExample": true
     },
     {
@@ -4060,7 +4065,7 @@
       ],
       "guideSections": 2,
       "faqs": 2,
-      "references": 2,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -4073,7 +4078,7 @@
       ],
       "guideSections": 2,
       "faqs": 2,
-      "references": 2,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -4085,7 +4090,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -4099,7 +4104,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -4760,7 +4765,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 3,
       "fixedWorkedExample": true
     },
     {
@@ -4774,7 +4779,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 3,
       "fixedWorkedExample": true
     },
     {
@@ -4788,7 +4793,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 3,
       "fixedWorkedExample": true
     },
     {
@@ -4801,7 +4806,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 3,
+      "references": 4,
       "fixedWorkedExample": true
     },
     {
@@ -4814,7 +4819,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 3,
+      "references": 4,
       "fixedWorkedExample": true
     },
     {
@@ -4827,7 +4832,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 3,
+      "references": 4,
       "fixedWorkedExample": true
     },
     {
@@ -4840,7 +4845,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 3,
+      "references": 4,
       "fixedWorkedExample": true
     },
     {
@@ -4932,7 +4937,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 3,
+      "references": 2,
       "fixedWorkedExample": true
     },
     {
@@ -5964,7 +5969,7 @@
       ],
       "guideSections": 1,
       "faqs": 1,
-      "references": 1,
+      "references": 2,
       "fixedWorkedExample": true
     },
     {
@@ -6391,7 +6396,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 2,
+      "references": 3,
       "fixedWorkedExample": true
     },
     {
@@ -6618,7 +6623,7 @@
       ],
       "guideSections": 1,
       "faqs": 2,
-      "references": 0,
+      "references": 1,
       "fixedWorkedExample": true
     },
     {
@@ -6630,8 +6635,26 @@
       ],
       "guideSections": 2,
       "faqs": 1,
-      "references": 0,
+      "references": 2,
       "fixedWorkedExample": true
+    },
+    {
+      "path": "/guides/comparing-discounts-and-percentage-changes",
+      "kind": "guide",
+      "title": "Compare discounts by the amount you actually pay",
+      "guideSections": 6
+    },
+    {
+      "path": "/guides/weighted-grades-and-final-exam-targets",
+      "kind": "guide",
+      "title": "Turn a current grade into a realistic final-exam target",
+      "guideSections": 6
+    },
+    {
+      "path": "/guides/concrete-volume-and-order-allowance",
+      "kind": "guide",
+      "title": "From slab dimensions to a concrete quantity estimate",
+      "guideSections": 6
     }
   ]
 }

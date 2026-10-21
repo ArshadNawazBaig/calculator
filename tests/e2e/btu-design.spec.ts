@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFileSync} from 'node:fs';
@@ -71,7 +72,8 @@ test('US design controls fit mobile and pass an accessibility check', async ({pa
   expect(audit.violations.map(v => v.id)).toEqual([]);
 });
 
-for (const locale of ['es','fr','de','pt','ar']) test(`${locale}: design controls translate and county names stay intact`, async ({page}) => {
+for (const locale of ['es','fr','de','pt','ar'] as const) test(`${locale}: design controls translate and county names stay intact`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const ui: Record<string,string> = JSON.parse(readFileSync(`src/data/locales/${locale}.json`, 'utf8'));
   const content: Record<string,string> = JSON.parse(readFileSync(`src/data/locales/content/${locale}.json`, 'utf8'));
   const t = (key: string) => ui[key] || content[key];

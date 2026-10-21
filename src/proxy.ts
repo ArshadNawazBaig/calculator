@@ -1,8 +1,19 @@
 import {NextRequest, NextResponse} from 'next/server';
-import {localizedPath, splitLocale} from '@/lib/i18n/config';
+import {isPublishedLocale, localizedPath, splitLocale} from '@/lib/i18n/config';
 
 export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
+  const requested = splitLocale(path);
+  if (!isPublishedLocale(requested.locale)) {
+    const target = request.nextUrl.clone();
+    // Retain the tool/directory path and query. Without a replacement fragment,
+    // browsers retain saved-calculation fragments through the redirect.
+    target.pathname = requested.path.replace(/^\/401K-calculator$/, '/401k-calculator');
+    const response = NextResponse.redirect(target, 307);
+    response.headers.set('Cache-Control', 'no-store');
+    response.headers.set('X-Robots-Tag', 'noindex, follow');
+    return response;
+  }
   // Config redirects match paths without case sensitivity, which would also
   // redirect the lowercase canonical URL to itself. Check the case here.
   if (/^\/(?:(?:es|fr|de|pt|ar|hi|tl)\/)?401K-calculator$/.test(path)) {

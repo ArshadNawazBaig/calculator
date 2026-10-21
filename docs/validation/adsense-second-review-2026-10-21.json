@@ -1,0 +1,1356 @@
+{
+  "date": "2026-10-21",
+  "status": "Local improvements; current live release not ready for resubmission; broader language editorial review remains",
+  "deploymentPerformed": false,
+  "adsenseReviewSubmitted": false,
+  "liveFindings": {
+    "newGuidesHTTP": 404,
+    "guideCount": 3,
+    "sitemapURLs": 5744,
+    "advertisingRequestsObserved": true,
+    "ownershipMetaObserved": false,
+    "englishRootAliasRedirectBroken": true
+  },
+  "localSEO": {
+    "measuredAt": "2026-10-21T17:20:43.063Z",
+    "scope": "All sitemap URLs; initial server HTML; unique internal path targets. No external links, fragment targets, JavaScript rendering, search-engine indexing status, or field performance measured.",
+    "sitemapURLs": 5747,
+    "checkedPages": 5747,
+    "internalPaths": 5763,
+    "extraChecks": [
+      {
+        "path": "/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/es/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/pt/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/fr/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/de/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/ar/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/hi/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/tl/workspace",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/es/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/de/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/fr/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/pt/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/ar/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/hi/real-estate-calculator",
+        "status": 200,
+        "location": null
+      },
+      {
+        "path": "/tl/real-estate-calculator",
+        "status": 200,
+        "location": null
+      }
+    ],
+    "errors": []
+  },
+  "localSEODuplicateTitles": 0,
+  "localSEODuplicateDescriptions": 0,
+  "seoTiming": "Full crawl preceded final dictionary wording, guide clarification, and two external-reference URL corrections. Route availability and metadata rules did not change afterward.",
+  "sourceLinks": {
+    "checkedAt": "2026-10-21T17:18:30.609Z",
+    "scope": "Distinct external references rendered by calculator definitions, guides and information pages.",
+    "total": 211,
+    "initialCounts": {
+      "reachable": 173,
+      "access_unverified": 32,
+      "request_unverified": 5,
+      "broken": 1
+    },
+    "limitations": [
+      "Reachability does not establish factual correctness or licensing.",
+      "Blocked requests and timeouts remain unverified, not confirmed broken links.",
+      "Fragment checks inspect server HTML only; PDF page fragments are not checked."
+    ],
+    "remainingAccessUnverified": [
+      {
+        "url": "https://codes.iccsafe.org/content/IECC2015/chapter-4-re-residential-energy-efficiency",
+        "status": 403
+      },
+      {
+        "url": "https://doi.org/10.1001/archinte.1916.00080130010002",
+        "status": 403
+      },
+      {
+        "url": "https://goldbook.iupac.org/terms/view/A00295",
+        "status": 403
+      },
+      {
+        "url": "https://studentaid.gov/manage-loans/repayment",
+        "status": 403
+      },
+      {
+        "url": "https://www.electrical-installation.org/enwiki/Calculation_of_voltage_drop_in_steady_load_conditions",
+        "status": 403
+      },
+      {
+        "url": "https://www.etsy.com/legal/etsy-payments/",
+        "status": 403
+      },
+      {
+        "url": "https://www.etsy.com/legal/fees/",
+        "status": 403
+      },
+      {
+        "url": "https://www.gaf.com/en-us/roofing-materials/residential-roofing-materials/shingles",
+        "status": 403
+      },
+      {
+        "url": "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/hud-partners/housing-premium-calculation",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/hud-partners/housing-premium-portfolio-layout-abbrv",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/sites/default/files/OCHCO/documents/40001-hsgh-Update-17.pdf",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/2023-05hsgml.pdf",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/40001-hsgh-update15-052024.pdf",
+        "status": 403
+      },
+      {
+        "url": "https://www.hud.gov/sites/documents/13-12mlatch.pdf",
+        "status": 403
+      },
+      {
+        "url": "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/figure-out-your-finances",
+        "status": 403
+      },
+      {
+        "url": "https://www.investor.gov/use-financial-tools-and-calculators",
+        "status": 403
+      },
+      {
+        "url": "https://www.investor.gov/use-financial-tools-and-calculators/calculators/compound-interest-calculator",
+        "status": 403
+      },
+      {
+        "url": "https://www.mdpi.com/2076-3417/14/2/834",
+        "status": 403
+      },
+      {
+        "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-repayment-calculator",
+        "status": 403
+      },
+      {
+        "url": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/ways-of-repaying-an-interest-only-mortgage",
+        "status": 403
+      },
+      {
+        "url": "https://www.mynavyhr.navy.mil/Support-Services/Culture-Resilience/Physical-Readiness/",
+        "status": 403
+      },
+      {
+        "url": "https://www.nsca.com/education/",
+        "status": 403
+      },
+      {
+        "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.25",
+        "status": 403
+      },
+      {
+        "url": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.ssa.gov/cola/factsheets/2026.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.ssa.gov/oact/cola/cbb.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.ssa.gov/oact/quickcalc/early_late.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.ssa.gov/oact/quickcalc/earlyretire.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/5%201c%20Calculation%20of%20a%20Score%20DifferentialRoundingMinus.htm",
+        "status": 403
+      },
+      {
+        "url": "https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/2024-revision/2024-treatment-of-9-hole-scores-FAQ.html",
+        "status": 403
+      },
+      {
+        "url": "https://www.usga.org/handicapping/roh/2024-rules-of-handicapping.html",
+        "status": 403
+      }
+    ],
+    "followup": {
+      "army": "Confirmed 404 replaced with working official canonical article at https://www.army.mil/article/267486/army_publishes_new_body_fat_assessment_guidance; historical method context preserved.",
+      "networkRetries": "FTC, HUD, 3DBODY paper, and J-STAGE article retrieved through web after initial request failures.",
+      "pvwatts": "Old host failed; replaced with the working current official https://pvwatts.nlr.gov/ reference."
+    }
+  },
+  "translationLabelReview": {
+    "systematicallyReviewedFilipinoKeys": [
+      "Assessment",
+      "Assessments: earned, possible",
+      "Assessments: score %, weight %",
+      "Base length",
+      "Base length unit",
+      "Base radius",
+      "Base radius and cap height",
+      "Base radius unit",
+      "Base width",
+      "Base width unit",
+      "Bottom radius",
+      "Bottom radius unit",
+      "Cap height",
+      "Cap height unit",
+      "Capsule",
+      "Category",
+      "Category weights & what-if grades",
+      "Centimeters",
+      "Column height",
+      "Column height unit",
+      "Columns",
+      "Completed assessments",
+      "Concrete geometry",
+      "Cone",
+      "Conical frustum",
+      "Course",
+      "Course GPA",
+      "Course categories",
+      "Course weight (%)",
+      "Courses",
+      "Courses & semester GPA",
+      "Courses: grade points, credits",
+      "Credits",
+      "Cube",
+      "Curb and gutter",
+      "Curb height above flag top",
+      "Curb height above flag top unit",
+      "Current average (letter or percent)",
+      "Current grade",
+      "Current score (%)",
+      "Cylinder",
+      "Cylinder length",
+      "Cylinder length unit",
+      "Depth",
+      "Diameter",
+      "Earned and possible points",
+      "Earned points",
+      "Edge",
+      "Edge unit",
+      "Editable representative letter scores",
+      "Ellipsoid",
+      "Example letter scale (editable)",
+      "Example percentage scale (editable)",
+      "Exposed gutter width",
+      "Exposed gutter width unit",
+      "Extra allowance",
+      "Feet",
+      "Final assessment weight",
+      "Flag slab thickness",
+      "Flag slab thickness unit",
+      "Grade",
+      "Grade format",
+      "Grade points",
+      "Height",
+      "Height unit",
+      "Hollow column",
+      "Hollow cylinder",
+      "Hollow round column",
+      "Horizontal curb width",
+      "Horizontal curb width unit",
+      "Inches",
+      "Include in GPA",
+      "Including allowance",
+      "Inner diameter",
+      "Inner diameter unit",
+      "Inner radius",
+      "Inner radius unit",
+      "Kilometers",
+      "Known dimensions",
+      "Length",
+      "Length unit",
+      "Letter",
+      "Letter grades",
+      "Letter or percent",
+      "Maximum grade points",
+      "Meters",
+      "Miles",
+      "Millimeters",
+      "Minimum %",
+      "Mixed-unit shapes, quantity & cost",
+      "Net geometry",
+      "Number of identical items",
+      "Number of risers",
+      "Ordinary tread run",
+      "Ordinary tread run unit",
+      "Outer diameter",
+      "Outer diameter unit",
+      "Outer radius",
+      "Outer radius unit",
+      "Percentage",
+      "Percentage of whole course",
+      "Percentages",
+      "Perpendicular height",
+      "Perpendicular height unit",
+      "Points or “exclude”",
+      "Possible points",
+      "Previous credits",
+      "Previous cumulative GPA",
+      "Previous graded credits",
+      "Price per volume unit",
+      "Price volume",
+      "Radius",
+      "Radius unit",
+      "Rectangle",
+      "Rectangular prism",
+      "Rectangular pyramid",
+      "Regular tread run",
+      "Relative weights",
+      "Remaining course weight",
+      "Required final score",
+      "Required final score with letter inputs",
+      "Result length unit (squared for area, cubed for volume)",
+      "Riser count",
+      "Riser height",
+      "Riser height unit",
+      "Round column",
+      "Semester",
+      "Semi-axis a",
+      "Semi-axis a unit",
+      "Semi-axis b",
+      "Semi-axis b unit",
+      "Semi-axis c",
+      "Semi-axis c unit",
+      "Slab",
+      "Slab or rectangular footing",
+      "Slab thickness",
+      "Slab thickness unit",
+      "Solid stairs to ground",
+      "Solid stairs with platform",
+      "Sphere",
+      "Sphere radius",
+      "Sphere radius and base radius",
+      "Sphere radius unit",
+      "Spherical cap",
+      "Spherical cap alternate dimensions",
+      "Stair width",
+      "Target (letter or percent)",
+      "Target overall grade",
+      "Thickness",
+      "Top platform depth",
+      "Top platform depth unit",
+      "Top radius",
+      "Top radius unit",
+      "Unit",
+      "Volume",
+      "Volume price unit",
+      "Weight",
+      "Weight basis",
+      "Weighted average",
+      "Weighted grade",
+      "Weighted letter or percentage assessments",
+      "What-if score (%)",
+      "Width",
+      "Width unit",
+      "With allowance",
+      "Yards",
+      "radius",
+      "volume"
+    ],
+    "otherLocaleScope": "13 critical grading and measurement labels checked in each of the other six locales.",
+    "additionalKnownFilipinoErrors": [
+      "Father height",
+      "Fee unit",
+      "Retirement savings target"
+    ],
+    "correctedEntries": 137,
+    "corrections": [
+      {
+        "locale": "tl",
+        "key": "Assessment",
+        "before": "Panghihinayang",
+        "after": "Pagtatasa"
+      },
+      {
+        "locale": "tl",
+        "key": "Assessments: earned, possible",
+        "before": "Mga Sentiment: kinita, posible",
+        "after": "Mga pagtatasa: nakuha at posibleng puntos"
+      },
+      {
+        "locale": "tl",
+        "key": "Assessments: score %, weight %",
+        "before": "Mga halaga: iskor %, timbang %",
+        "after": "Mga pagtatasa: marka %, bigat %"
+      },
+      {
+        "locale": "tl",
+        "key": "Base radius",
+        "before": "Baseng paikot",
+        "after": "Radius ng base"
+      },
+      {
+        "locale": "tl",
+        "key": "Base radius unit",
+        "before": "Base paikut - ikot na yunit",
+        "after": "Yunit ng radius ng base"
+      },
+      {
+        "locale": "tl",
+        "key": "Base width unit",
+        "before": "Basain ang lapad ng yunit",
+        "after": "Yunit ng lapad ng base"
+      },
+      {
+        "locale": "tl",
+        "key": "Bottom radius",
+        "before": "Ibabang Paikot",
+        "after": "Radius sa ibaba"
+      },
+      {
+        "locale": "tl",
+        "key": "Bottom radius unit",
+        "before": "Ibabang yunit ng paikot na hugis",
+        "after": "Yunit ng radius sa ibaba"
+      },
+      {
+        "locale": "tl",
+        "key": "Cap height",
+        "before": "Mataas na antas ng Cap",
+        "after": "Taas ng spherical cap"
+      },
+      {
+        "locale": "tl",
+        "key": "Cap height unit",
+        "before": "Ang yunit ng taas ng Cap",
+        "after": "Yunit ng taas ng spherical cap"
+      },
+      {
+        "locale": "tl",
+        "key": "Column height",
+        "before": "Mataas na antas ng kolumn",
+        "after": "Taas ng haligi"
+      },
+      {
+        "locale": "tl",
+        "key": "Column height unit",
+        "before": "Ang yunit ng taas ng kolumn",
+        "after": "Yunit ng taas ng haligi"
+      },
+      {
+        "locale": "tl",
+        "key": "Columns",
+        "before": "Mga Column",
+        "after": "Mga haligi"
+      },
+      {
+        "locale": "tl",
+        "key": "Completed assessments",
+        "before": "Natapos na mga Pagsaalang - alang",
+        "after": "Mga natapos na pagtatasa"
+      },
+      {
+        "locale": "tl",
+        "key": "Concrete geometry",
+        "before": "Pagbuo ng Kahusayan",
+        "after": "Hugis ng kongkreto"
+      },
+      {
+        "locale": "tl",
+        "key": "Cone",
+        "before": "Iisang Kuso",
+        "after": "Kono"
+      },
+      {
+        "locale": "tl",
+        "key": "Conical frustum",
+        "before": "Kabihasnang frustum",
+        "after": "Putol na kono"
+      },
+      {
+        "locale": "tl",
+        "key": "Course",
+        "before": "Landasin",
+        "after": "Kurso"
+      },
+      {
+        "locale": "tl",
+        "key": "Course GPA",
+        "before": "Durbang GPA",
+        "after": "GPA ng kurso"
+      },
+      {
+        "locale": "tl",
+        "key": "Courses",
+        "before": "Mga Landas",
+        "after": "Mga kurso"
+      },
+      {
+        "locale": "tl",
+        "key": "Cube",
+        "before": "Mga batang leon",
+        "after": "Kubo"
+      },
+      {
+        "locale": "tl",
+        "key": "Curb height above flag top",
+        "before": "Ang taas ng curb sa ibabaw ng tuktok ng bandila",
+        "after": "Taas ng curb mula sa ibabaw ng slab ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Curb height above flag top unit",
+        "before": "Ang taas ng curb sa itaas ng flag itaas na yunit",
+        "after": "Yunit ng taas ng curb mula sa ibabaw ng slab ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Current average (letter or percent)",
+        "before": "Kasalukuyang katamtaman (literal o porsyento)",
+        "after": "Kasalukuyang average (letra o porsiyento)"
+      },
+      {
+        "locale": "tl",
+        "key": "Cylinder",
+        "before": "MGA PROBLEMA",
+        "after": "Silindro"
+      },
+      {
+        "locale": "tl",
+        "key": "Cylinder length",
+        "before": "Mahabang Buhay",
+        "after": "Haba ng silindro"
+      },
+      {
+        "locale": "tl",
+        "key": "Cylinder length unit",
+        "before": "Di - nagbabagong haba ng yunit",
+        "after": "Yunit ng haba ng silindro"
+      },
+      {
+        "locale": "tl",
+        "key": "Earned and possible points",
+        "before": "Mga bagay na may tainga at posibleng mga punto",
+        "after": "Nakuha at posibleng puntos"
+      },
+      {
+        "locale": "tl",
+        "key": "Edge unit",
+        "before": "Kanal na yunit",
+        "after": "Yunit ng haba ng gilid"
+      },
+      {
+        "locale": "tl",
+        "key": "Editable representative letter scores",
+        "before": "Kapani - paniwalang mga larawan sa liham",
+        "after": "Maaaring baguhing katumbas na marka ng bawat letra"
+      },
+      {
+        "locale": "tl",
+        "key": "Example letter scale (editable)",
+        "before": "Halimbawang sukat ng titik (maihihiwalay)",
+        "after": "Halimbawang iskala ng gradong letra (maaaring baguhin)"
+      },
+      {
+        "locale": "tl",
+        "key": "Example percentage scale (editable)",
+        "before": "Halimbawang porsiyentong sukat (maihihiwalay)",
+        "after": "Halimbawang iskala ng porsiyento (maaaring baguhin)"
+      },
+      {
+        "locale": "tl",
+        "key": "Exposed gutter width",
+        "before": "Inilantad ang lapad ng alulod",
+        "after": "Nakalantad na lapad ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Exposed gutter width unit",
+        "before": "Inilantad na yunit ng lapad ng alulod",
+        "after": "Yunit ng nakalantad na lapad ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Extra allowance",
+        "before": "Karagdagang Pagpapahintulot",
+        "after": "Dagdag na allowance sa materyal"
+      },
+      {
+        "locale": "tl",
+        "key": "Final assessment weight",
+        "before": "Huling pagtaya sa timbang",
+        "after": "Bigat ng huling pagtatasa sa grado"
+      },
+      {
+        "locale": "tl",
+        "key": "Flag slab thickness",
+        "before": "kapal ng tipak ng apoy",
+        "after": "Kapal ng slab ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Flag slab thickness unit",
+        "before": "yunit ng kapal ng slag slab",
+        "after": "Yunit ng kapal ng slab ng kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Grade",
+        "before": "Nagtapos",
+        "after": "Marka"
+      },
+      {
+        "locale": "tl",
+        "key": "Grade format",
+        "before": "Tapos na format",
+        "after": "Format ng marka"
+      },
+      {
+        "locale": "tl",
+        "key": "Height unit",
+        "before": "Hight unit",
+        "after": "Yunit ng taas"
+      },
+      {
+        "locale": "tl",
+        "key": "Hollow cylinder",
+        "before": "Kulino ng Hollow",
+        "after": "Silindrong may guwang"
+      },
+      {
+        "locale": "tl",
+        "key": "Hollow round column",
+        "before": "Paikot na hanay",
+        "after": "Bilog na haliging may guwang"
+      },
+      {
+        "locale": "tl",
+        "key": "Horizontal curb width",
+        "before": "Ang lapad ng Horizontal control",
+        "after": "Pahalang na lapad ng curb"
+      },
+      {
+        "locale": "tl",
+        "key": "Horizontal curb width unit",
+        "before": "Hinahadlangan ng pahalang ang lapad ng katawan",
+        "after": "Yunit ng pahalang na lapad ng curb"
+      },
+      {
+        "locale": "tl",
+        "key": "Inner radius",
+        "before": "Panloob na Paglibot",
+        "after": "Panloob na radius"
+      },
+      {
+        "locale": "tl",
+        "key": "Inner radius unit",
+        "before": "Panloob na yunit ng pag - ikot",
+        "after": "Yunit ng panloob na radius"
+      },
+      {
+        "locale": "tl",
+        "key": "Length unit",
+        "before": "Mahabang yunit",
+        "after": "Yunit ng haba"
+      },
+      {
+        "locale": "tl",
+        "key": "Letter",
+        "before": "Liham",
+        "after": "Letra"
+      },
+      {
+        "locale": "tl",
+        "key": "Letter or percent",
+        "before": "Liham o porsiyento",
+        "after": "Letra o porsiyento"
+      },
+      {
+        "locale": "tl",
+        "key": "Minimum %",
+        "before": "Bawasan ang %",
+        "after": "Pinakamababang %"
+      },
+      {
+        "locale": "tl",
+        "key": "Mixed-unit shapes, quantity & cost",
+        "before": "Ihalo ang mga hugis-unit, dami & halaga",
+        "after": "Mga hugis na may magkakaibang yunit, dami at halaga"
+      },
+      {
+        "locale": "tl",
+        "key": "Net geometry",
+        "before": "Pag - aalaga ng Net",
+        "after": "Netong bolyum (walang dagdag na allowance)"
+      },
+      {
+        "locale": "tl",
+        "key": "Number of risers",
+        "before": "Bilang ng mga Tumataas",
+        "after": "Bilang ng patayong bahagi ng mga baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Ordinary tread run",
+        "before": "Karaniwang takbo ng tread",
+        "after": "Pahalang na lalim ng karaniwang baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Ordinary tread run unit",
+        "before": "Karaniwang yunit ng pagtakbo sa tread",
+        "after": "Yunit ng pahalang na lalim ng karaniwang baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Outer diameter",
+        "before": "Mas mataas na diyametro",
+        "after": "Panlabas na diyametro"
+      },
+      {
+        "locale": "tl",
+        "key": "Outer diameter unit",
+        "before": "Mas mataas na yunit ng diyametro",
+        "after": "Yunit ng panlabas na diyametro"
+      },
+      {
+        "locale": "tl",
+        "key": "Outer radius",
+        "before": "Paikot sa Labas",
+        "after": "Panlabas na radius"
+      },
+      {
+        "locale": "tl",
+        "key": "Outer radius unit",
+        "before": "Higit pang yunit ng pag - ikot",
+        "after": "Yunit ng panlabas na radius"
+      },
+      {
+        "locale": "tl",
+        "key": "Perpendicular height",
+        "before": "Walang - takdang taas",
+        "after": "Perpendikular na taas"
+      },
+      {
+        "locale": "tl",
+        "key": "Perpendicular height unit",
+        "before": "Ang yunit ng taas sa pamamagitan ng mga aparatong Perpendicular",
+        "after": "Yunit ng perpendikular na taas"
+      },
+      {
+        "locale": "tl",
+        "key": "Previous graded credits",
+        "before": "Dating mga kredito",
+        "after": "Naunang mga kreditong may marka"
+      },
+      {
+        "locale": "tl",
+        "key": "Price volume",
+        "before": "Halaga",
+        "after": "Bolyum na pagbabatayan ng presyo"
+      },
+      {
+        "locale": "tl",
+        "key": "Rectangular prism",
+        "before": "Bulwagang Prisma",
+        "after": "Parihabang prisma"
+      },
+      {
+        "locale": "tl",
+        "key": "Rectangular pyramid",
+        "before": "Bulwagang Rectangui",
+        "after": "Piramideng may parihabang base"
+      },
+      {
+        "locale": "tl",
+        "key": "Regular tread run",
+        "before": "Regular na pagtakbo ng tread",
+        "after": "Pahalang na lalim ng regular na baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Remaining course weight",
+        "before": "Pananatiling mabigat",
+        "after": "Natitirang bigat sa kabuuang grado"
+      },
+      {
+        "locale": "tl",
+        "key": "Riser count",
+        "before": "Dumaraming Bilang",
+        "after": "Bilang ng patayong bahagi ng mga baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Riser height",
+        "before": "Mas Mataas na taas",
+        "after": "Taas ng patayong bahagi ng baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Riser height unit",
+        "before": "Mas mataas na yunit",
+        "after": "Yunit ng taas ng patayong bahagi ng baitang"
+      },
+      {
+        "locale": "tl",
+        "key": "Round column",
+        "before": "Isang hanay ng mga lansangan",
+        "after": "Bilog na haligi"
+      },
+      {
+        "locale": "tl",
+        "key": "Semi-axis a unit",
+        "before": "Semi-axis isang yunit",
+        "after": "Yunit ng semi-axis a"
+      },
+      {
+        "locale": "tl",
+        "key": "Slab or rectangular footing",
+        "before": "Iik o parihabang paa",
+        "after": "Slab o parihabang pundasyon"
+      },
+      {
+        "locale": "tl",
+        "key": "Slab thickness",
+        "before": "Makapal na ulap",
+        "after": "Kapal ng slab"
+      },
+      {
+        "locale": "tl",
+        "key": "Slab thickness unit",
+        "before": "Singaw na yunit ng kapal",
+        "after": "Yunit ng kapal ng slab"
+      },
+      {
+        "locale": "tl",
+        "key": "Solid stairs to ground",
+        "before": "Matigas na hagdan sa lupa",
+        "after": "Hagdang puno ng materyal hanggang sa lupa"
+      },
+      {
+        "locale": "tl",
+        "key": "Sphere radius",
+        "before": "Pagikot ng Sphere",
+        "after": "Radius ng sphere"
+      },
+      {
+        "locale": "tl",
+        "key": "Sphere radius unit",
+        "before": "Sphere radial unit",
+        "after": "Yunit ng radius ng sphere"
+      },
+      {
+        "locale": "tl",
+        "key": "Spherical cap",
+        "before": "Amoy na gora",
+        "after": "Spherical cap (putol na bahagi ng sphere)"
+      },
+      {
+        "locale": "tl",
+        "key": "Spherical cap alternate dimensions",
+        "before": "Mga kahaliling dimensiyon ng gora ng mga organismo",
+        "after": "Ibang mga sukat para sa spherical cap"
+      },
+      {
+        "locale": "tl",
+        "key": "Stair width",
+        "before": "lapad ng hangin",
+        "after": "Lapad ng hagdan"
+      },
+      {
+        "locale": "tl",
+        "key": "Target (letter or percent)",
+        "before": "Target (literal o porsyento)",
+        "after": "Target (letra o porsiyento)"
+      },
+      {
+        "locale": "tl",
+        "key": "Target overall grade",
+        "before": "Pistahin ang pangkalahatang grado",
+        "after": "Target na kabuuang grado"
+      },
+      {
+        "locale": "tl",
+        "key": "Top platform depth",
+        "before": "Paibabawang lalim",
+        "after": "Pahalang na lalim ng plataporma sa itaas"
+      },
+      {
+        "locale": "tl",
+        "key": "Top platform depth unit",
+        "before": "Paibabawang yunit ng lalim",
+        "after": "Yunit ng pahalang na lalim ng plataporma sa itaas"
+      },
+      {
+        "locale": "tl",
+        "key": "Top radius",
+        "before": "Paikot sa itaas",
+        "after": "Radius sa itaas"
+      },
+      {
+        "locale": "tl",
+        "key": "Top radius unit",
+        "before": "Paibabawang yunit",
+        "after": "Yunit ng radius sa itaas"
+      },
+      {
+        "locale": "tl",
+        "key": "Unit",
+        "before": "Pagkakaisa",
+        "after": "Yunit"
+      },
+      {
+        "locale": "tl",
+        "key": "Volume price unit",
+        "before": "Bukas na yunit ng presyo",
+        "after": "Yunit ng bolyum para sa presyo"
+      },
+      {
+        "locale": "tl",
+        "key": "Weight basis",
+        "before": "Dahilan sa Timbang",
+        "after": "Batayan ng bigat sa pagkuwenta ng grado"
+      },
+      {
+        "locale": "tl",
+        "key": "Weighted letter or percentage assessments",
+        "before": "Timbang na mga liham o pagtaya sa mga persentahe",
+        "after": "Mga pagtatasa na may bigat, gamit ang letra o porsiyento"
+      },
+      {
+        "locale": "tl",
+        "key": "Width unit",
+        "before": "Ang yunit ng width",
+        "after": "Yunit ng lapad"
+      },
+      {
+        "locale": "tl",
+        "key": "radius",
+        "before": "Paikot",
+        "after": "radius"
+      },
+      {
+        "locale": "tl",
+        "key": "volume",
+        "before": "tomo",
+        "after": "bolyum"
+      },
+      {
+        "locale": "tl",
+        "key": "Earned points",
+        "before": "Mga tining puntos",
+        "after": "Mga nakuhang puntos"
+      },
+      {
+        "locale": "tl",
+        "key": "With allowance",
+        "before": "Sa pamamagitan ng palugit",
+        "after": "Kasama ang dagdag na allowance"
+      },
+      {
+        "locale": "tl",
+        "key": "Including allowance",
+        "before": "Paglakip ng allowance",
+        "after": "Kasama ang dagdag na allowance"
+      },
+      {
+        "locale": "tl",
+        "key": "Slab",
+        "before": "Balat",
+        "after": "Slab ng kongkreto"
+      },
+      {
+        "locale": "tl",
+        "key": "Rectangle",
+        "before": "Direkta",
+        "after": "Parihaba"
+      },
+      {
+        "locale": "tl",
+        "key": "Weighted average",
+        "before": "Katamtamang timbang",
+        "after": "Average na may timbang"
+      },
+      {
+        "locale": "tl",
+        "key": "Percentage of whole course",
+        "before": "Porsiyento ng buong landasin",
+        "after": "Porsiyento ng buong kurso"
+      },
+      {
+        "locale": "tl",
+        "key": "Relative weights",
+        "before": "Relatibong pabigat",
+        "after": "Relatibong mga bigat sa grado"
+      },
+      {
+        "locale": "tl",
+        "key": "Letter grades",
+        "before": "Mga marka sa pagsulat",
+        "after": "Mga gradong letra"
+      },
+      {
+        "locale": "tl",
+        "key": "Percentages",
+        "before": "Mga Pang - aabuso",
+        "after": "Mga porsiyento"
+      },
+      {
+        "locale": "tl",
+        "key": "Solid stairs with platform",
+        "before": "Matigas na hagdan na may plataporma",
+        "after": "Hagdang puno ng materyal na may plataporma"
+      },
+      {
+        "locale": "tl",
+        "key": "Curb and gutter",
+        "before": "Pagsugpo at pantugtog",
+        "after": "Curb at kanal"
+      },
+      {
+        "locale": "tl",
+        "key": "Meters",
+        "before": "Mga Uli",
+        "after": "Mga metro"
+      },
+      {
+        "locale": "tl",
+        "key": "Millimeters",
+        "before": "Mga Gilingter",
+        "after": "Mga milimetro"
+      },
+      {
+        "locale": "tl",
+        "key": "Base radius and cap height",
+        "before": "Base paikut - ikot at taas ng gora",
+        "after": "Radius ng base at taas ng spherical cap"
+      },
+      {
+        "locale": "tl",
+        "key": "Sphere radius and base radius",
+        "before": "Pagikot ng mga \"sphere \" at ang pinakapaa nito",
+        "after": "Radius ng sphere at radius ng base"
+      },
+      {
+        "locale": "es",
+        "key": "Earned and possible points",
+        "before": "Ganancias y posibles puntos",
+        "after": "Puntos obtenidos y posibles"
+      },
+      {
+        "locale": "es",
+        "key": "Net geometry",
+        "before": "Geometría neta",
+        "after": "Volumen neto (sin margen adicional)"
+      },
+      {
+        "locale": "es",
+        "key": "Slab thickness",
+        "before": "Espesor de las lamas",
+        "after": "Espesor de la losa"
+      },
+      {
+        "locale": "es",
+        "key": "Grade",
+        "before": "Grado",
+        "after": "Calificación"
+      },
+      {
+        "locale": "fr",
+        "key": "Net geometry",
+        "before": "Géométrie nette",
+        "after": "Volume net (sans marge supplémentaire)"
+      },
+      {
+        "locale": "fr",
+        "key": "Slab thickness",
+        "before": "Épaisseur de la lame",
+        "after": "Épaisseur de la dalle"
+      },
+      {
+        "locale": "fr",
+        "key": "Grade",
+        "before": "Grade",
+        "after": "Note"
+      },
+      {
+        "locale": "fr",
+        "key": "Volume price unit",
+        "before": "Prix unitaire",
+        "after": "Unité de volume pour le prix"
+      },
+      {
+        "locale": "de",
+        "key": "Net geometry",
+        "before": "Nettogeometrie",
+        "after": "Nettovolumen (ohne Zuschlag)"
+      },
+      {
+        "locale": "de",
+        "key": "Grade",
+        "before": "Grad",
+        "after": "Note"
+      },
+      {
+        "locale": "pt",
+        "key": "Net geometry",
+        "before": "Geometria líquida",
+        "after": "Volume líquido (sem margem adicional)"
+      },
+      {
+        "locale": "pt",
+        "key": "Grade",
+        "before": "Grau",
+        "after": "Nota"
+      },
+      {
+        "locale": "pt",
+        "key": "Volume price unit",
+        "before": "unidade de preço",
+        "after": "Unidade de volume para o preço"
+      },
+      {
+        "locale": "ar",
+        "key": "Net geometry",
+        "before": "صافي الهندسة",
+        "after": "الحجم الصافي (دون كمية إضافية)"
+      },
+      {
+        "locale": "ar",
+        "key": "Possible points",
+        "before": "النقاط المحتملة",
+        "after": "النقاط الممكنة"
+      },
+      {
+        "locale": "ar",
+        "key": "Grade",
+        "before": "الصف",
+        "after": "الدرجة"
+      },
+      {
+        "locale": "hi",
+        "key": "Earned and possible points",
+        "before": "कान लगाए गए और संभावित बिन्दुओं को छुपाएँ",
+        "after": "प्राप्त अंक और अधिकतम संभव अंक"
+      },
+      {
+        "locale": "hi",
+        "key": "Earned points",
+        "before": "कान लगाए गए बिन्दु",
+        "after": "प्राप्त अंक"
+      },
+      {
+        "locale": "hi",
+        "key": "Possible points",
+        "before": "संभावित बिन्दु",
+        "after": "अधिकतम संभव अंक"
+      },
+      {
+        "locale": "hi",
+        "key": "Net geometry",
+        "before": "नेट ज्यामिति",
+        "after": "शुद्ध आयतन (अतिरिक्त मात्रा के बिना)"
+      },
+      {
+        "locale": "hi",
+        "key": "Slab thickness",
+        "before": "कोलाब मोटाई",
+        "after": "स्लैब की मोटाई"
+      },
+      {
+        "locale": "hi",
+        "key": "Concrete geometry",
+        "before": "कनवल्ट ज्यामिति",
+        "after": "कंक्रीट का आकार"
+      },
+      {
+        "locale": "hi",
+        "key": "Outer diameter",
+        "before": "व्यास",
+        "after": "बाहरी व्यास"
+      },
+      {
+        "locale": "tl",
+        "key": "Father height",
+        "before": "Si Itay ang kataas - taasan",
+        "after": "Taas ng ama"
+      },
+      {
+        "locale": "tl",
+        "key": "Fee unit",
+        "before": "yunit ng dumi",
+        "after": "Yunit ng bayad"
+      },
+      {
+        "locale": "tl",
+        "key": "Retirement savings target",
+        "before": "Ang target ng pang - uumit sa bangko",
+        "after": "Target na ipon para sa pagreretiro"
+      }
+    ],
+    "limitation": "Bounded semantic review only. Completeness checks do not certify the meaning or naturalness of all published translations. Broader fluent editorial review remains necessary."
+  },
+  "limits": [
+    "Google approval cannot be guaranteed by technical tests.",
+    "Source reachability is not factual or licensing approval.",
+    "This is not a full human editorial review of every published page.",
+    "No Search Console indexing, traffic, or AdSense account status was changed."
+  ],
+  "validation": {
+    "verify": {
+      "command": "NEXT_PUBLIC_INDEXABLE=true npm run verify",
+      "passed": true,
+      "unitFiles": 53,
+      "unitTests": 3269,
+      "scope": "Before final prose, dictionary, and two external-reference URL corrections."
+    },
+    "finalProductionBuild": {
+      "command": "NEXT_PUBLIC_INDEXABLE=true npm run build",
+      "passed": true
+    },
+    "finalBrowserRun": {
+      "passed": 57,
+      "failed": 0,
+      "suites": [
+        "adsense-content",
+        "seo-discovery",
+        "languages",
+        "time",
+        "spin-wheels",
+        "student-tools"
+      ],
+      "scope": "Final production build; Chromium."
+    },
+    "browserTestMaintenance": "Two initial failures counted explanatory tables. Scoped clock and stopwatch assertions passed on unchanged runtime, then all 57 tests passed on final build.",
+    "finalTranslationCheck": {
+      "languages": 7,
+      "messagesPerLanguage": 11255,
+      "missing": 0,
+      "placeholderErrors": 0,
+      "numericChanges": 0,
+      "formulaChanges": 0
+    },
+    "targetedTranslationTests": {
+      "passed": 32,
+      "scope": "Translation, translated-content, and numerical editorial examples during label correction."
+    },
+    "inventory": {
+      "sourceRoutes": 721,
+      "guides": 6,
+      "localizedURLs": 5747,
+      "reportedIssues": []
+    },
+    "finalRenderedSpotChecks": [
+      {
+        "path": "/tl/grade-calculator#mode-points",
+        "status": 200,
+        "key": "Earned and possible points",
+        "renderedLabel": "Nakuha at posibleng puntos"
+      },
+      {
+        "path": "/hi/grade-calculator#mode-points",
+        "status": 200,
+        "key": "Earned and possible points",
+        "renderedLabel": "प्राप्त अंक और अधिकतम संभव अंक"
+      },
+      {
+        "path": "/tl/gpa-calculator",
+        "status": 200,
+        "key": "Course",
+        "renderedLabel": "Kurso"
+      },
+      {
+        "path": "/tl/concrete-calculator#mode-measured",
+        "status": 200,
+        "key": "Slab thickness",
+        "renderedLabel": "Kapal ng slab"
+      },
+      {
+        "path": "/tl/height-calculator#mode-parent-units",
+        "status": 200,
+        "key": "Father height",
+        "renderedLabel": "Taas ng ama"
+      },
+      {
+        "path": "/army-body-fat-calculator",
+        "href": "https://www.army.mil/article/267486/army_publishes_new_body_fat_assessment_guidance",
+        "sourceVisible": true
+      },
+      {
+        "path": "/solar-savings-calculator",
+        "href": "https://pvwatts.nlr.gov/",
+        "sourceVisible": true
+      }
+    ],
+    "lintAndDiffCheckPassed": true
+  }
+}

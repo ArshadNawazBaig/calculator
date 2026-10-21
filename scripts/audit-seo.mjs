@@ -80,7 +80,7 @@ try {
         if(parsed.h1.length!==1||!parsed.h1[0]) issues.push('missing or duplicate H1');
         if(/(?:noindex|\bnone\b)/i.test(parsed.robots+','+(response.headers.get('x-robots-tag')||''))) issues.push('noindex in sitemap');
         if(!parsed.lang) issues.push('missing document language');
-        if(entry.alternates[parsed.lang]!==entry.url) issues.push('document language does not match its hreflang URL');
+        if(Object.keys(entry.alternates).length ? entry.alternates[parsed.lang]!==entry.url : parsed.lang!=='en') issues.push('document language does not match its published language');
         if(alternateSignature(parsed.alternates)!==alternateSignature(entry.alternates)) issues.push('HTML/sitemap hreflang mismatch');
         for(const href of parsed.links) {
           const link=new URL(href,entry.url);
@@ -103,12 +103,13 @@ try {
       await response.body?.cancel();
     } catch(error) {errors.push(`${path}: ${error.message}`);}
   }
-  for(const path of ['/search?q=mortgage','/es/search?q=hipoteca','/real-estate-calculator']) {
+  const localizedSearches=['es','fr','de','pt','ar','hi','tl'].filter(locale=>urls.has(`${canonical.origin}/${locale}`)).map(locale=>`/${locale}/search?q=mortgage`);
+  for(const path of ['/search?q=mortgage',...localizedSearches,'/real-estate-calculator']) {
     const response=await fetchPage(path), html=await response.text();
     const noindex=await parser.evaluate(html=>new DOMParser().parseFromString(html,'text/html').querySelector('meta[name="robots"]')?.content.includes('noindex'),html);
     if(response.status!==200||!noindex) errors.push(`${path}: expected 200 and noindex`);
   }
-  for(const path of ['/this-calculator-does-not-exist','/es/this-calculator-does-not-exist']) {
+  for(const path of ['/this-calculator-does-not-exist',...localizedSearches.map(path=>path.split('/search')[0]+'/this-calculator-does-not-exist')]) {
     const response=await fetchPage(path);
     if(response.status!==404) errors.push(`${path}: expected 404, got ${response.status}`);
     await response.body?.cancel();

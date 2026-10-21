@@ -1,6 +1,12 @@
 import translatedPages from '@/data/locales/translated-pages.json';
 export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const;
 export type Locale = (typeof locales)[number];
+// Translation support is retained for review. Public availability is a separate,
+// reversible decision: add a locale only after its content has been reviewed.
+export const publishedLocales: readonly Locale[] = ['en'];
+export function isPublishedLocale(locale: Locale): boolean {
+  return publishedLocales.includes(locale);
+}
 export const languages: Record<Locale, {name: string; tag: string; direction: 'ltr' | 'rtl'}> = {
   en: {name: 'English', tag: 'en-US', direction: 'ltr'},
   es: {name: 'Español', tag: 'es', direction: 'ltr'},
@@ -76,4 +82,7 @@ export function isTranslatedLanding(path: string): boolean {
 const translatedPageSet = new Set<string>(translatedPages);
 export function isTranslatedPage(path: string): boolean {
   return isTranslatedLanding(path) || translatedPageSet.has(path);
+}
+export function publishedPageLocales(path: string): readonly Locale[] {
+  return isTranslatedPage(path) ? publishedLocales : ['en'];
 }

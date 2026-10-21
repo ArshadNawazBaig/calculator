@@ -2,7 +2,9 @@
 
 A modular Next.js calculator website for **finflo.org**, using Finflo's existing green palette, typography, and shared calculator components. This is a working implementation with an explicit coverage record; it is not a claim of complete competitor parity or public launch readiness.
 
-The current public catalog contains **214 calculator pages**, **571 calculation modes**, and one real-estate directory. This includes 12 original planning tools added on October 14, 2026. The historical audit still accounts for 204 Calculator.net entries, including the subsequently removed WeightWatchers placeholder; the new tools are recorded separately from that competitor audit. See the [planning toolkit](docs/planning-toolkit.md), [coverage manifest](docs/audit/coverage-manifest.json), and [mode review](docs/audit/remaining-modes.json).
+The current release source contains **216 calculator pages**, **572 calculation modes**, **six guides**, and one real-estate directory. With production indexing enabled, it publishes **721 English sitemap URLs**. The seven other supported languages remain unpublished drafts. The [October 22 release record](docs/adsense-release-2026-10-22.md) records validation and deployment status; these source counts alone do not establish what is live.
+
+The historical audit accounts for 204 Calculator.net entries, including the subsequently removed WeightWatchers placeholder; later original tools are recorded separately. See the [planning toolkit](docs/planning-toolkit.md), [coverage manifest](docs/audit/coverage-manifest.json), and [mode review](docs/audit/remaining-modes.json).
 
 ## Run locally
 
@@ -29,12 +31,15 @@ The contact address is **erushbaig@gmail.com**. `NEXT_PUBLIC_SITE_URL` controls 
 npm run typecheck
 npm run lint
 npm test
+npm run i18n:check
 npm run build
 TEST_URL=http://127.0.0.1:3000 npm run test:e2e
 node scripts/export-coverage.mjs
 ```
 
 The browser suite requires Playwright Chromium (`npx playwright install chromium`). Tests include independently derived fixtures, numerical boundaries, composed ledgers, versioned tax rules, invalid inputs, UI interactions, offline use and accessibility checks. Default catalog execution is a smoke check, not independent proof of every mode.
+
+`publishedLocales` in `src/lib/i18n/config.ts` is the publication allowlist, currently `['en']`. Draft language URLs temporarily redirect with HTTP 307 to the equivalent English path, preserving queries, browser fragments and existing browser storage. Redirect responses carry `X-Robots-Tag: noindex, follow`. Navigation, metadata and sitemap entries advertise only published languages. Translation files and tests remain available for review; `npm run i18n:check` reports draft diagnostics without treating unpublished drafts as release failures. Use `npm run i18n:check -- --all-locales` to require all dictionaries to pass. Generating translation manifests does not publish languages.
 
 - [Coverage manifest](docs/audit/coverage-manifest.json) and [captured competitor controls](docs/audit/catalog.json)
 - [Architecture and design](docs/architecture.md)
@@ -57,6 +62,8 @@ Visitors can favorite calculators, save named calculations, reopen their inputs,
 - `tests`: numerical/reference fixtures and browser checks.
 - `docs/audit` and `docs/research`: discovery, coverage, source provenance and unresolved work.
 
-Core calculations run in the browser. No account, database, advertising network or analytics service is required or configured. Currency-reference endpoints fetch shared public snapshots without receiving the entered amount or pair. Optional browser-assistant tools are described in the privacy page.
+Core calculations run in the browser. No account, database, advertising network or analytics service is required. AdSense ownership is verified using a metadata tag and `public/ads.txt`; the ad-serving script is not loaded during site review. Optional Cloudflare analytics is controlled by its public environment token. Currency-reference endpoints fetch shared public snapshots without receiving the entered amount or pair. Optional browser-assistant tools are described in the privacy page.
 
-No DNS change, Search Console submission, paid subscription, ad-account setup or public audience change is included in the local build. Search foundations improve eligibility and usability; indexing, ranking speed, AI citations and revenue cannot be guaranteed.
+The [AdSense content remediation notes](docs/adsense-content-review.md) describe the worked guides and verification setup. Use the [October 22 release record](docs/adsense-release-2026-10-22.md) for the final checks and any steps remaining before requesting another Google review.
+
+A local build does not deploy the site or submit an AdSense/Search Console review. Search foundations improve eligibility and usability; indexing, ranking speed, AI citations and revenue cannot be guaranteed.

@@ -9,7 +9,7 @@ const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint',
 const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name', 'd', 'viewBox', 'transform', 'fill', 'stroke', 'strokeWidth']);
 export async function translationSource() {
   const root = process.cwd();
-  const server = await createServer({configFile: false, root, server: {middlewareMode: true}, resolve: {alias: {'@': resolve(root, 'src')}}});
+  const server = await createServer({configFile: false, root, server: {middlewareMode: true, watch: null}, resolve: {alias: {'@': resolve(root, 'src')}}});
   const keys = new Set(), formulas = new Set(), pages = {}, pageCategories = {}, modules = new Map();
   const add = (set, value) => {
     if (typeof value === 'string' && value.trim() && /[a-zA-Z]/.test(value) && !/^(?:https?:|mailto:|\/)/.test(value)) set.add(value);
@@ -108,9 +108,16 @@ export async function translationSource() {
     const info = JSON.parse(await readFile('src/data/information-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/analytics-copy.json', 'utf8')), keys);
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
+    const {practicalGuides} = await server.ssrLoadModule('/src/data/practical-guides.ts');
+    const publishedTranslations = new Set(JSON.parse(await readFile('src/data/locales/translated-pages.json', 'utf8')));
+    // Practical guides are explicitly English-only until their locale routes are
+    // published. Keep checking every other guide, including newly added guides,
+    // and resume checking a practical guide as soon as its route is published.
+    const translatedGuides = Object.fromEntries(Object.entries(guides).filter(([slug]) =>
+      !Object.hasOwn(practicalGuides, slug) || publishedTranslations.has(`/guides/${slug}`)));
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
-    for (const entry of [...Object.values(info), ...Object.values(guides), ...Object.values(content)]) collect(entry, keys);
+    for (const entry of [...Object.values(info), ...Object.values(translatedGuides), ...Object.values(content)]) collect(entry, keys);
     const {calculatorCardData} = await server.ssrLoadModule('/src/lib/calculator-cards.ts');
     const descriptions = Object.fromEntries(catalog.map(tool => [tool.slug, calculatorCardData(tool).description]));
     Object.values(descriptions).forEach(value => add(keys, value));
@@ -141,7 +148,8 @@ export async function translationSource() {
     }
     const existing = JSON.parse(await readFile('src/data/locales/es.json', 'utf8'));
     Object.keys(existing).filter(key => !/^tool\.|^description\./.test(key)).forEach(key => keys.add(key));
-    // Routes match the English sitemap. Unavailable tools and system pages stay excluded.
+    // Routes match localized content. English-only guides, unavailable tools,
+    // and system pages stay excluded from the published translation manifest.
     const {categories} = await server.ssrLoadModule('/src/lib/site.ts');
     const {categorySlug} = await server.ssrLoadModule('/src/lib/catalog-paths.ts');
     const {spinWheels} = await server.ssrLoadModule('/src/lib/spin-wheels/catalog.ts');
@@ -180,8 +188,9 @@ export async function translationSource() {
     }
     for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
     for (const color of ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Teal','White','Black']) add(keys, color);
-    const paths = [...timePaths, '/', '/calculators', '/calculators/students', '/guides', '/sitemap','/faq', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(guides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
-    return {timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
+    const paths = [...timePaths, '/', '/calculators', '/calculators/students', '/guides', '/sitemap','/faq', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(translatedGuides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    const {publishedLocales} = await server.ssrLoadModule('/src/lib/i18n/config.ts');
+    return {publishedLocales, timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
   } finally { await server.close(); }
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

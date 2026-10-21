@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getFaqContent} from '@/lib/faq';
-import {locales, localizedPath, isTranslatedPage} from '@/lib/i18n/config';
+import {locales, localizedPath, isTranslatedPage, isPublishedLocale} from '@/lib/i18n/config';
 import {FaqPage} from '@/components/content/faq-page';
 import {localizedMetadata, localizedStaticParams} from '@/lib/i18n/pages';
 import {generateMetadata} from '@/app/(en)/faq/page';
@@ -33,7 +33,7 @@ describe('FAQ publishing', () => {
     });
   });
 
-  it.each(locales)('%s publishes the same answers in HTML and structured data', async locale => {
+  it.each(locales)('%s retains matching answers in the renderer and structured data', async locale => {
     const copy = await getFaqContent(locale);
     const html = renderToStaticMarkup(await FaqPage({locale}));
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
@@ -47,12 +47,13 @@ describe('FAQ publishing', () => {
     expect(html).not.toMatch(/undefined|<unk>|⁇/);
   });
 
-  it('includes every FAQ language in routing and canonical alternates', async () => {
+  it('retains FAQ translations while prerendering and advertising only published languages', async () => {
     expect(translatedPages.filter(path => path === '/faq')).toHaveLength(1);
     expect(isTranslatedPage('/faq')).toBe(true);
-    expect(localizedStaticParams()).toContainEqual({path: ['faq']});
-    expect(Object.keys(languageAlternates('/faq') || {})).toHaveLength(locales.length + 1);
+    expect(localizedStaticParams('en')).toContainEqual({path: ['faq']});
+    expect(languageAlternates('/faq')).toBeUndefined();
     for (const locale of locales) {
+      if (!isPublishedLocale(locale)) expect(localizedStaticParams(locale)).toEqual([]);
       const metadata = locale === 'en' ? await generateMetadata() : await localizedMetadata(locale)({params: Promise.resolve({path: ['faq']})});
       const copy = await getFaqContent(locale);
       expect(metadata.title).toEqual({absolute: copy.seoTitle.replace(/\s*\|\s*Finflo\s*$/i, '')});
@@ -61,14 +62,15 @@ describe('FAQ publishing', () => {
     }
   });
 
-  it('includes all FAQ variants when production indexing is enabled', () => {
+  it('includes only published FAQ variants when production indexing is enabled', () => {
     const original = site.indexable;
     try {
       site.indexable = true;
       const entries = sitemap();
       for (const locale of locales) {
         const entry = entries.find(item => item.url === site.url + localizedPath('/faq', locale));
-        expect(entry).toBeDefined();
+        if (isPublishedLocale(locale)) expect(entry).toBeDefined();
+        else expect(entry).toBeUndefined();
         expect(entry?.alternates?.languages).toEqual(languageAlternates('/faq'));
       }
     } finally {site.indexable = original;}

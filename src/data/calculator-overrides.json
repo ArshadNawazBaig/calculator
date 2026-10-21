@@ -1,4 +1,41 @@
 {
+  "grade-calculator": {
+    "sources": [
+      {
+        "title": "NIST: weighted mean formula",
+        "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/ch2/weigmean.pdf"
+      }
+    ],
+    "removeSources": [
+      "https://www.nist.gov/pml/special-publication-811"
+    ]
+  },
+  "gpa-calculator": {
+    "sources": [
+      {
+        "title": "NIST: weighted mean formula",
+        "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/ch2/weigmean.pdf"
+      },
+      {
+        "title": "University of Illinois: credit-weighted GPA calculation example",
+        "url": "https://www.registrar.illinois.edu/courses-grades/calculate-your-gpa/"
+      }
+    ],
+    "removeSources": [
+      "https://www.nist.gov/pml/special-publication-811"
+    ]
+  },
+  "ideal-weight-calculator": {
+    "sources": [
+      {
+        "title": "Peterson et al. (2016): historical reference-weight equations, Table 3",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4841935/"
+      }
+    ],
+    "removeSources": [
+      "https://www.cdc.gov/bmi/adult-calculator/index.html"
+    ]
+  },
   "interest-calculator": {
     "sources": [
       {
@@ -964,6 +1001,10 @@
   "height-calculator": {
     "sources": [
       {
+        "title": "Children’s Mercy: mid-parental height method",
+        "url": "https://www.childrensmercy.org/health-care-providers/pediatrician-guides/endocrinology/growth-failure/"
+      },
+      {
         "title": "NIST Handbook 44, 2026, Appendix C",
         "url": "https://www.nist.gov/document/2026-nist-handbook-44-appendix-c"
       }
@@ -1006,6 +1047,9 @@
         "title": "Measurement placement and shape classification reliability (2021)",
         "url": "https://pubmed.ncbi.nlm.nih.gov/33719914/"
       }
+    ],
+    "removeSources": [
+      "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
     ],
     "notes": [
       "Body proportions and apparel descriptors have no diagnostic meaning. Revised FFIT rules may overlap or leave measurements unclassified."

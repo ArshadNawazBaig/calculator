@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
-import {translator} from '../../src/lib/i18n/config';
+import {translator,isPublishedLocale} from '../../src/lib/i18n/config';
 
 test.beforeEach(async ({page}) => {
   // Third-party ads are outside these tool checks and can inject unrelated errors.
@@ -15,7 +15,8 @@ test('clock pages deliver fresh time and calendar details without JavaScript', a
     await page.goto('/time/asia-karachi');
     await expect(page.locator('[data-live-clock]')).toHaveText(/\d{2}:\d{2}:\d{2}/);
     await expect(page.locator('[data-clock-source]')).toHaveText('Server time at page load');
-    await expect(page.getByText('UTC+05:00',{exact:true})).toHaveCount(2);
+    await expect(page.getByRole('region',{name:'Current time in Karachi',exact:true}).getByText('UTC+05:00',{exact:true})).toBeVisible();
+    await expect(page.getByRole('region',{name:'Today in Karachi',exact:true}).getByText('UTC+05:00',{exact:true})).toBeVisible();
     await expect(page.getByText('No change scheduled',{exact:true})).toBeVisible();
     await expect(page.getByText(/Week \d+ · Day \d+/)).toBeVisible();
     const first = Number(await page.locator('[data-clock-snapshot-at]').getAttribute('data-clock-snapshot-at'));
@@ -23,11 +24,13 @@ test('clock pages deliver fresh time and calendar details without JavaScript', a
     await page.reload();
     const next = Number(await page.locator('[data-clock-snapshot-at]').getAttribute('data-clock-snapshot-at'));
     expect(next).toBeGreaterThan(first);
-    await page.goto('/ar/time/america-new-york');
-    await expect(page.locator('html')).toHaveAttribute('dir','rtl');
-    await expect(page.locator('[data-live-clock]')).not.toContainText('—');
-    await expect(page.locator('[data-clock-date]')).not.toContainText('Loading');
-    await expect(page.locator('[data-clock-source]')).toHaveText('وقت الخادم عند تحميل الصفحة');
+    if(isPublishedLocale('ar')){
+      await page.goto('/ar/time/america-new-york');
+      await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+      await expect(page.locator('[data-live-clock]')).not.toContainText('—');
+      await expect(page.locator('[data-clock-date]')).not.toContainText('Loading');
+      await expect(page.locator('[data-clock-source]')).toHaveText('وقت الخادم عند تحميل الصفحة');
+    }
   } finally {await context.close();}
 });
 
@@ -170,6 +173,7 @@ test('countdown validates, pauses, resumes, restores after reload, and catches u
 test('stopwatch excludes pauses and records lap splits', async ({page}) => {
   await page.clock.install();
   await page.goto('/time/stopwatch');
+  const lapRows = page.getByRole('region', {name: 'Stopwatch controls', exact: true}).locator('tbody tr');
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.clock.fastForward(2000);
   await page.getByRole('button', {name: 'Lap', exact: true}).click();
@@ -181,10 +185,10 @@ test('stopwatch excludes pauses and records lap splits', async ({page}) => {
   await page.getByRole('button', {name: 'Start', exact: true}).click();
   await page.clock.fastForward(1000);
   await page.getByRole('button', {name: 'Lap', exact: true}).click();
-  await expect(page.locator('tbody tr')).toHaveCount(2);
+  await expect(lapRows).toHaveCount(2);
   await page.getByRole('button', {name: 'Reset', exact: true}).click();
   await expect(page.locator('[data-timer-display]')).toHaveText('00:00:00.00');
-  await expect(page.locator('tbody tr')).toHaveCount(0);
+  await expect(lapRows).toHaveCount(0);
 });
 
 for (const theme of ['light','dark'] as const) test(`time tools remain accessible and fit small screens in ${theme}`, async ({page}) => {
@@ -212,7 +216,8 @@ test('time tools are discoverable from the homepage and navbar', async ({page}) 
   await expect(page).toHaveURL(/\/time\/stopwatch$/);
 });
 
-for (const locale of ['es','fr','de','pt','ar','hi','tl']) test(`time pages and controls are translated in ${locale}`, async ({page}) => {
+for (const locale of ['es','fr','de','pt','ar','hi','tl'] as const) test(`time pages and controls are translated in ${locale}`, async ({page}) => {
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const messages = {...JSON.parse(await readFile(`src/data/locales/content/${locale}.json`, 'utf8')), ...JSON.parse(await readFile(`src/data/locales/${locale}.json`, 'utf8'))};
   const t = translator(messages);
   const errors: string[] = [];

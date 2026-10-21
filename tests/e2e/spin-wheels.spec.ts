@@ -1,3 +1,4 @@
+import {isPublishedLocale, splitLocale} from '../../src/lib/i18n/config';
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {spinWheels, wheelHref} from '../../src/lib/spin-wheels/catalog';
@@ -15,6 +16,7 @@ test('wheel pages hydrate without warnings across server and browser trigonometr
   });
   const paths = [...spinWheels.map(wheel => wheelHref(wheel.slug)), '/ar/spin-wheels/activity-wheel', '/hi/spin-wheels/activity-wheel'];
   for (const path of paths) {
+    if (!isPublishedLocale(splitLocale(path).locale)) continue;
     await page.goto(path);
     await expect(page.locator('#wheel-entries')).toBeEnabled();
     expect(errors, path).toEqual([]);

@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import {locales, localizedPath, splitLocale, translator} from '@/lib/i18n/config';
+import {locales, publishedLocales, publishedPageLocales, localizedPath, splitLocale, translator} from '@/lib/i18n/config';
 import {getDictionary} from '@/lib/i18n/dictionaries';
 import {searchCalculators} from '@/lib/calculator-search';
 import {money, number} from '@/lib/format';
@@ -59,12 +59,13 @@ describe('multilingual navigation and content', () => {
     expect(translator({})('constructor')).toBe('constructor');
     expect(translator({})('toString')).toBe('toString');
   });
-  it('only advertises complete translations to search engines', () => {
-    expect(languageAlternates('/calculators/finance')?.ar).toBe('https://finflo.org/ar/calculators/finance');
-    expect(languageAlternates('/calculators/finance')?.['x-default']).toBe('https://finflo.org/calculators/finance');
-    expect(languageAlternates('/mortgage-calculator')?.de).toBe('https://finflo.org/de/mortgage-calculator');
-    expect(languageAlternates('/mortgage-calculator')?.hi).toBe('https://finflo.org/hi/mortgage-calculator');
-    expect(languageAlternates('/mortgage-calculator')?.tl).toBe('https://finflo.org/tl/mortgage-calculator');
+  it('retains supported translations while advertising only published languages', () => {
+    expect(locales).toHaveLength(8);
+    expect(publishedLocales).toEqual(['en']);
+    expect(publishedPageLocales('/mortgage-calculator')).toEqual(['en']);
+    expect(publishedPageLocales('/guides/comparing-discounts-and-percentage-changes')).toEqual(['en']);
+    expect(languageAlternates('/calculators/finance')).toBeUndefined();
+    expect(languageAlternates('/mortgage-calculator')).toBeUndefined();
     expect(languageAlternates('/search')).toBeUndefined();
     const meta = pageMetadata('Hypothek','Beschreibung','/mortgage-calculator',false,'de');
     expect(meta.alternates?.canonical).toBe('/de/mortgage-calculator');

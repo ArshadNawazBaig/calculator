@@ -16,14 +16,6 @@ export function localizedLayout(locale: Locale, scriptFont = '') {
   return async function LocalizedLayout({children}: {children: ReactNode}) {
     const messages = await getDictionary(locale), t = translator(messages);
     return <html suppressHydrationWarning lang={locale} dir={languages[locale].direction} className={`${siteFont.variable} ${scriptFont}`}>
-      {/* eslint-disable-next-line @next/next/no-head-element -- This shared component renders App Router root layouts. */}
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1970746421579261"
-          crossOrigin="anonymous"
-        />
-      </head>
       {/* Extensions such as Grammarly add body attributes before hydration. Descendant mismatches still warn. */}
       <body suppressHydrationWarning><script id="finflo-theme-init" dangerouslySetInnerHTML={{__html:themeInitScript}}/><LanguageProvider locale={locale} messages={sharedMessages(messages)}>
         <a className="skip-link" href="#main">{t('Skip to content')}</a>

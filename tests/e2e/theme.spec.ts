@@ -1,3 +1,4 @@
+import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -38,7 +39,7 @@ test('manual choices persist across reloads, routes, languages, and tabs', async
   await expect.poll(() => background(page)).toBe('rgb(16, 17, 19)');
   await expect(page.locator('meta[name="theme-color"]').first()).toHaveAttribute('content', '#101113');
   const other = await context.newPage();
-  await other.goto('/ar');
+  await other.goto(isPublishedLocale('ar') ? '/ar' : '/');
   await expect.poll(() => background(other)).toBe('rgb(16, 17, 19)');
   await choose(page, 'Light');
   await expect.poll(() => background(other)).toBe('rgb(247, 248, 244)');

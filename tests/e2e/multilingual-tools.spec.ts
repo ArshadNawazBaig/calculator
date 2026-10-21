@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
-import {locales,translator} from '../../src/lib/i18n/config';
+import {locales,translator,isPublishedLocale,publishedLocales,localizedPath} from '../../src/lib/i18n/config';
 import {spinWheels} from '../../src/lib/spin-wheels/catalog';
 import {toolkitDefinitions} from '../../src/lib/calculators/toolkit-definitions';
 
@@ -14,7 +14,7 @@ test('wheel editing waits for hydration so early input cannot be lost',async({pa
  const ready=new Promise<void>(resolve=>{release=resolve;});
  await page.route('**/_next/static/**/*.js',async route=>{await ready;await route.continue();});
  try{
-  await page.goto('/pt/spin-wheels/number-picker-wheel',{waitUntil:'domcontentloaded'});
+  await page.goto(isPublishedLocale('pt')?'/pt/spin-wheels/number-picker-wheel':'/spin-wheels/number-picker-wheel',{waitUntil:'domcontentloaded'});
   await expect(page.locator('#wheel-entries')).toBeDisabled();
   await expect(page.locator('#wheel-minimum')).toBeDisabled();
   release();
@@ -24,6 +24,7 @@ test('wheel editing waits for hydration so early input cannot be lost',async({pa
 });
 for(const locale of locales.filter(locale=>locale!=='en')){
  test(`${locale}: every wheel and toolkit route stays localized`,async({request})=>{
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   test.setTimeout(120000);
   for(const path of ['/spin-wheels',...spinWheels.map(wheel=>`/spin-wheels/${wheel.slug}`),...toolkitDefinitions.map(tool=>`/${tool.slug}`)]){
    const response=await request.get(`/${locale}${path}`,{maxRedirects:0});
@@ -31,11 +32,11 @@ for(const locale of locales.filter(locale=>locale!=='en')){
    const html=await response.text();
    expect(html).toContain(`lang="${locale}"`);
    expect(html).toContain(`rel="canonical" href="https://finflo.org/${locale}${path}"`);
-   expect(html).toContain(`hrefLang="es" href="https://finflo.org/es${path}"`);
-   expect(html).toContain(`hrefLang="ar" href="https://finflo.org/ar${path}"`);
+   for(const alternate of publishedLocales)expect(html).toContain(`hrefLang="${alternate}" href="https://finflo.org${localizedPath(path,alternate)}"`);
   }
  });
  test(`${locale}: homepage filters, localized spins, colors and user entries work`,async({page})=>{
+  test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const messages=await getContentDictionary(locale),t=translator(messages);
   await page.setViewportSize({width:390,height:844});
   await page.emulateMedia({reducedMotion:'reduce'});
@@ -65,6 +66,7 @@ for(const locale of locales.filter(locale=>locale!=='en')){
 }
 
 test('language switch keeps a wheel, query and fragment and supports translated invoice downloads',async({page})=>{
+ test.skip(!isPublishedLocale('es'), 'This translation is not published.');
  await page.goto('/spin-wheels/yes-or-no-wheel?from=home#wheel');
  await page.getByRole('button',{name:'Language: English'}).click();
  await page.getByRole('link',{name:'Español',exact:true}).click();

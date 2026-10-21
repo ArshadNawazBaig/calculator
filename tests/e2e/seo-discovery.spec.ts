@@ -1,8 +1,10 @@
+import {isPublishedLocale,splitLocale} from '../../src/lib/i18n/config';
 import {test, expect} from '@playwright/test';
 import es from '../../src/data/locales/es.json';
 
 test('avoids unused script-font preloads and retains the correct language fonts', async ({page}) => {
   for (const [path,font] of [['/','Manrope'],['/es','Manrope'],['/ar','Noto Sans Arabic'],['/hi','Noto Sans Devanagari']] as const) {
+    if(!isPublishedLocale(splitLocale(path).locale))continue;
     await page.goto(path);
     await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(1);
     await page.evaluate(()=>document.fonts.ready);
@@ -28,6 +30,7 @@ test('compound interest opens with savings growth and retains rate conversion', 
 });
 
 test('translated cards keep their descriptions across calculator, guide, and search navigation', async ({page,request}) => {
+  test.skip(!isPublishedLocale('es'), 'This translation is not published.');
   const privacy = await (await request.get('/es/privacy')).text();
   expect(privacy).not.toContain('description.mortgage-calculator');
   await page.goto('/es/bmi-calculator');
@@ -62,6 +65,7 @@ test('English homepage and guide expose consistent identity and authorship', asy
   await expect(page).toHaveTitle('About Finflo');
   await page.goto('/methodology');
   await expect(page).toHaveTitle('Our methodology');
+  if(!isPublishedLocale('es'))return;
   await page.goto('/es/compound-interest-calculator');
   await expect(page).toHaveTitle('Calculadora de interés compuesto con depósitos mensuales');
 });

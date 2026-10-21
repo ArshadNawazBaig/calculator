@@ -1,3 +1,4 @@
+import {isPublishedLocale,publishedLocales} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import explanations from '../../src/data/locales/explanations.json';
@@ -52,8 +53,8 @@ test('explains incompatible units instead of showing a misleading numerical diff
   await expect(panel.locator('table')).toContainText('Centimeters');
 });
 
-test('publishes localized insight text and usable tables across all languages',async ({page})=>{
-  for(const locale of ['en','es','fr','de','pt','ar','hi','tl'] as const){
+test('publishes localized insight text and usable tables across published languages',async ({page})=>{
+  for(const locale of publishedLocales){
     await page.goto(`${locale==='en'?'':`/${locale}`}/age-calculator`,{waitUntil:'domcontentloaded'});
     const insight=page.locator('[data-calculator-insight]');
     await expect(insight).toContainText(explanations[locale].insight);
@@ -63,7 +64,7 @@ test('publishes localized insight text and usable tables across all languages',a
 
 test('new explanatory tables fit small screens, support RTL, and expose accessible structure',async ({page})=>{
   await page.setViewportSize({width:390,height:844});
-  for(const path of ['/ar/time/asia-karachi','/es/calculators/math/statistics','/spin-wheels/yes-or-no-wheel','/guides/understanding-mortgage-payments']){
+  for(const path of [isPublishedLocale('ar')?'/ar/time/asia-karachi':'/time/asia-karachi',isPublishedLocale('es')?'/es/calculators/math/statistics':'/calculators/math/statistics','/spin-wheels/yes-or-no-wheel','/guides/understanding-mortgage-payments']){
     await page.goto(path,{waitUntil:'domcontentloaded'});
     await expect(page.locator('main table').last()).toBeVisible();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth+1),path).toBe(true);
@@ -73,6 +74,7 @@ test('new explanatory tables fit small screens, support RTL, and expose accessib
 });
 
 test('translated sitemap exposes policy, guide, and subcategory links',async ({page})=>{
+  test.skip(!isPublishedLocale('fr'), 'This translation is not published.');
   await page.goto('/fr/sitemap',{waitUntil:'domcontentloaded'});
   const index=page.locator('[data-sitemap-index]');
   await expect(index.locator('a[href="/fr/privacy"]')).toHaveCount(1);

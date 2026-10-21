@@ -5,7 +5,7 @@ import {resolve, dirname} from 'node:path';
 // Structural inventory, not a Google quality score or a minimum-word-count rule.
 const output = process.env.CONTENT_OUTPUT || 'docs/validation/content-inventory.json';
 const readJSON = async path => JSON.parse(await readFile(path, 'utf8'));
-const [copy, directories, paths] = await Promise.all([
+const [copy, directories, translatedPaths] = await Promise.all([
   readJSON('src/data/calculator-content.json'),
   readJSON('src/data/directory-content.json'),
   readJSON('src/data/locales/translated-pages.json'),
@@ -15,6 +15,7 @@ const issues = [], pages = [], descriptions = new Map();
 try {
   const {definitions, catalog, noInitialExampleTools} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
+  const paths = [...new Set([...translatedPaths, ...Object.keys(guides).map(slug=>`/guides/${slug}`)])];
   const {information} = await server.ssrLoadModule('/src/data/information.ts');
   const {zones, zoneHref, timeTools} = await server.ssrLoadModule('/src/lib/time/catalog.ts');
   const {spinWheels, wheelHref} = await server.ssrLoadModule('/src/lib/spin-wheels/catalog.ts');
@@ -65,6 +66,7 @@ try {
       const entry = information[path.slice(1)];
       page = {path, kind: 'information', title: entry.title, guideSections: entry.sections.length};
     } else if (timeTools.some(tool => tool.href === path)) page = {path, kind: 'time-tool'};
+    else if (path === '/faq') page = {path, kind: 'faq'};
     else if (['/', '/guides', '/sitemap', '/spin-wheels'].includes(path)) page = {path, kind: 'navigation-hub'};
     else {issues.push(`${path}: unclassified route`); page = {path, kind: 'unclassified'};}
     pages.push(page);

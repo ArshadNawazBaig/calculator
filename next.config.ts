@@ -16,7 +16,9 @@ const config: NextConfig = {
       },
       { source: "/percentage-calculator", destination: "/percent-calculator", permanent: true },
       { source: "/terms-and-services", destination: "/terms", permanent: true },
-      { source: "/en/:path*", destination: "/:path*", permanent: true },
+      // An empty wildcard destination produces an empty Location for /en.
+      { source: "/en", destination: "/", permanent: true },
+      { source: "/en/:path+", destination: "/:path+", permanent: true },
       { source: "/:locale(es|fr|de|pt|ar|hi|tl)/percentage-calculator", destination: "/:locale/percent-calculator", permanent: true },
       { source: "/:locale(es|fr|de|pt|ar|hi|tl)/terms-and-services", destination: "/:locale/terms", permanent: true },
     ];

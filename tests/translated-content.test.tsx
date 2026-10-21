@@ -11,6 +11,7 @@ import sitemap from '@/app/sitemap';
 import {languageAlternates, pageMetadata} from '@/lib/metadata';
 import translatedPages from '@/data/locales/translated-pages.json';
 import vehiclePolicy from '@/data/vehicle-tax-2026.json';
+import {guides} from '@/data/guides';
 
 // Restore the imported site's mutable test setting without re-importing the registry.
 const originalIndexing = site.indexable;
@@ -62,27 +63,36 @@ describe('complete localized content', () => {
     expect(html).not.toContain(definition.modes[0].explanation);
   });
 
-  it('publishes all language variants with reciprocal alternates and excludes system pages', () => {
+  it('publishes English routes without withdrawn alternates and excludes system pages', () => {
     site.indexable = true;
     const entries = sitemap();
     expect(translatedPages).toContain('/spin-wheels');
     expect(translatedPages).toContain('/invoice-generator');
-    expect(entries).toHaveLength(translatedPages.length * locales.length);
+    const englishOnlyGuides = Object.keys(guides).map(slug=>`/guides/${slug}`).filter(path=>!isTranslatedPage(path));
+    expect(entries).toHaveLength(translatedPages.length + englishOnlyGuides.length);
+    for (const path of englishOnlyGuides) {
+      expect(entries.find(entry=>entry.url===site.url+path)).toEqual({url:site.url+path});
+      expect(languageAlternates(path)).toBeUndefined();
+      for (const locale of locales.filter(locale=>locale!=='en')) expect(entries.some(entry=>entry.url===`${site.url}/${locale}${path}`)).toBe(false);
+    }
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length);
     for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy', '/invoice-generator', '/net-worth-tracker', '/spin-wheels/yes-or-no-wheel']) {
       expect(translatedPages).toContain(path);
-      const variants = languageAlternates(path)!;
-      for (const locale of locales) expect(variants[locale]).toBeTruthy();
-      expect(variants['x-default']).toBe(site.url + path);
+      expect(languageAlternates(path)).toBeUndefined();
+      expect(entries.some(entry => entry.url === site.url + path)).toBe(true);
     }
     for (const entry of entries) {
-      expect(Object.keys(entry.alternates!.languages!)).toHaveLength(locales.length + 1);
+      expect(entry.alternates).toBeUndefined();
+      expect(new URL(entry.url).pathname).not.toMatch(/^\/(es|fr|de|pt|ar|hi|tl)(?:\/|$)/);
     }
     for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/weight-watchers-points-calculator']) {
       expect(isTranslatedPage(path)).toBe(false);
       expect(entries.some(entry => entry.url === site.url + path)).toBe(false);
     }
-    expect(pageMetadata('Hipoteca', 'Descripción', '/mortgage-calculator', true, 'es').robots).toEqual({index: true, follow: true});
+    expect(pageMetadata('Mortgage calculator', 'Description', '/mortgage-calculator', true, 'en').robots).toEqual({index: true, follow: true});
+    for (const locale of locales.filter(locale => locale !== 'en')) {
+      expect(pageMetadata('Calculator', 'Description', '/mortgage-calculator', true, locale).robots).toEqual({index: false, follow: true});
+    }
     site.indexable = false;
     expect(sitemap()).toEqual([]);
     expect(pageMetadata('Hipoteca', 'Descripción', '/mortgage-calculator', true, 'es').robots).toEqual({index: false, follow: true});
