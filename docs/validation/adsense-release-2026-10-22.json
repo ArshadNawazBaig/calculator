@@ -95,16 +95,32 @@
     ]
   },
   "deployment": {
-    "status": "release candidate; deployment and live verification follow the tested commit",
+    "status": "blocked by Railway platform outage; not deployed",
     "service": "finflo",
     "environment": "production",
     "previousVerifiedCommit": "32b8c03825eb9d3f0a98540a1cb15a56303550d1",
-    "rollbackDeployment": "65fcc934-4e87-4b66-a135-0d7bb82bb508"
+    "rollbackDeployment": "65fcc934-4e87-4b66-a135-0d7bb82bb508",
+    "checkedAt": "2026-10-21T19:40:18.858966+00:00",
+    "error": "Deploys have been paused temporarily",
+    "attempt": "Explicit Railway CLI upload of clean tested commit to existing production service, with default gitignore filtering. No new deployment created.",
+    "incident": "https://status.railway.com/incident/QH8L8B3E",
+    "incidentLatestUpdate": "2026-10-21T19:30:00Z",
+    "accountStatus": "Active Hobby subscription; no ban, free-plan exhaustion, or service restriction reported.",
+    "newDeploymentId": null,
+    "productionVerification": "not run against the new release; the old deployment remains active",
+    "configurationChanged": false
   },
   "adsenseAccountReviewRequested": false,
   "limits": [
     "Unpublished translations require fluent editorial review before republication.",
     "All-page crawls check response HTML and structure, not editorial approval of each page.",
     "The AdSense decision remains with Google."
-  ]
+  ],
+  "sourceCommit": "825807de0cbf11df2716d064476fbbd4dfa12f2e",
+  "githubChecks": {
+    "status": "completed",
+    "conclusion": "success",
+    "runId": 39662671785,
+    "url": "https://github.com/ArshadNawazBaig/calculator/actions/runs/39662671785"
+  }
 }

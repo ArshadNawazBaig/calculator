@@ -2,6 +2,31 @@
 
 The supplied account screenshot identifies **Low-value content** and an authorized ads.txt entry. This release addresses the concrete issues found in the public-site and source reviews. Google evaluates the whole site; automated checks and these corrections do not certify approval or reveal its private review criteria.
 
+## Release status: deployment blocked by Railway outage
+
+The tested application changes were committed and pushed to `main` as [`825807de0cbf11df2716d064476fbbd4dfa12f2e`](https://github.com/ArshadNawazBaig/calculator/commit/825807de0cbf11df2716d064476fbbd4dfa12f2e). The fresh [GitHub release checks](https://github.com/ArshadNawazBaig/calculator/actions/runs/39662671785) also completed successfully, including type checking, lint, unit tests, the published-language audit and the production build.
+
+**These changes are not live yet.** GitHub did not produce a new Railway deployment, and an explicit upload to the existing production service failed with `Deploys have been paused temporarily`. Railway's [official incident QH8L8B3E](https://status.railway.com/incident/QH8L8B3E), checked at approximately `2026-10-21T19:39Z` (October 22 in Pakistan), reports a platform-wide build pause and API/dashboard disruption. Its 19:30 UTC update gives an Enterprise recovery target first, with Pro and Hobby afterward; it gives no confirmed Hobby restoration time. The account is active and not restricted. No plan, domain, service configuration, or traffic destination was changed.
+
+The last successful production deployment remains `65fcc934-4e87-4b66-a135-0d7bb82bb508`, serving commit `32b8c03825eb9d3f0a98540a1cb15a56303550d1`. Live verification of this new release remains pending. **Do not request another AdSense review against the old deployment.**
+
+Once Railway confirms builds are restored for Hobby workspaces, deploy the verified source to the same service:
+
+```sh
+git status --short
+npx @railway/cli up --project d21adcb1-0b19-489d-8357-62edf17763f9 --environment production --service finflo --detach --message 'AdSense remediation 825807d'
+npx @railway/cli deployment list --project d21adcb1-0b19-489d-8357-62edf17763f9 --environment production --service finflo --limit 5 --json
+```
+
+Keep `.gitignore` filtering enabled. Confirm the uploaded source is the tested runtime or contains only subsequent documentation changes; rebuild/retest any new runtime changes. Wait for the new deployment to report `SUCCESS`, record its ID, then verify the public domain:
+
+```sh
+TEST_URL=https://finflo.org TEST_INDEXABLE=true npx playwright test tests/e2e/adsense-content.spec.ts tests/e2e/publication.spec.ts tests/e2e/student-tools.spec.ts
+TEST_URL=https://finflo.org SEO_OUTPUT=docs/validation/adsense-release-live-seo.json npm run audit:seo
+```
+
+Confirm the six guides, 721 English sitemap URLs, ownership metadata, authorized ads.txt, no advertising requests, temporary language redirects, saved-calculation restoration and calculator examples. Only after successful deployment and live verification should the account review be requested. These commands have not been represented as completed production checks.
+
 ## Published content and language availability
 
 The release contains 216 calculator pages, 572 calculation modes, six guides, and 721 English sitemap URLs. Three new worked guides explain discount comparisons, weighted grades/final targets, and concrete quantities with independently checked numerical examples, assumptions, comparison tables, and links to the relevant tools. Their substantive content is present in server-rendered HTML.

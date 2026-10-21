@@ -20,6 +20,8 @@ npx @railway/cli config apply
 
 Pushes to `main` trigger application deployments. Changes to the infrastructure file also need `config plan` and `config apply`. The `finflo` partial manages only this service and leaves environment variables under Railway's control.
 
+On October 22, the configured GitHub trigger did not create a deployment during Railway's platform outage, and a direct upload returned `Deploys have been paused temporarily`. The [October 22 release record](adsense-release-2026-10-22.md) contains the verified source commit, incident evidence and deployment commands to use after Hobby builds resume. A successful GitHub push or CI run does not establish that this release is live.
+
 ### Release verification
 
 Run type checks, lint, unit tests, the active translation audit, a production build, browser checks and the relevant crawl audits before pushing. Railway deploys `main` independently of GitHub quality checks, so a push must contain the already verified source. Record the commit and deployment ID, then wait for Railway health checks and verify the custom domain against that release. Updating these documents or passing a local build does not establish deployment.
