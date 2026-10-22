@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {offsetLabel, offsetMinutes, supportsZone, timeFormatter} from '@/lib/time/engine';
 import {zoneById, zoneHref} from '@/lib/time/catalog';
 import {languages, localizedPath, type Locale} from '@/lib/i18n/config';

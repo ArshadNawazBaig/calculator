@@ -2,7 +2,7 @@ import {SitemapIndex} from '@/components/content/sitemap-index';
 import {TimeCollection} from '@/components/time/time-collection';
 import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
 import {PageHero} from '@/components/content/page-hero';
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {catalog} from '@/lib/calculators/registry';
 import {categories} from '@/lib/site';
 import {pageMetadata} from '@/lib/metadata';

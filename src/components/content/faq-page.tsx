@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import {getFaqContent} from '@/lib/faq';
 import {localizedPath, translator, type Locale} from '@/lib/i18n/config';

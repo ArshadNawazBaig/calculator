@@ -13,6 +13,7 @@
 /* Share the calculator result table's typography, spacing and theme tokens. */
 .scroll { overflow-x: auto; max-width: 100%; margin-block: 20px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-card); }
 .scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -3px; }
+.scrollHint { display: none; }
 .table { composes: table from '../calculators/result-table.module.css'; }
 .table th,.table td { vertical-align: top; }
 .table th:first-child,.table td:first-child { text-align: start; }
@@ -47,6 +48,7 @@
 .sitemapLinks a:hover { text-decoration: underline; }
 
 @media (max-width: 700px) {
+  .scrollHint { display: block; }
   .comparisonBody { padding: 0 18px 20px; }
   .table caption:not(:global(.sr-only)) { padding: 13px 16px; }
 }

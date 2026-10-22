@@ -1,5 +1,5 @@
 import {ArrowUpRight, GraduationCap} from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {studentTools, studentToolHref} from '@/lib/student-tools';
 import {localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 import styles from './student-tools.module.css';

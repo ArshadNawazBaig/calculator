@@ -25,7 +25,7 @@ export function ZoneDirectory({countries, compact = false}: {countries: Record<s
       {!compact && <div className={styles.region}><label id="zone-region-label" htmlFor="zone-region">{t('Region')}</label><Dropdown id="zone-region" aria-labelledby="zone-region-label" disabled={!hydrated} value={region} onValueChange={value => {setRegion(value); setLimit(24);}} options={[{value: 'all', label: t('All regions')}, ...regions.map(value => ({value, label: t(value === 'Etc' ? 'Fixed UTC offsets' : value)}))]}/></div>}
     </div>
     <p className={styles.note} role="status">{t(compact && !query ? 'Popular clocks around the world' : '{count} time zones found', {count: results.length})}</p>
-    <div className={styles.zoneGrid}>{visible.map(zone => <Link href={zoneHref(zone)} key={zone.id} className={styles.zoneCard} prefetch={false}>
+    <div className={styles.zoneGrid}>{visible.map(zone => <Link href={zoneHref(zone)} key={zone.id} className={styles.zoneCard}>
       <span><strong>{zone.place}</strong><small>{countries[zone.country] || t(zone.region === 'Etc' ? 'Fixed UTC offsets' : zone.region)}</small><code dir="ltr">{zone.id}</code></span><ArrowUpRight size={17} aria-hidden="true"/>
     </Link>)}</div>
     {results.length === 0 && <p className={styles.empty}>{t('No time zones found. Try a city name or a shorter search.')}</p>}

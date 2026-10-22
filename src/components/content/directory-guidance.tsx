@@ -1,5 +1,5 @@
 import {ToolChooser} from './tool-chooser';
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import content from '@/data/directory-content.json';
 import {localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 

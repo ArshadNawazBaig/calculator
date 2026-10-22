@@ -85,7 +85,7 @@
     ]
   },
   "hours-calculator": {
-    "description": "Calculate work or activity hours between clock times, subtract a break and view decimal hours for same-day or overnight intervals.",
+    "description": "Calculate hours between start and end times, subtract unpaid breaks and convert to decimal hours. Supports same-day shifts and shifts crossing midnight.",
     "faqs": [
       {
         "question": "What happens if the end clock time is earlier than the start?",
@@ -103,7 +103,8 @@
           "A pair of clock times needs a clear assumption about whether the end occurs on the same day or a later day. Use the date-and-time mode when calendar dates make that distinction important. Enter breaks according to the available fields instead of subtracting them twice. A duration calculation alone does not apply an employer's paid-time, overtime, or rounding policy."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Hours Calculator: Work Hours, Breaks & Decimal Time"
   },
   "time-duration-calculator": {
     "description": "Measure elapsed civil time between clock times or dated timestamps, with break subtraction and clear overnight assumptions.",
@@ -541,7 +542,7 @@
     ]
   },
   "square-footage-calculator": {
-    "description": "Calculate floor areas, borders and other supported shapes with mixed measurement units, repeated quantities and area-based costs.",
+    "description": "Calculate square footage for floors, rooms and other shapes. Enter mixed units, set a quantity and estimate material cost from a price per square foot.",
     "faqs": [
       {
         "question": "Does circular-area mode use radius or diameter?",
@@ -559,7 +560,8 @@
           "For an irregular floor plan, divide the area into shapes supported by the calculator and avoid counting overlaps twice. Check whether measurements refer to the interior area or a different boundary. The mixed-unit and cost modes help convert dimensions and apply an entered area price. Material quantities can still require allowances beyond the geometric floor area."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Square Footage Calculator: Area, Quantity & Cost"
   },
   "concrete-calculator": {
     "description": "Estimate concrete for slabs, columns, tubes, solid stairs or curb-and-gutter sections, with mixed units, allowance and volume-based pricing.",
@@ -3703,7 +3705,7 @@
     ]
   },
   "ratio-calculator": {
-    "description": "Simplify whole-number ratios, solve any missing proportion term, or enlarge and shrink both parts by a scale factor.",
+    "description": "Simplify a ratio, find a missing value in a proportion, or scale both quantities. See worked examples for equivalent ratios and whole-number simplification.",
     "faqs": [
       {
         "question": "Does scaling a ratio change the relationship between its parts?",
@@ -3721,7 +3723,8 @@
           "A 2:3 mixture contains 5 parts in total. To make 20 units of mixture, each part is 20 ÷ 5 = 4 units, so the two ingredients need 8 and 12 units. The first ingredient is 2/5 of the total, not 2/3: 2/3 compares the ingredients with each other. Keep their order consistent when scaling or solving a proportion, and convert measurements to compatible units before comparing them."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Ratio Calculator: Simplify, Solve & Scale Ratios"
   },
   "quadratic-formula-calculator": {
     "description": "Solve quadratic equations, inspect the discriminant and find real or complex roots, with linear handling when the quadratic term is zero.",
@@ -3745,7 +3748,7 @@
     ]
   },
   "exponent-calculator": {
-    "description": "Raise a real number to a positive, negative or fractional power within the supported real-number domain.",
+    "description": "Calculate a number raised to a power, including negative and fractional exponents. See the result and the limits for real-number calculations.",
     "faqs": [
       {
         "question": "What does a negative exponent mean?",
@@ -3763,7 +3766,8 @@
           "The base is the quantity being raised to a power, while the exponent controls the operation. Parentheses matter when the base is negative: a negative base raised to a power is different from negating an already computed power. Check the supported real-number domain for fractional exponents. Very large powers can also exceed the precision or range of the selected numerical method."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Exponent Calculator: Positive, Negative & Fractional Powers"
   },
   "root-calculator": {
     "description": "Find square roots, cube roots and other integer-index roots, including supported real odd roots of negative numbers.",
@@ -3934,7 +3938,7 @@
     ]
   },
   "long-division-calculator": {
-    "description": "Divide integers to find a quotient and remainder, or inspect digit-by-digit long-division steps for supported inputs.",
+    "description": "Divide whole numbers and see the quotient, remainder and digit-by-digit long division. Check your answer with divisor × quotient + remainder.",
     "faqs": [
       {
         "question": "How can I check a quotient and remainder?",
@@ -3952,10 +3956,11 @@
           "Integer division separates the result into a whole-number quotient and a remainder, while decimal division expresses the same relationship as a decimal value where supported. Keep the dividend and divisor in the correct order. A useful check is to multiply the divisor by the quotient and add the remainder. The step-by-step mode is intended to make that division process easier to follow."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Long Division Calculator: Steps, Quotient & Remainder"
   },
   "rounding-calculator": {
-    "description": "Round decimal numbers by places or significant figures, or use a chosen increment and explicit halfway-value rule.",
+    "description": "Round a number to decimal places, significant figures or a chosen increment. Choose how halfway values round and compare the result with your input.",
     "faqs": [
       {
         "question": "Are decimal places and significant figures the same?",
@@ -3973,10 +3978,11 @@
           "Rounding changes a value to a chosen level of precision or to a multiple of an increment. Select the rule explicitly when halfway cases matter, especially for negative values. Rounding to decimal places is different from rounding to a cash increment. Keep full intermediate precision when possible, because rounding each step can produce a different final result from rounding once at the end."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Rounding Calculator: Decimal Places & Significant Figures"
   },
   "scientific-notation-calculator": {
-    "description": "Convert decimal numbers to scientific notation and perform supported arithmetic on coefficients and powers of ten.",
+    "description": "Convert numbers to scientific notation or back to decimals. Add, subtract, multiply and divide using coefficients and powers of ten.",
     "faqs": [
       {
         "question": "What makes scientific notation normalized?",
@@ -3994,7 +4000,8 @@
           "Scientific notation separates a coefficient from a power of ten. A positive exponent moves the scale toward larger values, while a negative exponent represents a smaller magnitude. Use arithmetic mode when combining numbers already written this way. Check whether the displayed digits reflect the requested precision; changing the notation alone does not make a measurement more accurate."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Scientific Notation Calculator: Convert & Calculate"
   },
   "binary-calculator": {
     "description": "Perform exact binary integer arithmetic and convert signed integers between base 2 and decimal without floating-point conversion.",
@@ -4333,7 +4340,7 @@
     ]
   },
   "area-calculator": {
-    "description": "Calculate areas of common plane shapes, including sectors and triangles from three sides, with independent input-unit options.",
+    "description": "Calculate the area of rectangles, circles, triangles and more. Choose measurement units and see formulas, worked examples and square-unit results.",
     "faqs": [
       {
         "question": "Is a triangle's height the same as its sloping side?",
@@ -4351,10 +4358,11 @@
           "Area formulas depend on the shape and on whether a height is perpendicular to the relevant base. Choose the matching shape before entering measurements. For an irregular region, calculate suitable pieces separately rather than forcing it into an unrelated formula. Check the output's squared unit and avoid treating a side length or perimeter as an area input."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Area Calculator: Rectangle, Circle, Triangle & More"
   },
   "volume-calculator": {
-    "description": "Find volumes of common solids, including hollow cylinders, frustums and spherical caps, with selectable measurement units.",
+    "description": "Calculate the volume of a cylinder, sphere, cube, cone and other solids. Choose units and compare formulas with worked examples in cubic units.",
     "faqs": [
       {
         "question": "Which volume does the hollow-cylinder mode calculate?",
@@ -4372,10 +4380,11 @@
           "Volume measures the space inside the modeled solid. Select the correct shape and distinguish radius, diameter, height, and slant-related measurements using the field labels. All dimensions must use compatible units before combining them. The result uses cubic units and describes the idealized shape; wall thickness, openings, or irregular geometry need a mode or separate calculation that accounts for them."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Volume Calculator: Cylinder, Sphere, Cube & More"
   },
   "surface-area-calculator": {
-    "description": "Calculate total surface areas of common solids, including cap bases and hollow-cylinder surfaces, with the ellipsoid approximation disclosed.",
+    "description": "Calculate the surface area of spheres, cylinders, cones and other solids. Choose units and see the formulas and assumptions for each shape.",
     "faqs": [
       {
         "question": "Does spherical-cap surface area include the flat base?",
@@ -4393,7 +4402,8 @@
           "Surface area adds the modeled exposed faces of a solid, rather than measuring the space inside it. Review the selected shape's formula to see whether bases, ends, or inner surfaces are included. This matters for tasks such as covering a container or comparing an open and closed shape. The output uses squared units, even though the object itself has volume."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Surface Area Calculator: Sphere, Cylinder, Cone & More"
   },
   "matrix-calculator": {
     "description": "Add, subtract, multiply, scale, transpose and raise matrices to integer powers, or calculate determinants and inverses up to 10 by 10.",

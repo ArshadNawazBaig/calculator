@@ -1,7 +1,6 @@
 "use client";
 import {useI18n} from "@/components/i18n/provider";
 import {Search as SearchIcon,X} from "lucide-react";
-import {useRouter} from "next/navigation";
 import {useEffect,useId,useMemo,useRef,useState,type KeyboardEvent,type ReactNode} from "react";
 import {Button} from "@/components/ui/button";
 import {SearchSuggestions} from "@/components/search-suggestions";
@@ -19,7 +18,6 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   const [activeIndex,setActiveIndex]=useState(-1);
   const inputRef=useRef<HTMLInputElement>(null);
   const formRef=useRef<HTMLFormElement>(null);
-  const router=useRouter();
   const id=useId();
   const inputId=`calculator-search-${id}`;
   const listId=`calculator-suggestions-${id}`;
@@ -54,7 +52,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   },[isOpen,inline]);
 
   function closeMenu(){setOpen(false);setActiveIndex(-1);}
-  function openCalculator(slug:string){const tool=matches.find(item=>item.slug===slug);closeMenu();onNavigate?.();router.push(href(toolHref(tool||{slug})));}
+  function openCalculator(slug:string){const tool=matches.find(item=>item.slug===slug);closeMenu();onNavigate?.();window.location.assign(href(toolHref(tool||{slug})));}
   function searchHref(allCategories=false){
     if(!query.trim())return category&&!allCategories?categoryHref(category):"/calculators";
     const params=new URLSearchParams({q:query.trim()});
@@ -80,7 +78,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
 
   return <form ref={formRef} className={`${styles.root} no-print`} role="search"
     onBlur={event=>{if(!event.currentTarget.contains(event.relatedTarget))closeMenu();}}
-    onSubmit={event=>{event.preventDefault();closeMenu();onNavigate?.();router.push(href(searchHref()));}}>
+    onSubmit={event=>{event.preventDefault();closeMenu();onNavigate?.();window.location.assign(href(searchHref()));}}>
     <div className={`search ${compact?"search-compact":""} ${iconOnly?"search-icon-submit":""}`}>
     <SearchIcon aria-hidden="true" size={20}/><label className="sr-only" htmlFor={inputId}>{t("Search calculators")}</label>
     <input ref={inputRef} id={inputId} type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox"
@@ -94,7 +92,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
     <span id={`${inputId}-help`} className="sr-only">{t("Type to find calculators. Use the up and down arrow keys to choose a suggestion, Enter to open it, and Escape to close the suggestions.")}</span>
     <span className="sr-only" role="status" aria-atomic="true">{isOpen?(matches.length?t("Results: {count}",{count:matches.length}):t("No matching calculators")):""}</span>
     {isOpen&&<SearchSuggestions inline={inline} id={listId} matches={suggestions} total={matches.length} activeIndex={activeIndex} category={category}
-      onActive={setActiveIndex} onSelect={openCalculator} onBrowse={()=>{closeMenu();onNavigate?.();router.push(href(category?searchHref(true):"/calculators"));}}/>}
+      onActive={setActiveIndex} onSelect={openCalculator} onBrowse={()=>{closeMenu();onNavigate?.();window.location.assign(href(category?searchHref(true):"/calculators"));}}/>}
     {!hasQuery&&emptyContent}
   </form>;
 }

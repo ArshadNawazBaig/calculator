@@ -26,7 +26,7 @@ export function CalculatorCard({tool,size="regular",headingLevel=3}:CalculatorCa
   const unavailable=tool.status==="unavailable";
   return <article className={`${styles.card} ${locale!=='en'&&!messages[`description.${tool.slug}`]?styles.withoutDescription:''} ${size==="compact"?styles.compact:""}`} data-calculator-card={tool.slug} data-category={tool.category} data-status={tool.status||"available"}>
     {tool.favorite !== false && <FavoriteButton slug={tool.slug} title={messages[`tool.${tool.slug}`]||tool.title} compact/>}
-    <Link className={styles.link} href={tool.href || `/${tool.slug}`} aria-label={messages[`tool.${tool.slug}`]||tool.title} prefetch={false}>
+    <Link className={styles.link} href={tool.href || `/${tool.slug}`} aria-label={messages[`tool.${tool.slug}`]||tool.title}>
       <div className={styles.header}>
         <span className={styles.iconWrap}><ToolIcon slug={tool.slug} size={22}/></span>
         <Heading className={styles.title}>{messages[`tool.${tool.slug}`]||tool.title}</Heading>

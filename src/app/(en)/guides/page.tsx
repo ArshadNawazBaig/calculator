@@ -1,6 +1,6 @@
 import {ToolChooser} from '@/components/content/tool-chooser';
 import {PageHero} from '@/components/content/page-hero';
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {guides} from '@/data/guides';
 import {pageMetadata} from '@/lib/metadata';
 export const metadata=pageMetadata('Calculation guides','Worked examples for discounts, grades, concrete quantities, mortgages, compound growth, and adult BMI.','/guides');

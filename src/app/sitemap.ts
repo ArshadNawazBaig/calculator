@@ -1,4 +1,5 @@
 import {studentDirectory} from '@/lib/student-tools';
+import {mathSearchContent} from '@/data/math-search-content';
 import {timePaths} from '@/lib/time/catalog';
 import {categorySlug} from '@/lib/catalog-paths';
 import type {MetadataRoute} from 'next';
@@ -14,6 +15,8 @@ export default function sitemap():MetadataRoute.Sitemap{
  const paths=[...timePaths,'/','/calculators',studentDirectory.path,'/guides','/sitemap','/faq','/spin-wheels',...spinWheels.map(wheel=>wheelHref(wheel.slug)),...categories.map(c=>`/calculators/${c.id}`),...[...new Set(catalog.map(t=>`/calculators/${t.category}/${categorySlug(t.subcategory)}`))],...Object.keys(information).map(s=>`/${s}`),...Object.keys(guides).map(s=>`/guides/${s}`),...catalog.filter(t=>definitionMap.has(t.slug)).map(t=>`/${t.slug}`)];
  return paths.flatMap(path=>{
    const languages=languageAlternates(path);
-   return publishedPageLocales(path).map(locale=>({url:site.url+localizedPath(path,locale),...(languages?{alternates:{languages}}:{})}));
+   // These dates record actual English content edits, never the sitemap fetch/build time.
+   const modifiedAt=mathSearchContent[path.slice(1)]?.modifiedAt;
+   return publishedPageLocales(path).map(locale=>({url:site.url+localizedPath(path,locale),...(locale==='en'&&modifiedAt?{lastModified:modifiedAt}:{}),...(languages?{alternates:{languages}}:{})}));
  });
 }

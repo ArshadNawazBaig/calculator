@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {getToolkitEditorial} from '@/lib/toolkit-editorial';
 import {JsonLd} from './json-ld';
 import {organizationData} from '@/lib/structured-data';

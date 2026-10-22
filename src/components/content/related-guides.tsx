@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {guides, guideCalculators} from '@/data/guides';
 import {isTranslatedPage, localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 

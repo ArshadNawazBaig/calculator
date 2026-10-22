@@ -1,5 +1,8 @@
 /** Ordered by the next task a visitor is likely to want, across categories where useful. */
 export const relatedCalculatorSlugs: Record<string, string[]> = {
+  'area-calculator': ['square-footage-calculator', 'triangle-calculator', 'circle-calculator', 'surface-area-calculator', 'volume-calculator', 'conversion-calculator'],
+  'ratio-calculator': ['fraction-calculator', 'gcf-calculator', 'percent-calculator', 'long-division-calculator', 'triangle-calculator', 'basic-calculator'],
+  'volume-calculator': ['surface-area-calculator', 'area-calculator', 'concrete-calculator', 'density-calculator', 'conversion-calculator', 'square-footage-calculator'],
   'mortgage-calculator': ['mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator'],
   'compound-interest-calculator': ['savings-calculator', 'investment-calculator', 'simple-interest-calculator', 'future-value-calculator', 'interest-calculator', 'inflation-calculator'],
   'bmi-calculator': ['healthy-weight-calculator', 'body-fat-calculator', 'lean-body-mass-calculator', 'bmr-calculator', 'calorie-calculator', 'height-calculator'],

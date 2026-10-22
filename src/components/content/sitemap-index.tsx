@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {Accordion,AccordionItem} from '@/components/ui/accordion';
 import {information} from '@/data/information';
 import {guides} from '@/data/guides';

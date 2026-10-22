@@ -4,7 +4,7 @@ import {WheelCollection} from '@/components/spin-wheels/wheel-collection';
 import {CategoryNavigation} from '@/components/content/category-navigation';
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
 import {SearchHero} from '@/components/content/search-hero';
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {catalog} from '@/lib/calculators/registry';
 import {categories} from '@/lib/site';
 import {pageMetadata} from '@/lib/metadata';

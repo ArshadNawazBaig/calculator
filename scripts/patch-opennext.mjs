@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 const root=process.cwd();
 const pkg=path.join(root,'node_modules/@opennextjs/cloudflare/package.json');
 const next=JSON.parse(fs.readFileSync(path.join(root,'node_modules/next/package.json'),'utf8'));
-if(JSON.parse(fs.readFileSync(pkg,'utf8')).version!=='1.20.10'||next.version!=='16.4.0')throw Error('This research patch is only verified for OpenNext1.20.10 and Next16.4.0.');
+if(JSON.parse(fs.readFileSync(pkg,'utf8')).version!=='1.20.10'||!['16.4.0','16.4.2'].includes(next.version))throw Error('This research patch is only verified for OpenNext1.20.10 and Next16.4.0/16.4.2.');
 const file=path.join(path.dirname(pkg),'dist/cli/build/patches/plugins/load-manifest.js');
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 let source=fs.readFileSync(file,'utf8');

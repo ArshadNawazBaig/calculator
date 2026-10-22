@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {definitionMap, toolMap} from '@/lib/calculators/registry';
 import {isFieldActive} from '@/lib/calculators/field-visibility';
 import {defaults} from '@/lib/calculators/types';

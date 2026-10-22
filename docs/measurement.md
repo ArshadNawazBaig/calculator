@@ -1,6 +1,8 @@
 # Search and visitor measurement
 
-Status on October 11, 2026: public crawl checks are available; private Search Console/Bing reports and visitor statistics are not. No analytics token is configured. Missing measurements are unknown, not zero.
+Updated October 22, 2026: public crawl checks and local analysis of supplied Search Console CSV exports are available. There is no connected Search Console/Bing account or configured visitor-analytics token. Missing measurements are unknown, not zero. See the [search growth release](seo-growth-2026-10-22.md) for the current implementation and verification status.
+
+Run `npm run audit:search -- /path/to/export-folder` to analyze the seven standard CSV exports. The generated `test-results/search-console.json` stays outside version control. It preserves property/page/query aggregation differences, reports complete seven-day trends and flags possible export truncation. Compare exports with matching search type, dates and filters; the independent CSV tables do not provide joined page/query/device data.
 
 ## Search ownership and reporting
 
@@ -12,7 +14,7 @@ Status on October 11, 2026: public crawl checks are available; private Search Co
 
 The 203-page keyword inventory and 46 researched query candidates are in [the search map](research/search/english-page-map.csv) and [query assignments](research/search/english-query-map.csv). The three Australian queries have no approved regional landing page. Prioritize actual demand before developing one.
 
-No account ownership, sitemap submission, indexing count, impressions, clicks or CTR is claimed by this release. The previously suggested Search Console connector still needs to be connected, or reports can be supplied instead. [Google setup guidance](https://developers.google.com/search/docs/monitor-debug/search-console-start).
+The supplied performance export establishes its own dated observations; it does not prove current sitemap submission, current indexing coverage, account ownership or the effect of an undeployed change. Live account access is still needed for URL Inspection and submission actions. [Google setup guidance](https://developers.google.com/search/docs/monitor-debug/search-console-start).
 
 ## Optional visitor statistics
 

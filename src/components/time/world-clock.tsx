@@ -1,6 +1,5 @@
 'use client';
 import {useEffect, useMemo, useState, type ReactNode} from 'react';
-import {useRouter} from 'next/navigation';
 import {ArrowUpRight, Globe2, MapPin, Star, X} from 'lucide-react';
 import Link from '@/components/i18n/link';
 import {useI18n} from '@/components/i18n/provider';
@@ -17,7 +16,6 @@ const savedKey = 'finflo-world-clocks-v1', defaultKey = 'finflo-default-clock-v1
 export function WorldClock({initialZone, initialSnapshot, countries, breadcrumbs, introduction, navigation}: {initialZone?: ClockZone; initialSnapshot: ClockSnapshot; countries: Record<string, string>; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode}) {
   const {t, locale, href} = useI18n(), hydrated = useHydrated();
   const zoneOptions = useMemo(() => zones.map(zone => ({value: zone.id, label: [countries[zone.country], zone.place, zone.place === zone.id ? '' : zone.id].filter(Boolean).join(' · ')})), [countries]);
-  const router = useRouter();
   const clock = useClock();
   const [zone, setZone] = useState(initialZone || zoneById.get('UTC')!);
   const [localZone, setLocalZone] = useState('UTC');
@@ -64,7 +62,7 @@ export function WorldClock({initialZone, initialSnapshot, countries, breadcrumbs
     if (!nextZone) return;
     setZone(nextZone);
     setFeedback('');
-    if (initialZone && nextZone.id !== initialZone.id) router.push(href(zoneHref(nextZone)), {scroll: false});
+    if (initialZone && nextZone.id !== initialZone.id) window.location.assign(href(zoneHref(nextZone)));
   };
   return <>
     <section className={styles.clockHero} data-theme-surface="dark" aria-labelledby="page-title" data-clock-snapshot-at={initialSnapshot?.at}>

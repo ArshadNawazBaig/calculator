@@ -74,9 +74,9 @@ export function HealthToolkit({messages = {}}: HomeDetailsProps) {
 }
 
 const everydayGroups = [
-  {icon: Percent, title: 'Percentages & fractions', description: 'Check a change, simplify a fraction, or work through a proportion.', slugs: ['percent-calculator', 'fraction-calculator']},
+  {icon: Percent, title: 'Percentages & fractions', description: 'Check a change, simplify a fraction, or work through a proportion.', slugs: ['percent-calculator', 'fraction-calculator', 'ratio-calculator']},
   {icon: CalendarDays, title: 'Dates & time', description: 'Count days, shift a date, or add up hours and minutes.', slugs: ['date-calculator', 'time-calculator']},
-  {icon: Ruler, title: 'Units & measurements', description: 'Convert between units and work out the area of a space.', slugs: ['conversion-calculator', 'area-calculator']},
+  {icon: Ruler, title: 'Units & measurements', description: 'Convert between units and work out the area of a space.', slugs: ['conversion-calculator', 'area-calculator', 'volume-calculator']},
   {icon: Calculator, title: 'Bills & projects', description: 'Split a restaurant bill or estimate materials for your next project.', slugs: ['tip-calculator', 'concrete-calculator']},
 ];
 

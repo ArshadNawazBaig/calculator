@@ -66,4 +66,6 @@ Core calculations run in the browser. No account, database, advertising network 
 
 The [AdSense content remediation notes](docs/adsense-content-review.md) describe the worked guides and verification setup. Use the [October 22 release record](docs/adsense-release-2026-10-22.md) for the final checks and any steps remaining before requesting another Google review.
 
+The [search growth changes](docs/seo-growth-2026-10-22.md) document the subsequent calculator titles, worked references, framework patch, and local validation. Analyze a new Search Console export with `npm run audit:search -- /path/to/export-folder`; the seven standard CSV files produce an ignored local report at `test-results/search-console.json`. Keep raw account exports and reports outside the public repository.
+
 A local build does not deploy the site or submit an AdSense/Search Console review. Search foundations improve eligibility and usability; indexing, ranking speed, AI citations and revenue cannot be guaranteed.

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/document-link';
 import {GraduationCap} from 'lucide-react';
 import {Icon} from '@/components/ui/icon';
 import {catalog} from '@/lib/calculators/registry';
