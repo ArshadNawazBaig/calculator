@@ -20,7 +20,12 @@ export function AdminSignIn() {
     setError(''); setPending(true);
     try {
       const result = await authClient.signIn.email({email: String(fields.get('email') || '').trim(), password: String(fields.get('password') || ''), rememberMe: false});
-      if (result.error) setError(result.error.status === 429 ? 'Too many attempts. Wait a few minutes before trying again.' : 'Sign-in failed. Check your credentials or try again later.');
+      if (result.error) {
+        if (result.error.status === 403) setError('This address is not allowed for sign-in. Open the configured site address and try again.');
+        else if (result.error.status === 429) setError('Too many attempts. Wait a few minutes before trying again.');
+        else if (result.error.status === 401) setError('Email or password is incorrect.');
+        else setError('Sign-in is temporarily unavailable. Please try again shortly.');
+      }
       else window.location.assign(new URL('/admin', window.location.origin).href);
     } catch {setError('Sign-in is temporarily unavailable. Please try again.');}
     finally {setPending(false);}

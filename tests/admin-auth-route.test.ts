@@ -3,7 +3,7 @@ const state = vi.hoisted(() => ({configured: true, handler: vi.fn()}));
 vi.mock('@/lib/server/auth', () => ({isAdminConfigured: () => state.configured, getAuth: () => ({handler: state.handler})}));
 import {GET, POST} from '@/app/api/auth/[...all]/route';
 const origin = 'https://finflo.org';
-const post = (path: string, body = '{}', requestOrigin: string | null = origin) => new Request(origin + '/api/auth/' + path, {method: 'POST', headers: {'content-type': 'application/json', ...(requestOrigin ? {origin: requestOrigin} : {})}, body});
+const post = (path: string, body = '{}', requestOrigin: string | null = origin, requestUrlOrigin = origin) => new Request(requestUrlOrigin + '/api/auth/' + path, {method: 'POST', headers: {'content-type': 'application/json', ...(requestOrigin ? {origin: requestOrigin} : {})}, body});
 beforeEach(() => {
   state.configured = true;
   state.handler.mockReset().mockResolvedValue(Response.json({ok: true}));
@@ -17,8 +17,38 @@ describe('closed admin authentication HTTP surface', () => {
     expect((await POST(post(path))).status).toBe(404);
     expect(state.handler).not.toHaveBeenCalled();
   });
-  it.each([null, 'https://other.example', 'https://finflo.org.evil.example'])('rejects missing or foreign origins before auth processing', async value => {
+  it.each([
+    null, 'https://other.example', 'https://finflo.org.evil.example',
+    'http://localhost:3100', 'http://127.0.0.1:3100', 'http://[::1]:3100',
+    'https://localhost', 'https://127.0.0.1', 'https://[::1]',
+  ])('rejects missing or foreign origins on a public deployment before auth processing: %s', async value => {
     expect((await POST(post('sign-in/email', '{}', value))).status).toBe(403);
+    expect(state.handler).not.toHaveBeenCalled();
+  });
+  it.each([
+    'http://localhost:3100', 'http://127.0.0.1:3100', 'http://[::1]:3100',
+    'https://localhost:3100', 'https://127.0.0.1:3100', 'https://[::1]:3100',
+  ])('allows local sign-in and sign-out through each same-port loopback alias when configured as %s', async configuredOrigin => {
+    vi.stubEnv('BETTER_AUTH_URL', configuredOrigin);
+    const {protocol} = new URL(configuredOrigin);
+    for (const host of ['localhost', '127.0.0.1', '[::1]']) {
+      const requestOrigin = `${protocol}//${host}:3100`;
+      for (const path of ['sign-in/email', 'sign-out']) {
+        const response = await POST(post(path, '{}', requestOrigin, requestOrigin));
+        expect(response.status).toBe(200);
+      }
+    }
+    expect(state.handler).toHaveBeenCalledTimes(6);
+  });
+  it.each([
+    null, 'http://localhost:3101', 'http://127.0.0.1:3101', 'http://[::1]:3101',
+    'https://localhost:3100', 'http://localhost.evil.example:3100',
+    'http://127.0.0.2:3100', 'http://[::2]:3100', 'https://finflo.org',
+    'http://*.localhost:3100',
+  ])('rejects a foreign origin even during local development: %s', async requestOrigin => {
+    vi.stubEnv('BETTER_AUTH_URL', 'http://127.0.0.1:3100');
+    const response = await POST(post('sign-in/email', '{}', requestOrigin, 'http://localhost:3100'));
+    expect(response.status).toBe(403);
     expect(state.handler).not.toHaveBeenCalled();
   });
   it('bounds the actual streamed body when Content-Length is absent', async () => {

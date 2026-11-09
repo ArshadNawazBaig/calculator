@@ -1,5 +1,5 @@
 import {getAuth, isAdminConfigured} from '@/lib/server/auth';
-import {readAdminConfiguration} from '@/lib/server/auth-core';
+import {getAdminTrustedOrigins, readAdminConfiguration} from '@/lib/server/auth-core';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -31,8 +31,8 @@ async function handle(request: Request) {
   const path = new URL(request.url).pathname;
   if (!routes[path] || routes[path] !== request.method) return json('Not found.', 404);
   if (!isAdminConfigured()) return json('Admin sign-in is not configured.', 503);
-  const origin = readAdminConfiguration()!.origin;
-  if (request.method === 'POST' && request.headers.get('origin') !== origin) return json('Request origin is not allowed.', 403);
+  const trustedOrigins = getAdminTrustedOrigins(readAdminConfiguration()!);
+  if (request.method === 'POST' && !trustedOrigins.includes(request.headers.get('origin') || '')) return json('Request origin is not allowed.', 403);
   if (Number(request.headers.get('content-length')) > 8192) return json('Request is too large.', 413);
   try {
     const bounded = await boundedRequest(request);

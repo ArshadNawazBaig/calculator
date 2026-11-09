@@ -1,7 +1,7 @@
 import {afterEach, describe, expect, it, vi} from 'vitest';
 import {Client, type Pool} from 'pg';
 import {databasePoolOptions, isDatabaseConfigured} from '@/lib/server/db';
-import {consumeAccountLoginAttempt, createAuthCore, readAdminConfiguration} from '@/lib/server/auth-core';
+import {consumeAccountLoginAttempt, createAuthCore, getAdminTrustedOrigins, readAdminConfiguration} from '@/lib/server/auth-core';
 
 vi.mock('better-auth', () => ({betterAuth: (options: unknown) => ({options})}));
 afterEach(() => vi.unstubAllEnvs());
@@ -19,6 +19,32 @@ describe('admin configuration boundaries', () => {
   });
   it.each(['http://finflo.org', 'https://user:password@finflo.org', 'https://finflo.org/admin', 'https://finflo.org?preview=1', 'https://finflo.org#fragment', 'http://localhost.example:3100', 'http://127.1:3100', 'https://finflo.org\n'])('rejects unsafe or inferred origins %j', origin => {
     expect(readAdminConfiguration({BETTER_AUTH_URL: origin, BETTER_AUTH_SECRET: secret})).toBeNull();
+  });
+  it.each([
+    'http://localhost:3100', 'http://127.0.0.1:3100', 'http://[::1]:3100',
+    'https://localhost:3100', 'https://127.0.0.1:3100', 'https://[::1]:3100',
+  ])('permits only explicit same-scheme, same-port loopback aliases for %s', origin => {
+    const config = readAdminConfiguration({BETTER_AUTH_URL: origin, BETTER_AUTH_SECRET: secret})!;
+    const {protocol, port} = new URL(origin);
+    const expected = ['localhost', '127.0.0.1', '[::1]'].map(host => `${protocol}//${host}:${port}`);
+    const trusted = getAdminTrustedOrigins(config);
+    expect(new Set(trusted)).toEqual(new Set(expected));
+    expect(trusted).toHaveLength(3);
+    expect(createAuthCore({} as Pool, config).options.trustedOrigins).toEqual(trusted);
+    for (const foreign of [
+      `${protocol}//localhost:3101`,
+      `${protocol === 'http:' ? 'https:' : 'http:'}//localhost:3100`,
+      `${protocol}//localhost.evil.example:3100`,
+      `${protocol}//127.0.0.2:3100`,
+      `${protocol}//[::2]:3100`,
+      'https://finflo.org',
+    ]) expect(trusted).not.toContain(foreign);
+    expect(trusted.some(value => value.includes('*'))).toBe(false);
+  });
+  it.each(['https://finflo.org', 'https://www.finflo.org:444'])('keeps a public deployment restricted to its exact origin %s', origin => {
+    const config = readAdminConfiguration({BETTER_AUTH_URL: origin, BETTER_AUTH_SECRET: secret})!;
+    expect(getAdminTrustedOrigins(config)).toEqual([origin]);
+    expect(createAuthCore({} as Pool, config).options.trustedOrigins).toEqual([origin]);
   });
   it('disables web signup and cookie caching while isolating all auth models', () => {
     const auth = createAuthCore({} as Pool, {secret, origin: 'https://finflo.org', secureCookies: true});

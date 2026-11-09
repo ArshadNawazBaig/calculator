@@ -19,4 +19,10 @@ URL schemes, image alternatives, pasted HTML and document attributes are validat
 
 Testing found and corrected two actual interaction defects: the editor's link shortcut also opened the global calculator search, and clearing stored link formatting removed a just-inserted link. The final browser rerun verifies both corrections.
 
-Evidence: [functional browser checks](validation/dashboard-editor-functional-2026-11-10.json), [design inspection](validation/dashboard-design-2026-11-10.json). Fixture article writes occurred only in the explicitly marked, isolated loopback PostgreSQL test instance. No production fixture articles were created. Production deployment and live checks are recorded after release verification.
+Evidence: [functional browser checks](validation/dashboard-editor-functional-2026-11-10.json), [design inspection](validation/dashboard-design-2026-11-10.json). Fixture article writes occurred only in the explicitly marked, isolated loopback PostgreSQL test instance. No production fixture articles were created.
+
+## Deployed release
+
+The update is live at `https://finflo.org/admin`. Railway deployment `96d17ae7-08a1-4f15-97de-bd39ea054271` completed successfully and its Details page links source commit `ad3788a0dccf7ee2c59c2a480c8e6c246b5dad94`. The full unit suite passed **3,569 tests across 69 files**.
+
+Actual HTTPS form sign-in, the new shared-component dashboard, visual formatting, Markdown fidelity, link insertion and shortcut isolation, table insertion, footnote preservation, mobile axe/overflow checks and logout passed on the deployed website. The live check made zero article-saving or publishing requests. The existing account, database schema and credentials remain in use. See [live verification](validation/dashboard-editor-live-2026-11-10.json) and [release summary](validation/dashboard-editor-release-2026-11-10.json).

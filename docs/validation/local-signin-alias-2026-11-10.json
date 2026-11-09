@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-09T19:58:53.519Z",
+  "cause": "Localhost Origin was rejected while the configured origin was 127.0.0.1 on the same port",
+  "passwordChanged": false,
+  "existingSessionsRevoked": false,
+  "results": [
+    {
+      "origin": "http://localhost:3000",
+      "signInStatus": 200,
+      "dashboardReached": true,
+      "sessionCookieHttpOnly": true,
+      "sameSite": "Lax",
+      "signedOut": true,
+      "anonymousStatus": 307
+    },
+    {
+      "origin": "http://127.0.0.1:3000",
+      "signInStatus": 200,
+      "dashboardReached": true,
+      "sessionCookieHttpOnly": true,
+      "sameSite": "Lax",
+      "signedOut": true,
+      "anonymousStatus": 307
+    }
+  ],
+  "passed": true
+}

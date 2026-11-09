@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-09T19:14:50.443Z",
+  "sourceCommit": "ad3788a0dccf7ee2c59c2a480c8e6c246b5dad94",
+  "unit": {
+    "command": "npm test -- --maxWorkers=4",
+    "passed": 3569,
+    "files": 69
+  },
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "editorBrowser": {
+    "passed": 8,
+    "failed": 0,
+    "report": "dashboard-editor-functional-2026-11-10.json"
+  },
+  "existingBrowserRegression": {
+    "passed": 14,
+    "skipped": 1,
+    "failed": 0,
+    "scope": "Public blog, header navigation/search and calculator form controls"
+  },
+  "designReport": "dashboard-design-2026-11-10.json",
+  "production": {
+    "deploymentId": "96d17ae7-08a1-4f15-97de-bd39ea054271",
+    "sourceCommit": "ad3788a0dccf7ee2c59c2a480c8e6c246b5dad94",
+    "liveReport": "dashboard-editor-live-2026-11-10.json",
+    "verified": true,
+    "publishingMutationRequests": 0
+  },
+  "databaseMigrationsRequired": false,
+  "articleStorageFormatChanged": false,
+  "productionFixtureArticlesCreated": false,
+  "productionDependencyAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  }
+}

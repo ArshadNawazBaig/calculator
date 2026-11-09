@@ -18,6 +18,8 @@ export type SuperAdminSession = {
   session: {id: string; expiresAt: Date};
 };
 
+const loopbackHosts = new Set(['localhost', '127.0.0.1', '[::1]']);
+
 /** An explicit origin prevents request/forwarded-header inference. */
 export function readAdminConfiguration(env: Record<string, string | undefined> = process.env): AdminConfiguration | null {
   const secret = env.BETTER_AUTH_SECRET;
@@ -25,13 +27,21 @@ export function readAdminConfiguration(env: Record<string, string | undefined> =
   if (!secret || secret.length < 32 || !value || value !== value.trim()) return null;
   try {
     const url = new URL(value);
-    const loopback = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
+    const loopback = loopbackHosts.has(url.hostname);
     if (url.username || url.password || url.search || url.hash || url.pathname !== '/') return null;
     if (url.protocol !== 'https:' && !(url.protocol === 'http:' && loopback)) return null;
     // Accept only an origin (with an optional conventional trailing slash).
     if (value !== url.origin && value !== url.origin + '/') return null;
     return {secret, origin: url.origin, secureCookies: url.protocol === 'https:'};
   } catch {return null;}
+}
+
+/** Local preview aliases share one explicit port/scheme; public origins stay exact. */
+export function getAdminTrustedOrigins(config: AdminConfiguration): string[] {
+  const url = new URL(config.origin);
+  if (!loopbackHosts.has(url.hostname)) return [config.origin];
+  const port = url.port ? `:${url.port}` : '';
+  return [...new Set([config.origin, ...[...loopbackHosts].map(host => `${url.protocol}//${host}${port}`)])];
 }
 
 export const loginWindowSeconds = 15 * 60;
@@ -59,7 +69,7 @@ export function createAuthCore(db: Pool, config: AdminConfiguration) {
     basePath: '/api/auth',
     secret: config.secret,
     database: db,
-    trustedOrigins: [config.origin],
+    trustedOrigins: getAdminTrustedOrigins(config),
     emailAndPassword: {enabled: true, disableSignUp: true, minPasswordLength: 16, maxPasswordLength: 128},
     user: {
       modelName: 'blog_user',
