@@ -8,7 +8,7 @@ The earlier private Sites preview and its [deployment evidence](validation/deplo
 
 The `finflo` service uses the existing `ArshadNawazBaig/calculator` repository and its `main` branch. Its Railway URL is https://finflo-production-16af.up.railway.app. Deployment settings are checked in as `.railway/railway.ts`: Railpack builds with Node.js 22 and `npm run build`, then runs `npm run start`. The server listens on `0.0.0.0` and Railway's `PORT`; `/api/health` must return a successful response before traffic is routed to a new deployment.
 
-The service has no database or volume. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=true`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. The production build generates indexable metadata and the canonical sitemap; the request proxy applies `X-Robots-Tag: noindex, follow` on every noncanonical hostname, including the temporary Railway address. Change `NEXT_PUBLIC_` values before rebuilding. Dedicated preview builds should continue to set `NEXT_PUBLIC_INDEXABLE=false`.
+The original calculator deployment needed no database or volume. The blog now supports a separate Neon PostgreSQL database and private authentication configuration; follow [blog setup](blog-admin.md) before enabling administration. Its public variables are `NEXT_PUBLIC_SITE_URL=https://finflo.org`, `NEXT_PUBLIC_CONTACT_EMAIL=erushbaig@gmail.com`, and `NEXT_PUBLIC_INDEXABLE=true`. `MAINTENANCE_MODE=false` and `PORT=8080` configure the runtime. The production build generates indexable metadata and the canonical sitemap; the request proxy applies `X-Robots-Tag: noindex, follow` on every noncanonical hostname, including the temporary Railway address. Change `NEXT_PUBLIC_` values before rebuilding. Dedicated preview builds should continue to set `NEXT_PUBLIC_INDEXABLE=false`.
 
 To link the Railway CLI to this service:
 
@@ -55,9 +55,11 @@ npm run build
 npm exec next start -- --hostname 0.0.0.0 --port 3000
 ```
 
-Use Node.js 22, persistent process supervision and a reverse proxy providing HTTPS. Pass only real environment values from `.env.example`. Public variables must be set at build time; `MAINTENANCE_MODE` is runtime configuration. A Node host should allow outbound HTTPS to the fixed currency providers. The application has no database migration or required account secrets. Optional webmaster verification and analytics values must come from their actual accounts; they remain empty by default.
+Use Node.js 22, persistent process supervision and a reverse proxy providing HTTPS. Pass only real environment values from `.env.example`. Public variables must be set at build time; `MAINTENANCE_MODE` is runtime configuration. A Node host should allow outbound HTTPS to the fixed currency providers. Calculators remain usable without database configuration. The blog administrator requires the private database and authentication variables plus the additive migrations described in [blog setup](blog-admin.md). Run those migrations before rolling out the blog-enabled release; no process runs them on a public HTTP request. Optional webmaster verification and analytics values must come from their actual accounts; they remain empty by default.
 
 The production preview is available locally when `npm run start -- --port 3100` is running at http://127.0.0.1:3100. This URL is only reachable on the user's computer. To exercise the actual map service while retaining production canonical metadata, start the local process with `ROAD_PREVIEW_ORIGIN=http://127.0.0.1:3100 npm run start -- --port 3100`. This optional runtime setting permits only the explicitly configured HTTP loopback origin; leave it empty in production. Invalid settings do not alter the configured public-origin access.
+
+The database-backed blog and administration routes target the native Node.js host. The historical Worker adapter below has not been validated for Better Auth or PostgreSQL and should not be used for this release without separate integration checks.
 
 ## Private Sites deployment
 

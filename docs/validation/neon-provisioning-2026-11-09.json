@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-09T18:35:19.659Z",
+  "scope": "Read-only verification of the real provisioned Neon pooled database before administrator bootstrap. No database writes, account creation, test posts or fixture insertion performed by this check.",
+  "project": {
+    "provider": "Neon via existing Vercel integration",
+    "resourceName": "finflo",
+    "projectId": "spring-leaf-75388979",
+    "region": "iad1",
+    "plan": "Existing Launch plan unchanged",
+    "neonAuthEnabled": false,
+    "realtimeEnabled": false,
+    "projectIdEvidence": "Observed Vercel Open in Neon link",
+    "vercelResourceId": "store_Go0l8Awk85CYRsss"
+  },
+  "transaction": "REPEATABLE READ READ ONLY",
+  "tls": {
+    "verifiedTlsRequired": true,
+    "connectionEncrypted": true,
+    "certificateAuthorized": true
+  },
+  "migrations": {
+    "ledgerEntries": 2,
+    "expectedFiles": [
+      "0001_auth.sql",
+      "0002_blog.sql"
+    ],
+    "checks": [
+      {
+        "name": "0001_auth.sql",
+        "checksumMatches": true
+      },
+      {
+        "name": "0002_blog.sql",
+        "checksumMatches": true
+      }
+    ]
+  },
+  "schema": {
+    "tableCount": 9,
+    "expectedTableCount": 9,
+    "tables": [
+      "blog_account",
+      "blog_login_throttle",
+      "blog_post_audit",
+      "blog_posts",
+      "blog_rate_limit",
+      "blog_schema_migration",
+      "blog_session",
+      "blog_user",
+      "blog_verification"
+    ],
+    "exactTableSetMatches": true,
+    "identityTriggerPresent": true,
+    "identityTriggerEnabled": true,
+    "identityFunctionMatches": true
+  },
+  "preBootstrapCounts": {
+    "users": 0,
+    "super_admins": 0,
+    "credential_accounts": 0,
+    "sessions": 0,
+    "posts": 0,
+    "post_audit_records": 0
+  },
+  "passed": true,
+  "afterBootstrap": {
+    "checkedAt": "2026-11-09T18:37:18.722Z",
+    "scope": "Read-only aggregate counts after trusted administrator bootstrap performed by root. No login, session creation, writes or test articles performed by this verification.",
+    "counts": {
+      "users": 1,
+      "super_admins": 1,
+      "credential_accounts": 1,
+      "sessions": 0,
+      "posts": 0,
+      "post_audit_records": 0
+    },
+    "passed": true
+  }
+}

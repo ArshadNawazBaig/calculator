@@ -6,6 +6,7 @@ export const navigationLinks: NavigationLink[] = [
   {label: 'Calculators', href: '/calculators', icon: Calculator},
   {label: 'Spin wheels', href: '/spin-wheels', icon: Disc3},
   {label: 'Time & clocks', href: '/time', icon: Clock3},
+  {label: 'Blog', href: '/blog', icon: BookOpen},
   {label: 'My workspace', href: '/workspace', icon: FolderHeart},
 ];
 

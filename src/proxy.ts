@@ -31,6 +31,11 @@ export function proxy(request: NextRequest) {
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  if (path === '/admin' || path.startsWith('/admin/') || path === '/api/auth' || path.startsWith('/api/auth/')) {
+    response.headers.set('Cache-Control', 'private, no-store');
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    return response;
+  }
 
   const canonicalHost = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://finflo.org').hostname;
   const requestHost = (request.headers.get('host') || request.nextUrl.host).split(':')[0].toLowerCase();

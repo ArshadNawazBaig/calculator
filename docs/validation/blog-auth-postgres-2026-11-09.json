@@ -1,0 +1,29 @@
+{
+  "scope": "Real Better Auth1.7.18 with disposable local PostgreSQL; not a production Neon test. Recovery used the same fixture password before shared browser tests; no credentials, hashes, session tokens or account identifiers are recorded.",
+  "directIntegration": {
+    "migrationRerunUnchanged": true,
+    "bootstrapOverwriteRefused": true,
+    "officialLibraryLoginStatus": 200,
+    "httpOnlyCookie": true,
+    "sameSiteLaxCookie": true,
+    "sessionRole": "super_admin",
+    "roleChangeObservedWithoutCookieCache": true,
+    "revokedSessionRejected": true,
+    "webSignupDisabled": true,
+    "foreignOriginRejected": true,
+    "concurrentAccountAttemptsAllowed": 10,
+    "concurrentAccountAttemptsDenied": 2,
+    "expiredAccountWindowResets": true,
+    "accountCounts": {
+      "users": 1,
+      "admins": 1,
+      "credentials": 1
+    },
+    "passed": true
+  },
+  "trustedRecovery": {
+    "trustedRecoveryExit": 0,
+    "previousSessionRevoked": true,
+    "secretsAbsentFromOutput": true
+  }
+}

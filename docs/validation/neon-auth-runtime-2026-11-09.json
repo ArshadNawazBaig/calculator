@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-09T18:38:41.510Z",
+  "scope": "Actual Better Auth 1.7.18 runtime sign-in/session/sign-out using production origin and the provisioned Neon database. Only this short-lived verification session is created/revoked; no articles, fixtures, account updates or unrelated session revocations are performed.",
+  "origin": "https://finflo.org",
+  "projectId": "spring-leaf-75388979",
+  "passed": true,
+  "postsBefore": 0,
+  "signInStatus": 200,
+  "cookie": {
+    "secure": true,
+    "httpOnly": true,
+    "sameSiteLax": true
+  },
+  "sessionPresent": true,
+  "exactSuperAdminRole": true,
+  "ownSessionStored": true,
+  "signOutStatus": 200,
+  "revokedCookieRejected": true,
+  "ownSessionRecordRemoved": true,
+  "postsAfter": 0
+}

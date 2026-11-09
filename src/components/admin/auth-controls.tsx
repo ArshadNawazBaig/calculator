@@ -1,0 +1,50 @@
+'use client';
+
+import {createAuthClient} from 'better-auth/react';
+import {useState, type FormEvent} from 'react';
+import {Button} from '@/components/ui/button';
+import {useHydrated} from '@/lib/use-hydrated';
+import styles from './admin.module.css';
+
+const authClient = createAuthClient();
+
+export function AdminSignIn() {
+  const hydrated = useHydrated();
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState('');
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!hydrated || pending) return;
+    const fields = new FormData(event.currentTarget);
+    setError(''); setPending(true);
+    try {
+      const result = await authClient.signIn.email({email: String(fields.get('email') || '').trim(), password: String(fields.get('password') || ''), rememberMe: false});
+      if (result.error) setError(result.error.status === 429 ? 'Too many attempts. Wait a few minutes before trying again.' : 'Sign-in failed. Check your credentials or try again later.');
+      else window.location.assign(new URL('/admin', window.location.origin).href);
+    } catch {setError('Sign-in is temporarily unavailable. Please try again.');}
+    finally {setPending(false);}
+  }
+  return <form method="post" onSubmit={submit} className={styles.form}>
+    <label className={styles.field}>Email address<input name="email" type="email" autoComplete="username" required maxLength={254} disabled={!hydrated || pending}/></label>
+    <label className={styles.field}>Password<input name="password" type="password" autoComplete="current-password" required minLength={16} maxLength={128} disabled={!hydrated || pending}/></label>
+    {error && <p role="alert" className={styles.error}>{error}</p>}
+    <Button type="submit" disabled={!hydrated || pending}>{pending ? 'Signing in…' : 'Sign in'}</Button>
+    <noscript><p>Enable JavaScript to sign in securely.</p></noscript>
+  </form>;
+}
+
+export function AdminSignOut() {
+  const hydrated = useHydrated();
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState('');
+  async function signOut() {
+    setPending(true); setError('');
+    try {
+      const result = await authClient.signOut();
+      if (result.error) setError('Could not sign out. Please try again.');
+      else window.location.assign(new URL('/admin/sign-in', window.location.origin).href);
+    } catch {setError('Could not sign out. Please try again.');}
+    finally {setPending(false);}
+  }
+  return <span><button type="button" className={styles.signOut} disabled={!hydrated || pending} onClick={signOut}>{pending ? 'Signing out…' : 'Sign out'}</button>{error && <span role="alert">{error}</span>}</span>;
+}

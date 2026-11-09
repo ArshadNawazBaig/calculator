@@ -1,3 +1,4 @@
+vi.mock('@/lib/server/blog',()=>({getPublishedPostSitemapEntries:async()=>[]}));
 import {describe, expect, it, vi, afterEach} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getContentDictionary, calculatorMessages} from '@/lib/i18n/content';
@@ -63,9 +64,9 @@ describe('complete localized content', () => {
     expect(html).not.toContain(definition.modes[0].explanation);
   });
 
-  it('publishes English routes without withdrawn alternates and excludes system pages', () => {
+  it('publishes English routes without withdrawn alternates and excludes system pages', async () => {
     site.indexable = true;
-    const entries = sitemap();
+    const entries = await sitemap();
     expect(translatedPages).toContain('/spin-wheels');
     expect(translatedPages).toContain('/invoice-generator');
     const englishOnlyGuides = Object.keys(guides).map(slug=>`/guides/${slug}`).filter(path=>!isTranslatedPage(path));
@@ -94,7 +95,7 @@ describe('complete localized content', () => {
       expect(pageMetadata('Calculator', 'Description', '/mortgage-calculator', true, locale).robots).toEqual({index: false, follow: true});
     }
     site.indexable = false;
-    expect(sitemap()).toEqual([]);
+    expect(await sitemap()).toEqual([]);
     expect(pageMetadata('Hipoteca', 'Descripción', '/mortgage-calculator', true, 'es').robots).toEqual({index: false, follow: true});
   });
 });

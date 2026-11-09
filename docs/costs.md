@@ -1,6 +1,6 @@
 # Operating costs
 
-**The implemented site needs no database: database cost is $0 at every traffic level.** Browser calculations and version-controlled content do not generate database reads or writes. Hosting, domain renewal, email, external data and future advertisements are separate.
+**Calculator inputs and browser workspaces still need no database. The new blog and super-admin sessions use Neon PostgreSQL and can incur database charges.** The comparison below is historical research from October 9, 2026, before the blog addition, and is not a current plan quote. Confirm the chosen Neon plan and usage limits in the account before launch. No paid plan was selected by this implementation. Hosting, domain renewal, email, external data and future advertisements are separate.
 
 Official pricing was checked October 9, 2026. Detailed assumptions and reproducible arithmetic are in [launch research](research/launch/launch-research.txt) and [cost examples](research/launch/cost-examples.json). No paid service was provisioned.
 
@@ -16,7 +16,7 @@ Illustrative future database workloads: 100k/10m/100m reads, 10k/100k/1m writes 
 
 | Model | Low | Medium | Higher |
 |---|---:|---:|---:|
-| Current architecture: no DB | $0 | $0 | $0 |
+| Historical calculator-only architecture: no DB | $0 | $0 | $0 |
 | Firestore modeled total | $0 | $2.55 | $41.49 |
 | Neon compute + storage | $0.1935 | $10.95 | $80.88 |
 | DynamoDB requests only | $0.01875 | $1.3125 | $13.125 |

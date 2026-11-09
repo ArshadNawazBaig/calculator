@@ -84,7 +84,7 @@
   },
   "privacy": {
     "title": "Privacy policy",
-    "description": "How Finflo handles calculator inputs, reference-data requests, local files, contact messages, and browser tools.",
+    "description": "How Finflo handles calculator inputs, browser storage, article publishing, restricted administrator accounts, and website requests.",
     "sections": [
       {
         "title": "Calculator inputs and results",
@@ -157,8 +157,28 @@
         "title": "Website requests and hosting",
         "paragraphs": [
           "Opening pages and requesting reference data sends ordinary connection information to the hosting infrastructure, such as your IP address, browser details, requested URL, and request time. Search terms entered in the site’s search are included in the search-page URL. Hosting providers may process request and security logs to deliver and protect the service.",
-          "Finflo does not currently provide visitor accounts or store calculator inputs in an application database.",
+          "Public calculator visitors do not need an account, and Finflo does not store calculator inputs in its publishing database. Restricted administrator accounts are used to manage blog articles; their separate data handling is described below.",
           "Finflo is hosted on Railway. Railway processes connection and service logs to operate the website. Log availability and retention depend on the hosting account and plan; Finflo does not claim a fixed retention period here."
+        ]
+      },
+      {
+        "title": "Blog publishing and restricted administration",
+        "paragraphs": [
+          "The publishing dashboard is restricted to authorized administrators; there is no public account registration or reader-comment form. Administrative account names, email addresses, roles, password hashes, session records, and security counters are processed on Finflo’s server and stored in its configured publishing database. Passwords are submitted for authentication; stored credential records use password hashes rather than readable passwords.",
+          "When an administrator saves an article, the title, URL slug, body, excerpt, category, image reference, search metadata, publication state, and editing dates are saved in the database. Published articles disclose the author’s account name as the byline, together with publication and update dates. The author’s sign-in email is not displayed as part of that byline.",
+          "Drafts and archived articles remain in the publishing database. Unpublishing or archiving removes an article from Finflo’s public pages and article listings; it does not erase stored records, database backups, or copies already held by search engines or readers. Publishing changes are recorded with an administrator identifier, action, version, and time for accountability.",
+          "Database hosting and backups are handled by the configured database provider. If Neon is enabled as that provider, Neon processes these publishing and administration records as part of its managed database service. We do not claim a fixed retention period for administrative records or provider backups; they depend on operational needs, security settings, and provider configuration. Contact Finflo about information in an administrative account or published article.",
+          "Article images may be served by an external image host chosen by the publisher. Loading such an image sends ordinary connection information to that host, such as an IP address and browser details. A cover-image URL is a reference to an image; the publishing form does not upload a local image file."
+        ],
+        "links": [
+          {
+            "label": "Neon privacy information",
+            "href": "https://neon.com/privacy-policy"
+          },
+          {
+            "label": "Contact Finflo",
+            "href": "/contact"
+          }
         ]
       },
       {
@@ -225,6 +245,14 @@
         ]
       },
       {
+        "title": "Published articles and restricted publishing accounts",
+        "paragraphs": [
+          "Blog articles provide general educational information. Bylines identify the publishing author; publication and update dates record article events and do not by themselves imply independent professional review. Check relevant sources and the limitations of any examples before relying on them.",
+          "Publishing access is limited to authorized administrators. Keep credentials private and publish only material you are entitled to use, including appropriate permission for images and any personal information. The dashboard does not offer public account registration or reader comments.",
+          "Saving a draft does not publish it. Unpublishing or archiving removes public access through Finflo, while retained database records, backups, and third-party copies may remain. Use Contact to report an error or request attention to published information."
+        ]
+      },
+      {
         "title": "Availability and corrections",
         "paragraphs": [
           "We may update formulas, explanations, features, and availability. We aim to correct reported defects, but do not warrant uninterrupted access or that every result is free of error.",
@@ -264,6 +292,13 @@
           "Saved world clocks and your default clock are stored in this browser when you choose Save clock or Make default. Remove saved clocks individually or clear site data to remove clock preferences. The countdown timer uses this tab’s session storage to restore its state after a reload; this session data normally lasts until the tab is closed. Stopwatch laps stay only on the open page.",
           "Choosing Light or Dark in Appearance saves that theme in this browser’s local storage. Choosing System removes the saved theme and follows your device settings. These preferences are not used for advertising.",
           "Local-storage records remain until you remove them through the relevant control or clear this site’s data in your browser; they have no automatic expiry. Browser storage settings or private browsing may remove them sooner. Export any workspace records you want to keep before clearing site data."
+        ]
+      },
+      {
+        "title": "Essential administrator sign-in cookies",
+        "paragraphs": [
+          "Restricted publishing accounts use essential authentication cookies to keep authorized administrators signed in and protect their sessions. These cookies are separate from calculator preferences and are not used for advertising. Public visitors can read articles and use calculators without signing in.",
+          "Signing out ends the current authenticated session. Removing site cookies also removes the browser’s sign-in state, but does not delete administrator accounts, stored articles, publishing audit records, or database backups. Authentication records expire or are retained according to the server’s security and operational settings."
         ]
       },
       {

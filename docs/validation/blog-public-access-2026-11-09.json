@@ -1,0 +1,233 @@
+{
+  "checkedAt": "2026-11-09T18:12:59.134Z",
+  "scope": "Anonymous direct HTTP checks against configured private PostgreSQL test server3100 and unconfigured test server3102. No account changes or publication mutations.",
+  "browserResult": {
+    "command": "FINFLO_BLOG_E2E=1 TEST_URL=http://127.0.0.1:3100 npx playwright test tests/e2e/blog-public.spec.ts --reporter=line",
+    "passed": 4,
+    "failed": 0
+  },
+  "records": [
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/blog",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": true
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/blog?category=Finance",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": true
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/blog/finflo-nonexistent-public-access-probe",
+      "status": 404,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex",
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/admin",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/admin/posts",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/admin/posts/new",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/admin/sign-in",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": true,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "path": "/api/auth/get-session",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/blog",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": true
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/blog?category=Finance",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": true
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/blog/finflo-nonexistent-public-access-probe",
+      "status": 404,
+      "location": null,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": "noindex, follow",
+      "robotsMeta": [
+        "noindex",
+        "noindex, follow"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/admin",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/admin/posts",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/admin/posts/new",
+      "status": 307,
+      "location": "/admin/sign-in",
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/admin/sign-in",
+      "status": 200,
+      "location": null,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    },
+    {
+      "origin": "http://127.0.0.1:3102",
+      "path": "/api/auth/get-session",
+      "status": 503,
+      "location": null,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "robotsMeta": [],
+      "hasEditor": false,
+      "hasPasswordInput": false,
+      "hasRealGuide": false
+    }
+  ]
+}

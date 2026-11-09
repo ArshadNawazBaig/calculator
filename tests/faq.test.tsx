@@ -1,4 +1,5 @@
-import {describe, expect, it} from 'vitest';
+vi.mock('@/lib/server/blog',()=>({getPublishedPostSitemapEntries:async()=>[]}));
+import {describe, expect, it, vi} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getFaqContent} from '@/lib/faq';
 import {locales, localizedPath, isTranslatedPage, isPublishedLocale} from '@/lib/i18n/config';
@@ -62,11 +63,11 @@ describe('FAQ publishing', () => {
     }
   });
 
-  it('includes only published FAQ variants when production indexing is enabled', () => {
+  it('includes only published FAQ variants when production indexing is enabled', async () => {
     const original = site.indexable;
     try {
       site.indexable = true;
-      const entries = sitemap();
+      const entries = await sitemap();
       for (const locale of locales) {
         const entry = entries.find(item => item.url === site.url + localizedPath('/faq', locale));
         if (isPublishedLocale(locale)) expect(entry).toBeDefined();

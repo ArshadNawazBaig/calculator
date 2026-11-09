@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-09T18:19:22.108Z",
+  "scope": "Two real concurrent migration CLI processes against a newly created isolated schema in disposable loopback PostgreSQL. No production database or existing blog/auth records changed. Runner uses transaction-scoped locks; no actual Neon pooler was contacted.",
+  "concurrentRunnerStatuses": [
+    0,
+    0
+  ],
+  "concurrentNewFileApplications": 2,
+  "ledgerEntries": 2,
+  "ledgerChecksumsMatchSource": true,
+  "idempotentRerun": true,
+  "checksumMismatchRejected": true,
+  "restoredLedgerRerun": true,
+  "passed": true
+}

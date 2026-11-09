@@ -23,7 +23,8 @@ describe('complete wheel and toolkit localization',()=>{
    expect(translator(wheelMessages(messages,[]))('Removed {entry}. {count} entries remain.',{entry:'My Custom Name',count:2})).toContain('My Custom Name');
    expect(translator(homeMessages(messages,[]))('Let the wheel choose.')).not.toBe('Let the wheel choose.');
   }
- });
+ // This checks every draft-language bundle, including cold JSON transforms.
+ },15_000);
  it('translates toolkit examples without changing options or numerical results',async()=>{
   for(const locale of ['es','ar','hi'] as const){
    const messages=await getContentDictionary(locale);

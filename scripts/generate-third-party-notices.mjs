@@ -13,6 +13,7 @@ async function resolvePackage(name,requireFrom){
   throw new Error('Cannot find installed package '+name);
 }
 async function addText(label,text){
+ text=text.replace(/\r\n?/g,'\n');
  const digest=createHash('sha256').update(text).digest('hex');
  const group=groups.get(digest)||{labels:[],text};group.labels.push(label);groups.set(digest,group);
 }
@@ -30,8 +31,18 @@ async function visit(name,requireFrom){
  }else if(pkg.name==='javascript-natural-sort'){
    const source=await fs.readFile(path.join(dir,'naturalSort.js'),'utf8');const header=source.match(/^\s*\/\*([\s\S]*?)\*\//)?.[0];if(!header)throw Error('Missing natural sort notice');
    await addText(`${pkg.name}@${pkg.version} — naturalSort.js packaged author/license statement`,header);
- }else if(pkg.name==='client-only'){
-   await addText(`${pkg.name}@${pkg.version} — packaged license declaration`, 'The installed package.json declares the MIT license. The package contains no separate LICENSE or copyright notice file. Its empty browser marker does not add executable browser code.');
+ }else if(pkg.name==='pg-types'){
+   const readme=await fs.readFile(path.join(dir,'README.md'),'utf8');
+   const license=readme.slice(readme.indexOf('The MIT License (MIT)'));
+   if(!license.includes('Copyright (c) 2014 Brian M. Carlson')||!license.includes('THE SOFTWARE IS PROVIDED'))throw Error('Missing pg-types packaged license');
+   await addText(`${pkg.name}@${pkg.version} — README.md license`,license);
+ }else if(pkg.name==='pgpass'){
+   const readme=await fs.readFile(path.join(dir,'README.md'),'utf8');
+   const license=readme.slice(readme.indexOf('Copyright (c) 2013-2016 Hannes Hörl'));
+   if(!license.includes('Permission is hereby granted')||!license.includes('THE SOFTWARE IS PROVIDED'))throw Error('Missing pgpass packaged license');
+   await addText(`${pkg.name}@${pkg.version} — README.md license`,license);
+ }else if(pkg.name==='client-only'||pkg.name==='server-only'){
+   await addText(`${pkg.name}@${pkg.version} — packaged license declaration`, 'The installed package.json declares the MIT license. The package contains no separate LICENSE or copyright notice file. The framework resolves these environment marker packages.');
  }else throw Error('No license notice identified for '+pkg.name);
  // Next's root license is included. Its separate server/build dependencies and
  // vendored modules are outside this selected browser-library notice collection.

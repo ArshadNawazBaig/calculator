@@ -1,4 +1,5 @@
-import {afterEach, describe, expect, it} from 'vitest';
+vi.mock('@/lib/server/blog',()=>({getPublishedPostSitemapEntries:async()=>[]}));
+import {afterEach, describe, expect, it, vi} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import sitemap from '@/app/sitemap';
 import {StudentTools} from '@/components/content/student-tools';
@@ -22,14 +23,14 @@ const indexing = site.indexable;
 afterEach(() => {site.indexable = indexing;});
 
 describe('student calculator discovery', () => {
-  it('gives each task its own canonical page, unique metadata, and links to the other student tools', () => {
+  it('gives each task its own canonical page, unique metadata, and links to the other student tools', async () => {
     const html = renderToStaticMarkup(<StudentTools/>);
     for (const tool of studentTools) {
       expect(definitionMap.get(tool.slug)!.modes.some(mode => mode.id === tool.mode)).toBe(true);
       expect(html).toContain(`href="${studentToolHref(tool)}"`);
     }
     site.indexable = true;
-    const urls = sitemap().map(entry => entry.url);
+    const urls = (await sitemap()).map(entry => entry.url);
     for (const locale of locales) expect(urls.includes(`${site.url}${locale === 'en' ? '' : '/' + locale}${studentDirectory.path}`)).toBe(isPublishedLocale(locale));
     for (const {slug, title, seoTitle, description} of studentTools) {
       expect(urls.filter(url => url === `${site.url}/${slug}`)).toHaveLength(1);

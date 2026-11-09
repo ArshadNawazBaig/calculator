@@ -10,13 +10,17 @@ import {guides} from '@/data/guides';
 import {localizedPath,publishedPageLocales} from '@/lib/i18n/config';
 import {languageAlternates} from '@/lib/metadata';
 import {spinWheels,wheelHref} from '@/lib/spin-wheels/catalog';
-export default function sitemap():MetadataRoute.Sitemap{
+import {getPublishedPostSitemapEntries} from '@/lib/server/blog';
+export const dynamic = 'force-dynamic';
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  if(!site.indexable)return [];
  const paths=[...timePaths,'/','/calculators',studentDirectory.path,'/guides','/sitemap','/faq','/spin-wheels',...spinWheels.map(wheel=>wheelHref(wheel.slug)),...categories.map(c=>`/calculators/${c.id}`),...[...new Set(catalog.map(t=>`/calculators/${t.category}/${categorySlug(t.subcategory)}`))],...Object.keys(information).map(s=>`/${s}`),...Object.keys(guides).map(s=>`/guides/${s}`),...catalog.filter(t=>definitionMap.has(t.slug)).map(t=>`/${t.slug}`)];
- return paths.flatMap(path=>{
+ const legacy=paths.flatMap(path=>{
    const languages=languageAlternates(path);
    // These dates record actual English content edits, never the sitemap fetch/build time.
    const modifiedAt=mathSearchContent[path.slice(1)]?.modifiedAt;
    return publishedPageLocales(path).map(locale=>({url:site.url+localizedPath(path,locale),...(locale==='en'&&modifiedAt?{lastModified:modifiedAt}:{}),...(languages?{alternates:{languages}}:{})}));
  });
+ const posts=await getPublishedPostSitemapEntries();
+ return [...legacy,...(posts.length?[{url:site.url+'/blog'},...posts.map(post=>({url:site.url+'/blog/'+encodeURIComponent(post.slug),lastModified:post.updatedAt}))]:[])];
 }

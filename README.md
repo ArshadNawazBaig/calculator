@@ -2,7 +2,7 @@
 
 A modular Next.js calculator website for **finflo.org**, using Finflo's existing green palette, typography, and shared calculator components. This is a working implementation with an explicit coverage record; it is not a claim of complete competitor parity or public launch readiness.
 
-The current release source contains **216 calculator pages**, **572 calculation modes**, **six guides**, and one real-estate directory. With production indexing enabled, it publishes **721 English sitemap URLs**. The seven other supported languages remain unpublished drafts. The [October 22 release record](docs/adsense-release-2026-10-22.md) records validation and deployment status; these source counts alone do not establish what is live.
+The current release source contains **216 calculator pages**, **572 calculation modes**, **six guides**, and one real-estate directory. With production indexing enabled, it retains **721 existing English sitemap URLs**, plus the blog index and any published articles once the blog has content. The seven other supported languages remain unpublished drafts. The [October 22 release record](docs/adsense-release-2026-10-22.md) records validation and deployment status; these source counts alone do not establish what is live.
 
 The historical audit accounts for 204 Calculator.net entries, including the subsequently removed WeightWatchers placeholder; later original tools are recorded separately. See the [planning toolkit](docs/planning-toolkit.md), [coverage manifest](docs/audit/coverage-manifest.json), and [mode review](docs/audit/remaining-modes.json).
 
@@ -53,7 +53,13 @@ The browser suite requires Playwright Chromium (`npx playwright install chromium
 
 Visitors can favorite calculators, save named calculations, reopen their inputs, and compare up to three scenarios using the same calculator, mode, and currency. `/workspace` stores these items in the current browser only, with no account or database. JSON backups can be exported and imported on another device; clearing site data removes the local copy. Password and encoding tools do not save inputs or results. Saved summaries retain their original calculation date; reopening restores inputs and requires Calculate to refresh the full result.
 
-## Project layout
+## Blog and super admin
+
+`/blog` publishes database-backed articles. `/admin/sign-in` opens the private publishing dashboard: create and edit Markdown drafts, preview, publish, unpublish and archive. Public signup is disabled. Articles receive a real author, publication date, canonical metadata and published-only sitemap entries. The empty blog stays out of search until an article is published.
+
+Use a new Finflo Neon PostgreSQL project with the native Node.js deployment. Set private `DATABASE_URL`, `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL`, apply `npm run db:migrate`, then run `npm run admin:create` from a trusted terminal. See [blog setup and operations](docs/blog-admin.md) for exact configuration, account provisioning, backups and verification. Calculator visitors still need no account; calculator inputs and the workspace stay in their browser.
+
+## Source layout
 
 - `src/app`: App Router pages, metadata routes, error boundaries and public-reference APIs.
 - `src/components`: reusable branding, navigation, calculator inputs, results, tables and page sections.

@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-11-09T18:39:07.752Z",
+  "scope": "Source/build validation with local PostgreSQL history and subsequently verified real Neon provisioning; hosted deployment still pending",
+  "baseCommit": "c280160d7c67d3f9d81c49b39c0221916e5f83e2",
+  "unit": {
+    "command": "npm test",
+    "passed": 3528,
+    "files": 68
+  },
+  "staticChecks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "diffWhitespace": "passed"
+  },
+  "productionBuild": {
+    "passed": true,
+    "indexable": true,
+    "databaseCredentialsPresent": false,
+    "authCredentialsPresent": false
+  },
+  "browser": {
+    "stats": {
+      "startTime": "2026-11-09T18:16:53.329Z",
+      "duration": 358100.81299999997,
+      "expected": 192,
+      "skipped": 76,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "correctedIndexingCheck": {
+      "command": "TEST_INDEXABLE=true TEST_URL=http://127.0.0.1:3100 npx playwright test tests/e2e/site.spec.ts -g \"404, canonical, indexing, and structured data\" --reporter=line",
+      "passed": 1,
+      "reason": "Initial full run omitted TEST_INDEXABLE=true against an indexable production build; rerun passed without product changes."
+    },
+    "postMobileCssFix": {
+      "targetedBlogTestsPassed": 5,
+      "failed": 0,
+      "command": "FINFLO_BLOG_E2E=1 TEST_INDEXABLE=true TEST_URL=http://127.0.0.1:3100 npx playwright test tests/e2e/blog-admin.spec.ts tests/e2e/blog-public.spec.ts --reporter=line"
+    },
+    "formSignIn": true,
+    "formSignOut": true,
+    "mobileAxeViolations": 0,
+    "mobileHorizontalOverflow": false
+  },
+  "npmAudit": {
+    "production": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "allDependencies": {
+      "info": 0,
+      "low": 0,
+      "moderate": 15,
+      "high": 2,
+      "critical": 0,
+      "total": 17
+    },
+    "note": "Remaining advisories are in development/deployment tooling; no force upgrades were performed."
+  },
+  "evidence": [
+    "blog-auth-postgres-2026-11-09.json",
+    "blog-auth-http-2026-11-09.json",
+    "blog-migration-concurrency-2026-11-09.json",
+    "blog-public-access-2026-11-09.json",
+    "blog-admin-mobile-2026-11-09.json",
+    "neon-provisioning-2026-11-09.json",
+    "neon-auth-runtime-2026-11-09.json"
+  ],
+  "initialProvisioningStatus": {
+    "requestedNeonProject": "new Finflo project",
+    "neonConnectorAvailable": false,
+    "productionProjectProvisionedByThisWork": false,
+    "productionAdministratorCreatedByThisWork": false,
+    "deploymentPerformed": false,
+    "liveNeonVerification": false
+  },
+  "initialCheckedAt": "2026-11-09T18:25:05.465Z",
+  "provisioning": {
+    "provider": "Neon via authenticated Safari/Vercel UI",
+    "resourceName": "finflo",
+    "projectId": "spring-leaf-75388979",
+    "region": "iad1",
+    "existingPlanUnchanged": true,
+    "managedAuth": false,
+    "realtime": false,
+    "migrationsApplied": true,
+    "verifiedTls": true,
+    "administratorCreated": true,
+    "actualRuntimeAuthenticationVerified": true,
+    "productionHostVariablesStaged": true,
+    "deploymentPerformed": false,
+    "productionHttpVerified": false
+  }
+}

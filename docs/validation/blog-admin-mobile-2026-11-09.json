@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-11-09T18:24:38.484Z",
+  "environment": "Final production Node build with disposable local PostgreSQL",
+  "browserFormSignIn": true,
+  "browserFormSignOut": true,
+  "results": [
+    {
+      "path": "/admin",
+      "width": 360,
+      "violations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/admin/posts/new",
+      "width": 360,
+      "violations": [],
+      "horizontalOverflow": false,
+      "saveBarPosition": "static",
+      "saveBarBelowFirstViewport": true
+    }
+  ]
+}
