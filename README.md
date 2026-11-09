@@ -55,7 +55,7 @@ Visitors can favorite calculators, save named calculations, reopen their inputs,
 
 ## Blog and super admin
 
-`/blog` publishes database-backed articles. `/admin/sign-in` opens the private publishing dashboard: create and edit Markdown drafts, preview, publish, unpublish and archive. Public signup is disabled. Articles receive a real author, publication date, canonical metadata and published-only sitemap entries. The empty blog stays out of search until an article is published.
+`/blog` publishes database-backed articles. `/admin/sign-in` opens the private publishing dashboard: write with Finflo's visual article editor, preview, publish, unpublish and archive. The dashboard reuses the site's own components and theme; the editor retains Markdown storage and an advanced source view. Public signup is disabled. Articles receive a real author, publication date, canonical metadata and published-only sitemap entries. The empty blog stays out of search until an article is published. See the [dashboard/editor update](docs/dashboard-editor-2026-11-10.md) for supported formatting and verification.
 
 Use a new Finflo Neon PostgreSQL project with the native Node.js deployment. Set private `DATABASE_URL`, `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL`, apply `npm run db:migrate`, then run `npm run admin:create` from a trusted terminal. See [blog setup and operations](docs/blog-admin.md) for exact configuration, account provisioning, backups and verification. Calculator visitors still need no account; calculator inputs and the workspace stay in their browser.
 

@@ -2,7 +2,7 @@
 .label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 550; color: var(--color-text-secondary); }
 .control { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-line-strong); border-radius: 6px; background: var(--color-input); color: var(--color-ink); font: inherit; text-align: start; transition: border-color .16s,box-shadow .16s; }
 .control:hover { border-color: var(--color-line-hover); }
-.control[data-focus-visible],.root[data-focus-within]>.control,.root[data-focused]>.control,.root[data-open]>.control,.root:is([data-focus-within],[data-focused],[data-open])>[data-date-field-body]>.control { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
+.control:focus-visible,.control[data-focus-visible],.root[data-focus-within]>.control,.root[data-focused]>.control,.root[data-open]>.control,.root:is([data-focus-within],[data-focused],[data-open])>[data-date-field-body]>.control { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb,var(--color-brand) 12%,transparent); }
 .root[data-invalid]>.control,.root[data-invalid]>[data-date-field-body]>.control { border-color: var(--color-danger); }
 .root[data-disabled] { opacity: .6; }
 .root[data-disabled] .control { cursor: not-allowed; background: var(--color-soft); }
@@ -29,6 +29,8 @@
 .empty { padding: 18px 10px; font-size: 13px; text-align: center; color: var(--color-muted); }
 .error { font-size: 12px; line-height: 1.6; color: var(--color-danger); margin-top: 7px; }
 .error:empty { display: none; }
+.hint { margin-top: 7px; color: var(--color-muted); font-size: 12px; line-height: 1.7; }
+.textArea { align-items: start; resize: vertical; line-height: 1.65; }
 .compact { font-size: 13px; }
 .compact .control { min-height: 38px; padding: 8px 9px; gap: 6px; }
 

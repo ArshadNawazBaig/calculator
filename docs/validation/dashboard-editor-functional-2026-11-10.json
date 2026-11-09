@@ -1,0 +1,62 @@
+{
+  "recordedAtUtc": "2026-11-09T19:09:15.519Z",
+  "scope": "Final local Next.js production build, with an explicitly marked disposable PostgreSQL database and a local-only administrator account.",
+  "baseUrl": "http://127.0.0.1:3100",
+  "productionWritesPerformed": false,
+  "browser": "Chromium (Playwright)",
+  "command": "FINFLO_BLOG_E2E=1 FINFLO_BLOG_TEST_STATE=/tmp/finflo-editor-test-state.json TEST_INDEXABLE=true TEST_URL=http://127.0.0.1:3100 npx playwright test tests/e2e/blog-admin.spec.ts tests/e2e/blog-editor.spec.ts --reporter=line --output=/tmp/finflo-editor-functional-results",
+  "results": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 15.8
+  },
+  "testFiles": [
+    "tests/e2e/blog-admin.spec.ts",
+    "tests/e2e/blog-editor.spec.ts"
+  ],
+  "verified": [
+    "Private draft creation using the visual editor; exact existing Markdown survives reload and opening visual/source views without becoming dirty.",
+    "Optimistic concurrency rejects stale edits, private previews stay protected, and drafts/archives remain unavailable to anonymous visitors and absent from the sitemap.",
+    "Publish, save published changes, unpublish, archive, restore, republish with the original publication date, and sign out.",
+    "Bold, italic, strikethrough, heading levels, lists, checklists, quotes, code blocks, undo, redo, Markdown source and the shared safe reader preview.",
+    "Ctrl/Cmd+K opens only article link settings; a valid inserted link remains a link in both the editable document and reader preview.",
+    "Unsafe link/image URLs and images without alternative text are rejected; a valid image with alternative text renders correctly.",
+    "Tables insert and add rows/columns; unsupported block formatting stays disabled in cells while inline formatting remains available; multiline cell breaks and a paragraph after the table survive reader preview.",
+    "Malicious imported Markdown and pasted HTML cannot insert script/event handlers, unsafe embeds or active link/image URLs into the editor or reader preview.",
+    "Title, publishing actions and the editable surface remain inactive until JavaScript hydration completes.",
+    "Footnotes remain intact in source mode with a read-only visual surface and correct reader preview; removing them re-enables visual editing; plain Markdown footnote pastes are rejected without losing existing content.",
+    "At 360 by 844 pixels in both light and dark themes: one page H1, no horizontal document overflow, keyboard-operable Finflo formatting dropdown/buttons, and zero axe violations within main."
+  ],
+  "artifactPrivacy": {
+    "trace": "off",
+    "screenshot": "off",
+    "video": "off",
+    "credentialsInBrowserFields": false,
+    "credentialsOrSessionCookiesRecorded": false
+  },
+  "limitations": [
+    "These are local production-build checks, not a claim that the new source is deployed to finflo.org.",
+    "Accessibility scans cover the tested admin main surface in both themes, not every possible document or browser.",
+    "Visual editing intentionally stays read-only for footnote documents; Markdown source remains available to preserve them."
+  ],
+  "gitHeadBeforeUncommittedChanges": "f046c4a2da34bb789d0f38017765b98a23d1fdff",
+  "sourceSha256": {
+    "src/components/admin/admin-navigation.tsx": "4f2d4c726c9ff5fe0c886e75e6772a501738fce3c1354229cb90f2a13447e407",
+    "src/components/admin/admin-page-header.tsx": "a0d12db4eccd406ae1f74b519cec6e9f3a8c6d6e1d95eea7166b7a18ef45de57",
+    "src/components/admin/admin.module.css": "3d8c3639fb24afecee4d52e62971538671fa386118bd74e159b4606daa90956d",
+    "src/components/admin/auth-controls.tsx": "0febe74a02796e119d81c1ac03694bdd9acd084d17cdb3b0de1d43c8921523dc",
+    "src/components/admin/post-editor.tsx": "291f9e216304dd826c5480934918abde302c3cc2121fb642b195d738707c3794",
+    "src/components/admin/post-filters.tsx": "edccf331de536c2f3d742ae24e0e9180c782c98ccff28af5af1a44921d0801cc",
+    "src/components/admin/post-table.tsx": "ecead62f3b3db9e589e3d38f66bae4afe12fa9ac18e6d0f1d657865a0f2d081c",
+    "src/components/admin/rich-article-editor.module.css": "ed1c85dbcee255cd27e44fe459a2bd60808d927ded9e322586879f503ff1bf2b",
+    "src/components/admin/rich-article-editor.tsx": "e38ef9a1cdf29d7f81371d211b08e94e89f805b3f2f0045ea86045c46786037e",
+    "src/components/blog/blog-markdown.tsx": "17c3b6c3c0be79a60436735cfceeeab2c7bc968fa2a458d8efd1727f2b97872f",
+    "src/components/ui/text-field.tsx": "1511183320c1582d96180a96e868f4cab6e58ee23590b3922cf393b651ee49d8",
+    "src/lib/blog/editor.ts": "6fb311a92b7d4805d950e4940634e718e87d68f5edbe324837a7a18d9ea085c8",
+    "src/lib/blog/markdown-breaks.ts": "798fed97873d0e627f7f3cb20bdd1b8c23b9d12e8347a9564f8211ab2ddd0bd5",
+    "src/lib/blog/types.ts": "192cdd5854233af66ac75ae86378bfb54506746defc8daeef81eab9e05d445be",
+    "src/lib/blog/validation.ts": "bbd66071ca3bf3b4bcb5f21337617ec04e274c03647540face7628ecec840517"
+  }
+}

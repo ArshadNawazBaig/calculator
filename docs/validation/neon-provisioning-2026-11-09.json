@@ -75,5 +75,24 @@
       "post_audit_records": 0
     },
     "passed": true
+  },
+  "finalProductionVerification": {
+    "checkedAt": "2026-11-09T18:46:07.391Z",
+    "scope": "Final read-only aggregate counts after real runtime and hosted HTTPS verification sessions were individually signed out. No additional authentication, writes or fixtures performed by this aggregate check.",
+    "counts": {
+      "users": 1,
+      "super_admins": 1,
+      "credential_accounts": 1,
+      "sessions": 0,
+      "posts": 0,
+      "post_audit_records": 0
+    },
+    "passed": true,
+    "reportedDeployment": {
+      "provider": "Railway",
+      "deploymentId": "b1cba549-778e-4bff-a781-af1da8f3d58d",
+      "sourceCommitPrefix": "f046c4a2",
+      "verificationNote": "Deployment metadata supplied by root after Railway Active state and source commit link were confirmed in browser UI; this query independently verifies only database counts."
+    }
   }
 }

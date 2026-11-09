@@ -1,6 +1,6 @@
-import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {test, expect, request as requestFactory} from '@playwright/test';
+import {disposableBlogState, signInDisposableBlog} from './helpers/disposable-blog';
 
 // This workflow writes only to an explicitly configured disposable test app.
 // Credentials never enter form fields, screenshots, videos, traces or attachments.
@@ -10,19 +10,8 @@ test.describe.serial('disposable blog publishing workflow', () => {
 
   test('sign in, edit privately, publish, unpublish, archive, restore and sign out', async ({page, context, browser}, testInfo) => {
     test.setTimeout(120_000);
-    let privateState: Record<string, string> = {};
-    if (!process.env.SUPER_ADMIN_EMAIL || !process.env.SUPER_ADMIN_PASSWORD || !process.env.SUPER_ADMIN_NAME) {
-      try {privateState = JSON.parse(await readFile(process.env.FINFLO_BLOG_TEST_STATE || '/tmp/finflo-blog-test-state.json', 'utf8'));}
-      catch {throw new Error('Provide the disposable blog test account through environment variables or FINFLO_BLOG_TEST_STATE.');}
-    }
-    const email = process.env.SUPER_ADMIN_EMAIL || privateState.SUPER_ADMIN_EMAIL;
-    const password = process.env.SUPER_ADMIN_PASSWORD || privateState.SUPER_ADMIN_PASSWORD;
-    const authorName = process.env.SUPER_ADMIN_NAME || privateState.SUPER_ADMIN_NAME;
-    const baseURL = String(testInfo.project.use.baseURL || process.env.TEST_URL || process.env.BETTER_AUTH_URL || privateState.BETTER_AUTH_URL || '');
-    if (!email || !password || !authorName || !baseURL) throw new Error('The disposable blog test configuration is incomplete.');
-    if (['finflo.org', 'www.finflo.org'].includes(new URL(baseURL).hostname)) throw new Error('Run editorial fixture tests against a disposable app, never the public Finflo site.');
-
-    const authRequest = await requestFactory.newContext({baseURL});
+    const state = await disposableBlogState(testInfo);
+    const {baseURL, authorName} = state;
     const publicRequest = await requestFactory.newContext({baseURL});
     const publicContext = await browser.newContext();
     const publicPage = await publicContext.newPage();
@@ -34,27 +23,37 @@ test.describe.serial('disposable blog publishing workflow', () => {
     try {
       await page.goto(`${baseURL}/admin/sign-in`);
       await expect(page.getByRole('heading', {name: 'Super admin sign-in', exact: true})).toBeVisible();
-      // A separate, untraced request context receives the password. Only its
-      // HTTP-only session cookies are transferred into the browser context.
-      let signedIn = false;
-      try {
-        const response = await authRequest.post('/api/auth/sign-in/email', {headers: {Origin: new URL(baseURL).origin}, data: {email, password, rememberMe: false}});
-        signedIn = response.status() === 200;
-      } catch {throw new Error('The disposable test sign-in endpoint was unreachable.');}
-      if (!signedIn) throw new Error('The disposable test account could not sign in.');
-      await context.addCookies((await authRequest.storageState()).cookies);
+      await signInDisposableBlog(context, state);
       await page.goto(`${baseURL}/admin`);
       await expect(page.getByRole('heading', {name: 'Publishing dashboard', exact: true})).toBeVisible();
       await page.getByRole('link', {name: 'Write an article', exact: true}).first().click();
       await page.getByLabel('Title', {exact: true}).fill(title);
       await page.locator('input[name="slug"]').fill(slug);
-      await page.getByRole('combobox', {name: 'Category', exact: true}).selectOption('Math');
+      await page.getByRole('button', {name: /Category$/}).click();
+      await page.getByRole('option', {name: 'Math', exact: true}).click();
       await page.locator('textarea[name="excerpt"]').fill('A local fixture for the private editorial workflow and a checked percentage example.');
-      await page.getByRole('textbox', {name: 'Article body', exact: true}).fill(content);
+      const body = page.getByRole('textbox', {name: 'Article body', exact: true});
+      await expect(body).toHaveAttribute('contenteditable', 'true');
+      await body.fill('This article starts in the visual editor, using the same article content readers receive.');
+      await expect(body).toContainText('This article starts in the visual editor');
+      // Advanced source access preserves the existing Markdown storage format
+      // and lets this publishing regression include hostile legacy content.
+      await page.getByRole('button', {name: 'Markdown source', exact: true}).click();
+      await page.getByRole('textbox', {name: 'Markdown source', exact: true}).fill(content);
+      await page.getByRole('button', {name: 'Write', exact: true}).click();
+      await expect(body.getByRole('heading', {name: 'A local worked example', exact: true})).toBeVisible();
+      await expect(body.getByRole('table')).toHaveCount(1);
+      await expect(body.locator('script, img[src="x"], a[href^="javascript:"], img[src^="data:"]')).toHaveCount(0);
       await page.getByRole('button', {name: 'Save draft', exact: true}).click();
       await expect(page).toHaveURL(/\/admin\/posts\/[0-9a-f-]{36}$/);
       editorPath = new URL(page.url()).pathname;
       await expect(page.getByRole('heading', {name: 'Edit article', exact: true})).toBeVisible();
+      await page.reload();
+      await expect(page.getByText('All changes saved', {exact: true})).toBeVisible();
+      await page.getByRole('button', {name: 'Markdown source', exact: true}).click();
+      await expect(page.getByRole('textbox', {name: 'Markdown source', exact: true})).toHaveValue(content);
+      await page.getByRole('button', {name: 'Write', exact: true}).click();
+      await expect(page.getByText('All changes saved', {exact: true})).toBeVisible();
       expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(404);
       expect(await (await publicRequest.get('/sitemap.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
 
@@ -133,7 +132,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
         const archive = page.getByRole('button', {name: 'Archive', exact: true});
         if (await archive.isVisible()) {await archive.click(); await expect(page.getByRole('status')).toContainText('Article archived.');}
       } catch { /* The disposable database is torn down by the test runner. */ }
-      await Promise.allSettled([authRequest.dispose(), publicRequest.dispose(), publicContext.close()]);
+      await Promise.allSettled([publicRequest.dispose(), publicContext.close()]);
     }
   });
 });

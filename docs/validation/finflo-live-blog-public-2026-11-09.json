@@ -1,0 +1,262 @@
+{
+  "checkedAt": "2026-11-09T18:44:28.055Z",
+  "scope": "Anonymous read-only HTTPS checks against production Finflo; no credentials, sessions or article writes used",
+  "deployment": {
+    "railwayDeploymentId": "b1cba549-778e-4bff-a781-af1da8f3d58d",
+    "sourceCommit": "f046c4a2da34bb789d0f38017765b98a23d1fdff",
+    "identitySource": "Parent verified Active deployment and source in Railway UI; these public requests independently verify route behavior"
+  },
+  "records": [
+    {
+      "path": "/",
+      "status": 200,
+      "latencyMs": 1002,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Find your answer."
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org"
+      ]
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "latencyMs": 300,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Look beyond the number."
+      ],
+      "robotsMeta": [
+        "noindex, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/blog"
+      ]
+    },
+    {
+      "path": "/blog/nonexistent-live-verification-2026-11-09",
+      "status": 404,
+      "latencyMs": 265,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [],
+      "robotsMeta": [
+        "noindex",
+        "noindex, follow"
+      ],
+      "canonicals": []
+    },
+    {
+      "path": "/admin",
+      "status": 307,
+      "latencyMs": 269,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "location": "/admin/sign-in",
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [],
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "canonicals": []
+    },
+    {
+      "path": "/admin/posts",
+      "status": 307,
+      "latencyMs": 268,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "location": "/admin/sign-in",
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [],
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "canonicals": []
+    },
+    {
+      "path": "/admin/sign-in",
+      "status": 200,
+      "latencyMs": 272,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Super admin sign-in"
+      ],
+      "robotsMeta": [
+        "noindex, nofollow, nocache"
+      ],
+      "canonicals": []
+    },
+    {
+      "path": "/api/auth/get-session",
+      "status": 200,
+      "latencyMs": 278,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "location": null,
+      "contentType": "application/json",
+      "anonymousSessionNull": true
+    },
+    {
+      "path": "/api/auth/sign-up/email",
+      "status": 404,
+      "latencyMs": 584,
+      "cacheControl": "private, no-store",
+      "robotsHeader": "noindex, nofollow",
+      "location": null,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "latencyMs": 398,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "application/xml",
+      "sitemapUrlCount": 721,
+      "blogEntries": 0,
+      "allCanonicalHost": true
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "latencyMs": 265,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/plain",
+      "allowsRoot": true,
+      "disallowsApi": true,
+      "advertisesCanonicalSitemap": true
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "latencyMs": 371,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Privacy policy"
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/privacy"
+      ],
+      "blogDisclosures": {
+        "restrictedAdministration": true,
+        "publishingDatabase": true,
+        "passwordHashes": true,
+        "draftRetention": true,
+        "externalImages": true
+      }
+    },
+    {
+      "path": "/terms",
+      "status": 200,
+      "latencyMs": 266,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Terms of service"
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/terms"
+      ],
+      "publishingTermsVisible": true
+    },
+    {
+      "path": "/cookies",
+      "status": 200,
+      "latencyMs": 267,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Cookies and preferences"
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/cookies"
+      ],
+      "adminCookieDisclosureVisible": true
+    },
+    {
+      "path": "/percent-calculator",
+      "status": 200,
+      "latencyMs": 283,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Percentage Calculator"
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/percent-calculator"
+      ]
+    },
+    {
+      "path": "/mortgage-calculator",
+      "status": 200,
+      "latencyMs": 352,
+      "cacheControl": "s-maxage=31536000",
+      "robotsHeader": null,
+      "location": null,
+      "contentType": "text/html; charset=utf-8",
+      "h1s": [
+        "Mortgage Calculator"
+      ],
+      "robotsMeta": [
+        "index, follow"
+      ],
+      "canonicals": [
+        "https://finflo.org/mortgage-calculator"
+      ]
+    }
+  ],
+  "checks": {
+    "expectedStatuses": true,
+    "blogNoindex": true,
+    "blogCanonical": true,
+    "adminNoindex": true,
+    "adminPrivateNoStore": true,
+    "anonymousSessionNull": true,
+    "sitemapExisting721": true,
+    "sitemapEmptyBlogExcluded": true,
+    "privacyDisclosures": true,
+    "termsDisclosure": true,
+    "cookieDisclosure": true
+  },
+  "passed": true
+}

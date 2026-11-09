@@ -1,6 +1,6 @@
 # Blog and super-admin implementation — November 9, 2026
 
-Implemented in the existing Next.js source. The requested **new Finflo Neon project** is now provisioned through the owner's authenticated browser and existing Vercel integration. Its pooled connection, schema and migrations were verified against Neon, and the real owner administrator was bootstrapped. Railway production variables are being configured; deployment and live website verification remain pending. No fake public articles were created, and this record does not establish Google AdSense approval.
+The blog and administration are **live on finflo.org**. The requested new Finflo Neon project was provisioned through the owner's authenticated browser and existing Vercel integration. Its pooled connection, schema and migrations were verified against Neon, and the real owner administrator was bootstrapped. The database/authentication variables were applied to the existing Railway production service, and the verified source was deployed successfully. No fake public articles were created, and this record does not establish Google AdSense approval.
 
 | Feature / affected path | Implemented and verified behavior |
 |---|---|
@@ -39,6 +39,14 @@ The runtime-only npm audit reported **zero advisories**. The complete dependency
 
 Machine-readable results and exact limitations: [feature validation](validation/blog-feature-2026-11-09.json), [PostgreSQL authentication](validation/blog-auth-postgres-2026-11-09.json), [HTTP authentication](validation/blog-auth-http-2026-11-09.json), [migration concurrency](validation/blog-migration-concurrency-2026-11-09.json), [Neon provisioning](validation/neon-provisioning-2026-11-09.json), [real Neon authentication](validation/neon-auth-runtime-2026-11-09.json), [public access](validation/blog-public-access-2026-11-09.json), and [final mobile/form verification](validation/blog-admin-mobile-2026-11-09.json).
 
+## Production verification
+
+Railway deployment `b1cba549-778e-4bff-a781-af1da8f3d58d` is Active and its Details page links the exact source commit `f046c4a2da34bb789d0f38017765b98a23d1fdff`. The `/api/health` check succeeded at 23:42:27 Asia/Karachi on November 9. The existing installation plan and unrelated projects were preserved. See [deployment evidence](validation/railway-blog-deployment-2026-11-09.json).
+
+All four public blog browser checks and 15 direct production HTTP checks passed. Actual HTTPS form sign-in reached the protected dashboard and editor; the session cookie was Secure, HTTP-only and SameSite=Lax. Mobile dashboard/editor axe checks found zero violations and no overflow at 360 px. The live Markdown preview omitted the script payload. Sign-out removed access and the anonymous session endpoint returned null. The live check made no publishing mutations and created no articles. See [public checks](validation/finflo-live-blog-public-2026-11-09.json) and [administrator checks](validation/finflo-live-blog-admin-2026-11-09.json).
+
+The empty blog stays noindex and the sitemap retains 721 existing URLs until real articles are published. The full create/edit/publish/unpublish/archive/restore workflow was verified against the isolated local PostgreSQL test instance; it was not repeated with fixture articles in production.
+
 ## Remaining implementation and access checklist
 
 - [x] Public blog, protected dashboard, editor and publishing lifecycle implemented.
@@ -48,9 +56,9 @@ Machine-readable results and exact limitations: [feature validation](validation/
 - [x] Create the requested new Finflo Neon project and store its actual pooled connection privately.
 - [x] Verify remote TLS, migrations, schema and idempotent migration reruns.
 - [x] Bootstrap the real owner super admin without inserting test accounts or articles.
-- [x] Stage the three private database/authentication variables on the existing Finflo Railway production service.
-- [ ] Deploy to the actual Node.js host and verify HTTPS authentication, cookie flags, publishing and sitemaps against that deployment.
+- [x] Apply the three private database/authentication variables on the existing Finflo Railway production service.
+- [x] Deploy to the actual Node.js host and verify HTTPS authentication, cookie flags, the protected editor and public sitemaps.
 - [ ] Publish reviewed original articles; retain factual/source/image-rights evidence.
 - [ ] Configure actual provider backups/retention and confirm the chosen plan's costs.
 
-Remote Neon connection and schema checks are now verified. Live application behavior on Railway, production deployment state, current AdSense account decisions and field Core Web Vitals still require their separate checks. The [AdSense audit](adsense-audit-2026-11-09.md) and [quality follow-up](adsense-quality-followup-2026-11-09.md) retain their documented limitations.
+Neon provisioning and the live Railway application are verified. Current AdSense account decisions, editorial quality of future articles, provider backup settings and field Core Web Vitals retain their separate limitations. The [AdSense audit](adsense-audit-2026-11-09.md) and [quality follow-up](adsense-quality-followup-2026-11-09.md) retain their documented limitations.

@@ -22,8 +22,12 @@ describe('administrator form hydration boundary',()=>{
   it('keeps draft fields and every save/publish control disabled before hydration',()=>{
     const html=renderToStaticMarkup(<PostEditor/>);
     expect(html).toMatch(/<form[^>]*method="post"/);expect(html).toMatch(/<fieldset[^>]*disabled=""/);
-    const buttons=[...html.matchAll(/<button[^>]*>[^<]*(?:Save draft|Publish article)[^<]*<\/button>/g)].map(match=>match[0]);
+    // Shared Finflo buttons may include an SVG icon; inspect their complete
+    // contents without accidentally skipping the disabled publishing controls.
+    const buttons=[...html.matchAll(/<button\b[^>]*>[\s\S]*?<\/button>/g)].map(match=>match[0]).filter(button=>/^(Save draft|Publish article)$/.test(button.replace(/<[^>]*>/g,'').trim()));
     expect(buttons).toHaveLength(2);for(const button of buttons)expect(button).toContain('disabled=""');
+    expect(html).not.toMatch(/contenteditable="true"/i);
+    expect(html).toContain('Loading article editor');
   });
 });
 

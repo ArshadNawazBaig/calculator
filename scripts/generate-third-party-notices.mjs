@@ -10,6 +10,9 @@ const packages=new Map(), groups=new Map();
 async function resolvePackage(name,requireFrom){
   try{return requireFrom.resolve(name+'/package.json');}catch{}
   try{let dir=path.dirname(requireFrom.resolve(name));while(dir!==path.dirname(dir)){const file=path.join(dir,'package.json');try{if(JSON.parse(await fs.readFile(file,'utf8')).name===name)return file;}catch{}dir=path.dirname(dir);}}catch{}
+  // Some packages expose subpaths only, so neither the root entry nor their
+  // package.json is exported. Locate their installed metadata without importing.
+  for(const directory of requireFrom.resolve.paths(name)||[]){const file=path.join(directory,name,'package.json');try{if(JSON.parse(await fs.readFile(file,'utf8')).name===name)return file;}catch{}}
   throw new Error('Cannot find installed package '+name);
 }
 async function addText(label,text){

@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-09T18:46:19.343Z",
+  "provider": "Railway",
+  "method": "Authenticated Safari UI for existing Finflo service; source published through authorized GitHub repository",
+  "projectId": "d21adcb1-0b19-489d-8357-62edf17763f9",
+  "serviceId": "e0d516cb-b51e-4078-8034-0f20feb96425",
+  "environmentId": "9d19f206-bd93-4edc-9ef1-64d087ba5781",
+  "deploymentId": "b1cba549-778e-4bff-a781-af1da8f3d58d",
+  "sourceCommit": "f046c4a2da34bb789d0f38017765b98a23d1fdff",
+  "sourceCommitEvidence": "Observed exact GitHub commit link in active Railway deployment Details",
+  "sourceUrl": "https://github.com/ArshadNawazBaig/calculator/commit/f046c4a2da34bb789d0f38017765b98a23d1fdff",
+  "status": "Active",
+  "healthcheck": {
+    "path": "/api/health",
+    "succeeded": true,
+    "observedAt": "2026-11-09 23:42:27 Asia/Karachi"
+  },
+  "variablesApplied": [
+    "DATABASE_URL",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL"
+  ],
+  "authOrigin": "https://finflo.org",
+  "secretValuesRecorded": false,
+  "managedAccountPlanChanged": false,
+  "neonProjectId": "spring-leaf-75388979",
+  "liveVerification": {
+    "publicChecksReport": "finflo-live-blog-public-2026-11-09.json",
+    "publicBrowserTestsPassed": 4,
+    "adminBrowserReport": "finflo-live-blog-admin-2026-11-09.json",
+    "realHttpsFormSignIn": true,
+    "secureSessionCookie": true,
+    "dashboardAndEditorAuthorized": true,
+    "markdownPreviewSafe": true,
+    "formSignOut": true,
+    "anonymousAdminBlocked": true,
+    "mobileAxeViolations": 0,
+    "testArticlesPublished": 0,
+    "publishingWritesDuringLiveCheck": 0
+  },
+  "passed": true
+}

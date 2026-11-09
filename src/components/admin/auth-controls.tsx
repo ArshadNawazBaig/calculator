@@ -3,6 +3,7 @@
 import {createAuthClient} from 'better-auth/react';
 import {useState, type FormEvent} from 'react';
 import {Button} from '@/components/ui/button';
+import {TextField} from '@/components/ui/text-field';
 import {useHydrated} from '@/lib/use-hydrated';
 import styles from './admin.module.css';
 
@@ -25,8 +26,8 @@ export function AdminSignIn() {
     finally {setPending(false);}
   }
   return <form method="post" onSubmit={submit} className={styles.form}>
-    <label className={styles.field}>Email address<input name="email" type="email" autoComplete="username" required maxLength={254} disabled={!hydrated || pending}/></label>
-    <label className={styles.field}>Password<input name="password" type="password" autoComplete="current-password" required minLength={16} maxLength={128} disabled={!hydrated || pending}/></label>
+    <TextField label="Email address" name="email" type="email" autoComplete="username" required maxLength={254} disabled={!hydrated || pending}/>
+    <TextField label="Password" name="password" type="password" autoComplete="current-password" required minLength={16} maxLength={128} disabled={!hydrated || pending}/>
     {error && <p role="alert" className={styles.error}>{error}</p>}
     <Button type="submit" disabled={!hydrated || pending}>{pending ? 'Signing in…' : 'Sign in'}</Button>
     <noscript><p>Enable JavaScript to sign in securely.</p></noscript>
@@ -46,5 +47,5 @@ export function AdminSignOut() {
     } catch {setError('Could not sign out. Please try again.');}
     finally {setPending(false);}
   }
-  return <span><button type="button" className={styles.signOut} disabled={!hydrated || pending} onClick={signOut}>{pending ? 'Signing out…' : 'Sign out'}</button>{error && <span role="alert">{error}</span>}</span>;
+  return <div className={styles.signOut}><Button type="button" variant="ghost" disabled={!hydrated || pending} onClick={signOut}>{pending ? 'Signing out…' : 'Sign out'}</Button>{error && <span role="alert">{error}</span>}</div>;
 }

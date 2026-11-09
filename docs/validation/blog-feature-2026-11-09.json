@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-09T18:39:07.752Z",
-  "scope": "Source/build validation with local PostgreSQL history and subsequently verified real Neon provisioning; hosted deployment still pending",
+  "checkedAt": "2026-11-09T18:46:19.343Z",
+  "scope": "Verified implementation, local test history, real Neon provisioning/authentication and successful Railway HTTPS deployment",
   "baseCommit": "c280160d7c67d3f9d81c49b39c0221916e5f83e2",
   "unit": {
     "command": "npm test",
@@ -40,7 +40,15 @@
     "formSignIn": true,
     "formSignOut": true,
     "mobileAxeViolations": 0,
-    "mobileHorizontalOverflow": false
+    "mobileHorizontalOverflow": false,
+    "production": {
+      "publicBrowserTestsPassed": 4,
+      "httpsFormSignIn": true,
+      "httpsFormSignOut": true,
+      "protectedDashboardAndEditor": true,
+      "mobileAxeViolations": 0,
+      "publishingWritesDuringLiveCheck": 0
+    }
   },
   "npmAudit": {
     "production": {
@@ -68,7 +76,10 @@
     "blog-public-access-2026-11-09.json",
     "blog-admin-mobile-2026-11-09.json",
     "neon-provisioning-2026-11-09.json",
-    "neon-auth-runtime-2026-11-09.json"
+    "neon-auth-runtime-2026-11-09.json",
+    "railway-blog-deployment-2026-11-09.json",
+    "finflo-live-blog-public-2026-11-09.json",
+    "finflo-live-blog-admin-2026-11-09.json"
   ],
   "initialProvisioningStatus": {
     "requestedNeonProject": "new Finflo project",
@@ -92,7 +103,10 @@
     "administratorCreated": true,
     "actualRuntimeAuthenticationVerified": true,
     "productionHostVariablesStaged": true,
-    "deploymentPerformed": false,
-    "productionHttpVerified": false
+    "deploymentPerformed": true,
+    "productionHttpVerified": true,
+    "productionHostVariablesApplied": true,
+    "deploymentId": "b1cba549-778e-4bff-a781-af1da8f3d58d",
+    "sourceCommit": "f046c4a2da34bb789d0f38017765b98a23d1fdff"
   }
 }

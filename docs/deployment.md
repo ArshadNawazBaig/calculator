@@ -1,5 +1,7 @@
 # Deployment
 
+The November 9 blog release is live on `https://finflo.org`, using the new Finflo Neon database. Railway deployment `b1cba549-778e-4bff-a781-af1da8f3d58d` passed health checks and serves source commit `f046c4a2da34bb789d0f38017765b98a23d1fdff`. Production sign-in, protected dashboard/editor, logout, public metadata and sitemap checks passed. See the [blog release record](blog-feature-2026-11-09.md) and [deployment evidence](validation/railway-blog-deployment-2026-11-09.json). Older release notes below retain their historical scope.
+
 Finflo is hosted on Railway at `https://finflo.org`. The October 22 release source contains 216 calculators, 572 modes, six guides and **721 English sitemap URLs** when production indexing is enabled. Publication is limited to English; the seven other language implementations remain drafts. Consult the [October 22 release record](adsense-release-2026-10-22.md) for the tested commit, deployment result and live verification. The source inventory is not evidence that the release is already deployed.
 
 The earlier private Sites preview and its [deployment evidence](validation/deployment.json) are retained below for reference. Both custom domains were verified with valid Railway certificates. The registry delegates to Vercel DNS. The [377-URL HTTPS audit](validation/live-indexing-readiness.json), later 1,944-URL multilingual inventory and [October 11 SEO change record](seo-improvements-2026-10-11.md) describe earlier releases, not the current publication scope.

@@ -1,5 +1,6 @@
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import {remarkArticleBreaks} from '@/lib/blog/markdown-breaks';
 import styles from './blog.module.css';
 
 /** Strict destinations for both public articles and the administrator preview. */
@@ -16,7 +17,7 @@ export function blogContentUrl(value: string, image = false): string | undefined
 
 export function BlogMarkdown({content}: {content:string}) {
   return <div className={styles.markdown} data-blog-markdown>
-    <Markdown remarkPlugins={[remarkGfm]} skipHtml urlTransform={(url,key)=>blogContentUrl(url,key==='src')} components={{
+    <Markdown remarkPlugins={[remarkGfm,remarkArticleBreaks]} skipHtml urlTransform={(url,key)=>blogContentUrl(url,key==='src')} components={{
       h1:({children})=><h2>{children}</h2>,
       a:({href,children,title})=>href?<a href={href} title={title} rel={/^https?:/i.test(href)?'noopener noreferrer':undefined}>{children}</a>:<span>{children}</span>,
       img:({src,alt,title})=>{
