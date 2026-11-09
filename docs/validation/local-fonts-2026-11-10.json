@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-11-09T20:03:57.757Z",
+  "externalGoogleFontsBlocked": true,
+  "externalFontRequests": 0,
+  "results": [
+    {
+      "path": "/admin/sign-in",
+      "status": 200,
+      "family": "siteFont, \"siteFont Fallback\", \"Segoe UI\", Arial, sans-serif",
+      "loadedFaces": [
+        {
+          "family": "siteFont",
+          "weight": "200 800"
+        }
+      ],
+      "direction": "",
+      "lang": "en",
+      "fontResponses": [
+        {
+          "url": "/_next/static/media/manrope_variable-s.p.3mg_bok-4vs9-.woff2",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "mobileFits": true,
+      "passed": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "family": "siteFont, \"siteFont Fallback\", \"Segoe UI\", Arial, sans-serif",
+      "loadedFaces": [
+        {
+          "family": "siteFont",
+          "weight": "200 800"
+        }
+      ],
+      "direction": "",
+      "lang": "en",
+      "fontResponses": [
+        {
+          "url": "/_next/static/media/manrope_variable-s.p.3mg_bok-4vs9-.woff2",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "mobileFits": true,
+      "passed": true
+    },
+    {
+      "path": "/missing-font-check-page",
+      "status": 404,
+      "family": "siteFont, \"siteFont Fallback\", \"Segoe UI\", Arial, sans-serif",
+      "loadedFaces": [
+        {
+          "family": "siteFont",
+          "weight": "200 800"
+        }
+      ],
+      "direction": "",
+      "lang": "en",
+      "fontResponses": [
+        {
+          "url": "/_next/static/media/manrope_variable-s.p.3mg_bok-4vs9-.woff2",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "mobileFits": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Arabic and Hindi are unpublished and redirect to English; their bundled font assets were checked for preserved Unicode coverage and variable axes, rather than active translated-page rendering."
+  ],
+  "checks": {
+    "productionBuild": "passed",
+    "typecheck": "passed",
+    "eslint": "passed",
+    "targetedAuthenticationTests": 66,
+    "interceptedSignInErrorBrowserTests": 4
+  }
+}

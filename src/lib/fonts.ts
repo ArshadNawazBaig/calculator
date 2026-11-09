@@ -1,9 +1,10 @@
-import {Manrope} from "next/font/google";
+import localFont from "next/font/local";
 
-// Match the verified heading, navigation, and body font on thebestfreepdf.com.
-export const siteFont = Manrope({
-  subsets: ["latin"],
+// Bundle the existing font so preview and production builds work offline.
+export const siteFont = localFont({
+  src: "../assets/fonts/manrope-variable.woff2",
   display: "swap",
   variable: "--font-site",
-  weight: "variable",
+  weight: "200 800",
+  style: "normal",
 });
