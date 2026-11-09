@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-09T17:33:11.025Z",
+  "base": "https://finflo.org",
+  "scope": "Detect whether the new notice resource, clock rules and planner are publicly visible; not a full redeployment audit.",
+  "results": [
+    {
+      "path": "/third-party-notices.txt",
+      "status": 404
+    },
+    {
+      "path": "/time/america-havana",
+      "status": 200,
+      "newClockVersionVisible": false,
+      "newPlannerVisible": false
+    }
+  ]
+}

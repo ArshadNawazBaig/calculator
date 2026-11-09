@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-09T17:29:47.594Z",
+  "base": "http://127.0.0.1:3100",
+  "checks": [
+    {
+      "path": "/privacy",
+      "passed": true,
+      "checks": [
+        "Local files, imported rows, and documents",
+        "Spin-wheel entries and results",
+        "the logo and chosen preview color are not included"
+      ],
+      "notes": "Rendered without JavaScript; no page overflow at390px"
+    },
+    {
+      "path": "/terms",
+      "passed": true,
+      "checks": [
+        "Third-party software and font notices"
+      ],
+      "notes": "Rendered without JavaScript; no page overflow at390px"
+    },
+    {
+      "path": "/time/america-havana",
+      "passed": true,
+      "checks": [
+        "UTC−04:00",
+        "2026f",
+        "Plan a time from this location"
+      ],
+      "notes": "Rendered without JavaScript; no page overflow at390px"
+    },
+    {
+      "path": "/third-party-notices.txt",
+      "passed": true,
+      "contentType": "text/plain; charset=UTF-8",
+      "bytes": 82531
+    }
+  ]
+}

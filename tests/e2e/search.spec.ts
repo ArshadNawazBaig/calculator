@@ -1,6 +1,44 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('native search submits and renders matching tools without JavaScript',async({browser,baseURL})=>{
+  const context=await browser.newContext({baseURL,javaScriptEnabled:false});
+  try{
+    const page=await context.newPage();
+    await page.goto('/');
+    await page.getByRole('combobox',{name:'Search calculators'}).fill('mortgage');
+    await page.getByRole('button',{name:'Search',exact:true}).click();
+    await expect(page).toHaveURL(/\/search\?q=mortgage$/);
+    await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();
+    await expect(page.getByText('Loading search…',{exact:true})).toHaveCount(0);
+    await page.goto('/search?q=bmi&category=health');
+    await page.getByRole('combobox',{name:'Search calculators'}).fill('calorie');
+    await page.getByRole('button',{name:'Search',exact:true}).click();
+    const url=new URL(page.url());
+    expect(url.searchParams.get('q')).toBe('calorie');
+    expect(url.searchParams.get('category')).toBe('health');
+    await expect(page.getByRole('link',{name:'Calorie Calculator',exact:true})).toBeVisible();
+  }finally{await context.close();}
+});
+
+test('search preserves a query entered while page scripts are delayed',async({page})=>{
+  let releaseScripts!:()=>void;
+  const ready=new Promise<void>(resolve=>{releaseScripts=resolve;});
+  await page.route('**/_next/static/**/*.js',async route=>{await ready;await route.continue();});
+  const navigation=page.goto('/',{waitUntil:'domcontentloaded'});
+  const input=page.getByRole('combobox',{name:'Search calculators'});
+  try{await input.fill('mortgage');}finally{releaseScripts();}
+  await navigation;
+  await expect(page.locator('#percentage-demo-rate')).toBeEnabled();
+  await expect(input).toHaveValue('mortgage');
+  await input.press('ArrowDown');
+  await expect(page.getByRole('option').first()).toContainText('Mortgage Calculator');
+  await input.press('Escape');
+  await page.getByRole('button',{name:'Search',exact:true}).click();
+  await expect(page).toHaveURL(/\/search\?q=mortgage$/);
+  await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();
+});
+
 test('live search ranks direct matches and opens a keyboard selection',async({page})=>{
   await page.goto('/');
   const input=page.getByRole('combobox',{name:'Search calculators'});

@@ -1,4 +1,5 @@
 import {CalculatorInsight} from '@/components/content/calculator-insight';
+import {AdultBmiScreening} from '@/components/content/adult-bmi-screening';
 import {MethodNavigation} from '@/components/content/method-navigation';
 import Link from './link';
 import {CalculatorGuidance} from '@/components/content/calculator-guidance';
@@ -17,6 +18,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
   return <article className="document-body">
     <section id="how-it-works" tabIndex={-1}><h2>{t('How it works')}</h2><MethodNavigation modes={definition.modes} messages={messages} locale={locale}/></section>
     <CalculatorInsight slug={definition.slug} locale={locale}/>
+    {definition.slug==='overweight-calculator'&&<AdultBmiScreening messages={messages} locale={locale}/>}
     <CalculatorGuidance slug={definition.slug} messages={messages}/>
     <RelatedGuides slug={definition.slug} messages={messages} locale={locale}/>
     {definition.modes.map(mode=><section key={mode.id} id={`method-${mode.id}`}>

@@ -57,7 +57,7 @@ npm exec next start -- --hostname 0.0.0.0 --port 3000
 
 Use Node.js 22, persistent process supervision and a reverse proxy providing HTTPS. Pass only real environment values from `.env.example`. Public variables must be set at build time; `MAINTENANCE_MODE` is runtime configuration. A Node host should allow outbound HTTPS to the fixed currency providers. The application has no database migration or required account secrets. Optional webmaster verification and analytics values must come from their actual accounts; they remain empty by default.
 
-The production preview is available locally when `npm run start -- --port 3100` is running at http://127.0.0.1:3100. This URL is only reachable on the user's computer.
+The production preview is available locally when `npm run start -- --port 3100` is running at http://127.0.0.1:3100. This URL is only reachable on the user's computer. To exercise the actual map service while retaining production canonical metadata, start the local process with `ROAD_PREVIEW_ORIGIN=http://127.0.0.1:3100 npm run start -- --port 3100`. This optional runtime setting permits only the explicitly configured HTTP loopback origin; leave it empty in production. Invalid settings do not alter the configured public-origin access.
 
 ## Private Sites deployment
 

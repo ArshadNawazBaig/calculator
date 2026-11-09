@@ -1,0 +1,1959 @@
+{
+  "checkedAt": "2026-11-09T17:46:23.203Z",
+  "base": "http://127.0.0.1:3100",
+  "viewport": {
+    "width": 360,
+    "height": 844
+  },
+  "concurrency": 2,
+  "scope": "One default-mode calculation submitted through Chromium on every source calculator page. Mileage uses the supplied coordinate defaults and the actual route service. Checks HTTP, result rendering, formula references, browser errors, and page overflow. Does not independently establish numerical correctness, all-mode UI coverage, specialist review, or Google approval.",
+  "checked": 216,
+  "passed": 216,
+  "failed": 0,
+  "results": [
+    {
+      "path": "/401k-calculator",
+      "mode": "Account growth",
+      "status": 200,
+      "primaryResult": "$562,522.29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/age-calculator",
+      "mode": "Age on a date",
+      "status": 200,
+      "primaryResult": "31 years, 3 months, 24 days",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/amortization-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/annuity-calculator",
+      "mode": "Accumulate an annuity",
+      "status": 200,
+      "primaryResult": "$229,435.22",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/annuity-payout-calculator",
+      "mode": "Withdrawal amount",
+      "status": 200,
+      "primaryResult": "$3,269.18",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/anorexic-bmi-calculator",
+      "mode": "Adult BMI information",
+      "status": 200,
+      "primaryResult": "22.86 kg/m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/apr-calculator",
+      "mode": "Loan APR",
+      "status": 200,
+      "primaryResult": "6.62%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/area-calculator",
+      "mode": "Rectangle",
+      "status": 200,
+      "primaryResult": "20 m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/army-body-fat-calculator",
+      "mode": "2026 Army waist-to-height ratio",
+      "status": 200,
+      "primaryResult": "0.500",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/auto-lease-calculator",
+      "mode": "Lease payment",
+      "status": 200,
+      "primaryResult": "$491.13",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/auto-loan-calculator",
+      "mode": "Monthly payment",
+      "status": 200,
+      "primaryResult": "$637.86",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/average-calculator",
+      "mode": "Dataset summary",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/average-return-calculator",
+      "mode": "Average return",
+      "status": 200,
+      "primaryResult": "7%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bac-calculator",
+      "mode": "Alcohol estimate",
+      "status": 200,
+      "primaryResult": "0.01%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bandwidth-calculator",
+      "mode": "Transfer time",
+      "status": 200,
+      "primaryResult": "80 seconds",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/base64-encode-decode",
+      "mode": "Base64 text",
+      "status": 200,
+      "primaryResult": "SGVsbG8sIEZpbmZsbyE=",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/basic-calculator",
+      "mode": "Calculate an expression",
+      "status": 200,
+      "primaryResult": "20",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/big-number-calculator",
+      "mode": "Calculate an expression",
+      "status": 200,
+      "primaryResult": "112345678901234567890",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/binary-calculator",
+      "mode": "Arithmetic",
+      "status": 200,
+      "primaryResult": "1101",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bmi-calculator",
+      "mode": "Adult BMI",
+      "status": 200,
+      "primaryResult": "22.86 kg/m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bmr-calculator",
+      "mode": "Resting energy",
+      "status": 200,
+      "primaryResult": "1,648.75 kcal/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/boat-loan-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/body-fat-calculator",
+      "mode": "Navy circumference estimate",
+      "status": 200,
+      "primaryResult": "17.01%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/body-surface-area-calculator",
+      "mode": "Body surface area",
+      "status": 200,
+      "primaryResult": "1.84 m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/body-type-calculator",
+      "mode": "Body proportions",
+      "status": 200,
+      "primaryResult": "0.8",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bond-calculator",
+      "mode": "Bond value & yield",
+      "status": 200,
+      "primaryResult": "$884.43",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/bra-size-calculator",
+      "mode": "US starting size",
+      "status": 200,
+      "primaryResult": "32D",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/break-even-calculator",
+      "mode": "Break-even & target profit",
+      "status": 200,
+      "primaryResult": "100",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/btu-calculator",
+      "mode": "Room cooling estimate",
+      "status": 200,
+      "primaryResult": "7,000 BTU/h",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/budget-calculator",
+      "mode": "Monthly budget",
+      "status": 200,
+      "primaryResult": "$900.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/business-loan-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/calorie-calculator",
+      "mode": "Daily energy",
+      "status": 200,
+      "primaryResult": "1,978.5 kcal/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/calories-burned-calculator",
+      "mode": "Activity energy",
+      "status": 200,
+      "primaryResult": "257.25 kcal",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/canadian-mortgage-calculator",
+      "mode": "Canadian mortgage",
+      "status": 200,
+      "primaryResult": "CA$2,404.49",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/carbohydrate-calculator",
+      "mode": "Daily macronutrients",
+      "status": 200,
+      "primaryResult": "100 g/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/cash-back-or-low-interest-calculator",
+      "mode": "Compare offers",
+      "status": 200,
+      "primaryResult": "$541.32",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/cash-flow-calculator",
+      "mode": "Monthly cash flow & runway",
+      "status": 200,
+      "primaryResult": "-$13,200.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/cd-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$54,713.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/circle-calculator",
+      "mode": "Circle dimensions",
+      "status": 200,
+      "primaryResult": "78.54",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/college-cost-calculator",
+      "mode": "College savings plan",
+      "status": 200,
+      "primaryResult": "$188,574.12",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/commission-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "$500.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/common-factor-calculator",
+      "mode": "Whole numbers",
+      "status": 200,
+      "primaryResult": "1, 2, 3, 6",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/compound-interest-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$54,713.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/conception-calculator",
+      "mode": "Cycle-based fertile window",
+      "status": 200,
+      "primaryResult": "2026-07-29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/concrete-calculator",
+      "mode": "Slab or rectangular footing",
+      "status": 200,
+      "primaryResult": "2.47 yd³",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/confidence-interval-calculator",
+      "mode": "Mean confidence interval",
+      "status": 200,
+      "primaryResult": "45.87",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/conversion-calculator",
+      "mode": "Length",
+      "status": 200,
+      "primaryResult": "100 cm",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/credit-card-calculator",
+      "mode": "Fixed-payment payoff",
+      "status": 200,
+      "primaryResult": "$200.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/credit-card-payoff-calculator",
+      "mode": "Multiple debt payoff",
+      "status": 200,
+      "primaryResult": "30 months",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/currency-calculator",
+      "mode": "Exchange-rate conversion",
+      "status": 200,
+      "primaryResult": "92",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/date-calculator",
+      "mode": "Between two dates",
+      "status": 200,
+      "primaryResult": "281",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/day-counter",
+      "mode": "Between two dates",
+      "status": 200,
+      "primaryResult": "281",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/day-of-the-week-calculator",
+      "mode": "Day of the week",
+      "status": 200,
+      "primaryResult": "Friday",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/debt-consolidation-calculator",
+      "mode": "Consolidation comparison",
+      "status": 200,
+      "primaryResult": "$329.33",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/debt-payoff-calculator",
+      "mode": "Multiple debt payoff",
+      "status": 200,
+      "primaryResult": "30 months",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/debt-ratio-calculator",
+      "mode": "Debt-to-income ratio",
+      "status": 200,
+      "primaryResult": "32.86%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/density-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "5 kg/m³",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/depreciation-calculator",
+      "mode": "Asset depreciation",
+      "status": 200,
+      "primaryResult": "$45,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/dew-point-calculator",
+      "mode": "Dew point",
+      "status": 200,
+      "primaryResult": "16.7 °C",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/dice-roller",
+      "mode": "Roll dice",
+      "status": 200,
+      "primaryResult": "12",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/discount-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "$80.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/distance-calculator",
+      "mode": "Coordinate distance",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/down-payment-calculator",
+      "mode": "Down payment amount",
+      "status": 200,
+      "primaryResult": "$80,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/due-date-calculator",
+      "mode": "Last menstrual period",
+      "status": 200,
+      "primaryResult": "2027-04-07",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/electricity-calculator",
+      "mode": "Electricity cost",
+      "status": 200,
+      "primaryResult": "120 kWh",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/emergency-fund-calculator",
+      "mode": "Emergency savings plan",
+      "status": 200,
+      "primaryResult": "$15,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/engine-horsepower-calculator",
+      "mode": "Torque & RPM",
+      "status": 200,
+      "primaryResult": "285.6 hp",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/estate-tax-calculator",
+      "mode": "Federal estate estimate",
+      "status": 200,
+      "primaryResult": "$800,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ev-vs-petrol-calculator",
+      "mode": "EV vs petrol ownership cost",
+      "status": 200,
+      "primaryResult": "$32,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/expense-splitter",
+      "mode": "Group expenses & settlements",
+      "status": 200,
+      "primaryResult": "$240.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/exponent-calculator",
+      "mode": "Power",
+      "status": 200,
+      "primaryResult": "1,024",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/factor-calculator",
+      "mode": "Integer factorization",
+      "status": 200,
+      "primaryResult": "1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/fat-intake-calculator",
+      "mode": "Daily macronutrients",
+      "status": 200,
+      "primaryResult": "100 g/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/fha-loan-calculator",
+      "mode": "Program mortgage estimate",
+      "status": 200,
+      "primaryResult": "$2,204.68",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/final-exam-grade-calculator",
+      "mode": "Required final score",
+      "status": 200,
+      "primaryResult": "Target not attainable",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/finance-calculator",
+      "mode": "Time value of money",
+      "status": 200,
+      "primaryResult": "$53,881.86",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/fraction-calculator",
+      "mode": "Fraction arithmetic",
+      "status": 200,
+      "primaryResult": "5/6",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/freelance-rate-calculator",
+      "mode": "Hourly rate & project quote",
+      "status": 200,
+      "primaryResult": "$91.67",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/fuel-cost-calculator",
+      "mode": "Metric trip",
+      "status": 200,
+      "primaryResult": "35 L",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/future-value-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$16,288.95",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gas-mileage-calculator",
+      "mode": "US fuel economy",
+      "status": 200,
+      "primaryResult": "30 mpg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gcf-calculator",
+      "mode": "Whole numbers",
+      "status": 200,
+      "primaryResult": "6",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gdp-calculator",
+      "mode": "Expenditure approach",
+      "status": 200,
+      "primaryResult": "21,500",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gfr-calculator",
+      "mode": "Adult CKD-EPI 2021",
+      "status": 200,
+      "primaryResult": "91.69 mL/min/1.73 m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/golf-handicap-calculator",
+      "mode": "Differential-based index",
+      "status": 200,
+      "primaryResult": "8.4",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gpa-calculator",
+      "mode": "Courses & semester GPA",
+      "status": 200,
+      "primaryResult": "3.65",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gpa-goal-calculator",
+      "mode": "Target GPA planner",
+      "status": 200,
+      "primaryResult": "Target not attainable",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/grade-calculator",
+      "mode": "Category weights & what-if grades",
+      "status": 200,
+      "primaryResult": "84.29%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/gravel-calculator",
+      "mode": "Rectangular bed",
+      "status": 200,
+      "primaryResult": "1.85 yd³",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/half-life-calculator",
+      "mode": "Remaining quantity",
+      "status": 200,
+      "primaryResult": "25",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/healthy-weight-calculator",
+      "mode": "Adult reference range",
+      "status": 200,
+      "primaryResult": "56.66 kg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/heat-index-calculator",
+      "mode": "Heat index",
+      "status": 200,
+      "primaryResult": "105.92 °F",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/height-calculator",
+      "mode": "Mid-parental estimate",
+      "status": 200,
+      "primaryResult": "179 cm",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/heloc-calculator",
+      "mode": "Draw & repayment",
+      "status": 200,
+      "primaryResult": "$1,354.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/hex-calculator",
+      "mode": "Arithmetic",
+      "status": 200,
+      "primaryResult": "10F",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/home-equity-loan-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/horsepower-calculator",
+      "mode": "Torque & RPM",
+      "status": 200,
+      "primaryResult": "285.6 hp",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/hours-calculator",
+      "mode": "Time between clock times",
+      "status": 200,
+      "primaryResult": "08:00:00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/house-affordability-calculator",
+      "mode": "Affordability estimate",
+      "status": 200,
+      "primaryResult": "$362,566.46",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ideal-weight-calculator",
+      "mode": "Reference weight equations",
+      "status": 200,
+      "primaryResult": "70.46 kg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/inflation-calculator",
+      "mode": "Historical US CPI purchasing power",
+      "status": 200,
+      "primaryResult": "$199.61",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/interest-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$54,713.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/interest-rate-calculator",
+      "mode": "Implied rate",
+      "status": 200,
+      "primaryResult": "7.22%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/investment-calculator",
+      "mode": "Time value of money",
+      "status": 200,
+      "primaryResult": "$53,881.86",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/invoice-generator",
+      "mode": "Invoice or quotation",
+      "status": 200,
+      "primaryResult": "$750.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ip-subnet-calculator",
+      "mode": "IPv4 subnet",
+      "status": 200,
+      "primaryResult": "192.168.1.0/24",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ira-calculator",
+      "mode": "Account growth",
+      "status": 200,
+      "primaryResult": "$562,522.29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/irr-calculator",
+      "mode": "Periodic IRR",
+      "status": 200,
+      "primaryResult": "8.9%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/lcm-calculator",
+      "mode": "Whole numbers",
+      "status": 200,
+      "primaryResult": "72",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/lean-body-mass-calculator",
+      "mode": "From body fat",
+      "status": 200,
+      "primaryResult": "56 kg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/lease-calculator",
+      "mode": "Asset financing lease",
+      "status": 200,
+      "primaryResult": "$405.06",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/loan-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/log-calculator",
+      "mode": "Logarithm",
+      "status": 200,
+      "primaryResult": "3",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/long-division-calculator",
+      "mode": "Long division",
+      "status": 200,
+      "primaryResult": "17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/love-calculator",
+      "mode": "Just for fun",
+      "status": 200,
+      "primaryResult": "13%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/macro-calculator",
+      "mode": "Daily macronutrients",
+      "status": 200,
+      "primaryResult": "100 g/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/margin-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "$20.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/marriage-calculator",
+      "mode": "2026 marriage comparison",
+      "status": 200,
+      "primaryResult": "$12,590.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mass-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "2,000 kg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/matrix-calculator",
+      "mode": "Matrix operation",
+      "status": 200,
+      "primaryResult": "6  8\n10  12",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mean-median-mode-range-calculator",
+      "mode": "Dataset summary",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mileage-calculator",
+      "mode": "Driving route",
+      "status": 200,
+      "primaryResult": "58.63 miles",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/molarity-calculator",
+      "mode": "Molarity",
+      "status": 200,
+      "primaryResult": "0.1 mol/L",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/molecular-weight-calculator",
+      "mode": "Chemical formula",
+      "status": 200,
+      "primaryResult": "74.09 g/mol",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mortgage-amortization-calculator",
+      "mode": "Mortgage amortization",
+      "status": 200,
+      "primaryResult": "$2,422.62",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mortgage-calculator",
+      "mode": "US mortgage",
+      "status": 200,
+      "primaryResult": "$2,422.62",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mortgage-calculator-uk",
+      "mode": "UK mortgage",
+      "status": 200,
+      "primaryResult": "£2,422.62",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mortgage-payoff-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mulch-calculator",
+      "mode": "Rectangular bed",
+      "status": 200,
+      "primaryResult": "1.85 yd³",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/mutual-fund-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$54,713.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/net-worth-tracker",
+      "mode": "Net-worth snapshot",
+      "status": 200,
+      "primaryResult": "$105,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/number-sequence-calculator",
+      "mode": "Sequence",
+      "status": 200,
+      "primaryResult": "2, 5, 8, 11, 14, 17, 20, 23, 26, 29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ohms-law-calculator",
+      "mode": "Ohm's law",
+      "status": 200,
+      "primaryResult": "12 V",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/one-rep-max-calculator",
+      "mode": "Estimated maximum",
+      "status": 200,
+      "primaryResult": "116.67 kg",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/overweight-calculator",
+      "mode": "Adult BMI screening",
+      "status": 200,
+      "primaryResult": "22.86 kg/m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ovulation-calculator",
+      "mode": "Cycle estimate",
+      "status": 200,
+      "primaryResult": "2026-07-29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/p-value-calculator",
+      "mode": "P-value",
+      "status": 200,
+      "primaryResult": "0.05",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pace-calculator",
+      "mode": "Find pace",
+      "status": 200,
+      "primaryResult": "6 minutes/km",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/password-generator",
+      "mode": "Generate passwords",
+      "status": 200,
+      "primaryResult": "3",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/payback-period-calculator",
+      "mode": "Payback period",
+      "status": 200,
+      "primaryResult": "2.6",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/payment-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$313.36",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/payment-fee-calculator",
+      "mode": "Custom processing fees",
+      "status": 200,
+      "primaryResult": "$100.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pension-calculator",
+      "mode": "Payment present value",
+      "status": 200,
+      "primaryResult": "$477,193.70",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/percent-calculator",
+      "mode": "Percentage of a number",
+      "status": 200,
+      "primaryResult": "30",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/percent-error-calculator",
+      "mode": "Percentage error",
+      "status": 200,
+      "primaryResult": "2%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/percent-off-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "$80.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/period-calculator",
+      "mode": "Cycle estimate",
+      "status": 200,
+      "primaryResult": "2026-07-29",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/permutation-and-combination-calculator",
+      "mode": "Permutations & combinations",
+      "status": 200,
+      "primaryResult": "120",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/personal-loan-calculator",
+      "mode": "Loan & schedule",
+      "status": 200,
+      "primaryResult": "$1,580.17",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pregnancy-calculator",
+      "mode": "Last menstrual period",
+      "status": 200,
+      "primaryResult": "2027-04-07",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pregnancy-conception-calculator",
+      "mode": "Last menstrual period",
+      "status": 200,
+      "primaryResult": "2027-04-07",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pregnancy-weight-gain-calculator",
+      "mode": "Pregnancy gain reference",
+      "status": 200,
+      "primaryResult": "21.22",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/present-value-calculator",
+      "mode": "Present value",
+      "status": 200,
+      "primaryResult": "$30,695.66",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/prime-factorization-calculator",
+      "mode": "Integer factorization",
+      "status": 200,
+      "primaryResult": "2 × 2 × 2 × 3 × 3 × 5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/probability-calculator",
+      "mode": "Two events",
+      "status": 200,
+      "primaryResult": "0.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/protein-calculator",
+      "mode": "Daily protein",
+      "status": 200,
+      "primaryResult": "56 g/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/pythagorean-theorem-calculator",
+      "mode": "Find hypotenuse",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/quadratic-formula-calculator",
+      "mode": "Quadratic roots",
+      "status": 200,
+      "primaryResult": "3",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/random-number-generator",
+      "mode": "Random numbers",
+      "status": 200,
+      "primaryResult": "45, 76, 8, 38, 75, 24, 72, 45, 7, 52",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/ratio-calculator",
+      "mode": "Simplify ratio",
+      "status": 200,
+      "primaryResult": "2 : 3",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/refinance-calculator",
+      "mode": "Refinance comparison",
+      "status": 200,
+      "primaryResult": "$1,766.95",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/rent-calculator",
+      "mode": "Rent budget",
+      "status": 200,
+      "primaryResult": "$1,725.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/rent-vs-buy-calculator",
+      "mode": "Rent vs. buy scenario",
+      "status": 200,
+      "primaryResult": "$173,100.59",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/rental-property-calculator",
+      "mode": "Rental property analysis",
+      "status": 200,
+      "primaryResult": "$57.85",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/repayment-calculator",
+      "mode": "Fixed-payment payoff",
+      "status": 200,
+      "primaryResult": "$300.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/resistor-calculator",
+      "mode": "Series or parallel",
+      "status": 200,
+      "primaryResult": "600 Ω",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/retirement-calculator",
+      "mode": "Retirement savings target",
+      "status": 200,
+      "primaryResult": "$823,472.26",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/right-triangle-calculator",
+      "mode": "Two legs",
+      "status": 200,
+      "primaryResult": "6 square units",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/rmd-calculator",
+      "mode": "Uniform Lifetime Table",
+      "status": 200,
+      "primaryResult": "$10,162.60",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/roi-calculator",
+      "mode": "Return on investment",
+      "status": 200,
+      "primaryResult": "42.86%",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/roman-numeral-converter",
+      "mode": "Roman numerals",
+      "status": 200,
+      "primaryResult": "MMXXVI",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/roofing-calculator",
+      "mode": "Pitched roof area",
+      "status": 200,
+      "primaryResult": "1,341.64 ft²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/root-calculator",
+      "mode": "Nth root",
+      "status": 200,
+      "primaryResult": "3",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/roth-ira-calculator",
+      "mode": "Roth & taxable comparison",
+      "status": 200,
+      "primaryResult": "$191,862.75",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/rounding-calculator",
+      "mode": "Round a number",
+      "status": 200,
+      "primaryResult": "123.46",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/salary-calculator",
+      "mode": "Pay conversion",
+      "status": 200,
+      "primaryResult": "$62,400.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/sales-tax-calculator",
+      "mode": "Sales tax",
+      "status": 200,
+      "primaryResult": "$106.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/sample-size-calculator",
+      "mode": "Required sample size",
+      "status": 200,
+      "primaryResult": "385",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/savings-calculator",
+      "mode": "Savings growth",
+      "status": 200,
+      "primaryResult": "$54,713.58",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/scientific-calculator",
+      "mode": "Calculate an expression",
+      "status": 200,
+      "primaryResult": "20",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/scientific-notation-calculator",
+      "mode": "Scientific notation",
+      "status": 200,
+      "primaryResult": "1.23456789e+8",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/seller-profit-calculator",
+      "mode": "Custom online store fees",
+      "status": 200,
+      "primaryResult": "$23.32",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/shoe-size-conversion",
+      "mode": "Adult foot-length estimate",
+      "status": 200,
+      "primaryResult": "260 mm",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/simple-interest-calculator",
+      "mode": "Simple interest",
+      "status": 200,
+      "primaryResult": "$487,500.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/sleep-calculator",
+      "mode": "Sleep-cycle planner",
+      "status": 200,
+      "primaryResult": "21:45",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/slope-calculator",
+      "mode": "Two points",
+      "status": 200,
+      "primaryResult": "2",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/social-security-calculator",
+      "mode": "Claiming-age scenario",
+      "status": 200,
+      "primaryResult": "$2,500.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/solar-savings-calculator",
+      "mode": "Solar savings & financing",
+      "status": 200,
+      "primaryResult": "$15,000.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/speed-calculator",
+      "mode": "Calculate",
+      "status": 200,
+      "primaryResult": "50 km/h",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/square-footage-calculator",
+      "mode": "Rectangular area",
+      "status": 200,
+      "primaryResult": "120 ft²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/stair-calculator",
+      "mode": "Straight stair geometry",
+      "status": 200,
+      "primaryResult": "14",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/standard-deviation-calculator",
+      "mode": "Dataset summary",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/statistics-calculator",
+      "mode": "Dataset summary",
+      "status": 200,
+      "primaryResult": "5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/student-loan-calculator",
+      "mode": "Standard repayment",
+      "status": 200,
+      "primaryResult": "$318.20",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/subscription-cost-tracker",
+      "mode": "Subscription spending & savings",
+      "status": 200,
+      "primaryResult": "$45.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/surface-area-calculator",
+      "mode": "Sphere",
+      "status": 200,
+      "primaryResult": "314.16 m²",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/take-home-pay-calculator",
+      "mode": "2026 federal wage estimate",
+      "status": 200,
+      "primaryResult": "$68,627.50",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/target-heart-rate-calculator",
+      "mode": "Heart-rate range",
+      "status": 200,
+      "primaryResult": "95 beats/min",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/tax-calculator",
+      "mode": "2026 federal wage estimate",
+      "status": 200,
+      "primaryResult": "$68,627.50",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/tdee-calculator",
+      "mode": "Daily energy",
+      "status": 200,
+      "primaryResult": "1,978.5 kcal/day",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/tile-calculator",
+      "mode": "Rectangular area",
+      "status": 200,
+      "primaryResult": "132",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/time-calculator",
+      "mode": "Duration arithmetic",
+      "status": 200,
+      "primaryResult": "04:15:00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/time-card-calculator",
+      "mode": "Weekly time card",
+      "status": 200,
+      "primaryResult": "15.5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/time-duration-calculator",
+      "mode": "Time between clock times",
+      "status": 200,
+      "primaryResult": "08:00:00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/time-zone-calculator",
+      "mode": "Time-zone conversion",
+      "status": 200,
+      "primaryResult": "2026-10-09 17:00:00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/tip-calculator",
+      "mode": "Tip & bill split",
+      "status": 200,
+      "primaryResult": "$18.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/tire-size-calculator",
+      "mode": "Compare tire sizes",
+      "status": 200,
+      "primaryResult": "631.9 mm",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/triangle-calculator",
+      "mode": "Three sides",
+      "status": 200,
+      "primaryResult": "6 square units",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/url-encode-decode",
+      "mode": "URL component text",
+      "status": 200,
+      "primaryResult": "Hello%2C%20Finflo!",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/va-mortgage-calculator",
+      "mode": "Program mortgage estimate",
+      "status": 200,
+      "primaryResult": "$2,066.10",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/vat-calculator",
+      "mode": "VAT",
+      "status": 200,
+      "primaryResult": "$120.00",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/voltage-drop-calculator",
+      "mode": "DC two-wire circuit",
+      "status": 200,
+      "primaryResult": "1.38 V",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/volume-calculator",
+      "mode": "Sphere",
+      "status": 200,
+      "primaryResult": "523.6 m³",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/weight-calculator",
+      "mode": "Mass unit conversion",
+      "status": 200,
+      "primaryResult": "1,000 g",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/wind-chill-calculator",
+      "mode": "Wind chill",
+      "status": 200,
+      "primaryResult": "8.85 °F",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "path": "/z-score-calculator",
+      "mode": "Z-score",
+      "status": 200,
+      "primaryResult": "1.5",
+      "formError": null,
+      "passed": true,
+      "issues": []
+    }
+  ]
+}

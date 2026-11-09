@@ -8,6 +8,7 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
   const state = useContext(OverlayTriggerStateContext);
   const context = useSlottedContext(PopoverContext);
   const ref = useRef<HTMLElement>(null);
+  const openingListener = useRef<((event: KeyboardEvent) => void) | null>(null);
   const [ready, setReady] = useState(false);
   const isOpen = state?.isOpen;
   // Escape should also cancel a menu before its opening frames have finished.
@@ -20,21 +21,31 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
   });
   useEffect(() => {
     if (!isOpen) return;
-    document.addEventListener("keydown", cancelOpening, true);
+    const listener = (event: KeyboardEvent) => cancelOpening(event);
+    openingListener.current = listener;
+    document.addEventListener("keydown", listener, true);
     // Let scrolling that brought the trigger into view finish before the
     // popover starts listening for page scrolls that should dismiss it.
     let frame = requestAnimationFrame(() => {
       frame = requestAnimationFrame(() => {
-        document.removeEventListener("keydown", cancelOpening, true);
         setReady(true);
       });
     });
     return () => {
       cancelAnimationFrame(frame);
-      document.removeEventListener("keydown", cancelOpening, true);
+      document.removeEventListener("keydown", listener, true);
+      if (openingListener.current === listener) openingListener.current = null;
       setReady(false);
     };
   }, [isOpen]);
+  // Keep the opening handler until the rendered Popover has committed its own
+  // keyboard handlers; removing it in the animation frame leaves a gap.
+  useEffect(() => {
+    if (ready && openingListener.current) {
+      document.removeEventListener("keydown", openingListener.current, true);
+      openingListener.current = null;
+    }
+  }, [ready]);
   function shouldDismiss(event: PointerEvent) {
     const popovers = ref.current?.ownerDocument.querySelectorAll("[data-anchored-popover]");
     // A click outside a child menu dismisses that menu before its parent.

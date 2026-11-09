@@ -2886,7 +2886,7 @@
     ]
   },
   "overweight-calculator": {
-    "description": "Explore adult BMI screening categories from height and weight, with clear limits on what the result can say about individual health.",
+    "description": "Check adult BMI category boundaries, understand rounding near a cutoff, and choose the appropriate adult or child reference without setting a personal weight target.",
     "faqs": [
       {
         "question": "Does an adult BMI category describe my overall health?",
@@ -2895,6 +2895,14 @@
       {
         "question": "Can a muscular person receive a higher BMI category?",
         "answer": "Yes. BMI does not distinguish muscle from fat, so body composition matters when interpreting the number."
+      },
+      {
+        "question": "Why might a displayed BMI of 25 have a category below 25?",
+        "answer": "Finflo assigns the category before rounding the displayed number. For example, a calculated BMI of 24.99918 displays as 25 but remains below the exact cutoff. Check the entered measurements and units; extra display precision would not make those measurements more accurate."
+      },
+      {
+        "question": "Can I interpret a teenager's BMI using this adult table?",
+        "answer": "No. Ages 2 through 19 use BMI-for-age percentiles based on age and sex. Follow the child and teen link above to that mode. This adult screening calculator requires age 20 or older."
       }
     ],
     "sections": [

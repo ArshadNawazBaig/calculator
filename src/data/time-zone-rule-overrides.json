@@ -1,0 +1,195 @@
+{
+  "version": "2026f",
+  "source": "https://data.iana.org/time-zones/releases/tzdata2026f.tar.gz",
+  "verifiedOn": "2026-11-09",
+  "from": 1767225600,
+  "until": 2082758400,
+  "scope": "Seven regions whose 2026f rules differ from Node ICU tz2025c. Compiled with zic, extracted with Python zoneinfo. Other zones and dates outside 2026\u20132035 use runtime rules.",
+  "zones": {
+    "Africa/Casablanca": {
+      "aliases": [],
+      "intervals": [
+        [
+          1767225600,
+          60
+        ],
+        [
+          1771120800,
+          0
+        ],
+        [
+          1774144800,
+          60
+        ],
+        [
+          1789866000,
+          0
+        ]
+      ]
+    },
+    "Africa/El_Aaiun": {
+      "aliases": [],
+      "intervals": [
+        [
+          1767225600,
+          60
+        ],
+        [
+          1771120800,
+          0
+        ],
+        [
+          1774144800,
+          60
+        ],
+        [
+          1789866000,
+          0
+        ]
+      ]
+    },
+    "America/Edmonton": {
+      "aliases": [
+        "America/Yellowknife",
+        "Canada/Mountain"
+      ],
+      "intervals": [
+        [
+          1767225600,
+          -420
+        ],
+        [
+          1772960400,
+          -360
+        ]
+      ]
+    },
+    "America/Inuvik": {
+      "aliases": [],
+      "intervals": [
+        [
+          1767225600,
+          -420
+        ],
+        [
+          1772960400,
+          -360
+        ]
+      ]
+    },
+    "America/Vancouver": {
+      "aliases": [
+        "Canada/Pacific"
+      ],
+      "intervals": [
+        [
+          1767225600,
+          -480
+        ],
+        [
+          1772964000,
+          -420
+        ]
+      ]
+    },
+    "America/Winnipeg": {
+      "aliases": [
+        "America/Rainy_River",
+        "Canada/Central"
+      ],
+      "intervals": [
+        [
+          1767225600,
+          -360
+        ],
+        [
+          1772956800,
+          -300
+        ]
+      ]
+    },
+    "America/Havana": {
+      "aliases": [
+        "Cuba"
+      ],
+      "intervals": [
+        [
+          1767225600,
+          -300
+        ],
+        [
+          1772946000,
+          -240
+        ],
+        [
+          1825563600,
+          -300
+        ],
+        [
+          1836450000,
+          -240
+        ],
+        [
+          1857013200,
+          -300
+        ],
+        [
+          1867899600,
+          -240
+        ],
+        [
+          1888462800,
+          -300
+        ],
+        [
+          1899349200,
+          -240
+        ],
+        [
+          1919912400,
+          -300
+        ],
+        [
+          1930798800,
+          -240
+        ],
+        [
+          1951362000,
+          -300
+        ],
+        [
+          1962853200,
+          -240
+        ],
+        [
+          1983416400,
+          -300
+        ],
+        [
+          1994302800,
+          -240
+        ],
+        [
+          2014866000,
+          -300
+        ],
+        [
+          2025752400,
+          -240
+        ],
+        [
+          2046315600,
+          -300
+        ],
+        [
+          2057202000,
+          -240
+        ],
+        [
+          2077765200,
+          -300
+        ]
+      ]
+    }
+  }
+}

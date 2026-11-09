@@ -1,5 +1,7 @@
 # Finflo AdSense audit and remediation — November 9, 2026
 
+A subsequent [quality follow-up](adsense-quality-followup-2026-11-09.md) records additional corrections, current validation and reference-data provenance questions. Use it alongside this baseline audit.
+
 Site: https://finflo.org. Audit date uses Asia/Karachi. This report separates the public deployment from changes implemented and tested in this checkout. No deployment or AdSense review request was performed.
 
 The supplied screenshot records a domain-level **Low-value content** rejection and verified site ownership. It does not identify a rejected URL, establish the date of the review, or prove that the current deployment was the version Google evaluated. I cannot inspect the account's present status or Google's private review criteria. Small privacy and metadata changes alone cannot establish that this rejection has been resolved.

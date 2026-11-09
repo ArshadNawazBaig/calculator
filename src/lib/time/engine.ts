@@ -1,9 +1,24 @@
-const formatters = new Map<string, Intl.DateTimeFormat>();
+import {verifiedOffset, verifiedRuleEnd} from './rule-overrides';
+
+type ClockFormatter = Pick<Intl.DateTimeFormat, 'format' | 'formatToParts'>;
+const formatters = new Map<string, ClockFormatter>();
 export function timeFormatter(locale: string, zone: string, options: Intl.DateTimeFormatOptions) {
   const key = JSON.stringify([locale, zone, options]);
   let formatter = formatters.get(key);
   if (!formatter) {
-    formatter = new Intl.DateTimeFormat(locale, {calendar: 'gregory', timeZone: zone, ...options});
+    const native = new Intl.DateTimeFormat(locale, {calendar: 'gregory', timeZone: zone, ...options});
+    const utc = new Intl.DateTimeFormat(locale, {calendar: 'gregory', ...options, timeZone: 'UTC'});
+    const parts = (value?: number | Date) => {
+      const epoch = value === undefined ? Date.now() : Number(value), offset = verifiedOffset(epoch, zone);
+      if (offset === null) return native.formatToParts(epoch);
+      // UTC formatting of a shifted instant retains localized dates and clock fields.
+      // Use an explicit offset instead of an outdated runtime's regional/DST name.
+      return utc.formatToParts(epoch + offset * 60000).map(part => part.type === 'timeZoneName' ? {...part, value: offsetLabel(offset)} : part);
+    };
+    formatter = {format: value => {
+      const epoch = value === undefined ? Date.now() : Number(value);
+      return verifiedOffset(epoch, zone) === null ? native.format(epoch) : parts(epoch).map(part => part.value).join('');
+    }, formatToParts: parts};
     if (formatters.size > 2000) formatters.clear();
     formatters.set(key, formatter);
   }
@@ -13,6 +28,8 @@ export function supportsZone(zone: string) {
   try {timeFormatter('en', zone, {}); return true;} catch {return false;}
 }
 export function offsetMinutes(epoch: number, zone: string): number {
+  const verified = verifiedOffset(epoch, zone);
+  if (verified !== null) return verified;
   const parts = timeFormatter('en-US', zone, {timeZoneName: 'longOffset'}).formatToParts(epoch);
   const offset = parts.find(part => part.type === 'timeZoneName')!.value;
   const match = offset.match(/GMT([+-])(\d{2}):(\d{2})(?::(\d{2}))?/);
@@ -38,9 +55,12 @@ export function calendarFacts(epoch: number, zone: string) {
 export function nextClockChange(epoch: number, zone: string) {
   const before = offsetMinutes(epoch, zone);
   const start = Math.floor(epoch / 60000) * 60000;
+  const ruleEnd = verifiedRuleEnd(epoch, zone);
   let low = start;
   for (let day = 1; day <= 370; day++) {
     let high = start + day * 86400000;
+    // A bounded correction ending is not a political clock change.
+    if (ruleEnd !== null && high >= ruleEnd) return null;
     if (offsetMinutes(high, zone) !== before) {
       while (high - low > 60000) {
         const middle = Math.floor((low + high) / 120000) * 60000;

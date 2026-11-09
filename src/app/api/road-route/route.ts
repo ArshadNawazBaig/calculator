@@ -4,14 +4,24 @@ export const runtime = 'nodejs';
 const service = createRoadService({geocoder: process.env.ROAD_GEOCODER_URL, router: process.env.ROAD_ROUTER_URL});
 const headers = {'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex'};
 
+function configuredPreviewOrigin() {
+  const value = process.env.ROAD_PREVIEW_ORIGIN;
+  // Preview access is opt-in and restricted to literal HTTP loopback origins.
+  // Reject credentials, alternate host spellings, paths and URL suffixes.
+  if (!value || value !== value.trim() || !/^http:\/\/(?:localhost|127\.0\.0\.1|\[::1\])(?::[0-9]{1,5})?$/.test(value)) return null;
+  try { return new URL(value).origin; } catch { return null; }
+}
+
 export async function POST(request: Request) {
   try {
     if (process.env.ROAD_ROUTING_ENABLED === 'false') throw new RoutingError('Road routing is currently unavailable.', 503);
     const origin = request.headers.get('origin');
     const allowedOrigins = [new URL(request.url).origin];
-    // A reverse proxy can give Next an internal request URL. Only the configured
-    // public origin is additionally trusted, never arbitrary forwarded headers.
+    // A reverse proxy can give Next an internal request URL. Trust explicit
+    // public/loopback configuration, never arbitrary forwarded headers.
     if (process.env.NEXT_PUBLIC_SITE_URL) allowedOrigins.push(new URL(process.env.NEXT_PUBLIC_SITE_URL).origin);
+    const previewOrigin = configuredPreviewOrigin();
+    if (previewOrigin) allowedOrigins.push(previewOrigin);
     if (origin && !allowedOrigins.includes(origin)) throw new RoutingError('Open this calculator on Finflo to use map services.', 403);
     if (!request.headers.get('content-type')?.startsWith('application/json')) throw new RoutingError('Send a JSON route request.');
     if (Number(request.headers.get('content-length')) > 4096) throw new RoutingError('The route request is too large.', 413);

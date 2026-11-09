@@ -4,6 +4,9 @@ import {zoneById, zoneHref} from '@/lib/time/catalog';
 import {languages, localizedPath, type Locale} from '@/lib/i18n/config';
 import copy from '@/data/locales/explanations.json';
 import styles from '@/components/content/explanation.module.css';
+import {MeetingPlanner} from './meeting-planner';
+import {localDateTime} from '@/lib/time/wall-time';
+import {compareMeeting} from '@/lib/time/meeting';
 
 export function ClockComparison({zoneId, at, locale = 'en'}: {zoneId: string; at: number; locale?: Locale}) {
   const text = copy[locale], tag = languages[locale].tag;
@@ -11,6 +14,12 @@ export function ClockComparison({zoneId, at, locale = 'en'}: {zoneId: string; at
   const year = new Date(at).getUTCFullYear();
   const samples = [0,3,6,9].map(month => Date.UTC(year, month, 15, 12));
   const format = (epoch: number, zone: string) => timeFormatter(tag, zone, {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(epoch);
+  const meetingDate = localDateTime(at,zoneId).slice(0,10);
+  let initialMeeting:ReturnType<typeof compareMeeting>|null = null;
+  if (locale === 'en' && meetingDate >= '2026-01-01' && meetingDate <= '2035-12-31') {
+    try {initialMeeting = compareMeeting(meetingDate,'12:00',zoneId,zoneId === 'America/New_York' ? 'Europe/London' : 'America/New_York','earlier');}
+    catch {/* An unusual skipped noon must not prevent the live clock from rendering. */}
+  }
   return <>
     <section className={styles.panel} data-clock-comparison>
       <h2>{text.clockTitle}</h2><p>{text.clockIntro}</p>
@@ -21,6 +30,7 @@ export function ClockComparison({zoneId, at, locale = 'en'}: {zoneId: string; at
       </table></div>
       <Link className="text-link" href={localizedPath('/time-zone-calculator', locale)}>{text.clockLink}</Link>
     </section>
+    {initialMeeting&&!initialMeeting.repeated&&<MeetingPlanner source={zoneId} date={meetingDate} initial={initialMeeting}/>}
     <section className={styles.panel}>
       <h2>{text.seasonalTitle}</h2><p>{text.seasonalIntro}</p>
       <div className={styles.scroll} role="region" aria-label={text.seasonalTitle} tabIndex={0}><table className={styles.table}>

@@ -1,0 +1,7529 @@
+{
+  "checkedAt": "2026-11-09T17:27:51.512Z",
+  "source": "https://data.iana.org/time-zones/releases/tzdata2026f.tar.gz",
+  "sourceSHA256": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d",
+  "version": "2026f",
+  "correctionVersion": "2026f",
+  "latestVersion": "2026f",
+  "runtimeTZ": "2025c",
+  "scope": "Every bundled regional identity and alias: route identity, monthly offsets and civil dates for 2026–2035, plus one-second checks around every bundled correction transition. Expected values come from separately compiled official IANA data through Python zoneinfo.",
+  "limits": [
+    "Not every historical instant or future political change is verified.",
+    "Other browsers may carry different timezone versions. Corrections cover only the seven explicitly bundled regions in 2026–2035.",
+    "This is systematic programmatic curation, not a native-language or subject-expert editorial review of each location."
+  ],
+  "regionalRoutes": 446,
+  "identities": 593,
+  "checkedSamples": 71313,
+  "nativeMismatches": 550,
+  "errors": [],
+  "records": [
+    {
+      "id": "Africa/Abidjan",
+      "name": "Africa/Abidjan",
+      "path": "/time/africa-abidjan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Abidjan",
+      "name": "Africa/Timbuktu",
+      "path": "/time/africa-abidjan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Abidjan",
+      "name": "Iceland",
+      "path": "/time/africa-abidjan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Accra",
+      "name": "Africa/Accra",
+      "path": "/time/africa-accra",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Addis_Ababa",
+      "name": "Africa/Addis_Ababa",
+      "path": "/time/africa-addis-ababa",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Algiers",
+      "name": "Africa/Algiers",
+      "path": "/time/africa-algiers",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Asmara",
+      "name": "Africa/Asmara",
+      "path": "/time/africa-asmara",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Bamako",
+      "name": "Africa/Bamako",
+      "path": "/time/africa-bamako",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Bangui",
+      "name": "Africa/Bangui",
+      "path": "/time/africa-bangui",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Banjul",
+      "name": "Africa/Banjul",
+      "path": "/time/africa-banjul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Bissau",
+      "name": "Africa/Bissau",
+      "path": "/time/africa-bissau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Blantyre",
+      "name": "Africa/Blantyre",
+      "path": "/time/africa-blantyre",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Brazzaville",
+      "name": "Africa/Brazzaville",
+      "path": "/time/africa-brazzaville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Bujumbura",
+      "name": "Africa/Bujumbura",
+      "path": "/time/africa-bujumbura",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Cairo",
+      "name": "Africa/Cairo",
+      "path": "/time/africa-cairo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Cairo",
+      "name": "Egypt",
+      "path": "/time/africa-cairo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Casablanca",
+      "name": "Africa/Casablanca",
+      "path": "/time/africa-casablanca",
+      "samples": 129,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-09-20T01:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-09-20T01:00:01.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        }
+      ]
+    },
+    {
+      "id": "Africa/Ceuta",
+      "name": "Africa/Ceuta",
+      "path": "/time/africa-ceuta",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Conakry",
+      "name": "Africa/Conakry",
+      "path": "/time/africa-conakry",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Dakar",
+      "name": "Africa/Dakar",
+      "path": "/time/africa-dakar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Dar_es_Salaam",
+      "name": "Africa/Dar_es_Salaam",
+      "path": "/time/africa-dar-es-salaam",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Djibouti",
+      "name": "Africa/Djibouti",
+      "path": "/time/africa-djibouti",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Douala",
+      "name": "Africa/Douala",
+      "path": "/time/africa-douala",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/El_Aaiun",
+      "name": "Africa/El_Aaiun",
+      "path": "/time/africa-el-aaiun",
+      "samples": 129,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-09-20T01:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-09-20T01:00:01.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2034-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-03-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-04-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-05-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-06-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-07-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-08-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-09-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-10-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": 0,
+          "native": 60
+        }
+      ]
+    },
+    {
+      "id": "Africa/Freetown",
+      "name": "Africa/Freetown",
+      "path": "/time/africa-freetown",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Gaborone",
+      "name": "Africa/Gaborone",
+      "path": "/time/africa-gaborone",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Harare",
+      "name": "Africa/Harare",
+      "path": "/time/africa-harare",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Johannesburg",
+      "name": "Africa/Johannesburg",
+      "path": "/time/africa-johannesburg",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Juba",
+      "name": "Africa/Juba",
+      "path": "/time/africa-juba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Kampala",
+      "name": "Africa/Kampala",
+      "path": "/time/africa-kampala",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Khartoum",
+      "name": "Africa/Khartoum",
+      "path": "/time/africa-khartoum",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Kigali",
+      "name": "Africa/Kigali",
+      "path": "/time/africa-kigali",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Kinshasa",
+      "name": "Africa/Kinshasa",
+      "path": "/time/africa-kinshasa",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Lagos",
+      "name": "Africa/Lagos",
+      "path": "/time/africa-lagos",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Libreville",
+      "name": "Africa/Libreville",
+      "path": "/time/africa-libreville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Lome",
+      "name": "Africa/Lome",
+      "path": "/time/africa-lome",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Luanda",
+      "name": "Africa/Luanda",
+      "path": "/time/africa-luanda",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Lubumbashi",
+      "name": "Africa/Lubumbashi",
+      "path": "/time/africa-lubumbashi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Lusaka",
+      "name": "Africa/Lusaka",
+      "path": "/time/africa-lusaka",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Malabo",
+      "name": "Africa/Malabo",
+      "path": "/time/africa-malabo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Maputo",
+      "name": "Africa/Maputo",
+      "path": "/time/africa-maputo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Maseru",
+      "name": "Africa/Maseru",
+      "path": "/time/africa-maseru",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Mbabane",
+      "name": "Africa/Mbabane",
+      "path": "/time/africa-mbabane",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Mogadishu",
+      "name": "Africa/Mogadishu",
+      "path": "/time/africa-mogadishu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Monrovia",
+      "name": "Africa/Monrovia",
+      "path": "/time/africa-monrovia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Nairobi",
+      "name": "Africa/Nairobi",
+      "path": "/time/africa-nairobi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Nairobi",
+      "name": "Africa/Asmera",
+      "path": "/time/africa-nairobi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Ndjamena",
+      "name": "Africa/Ndjamena",
+      "path": "/time/africa-ndjamena",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Niamey",
+      "name": "Africa/Niamey",
+      "path": "/time/africa-niamey",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Nouakchott",
+      "name": "Africa/Nouakchott",
+      "path": "/time/africa-nouakchott",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Ouagadougou",
+      "name": "Africa/Ouagadougou",
+      "path": "/time/africa-ouagadougou",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Porto-Novo",
+      "name": "Africa/Porto-Novo",
+      "path": "/time/africa-porto-novo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Sao_Tome",
+      "name": "Africa/Sao_Tome",
+      "path": "/time/africa-sao-tome",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Tripoli",
+      "name": "Africa/Tripoli",
+      "path": "/time/africa-tripoli",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Tripoli",
+      "name": "Libya",
+      "path": "/time/africa-tripoli",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Tunis",
+      "name": "Africa/Tunis",
+      "path": "/time/africa-tunis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Africa/Windhoek",
+      "name": "Africa/Windhoek",
+      "path": "/time/africa-windhoek",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Adak",
+      "name": "America/Adak",
+      "path": "/time/america-adak",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Adak",
+      "name": "America/Atka",
+      "path": "/time/america-adak",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Adak",
+      "name": "US/Aleutian",
+      "path": "/time/america-adak",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Anchorage",
+      "name": "America/Anchorage",
+      "path": "/time/america-anchorage",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Anchorage",
+      "name": "US/Alaska",
+      "path": "/time/america-anchorage",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Anguilla",
+      "name": "America/Anguilla",
+      "path": "/time/america-anguilla",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Antigua",
+      "name": "America/Antigua",
+      "path": "/time/america-antigua",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Araguaina",
+      "name": "America/Araguaina",
+      "path": "/time/america-araguaina",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Buenos_Aires",
+      "name": "America/Argentina/Buenos_Aires",
+      "path": "/time/america-argentina-buenos-aires",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Buenos_Aires",
+      "name": "America/Buenos_Aires",
+      "path": "/time/america-argentina-buenos-aires",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Catamarca",
+      "name": "America/Argentina/Catamarca",
+      "path": "/time/america-argentina-catamarca",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Catamarca",
+      "name": "America/Argentina/ComodRivadavia",
+      "path": "/time/america-argentina-catamarca",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Catamarca",
+      "name": "America/Catamarca",
+      "path": "/time/america-argentina-catamarca",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Cordoba",
+      "name": "America/Argentina/Cordoba",
+      "path": "/time/america-argentina-cordoba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Cordoba",
+      "name": "America/Cordoba",
+      "path": "/time/america-argentina-cordoba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Cordoba",
+      "name": "America/Rosario",
+      "path": "/time/america-argentina-cordoba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Jujuy",
+      "name": "America/Argentina/Jujuy",
+      "path": "/time/america-argentina-jujuy",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Jujuy",
+      "name": "America/Jujuy",
+      "path": "/time/america-argentina-jujuy",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/La_Rioja",
+      "name": "America/Argentina/La_Rioja",
+      "path": "/time/america-argentina-la-rioja",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Mendoza",
+      "name": "America/Argentina/Mendoza",
+      "path": "/time/america-argentina-mendoza",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Mendoza",
+      "name": "America/Mendoza",
+      "path": "/time/america-argentina-mendoza",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Rio_Gallegos",
+      "name": "America/Argentina/Rio_Gallegos",
+      "path": "/time/america-argentina-rio-gallegos",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Salta",
+      "name": "America/Argentina/Salta",
+      "path": "/time/america-argentina-salta",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/San_Juan",
+      "name": "America/Argentina/San_Juan",
+      "path": "/time/america-argentina-san-juan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/San_Luis",
+      "name": "America/Argentina/San_Luis",
+      "path": "/time/america-argentina-san-luis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Tucuman",
+      "name": "America/Argentina/Tucuman",
+      "path": "/time/america-argentina-tucuman",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Argentina/Ushuaia",
+      "name": "America/Argentina/Ushuaia",
+      "path": "/time/america-argentina-ushuaia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Aruba",
+      "name": "America/Aruba",
+      "path": "/time/america-aruba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Asuncion",
+      "name": "America/Asuncion",
+      "path": "/time/america-asuncion",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Atikokan",
+      "name": "America/Atikokan",
+      "path": "/time/america-atikokan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Bahia",
+      "name": "America/Bahia",
+      "path": "/time/america-bahia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Bahia_Banderas",
+      "name": "America/Bahia_Banderas",
+      "path": "/time/america-bahia-banderas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Barbados",
+      "name": "America/Barbados",
+      "path": "/time/america-barbados",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Belem",
+      "name": "America/Belem",
+      "path": "/time/america-belem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Belize",
+      "name": "America/Belize",
+      "path": "/time/america-belize",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Blanc-Sablon",
+      "name": "America/Blanc-Sablon",
+      "path": "/time/america-blanc-sablon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Boa_Vista",
+      "name": "America/Boa_Vista",
+      "path": "/time/america-boa-vista",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Bogota",
+      "name": "America/Bogota",
+      "path": "/time/america-bogota",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Boise",
+      "name": "America/Boise",
+      "path": "/time/america-boise",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Cambridge_Bay",
+      "name": "America/Cambridge_Bay",
+      "path": "/time/america-cambridge-bay",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Campo_Grande",
+      "name": "America/Campo_Grande",
+      "path": "/time/america-campo-grande",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Cancun",
+      "name": "America/Cancun",
+      "path": "/time/america-cancun",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Caracas",
+      "name": "America/Caracas",
+      "path": "/time/america-caracas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Cayenne",
+      "name": "America/Cayenne",
+      "path": "/time/america-cayenne",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Cayman",
+      "name": "America/Cayman",
+      "path": "/time/america-cayman",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Chicago",
+      "name": "America/Chicago",
+      "path": "/time/america-chicago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Chicago",
+      "name": "US/Central",
+      "path": "/time/america-chicago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Chihuahua",
+      "name": "America/Chihuahua",
+      "path": "/time/america-chihuahua",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Ciudad_Juarez",
+      "name": "America/Ciudad_Juarez",
+      "path": "/time/america-ciudad-juarez",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Costa_Rica",
+      "name": "America/Costa_Rica",
+      "path": "/time/america-costa-rica",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Coyhaique",
+      "name": "America/Coyhaique",
+      "path": "/time/america-coyhaique",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Creston",
+      "name": "America/Creston",
+      "path": "/time/america-creston",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Cuiaba",
+      "name": "America/Cuiaba",
+      "path": "/time/america-cuiaba",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Curacao",
+      "name": "America/Curacao",
+      "path": "/time/america-curacao",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Danmarkshavn",
+      "name": "America/Danmarkshavn",
+      "path": "/time/america-danmarkshavn",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Dawson",
+      "name": "America/Dawson",
+      "path": "/time/america-dawson",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Dawson_Creek",
+      "name": "America/Dawson_Creek",
+      "path": "/time/america-dawson-creek",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Denver",
+      "name": "America/Denver",
+      "path": "/time/america-denver",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Denver",
+      "name": "America/Shiprock",
+      "path": "/time/america-denver",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Denver",
+      "name": "Navajo",
+      "path": "/time/america-denver",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Denver",
+      "name": "US/Mountain",
+      "path": "/time/america-denver",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Detroit",
+      "name": "America/Detroit",
+      "path": "/time/america-detroit",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Detroit",
+      "name": "US/Michigan",
+      "path": "/time/america-detroit",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Dominica",
+      "name": "America/Dominica",
+      "path": "/time/america-dominica",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Edmonton",
+      "name": "America/Edmonton",
+      "path": "/time/america-edmonton",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        }
+      ]
+    },
+    {
+      "id": "America/Edmonton",
+      "name": "America/Yellowknife",
+      "path": "/time/america-edmonton",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        }
+      ]
+    },
+    {
+      "id": "America/Edmonton",
+      "name": "Canada/Mountain",
+      "path": "/time/america-edmonton",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        }
+      ]
+    },
+    {
+      "id": "America/Eirunepe",
+      "name": "America/Eirunepe",
+      "path": "/time/america-eirunepe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/El_Salvador",
+      "name": "America/El_Salvador",
+      "path": "/time/america-el-salvador",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Fort_Nelson",
+      "name": "America/Fort_Nelson",
+      "path": "/time/america-fort-nelson",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Fortaleza",
+      "name": "America/Fortaleza",
+      "path": "/time/america-fortaleza",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Glace_Bay",
+      "name": "America/Glace_Bay",
+      "path": "/time/america-glace-bay",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Goose_Bay",
+      "name": "America/Goose_Bay",
+      "path": "/time/america-goose-bay",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Grand_Turk",
+      "name": "America/Grand_Turk",
+      "path": "/time/america-grand-turk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Grenada",
+      "name": "America/Grenada",
+      "path": "/time/america-grenada",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Guadeloupe",
+      "name": "America/Guadeloupe",
+      "path": "/time/america-guadeloupe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Guatemala",
+      "name": "America/Guatemala",
+      "path": "/time/america-guatemala",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Guayaquil",
+      "name": "America/Guayaquil",
+      "path": "/time/america-guayaquil",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Guyana",
+      "name": "America/Guyana",
+      "path": "/time/america-guyana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Halifax",
+      "name": "America/Halifax",
+      "path": "/time/america-halifax",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Halifax",
+      "name": "Canada/Atlantic",
+      "path": "/time/america-halifax",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Havana",
+      "name": "America/Havana",
+      "path": "/time/america-havana",
+      "samples": 174,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        }
+      ]
+    },
+    {
+      "id": "America/Havana",
+      "name": "Cuba",
+      "path": "/time/america-havana",
+      "samples": 174,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -240,
+          "native": -300
+        }
+      ]
+    },
+    {
+      "id": "America/Hermosillo",
+      "name": "America/Hermosillo",
+      "path": "/time/america-hermosillo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Indianapolis",
+      "name": "America/Indiana/Indianapolis",
+      "path": "/time/america-indiana-indianapolis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Indianapolis",
+      "name": "America/Fort_Wayne",
+      "path": "/time/america-indiana-indianapolis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Indianapolis",
+      "name": "America/Indianapolis",
+      "path": "/time/america-indiana-indianapolis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Indianapolis",
+      "name": "US/East-Indiana",
+      "path": "/time/america-indiana-indianapolis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Knox",
+      "name": "America/Indiana/Knox",
+      "path": "/time/america-indiana-knox",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Knox",
+      "name": "America/Knox_IN",
+      "path": "/time/america-indiana-knox",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Knox",
+      "name": "US/Indiana-Starke",
+      "path": "/time/america-indiana-knox",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Marengo",
+      "name": "America/Indiana/Marengo",
+      "path": "/time/america-indiana-marengo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Petersburg",
+      "name": "America/Indiana/Petersburg",
+      "path": "/time/america-indiana-petersburg",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Tell_City",
+      "name": "America/Indiana/Tell_City",
+      "path": "/time/america-indiana-tell-city",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Vevay",
+      "name": "America/Indiana/Vevay",
+      "path": "/time/america-indiana-vevay",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Vincennes",
+      "name": "America/Indiana/Vincennes",
+      "path": "/time/america-indiana-vincennes",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Indiana/Winamac",
+      "name": "America/Indiana/Winamac",
+      "path": "/time/america-indiana-winamac",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Inuvik",
+      "name": "America/Inuvik",
+      "path": "/time/america-inuvik",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -360,
+          "native": -420
+        }
+      ]
+    },
+    {
+      "id": "America/Iqaluit",
+      "name": "America/Iqaluit",
+      "path": "/time/america-iqaluit",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Iqaluit",
+      "name": "America/Pangnirtung",
+      "path": "/time/america-iqaluit",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Jamaica",
+      "name": "America/Jamaica",
+      "path": "/time/america-jamaica",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Jamaica",
+      "name": "Jamaica",
+      "path": "/time/america-jamaica",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Juneau",
+      "name": "America/Juneau",
+      "path": "/time/america-juneau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Kentucky/Louisville",
+      "name": "America/Kentucky/Louisville",
+      "path": "/time/america-kentucky-louisville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Kentucky/Louisville",
+      "name": "America/Louisville",
+      "path": "/time/america-kentucky-louisville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Kentucky/Monticello",
+      "name": "America/Kentucky/Monticello",
+      "path": "/time/america-kentucky-monticello",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Kralendijk",
+      "name": "America/Kralendijk",
+      "path": "/time/america-kralendijk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/La_Paz",
+      "name": "America/La_Paz",
+      "path": "/time/america-la-paz",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Lima",
+      "name": "America/Lima",
+      "path": "/time/america-lima",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Los_Angeles",
+      "name": "America/Los_Angeles",
+      "path": "/time/america-los-angeles",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Los_Angeles",
+      "name": "US/Pacific",
+      "path": "/time/america-los-angeles",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Lower_Princes",
+      "name": "America/Lower_Princes",
+      "path": "/time/america-lower-princes",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Maceio",
+      "name": "America/Maceio",
+      "path": "/time/america-maceio",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Managua",
+      "name": "America/Managua",
+      "path": "/time/america-managua",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Manaus",
+      "name": "America/Manaus",
+      "path": "/time/america-manaus",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Manaus",
+      "name": "Brazil/West",
+      "path": "/time/america-manaus",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Marigot",
+      "name": "America/Marigot",
+      "path": "/time/america-marigot",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Martinique",
+      "name": "America/Martinique",
+      "path": "/time/america-martinique",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Matamoros",
+      "name": "America/Matamoros",
+      "path": "/time/america-matamoros",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Mazatlan",
+      "name": "America/Mazatlan",
+      "path": "/time/america-mazatlan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Mazatlan",
+      "name": "Mexico/BajaSur",
+      "path": "/time/america-mazatlan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Menominee",
+      "name": "America/Menominee",
+      "path": "/time/america-menominee",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Merida",
+      "name": "America/Merida",
+      "path": "/time/america-merida",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Metlakatla",
+      "name": "America/Metlakatla",
+      "path": "/time/america-metlakatla",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Mexico_City",
+      "name": "America/Mexico_City",
+      "path": "/time/america-mexico-city",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Mexico_City",
+      "name": "Mexico/General",
+      "path": "/time/america-mexico-city",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Miquelon",
+      "name": "America/Miquelon",
+      "path": "/time/america-miquelon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Moncton",
+      "name": "America/Moncton",
+      "path": "/time/america-moncton",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Monterrey",
+      "name": "America/Monterrey",
+      "path": "/time/america-monterrey",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Montevideo",
+      "name": "America/Montevideo",
+      "path": "/time/america-montevideo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Montserrat",
+      "name": "America/Montserrat",
+      "path": "/time/america-montserrat",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Nassau",
+      "name": "America/Nassau",
+      "path": "/time/america-nassau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/New_York",
+      "name": "America/New_York",
+      "path": "/time/america-new-york",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/New_York",
+      "name": "US/Eastern",
+      "path": "/time/america-new-york",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Nome",
+      "name": "America/Nome",
+      "path": "/time/america-nome",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Noronha",
+      "name": "America/Noronha",
+      "path": "/time/america-noronha",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Noronha",
+      "name": "Brazil/DeNoronha",
+      "path": "/time/america-noronha",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/North_Dakota/Beulah",
+      "name": "America/North_Dakota/Beulah",
+      "path": "/time/america-north-dakota-beulah",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/North_Dakota/Center",
+      "name": "America/North_Dakota/Center",
+      "path": "/time/america-north-dakota-center",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/North_Dakota/New_Salem",
+      "name": "America/North_Dakota/New_Salem",
+      "path": "/time/america-north-dakota-new-salem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Nuuk",
+      "name": "America/Nuuk",
+      "path": "/time/america-nuuk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Nuuk",
+      "name": "America/Godthab",
+      "path": "/time/america-nuuk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Ojinaga",
+      "name": "America/Ojinaga",
+      "path": "/time/america-ojinaga",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Panama",
+      "name": "America/Panama",
+      "path": "/time/america-panama",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Panama",
+      "name": "America/Coral_Harbour",
+      "path": "/time/america-panama",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Panama",
+      "name": "EST",
+      "path": "/time/america-panama",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Paramaribo",
+      "name": "America/Paramaribo",
+      "path": "/time/america-paramaribo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Phoenix",
+      "name": "America/Phoenix",
+      "path": "/time/america-phoenix",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Phoenix",
+      "name": "MST",
+      "path": "/time/america-phoenix",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Phoenix",
+      "name": "US/Arizona",
+      "path": "/time/america-phoenix",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Port_of_Spain",
+      "name": "America/Port_of_Spain",
+      "path": "/time/america-port-of-spain",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Port-au-Prince",
+      "name": "America/Port-au-Prince",
+      "path": "/time/america-port-au-prince",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Porto_Velho",
+      "name": "America/Porto_Velho",
+      "path": "/time/america-porto-velho",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Puerto_Rico",
+      "name": "America/Puerto_Rico",
+      "path": "/time/america-puerto-rico",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Puerto_Rico",
+      "name": "America/Virgin",
+      "path": "/time/america-puerto-rico",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Punta_Arenas",
+      "name": "America/Punta_Arenas",
+      "path": "/time/america-punta-arenas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Rankin_Inlet",
+      "name": "America/Rankin_Inlet",
+      "path": "/time/america-rankin-inlet",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Recife",
+      "name": "America/Recife",
+      "path": "/time/america-recife",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Regina",
+      "name": "America/Regina",
+      "path": "/time/america-regina",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Regina",
+      "name": "Canada/Saskatchewan",
+      "path": "/time/america-regina",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Resolute",
+      "name": "America/Resolute",
+      "path": "/time/america-resolute",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Rio_Branco",
+      "name": "America/Rio_Branco",
+      "path": "/time/america-rio-branco",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Rio_Branco",
+      "name": "America/Porto_Acre",
+      "path": "/time/america-rio-branco",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Rio_Branco",
+      "name": "Brazil/Acre",
+      "path": "/time/america-rio-branco",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Santarem",
+      "name": "America/Santarem",
+      "path": "/time/america-santarem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Santiago",
+      "name": "America/Santiago",
+      "path": "/time/america-santiago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Santiago",
+      "name": "Chile/Continental",
+      "path": "/time/america-santiago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Santo_Domingo",
+      "name": "America/Santo_Domingo",
+      "path": "/time/america-santo-domingo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Sao_Paulo",
+      "name": "America/Sao_Paulo",
+      "path": "/time/america-sao-paulo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Sao_Paulo",
+      "name": "Brazil/East",
+      "path": "/time/america-sao-paulo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Scoresbysund",
+      "name": "America/Scoresbysund",
+      "path": "/time/america-scoresbysund",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Sitka",
+      "name": "America/Sitka",
+      "path": "/time/america-sitka",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Barthelemy",
+      "name": "America/St_Barthelemy",
+      "path": "/time/america-st-barthelemy",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Johns",
+      "name": "America/St_Johns",
+      "path": "/time/america-st-johns",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Johns",
+      "name": "Canada/Newfoundland",
+      "path": "/time/america-st-johns",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Kitts",
+      "name": "America/St_Kitts",
+      "path": "/time/america-st-kitts",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Lucia",
+      "name": "America/St_Lucia",
+      "path": "/time/america-st-lucia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Thomas",
+      "name": "America/St_Thomas",
+      "path": "/time/america-st-thomas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/St_Vincent",
+      "name": "America/St_Vincent",
+      "path": "/time/america-st-vincent",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Swift_Current",
+      "name": "America/Swift_Current",
+      "path": "/time/america-swift-current",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tegucigalpa",
+      "name": "America/Tegucigalpa",
+      "path": "/time/america-tegucigalpa",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Thule",
+      "name": "America/Thule",
+      "path": "/time/america-thule",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tijuana",
+      "name": "America/Tijuana",
+      "path": "/time/america-tijuana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tijuana",
+      "name": "America/Ensenada",
+      "path": "/time/america-tijuana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tijuana",
+      "name": "America/Santa_Isabel",
+      "path": "/time/america-tijuana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tijuana",
+      "name": "Mexico/BajaNorte",
+      "path": "/time/america-tijuana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Toronto",
+      "name": "America/Toronto",
+      "path": "/time/america-toronto",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Toronto",
+      "name": "America/Montreal",
+      "path": "/time/america-toronto",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Toronto",
+      "name": "America/Nipigon",
+      "path": "/time/america-toronto",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Toronto",
+      "name": "America/Thunder_Bay",
+      "path": "/time/america-toronto",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Toronto",
+      "name": "Canada/Eastern",
+      "path": "/time/america-toronto",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Tortola",
+      "name": "America/Tortola",
+      "path": "/time/america-tortola",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Vancouver",
+      "name": "America/Vancouver",
+      "path": "/time/america-vancouver",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        }
+      ]
+    },
+    {
+      "id": "America/Vancouver",
+      "name": "Canada/Pacific",
+      "path": "/time/america-vancouver",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -420,
+          "native": -480
+        }
+      ]
+    },
+    {
+      "id": "America/Whitehorse",
+      "name": "America/Whitehorse",
+      "path": "/time/america-whitehorse",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Whitehorse",
+      "name": "Canada/Yukon",
+      "path": "/time/america-whitehorse",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "America/Winnipeg",
+      "name": "America/Winnipeg",
+      "path": "/time/america-winnipeg",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        }
+      ]
+    },
+    {
+      "id": "America/Winnipeg",
+      "name": "America/Rainy_River",
+      "path": "/time/america-winnipeg",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        }
+      ]
+    },
+    {
+      "id": "America/Winnipeg",
+      "name": "Canada/Central",
+      "path": "/time/america-winnipeg",
+      "samples": 123,
+      "issues": [],
+      "nativeDifferences": [
+        {
+          "at": "2026-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2026-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2027-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2028-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2029-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2030-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2031-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2032-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2033-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2034-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-01-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-02-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-11-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        },
+        {
+          "at": "2035-12-15T12:00:00.000Z",
+          "expected": -300,
+          "native": -360
+        }
+      ]
+    },
+    {
+      "id": "America/Yakutat",
+      "name": "America/Yakutat",
+      "path": "/time/america-yakutat",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Casey",
+      "name": "Antarctica/Casey",
+      "path": "/time/antarctica-casey",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Davis",
+      "name": "Antarctica/Davis",
+      "path": "/time/antarctica-davis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/DumontDUrville",
+      "name": "Antarctica/DumontDUrville",
+      "path": "/time/antarctica-dumontdurville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Macquarie",
+      "name": "Antarctica/Macquarie",
+      "path": "/time/antarctica-macquarie",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Mawson",
+      "name": "Antarctica/Mawson",
+      "path": "/time/antarctica-mawson",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/McMurdo",
+      "name": "Antarctica/McMurdo",
+      "path": "/time/antarctica-mcmurdo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Palmer",
+      "name": "Antarctica/Palmer",
+      "path": "/time/antarctica-palmer",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Rothera",
+      "name": "Antarctica/Rothera",
+      "path": "/time/antarctica-rothera",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Syowa",
+      "name": "Antarctica/Syowa",
+      "path": "/time/antarctica-syowa",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Troll",
+      "name": "Antarctica/Troll",
+      "path": "/time/antarctica-troll",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Antarctica/Vostok",
+      "name": "Antarctica/Vostok",
+      "path": "/time/antarctica-vostok",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Arctic/Longyearbyen",
+      "name": "Arctic/Longyearbyen",
+      "path": "/time/arctic-longyearbyen",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Aden",
+      "name": "Asia/Aden",
+      "path": "/time/asia-aden",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Almaty",
+      "name": "Asia/Almaty",
+      "path": "/time/asia-almaty",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Amman",
+      "name": "Asia/Amman",
+      "path": "/time/asia-amman",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Anadyr",
+      "name": "Asia/Anadyr",
+      "path": "/time/asia-anadyr",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Aqtau",
+      "name": "Asia/Aqtau",
+      "path": "/time/asia-aqtau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Aqtobe",
+      "name": "Asia/Aqtobe",
+      "path": "/time/asia-aqtobe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ashgabat",
+      "name": "Asia/Ashgabat",
+      "path": "/time/asia-ashgabat",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ashgabat",
+      "name": "Asia/Ashkhabad",
+      "path": "/time/asia-ashgabat",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Atyrau",
+      "name": "Asia/Atyrau",
+      "path": "/time/asia-atyrau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Baghdad",
+      "name": "Asia/Baghdad",
+      "path": "/time/asia-baghdad",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Bahrain",
+      "name": "Asia/Bahrain",
+      "path": "/time/asia-bahrain",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Baku",
+      "name": "Asia/Baku",
+      "path": "/time/asia-baku",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Bangkok",
+      "name": "Asia/Bangkok",
+      "path": "/time/asia-bangkok",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Barnaul",
+      "name": "Asia/Barnaul",
+      "path": "/time/asia-barnaul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Beirut",
+      "name": "Asia/Beirut",
+      "path": "/time/asia-beirut",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Bishkek",
+      "name": "Asia/Bishkek",
+      "path": "/time/asia-bishkek",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Brunei",
+      "name": "Asia/Brunei",
+      "path": "/time/asia-brunei",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Chita",
+      "name": "Asia/Chita",
+      "path": "/time/asia-chita",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Colombo",
+      "name": "Asia/Colombo",
+      "path": "/time/asia-colombo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Damascus",
+      "name": "Asia/Damascus",
+      "path": "/time/asia-damascus",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Dhaka",
+      "name": "Asia/Dhaka",
+      "path": "/time/asia-dhaka",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Dhaka",
+      "name": "Asia/Dacca",
+      "path": "/time/asia-dhaka",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Dili",
+      "name": "Asia/Dili",
+      "path": "/time/asia-dili",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Dubai",
+      "name": "Asia/Dubai",
+      "path": "/time/asia-dubai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Dushanbe",
+      "name": "Asia/Dushanbe",
+      "path": "/time/asia-dushanbe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Famagusta",
+      "name": "Asia/Famagusta",
+      "path": "/time/asia-famagusta",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Gaza",
+      "name": "Asia/Gaza",
+      "path": "/time/asia-gaza",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Hebron",
+      "name": "Asia/Hebron",
+      "path": "/time/asia-hebron",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ho_Chi_Minh",
+      "name": "Asia/Ho_Chi_Minh",
+      "path": "/time/asia-ho-chi-minh",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ho_Chi_Minh",
+      "name": "Asia/Saigon",
+      "path": "/time/asia-ho-chi-minh",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Hong_Kong",
+      "name": "Asia/Hong_Kong",
+      "path": "/time/asia-hong-kong",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Hong_Kong",
+      "name": "Hongkong",
+      "path": "/time/asia-hong-kong",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Hovd",
+      "name": "Asia/Hovd",
+      "path": "/time/asia-hovd",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Irkutsk",
+      "name": "Asia/Irkutsk",
+      "path": "/time/asia-irkutsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Jakarta",
+      "name": "Asia/Jakarta",
+      "path": "/time/asia-jakarta",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Jayapura",
+      "name": "Asia/Jayapura",
+      "path": "/time/asia-jayapura",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Jerusalem",
+      "name": "Asia/Jerusalem",
+      "path": "/time/asia-jerusalem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Jerusalem",
+      "name": "Asia/Tel_Aviv",
+      "path": "/time/asia-jerusalem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Jerusalem",
+      "name": "Israel",
+      "path": "/time/asia-jerusalem",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kabul",
+      "name": "Asia/Kabul",
+      "path": "/time/asia-kabul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kamchatka",
+      "name": "Asia/Kamchatka",
+      "path": "/time/asia-kamchatka",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Karachi",
+      "name": "Asia/Karachi",
+      "path": "/time/asia-karachi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kathmandu",
+      "name": "Asia/Kathmandu",
+      "path": "/time/asia-kathmandu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kathmandu",
+      "name": "Asia/Katmandu",
+      "path": "/time/asia-kathmandu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Khandyga",
+      "name": "Asia/Khandyga",
+      "path": "/time/asia-khandyga",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kolkata",
+      "name": "Asia/Kolkata",
+      "path": "/time/asia-kolkata",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kolkata",
+      "name": "Asia/Calcutta",
+      "path": "/time/asia-kolkata",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Krasnoyarsk",
+      "name": "Asia/Krasnoyarsk",
+      "path": "/time/asia-krasnoyarsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kuala_Lumpur",
+      "name": "Asia/Kuala_Lumpur",
+      "path": "/time/asia-kuala-lumpur",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kuching",
+      "name": "Asia/Kuching",
+      "path": "/time/asia-kuching",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Kuwait",
+      "name": "Asia/Kuwait",
+      "path": "/time/asia-kuwait",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Macau",
+      "name": "Asia/Macau",
+      "path": "/time/asia-macau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Macau",
+      "name": "Asia/Macao",
+      "path": "/time/asia-macau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Magadan",
+      "name": "Asia/Magadan",
+      "path": "/time/asia-magadan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Makassar",
+      "name": "Asia/Makassar",
+      "path": "/time/asia-makassar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Makassar",
+      "name": "Asia/Ujung_Pandang",
+      "path": "/time/asia-makassar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Manila",
+      "name": "Asia/Manila",
+      "path": "/time/asia-manila",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Muscat",
+      "name": "Asia/Muscat",
+      "path": "/time/asia-muscat",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Nicosia",
+      "name": "Asia/Nicosia",
+      "path": "/time/asia-nicosia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Nicosia",
+      "name": "Europe/Nicosia",
+      "path": "/time/asia-nicosia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Novokuznetsk",
+      "name": "Asia/Novokuznetsk",
+      "path": "/time/asia-novokuznetsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Novosibirsk",
+      "name": "Asia/Novosibirsk",
+      "path": "/time/asia-novosibirsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Omsk",
+      "name": "Asia/Omsk",
+      "path": "/time/asia-omsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Oral",
+      "name": "Asia/Oral",
+      "path": "/time/asia-oral",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Phnom_Penh",
+      "name": "Asia/Phnom_Penh",
+      "path": "/time/asia-phnom-penh",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Pontianak",
+      "name": "Asia/Pontianak",
+      "path": "/time/asia-pontianak",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Pyongyang",
+      "name": "Asia/Pyongyang",
+      "path": "/time/asia-pyongyang",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Qatar",
+      "name": "Asia/Qatar",
+      "path": "/time/asia-qatar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Qostanay",
+      "name": "Asia/Qostanay",
+      "path": "/time/asia-qostanay",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Qyzylorda",
+      "name": "Asia/Qyzylorda",
+      "path": "/time/asia-qyzylorda",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Riyadh",
+      "name": "Asia/Riyadh",
+      "path": "/time/asia-riyadh",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Sakhalin",
+      "name": "Asia/Sakhalin",
+      "path": "/time/asia-sakhalin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Samarkand",
+      "name": "Asia/Samarkand",
+      "path": "/time/asia-samarkand",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Seoul",
+      "name": "Asia/Seoul",
+      "path": "/time/asia-seoul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Seoul",
+      "name": "ROK",
+      "path": "/time/asia-seoul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Shanghai",
+      "name": "Asia/Shanghai",
+      "path": "/time/asia-shanghai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Shanghai",
+      "name": "Asia/Chongqing",
+      "path": "/time/asia-shanghai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Shanghai",
+      "name": "Asia/Chungking",
+      "path": "/time/asia-shanghai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Shanghai",
+      "name": "Asia/Harbin",
+      "path": "/time/asia-shanghai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Shanghai",
+      "name": "PRC",
+      "path": "/time/asia-shanghai",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Singapore",
+      "name": "Asia/Singapore",
+      "path": "/time/asia-singapore",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Singapore",
+      "name": "Singapore",
+      "path": "/time/asia-singapore",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Srednekolymsk",
+      "name": "Asia/Srednekolymsk",
+      "path": "/time/asia-srednekolymsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Taipei",
+      "name": "Asia/Taipei",
+      "path": "/time/asia-taipei",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Taipei",
+      "name": "ROC",
+      "path": "/time/asia-taipei",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tashkent",
+      "name": "Asia/Tashkent",
+      "path": "/time/asia-tashkent",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tbilisi",
+      "name": "Asia/Tbilisi",
+      "path": "/time/asia-tbilisi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tehran",
+      "name": "Asia/Tehran",
+      "path": "/time/asia-tehran",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tehran",
+      "name": "Iran",
+      "path": "/time/asia-tehran",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Thimphu",
+      "name": "Asia/Thimphu",
+      "path": "/time/asia-thimphu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Thimphu",
+      "name": "Asia/Thimbu",
+      "path": "/time/asia-thimphu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tokyo",
+      "name": "Asia/Tokyo",
+      "path": "/time/asia-tokyo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tokyo",
+      "name": "Japan",
+      "path": "/time/asia-tokyo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Tomsk",
+      "name": "Asia/Tomsk",
+      "path": "/time/asia-tomsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ulaanbaatar",
+      "name": "Asia/Ulaanbaatar",
+      "path": "/time/asia-ulaanbaatar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ulaanbaatar",
+      "name": "Asia/Choibalsan",
+      "path": "/time/asia-ulaanbaatar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ulaanbaatar",
+      "name": "Asia/Ulan_Bator",
+      "path": "/time/asia-ulaanbaatar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Urumqi",
+      "name": "Asia/Urumqi",
+      "path": "/time/asia-urumqi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Urumqi",
+      "name": "Asia/Kashgar",
+      "path": "/time/asia-urumqi",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Ust-Nera",
+      "name": "Asia/Ust-Nera",
+      "path": "/time/asia-ust-nera",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Vientiane",
+      "name": "Asia/Vientiane",
+      "path": "/time/asia-vientiane",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Vladivostok",
+      "name": "Asia/Vladivostok",
+      "path": "/time/asia-vladivostok",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Yakutsk",
+      "name": "Asia/Yakutsk",
+      "path": "/time/asia-yakutsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Yangon",
+      "name": "Asia/Yangon",
+      "path": "/time/asia-yangon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Yangon",
+      "name": "Asia/Rangoon",
+      "path": "/time/asia-yangon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Yekaterinburg",
+      "name": "Asia/Yekaterinburg",
+      "path": "/time/asia-yekaterinburg",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Asia/Yerevan",
+      "name": "Asia/Yerevan",
+      "path": "/time/asia-yerevan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Azores",
+      "name": "Atlantic/Azores",
+      "path": "/time/atlantic-azores",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Bermuda",
+      "name": "Atlantic/Bermuda",
+      "path": "/time/atlantic-bermuda",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Canary",
+      "name": "Atlantic/Canary",
+      "path": "/time/atlantic-canary",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Cape_Verde",
+      "name": "Atlantic/Cape_Verde",
+      "path": "/time/atlantic-cape-verde",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Faroe",
+      "name": "Atlantic/Faroe",
+      "path": "/time/atlantic-faroe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Faroe",
+      "name": "Atlantic/Faeroe",
+      "path": "/time/atlantic-faroe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Madeira",
+      "name": "Atlantic/Madeira",
+      "path": "/time/atlantic-madeira",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Reykjavik",
+      "name": "Atlantic/Reykjavik",
+      "path": "/time/atlantic-reykjavik",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/South_Georgia",
+      "name": "Atlantic/South_Georgia",
+      "path": "/time/atlantic-south-georgia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/St_Helena",
+      "name": "Atlantic/St_Helena",
+      "path": "/time/atlantic-st-helena",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Atlantic/Stanley",
+      "name": "Atlantic/Stanley",
+      "path": "/time/atlantic-stanley",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Adelaide",
+      "name": "Australia/Adelaide",
+      "path": "/time/australia-adelaide",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Adelaide",
+      "name": "Australia/South",
+      "path": "/time/australia-adelaide",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Brisbane",
+      "name": "Australia/Brisbane",
+      "path": "/time/australia-brisbane",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Brisbane",
+      "name": "Australia/Queensland",
+      "path": "/time/australia-brisbane",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Broken_Hill",
+      "name": "Australia/Broken_Hill",
+      "path": "/time/australia-broken-hill",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Broken_Hill",
+      "name": "Australia/Yancowinna",
+      "path": "/time/australia-broken-hill",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Darwin",
+      "name": "Australia/Darwin",
+      "path": "/time/australia-darwin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Darwin",
+      "name": "Australia/North",
+      "path": "/time/australia-darwin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Eucla",
+      "name": "Australia/Eucla",
+      "path": "/time/australia-eucla",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Hobart",
+      "name": "Australia/Hobart",
+      "path": "/time/australia-hobart",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Hobart",
+      "name": "Australia/Currie",
+      "path": "/time/australia-hobart",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Hobart",
+      "name": "Australia/Tasmania",
+      "path": "/time/australia-hobart",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Lindeman",
+      "name": "Australia/Lindeman",
+      "path": "/time/australia-lindeman",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Lord_Howe",
+      "name": "Australia/Lord_Howe",
+      "path": "/time/australia-lord-howe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Lord_Howe",
+      "name": "Australia/LHI",
+      "path": "/time/australia-lord-howe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Melbourne",
+      "name": "Australia/Melbourne",
+      "path": "/time/australia-melbourne",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Melbourne",
+      "name": "Australia/Victoria",
+      "path": "/time/australia-melbourne",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Perth",
+      "name": "Australia/Perth",
+      "path": "/time/australia-perth",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Perth",
+      "name": "Australia/West",
+      "path": "/time/australia-perth",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Sydney",
+      "name": "Australia/Sydney",
+      "path": "/time/australia-sydney",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Sydney",
+      "name": "Australia/ACT",
+      "path": "/time/australia-sydney",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Sydney",
+      "name": "Australia/Canberra",
+      "path": "/time/australia-sydney",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Australia/Sydney",
+      "name": "Australia/NSW",
+      "path": "/time/australia-sydney",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Etc/GMT",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Etc/GMT+0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Etc/GMT-0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Etc/GMT0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Etc/Greenwich",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "GMT",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "GMT+0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "GMT-0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "GMT0",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT",
+      "name": "Greenwich",
+      "path": "/time/etc-gmt",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-1",
+      "name": "Etc/GMT-1",
+      "path": "/time/etc-gmt-1",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-10",
+      "name": "Etc/GMT-10",
+      "path": "/time/etc-gmt-10",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-11",
+      "name": "Etc/GMT-11",
+      "path": "/time/etc-gmt-11",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-12",
+      "name": "Etc/GMT-12",
+      "path": "/time/etc-gmt-12",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-13",
+      "name": "Etc/GMT-13",
+      "path": "/time/etc-gmt-13",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-14",
+      "name": "Etc/GMT-14",
+      "path": "/time/etc-gmt-14",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-2",
+      "name": "Etc/GMT-2",
+      "path": "/time/etc-gmt-2",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-3",
+      "name": "Etc/GMT-3",
+      "path": "/time/etc-gmt-3",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-4",
+      "name": "Etc/GMT-4",
+      "path": "/time/etc-gmt-4",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-5",
+      "name": "Etc/GMT-5",
+      "path": "/time/etc-gmt-5",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-6",
+      "name": "Etc/GMT-6",
+      "path": "/time/etc-gmt-6",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-7",
+      "name": "Etc/GMT-7",
+      "path": "/time/etc-gmt-7",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-8",
+      "name": "Etc/GMT-8",
+      "path": "/time/etc-gmt-8",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT-9",
+      "name": "Etc/GMT-9",
+      "path": "/time/etc-gmt-9",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+1",
+      "name": "Etc/GMT+1",
+      "path": "/time/etc-gmt-plus-1",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+10",
+      "name": "Etc/GMT+10",
+      "path": "/time/etc-gmt-plus-10",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+11",
+      "name": "Etc/GMT+11",
+      "path": "/time/etc-gmt-plus-11",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+12",
+      "name": "Etc/GMT+12",
+      "path": "/time/etc-gmt-plus-12",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+2",
+      "name": "Etc/GMT+2",
+      "path": "/time/etc-gmt-plus-2",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+3",
+      "name": "Etc/GMT+3",
+      "path": "/time/etc-gmt-plus-3",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+4",
+      "name": "Etc/GMT+4",
+      "path": "/time/etc-gmt-plus-4",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+5",
+      "name": "Etc/GMT+5",
+      "path": "/time/etc-gmt-plus-5",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+6",
+      "name": "Etc/GMT+6",
+      "path": "/time/etc-gmt-plus-6",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+7",
+      "name": "Etc/GMT+7",
+      "path": "/time/etc-gmt-plus-7",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+8",
+      "name": "Etc/GMT+8",
+      "path": "/time/etc-gmt-plus-8",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Etc/GMT+9",
+      "name": "Etc/GMT+9",
+      "path": "/time/etc-gmt-plus-9",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Amsterdam",
+      "name": "Europe/Amsterdam",
+      "path": "/time/europe-amsterdam",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Andorra",
+      "name": "Europe/Andorra",
+      "path": "/time/europe-andorra",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Astrakhan",
+      "name": "Europe/Astrakhan",
+      "path": "/time/europe-astrakhan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Athens",
+      "name": "Europe/Athens",
+      "path": "/time/europe-athens",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Athens",
+      "name": "EET",
+      "path": "/time/europe-athens",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Belgrade",
+      "name": "Europe/Belgrade",
+      "path": "/time/europe-belgrade",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Berlin",
+      "name": "Europe/Berlin",
+      "path": "/time/europe-berlin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Berlin",
+      "name": "Atlantic/Jan_Mayen",
+      "path": "/time/europe-berlin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Bratislava",
+      "name": "Europe/Bratislava",
+      "path": "/time/europe-bratislava",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Brussels",
+      "name": "Europe/Brussels",
+      "path": "/time/europe-brussels",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Brussels",
+      "name": "CET",
+      "path": "/time/europe-brussels",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Brussels",
+      "name": "MET",
+      "path": "/time/europe-brussels",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Bucharest",
+      "name": "Europe/Bucharest",
+      "path": "/time/europe-bucharest",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Budapest",
+      "name": "Europe/Budapest",
+      "path": "/time/europe-budapest",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Busingen",
+      "name": "Europe/Busingen",
+      "path": "/time/europe-busingen",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Chisinau",
+      "name": "Europe/Chisinau",
+      "path": "/time/europe-chisinau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Chisinau",
+      "name": "Europe/Tiraspol",
+      "path": "/time/europe-chisinau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Copenhagen",
+      "name": "Europe/Copenhagen",
+      "path": "/time/europe-copenhagen",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Dublin",
+      "name": "Europe/Dublin",
+      "path": "/time/europe-dublin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Dublin",
+      "name": "Eire",
+      "path": "/time/europe-dublin",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Gibraltar",
+      "name": "Europe/Gibraltar",
+      "path": "/time/europe-gibraltar",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Guernsey",
+      "name": "Europe/Guernsey",
+      "path": "/time/europe-guernsey",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Helsinki",
+      "name": "Europe/Helsinki",
+      "path": "/time/europe-helsinki",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Isle_of_Man",
+      "name": "Europe/Isle_of_Man",
+      "path": "/time/europe-isle-of-man",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Istanbul",
+      "name": "Europe/Istanbul",
+      "path": "/time/europe-istanbul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Istanbul",
+      "name": "Asia/Istanbul",
+      "path": "/time/europe-istanbul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Istanbul",
+      "name": "Turkey",
+      "path": "/time/europe-istanbul",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Jersey",
+      "name": "Europe/Jersey",
+      "path": "/time/europe-jersey",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kaliningrad",
+      "name": "Europe/Kaliningrad",
+      "path": "/time/europe-kaliningrad",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kirov",
+      "name": "Europe/Kirov",
+      "path": "/time/europe-kirov",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kyiv",
+      "name": "Europe/Kyiv",
+      "path": "/time/europe-kyiv",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kyiv",
+      "name": "Europe/Kiev",
+      "path": "/time/europe-kyiv",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kyiv",
+      "name": "Europe/Uzhgorod",
+      "path": "/time/europe-kyiv",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Kyiv",
+      "name": "Europe/Zaporozhye",
+      "path": "/time/europe-kyiv",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Lisbon",
+      "name": "Europe/Lisbon",
+      "path": "/time/europe-lisbon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Lisbon",
+      "name": "Portugal",
+      "path": "/time/europe-lisbon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Lisbon",
+      "name": "WET",
+      "path": "/time/europe-lisbon",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Ljubljana",
+      "name": "Europe/Ljubljana",
+      "path": "/time/europe-ljubljana",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/London",
+      "name": "Europe/London",
+      "path": "/time/europe-london",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/London",
+      "name": "Europe/Belfast",
+      "path": "/time/europe-london",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/London",
+      "name": "GB",
+      "path": "/time/europe-london",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/London",
+      "name": "GB-Eire",
+      "path": "/time/europe-london",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Luxembourg",
+      "name": "Europe/Luxembourg",
+      "path": "/time/europe-luxembourg",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Madrid",
+      "name": "Europe/Madrid",
+      "path": "/time/europe-madrid",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Malta",
+      "name": "Europe/Malta",
+      "path": "/time/europe-malta",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Mariehamn",
+      "name": "Europe/Mariehamn",
+      "path": "/time/europe-mariehamn",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Minsk",
+      "name": "Europe/Minsk",
+      "path": "/time/europe-minsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Monaco",
+      "name": "Europe/Monaco",
+      "path": "/time/europe-monaco",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Moscow",
+      "name": "Europe/Moscow",
+      "path": "/time/europe-moscow",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Moscow",
+      "name": "W-SU",
+      "path": "/time/europe-moscow",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Oslo",
+      "name": "Europe/Oslo",
+      "path": "/time/europe-oslo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Paris",
+      "name": "Europe/Paris",
+      "path": "/time/europe-paris",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Podgorica",
+      "name": "Europe/Podgorica",
+      "path": "/time/europe-podgorica",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Prague",
+      "name": "Europe/Prague",
+      "path": "/time/europe-prague",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Riga",
+      "name": "Europe/Riga",
+      "path": "/time/europe-riga",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Rome",
+      "name": "Europe/Rome",
+      "path": "/time/europe-rome",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Samara",
+      "name": "Europe/Samara",
+      "path": "/time/europe-samara",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/San_Marino",
+      "name": "Europe/San_Marino",
+      "path": "/time/europe-san-marino",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Sarajevo",
+      "name": "Europe/Sarajevo",
+      "path": "/time/europe-sarajevo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Saratov",
+      "name": "Europe/Saratov",
+      "path": "/time/europe-saratov",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Simferopol",
+      "name": "Europe/Simferopol",
+      "path": "/time/europe-simferopol",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Skopje",
+      "name": "Europe/Skopje",
+      "path": "/time/europe-skopje",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Sofia",
+      "name": "Europe/Sofia",
+      "path": "/time/europe-sofia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Stockholm",
+      "name": "Europe/Stockholm",
+      "path": "/time/europe-stockholm",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Tallinn",
+      "name": "Europe/Tallinn",
+      "path": "/time/europe-tallinn",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Tirane",
+      "name": "Europe/Tirane",
+      "path": "/time/europe-tirane",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Ulyanovsk",
+      "name": "Europe/Ulyanovsk",
+      "path": "/time/europe-ulyanovsk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Vaduz",
+      "name": "Europe/Vaduz",
+      "path": "/time/europe-vaduz",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Vatican",
+      "name": "Europe/Vatican",
+      "path": "/time/europe-vatican",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Vienna",
+      "name": "Europe/Vienna",
+      "path": "/time/europe-vienna",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Vilnius",
+      "name": "Europe/Vilnius",
+      "path": "/time/europe-vilnius",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Volgograd",
+      "name": "Europe/Volgograd",
+      "path": "/time/europe-volgograd",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Warsaw",
+      "name": "Europe/Warsaw",
+      "path": "/time/europe-warsaw",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Warsaw",
+      "name": "Poland",
+      "path": "/time/europe-warsaw",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Zagreb",
+      "name": "Europe/Zagreb",
+      "path": "/time/europe-zagreb",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Europe/Zurich",
+      "name": "Europe/Zurich",
+      "path": "/time/europe-zurich",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Antananarivo",
+      "name": "Indian/Antananarivo",
+      "path": "/time/indian-antananarivo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Chagos",
+      "name": "Indian/Chagos",
+      "path": "/time/indian-chagos",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Christmas",
+      "name": "Indian/Christmas",
+      "path": "/time/indian-christmas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Cocos",
+      "name": "Indian/Cocos",
+      "path": "/time/indian-cocos",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Comoro",
+      "name": "Indian/Comoro",
+      "path": "/time/indian-comoro",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Kerguelen",
+      "name": "Indian/Kerguelen",
+      "path": "/time/indian-kerguelen",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Mahe",
+      "name": "Indian/Mahe",
+      "path": "/time/indian-mahe",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Maldives",
+      "name": "Indian/Maldives",
+      "path": "/time/indian-maldives",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Mauritius",
+      "name": "Indian/Mauritius",
+      "path": "/time/indian-mauritius",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Mayotte",
+      "name": "Indian/Mayotte",
+      "path": "/time/indian-mayotte",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Indian/Reunion",
+      "name": "Indian/Reunion",
+      "path": "/time/indian-reunion",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Apia",
+      "name": "Pacific/Apia",
+      "path": "/time/pacific-apia",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Auckland",
+      "name": "Pacific/Auckland",
+      "path": "/time/pacific-auckland",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Auckland",
+      "name": "Antarctica/South_Pole",
+      "path": "/time/pacific-auckland",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Auckland",
+      "name": "NZ",
+      "path": "/time/pacific-auckland",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Bougainville",
+      "name": "Pacific/Bougainville",
+      "path": "/time/pacific-bougainville",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Chatham",
+      "name": "Pacific/Chatham",
+      "path": "/time/pacific-chatham",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Chatham",
+      "name": "NZ-CHAT",
+      "path": "/time/pacific-chatham",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Chuuk",
+      "name": "Pacific/Chuuk",
+      "path": "/time/pacific-chuuk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Easter",
+      "name": "Pacific/Easter",
+      "path": "/time/pacific-easter",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Easter",
+      "name": "Chile/EasterIsland",
+      "path": "/time/pacific-easter",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Efate",
+      "name": "Pacific/Efate",
+      "path": "/time/pacific-efate",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Fakaofo",
+      "name": "Pacific/Fakaofo",
+      "path": "/time/pacific-fakaofo",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Fiji",
+      "name": "Pacific/Fiji",
+      "path": "/time/pacific-fiji",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Funafuti",
+      "name": "Pacific/Funafuti",
+      "path": "/time/pacific-funafuti",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Galapagos",
+      "name": "Pacific/Galapagos",
+      "path": "/time/pacific-galapagos",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Gambier",
+      "name": "Pacific/Gambier",
+      "path": "/time/pacific-gambier",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Guadalcanal",
+      "name": "Pacific/Guadalcanal",
+      "path": "/time/pacific-guadalcanal",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Guadalcanal",
+      "name": "Pacific/Ponape",
+      "path": "/time/pacific-guadalcanal",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Guam",
+      "name": "Pacific/Guam",
+      "path": "/time/pacific-guam",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Honolulu",
+      "name": "Pacific/Honolulu",
+      "path": "/time/pacific-honolulu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Honolulu",
+      "name": "HST",
+      "path": "/time/pacific-honolulu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Honolulu",
+      "name": "Pacific/Johnston",
+      "path": "/time/pacific-honolulu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Honolulu",
+      "name": "US/Hawaii",
+      "path": "/time/pacific-honolulu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kanton",
+      "name": "Pacific/Kanton",
+      "path": "/time/pacific-kanton",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kanton",
+      "name": "Pacific/Enderbury",
+      "path": "/time/pacific-kanton",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kiritimati",
+      "name": "Pacific/Kiritimati",
+      "path": "/time/pacific-kiritimati",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kosrae",
+      "name": "Pacific/Kosrae",
+      "path": "/time/pacific-kosrae",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kwajalein",
+      "name": "Pacific/Kwajalein",
+      "path": "/time/pacific-kwajalein",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Kwajalein",
+      "name": "Kwajalein",
+      "path": "/time/pacific-kwajalein",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Majuro",
+      "name": "Pacific/Majuro",
+      "path": "/time/pacific-majuro",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Marquesas",
+      "name": "Pacific/Marquesas",
+      "path": "/time/pacific-marquesas",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Midway",
+      "name": "Pacific/Midway",
+      "path": "/time/pacific-midway",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Nauru",
+      "name": "Pacific/Nauru",
+      "path": "/time/pacific-nauru",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Niue",
+      "name": "Pacific/Niue",
+      "path": "/time/pacific-niue",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Norfolk",
+      "name": "Pacific/Norfolk",
+      "path": "/time/pacific-norfolk",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Noumea",
+      "name": "Pacific/Noumea",
+      "path": "/time/pacific-noumea",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Pago_Pago",
+      "name": "Pacific/Pago_Pago",
+      "path": "/time/pacific-pago-pago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Pago_Pago",
+      "name": "Pacific/Samoa",
+      "path": "/time/pacific-pago-pago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Pago_Pago",
+      "name": "US/Samoa",
+      "path": "/time/pacific-pago-pago",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Palau",
+      "name": "Pacific/Palau",
+      "path": "/time/pacific-palau",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Pitcairn",
+      "name": "Pacific/Pitcairn",
+      "path": "/time/pacific-pitcairn",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Pohnpei",
+      "name": "Pacific/Pohnpei",
+      "path": "/time/pacific-pohnpei",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Port_Moresby",
+      "name": "Pacific/Port_Moresby",
+      "path": "/time/pacific-port-moresby",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Port_Moresby",
+      "name": "Pacific/Truk",
+      "path": "/time/pacific-port-moresby",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Port_Moresby",
+      "name": "Pacific/Yap",
+      "path": "/time/pacific-port-moresby",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Rarotonga",
+      "name": "Pacific/Rarotonga",
+      "path": "/time/pacific-rarotonga",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Saipan",
+      "name": "Pacific/Saipan",
+      "path": "/time/pacific-saipan",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Tahiti",
+      "name": "Pacific/Tahiti",
+      "path": "/time/pacific-tahiti",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Tarawa",
+      "name": "Pacific/Tarawa",
+      "path": "/time/pacific-tarawa",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Tongatapu",
+      "name": "Pacific/Tongatapu",
+      "path": "/time/pacific-tongatapu",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Wake",
+      "name": "Pacific/Wake",
+      "path": "/time/pacific-wake",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "Pacific/Wallis",
+      "name": "Pacific/Wallis",
+      "path": "/time/pacific-wallis",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "UTC",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Etc/UCT",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Etc/UTC",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Etc/Universal",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Etc/Zulu",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "UCT",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Universal",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    },
+    {
+      "id": "UTC",
+      "name": "Zulu",
+      "path": "/time/utc",
+      "samples": 120,
+      "issues": [],
+      "nativeDifferences": []
+    }
+  ]
+}

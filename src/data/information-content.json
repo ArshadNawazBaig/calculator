@@ -131,10 +131,19 @@
         ]
       },
       {
-        "title": "Local files and text utilities",
+        "title": "Local files, imported rows, and documents",
         "paragraphs": [
           "The Base64 file tool reads only a file you select. Finflo converts its contents in your browser and creates a local download; the tool does not upload the file or its filename to Finflo. Text encoding, decoding, and password generation also run locally.",
+          "CSV import controls and My workspace’s Import backup read only the local file you choose. Imported rows become calculator inputs; saving a calculation can keep those rows in this browser’s workspace and include them in a backup. Finflo does not upload these files for import.",
+          "The invoice and quotation tool uses the business and customer details you enter and an optional PNG or JPEG logo to create a preview and PDF in your browser. Finflo does not upload those details or the logo for document generation. Saving the calculation keeps the entered fields in My workspace; the logo and chosen preview color are not included in the saved calculation or workspace backup.",
+          "PDF reports and CSV exports are created in your browser. A downloaded document can contain names, contact details, tax identifiers, or other information you entered. Review its contents before sharing it, especially when using a shared device.",
           "Downloaded files remain wherever you save them until you remove them. Your browser, extensions, operating system, and any application you use to open or share a file operate under their own settings and policies."
+        ]
+      },
+      {
+        "title": "Spin-wheel entries and results",
+        "paragraphs": [
+          "Spin-wheel lists, including names you enter, and recent spin results stay in the open page. Finflo does not upload them or save them to My workspace. Copy result writes the selected result to your clipboard only when you choose that control."
         ]
       },
       {
@@ -226,9 +235,14 @@
         "title": "Content and attribution",
         "paragraphs": [
           "Finflo’s original interface and explanations are provided for use with the site. External trademarks and sources belong to their respective owners. References do not imply endorsement.",
-          "Last updated October 9, 2026. Contact Finflo with questions about these terms."
+          "The site uses third-party software libraries and fonts under their respective licenses. Their notices are available below. Reference-data sources and map attribution are identified with the relevant tools; those sources retain any applicable rights.",
+          "Last updated November 9, 2026. Contact Finflo with questions about these terms."
         ],
         "links": [
+          {
+            "label": "Third-party software and font notices",
+            "href": "/third-party-notices.txt"
+          },
           {
             "label": "Contact",
             "href": "/contact"

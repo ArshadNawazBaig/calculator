@@ -1,0 +1,363 @@
+{
+  "prepared": "2026-11-09",
+  "packages": [
+    {
+      "name": "@babel/runtime",
+      "version": "7.29.10",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/babel/babel.git",
+        "directory": "packages/babel-runtime"
+      }
+    },
+    {
+      "name": "@internationalized/date",
+      "version": "3.12.4",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum/tree/main/packages/@internationalized/date"
+      }
+    },
+    {
+      "name": "@internationalized/number",
+      "version": "3.6.9",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "@internationalized/string",
+      "version": "3.2.10",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "@pdf-lib/standard-fonts",
+      "version": "1.0.0",
+      "license": "MIT",
+      "repository": "https://github.com/Hopding/standard-fonts.git"
+    },
+    {
+      "name": "@pdf-lib/upng",
+      "version": "1.0.1",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Hopding/upng"
+      }
+    },
+    {
+      "name": "@react-types/shared",
+      "version": "3.37.0",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "@swc/helpers",
+      "version": "0.5.23",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/swc-project/swc.git",
+        "directory": "packages/helpers"
+      }
+    },
+    {
+      "name": "aria-hidden",
+      "version": "1.2.6",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/theKashey/aria-hidden.git"
+      }
+    },
+    {
+      "name": "base64-js",
+      "version": "1.5.1",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/beatgammit/base64-js.git"
+      }
+    },
+    {
+      "name": "buffer",
+      "version": "6.0.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/feross/buffer.git"
+      }
+    },
+    {
+      "name": "client-only",
+      "version": "0.0.1",
+      "license": "MIT"
+    },
+    {
+      "name": "clsx",
+      "version": "2.1.1",
+      "license": "MIT",
+      "repository": "lukeed/clsx"
+    },
+    {
+      "name": "complex.js",
+      "version": "2.4.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:rawify/Complex.js.git"
+      }
+    },
+    {
+      "name": "decimal.js",
+      "version": "10.6.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/MikeMcl/decimal.js.git"
+      }
+    },
+    {
+      "name": "encoding-japanese",
+      "version": "2.4.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/polygonplanet/encoding.js.git"
+      }
+    },
+    {
+      "name": "escape-latex",
+      "version": "1.2.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/dangmai/escape-latex"
+      }
+    },
+    {
+      "name": "fraction.js",
+      "version": "5.3.4",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/rawify/Fraction.js.git"
+      }
+    },
+    {
+      "name": "iconv-lite",
+      "version": "0.7.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/pillarjs/iconv-lite.git"
+      }
+    },
+    {
+      "name": "ieee754",
+      "version": "1.2.1",
+      "license": "BSD-3-Clause",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/feross/ieee754.git"
+      }
+    },
+    {
+      "name": "javascript-natural-sort",
+      "version": "0.7.1",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Bill4Time/javascript-natural-sort.git"
+      }
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.54.0",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/lucide-icons/lucide.git",
+        "directory": "packages/lucide-react"
+      }
+    },
+    {
+      "name": "mathjs",
+      "version": "15.2.0",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/josdejong/mathjs.git"
+      }
+    },
+    {
+      "name": "next",
+      "version": "16.4.2",
+      "license": "MIT",
+      "repository": "vercel/next.js"
+    },
+    {
+      "name": "pako",
+      "version": "1.0.11",
+      "license": "(MIT AND Zlib)",
+      "repository": "nodeca/pako"
+    },
+    {
+      "name": "pdf-lib",
+      "version": "1.17.1",
+      "license": "MIT",
+      "repository": "git+https://github.com/Hopding/pdf-lib.git"
+    },
+    {
+      "name": "react-aria-components",
+      "version": "1.22.0",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "react-aria",
+      "version": "3.53.0",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/react/react.git",
+        "directory": "packages/react-dom"
+      }
+    },
+    {
+      "name": "react-stately",
+      "version": "3.51.0",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/react-spectrum"
+      }
+    },
+    {
+      "name": "react",
+      "version": "19.3.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/react/react.git",
+        "directory": "packages/react"
+      }
+    },
+    {
+      "name": "safer-buffer",
+      "version": "2.1.2",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ChALkeR/safer-buffer.git"
+      }
+    },
+    {
+      "name": "scheduler",
+      "version": "0.28.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/react/react.git",
+        "directory": "packages/scheduler"
+      }
+    },
+    {
+      "name": "seedrandom",
+      "version": "3.0.5",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/davidbau/seedrandom.git"
+      }
+    },
+    {
+      "name": "tiny-emitter",
+      "version": "2.1.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/scottcorgan/tiny-emitter.git"
+      }
+    },
+    {
+      "name": "tslib",
+      "version": "1.14.1",
+      "license": "0BSD",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/tslib.git"
+      }
+    },
+    {
+      "name": "tslib",
+      "version": "2.8.1",
+      "license": "0BSD",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/tslib.git"
+      }
+    },
+    {
+      "name": "typed-function",
+      "version": "4.2.2",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/josdejong/typed-function.git"
+      }
+    },
+    {
+      "name": "use-sync-external-store",
+      "version": "1.7.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/react/react.git",
+        "directory": "packages/use-sync-external-store"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Manrope",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "name": "Noto Sans Arabic",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansarabic/OFL.txt",
+      "sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96"
+    },
+    {
+      "name": "Noto Sans Devanagari",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/OFL.txt",
+      "sha256": "a216f6f8d85c7228093e0ee5e258d9d377e6671f68acb4db1930b29583d0f331"
+    }
+  ],
+  "groups": 32,
+  "bytes": 82531
+}

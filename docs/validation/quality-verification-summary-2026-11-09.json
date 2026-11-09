@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-11-09T17:51:57.650365+00:00",
+  "baseGitHead": "5243fab271a43c8e878fd86848af947bb618dff8",
+  "sourceFingerprintSha256": "42279377488a9d1da35a238adb4c4cfc3cb64ae1c36a0e1a526f56568d03f7b6",
+  "fingerprintFiles": 616,
+  "fingerprintScope": "Tracked and untracked nonignored application, scripts, tests, public assets and listed package/config files; excludes .next and audit documentation.",
+  "productionDeploymentPerformed": false,
+  "adsenseReviewSubmitted": false,
+  "productionEvidence": "quality-live-release-check-2026-11-09.json and quality-live-havana-2026-11-09.json show new features not deployed and public Havana offset still old.",
+  "verification": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": {
+      "files": 59,
+      "passed": 3386,
+      "failed": 0
+    },
+    "productionBuild": "passed with NEXT_PUBLIC_INDEXABLE=true",
+    "fullBrowser": {
+      "startTime": "2026-11-09T17:45:47.811Z",
+      "duration": 270407.698,
+      "expected": 188,
+      "skipped": 76,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "targetedBrowser": {
+      "passed": 13,
+      "failed": 0
+    },
+    "calendarTimingStress": {
+      "passed": 6,
+      "failed": 0,
+      "description": "Normal immediate-Escape and deterministic frame/commit case, each repeated3times"
+    },
+    "calculatorBrowser": {
+      "passed": 216,
+      "failed": 0,
+      "viewport": {
+        "width": 360,
+        "height": 844
+      },
+      "scope": "One default-mode calculation submitted through Chromium on every source calculator page. Mileage uses the supplied coordinate defaults and the actual route service. Checks HTTP, result rendering, formula references, browser errors, and page overflow. Does not independently establish numerical correctness, all-mode UI coverage, specialist review, or Google approval.",
+      "previewRuntime": "ROAD_PREVIEW_ORIGIN=http://127.0.0.1:3100; unset in production"
+    },
+    "htmlSEO": {
+      "pages": 721,
+      "internalTargets": 724,
+      "errors": 0,
+      "duplicateTitles": 0,
+      "duplicateDescriptions": 0
+    },
+    "clockOracle": {
+      "routes": 446,
+      "aliases": 147,
+      "samples": 71313,
+      "errors": 0,
+      "source": "official IANA2026f compiled via zic and Python zoneinfo, monthly2026\u20132035 plus bundled transition boundaries"
+    },
+    "publishedLanguageCheck": "passed; draft diagnostics retained",
+    "privacyAndNotices": "source/workflow/rendered checks passed; selected software/font notice coverage is not dataset clearance"
+  },
+  "limits": [
+    "No blanket10/10 or approval guarantee",
+    "Production publishing requires authenticated access; Railway CLI whoami was Unauthorized",
+    "Current Google account status/traffic/field CWV and complete dataset/artwork reuse basis remain unresolved",
+    "Clock corrections cover7 named regions during2026\u20132035, with documented runtime fallback elsewhere"
+  ]
+}

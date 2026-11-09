@@ -6,6 +6,42 @@ async function accessible(page:Page){
   expect(result.violations).toEqual([]);
 }
 
+type FrameHarnessWindow=Window&{finfloFrameHarness?:{pending:Map<number,FrameRequestCallback>;flush:()=>void;restore:()=>void}};
+
+test('Escape cancels a nested menu between its opening frame and render commit',async({page})=>{
+  await page.goto('/age-calculator');
+  const trigger=page.getByRole('button',{name:'Open calendar Date of birth',exact:true});
+  await trigger.click();
+  await expect(page.getByRole('grid',{name:'June 1995'})).toBeVisible();
+  await page.evaluate(()=>{
+    const target=window as FrameHarnessWindow;
+    const nativeRequest=window.requestAnimationFrame.bind(window),nativeCancel=window.cancelAnimationFrame.bind(window);
+    const pending=new Map<number,FrameRequestCallback>();let next=-1;
+    window.requestAnimationFrame=callback=>{const id=next--;pending.set(id,callback);return id;};
+    window.cancelAnimationFrame=id=>{if(!pending.delete(id))nativeCancel(id);};
+    target.finfloFrameHarness={pending,flush:()=>{const callbacks=[...pending.values()];pending.clear();for(const callback of callbacks)callback(performance.now());},restore:()=>{
+      window.requestAnimationFrame=nativeRequest;window.cancelAnimationFrame=nativeCancel;
+      for(const callback of pending.values())nativeRequest(callback);pending.clear();delete target.finfloFrameHarness;
+    }};
+  });
+  try{
+    await page.getByRole('button',{name:'1995 year',exact:true}).click();
+    await expect.poll(()=>page.evaluate(()=>(window as FrameHarnessWindow).finfloFrameHarness!.pending.size)).toBeGreaterThan(0);
+    await page.evaluate(()=>{
+      const harness=(window as FrameHarnessWindow).finfloFrameHarness!;
+      harness.flush();harness.flush();
+      // Keep this in one task: Escape arrives before React can commit ready=true.
+      document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));
+      harness.restore();
+    });
+    await expect(page.getByRole('listbox')).toHaveCount(0);
+    await expect(page.getByRole('grid',{name:'June 1995'})).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(trigger).toBeFocused();
+  }finally{await page.evaluate(()=>(window as FrameHarnessWindow).finfloFrameHarness?.restore());}
+});
+
 test('dropdown supports keyboard selection, dismissal, and accessible options',async({page})=>{
   await page.goto('/gfr-calculator');
   const trigger=page.getByRole('button',{name:/Sex used by the equation/});

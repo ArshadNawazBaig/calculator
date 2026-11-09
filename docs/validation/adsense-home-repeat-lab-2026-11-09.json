@@ -1,0 +1,1358 @@
+{
+  "measuredAt": "2026-11-09T17:24:24.332Z",
+  "base": "https://finflo.org",
+  "runsPerRouteAndProfile": 5,
+  "conditions": "HTTP target: https://finflo.org. Chromium headless with a cold browser cache; server cache and hosting conditions are uncontrolled. Desktop:1440px/10Mbps/40ms/1x CPU. Mobile:390px/1.6Mbps/150ms/4x CPU. 5 run(s) per route/profile; lab diagnostics, not p75 field metrics. EventTiming omits interactions shorter than its reporting threshold. Playwright click wall time is not INP.",
+  "results": [
+    {
+      "profile": "desktop",
+      "path": "/",
+      "run": 1,
+      "status": 200,
+      "lcpMs": 2060,
+      "lcpElement": {
+        "tag": "H1",
+        "id": "home-title",
+        "url": "",
+        "size": 46184
+      },
+      "cls": 0.0006466864691840277,
+      "interactionWallMs": 79.40124300000025,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 2041.8999999985099,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2131.89999999851,
+        "navigationId": 8045,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.09999999776482582,
+        "domainLookupStart": 1.2999999970197678,
+        "domainLookupEnd": 175.5,
+        "connectStart": 175.5,
+        "secureConnectionStart": 336,
+        "connectEnd": 528.1999999992549,
+        "requestStart": 528.5999999977648,
+        "responseStart": 786.7999999970198,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 786.7999999970198,
+        "responseEnd": 970.7999999970198,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 2041.8999999985099,
+        "domContentLoadedEventStart": 2041.8999999985099,
+        "domContentLoadedEventEnd": 2041.8999999985099,
+        "domComplete": 2131.7999999970198,
+        "loadEventStart": 2131.89999999851,
+        "loadEventEnd": 2131.89999999851,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/",
+      "run": 2,
+      "status": 200,
+      "lcpMs": 1528,
+      "lcpElement": {
+        "tag": "H1",
+        "id": "home-title",
+        "url": "",
+        "size": 48024
+      },
+      "cls": 0,
+      "interactionWallMs": 67.03228899999885,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1457.8999999985099,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2363.800000000745,
+        "navigationId": 7358,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999999925494194,
+        "domainLookupStart": 0.6999999992549419,
+        "domainLookupEnd": 1.6000000014901161,
+        "connectStart": 1.6000000014901161,
+        "secureConnectionStart": 163.60000000149012,
+        "connectEnd": 328.6000000014901,
+        "requestStart": 328.80000000074506,
+        "responseStart": 588.5,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 588.5,
+        "responseEnd": 771.3999999985099,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1457.800000000745,
+        "domContentLoadedEventStart": 1457.8999999985099,
+        "domContentLoadedEventEnd": 1457.8999999985099,
+        "domComplete": 2363.800000000745,
+        "loadEventStart": 2363.800000000745,
+        "loadEventEnd": 2363.800000000745,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/",
+      "run": 3,
+      "status": 200,
+      "lcpMs": 1232,
+      "lcpElement": {
+        "tag": "H1",
+        "id": "home-title",
+        "url": "",
+        "size": 48024
+      },
+      "cls": 0,
+      "interactionWallMs": 66.84158599999864,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1143.699999999255,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2223.5,
+        "navigationId": 3075,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.09999999776482582,
+        "domainLookupStart": 0.5,
+        "domainLookupEnd": 1.2999999970197678,
+        "connectStart": 1.2999999970197678,
+        "secureConnectionStart": 159.19999999925494,
+        "connectEnd": 320.19999999925494,
+        "requestStart": 320.29999999701977,
+        "responseStart": 578.1999999992549,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 578.1999999992549,
+        "responseEnd": 753.5,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1143.699999999255,
+        "domContentLoadedEventStart": 1143.699999999255,
+        "domContentLoadedEventEnd": 1143.699999999255,
+        "domComplete": 2223.5,
+        "loadEventStart": 2223.5,
+        "loadEventEnd": 2223.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/",
+      "run": 4,
+      "status": 200,
+      "lcpMs": 1488,
+      "lcpElement": {
+        "tag": "H1",
+        "id": "home-title",
+        "url": "",
+        "size": 48024
+      },
+      "cls": 0,
+      "interactionWallMs": 61.81853399999818,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1414.699999999255,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2383.699999999255,
+        "navigationId": 7844,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.09999999776482582,
+        "domainLookupStart": 0.5999999977648258,
+        "domainLookupEnd": 1.3999999985098839,
+        "connectStart": 1.3999999985098839,
+        "secureConnectionStart": 157,
+        "connectEnd": 316.3999999985099,
+        "requestStart": 316.69999999925494,
+        "responseStart": 573.8999999985099,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 573.8999999985099,
+        "responseEnd": 772.0999999977648,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1414.699999999255,
+        "domContentLoadedEventStart": 1414.699999999255,
+        "domContentLoadedEventEnd": 1414.699999999255,
+        "domComplete": 2383.599999997765,
+        "loadEventStart": 2383.699999999255,
+        "loadEventEnd": 2383.699999999255,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/",
+      "run": 5,
+      "status": 200,
+      "lcpMs": 1308,
+      "lcpElement": {
+        "tag": "H1",
+        "id": "home-title",
+        "url": "",
+        "size": 48024
+      },
+      "cls": 0,
+      "interactionWallMs": 64.77026699999988,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1292.4000000022352,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2276.10000000149,
+        "navigationId": 5257,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.10000000149011612,
+        "domainLookupStart": 0.8000000007450581,
+        "domainLookupEnd": 2,
+        "connectStart": 2,
+        "secureConnectionStart": 153.90000000223517,
+        "connectEnd": 309.4000000022352,
+        "requestStart": 309.80000000074506,
+        "responseStart": 563.1999999992549,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 563.1999999992549,
+        "responseEnd": 780.9000000022352,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1292.4000000022352,
+        "domContentLoadedEventStart": 1292.4000000022352,
+        "domContentLoadedEventEnd": 1292.4000000022352,
+        "domComplete": 2276.10000000149,
+        "loadEventStart": 2276.10000000149,
+        "loadEventEnd": 2276.10000000149,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "run": 1,
+      "status": 200,
+      "lcpMs": 2076,
+      "lcpElement": {
+        "tag": "P",
+        "id": "",
+        "url": "",
+        "size": 17346
+      },
+      "cls": 0,
+      "interactionWallMs": 127.63403399999879,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 2146.7999999970198,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 3827.7999999970198,
+        "navigationId": 6532,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.09999999776482582,
+        "domainLookupStart": 0.5999999977648258,
+        "domainLookupEnd": 1.3999999985098839,
+        "connectStart": 1.3999999985098839,
+        "secureConnectionStart": 162.09999999776483,
+        "connectEnd": 694.6999999992549,
+        "requestStart": 694.7999999970198,
+        "responseStart": 1112.7999999970198,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 1112.7999999970198,
+        "responseEnd": 1490.699999999255,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 2146.7999999970198,
+        "domContentLoadedEventStart": 2146.7999999970198,
+        "domContentLoadedEventEnd": 2146.7999999970198,
+        "domComplete": 3827.7999999970198,
+        "loadEventStart": 3827.7999999970198,
+        "loadEventEnd": 3827.7999999970198,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "run": 2,
+      "status": 200,
+      "lcpMs": 1464,
+      "lcpElement": {
+        "tag": "P",
+        "id": "",
+        "url": "",
+        "size": 17346
+      },
+      "cls": 0,
+      "interactionWallMs": 132.5488519999999,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1491.4000000022352,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2961.699999999255,
+        "navigationId": 6278,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.10000000149011612,
+        "domainLookupStart": 0.6000000014901161,
+        "domainLookupEnd": 1.4000000022351742,
+        "connectStart": 1.4000000022351742,
+        "secureConnectionStart": 156.69999999925494,
+        "connectEnd": 318.80000000074506,
+        "requestStart": 318.80000000074506,
+        "responseStart": 579.4000000022352,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 579.4000000022352,
+        "responseEnd": 790.6000000014901,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1491.300000000745,
+        "domContentLoadedEventStart": 1491.300000000745,
+        "domContentLoadedEventEnd": 1491.4000000022352,
+        "domComplete": 2960.900000002235,
+        "loadEventStart": 2961.699999999255,
+        "loadEventEnd": 2961.699999999255,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "run": 3,
+      "status": 200,
+      "lcpMs": 1440,
+      "lcpElement": {
+        "tag": "P",
+        "id": "",
+        "url": "",
+        "size": 17346
+      },
+      "cls": 0,
+      "interactionWallMs": 130.6148020000037,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1441.6000000014901,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 2970.900000002235,
+        "navigationId": 1613,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999999925494194,
+        "domainLookupStart": 0.6999999992549419,
+        "domainLookupEnd": 1.5,
+        "connectStart": 1.5,
+        "secureConnectionStart": 164.30000000074506,
+        "connectEnd": 330.69999999925494,
+        "requestStart": 330.80000000074506,
+        "responseStart": 599.8000000007451,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 599.8000000007451,
+        "responseEnd": 804.9000000022352,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1441.199999999255,
+        "domContentLoadedEventStart": 1441.5,
+        "domContentLoadedEventEnd": 1441.6000000014901,
+        "domComplete": 2970.900000002235,
+        "loadEventStart": 2970.900000002235,
+        "loadEventEnd": 2970.900000002235,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "run": 4,
+      "status": 200,
+      "lcpMs": 1464,
+      "lcpElement": {
+        "tag": "P",
+        "id": "",
+        "url": "",
+        "size": 17346
+      },
+      "cls": 0,
+      "interactionWallMs": 132.63411199999973,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1185.699999999255,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 3214.5,
+        "navigationId": 7873,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0,
+        "domainLookupStart": 0.5,
+        "domainLookupEnd": 1.300000000745058,
+        "connectStart": 1.300000000745058,
+        "secureConnectionStart": 165.30000000074506,
+        "connectEnd": 331.9000000022352,
+        "requestStart": 332,
+        "responseStart": 592,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 592,
+        "responseEnd": 796,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1185.6000000014901,
+        "domContentLoadedEventStart": 1185.6000000014901,
+        "domContentLoadedEventEnd": 1185.699999999255,
+        "domComplete": 3214.5,
+        "loadEventStart": 3214.5,
+        "loadEventEnd": 3214.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "run": 5,
+      "status": 200,
+      "lcpMs": 1444,
+      "lcpElement": {
+        "tag": "P",
+        "id": "",
+        "url": "",
+        "size": 17346
+      },
+      "cls": 0,
+      "interactionWallMs": 127.07471100000112,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 1524,
+      "navigation": {
+        "name": "https://finflo.org/",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 3079.10000000149,
+        "navigationId": 2542,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "h2",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.10000000149011612,
+        "domainLookupStart": 0.6000000014901161,
+        "domainLookupEnd": 1.4000000022351742,
+        "connectStart": 1.4000000022351742,
+        "secureConnectionStart": 156,
+        "connectEnd": 312.1000000014901,
+        "requestStart": 312.19999999925494,
+        "responseStart": 564.4000000022352,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 564.4000000022352,
+        "responseEnd": 774.9000000022352,
+        "transferSize": 26192,
+        "encodedBodySize": 25892,
+        "decodedBodySize": 161720,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 1524,
+        "domContentLoadedEventStart": 1524,
+        "domContentLoadedEventEnd": 1524,
+        "domComplete": 3079.10000000149,
+        "loadEventStart": 3079.10000000149,
+        "loadEventEnd": 3079.10000000149,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "responseCacheControl": "s-maxage=31536000",
+      "largestResources": [
+        {
+          "name": "14e1evhk0jopv.js",
+          "encodedBodySize": 73541,
+          "transferSize": 73841,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2yr28hrz570g8.js",
+          "encodedBodySize": 61583,
+          "transferSize": 61883,
+          "initiatorType": "script"
+        },
+        {
+          "name": "3q6q3gerh5dfv.js",
+          "encodedBodySize": 45869,
+          "transferSize": 46169,
+          "initiatorType": "script"
+        },
+        {
+          "name": "2ex_ga6ik1wxv.js",
+          "encodedBodySize": 25714,
+          "transferSize": 26014,
+          "initiatorType": "script"
+        },
+        {
+          "name": "a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2",
+          "encodedBodySize": 24576,
+          "transferSize": 24876,
+          "initiatorType": "link"
+        },
+        {
+          "name": "0ig_28nuvu353.css",
+          "encodedBodySize": 18426,
+          "transferSize": 18726,
+          "initiatorType": "link"
+        },
+        {
+          "name": "1fk6zwfnajj9y.js",
+          "encodedBodySize": 14692,
+          "transferSize": 14992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "32hilet-sd-f2.js",
+          "encodedBodySize": 13831,
+          "transferSize": 14131,
+          "initiatorType": "script"
+        }
+      ]
+    }
+  ]
+}
