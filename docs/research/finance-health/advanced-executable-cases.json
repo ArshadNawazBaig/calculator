@@ -1597,18 +1597,18 @@
       "mode": "historical",
       "overrides": {
         "from": "2026-08",
-        "to": "2026-09",
+        "to": "2026-10",
         "amount": "100"
       },
       "expected": [],
       "expectedErrorContains": "published months",
       "scope": "",
-      "provenance": "Independent arithmetic from stated model; no product code imported.",
+      "provenance": "Unpublished October 2026 remains rejected as of 2026-11-09; September was released October 14. Official BLS archive: https://www.bls.gov/news.release/archives/cpi_10142026.htm",
       "algorithm": "cpi-historical",
       "inputs": {
         "amount": "100",
         "from": "2026-08",
-        "to": "2026-09"
+        "to": "2026-10"
       }
     },
     {

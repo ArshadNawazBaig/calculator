@@ -1,0 +1,75 @@
+{
+  "checkedAt": "2026-11-09T17:18:31.887745+00:00",
+  "gitHead": "8013f4298f8ef718db86d74e503873f50cc42edb",
+  "trackedRuntimeAndTestDiffSha256": "f0e3987dcc98ae7145ba2dd8a4e09e60fd1d5a4aac0b77a9234afecf90240b63",
+  "deploymentPerformed": false,
+  "adsenseReviewRequested": false,
+  "checks": [
+    {
+      "command": "NEXT_PUBLIC_INDEXABLE=true npm run build",
+      "result": "passed"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm run lint",
+      "result": "passed"
+    },
+    {
+      "command": "npm test -- --reporter=dot --maxWorkers=2",
+      "result": "passed",
+      "files": 57,
+      "tests": 3332,
+      "note": "Two earlier concurrent runs timed out at existing five-second draft-localization test. Final complete rerun passes; no threshold changed."
+    },
+    {
+      "command": "npm run i18n:check",
+      "result": "passed for published English; unpublished draft diagnostics retained"
+    },
+    {
+      "command": "TEST_URL=http://localhost:3100 TEST_INDEXABLE=true npx playwright test",
+      "result": "passed",
+      "passed": 181,
+      "skipped": 76,
+      "failed": 0
+    },
+    {
+      "command": "TEST_URL=https://finflo.org node scripts/audit-calculator-browser.mjs",
+      "result": "passed",
+      "passed": 216,
+      "failed": 0,
+      "scope": "Default-mode real submissions at 360px, not independent numerical accuracy proof"
+    },
+    {
+      "command": "node scripts/audit-calculator-browser.mjs (local sweep)",
+      "result": "215 passed, one preview-origin failure",
+      "passed": 215,
+      "failed": 1,
+      "followUp": "Real mileage through bound host http://0.0.0.0:3100 passes at 58.63 miles with FOSSGIS / OSRM attribution; see adsense-changed-pages-2026-11-09.json"
+    },
+    {
+      "command": "Direct changed-page browser checks",
+      "result": "passed",
+      "pages": [
+        "/",
+        "/inflation-calculator",
+        "/mileage-calculator",
+        "/privacy",
+        "/cookies"
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "limitations": [
+    "No deployment or Google account review performed",
+    "Structural crawl covers every published URL; complete manual editorial and independent specialist review are not established",
+    "No field CWV access; 16 single-run lab observations only",
+    "32 access-blocked external references remain unverified",
+    "Account eligibility, ownership facts, traffic validity, inbox delivery and complete licensing/originality are not established"
+  ]
+}

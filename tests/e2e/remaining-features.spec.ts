@@ -70,6 +70,7 @@ test('road mileage requires chosen locations, handles service errors, and resets
   await page.getByRole('button', {name: 'Cambridge, UK', exact: true}).click();
   await calculate(page);
   await expect(page.locator('.primary-metric dd')).toContainText('10');
+  await expect(page.locator('#calculation-summary .result-method')).toHaveText('FOSSGIS / OSRM');
   expect(requests.at(-1)).toMatchObject({kind: 'route', from: {lat: 51.5, lon: -.1}});
   failRoute = true;
   await calculate(page);

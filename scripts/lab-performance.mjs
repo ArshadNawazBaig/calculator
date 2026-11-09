@@ -24,5 +24,5 @@ for(const profile of ['desktop','mobile'])for(const path of ['/','/mortgage-calc
  await context.close();
 }
 await browser.close();await mkdir(dirname(output),{recursive:true});
-const report={measuredAt:new Date().toISOString(),base,conditions:'Local production next start; Chromium headless, cold browser cache, server already warm. Desktop:1440px/10Mbps/40ms/1x CPU. Mobile:390px/1.6Mbps/150ms/4x CPU. One run per route/profile; lab diagnostics, not p75 field metrics. EventTiming omits interactions shorter than its reporting threshold. Playwright click wall time is not INP.',results};
+const report={measuredAt:new Date().toISOString(),base,conditions:`HTTP target: ${base}. Chromium headless with a cold browser cache; server cache and hosting conditions are uncontrolled. Desktop:1440px/10Mbps/40ms/1x CPU. Mobile:390px/1.6Mbps/150ms/4x CPU. One run per route/profile; lab diagnostics, not p75 field metrics. EventTiming omits interactions shorter than its reporting threshold. Playwright click wall time is not INP.`,results};
 await writeFile(output,JSON.stringify(report,null,2)+'\n');console.log(`Saved ${output}`);

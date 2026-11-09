@@ -1,0 +1,1197 @@
+{
+  "measuredAt": "2026-11-09T17:10:00.261Z",
+  "base": "https://finflo.org",
+  "conditions": "HTTP target: https://finflo.org. Chromium headless with a cold browser cache; server cache and hosting conditions are uncontrolled. Desktop:1440px/10Mbps/40ms/1x CPU. Mobile:390px/1.6Mbps/150ms/4x CPU. One run per route/profile; lab diagnostics, not p75 field metrics. EventTiming omits interactions shorter than its reporting threshold. Playwright click wall time is not INP.",
+  "results": [
+    {
+      "profile": "desktop",
+      "path": "/",
+      "status": 200,
+      "lcpMs": 4556,
+      "cls": 0,
+      "interactionWallMs": 81.96600900000158,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 32,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 32,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 4488.199999999255
+    },
+    {
+      "profile": "desktop",
+      "path": "/mortgage-calculator",
+      "status": 200,
+      "lcpMs": 1252,
+      "cls": 0,
+      "interactionWallMs": 136.5175990000007,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 96,
+          "interactionId": 7068
+        },
+        {
+          "name": "mousedown",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 96,
+          "interactionId": 7068
+        },
+        {
+          "name": "mouseup",
+          "duration": 96,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 96,
+          "interactionId": 7068
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 52953,
+      "domContentLoadedMs": 1162.5999999977648
+    },
+    {
+      "profile": "desktop",
+      "path": "/compound-interest-calculator",
+      "status": 200,
+      "lcpMs": 1140,
+      "cls": 0,
+      "interactionWallMs": 109.0470970000024,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 72,
+          "interactionId": 7595
+        },
+        {
+          "name": "mousedown",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 72,
+          "interactionId": 7595
+        },
+        {
+          "name": "mouseup",
+          "duration": 72,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 72,
+          "interactionId": 7595
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 21367,
+      "domContentLoadedMs": 1126.199999999255
+    },
+    {
+      "profile": "desktop",
+      "path": "/bmi-calculator",
+      "status": 200,
+      "lcpMs": 1152,
+      "cls": 0,
+      "interactionWallMs": 96.07493600000089,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 64,
+          "interactionId": 4876
+        },
+        {
+          "name": "mousedown",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 64,
+          "interactionId": 4876
+        },
+        {
+          "name": "mouseup",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 64,
+          "interactionId": 4876
+        }
+      ],
+      "encodedResourceBytes": 461542,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 17410,
+      "domContentLoadedMs": 1088
+    },
+    {
+      "profile": "desktop",
+      "path": "/es/bmi-calculator",
+      "status": 200,
+      "lcpMs": 1568,
+      "cls": 0,
+      "interactionWallMs": 98.49526999999944,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 64,
+          "interactionId": 1045
+        },
+        {
+          "name": "mousedown",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 64,
+          "interactionId": 1045
+        },
+        {
+          "name": "mouseup",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 64,
+          "interactionId": 1045
+        }
+      ],
+      "encodedResourceBytes": 461542,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 17410,
+      "domContentLoadedMs": 1553.300000000745
+    },
+    {
+      "profile": "desktop",
+      "path": "/ar/percent-calculator",
+      "status": 200,
+      "lcpMs": 1596,
+      "cls": 0,
+      "interactionWallMs": 90.25441900000442,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 64,
+          "interactionId": 9347
+        },
+        {
+          "name": "mousedown",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 64,
+          "interactionId": 9347
+        },
+        {
+          "name": "mouseup",
+          "duration": 64,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 64,
+          "interactionId": 9347
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 16996,
+      "domContentLoadedMs": 1535.3999999985099
+    },
+    {
+      "profile": "desktop",
+      "path": "/hi/privacy",
+      "status": 200,
+      "lcpMs": 1860,
+      "cls": 0,
+      "interactionWallMs": null,
+      "eventTimings": [],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 9201,
+      "domContentLoadedMs": 1849.5
+    },
+    {
+      "profile": "desktop",
+      "path": "/calculators",
+      "status": 200,
+      "lcpMs": 1440,
+      "cls": 0,
+      "interactionWallMs": null,
+      "eventTimings": [],
+      "encodedResourceBytes": 341364,
+      "javascriptEncodedBytes": 282505,
+      "documentEncodedBytes": 60978,
+      "domContentLoadedMs": 1315.800000000745
+    },
+    {
+      "profile": "mobile",
+      "path": "/",
+      "status": 200,
+      "lcpMs": 2276,
+      "cls": 0,
+      "interactionWallMs": 137.51732600000105,
+      "eventTimings": [
+        {
+          "name": "beforeinput",
+          "duration": 40,
+          "interactionId": 0
+        },
+        {
+          "name": "input",
+          "duration": 40,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 338151,
+      "javascriptEncodedBytes": 279292,
+      "documentEncodedBytes": 25892,
+      "domContentLoadedMs": 2283
+    },
+    {
+      "profile": "mobile",
+      "path": "/mortgage-calculator",
+      "status": 200,
+      "lcpMs": 1724,
+      "cls": 0,
+      "interactionWallMs": 312.8894149999978,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 144,
+          "interactionId": 1333
+        },
+        {
+          "name": "mousedown",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 144,
+          "interactionId": 1333
+        },
+        {
+          "name": "mouseup",
+          "duration": 144,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 144,
+          "interactionId": 1333
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 52953,
+      "domContentLoadedMs": 1927.4000000022352
+    },
+    {
+      "profile": "mobile",
+      "path": "/compound-interest-calculator",
+      "status": 200,
+      "lcpMs": 1328,
+      "cls": 0,
+      "interactionWallMs": 261.6911919999984,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 152,
+          "interactionId": 4891
+        },
+        {
+          "name": "mousedown",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 152,
+          "interactionId": 4891
+        },
+        {
+          "name": "mouseup",
+          "duration": 152,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 152,
+          "interactionId": 4891
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 21367,
+      "domContentLoadedMs": 1501.800000000745
+    },
+    {
+      "profile": "mobile",
+      "path": "/bmi-calculator",
+      "status": 200,
+      "lcpMs": 1564,
+      "cls": 0,
+      "interactionWallMs": 223.30688800000644,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 128,
+          "interactionId": 8923
+        },
+        {
+          "name": "mousedown",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 128,
+          "interactionId": 8923
+        },
+        {
+          "name": "mouseup",
+          "duration": 128,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 128,
+          "interactionId": 8923
+        },
+        {
+          "name": "pointerout",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerover",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseout",
+          "duration": 16,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 16,
+          "interactionId": 0
+        }
+      ],
+      "encodedResourceBytes": 461542,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 17410,
+      "domContentLoadedMs": 1556.5
+    },
+    {
+      "profile": "mobile",
+      "path": "/es/bmi-calculator",
+      "status": 200,
+      "lcpMs": 1752,
+      "cls": 0,
+      "interactionWallMs": 515.3255439999921,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 168,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 336,
+          "interactionId": 1941
+        },
+        {
+          "name": "mousedown",
+          "duration": 336,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 336,
+          "interactionId": 1941
+        },
+        {
+          "name": "mouseup",
+          "duration": 336,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 336,
+          "interactionId": 1941
+        }
+      ],
+      "encodedResourceBytes": 461542,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 17410,
+      "domContentLoadedMs": 1804.800000000745
+    },
+    {
+      "profile": "mobile",
+      "path": "/ar/percent-calculator",
+      "status": 200,
+      "lcpMs": 1980,
+      "cls": 0,
+      "interactionWallMs": 235.97085099999094,
+      "eventTimings": [
+        {
+          "name": "pointerover",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "mouseover",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerdown",
+          "duration": 136,
+          "interactionId": 7341
+        },
+        {
+          "name": "mousedown",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "pointerup",
+          "duration": 136,
+          "interactionId": 7341
+        },
+        {
+          "name": "mouseup",
+          "duration": 136,
+          "interactionId": 0
+        },
+        {
+          "name": "click",
+          "duration": 136,
+          "interactionId": 7341
+        }
+      ],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 16996,
+      "domContentLoadedMs": 2061.39999999851
+    },
+    {
+      "profile": "mobile",
+      "path": "/hi/privacy",
+      "status": 200,
+      "lcpMs": 1528,
+      "cls": 0,
+      "interactionWallMs": null,
+      "eventTimings": [],
+      "encodedResourceBytes": 452182,
+      "javascriptEncodedBytes": 391591,
+      "documentEncodedBytes": 9201,
+      "domContentLoadedMs": 1364.1000000014901
+    },
+    {
+      "profile": "mobile",
+      "path": "/calculators",
+      "status": 200,
+      "lcpMs": 1548,
+      "cls": 0,
+      "interactionWallMs": null,
+      "eventTimings": [],
+      "encodedResourceBytes": 341364,
+      "javascriptEncodedBytes": 282505,
+      "documentEncodedBytes": 60978,
+      "domContentLoadedMs": 2185.300000000745
+    }
+  ]
+}

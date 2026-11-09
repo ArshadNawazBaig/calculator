@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-11-09T17:16:33.146Z",
+  "scope": "Final production build, direct rendered correction checks. Local mileage uses the bound server host to satisfy the existing origin allowlist.",
+  "results": [
+    {
+      "path": "/privacy",
+      "status": 200,
+      "checks": [
+        "theme disclosure",
+        "storage retention and removal",
+        "390px no page overflow"
+      ],
+      "passed": true
+    },
+    {
+      "path": "/cookies",
+      "status": 200,
+      "checks": [
+        "theme disclosure",
+        "storage retention and removal",
+        "390px no page overflow"
+      ],
+      "passed": true
+    },
+    {
+      "path": "/inflation-calculator",
+      "defaultTo": "2026-09",
+      "from": "2026-08",
+      "amount": 100,
+      "result": "$100.59",
+      "passed": true
+    },
+    {
+      "path": "/",
+      "rate": 50,
+      "result": "75",
+      "passed": true
+    },
+    {
+      "path": "/mileage-calculator",
+      "target": "http://0.0.0.0:3100",
+      "status": 200,
+      "primaryResult": "58.63 miles",
+      "source": "FOSSGIS / OSRM",
+      "passed": true
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 'use client';
 import {useState} from 'react';
+import {useHydrated} from '@/lib/use-hydrated';
 import {useI18n} from '@/components/i18n/provider';
 import {languages} from '@/lib/i18n/config';
 import copy from '@/data/locales/learning-demos.json';
@@ -9,6 +10,7 @@ import home from './home.module.css';
 import styles from './percentage-demo.module.css';
 
 export function PercentageDemo() {
+  const hydrated = useHydrated();
   const {locale,t} = useI18n(), text = copy[locale], [rate,setRate] = useState(20);
   const values = [100,100 * (1+rate/100),100 * (1+rate/100) * (1-rate/100)];
   const number = new Intl.NumberFormat(languages[locale].tag,{maximumFractionDigits:2});
@@ -17,7 +19,7 @@ export function PercentageDemo() {
     <div className={styles.demo}>
       <div className={styles.controls}>
         <label htmlFor="percentage-demo-rate"><span>{text.rate}</span><strong>{number.format(rate)}</strong></label>
-        <input id="percentage-demo-rate" type="range" min="1" max="50" step="1" value={rate} onChange={event => setRate(Number(event.target.value))}/>
+        <input id="percentage-demo-rate" type="range" min="1" max="50" step="1" value={rate} disabled={!hydrated} onChange={event => setRate(Number(event.target.value))}/>
         <p className={`${explanation.formula} ${styles.formula}`} dir="ltr">100 × (1 + {rate}/100) × (1 − {rate}/100) = {number.format(values[2])}</p>
       </div>
       <div className={`${explanation.scroll} ${styles.results}`} role="region" aria-label={text.title} tabIndex={0}>

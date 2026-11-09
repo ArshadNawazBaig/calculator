@@ -39,6 +39,29 @@ test('the homepage percentage demonstration responds to keyboard input',async ({
   await expect(page.locator('output').last()).toHaveText('75');
 });
 
+test('the percentage demonstration waits for its calculation handler on a slow connection',async ({page})=>{
+  let releaseScripts!:()=>void;
+  const scriptsReady=new Promise<void>(resolve=>{releaseScripts=resolve;});
+  await page.route('**/_next/static/**/*.js',async route=>{
+    await scriptsReady;
+    await route.continue();
+  });
+  const navigation=page.goto('/',{waitUntil:'domcontentloaded'});
+  const slider=page.locator('#percentage-demo-rate');
+  try{
+    await expect(slider).toBeVisible();
+    await expect(slider).toBeDisabled();
+    await expect(slider).toHaveValue('20');
+    await expect(page.locator('output[for="percentage-demo-rate"]').last()).toHaveText('96');
+  }finally{releaseScripts();}
+  await navigation;
+  await expect(slider).toBeEnabled();
+  await slider.focus();
+  await slider.press('End');
+  await expect(slider).toHaveValue('50');
+  await expect(page.locator('output[for="percentage-demo-rate"]').last()).toHaveText('75');
+});
+
 test('explains incompatible units instead of showing a misleading numerical difference',async ({page})=>{
   await page.goto('/area-calculator',{waitUntil:'domcontentloaded'});
   await page.locator('[data-calculator-submit]').click();

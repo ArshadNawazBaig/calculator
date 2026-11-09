@@ -30,6 +30,27 @@ describe('Additional independent financial and health cases',()=>{
   });
 });
 
+describe('September 2026 CPI release maintenance',()=>{
+  // Official BLS release, October 14, 2026: non-seasonally adjusted CPI-U
+  // 334.980 in August and 336.940 in September. Expected ratios were evaluated
+  // independently with decimal arithmetic, not read from the product dataset.
+  // https://www.bls.gov/news.release/archives/cpi_10142026.htm
+  const mode=definitionMap.get('inflation-calculator')!.modes.find(m=>m.id==='historical')!;
+  it('uses the newly published month in the initial scenario and source context',async()=>{
+    expect(defaults(mode).to).toBe('2026-09');
+    expect(mode.explanation).toContain('released 2026-10-14; source checked 2026-11-09');
+    const output=await calculate('finance',mode,{...defaults(mode),amount:'100',from:'2026-08'});
+    compare(output.metrics.find(m=>m.label==='Equivalent purchasing power')?.value,100.58510955877963);
+    compare(output.metrics.find(m=>m.label==='Cumulative CPI change')?.value,0.5851095587796286);
+  });
+  it('reverses the same published monthly comparison without imputing later data',async()=>{
+    const output=await calculate('finance',mode,{...defaults(mode),amount:'100',from:'2026-09',to:'2026-08'});
+    compare(output.metrics.find(m=>m.label==='Equivalent purchasing power')?.value,99.41829405828931);
+    await expect(calculate('finance',mode,{...defaults(mode),to:'2026-10'})).rejects.toThrow('published months');
+    await expect(calculate('finance',mode,{...defaults(mode),to:'2025-10'})).rejects.toThrow('unavailable');
+  });
+});
+
 describe('Independent everyday algorithm cases',()=>{
   for(const row of everyday.referenceCases as unknown as EverydayCase[])it(row.id,async()=>{
     const mode=definitionMap.get(row.slug)!.modes.find(m=>m.id===row.modeId)!;
