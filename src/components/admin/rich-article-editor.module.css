@@ -30,8 +30,7 @@
 .document li[data-type=taskItem]>label input{width:16px;height:16px;margin:0;accent-color:var(--color-action)}
 .document li[data-type=taskItem]>div{flex:1;min-width:0}
 .document li[data-type=taskItem]>div>ul{margin-top:8px}
-.document a{color:var(--color-ink);text-decoration:underline;text-decoration-color:var(--color-line-strong);text-underline-offset:4px;cursor:text}
-.document a:hover{text-decoration-color:var(--color-ink)}
+.document a{color:var(--color-article-link);text-decoration:underline;text-underline-offset:4px;cursor:text}
 .document blockquote{margin:1.4em 0;padding:8px 0 8px 20px;border-inline-start:3px solid var(--color-action);color:var(--color-text-secondary)}
 .document blockquote p:last-child{margin-bottom:0}
 .document :not(pre)>code{padding:2px 5px;border:1px solid var(--color-line);border-radius:4px;background:var(--color-soft);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}

@@ -13,6 +13,7 @@
   --color-ink: light-dark(#17191c,#f5f5f6);
   --color-muted: light-dark(#626873,#a4a7ae);
   --color-text-secondary: light-dark(#414751,#c9ccd1);
+  --color-article-link: light-dark(#1d4ed8,#93c5fd);
   --color-line: light-dark(#e1e4e9,#32353a);
   --color-line-strong: light-dark(#858d99,#686d76);
   --color-line-hover: light-dark(#5f6978,#91969f);
@@ -319,7 +320,7 @@ th:first-child, td:first-child { text-align: left; }
 .document-body section { margin-bottom: 38px; }
 .document-body h2 { color: var(--color-ink); font-size: 23px; line-height: 1.45; font-weight: 650; letter-spacing: -.5px; margin-bottom: 16px; text-wrap: initial; }
 .document-body p { font-size: 16px; line-height: 1.9; color: var(--color-muted); margin: 14px 0; }
-.document-body a { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
+.document-body a { color: var(--color-article-link); text-decoration: underline; text-underline-offset: 3px; }
 .document-body ul { padding-left: 22px; }
 .document-body li { margin: 12px 0; color: var(--color-muted); }
 .document-body .formula-block,.document-body .guide-summary { padding: 20px 22px; background: var(--color-soft); border-inline-start: 3px solid var(--color-focus); border-radius: 0 6px 6px 0; color: var(--color-text-secondary); font-size: 15px; overflow-wrap: anywhere; }

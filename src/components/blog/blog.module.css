@@ -29,7 +29,7 @@
 .markdown p { margin:16px 0; }
 .markdown ul,.markdown ol { padding-inline-start:25px; margin:18px 0; }
 .markdown li { margin:7px 0; }
-.markdown a { color:var(--color-brand-text); text-decoration:underline; text-underline-offset:4px; }
+.markdown a { color:var(--color-article-link); text-decoration:underline; text-underline-offset:4px; }
 .markdown img { display:block; max-width:100%; height:auto; border-radius:8px; margin:24px auto; }
 .markdown pre { max-width:100%; overflow-x:auto; padding:18px; border:1px solid var(--color-line); border-radius:8px; background:var(--color-soft); font-size:13px; line-height:1.8; }
 .markdown :not(pre)>code { padding:2px 5px; border-radius:4px; background:var(--color-soft); font-size:.9em; }
@@ -41,7 +41,7 @@
 .tableScroll th { font-weight:650; color:var(--color-ink); background:var(--color-soft); }
 .tableScroll tr:last-child td { border-bottom:0; }
 .articleFooter { margin-top:40px; padding-top:24px; border-top:1px solid var(--color-line); color:var(--color-muted); font-size:13px; line-height:1.9; }
-.articleFooter a { color:var(--color-brand-text); text-decoration:underline; text-underline-offset:4px; }
+.articleFooter a { color:var(--color-article-link); text-decoration:underline; text-underline-offset:4px; }
 .sitemap { margin-block:32px; }
 .sitemap h2 { font-size:23px; font-weight:650; margin-bottom:15px; }
 .sitemap ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; list-style:none; padding:0; }
