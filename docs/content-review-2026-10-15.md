@@ -90,8 +90,8 @@ Re-run the structural inventory with `npm run audit:content`. It checks coverage
 
 ## Evidence and limits
 
-- [Route and template inventory](validation/content-inventory-2026-10-15.json)
-- [Reference checks and repaired link](validation/content-sources-2026-10-15.json)
-- [Changes and validation summary](validation/content-review-2026-10-15.json)
+- [Route and template inventory](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/content-inventory-2026-10-15.json)
+- [Reference checks and repaired link](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/content-sources-2026-10-15.json)
+- [Changes and validation summary](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/content-review-2026-10-15.json)
 
 This was a source-code, content, calculation-example and rendered-site review. It did not access Google Search Console, measure ranking changes, establish indexing status, or obtain independent specialist or native-language sign-off. The retained source-check exceptions are recorded individually in the reference report. Changes remain local and have not been deployed.

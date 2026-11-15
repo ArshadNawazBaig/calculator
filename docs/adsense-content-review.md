@@ -50,7 +50,7 @@ Second-pass local validation:
 - The final translation check passed 11,255 messages in each of seven dictionaries, with no missing messages or placeholder, number, or formula discrepancies. Thirty-two targeted translation and example tests also passed during the label corrections.
 - Content and page-value inventory checks passed for 721 source routes, including six guides. These structural checks do not establish that every page has sufficient editorial value for AdSense.
 
-The [second-review evidence](validation/adsense-second-review-2026-10-21.json) records crawl scope, unresolved source access checks, and the exact focused translation corrections.
+The [second-review evidence](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/adsense-second-review-2026-10-21.json) records crawl scope, unresolved source access checks, and the exact focused translation corrections.
 
 ### Remaining editorial limits
 

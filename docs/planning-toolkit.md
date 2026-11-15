@@ -29,7 +29,7 @@ The invoice generator creates its own document PDF with business/customer detail
 
 The tools use Finflo's established green palette and shared page, form, button, dropdown, result-panel, and table components. Invoice and snapshot panels reuse the same `ResultSection` and `ResultDataTable` as existing calculator breakdowns. Upload controls use the shared button patterns, invoice colors resolve from the site's color tokens, and direct-answer summaries share the existing formula-callout styling and article typography. The design was compared with the mortgage calculator at desktop and phone widths.
 
-The [design validation report](validation/toolkit-design.json) records the matching panel styles, 320px layout checks for all 12 tools, and the targeted unit and browser checks.
+The [design validation report](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/toolkit-design.json) records the matching panel styles, 320px layout checks for all 12 tools, and the targeted unit and browser checks.
 
 ## Editorial and discovery
 
@@ -53,6 +53,6 @@ The new long-form pages are English-only in this release. Their names are transl
 
 The implementation is covered by independent expected-value and boundary tests in `tests/toolkit.test.ts`, catalog execution, editorial/metadata checks, and `tests/e2e/toolkit.spec.ts`. Browser checks cover all 12 tools at phone width, server-rendered content, CSV import/export, invalid-import preservation, local snapshot restoration, an actual branded multipage invoice PDF, and accessibility on the document and multi-row tools.
 
-The production build, TypeScript, lint, all 3,126 unit tests, and the seven-language message audit passed. Browser validation passed 20 new toolkit checks, 27 existing checks for workspace, search, formatting, language navigation and desktop exports, plus 16 mobile-export checks under the dedicated Android/iPhone configuration. The final results are recorded in [the validation report](validation/planning-toolkit.json).
+The production build, TypeScript, lint, all 3,126 unit tests, and the seven-language message audit passed. Browser validation passed 20 new toolkit checks, 27 existing checks for workspace, search, formatting, language navigation and desktop exports, plus 16 mobile-export checks under the dedicated Android/iPhone configuration. The final results are recorded in [the validation report](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/planning-toolkit.json).
 
 This is a local implementation. It does not deploy the site or alter public indexing settings.

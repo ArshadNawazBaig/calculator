@@ -37,6 +37,8 @@ TEST_URL=http://127.0.0.1:3000 npm run test:e2e
 node scripts/export-coverage.mjs
 ```
 
+Generated audit reports, screenshots, implementation snapshots, and search-map CSV exports are kept locally and ignored by Git. Historical evidence links point to the last committed copies. Put working notes in `docs/local/`. Run `npm run audit:content` before `node scripts/audit-calculator-browser.mjs`, and `npm run audit:value` before `npm run audit:value:rendered`, to regenerate their input reports on a fresh checkout.
+
 The browser suite requires Playwright Chromium (`npx playwright install chromium`). Tests include independently derived fixtures, numerical boundaries, composed ledgers, versioned tax rules, invalid inputs, UI interactions, offline use and accessibility checks. Default catalog execution is a smoke check, not independent proof of every mode.
 
 `publishedLocales` in `src/lib/i18n/config.ts` is the publication allowlist, currently `['en']`. Draft language URLs temporarily redirect with HTTP 307 to the equivalent English path, preserving queries, browser fragments and existing browser storage. Redirect responses carry `X-Robots-Tag: noindex, follow`. Navigation, metadata and sitemap entries advertise only published languages. Translation files and tests remain available for review; `npm run i18n:check` reports draft diagnostics without treating unpublished drafts as release failures. Use `npm run i18n:check -- --all-locales` to require all dictionaries to pass. Generating translation manifests does not publish languages.

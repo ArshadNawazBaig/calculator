@@ -72,10 +72,10 @@ These records describe earlier source revisions and publication policies. Their 
 
 | Earlier scope | Evidence |
 | --- | --- |
-| 377 live sitemap URLs | [Historical live indexing audit](validation/live-indexing-readiness.json) |
-| 1,452 multilingual URLs | [Expanded translation validation](validation/multilingual-content.json) |
-| 1,458 multilingual URLs and successive feature changes | [Remaining features](validation/remaining-features.json), [US BTU](validation/btu-us-design.json), [health alternatives](validation/free-health-alternatives.json), [removed placeholders](validation/removed-unready-features.json) |
-| 202 calculators and 1,944 URLs after Hindi/Filipino expansion | [Content and language validation](validation/content-languages.json) |
+| 377 live sitemap URLs | [Historical live indexing audit](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/live-indexing-readiness.json) |
+| 1,452 multilingual URLs | [Expanded translation validation](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/multilingual-content.json) |
+| 1,458 multilingual URLs and successive feature changes | [Remaining features](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/remaining-features.json), [US BTU](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/btu-us-design.json), [health alternatives](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/free-health-alternatives.json), [removed placeholders](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/removed-unready-features.json) |
+| 202 calculators and 1,944 URLs after Hindi/Filipino expansion | [Content and language validation](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/content-languages.json) |
 | October 14 toolkit: 214 calculators, one directory and 1,956 URLs | [Planning toolkit](planning-toolkit.md) |
 
 The historical Hindi/Filipino work added 202 calculator guidance sections and 26 directory explanations, with 9,651 source messages checked per draft language at that revision. Later result/export/toolkit checks used different counts. Those automated checks did not establish professional translation review and do not override the current publication gate.
@@ -88,10 +88,10 @@ Engine-owned composite answers such as matrix values, coordinates, approximate f
 
 Final-grade modes retain the equation result internally but present an unattainable-target message when it exceeds 100%, alongside the highest possible overall grade. Already-secured targets have a zero minimum score. Translation dictionaries retain these messages for future review. Percentage change, return, markup and similar ratios are not globally capped at 100%; valid results can exceed it. The two-event probability mode removes floating-point excursions outside its validated zero-to-one domain.
 
-Historical verification of this feature is recorded in [result formatting validation](validation/result-formatting.json); its test and translation counts apply to that earlier source revision.
+Historical verification of this feature is recorded in [result formatting validation](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/result-formatting.json); its test and translation counts apply to that earlier source revision.
 
 ## Mobile calculator exports
 
 CSV exports keep a usable download link, with native file sharing offered when supported. The PDF action creates a printable report locally, including metrics, notes and complete tables. It uses the page’s fonts and browser text shaping for Hindi and Arabic, and matches localized result and currency precision. PDF pages contain rendered images; CSV remains available for machine-readable data. Desktop printing remains available.
 
-Historical verification is recorded in [mobile export validation](validation/mobile-exports.json), including the limits of browser emulation. English export checks remain active; browser checks requiring draft languages are explicitly skipped until those languages are published.
+Historical verification is recorded in [mobile export validation](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/validation/mobile-exports.json), including the limits of browser emulation. English export checks remain active; browser checks requiring draft languages are explicitly skipped until those languages are published.
