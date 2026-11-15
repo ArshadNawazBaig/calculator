@@ -72,7 +72,7 @@ describe('calculator discovery and translated payloads', () => {
       const result = await calculate('finance', mode, {...defaults(mode), ...example.inputs});
       expect(result.metrics[0].value).toBeCloseTo(example.balance, 2);
       const article = content[example.slug as keyof typeof content];
-      expect(article.sections[0].paragraphs.join(' ')).toContain(example.balance.toLocaleString('en-US'));
+      expect(article.sections.flatMap(section => section.paragraphs).join(' ')).toContain(example.balance.toLocaleString('en-US'));
     }
   });
   it('keeps every related link functional, distinct, and relevant to the main tasks', () => {

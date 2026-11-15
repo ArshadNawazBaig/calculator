@@ -2,7 +2,7 @@ import content from '@/data/calculator-content.json';
 import {translator, type Dictionary} from '@/lib/i18n/config';
 import styles from './explanation.module.css';
 
-type GuidanceSection = {
+export type GuidanceSection = {
   title: string;
   paragraphs: string[];
   table?: {caption: string; headers: string[]; rows: string[][]};
@@ -15,7 +15,7 @@ export function CalculatorGuidance({slug, messages = {}, contents = false}: {slu
   const entry = (content as Record<string, {sections: GuidanceSection[]}>)[slug];
   if (!entry) return null;
   return <>
-    {contents && <nav className={styles.guideContents} aria-label={t('On this page')} data-calculator-guide-nav>
+    {contents && entry.sections.length >= 3 && <nav className={styles.guideContents} aria-label={t('On this page')} data-calculator-guide-nav>
       <h2>{t('On this page')}</h2>
       <ul>{entry.sections.map((section, index) => <li key={section.title}><a href={`#understanding-${index + 1}`}>{t(section.title)}</a></li>)}</ul>
     </nav>}

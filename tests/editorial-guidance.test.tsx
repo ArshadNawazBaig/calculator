@@ -1,13 +1,13 @@
 import {describe, expect, it} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {CalculatorGuidance} from '@/components/content/calculator-guidance';
+import {CalculatorGuidance, type GuidanceSection} from '@/components/content/calculator-guidance';
 import {DirectoryGuidance, directoryContent} from '@/components/content/directory-guidance';
-import {catalog, definitions} from '@/lib/calculators/registry';
+import {catalog, definitions, definitionMap} from '@/lib/calculators/registry';
 import {categorySlug} from '@/lib/catalog-paths';
 import {categories} from '@/lib/site';
 import content from '@/data/calculator-content.json';
 import {getContentDictionary} from '@/lib/i18n/content';
-import {locales, localizedPath} from '@/lib/i18n/config';
+import {locales, localizedPath, publishedPageLocales} from '@/lib/i18n/config';
 import {guides, guideCalculators} from '@/data/guides';
 import {RelatedGuides} from '@/components/content/related-guides';
 
@@ -28,6 +28,32 @@ describe('server-rendered editorial guidance', () => {
       }
     }
     expect(renderToStaticMarkup(<CalculatorGuidance slug="not-a-tool"/>)).toBe('');
+  });
+
+  it('connects article navigation and worked references to real sections and calculator modes', () => {
+    const entries = content as Record<string, {sections: GuidanceSection[]; faqs: {question: string; answer: string}[]}>;
+    for (const [slug, entry] of Object.entries(entries)) {
+      const html = renderToStaticMarkup(<CalculatorGuidance slug={slug} contents/>);
+      expect(html.includes('data-calculator-guide-nav'), slug).toBe(entry.sections.length >= 3);
+      for (const [index, section] of entry.sections.entries()) {
+        if (entry.sections.length >= 3) expect(html).toContain(`href="#understanding-${index + 1}"`);
+        if (section.table) {
+          for (const row of section.table.rows) expect(row.length, `${slug}: ${section.title}`).toBe(section.table.headers.length);
+        }
+        if (section.links) for (const link of section.links) {
+          const url = new URL(link.href, `https://finflo.org/${slug}`);
+          if (url.origin !== 'https://finflo.org') continue;
+          const target = definitionMap.get(url.pathname.slice(1));
+          expect(Boolean(target) || Object.hasOwn(guides, url.pathname.replace(/^\/guides\//, '')), `${slug}: ${link.href}`).toBe(true);
+          // Forms select modes from hashes; a ?mode= query silently opens the default.
+          expect(url.searchParams.has('mode'), link.href).toBe(false);
+          if (url.hash.startsWith('#mode-')) {
+            expect(target?.modes.some(mode => `#mode-${mode.id}` === url.hash), link.href).toBe(true);
+          }
+        }
+      }
+      expect(new Set(entry.faqs.map(faq => faq.question)).size, slug).toBe(entry.faqs.length);
+    }
   });
 
   it('covers actual directory paths, including punctuation in subcategory names', () => {
@@ -72,15 +98,18 @@ describe('server-rendered editorial guidance', () => {
     ]);
   });
 
-  it('renders the new article text in each selected language without English fallback', async () => {
+  it('renders published calculator guidance and existing directory translations without English fallback', async () => {
     const entry = content['mortgage-calculator'].sections[0];
     const dictionaries = await Promise.all(locales.filter(locale => locale !== 'en').map(async locale => ({locale, messages: await getContentDictionary(locale)})));
     for (const {locale, messages} of dictionaries) {
-      const html = renderToStaticMarkup(<CalculatorGuidance slug="mortgage-calculator" messages={messages}/>);
-      expect(messages[entry.title], locale).toBeTruthy();
-      expect(messages[entry.paragraphs[0]], locale).toBeTruthy();
-      expect(html, locale).not.toContain(entry.title);
-      expect(html, locale).not.toContain(entry.paragraphs[0]);
+      // New English guidance is reviewed before any draft language is published.
+      if (publishedPageLocales('/mortgage-calculator').includes(locale)) {
+        const html = renderToStaticMarkup(<CalculatorGuidance slug="mortgage-calculator" messages={messages}/>);
+        expect(messages[entry.title], locale).toBeTruthy();
+        expect(messages[entry.paragraphs[0]], locale).toBeTruthy();
+        expect(html, locale).not.toContain(entry.title);
+        expect(html, locale).not.toContain(entry.paragraphs[0]);
+      }
       const directory = renderToStaticMarkup(<DirectoryGuidance path="/calculators/finance" locale={locale} messages={messages}/>);
       expect(directory).not.toContain(directoryContent['/calculators/finance'].sections[0].title);
     }

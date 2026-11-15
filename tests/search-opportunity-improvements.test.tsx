@@ -61,11 +61,16 @@ describe('salary conversion and search-page examples', () => {
       expect(html).toContain('scope="row"');
       const sections = content[slug].sections as {links?: {href: string}[]}[];
       for (const section of sections) for (const link of section.links || []) {
+        expect(html).toContain(`href="${link.href}"`);
+        const url = new URL(link.href, `https://finflo.org/${slug}`);
+        if (url.origin !== 'https://finflo.org') {
+          expect(url.protocol).toBe('https:');
+          continue;
+        }
         const [path, fragment] = link.href.split('#');
         const target = definitionMap.get(path ? path.slice(1) : slug);
         expect(target, link.href).toBeDefined();
         if (fragment) expect(target!.modes.some(mode => `mode-${mode.id}` === fragment), link.href).toBe(true);
-        expect(html).toContain(`href="${link.href}"`);
       }
     }
   });

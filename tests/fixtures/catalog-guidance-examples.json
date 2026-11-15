@@ -1,0 +1,5976 @@
+[
+  {
+    "slug": "mortgage-calculator",
+    "modeId": "repayment",
+    "inputs": {
+      "price": "300000",
+      "down": "20",
+      "rate": "6",
+      "years": "30",
+      "tax": "2400",
+      "insurance": "1200",
+      "pmi": "0",
+      "hoa": "0",
+      "other": "0",
+      "taxGrowth": "0",
+      "insuranceGrowth": "0",
+      "hoaGrowth": "0",
+      "extra": "0",
+      "extraAnnual": "0",
+      "oneTime": "0",
+      "oneMonth": "12",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 1438.9212603666167,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Initial monthly ownership cost",
+        "value": 1738.9212603666167,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Loan amount",
+        "value": 240000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "mortgage-amortization-calculator",
+    "modeId": "repayment",
+    "inputs": {
+      "price": "300000",
+      "down": "20",
+      "rate": "6",
+      "years": "30",
+      "tax": "0",
+      "insurance": "0",
+      "pmi": "0",
+      "hoa": "0",
+      "other": "0",
+      "taxGrowth": "0",
+      "insuranceGrowth": "0",
+      "hoaGrowth": "0",
+      "extra": "0",
+      "extraAnnual": "0",
+      "oneTime": "0",
+      "oneMonth": "12",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 1438.9212603666167,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 278011.653731982,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "canadian-mortgage-calculator",
+    "modeId": "repayment",
+    "inputs": {
+      "price": "300000",
+      "down": "20",
+      "rate": "6",
+      "years": "25",
+      "tax": "0",
+      "insurance": "0",
+      "pmi": "0",
+      "hoa": "0",
+      "other": "0",
+      "taxGrowth": "0",
+      "insuranceGrowth": "0",
+      "hoaGrowth": "0",
+      "extra": "0",
+      "extraAnnual": "0",
+      "oneTime": "0",
+      "oneMonth": "12",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 1535.5358968241621,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Loan amount",
+        "value": 240000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "mortgage-calculator-uk",
+    "modeId": "interest-only",
+    "inputs": {
+      "principal": "200000",
+      "rate": "5",
+      "years": "25"
+    },
+    "expected": [
+      {
+        "label": "Monthly interest-only payment",
+        "value": 833.3333333333334,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "loan-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "12000",
+      "rate": "6",
+      "years": "5",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 231.99361835313928,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 1919.6171011883562,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "amortization-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "20000",
+      "rate": "8",
+      "years": "4",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 488.25844683005397,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 3436.4054478425896,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "personal-loan-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "10000",
+      "rate": "8",
+      "years": "3",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 313.3636546143113,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total payments",
+        "value": 11281.091566115207,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "boat-loan-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "30000",
+      "rate": "7",
+      "years": "10",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 348.3254376558712,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 11799.052518704542,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "business-loan-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "50000",
+      "rate": "6",
+      "years": "5",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 966.6400764714137,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 7998.404588284822,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "home-equity-loan-calculator",
+    "modeId": "capacity",
+    "inputs": {
+      "value": "400000",
+      "balance": "250000",
+      "ltv": "80",
+      "fees": "2000"
+    },
+    "expected": [
+      {
+        "label": "Potential additional borrowing",
+        "value": 70000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net cash after fees",
+        "value": 68000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "mortgage-payoff-calculator",
+    "modeId": "payoff",
+    "inputs": {
+      "principal": "120000",
+      "rate": "6",
+      "payment": "1000",
+      "extra": "200"
+    },
+    "expected": [
+      {
+        "label": "Payoff time",
+        "value": 139,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 46770.93676653303,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "payment-calculator",
+    "modeId": "loan",
+    "inputs": {
+      "principal": "10000",
+      "rate": "8",
+      "years": "3",
+      "extra": "0",
+      "start": "2026-11-01"
+    },
+    "expected": [
+      {
+        "label": "Regular monthly payment",
+        "value": 313.3636546143113,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 1281.0915661152067,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "repayment-calculator",
+    "modeId": "payoff",
+    "inputs": {
+      "principal": "6000",
+      "rate": "12",
+      "payment": "300",
+      "extra": "100"
+    },
+    "expected": [
+      {
+        "label": "Payoff time",
+        "value": 17,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 533.6493333201929,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "credit-card-calculator",
+    "modeId": "payoff",
+    "inputs": {
+      "principal": "2400",
+      "rate": "18",
+      "payment": "150",
+      "extra": "0"
+    },
+    "expected": [
+      {
+        "label": "Payoff time",
+        "value": 19,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 365.1743351916986,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "auto-loan-calculator",
+    "modeId": "payment",
+    "inputs": {
+      "price": "30000",
+      "down": "5000",
+      "trade": "0",
+      "owed": "0",
+      "rebate": "0",
+      "tax": "6",
+      "tradeTax": "yes",
+      "fees": "500",
+      "rate": "6",
+      "years": "5"
+    },
+    "expected": [
+      {
+        "label": "Loan amount",
+        "value": 27300,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Regular monthly payment",
+        "value": 527.7854817533919,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "cash-back-or-low-interest-calculator",
+    "modeId": "compare",
+    "inputs": {
+      "price": "35000",
+      "down": "5000",
+      "rebate": "2000",
+      "rateA": "6",
+      "rateB": "2",
+      "years": "5"
+    },
+    "expected": [
+      {
+        "label": "Payment with rebate",
+        "value": 541.3184428239917,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Payment with low rate",
+        "value": 525.83280159732,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "auto-lease-calculator",
+    "modeId": "lease",
+    "inputs": {
+      "price": "35000",
+      "down": "3000",
+      "residual": "20000",
+      "months": "36",
+      "factor": "0.0025",
+      "tax": "6"
+    },
+    "expected": [
+      {
+        "label": "Monthly payment",
+        "value": 491.1333333333333,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly depreciation",
+        "value": 333.3333333333333,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly rent charge",
+        "value": 130,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "lease-calculator",
+    "modeId": "financing",
+    "inputs": {
+      "solve": "payment",
+      "asset": "20000",
+      "residual": "8000",
+      "months": "36",
+      "rate": "6",
+      "payment": "400"
+    },
+    "expected": [
+      {
+        "label": "Monthly lease payment",
+        "value": 405.0632494186685,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "heloc-calculator",
+    "modeId": "heloc",
+    "inputs": {
+      "principal": "50000",
+      "rate": "8",
+      "draw": "10",
+      "repayment": "20"
+    },
+    "expected": [
+      {
+        "label": "Interest-only draw payment",
+        "value": 333.3333333333333,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly repayment payment",
+        "value": 418.2200344967332,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Interest during draw period",
+        "value": 40000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "fha-loan-calculator",
+    "modeId": "program",
+    "inputs": {
+      "price": "200000",
+      "down": "5",
+      "rate": "6",
+      "years": "30",
+      "fee": "1.75",
+      "financeFee": "yes",
+      "annualInsurance": "0.55"
+    },
+    "expected": [
+      {
+        "label": "Loan amount",
+        "value": 193325,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Upfront program fee",
+        "value": 3325,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "va-mortgage-calculator",
+    "modeId": "program",
+    "inputs": {
+      "price": "250000",
+      "down": "0",
+      "rate": "6",
+      "years": "30",
+      "fee": "2.15",
+      "financeFee": "yes",
+      "annualInsurance": "0"
+    },
+    "expected": [
+      {
+        "label": "Loan amount",
+        "value": 255375,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Upfront program fee",
+        "value": 5375,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "down-payment-calculator",
+    "modeId": "amount",
+    "inputs": {
+      "price": "300000",
+      "down": "15",
+      "closing": "3"
+    },
+    "expected": [
+      {
+        "label": "Down payment",
+        "value": 45000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Estimated closing costs",
+        "value": 9000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Initial cash needed",
+        "value": 54000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "house-affordability-calculator",
+    "modeId": "affordability",
+    "inputs": {
+      "income": "96000",
+      "debt": "800",
+      "front": "28",
+      "back": "36",
+      "down": "20",
+      "rate": "6",
+      "years": "30",
+      "costs": "400"
+    },
+    "expected": [
+      {
+        "label": "Principal & interest budget",
+        "value": 1680,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "rent-calculator",
+    "modeId": "rent",
+    "inputs": {
+      "income": "72000",
+      "share": "30",
+      "utilities": "200"
+    },
+    "expected": [
+      {
+        "label": "Monthly rent budget",
+        "value": 1600,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "debt-ratio-calculator",
+    "modeId": "ratio",
+    "inputs": {
+      "income": "8000",
+      "housing": "2000",
+      "debt": "600"
+    },
+    "expected": [
+      {
+        "label": "Total debt-to-income ratio",
+        "value": 32.5,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Housing ratio",
+        "value": 25,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "refinance-calculator",
+    "modeId": "compare",
+    "inputs": {
+      "principal": "200000",
+      "oldRate": "7",
+      "oldYears": "20",
+      "newRate": "5",
+      "newYears": "20",
+      "fees": "3000"
+    },
+    "expected": [
+      {
+        "label": "Current monthly payment",
+        "value": 1550.5978712377462,
+        "tolerance": 0.011
+      },
+      {
+        "label": "New monthly payment",
+        "value": 1319.9114784333174,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Payment-based break-even",
+        "value": "14 months"
+      }
+    ]
+  },
+  {
+    "slug": "interest-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "initial": "5000",
+      "contribution": "0",
+      "contributionFrequency": "12",
+      "rate": "6",
+      "years": "3",
+      "frequency": "12",
+      "timing": "end",
+      "taxRate": "0",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Projected balance",
+        "value": 5983.402624117073,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Growth after modeled tax",
+        "value": 983.4026241170732,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "savings-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "initial": "1000",
+      "contribution": "100",
+      "contributionFrequency": "12",
+      "rate": "6",
+      "years": "2",
+      "frequency": "12",
+      "timing": "end",
+      "taxRate": "0",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Projected balance",
+        "value": 3670.355300313166,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total contributions",
+        "value": 3400,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "compound-interest-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "initial": "5000",
+      "contribution": "0",
+      "contributionFrequency": "12",
+      "rate": "6",
+      "years": "3",
+      "frequency": "12",
+      "timing": "end",
+      "taxRate": "0",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Projected balance",
+        "value": 5983.402624117073,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "cd-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "initial": "10000",
+      "contribution": "0",
+      "contributionFrequency": "12",
+      "rate": "4",
+      "years": "2",
+      "frequency": "12",
+      "timing": "end",
+      "taxRate": "0",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Projected balance",
+        "value": 10831.429591590662,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Growth after modeled tax",
+        "value": 831.4295915906623,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "simple-interest-calculator",
+    "modeId": "simple",
+    "inputs": {
+      "principal": "2000",
+      "rate": "5",
+      "years": "18",
+      "timeUnit": "months"
+    },
+    "expected": [
+      {
+        "label": "Interest",
+        "value": 150,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Final amount",
+        "value": 2150,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "mutual-fund-calculator",
+    "modeId": "exit-load",
+    "inputs": {
+      "netInvestedLot": "7800",
+      "redemptionBeforeLoad": "9000",
+      "deferredLoadPercent": "1",
+      "deferredLoadBasis": "lesser-of-net-invested-lot-and-redemption"
+    },
+    "expected": [
+      {
+        "label": "Exit load",
+        "value": 78,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Ending after all fees",
+        "value": 8922,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "finance-calculator",
+    "modeId": "tvm",
+    "inputs": {
+      "solve": "fv",
+      "pv": "5000",
+      "fv": "0",
+      "pmt": "1200",
+      "rate": "5",
+      "years": "5",
+      "periods": "1",
+      "timing": "end"
+    },
+    "expected": [
+      {
+        "label": "Future value",
+        "value": 13012.16531250001,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "investment-calculator",
+    "modeId": "tvm",
+    "inputs": {
+      "solve": "fv",
+      "pv": "5000",
+      "fv": "0",
+      "pmt": "1200",
+      "rate": "5",
+      "years": "5",
+      "periods": "1",
+      "timing": "end"
+    },
+    "expected": [
+      {
+        "label": "Future value",
+        "value": 13012.16531250001,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "present-value-calculator",
+    "modeId": "pv",
+    "inputs": {
+      "future": "10000",
+      "payment": "0",
+      "rate": "5",
+      "years": "5"
+    },
+    "expected": [
+      {
+        "label": "Present value",
+        "value": 7835.261664684588,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "future-value-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "initial": "8000",
+      "contribution": "0",
+      "contributionFrequency": "12",
+      "rate": "5",
+      "years": "5",
+      "frequency": "1",
+      "timing": "end",
+      "taxRate": "0",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Projected balance",
+        "value": 10210.252500000002,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Growth after modeled tax",
+        "value": 2210.252500000003,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "interest-rate-calculator",
+    "modeId": "rate",
+    "inputs": {
+      "principal": "10000",
+      "years": "3",
+      "payment": "313.3636546143113"
+    },
+    "expected": [
+      {
+        "label": "Nominal annual interest rate",
+        "value": 8,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Effective annual rate",
+        "value": 8.299950680750978,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "inflation-calculator",
+    "modeId": "future",
+    "inputs": {
+      "amount": "10000",
+      "rate": "3",
+      "years": "10"
+    },
+    "expected": [
+      {
+        "label": "Future equivalent amount",
+        "value": 13439.163793441223,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Future purchasing power",
+        "value": 7440.93914896725,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "annuity-calculator",
+    "modeId": "accumulate",
+    "inputs": {
+      "initial": "0",
+      "payment": "2000",
+      "rate": "5",
+      "years": "5",
+      "periods": "1",
+      "timing": "end"
+    },
+    "expected": [
+      {
+        "label": "Future balance",
+        "value": 11051.262500000013,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Contributions",
+        "value": 10000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "annuity-payout-calculator",
+    "modeId": "withdraw",
+    "inputs": {
+      "balance": "100000",
+      "rate": "5",
+      "years": "10",
+      "periods": "1",
+      "timing": "end"
+    },
+    "expected": [
+      {
+        "label": "Periodic withdrawal",
+        "value": 12950.45749654566,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total withdrawals",
+        "value": 129504.57496545659,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "retirement-calculator",
+    "modeId": "target",
+    "inputs": {
+      "spending": "36000",
+      "other": "12000",
+      "years": "20",
+      "rate": "3",
+      "inflation": "0"
+    },
+    "expected": [
+      {
+        "label": "Estimated capital needed",
+        "value": 357059.39665093244,
+        "tolerance": 0.011
+      },
+      {
+        "label": "First-year portfolio withdrawal",
+        "value": 24000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "401k-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "balance": "10000",
+      "contribution": "2000",
+      "employer": "1000",
+      "rate": "5",
+      "years": "5",
+      "tax": "20"
+    },
+    "expected": [
+      {
+        "label": "Projected account balance",
+        "value": 29339.709375000024,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Illustrative after-tax balance",
+        "value": 23471.76750000002,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total contributions",
+        "value": 25000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "ira-calculator",
+    "modeId": "growth",
+    "inputs": {
+      "balance": "10000",
+      "contribution": "2000",
+      "employer": "0",
+      "rate": "5",
+      "years": "5",
+      "tax": "20"
+    },
+    "expected": [
+      {
+        "label": "Projected account balance",
+        "value": 23814.078125000015,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Illustrative after-tax balance",
+        "value": 19051.26250000001,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total contributions",
+        "value": 20000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "roth-ira-calculator",
+    "modeId": "roth",
+    "inputs": {
+      "balance": "10000",
+      "contribution": "2000",
+      "rate": "5",
+      "years": "5",
+      "tax": "20"
+    },
+    "expected": [
+      {
+        "label": "Qualified Roth-style balance",
+        "value": 23814.078125000015,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Annually taxed account",
+        "value": 22999.174144000008,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "pension-calculator",
+    "modeId": "pension",
+    "inputs": {
+      "payment": "1000",
+      "years": "10",
+      "rate": "4",
+      "lump": "100000",
+      "growth": "0"
+    },
+    "expected": [
+      {
+        "label": "Pension payment present value",
+        "value": 99102.51051055967,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Lump-sum offer",
+        "value": 100000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "rmd-calculator",
+    "modeId": "rmd",
+    "inputs": {
+      "age": "75",
+      "balance": "250000"
+    },
+    "expected": [
+      {
+        "label": "Estimated annual RMD",
+        "value": 10162.60162601626,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Uniform Lifetime factor",
+        "value": 24.6,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "social-security-calculator",
+    "modeId": "claim",
+    "inputs": {
+      "benefit": "2000",
+      "fra": "67",
+      "claim": "62"
+    },
+    "expected": [
+      {
+        "label": "Estimated monthly benefit",
+        "value": 1400,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Percentage of full-age benefit",
+        "value": 70,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "college-cost-calculator",
+    "modeId": "college",
+    "inputs": {
+      "cost": "10000",
+      "inflation": "4",
+      "wait": "5",
+      "duration": "2",
+      "saved": "5000",
+      "rate": "5"
+    },
+    "expected": [
+      {
+        "label": "Total future study costs",
+        "value": 24819.719208960007,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Projected existing savings",
+        "value": 6381.4078125000015,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Additional amount needed at enrollment",
+        "value": 18438.311396460005,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "debt-payoff-calculator",
+    "modeId": "debts",
+    "inputs": {
+      "debts": "1000,12,100\n500,0,50",
+      "extra": "50",
+      "strategy": "avalanche"
+    },
+    "expected": [
+      {
+        "label": "Debt-free after",
+        "value": 8,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 40.10507050186,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly debt budget",
+        "value": 200,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "credit-card-payoff-calculator",
+    "modeId": "debts",
+    "inputs": {
+      "debts": "2000,24,75\n1000,12,50",
+      "extra": "125",
+      "strategy": "avalanche"
+    },
+    "expected": [
+      {
+        "label": "Debt-free after",
+        "value": 14,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 351.23550998349094,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly debt budget",
+        "value": 250,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "debt-consolidation-calculator",
+    "modeId": "consolidate",
+    "inputs": {
+      "debts": "5000,20,150\n3000,15,100",
+      "rate": "8",
+      "years": "3",
+      "fees": "200"
+    },
+    "expected": [
+      {
+        "label": "Loan amount",
+        "value": 8200,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Regular monthly payment",
+        "value": 256.9581967837353,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total interest",
+        "value": 1050.49508421447,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Current total minimum payments",
+        "value": 250,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "student-loan-calculator",
+    "modeId": "student",
+    "inputs": {
+      "principal": "10000",
+      "rate": "6",
+      "years": "10",
+      "defer": "6",
+      "subsidized": "no",
+      "extra": "0"
+    },
+    "expected": [
+      {
+        "label": "Interest added before repayment",
+        "value": 300,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Loan amount",
+        "value": 10300,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Regular monthly payment",
+        "value": 114.35111699990073,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "bond-calculator",
+    "modeId": "bond",
+    "inputs": {
+      "solve": "price",
+      "face": "1000",
+      "coupon": "5",
+      "yield": "6",
+      "price": "1000",
+      "years": "5",
+      "frequency": "2"
+    },
+    "expected": [
+      {
+        "label": "Estimated bond price",
+        "value": 957.3489858161207,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Coupon payment",
+        "value": 25,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "average-return-calculator",
+    "modeId": "returns",
+    "inputs": {
+      "returns": "20,-20"
+    },
+    "expected": [
+      {
+        "label": "Arithmetic average",
+        "value": 0,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Geometric average",
+        "value": -2.0204102886728803,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Cumulative return",
+        "value": -4,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "roi-calculator",
+    "modeId": "roi",
+    "inputs": {
+      "cost": "1000",
+      "proceeds": "1300",
+      "fees": "100",
+      "years": "2"
+    },
+    "expected": [
+      {
+        "label": "Return on investment",
+        "value": 18.181818181818183,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net profit",
+        "value": 200,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Annualized return",
+        "value": 8.711461300921798,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "irr-calculator",
+    "modeId": "irr",
+    "inputs": {
+      "flows": "-1000,0,1210",
+      "rate": "5"
+    },
+    "expected": [
+      {
+        "label": "Detected IRR",
+        "value": "10.000000%"
+      },
+      {
+        "label": "Net present value",
+        "value": 97.50566893424025,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "payback-period-calculator",
+    "modeId": "payback",
+    "inputs": {
+      "flows": "-10000,4000,4000,4000",
+      "rate": "5"
+    },
+    "expected": [
+      {
+        "label": "Simple payback",
+        "value": 2.5,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Discounted payback",
+        "value": 2.7415625,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "depreciation-calculator",
+    "modeId": "depreciation",
+    "inputs": {
+      "cost": "12000",
+      "salvage": "2000",
+      "years": "5",
+      "method": "straight"
+    },
+    "expected": [
+      {
+        "label": "Depreciable amount",
+        "value": 10000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "First-year depreciation",
+        "value": 2000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "margin-calculator",
+    "modeId": "calculate",
+    "inputs": {
+      "cost": "60",
+      "price": "100"
+    },
+    "expected": [
+      {
+        "label": "Profit",
+        "value": 40,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Profit margin",
+        "value": 40,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Markup",
+        "value": 66.66666666666666,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "commission-calculator",
+    "modeId": "tiers",
+    "inputs": {
+      "sales": "15000",
+      "tiers": "10000,5\n50000,10",
+      "base": "2000"
+    },
+    "expected": [
+      {
+        "label": "Commission",
+        "value": 1000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total compensation",
+        "value": 3000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "discount-calculator",
+    "modeId": "calculate",
+    "inputs": {
+      "price": "120",
+      "rate": "20",
+      "fixed": "10",
+      "tax": "5"
+    },
+    "expected": [
+      {
+        "label": "Final price with tax",
+        "value": 90.3,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Price before tax",
+        "value": 86,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Savings before tax",
+        "value": 34,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "percent-off-calculator",
+    "modeId": "sequential",
+    "inputs": {
+      "price": "200",
+      "first": "20",
+      "second": "10"
+    },
+    "expected": [
+      {
+        "label": "Final price",
+        "value": 144,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Equivalent single discount",
+        "value": 28,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "sales-tax-calculator",
+    "modeId": "tax",
+    "inputs": {
+      "amount": "108",
+      "rate": "8",
+      "direction": "inclusive"
+    },
+    "expected": [
+      {
+        "label": "Total including tax",
+        "value": 108,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Tax amount",
+        "value": 8,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net amount",
+        "value": 100,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "vat-calculator",
+    "modeId": "tax",
+    "inputs": {
+      "amount": "240",
+      "rate": "20",
+      "direction": "inclusive"
+    },
+    "expected": [
+      {
+        "label": "Total including tax",
+        "value": 240,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Tax amount",
+        "value": 40,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net amount",
+        "value": 200,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "salary-calculator",
+    "modeId": "salary",
+    "inputs": {
+      "amount": "25",
+      "period": "hour",
+      "hours": "40",
+      "days": "5",
+      "leave": "10"
+    },
+    "expected": [
+      {
+        "label": "Annual gross pay",
+        "value": 52000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly equivalent",
+        "value": 4333.333333333333,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Biweekly equivalent",
+        "value": 2000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Semimonthly equivalent",
+        "value": 2166.6666666666665,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Annual pay after unpaid leave",
+        "value": 50000,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "budget-calculator",
+    "modeId": "budget",
+    "inputs": {
+      "income": "4000",
+      "housing": "1200",
+      "utilities": "250",
+      "food": "450",
+      "transport": "300",
+      "insurance": "200",
+      "debt": "300",
+      "savings": "500",
+      "other": "300"
+    },
+    "expected": [
+      {
+        "label": "Remaining monthly balance",
+        "value": 500,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total allocated",
+        "value": 3500,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Savings share",
+        "value": 12.5,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "rental-property-calculator",
+    "modeId": "rental",
+    "inputs": {
+      "price": "200000",
+      "down": "25",
+      "closing": "5000",
+      "rent": "1600",
+      "vacancy": "5",
+      "expenses": "400",
+      "rate": "6",
+      "years": "30"
+    },
+    "expected": [
+      {
+        "label": "Annual net operating income",
+        "value": 13440,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly debt service",
+        "value": 899.3257877291354,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly cash flow",
+        "value": 220.6742122708646,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Capitalization rate",
+        "value": 6.72,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Cash-on-cash return",
+        "value": 4.8147100859097725,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "rent-vs-buy-calculator",
+    "modeId": "compare",
+    "inputs": {
+      "price": "200000",
+      "down": "20",
+      "rate": "6",
+      "term": "30",
+      "years": "5",
+      "rent": "1000",
+      "rentGrowth": "0",
+      "costs": "300",
+      "appreciation": "0",
+      "investment": "0",
+      "buyCosts": "2",
+      "sellCosts": "5"
+    },
+    "expected": [
+      {
+        "label": "Buyer net equity & invested savings",
+        "value": 41113.029083488946,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Renter invested balance",
+        "value": 59556.85041466467,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Buying advantage under assumptions",
+        "value": -18443.82133117572,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Remaining mortgage balance",
+        "value": 148886.97091651105,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "currency-calculator",
+    "modeId": "manual",
+    "inputs": {
+      "amount": "500",
+      "from": "USD",
+      "to": "EUR",
+      "rate": "0.9"
+    },
+    "expected": [
+      {
+        "label": "Converted amount (EUR)",
+        "value": 450,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Entered rate",
+        "value": "1 USD = 0.9 EUR"
+      }
+    ]
+  },
+  {
+    "slug": "apr-calculator",
+    "modeId": "apr",
+    "inputs": {
+      "principal": "10000",
+      "rate": "6",
+      "years": "3",
+      "fees": "300"
+    },
+    "expected": [
+      {
+        "label": "Estimated nominal APR",
+        "value": 8.057335327400203,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly payment",
+        "value": 304.2193745155571,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net loan proceeds",
+        "value": 9700,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "freelance-rate-calculator",
+    "modeId": "rate",
+    "inputs": {
+      "income": "60000",
+      "expenses": "12000",
+      "taxReserve": "25",
+      "buffer": "10",
+      "hours": "40",
+      "weeksOff": "6",
+      "billable": "60",
+      "dayHours": "8",
+      "projectHours": "40",
+      "scopeBuffer": "15"
+    },
+    "expected": [
+      {
+        "label": "Annual revenue target",
+        "value": 101200,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Annual billable hours",
+        "value": 1104,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Required hourly rate",
+        "value": 91.66666666666667,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Quoted day rate",
+        "value": 733.3333333333334,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Project quote",
+        "value": 4216.666666666667,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "invoice-generator",
+    "modeId": "document",
+    "inputs": {
+      "documentType": "invoice",
+      "business": "Your Studio",
+      "businessDetails": "hello@example.com",
+      "customer": "Example Client",
+      "customerDetails": "",
+      "documentNumber": "INV-001",
+      "issueDate": "2026-10-01",
+      "dueDate": "2026-10-31",
+      "items": "[{\"description\":\"Service\",\"quantity\":10,\"rate\":75}]",
+      "discount": "10",
+      "tax": "8",
+      "shipping": "20",
+      "taxShipping": "no",
+      "paid": "200",
+      "precision": "2",
+      "terms": "Payment by bank transfer. Please include the document number as your reference."
+    },
+    "expected": [
+      {
+        "label": "Subtotal",
+        "value": 750,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Discount",
+        "value": 75,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Tax",
+        "value": 54,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Document total",
+        "value": 749,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Balance due",
+        "value": 549,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "payment-fee-calculator",
+    "modeId": "custom",
+    "inputs": {
+      "solve": "gross",
+      "amount": "100",
+      "transactions": "1",
+      "rate": "2.9",
+      "fixed": "0.3",
+      "precision": "2"
+    },
+    "expected": [
+      {
+        "label": "Gross per payment",
+        "value": 103.3,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Fee per payment",
+        "value": 3.3,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Net per payment",
+        "value": 100,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "break-even-calculator",
+    "modeId": "units",
+    "inputs": {
+      "fixedCost": "3000",
+      "price": "50",
+      "variableCost": "20",
+      "targetProfit": "1000",
+      "plannedUnits": "150"
+    },
+    "expected": [
+      {
+        "label": "Break-even whole units",
+        "value": 100,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Break-even sales revenue",
+        "value": 5000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Units for target profit",
+        "value": 134,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Profit at planned sales",
+        "value": 1500,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Margin of safety",
+        "value": 33.333333333333336,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "net-worth-tracker",
+    "modeId": "snapshot",
+    "inputs": {
+      "snapshotDate": "2026-10-01",
+      "assets": "[{\"name\":\"Cash\",\"amount\":15000,\"liquid\":\"yes\"},{\"name\":\"Investments\",\"amount\":25000,\"liquid\":\"no\"},{\"name\":\"Home\",\"amount\":250000,\"liquid\":\"no\"}]",
+      "debts": "[{\"name\":\"Mortgage\",\"amount\":180000},{\"name\":\"Other loans\",\"amount\":5000}]"
+    },
+    "expected": [
+      {
+        "label": "Net worth",
+        "value": 105000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total assets",
+        "value": 290000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Total liabilities",
+        "value": 185000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Liquid assets",
+        "value": 15000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Debt-to-assets ratio",
+        "value": 63.793103448275865,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "emergency-fund-calculator",
+    "modeId": "plan",
+    "inputs": {
+      "expenses": "[{\"name\":\"Essential expenses\",\"amount\":2500}]",
+      "months": "6",
+      "extraReserve": "0",
+      "saved": "5000",
+      "monthlySaving": "500"
+    },
+    "expected": [
+      {
+        "label": "Emergency fund target",
+        "value": 15000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Savings still needed",
+        "value": 10000,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Months to goal",
+        "value": 20,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Current expense coverage",
+        "value": 2,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "subscription-cost-tracker",
+    "modeId": "subscriptions",
+    "inputs": {
+      "subscriptions": "[{\"name\":\"Streaming\",\"cost\":15,\"cycle\":\"monthly\",\"action\":\"keep\",\"annualOffer\":150},{\"name\":\"Cloud\",\"cost\":10,\"cycle\":\"monthly\",\"action\":\"annual\",\"annualOffer\":100},{\"name\":\"Membership\",\"cost\":20,\"cycle\":\"monthly\",\"action\":\"cancel\",\"annualOffer\":0}]"
+    },
+    "expected": [
+      {
+        "label": "Current annual spending",
+        "value": 540,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Planned annual spending",
+        "value": 280,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Annual savings",
+        "value": 260,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly savings equivalent",
+        "value": 21.666666666666668,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "cash-flow-calculator",
+    "modeId": "forecast",
+    "inputs": {
+      "opening": "30000",
+      "revenue": "8000",
+      "revenueGrowth": "0",
+      "fixedCosts": "10000",
+      "costGrowth": "0",
+      "variableRate": "20",
+      "reserve": "5000",
+      "months": "12",
+      "oneOffs": "[]"
+    },
+    "expected": [
+      {
+        "label": "Constant-burn runway",
+        "value": 8.333333333333334,
+        "tolerance": 0.011
+      },
+      {
+        "label": "First month cash reaches zero or below",
+        "value": 9,
+        "tolerance": 0.011
+      },
+      {
+        "label": "First month below safety buffer",
+        "value": 7,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Ending cash balance",
+        "value": -13200,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "seller-profit-calculator",
+    "modeId": "custom",
+    "inputs": {
+      "price": "50",
+      "shippingCharged": "5",
+      "productCost": "15",
+      "shippingCost": "6",
+      "packaging": "1",
+      "advertising": "3",
+      "returnAllowance": "1",
+      "salesTax": "0",
+      "orders": "100",
+      "overhead": "200",
+      "platformRate": "6.5",
+      "processingRate": "3",
+      "processingFixed": "0.25",
+      "listingFee": "0.2",
+      "adFeeRate": "0",
+      "otherFee": "0"
+    },
+    "expected": [
+      {
+        "label": "Platform and payment fees per order",
+        "value": 5.68,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Contribution per order",
+        "value": 23.32,
+        "tolerance": 0.011
+      },
+      {
+        "label": "Monthly operating profit",
+        "value": 2132,
+        "tolerance": 0.011
+      }
+    ]
+  },
+  {
+    "slug": "bmi-calculator",
+    "modeId": "adult",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Body mass index",
+        "value": 22.857142857142858,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bmi-calculator",
+    "modeId": "child",
+    "inputs": {
+      "sex": "male",
+      "units": "metric",
+      "weight": "30",
+      "height": "135",
+      "ageYears": "9",
+      "ageMonths": "6"
+    },
+    "expected": [
+      {
+        "label": "BMI-for-age percentile",
+        "value": 51.34828014317729,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "anorexic-bmi-calculator",
+    "modeId": "screening",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Body mass index",
+        "value": 22.857142857142858,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "overweight-calculator",
+    "modeId": "adult",
+    "inputs": {
+      "units": "metric",
+      "weight": "80.99",
+      "height": "180",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Adult screening category",
+        "value": "Healthy-weight range",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "overweight-calculator",
+    "modeId": "adult",
+    "inputs": {
+      "units": "metric",
+      "weight": "81",
+      "height": "180",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Body mass index",
+        "value": 25,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "healthy-weight-calculator",
+    "modeId": "reference",
+    "inputs": {
+      "units": "metric",
+      "height": "175",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Lower reference boundary",
+        "value": 56.65625,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "healthy-weight-calculator",
+    "modeId": "reference",
+    "inputs": {
+      "units": "metric",
+      "height": "175",
+      "age": "30"
+    },
+    "expected": [
+      {
+        "label": "Upper reference boundary (exclusive)",
+        "value": 76.5625,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "ideal-weight-calculator",
+    "modeId": "reference",
+    "inputs": {
+      "sex": "male",
+      "units": "metric",
+      "height": "175"
+    },
+    "expected": [
+      {
+        "label": "Devine estimate",
+        "value": 70.46456692913384,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bmr-calculator",
+    "modeId": "energy",
+    "inputs": {
+      "sex": "male",
+      "age": "30",
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "method": "mifflin",
+      "fat": "20"
+    },
+    "expected": [
+      {
+        "label": "Estimated resting energy",
+        "value": 1648.75,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bmr-calculator",
+    "modeId": "energy",
+    "inputs": {
+      "sex": "male",
+      "age": "30",
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "method": "katch",
+      "fat": "20"
+    },
+    "expected": [
+      {
+        "label": "Estimated resting energy",
+        "value": 1579.6,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "tdee-calculator",
+    "modeId": "energy",
+    "inputs": {
+      "sex": "male",
+      "age": "30",
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "method": "mifflin",
+      "fat": "20",
+      "activity": "1.55"
+    },
+    "expected": [
+      {
+        "label": "Estimated maintenance energy",
+        "value": 2555.5625,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "macro-calculator",
+    "modeId": "split",
+    "inputs": {
+      "calories": "2000",
+      "protein": "20",
+      "carbs": "50",
+      "fat": "30"
+    },
+    "expected": [
+      {
+        "label": "Protein",
+        "value": 100,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "carbohydrate-calculator",
+    "modeId": "split",
+    "inputs": {
+      "calories": "2000",
+      "protein": "20",
+      "carbs": "50",
+      "fat": "30"
+    },
+    "expected": [
+      {
+        "label": "Carbohydrate",
+        "value": 250,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "fat-intake-calculator",
+    "modeId": "split",
+    "inputs": {
+      "calories": "2000",
+      "protein": "20",
+      "carbs": "50",
+      "fat": "30"
+    },
+    "expected": [
+      {
+        "label": "Fat",
+        "value": 66.66666666666667,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "protein-calculator",
+    "modeId": "protein",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "factor": "0.8"
+    },
+    "expected": [
+      {
+        "label": "Daily protein",
+        "value": 56,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "body-fat-calculator",
+    "modeId": "navy",
+    "inputs": {
+      "sex": "male",
+      "units": "metric",
+      "height": "175",
+      "weight": "70",
+      "waist": "85",
+      "neck": "38",
+      "hip": "95"
+    },
+    "expected": [
+      {
+        "label": "Estimated body fat",
+        "value": 17.007719172310537,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "body-fat-calculator",
+    "modeId": "bmi-estimate",
+    "inputs": {
+      "equation": "adult",
+      "units": "metric",
+      "sex": "male",
+      "weight": "70",
+      "height": "175",
+      "age": "45"
+    },
+    "expected": [
+      {
+        "label": "Estimated body fat",
+        "value": 21.578571428571422,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "army-body-fat-calculator",
+    "modeId": "policy-2026",
+    "inputs": {
+      "recordedHeightInches": "70",
+      "recordedAverageWaistInches": "38"
+    },
+    "expected": [
+      {
+        "label": "Recorded waist-to-height ratio",
+        "value": "0.542",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "army-body-fat-calculator",
+    "modeId": "policy-2026",
+    "inputs": {
+      "recordedHeightInches": "70",
+      "recordedAverageWaistInches": "38.5"
+    },
+    "expected": [
+      {
+        "label": "2026 stated threshold",
+        "value": "At or above 0.550",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "lean-body-mass-calculator",
+    "modeId": "bodyfat",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "fat": "20"
+    },
+    "expected": [
+      {
+        "label": "Estimated lean mass",
+        "value": 56,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "lean-body-mass-calculator",
+    "modeId": "boer",
+    "inputs": {
+      "sex": "male",
+      "units": "metric",
+      "weight": "70",
+      "height": "175"
+    },
+    "expected": [
+      {
+        "label": "Estimated lean mass",
+        "value": 56.015,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "body-surface-area-calculator",
+    "modeId": "bsa",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "method": "mosteller"
+    },
+    "expected": [
+      {
+        "label": "Body surface area",
+        "value": 1.8446619684315546,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "body-type-calculator",
+    "modeId": "ratios",
+    "inputs": {
+      "units": "metric",
+      "height": "175",
+      "waist": "80",
+      "hip": "100"
+    },
+    "expected": [
+      {
+        "label": "Waist-to-height ratio",
+        "value": 0.45714285714285713,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "body-type-calculator",
+    "modeId": "fashion-ffit",
+    "inputs": {
+      "unitScheme": "shared",
+      "measurementUnit": "in",
+      "bust": "36",
+      "waist": "26",
+      "hip": "36",
+      "highHip": "30",
+      "bustUnit": "in",
+      "waistUnit": "in",
+      "hipUnit": "in",
+      "highHipUnit": "in"
+    },
+    "expected": [
+      {
+        "label": "Matching fashion descriptors",
+        "value": "Hourglass",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "calories-burned-calculator",
+    "modeId": "met",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "met": "3.5",
+      "minutes": "60"
+    },
+    "expected": [
+      {
+        "label": "Gross energy estimate",
+        "value": 257.25,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "calories-burned-calculator",
+    "modeId": "distance",
+    "inputs": {
+      "units": "metric",
+      "weight": "70",
+      "activity": "walking",
+      "distance": "5",
+      "distanceUnit": "km",
+      "speed": "5",
+      "speedUnit": "kph"
+    },
+    "expected": [
+      {
+        "label": "Energy above resting estimate",
+        "value": 205.8,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "one-rep-max-calculator",
+    "modeId": "rep",
+    "inputs": {
+      "weight": "100",
+      "reps": "5",
+      "unit": "kg"
+    },
+    "expected": [
+      {
+        "label": "Brzycki estimate",
+        "value": 112.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "one-rep-max-calculator",
+    "modeId": "rep",
+    "inputs": {
+      "weight": "100",
+      "reps": "1",
+      "unit": "kg"
+    },
+    "expected": [
+      {
+        "label": "Epley estimate",
+        "value": 100,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "target-heart-rate-calculator",
+    "modeId": "target",
+    "inputs": {
+      "age": "30",
+      "rest": "60",
+      "lower": "50",
+      "upper": "70",
+      "method": "reserve"
+    },
+    "expected": [
+      {
+        "label": "Lower target estimate",
+        "value": 125,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "target-heart-rate-calculator",
+    "modeId": "methods",
+    "inputs": {
+      "age": "30",
+      "equation": "tanaka",
+      "maximum": "190",
+      "rest": "60",
+      "method": "max",
+      "lower": "50",
+      "upper": "70"
+    },
+    "expected": [
+      {
+        "label": "Maximum heart rate",
+        "value": 187,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pace-calculator",
+    "modeId": "pace",
+    "inputs": {
+      "distance": "5",
+      "minutes": "30"
+    },
+    "expected": [
+      {
+        "label": "Mile pace",
+        "value": 9.656064,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pace-calculator",
+    "modeId": "splits",
+    "inputs": {
+      "splits": "1,00:06:00\n3,00:17:00\n5,00:29:00"
+    },
+    "expected": [
+      {
+        "label": "Average kilometer pace",
+        "value": "00:05:48",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pace-calculator",
+    "modeId": "finish",
+    "inputs": {
+      "completed": "5",
+      "total": "21.0975",
+      "elapsed": "00:30:00"
+    },
+    "expected": [
+      {
+        "label": "Projected finish time",
+        "value": "02:06:35",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pregnancy-calculator",
+    "modeId": "lmp",
+    "inputs": {
+      "date": "2026-07-01",
+      "cycle": "28",
+      "asof": "2026-10-09"
+    },
+    "expected": [
+      {
+        "label": "Gestational age on selected date",
+        "value": "14 weeks, 2 days",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "due-date-calculator",
+    "modeId": "lmp",
+    "inputs": {
+      "date": "2026-07-01",
+      "cycle": "30",
+      "asof": "2026-10-09"
+    },
+    "expected": [
+      {
+        "label": "Estimated due date",
+        "value": "2027-04-09",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "due-date-calculator",
+    "modeId": "ultrasound",
+    "inputs": {
+      "date": "2026-09-01",
+      "weeks": "8",
+      "days": "6",
+      "asof": "2026-10-09"
+    },
+    "expected": [
+      {
+        "label": "Estimated due date",
+        "value": "2027-04-07",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pregnancy-conception-calculator",
+    "modeId": "due-date",
+    "inputs": {
+      "due": "2027-04-07",
+      "asof": "2026-10-09"
+    },
+    "expected": [
+      {
+        "label": "Estimated conception",
+        "value": "2026-07-15",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "conception-calculator",
+    "modeId": "fertile-window",
+    "inputs": {
+      "date": "2026-07-01",
+      "cycle": "28",
+      "luteal": "12",
+      "cycles": "2"
+    },
+    "expected": [
+      {
+        "label": "Estimated ovulation",
+        "value": "2026-07-17",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "ovulation-calculator",
+    "modeId": "cycle",
+    "inputs": {
+      "date": "2026-07-01",
+      "cycle": "32",
+      "luteal": "14",
+      "cycles": "3"
+    },
+    "expected": [
+      {
+        "label": "Estimated ovulation",
+        "value": "2026-07-19",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "period-calculator",
+    "modeId": "cycle",
+    "inputs": {
+      "date": "2026-07-01",
+      "cycle": "28",
+      "luteal": "14",
+      "cycles": "3",
+      "bleeding": "5"
+    },
+    "expected": [
+      {
+        "label": "Next period estimate",
+        "value": "2026-07-29",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pregnancy-weight-gain-calculator",
+    "modeId": "singleton",
+    "inputs": {
+      "units": "metric",
+      "preweight": "65",
+      "current": "70",
+      "height": "175",
+      "week": "24",
+      "fetuses": "1"
+    },
+    "expected": [
+      {
+        "label": "Current cumulative gain",
+        "value": 5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "pregnancy-weight-gain-calculator",
+    "modeId": "singleton",
+    "inputs": {
+      "units": "metric",
+      "preweight": "65",
+      "current": "70",
+      "height": "175",
+      "week": "24",
+      "fetuses": "2"
+    },
+    "expected": [
+      {
+        "label": "Weekly reference",
+        "value": "No universal weekly twin range",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "gfr-calculator",
+    "modeId": "adult",
+    "inputs": {
+      "sex": "male",
+      "age": "50",
+      "creatinine": "1",
+      "unit": "mg"
+    },
+    "expected": [
+      {
+        "label": "Estimated GFR",
+        "value": 91.6914786098333,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "gfr-calculator",
+    "modeId": "adult",
+    "inputs": {
+      "sex": "male",
+      "age": "50",
+      "creatinine": "88.4",
+      "unit": "umol"
+    },
+    "expected": [
+      {
+        "label": "Estimated GFR",
+        "value": 91.6914786098333,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "gfr-calculator",
+    "modeId": "pediatric",
+    "inputs": {
+      "height": "140",
+      "heightUnit": "cm",
+      "creatinine": "0.6",
+      "unit": "mg"
+    },
+    "expected": [
+      {
+        "label": "Estimated GFR",
+        "value": 96.36666666666667,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bac-calculator",
+    "modeId": "widmark",
+    "inputs": {
+      "sex": "male",
+      "units": "metric",
+      "weight": "70",
+      "volume": "355",
+      "abv": "5",
+      "hours": "1"
+    },
+    "expected": [
+      {
+        "label": "Alcohol consumed",
+        "value": 14.00475,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bac-calculator",
+    "modeId": "beverages",
+    "inputs": {
+      "sex": "male",
+      "weight": "70",
+      "hours": "2",
+      "beverages": "2,330,5\n1,150,12"
+    },
+    "expected": [
+      {
+        "label": "Alcohol consumed",
+        "value": 40.239,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "calorie-calculator",
+    "modeId": "energy",
+    "inputs": {
+      "sex": "male",
+      "age": "30",
+      "units": "metric",
+      "weight": "70",
+      "height": "175",
+      "method": "mifflin",
+      "fat": "20",
+      "activity": "1.2"
+    },
+    "expected": [
+      {
+        "label": "Estimated maintenance energy",
+        "value": 1978.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "average-calculator",
+    "modeId": "summary",
+    "inputs": {
+      "data": "6,8,8,10,18"
+    },
+    "expected": [
+      {
+        "label": "Mean",
+        "value": 10,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Median",
+        "value": 8,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Sum",
+        "value": 50,
+        "tolerance": 5.0000000000000004e-08
+      },
+      {
+        "label": "Range",
+        "value": 12,
+        "tolerance": 1.2000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "mean-median-mode-range-calculator",
+    "modeId": "summary",
+    "inputs": {
+      "data": "2,3,3,7,7,20"
+    },
+    "expected": [
+      {
+        "label": "Mean",
+        "value": 7,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Median",
+        "value": 5,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Range",
+        "value": 18,
+        "tolerance": 1.8000000000000002e-08
+      },
+      {
+        "label": "Mode",
+        "value": "3, 7"
+      }
+    ]
+  },
+  {
+    "slug": "standard-deviation-calculator",
+    "modeId": "summary",
+    "inputs": {
+      "data": "4,6,8,10"
+    },
+    "expected": [
+      {
+        "label": "Mean",
+        "value": 7,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Population variance",
+        "value": 5,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Population standard deviation",
+        "value": 2.23606797749979,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Sample standard deviation",
+        "value": 2.581988897471611,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "statistics-calculator",
+    "modeId": "summary",
+    "inputs": {
+      "data": "2,4,4,10"
+    },
+    "expected": [
+      {
+        "label": "Mean",
+        "value": 5,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Median",
+        "value": 4,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Sum",
+        "value": 20,
+        "tolerance": 2e-08
+      },
+      {
+        "label": "Sum of squares",
+        "value": 136,
+        "tolerance": 1.36e-07
+      },
+      {
+        "label": "Population variance",
+        "value": 9,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Sample variance",
+        "value": 12,
+        "tolerance": 1.2000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "percent-calculator",
+    "modeId": "of",
+    "inputs": {
+      "percent": "15",
+      "value": "240"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 36,
+        "tolerance": 3.6000000000000005e-08
+      }
+    ]
+  },
+  {
+    "slug": "percent-calculator",
+    "modeId": "reverse",
+    "inputs": {
+      "final": "276",
+      "change": "15"
+    },
+    "expected": [
+      {
+        "label": "Original value",
+        "value": 240,
+        "tolerance": 2.4000000000000003e-07
+      }
+    ]
+  },
+  {
+    "slug": "percent-error-calculator",
+    "modeId": "error",
+    "inputs": {
+      "observed": "48.5",
+      "actual": "50"
+    },
+    "expected": [
+      {
+        "label": "Percentage error",
+        "value": 3,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Signed error",
+        "value": -1.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "fraction-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "2/5",
+      "operation": "+",
+      "b": "3/10"
+    },
+    "expected": [
+      {
+        "label": "Simplified fraction",
+        "value": "7/10"
+      }
+    ]
+  },
+  {
+    "slug": "fraction-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "2/5",
+      "operation": "/",
+      "b": "3/10"
+    },
+    "expected": [
+      {
+        "label": "Simplified fraction",
+        "value": "4/3"
+      }
+    ]
+  },
+  {
+    "slug": "basic-calculator",
+    "modeId": "expression",
+    "inputs": {
+      "angle": "deg",
+      "expression": "(3*12+2*7)*0.9+5"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 50,
+        "tolerance": 5.0000000000000004e-08
+      }
+    ]
+  },
+  {
+    "slug": "scientific-calculator",
+    "modeId": "expression",
+    "inputs": {
+      "angle": "deg",
+      "expression": "sin(30)"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 0.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "scientific-calculator",
+    "modeId": "expression",
+    "inputs": {
+      "angle": "deg",
+      "expression": "sqrt(81)+2^4"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 25,
+        "tolerance": 2.5000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "big-number-calculator",
+    "modeId": "expression",
+    "inputs": {
+      "angle": "deg",
+      "expression": "9007199254740993+2"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "9007199254740995"
+      }
+    ]
+  },
+  {
+    "slug": "big-number-calculator",
+    "modeId": "decimal",
+    "inputs": {
+      "a": "1",
+      "operation": "/",
+      "b": "7",
+      "places": "6"
+    },
+    "expected": [
+      {
+        "label": "Rounded decimal",
+        "value": "0.142857"
+      }
+    ]
+  },
+  {
+    "slug": "exponent-calculator",
+    "modeId": "power",
+    "inputs": {
+      "base": "2",
+      "exponent": "-3"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 0.125,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "exponent-calculator",
+    "modeId": "power",
+    "inputs": {
+      "base": "-3",
+      "exponent": "4"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": 81,
+        "tolerance": 8.100000000000001e-08
+      }
+    ]
+  },
+  {
+    "slug": "root-calculator",
+    "modeId": "root",
+    "inputs": {
+      "value": "81",
+      "degree": "4"
+    },
+    "expected": [
+      {
+        "label": "Root",
+        "value": 3,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "root-calculator",
+    "modeId": "root",
+    "inputs": {
+      "value": "-125",
+      "degree": "3"
+    },
+    "expected": [
+      {
+        "label": "Root",
+        "value": -5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "log-calculator",
+    "modeId": "log",
+    "inputs": {
+      "value": "64",
+      "base": "2"
+    },
+    "expected": [
+      {
+        "label": "Logarithm",
+        "value": 6,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "half-life-calculator",
+    "modeId": "remaining",
+    "inputs": {
+      "initial": "160",
+      "half": "6",
+      "time": "18"
+    },
+    "expected": [
+      {
+        "label": "Remaining quantity",
+        "value": 20,
+        "tolerance": 2e-08
+      },
+      {
+        "label": "Remaining percentage",
+        "value": 12.5,
+        "tolerance": 1.2500000000000001e-08
+      },
+      {
+        "label": "Decayed quantity",
+        "value": 140,
+        "tolerance": 1.4e-07
+      }
+    ]
+  },
+  {
+    "slug": "quadratic-formula-calculator",
+    "modeId": "roots",
+    "inputs": {
+      "a": "2",
+      "b": "3",
+      "c": "-2"
+    },
+    "expected": [
+      {
+        "label": "Root 1",
+        "value": -2,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Root 2",
+        "value": 0.5,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Discriminant",
+        "value": 25,
+        "tolerance": 2.5000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "factor-calculator",
+    "modeId": "factor",
+    "inputs": {
+      "value": "84"
+    },
+    "expected": [
+      {
+        "label": "Factors",
+        "value": "1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84"
+      },
+      {
+        "label": "Factor count",
+        "value": 12,
+        "tolerance": 1.2000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "prime-factorization-calculator",
+    "modeId": "factor",
+    "inputs": {
+      "value": "840"
+    },
+    "expected": [
+      {
+        "label": "Prime factorization",
+        "value": "2 × 2 × 2 × 3 × 5 × 7"
+      }
+    ]
+  },
+  {
+    "slug": "common-factor-calculator",
+    "modeId": "numbers",
+    "inputs": {
+      "data": "18,30,42"
+    },
+    "expected": [
+      {
+        "label": "Common factors",
+        "value": "1, 2, 3, 6"
+      }
+    ]
+  },
+  {
+    "slug": "gcf-calculator",
+    "modeId": "numbers",
+    "inputs": {
+      "data": "84,126"
+    },
+    "expected": [
+      {
+        "label": "Greatest common factor",
+        "value": 42,
+        "tolerance": 4.2000000000000006e-08
+      }
+    ]
+  },
+  {
+    "slug": "lcm-calculator",
+    "modeId": "numbers",
+    "inputs": {
+      "data": "12,18"
+    },
+    "expected": [
+      {
+        "label": "Least common multiple",
+        "value": 36,
+        "tolerance": 3.6000000000000005e-08
+      }
+    ]
+  },
+  {
+    "slug": "lcm-calculator",
+    "modeId": "numbers",
+    "inputs": {
+      "data": "8,12"
+    },
+    "expected": [
+      {
+        "label": "Least common multiple",
+        "value": 24,
+        "tolerance": 2.4000000000000003e-08
+      }
+    ]
+  },
+  {
+    "slug": "long-division-calculator",
+    "modeId": "divide",
+    "inputs": {
+      "dividend": "125",
+      "divisor": "7"
+    },
+    "expected": [
+      {
+        "label": "Quotient",
+        "value": 17,
+        "tolerance": 1.7e-08
+      },
+      {
+        "label": "Remainder",
+        "value": 6,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "long-division-calculator",
+    "modeId": "steps",
+    "inputs": {
+      "dividend": "238",
+      "divisor": "7"
+    },
+    "expected": [
+      {
+        "label": "Integer quotient",
+        "value": "34"
+      },
+      {
+        "label": "Remainder",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "slug": "binary-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "101101",
+      "operation": "+",
+      "b": "111"
+    },
+    "expected": [
+      {
+        "label": "Base 2 result",
+        "value": "110100"
+      },
+      {
+        "label": "Decimal",
+        "value": "52"
+      }
+    ]
+  },
+  {
+    "slug": "hex-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "2A",
+      "operation": "+",
+      "b": "15"
+    },
+    "expected": [
+      {
+        "label": "Base 16 result",
+        "value": "3F"
+      },
+      {
+        "label": "Decimal",
+        "value": "63"
+      }
+    ]
+  },
+  {
+    "slug": "circle-calculator",
+    "modeId": "circle",
+    "inputs": {
+      "known": "diameter",
+      "value": "14"
+    },
+    "expected": [
+      {
+        "label": "Radius",
+        "value": 7,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Diameter",
+        "value": 14,
+        "tolerance": 1.4000000000000001e-08
+      },
+      {
+        "label": "Circumference",
+        "value": 43.982297150257104,
+        "tolerance": 4.398229715025711e-08
+      },
+      {
+        "label": "Area",
+        "value": 153.93804002589985,
+        "tolerance": 1.5393804002589986e-07
+      }
+    ]
+  },
+  {
+    "slug": "pythagorean-theorem-calculator",
+    "modeId": "hypotenuse",
+    "inputs": {
+      "a": "8",
+      "b": "15"
+    },
+    "expected": [
+      {
+        "label": "Hypotenuse",
+        "value": 17,
+        "tolerance": 1.7e-08
+      }
+    ]
+  },
+  {
+    "slug": "pythagorean-theorem-calculator",
+    "modeId": "leg",
+    "inputs": {
+      "c": "17",
+      "a": "8"
+    },
+    "expected": [
+      {
+        "label": "Other leg",
+        "value": 15,
+        "tolerance": 1.5000000000000002e-08
+      }
+    ]
+  },
+  {
+    "slug": "right-triangle-calculator",
+    "modeId": "legs",
+    "inputs": {
+      "a": "5",
+      "b": "12"
+    },
+    "expected": [
+      {
+        "label": "Area",
+        "value": 30,
+        "tolerance": 3.0000000000000004e-08
+      },
+      {
+        "label": "Perimeter",
+        "value": 30,
+        "tolerance": 3.0000000000000004e-08
+      },
+      {
+        "label": "Side c",
+        "value": 13,
+        "tolerance": 1.3e-08
+      }
+    ]
+  },
+  {
+    "slug": "triangle-calculator",
+    "modeId": "sss",
+    "inputs": {
+      "a": "5",
+      "b": "5",
+      "c": "6"
+    },
+    "expected": [
+      {
+        "label": "Area",
+        "value": 12,
+        "tolerance": 1.2000000000000002e-08
+      },
+      {
+        "label": "Perimeter",
+        "value": 16,
+        "tolerance": 1.6e-08
+      }
+    ]
+  },
+  {
+    "slug": "triangle-calculator",
+    "modeId": "ssa",
+    "inputs": {
+      "a": "10",
+      "b": "12",
+      "A": "30",
+      "angleUnit": "deg"
+    },
+    "expected": [
+      {
+        "label": "Number of solutions",
+        "value": 2,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "slope-calculator",
+    "modeId": "points",
+    "inputs": {
+      "x1": "2",
+      "y1": "3",
+      "x2": "6",
+      "y2": "11"
+    },
+    "expected": [
+      {
+        "label": "Slope",
+        "value": 2,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "y-intercept",
+        "value": -1,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Distance",
+        "value": 8.94427190999916,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "distance-calculator",
+    "modeId": "points",
+    "inputs": {
+      "x1": "1",
+      "y1": "2",
+      "z1": "3",
+      "x2": "4",
+      "y2": "6",
+      "z2": "15"
+    },
+    "expected": [
+      {
+        "label": "Distance",
+        "value": 13,
+        "tolerance": 1.3e-08
+      }
+    ]
+  },
+  {
+    "slug": "distance-calculator",
+    "modeId": "earth",
+    "inputs": {
+      "lat1": "0",
+      "lon1": "0",
+      "lat2": "0",
+      "lon2": "90",
+      "radius": "6371"
+    },
+    "expected": [
+      {
+        "label": "Great-circle distance",
+        "value": 10007.543398010286,
+        "tolerance": 1.0007543398010287e-05
+      }
+    ]
+  },
+  {
+    "slug": "number-sequence-calculator",
+    "modeId": "nth",
+    "inputs": {
+      "kind": "arithmetic",
+      "first": "5",
+      "step": "3",
+      "index": "10"
+    },
+    "expected": [
+      {
+        "label": "Nth term",
+        "value": 32,
+        "tolerance": 3.2e-08
+      },
+      {
+        "label": "Sum through nth term",
+        "value": 185,
+        "tolerance": 1.85e-07
+      }
+    ]
+  },
+  {
+    "slug": "number-sequence-calculator",
+    "modeId": "sequence",
+    "inputs": {
+      "kind": "geometric",
+      "first": "3",
+      "step": "2",
+      "count": "4"
+    },
+    "expected": [
+      {
+        "label": "Sum",
+        "value": 45,
+        "tolerance": 4.5000000000000006e-08
+      }
+    ]
+  },
+  {
+    "slug": "permutation-and-combination-calculator",
+    "modeId": "count",
+    "inputs": {
+      "n": "5",
+      "r": "3"
+    },
+    "expected": [
+      {
+        "label": "Combinations",
+        "value": 10,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Permutations",
+        "value": 60,
+        "tolerance": 6.000000000000001e-08
+      }
+    ]
+  },
+  {
+    "slug": "random-number-generator",
+    "modeId": "random",
+    "inputs": {
+      "min": "1.00",
+      "max": "1.03",
+      "count": "4",
+      "kind": "decimal",
+      "places": "2",
+      "replacement": "no",
+      "sort": "ascending"
+    },
+    "expected": [
+      {
+        "label": "Random numbers",
+        "value": "1.00, 1.01, 1.02, 1.03"
+      }
+    ]
+  },
+  {
+    "slug": "matrix-calculator",
+    "modeId": "matrix",
+    "inputs": {
+      "operation": "determinant",
+      "a": "2,1\n0,3",
+      "b": "5, 6\n7, 8",
+      "scalar": "3",
+      "power": "2"
+    },
+    "expected": [
+      {
+        "label": "Determinant",
+        "value": 6,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "rounding-calculator",
+    "modeId": "increment",
+    "inputs": {
+      "value": "2.37",
+      "increment": "0.25",
+      "rule": "half-away"
+    },
+    "expected": [
+      {
+        "label": "Rounded value",
+        "value": "2.25"
+      }
+    ]
+  },
+  {
+    "slug": "rounding-calculator",
+    "modeId": "round",
+    "inputs": {
+      "value": "1.2449",
+      "digits": "2",
+      "method": "decimal"
+    },
+    "expected": [
+      {
+        "label": "Rounded value",
+        "value": "1.24"
+      }
+    ]
+  },
+  {
+    "slug": "scientific-notation-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "4.2e5",
+      "operation": "+",
+      "b": "3.5e4",
+      "digits": "3"
+    },
+    "expected": [
+      {
+        "label": "Scientific notation",
+        "value": "4.55e+5"
+      },
+      {
+        "label": "Decimal",
+        "value": "455000"
+      }
+    ]
+  },
+  {
+    "slug": "confidence-interval-calculator",
+    "modeId": "mean",
+    "inputs": {
+      "mean": "100",
+      "sd": "12",
+      "size": "36",
+      "confidence": "95",
+      "method": "z"
+    },
+    "expected": [
+      {
+        "label": "Lower bound",
+        "value": 96.0800720309199,
+        "tolerance": 9.60800720309199e-08
+      },
+      {
+        "label": "Upper bound",
+        "value": 103.9199279690801,
+        "tolerance": 1.0391992796908012e-07
+      },
+      {
+        "label": "Margin of error",
+        "value": 3.919927969080108,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "p-value-calculator",
+    "modeId": "p",
+    "inputs": {
+      "distribution": "normal",
+      "statistic": "2",
+      "df": "20",
+      "df2": "20"
+    },
+    "expected": [
+      {
+        "label": "Two-sided p-value",
+        "value": 0.04550026389635842,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Right-tail p-value",
+        "value": 0.02275013194817921,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Left-tail p-value",
+        "value": 0.9772498680518208,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "events",
+    "inputs": {
+      "a": "0.6",
+      "b": "0.25",
+      "relation": "independent",
+      "intersection": "0.12"
+    },
+    "expected": [
+      {
+        "label": "P(A and B)",
+        "value": 0.15,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "P(A or B)",
+        "value": 0.7,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "P(neither)",
+        "value": 0.3,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "P(exactly one)",
+        "value": 0.55,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "events",
+    "inputs": {
+      "a": "0.6",
+      "b": "0.25",
+      "relation": "dependent",
+      "intersection": "0.2"
+    },
+    "expected": [
+      {
+        "label": "P(A or B)",
+        "value": 0.65,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "P(exactly one)",
+        "value": 0.45,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "series",
+    "inputs": {
+      "pA": "0.2",
+      "nA": "3",
+      "pB": "0.5",
+      "nB": "2"
+    },
+    "expected": [
+      {
+        "label": "All A trials",
+        "value": 0.008,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "No A trials",
+        "value": 0.512,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "At least one A",
+        "value": 0.488,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "normal",
+    "inputs": {
+      "mean": "100",
+      "sd": "15",
+      "lower": "85",
+      "upper": "115"
+    },
+    "expected": [
+      {
+        "label": "Probability between",
+        "value": 0.6826894921370859,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "inverse-normal",
+    "inputs": {
+      "probability": "97.5",
+      "tail": "left",
+      "mean": "100",
+      "sd": "15"
+    },
+    "expected": [
+      {
+        "label": "Boundary value",
+        "value": 129.3994597681008,
+        "tolerance": 1.293994597681008e-07
+      }
+    ]
+  },
+  {
+    "slug": "probability-calculator",
+    "modeId": "independent-solver",
+    "inputs": {
+      "known1": "A",
+      "value1": "0.4",
+      "known2": "intersection",
+      "value2": "0.12"
+    },
+    "expected": [
+      {
+        "label": "Valid labeled solutions",
+        "value": 1,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Solution 1: P(B)",
+        "value": 0.3,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "sample-size-calculator",
+    "modeId": "sample",
+    "inputs": {
+      "confidence": "95",
+      "margin": "5",
+      "proportion": "50",
+      "population": "1000"
+    },
+    "expected": [
+      {
+        "label": "Required sample size",
+        "value": 278,
+        "tolerance": 2.7800000000000003e-07
+      }
+    ]
+  },
+  {
+    "slug": "sample-size-calculator",
+    "modeId": "margin",
+    "inputs": {
+      "confidence": "95",
+      "size": "400",
+      "proportion": "50",
+      "population": "0"
+    },
+    "expected": [
+      {
+        "label": "Margin of error",
+        "value": 4.899909961350135,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "z-score-calculator",
+    "modeId": "z",
+    "inputs": {
+      "x": "85",
+      "mean": "70",
+      "sd": "10"
+    },
+    "expected": [
+      {
+        "label": "Z-score",
+        "value": 1.5,
+        "tolerance": 1e-08
+      },
+      {
+        "label": "Normal percentile",
+        "value": 93.3192798731142,
+        "tolerance": 9.33192798731142e-08
+      }
+    ]
+  },
+  {
+    "slug": "z-score-calculator",
+    "modeId": "between",
+    "inputs": {
+      "lower": "-1",
+      "upper": "1"
+    },
+    "expected": [
+      {
+        "label": "Probability between",
+        "value": 0.6826894921370859,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "tax-calculator",
+    "modeId": "ordinary-detail",
+    "inputs": {
+      "taxYear": "2026",
+      "filingStatus": "single",
+      "incomeInput": "amount",
+      "ordinaryIncome": "60000",
+      "ordinaryIncomeLines": "[{\"name\":\"Item\",\"amount\":60000}]",
+      "adjustments": "0",
+      "deductionMode": "standard",
+      "enteredDeduction": "16100"
+    },
+    "expected": [
+      {
+        "label": "Taxable income",
+        "value": 43900,
+        "tolerance": 4.39e-05
+      },
+      {
+        "label": "Deduction",
+        "value": 16100,
+        "tolerance": 1.6100000000000002e-05
+      },
+      {
+        "label": "Bracket-formula income tax",
+        "value": 5020,
+        "tolerance": 5.02e-06
+      }
+    ]
+  },
+  {
+    "slug": "take-home-pay-calculator",
+    "modeId": "paycheck-composed",
+    "inputs": {
+      "grossCash": "5000",
+      "periods": "12",
+      "filing": "single",
+      "deductions": "[]",
+      "step2": "no",
+      "step3": "0",
+      "step4a": "0",
+      "step4b": "0",
+      "step4c": "0",
+      "priorSS": "0",
+      "priorMedicare": "0",
+      "stateLocalWithheld": "0",
+      "noncashFederalTaxable": "0",
+      "noncashSS": "0",
+      "noncashMedicare": "0"
+    },
+    "expected": [
+      {
+        "label": "Net cash pay",
+        "value": 4199.166666666667,
+        "tolerance": 4.199166666666667e-06
+      },
+      {
+        "label": "Federal Withholding",
+        "value": 418.3333333333333,
+        "tolerance": 4.1833333333333333e-07
+      },
+      {
+        "label": "Employee SS",
+        "value": 310,
+        "tolerance": 3.1e-07
+      },
+      {
+        "label": "Employee Medicare",
+        "value": 72.5,
+        "tolerance": 7.250000000000001e-08
+      }
+    ]
+  },
+  {
+    "slug": "take-home-pay-calculator",
+    "modeId": "paycheck-composed",
+    "inputs": {
+      "grossCash": "5000",
+      "periods": "12",
+      "filing": "single",
+      "deductions": "[{\"name\":\"Federal-only deduction\",\"amount\":300,\"reducesFederal\":\"yes\",\"reducesSS\":\"no\",\"reducesMedicare\":\"no\"}]",
+      "step2": "no",
+      "step3": "0",
+      "step4a": "0",
+      "step4b": "0",
+      "step4c": "0",
+      "priorSS": "0",
+      "priorMedicare": "0",
+      "stateLocalWithheld": "0",
+      "noncashFederalTaxable": "0",
+      "noncashSS": "0",
+      "noncashMedicare": "0"
+    },
+    "expected": [
+      {
+        "label": "Net cash pay",
+        "value": 3935.166666666667,
+        "tolerance": 3.9351666666666675e-06
+      },
+      {
+        "label": "Federal Withholding",
+        "value": 382.3333333333333,
+        "tolerance": 3.8233333333333333e-07
+      }
+    ]
+  },
+  {
+    "slug": "marriage-calculator",
+    "modeId": "year-scenarios",
+    "inputs": {
+      "taxYear": "2026",
+      "incomeA": "120000",
+      "incomeB": "0",
+      "deductionMode": "standard",
+      "deductionA": "16100",
+      "deductionB": "16100",
+      "jointDeduction": "32200"
+    },
+    "expected": [
+      {
+        "label": "Combined single-filer bracket tax",
+        "value": 17570,
+        "tolerance": 1.757e-05
+      },
+      {
+        "label": "Joint-filer bracket tax",
+        "value": 10040,
+        "tolerance": 1.004e-05
+      },
+      {
+        "label": "Joint tax reduction",
+        "value": 7530,
+        "tolerance": 7.530000000000001e-06
+      }
+    ]
+  },
+  {
+    "slug": "marriage-calculator",
+    "modeId": "year-scenarios",
+    "inputs": {
+      "taxYear": "2026",
+      "incomeA": "60000",
+      "incomeB": "60000",
+      "deductionMode": "standard",
+      "deductionA": "16100",
+      "deductionB": "16100",
+      "jointDeduction": "32200"
+    },
+    "expected": [
+      {
+        "label": "Combined single-filer bracket tax",
+        "value": 10040,
+        "tolerance": 1.004e-05
+      },
+      {
+        "label": "Joint-filer bracket tax",
+        "value": 10040,
+        "tolerance": 1.004e-05
+      },
+      {
+        "label": "Joint tax reduction",
+        "value": 0,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "estate-tax-calculator",
+    "modeId": "estate-lines",
+    "inputs": {
+      "assetLines": "[{\"name\":\"Included assets\",\"amount\":18000000}]",
+      "allowableDeductionLines": "[{\"name\":\"Allowed deductions\",\"amount\":1000000}]",
+      "adjustedTaxableGifts": "0",
+      "adjustedGiftTaxPayable": "0",
+      "DSUE": "0",
+      "otherVerifiedCredits": "0"
+    },
+    "expected": [
+      {
+        "label": "Taxable estate",
+        "value": 17000000,
+        "tolerance": 0.017
+      },
+      {
+        "label": "Tentative estate and gift tax",
+        "value": 6745800,
+        "tolerance": 0.006745800000000001
+      },
+      {
+        "label": "Applicable exclusion credit",
+        "value": 5945800,
+        "tolerance": 0.0059458
+      },
+      {
+        "label": "Estimated federal estate tax",
+        "value": 800000,
+        "tolerance": 0.0008
+      }
+    ]
+  },
+  {
+    "slug": "estate-tax-calculator",
+    "modeId": "estate-lines",
+    "inputs": {
+      "assetLines": "[{\"name\":\"Included assets\",\"amount\":18000000}]",
+      "allowableDeductionLines": "[{\"name\":\"Allowed deductions\",\"amount\":1000000}]",
+      "adjustedTaxableGifts": "0",
+      "adjustedGiftTaxPayable": "0",
+      "DSUE": "1000000",
+      "otherVerifiedCredits": "0"
+    },
+    "expected": [
+      {
+        "label": "Applicable exclusion credit",
+        "value": 6345800,
+        "tolerance": 0.0063458
+      },
+      {
+        "label": "Estimated federal estate tax",
+        "value": 400000,
+        "tolerance": 0.0004
+      }
+    ]
+  },
+  {
+    "slug": "date-calculator",
+    "modeId": "add",
+    "inputs": {
+      "start": "2026-01-31",
+      "years": "0",
+      "months": "1",
+      "weeks": "0",
+      "days": "0"
+    },
+    "expected": [
+      {
+        "label": "Result date",
+        "value": "2026-02-28"
+      }
+    ]
+  },
+  {
+    "slug": "date-calculator",
+    "modeId": "add",
+    "inputs": {
+      "start": "2026-01-31",
+      "years": "0",
+      "months": "0",
+      "weeks": "0",
+      "days": "30"
+    },
+    "expected": [
+      {
+        "label": "Result date",
+        "value": "2026-03-02"
+      }
+    ]
+  },
+  {
+    "slug": "date-calculator",
+    "modeId": "business-add",
+    "inputs": {
+      "start": "2026-10-09",
+      "days": "5",
+      "holidays": "2026-10-12"
+    },
+    "expected": [
+      {
+        "label": "Result date",
+        "value": "2026-10-19"
+      }
+    ]
+  },
+  {
+    "slug": "day-counter",
+    "modeId": "difference",
+    "inputs": {
+      "start": "2026-06-01",
+      "end": "2026-06-03",
+      "inclusive": "no"
+    },
+    "expected": [
+      {
+        "label": "Days",
+        "value": 2,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "day-counter",
+    "modeId": "business",
+    "inputs": {
+      "start": "2026-06-08",
+      "end": "2026-06-15",
+      "inclusive": "yes",
+      "holidays": ""
+    },
+    "expected": [
+      {
+        "label": "Business days",
+        "value": 6,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "day-of-the-week-calculator",
+    "modeId": "weekday",
+    "inputs": {
+      "date": "2021-01-01"
+    },
+    "expected": [
+      {
+        "label": "Weekday",
+        "value": "Friday"
+      },
+      {
+        "label": "ISO week",
+        "value": "2020-W53"
+      },
+      {
+        "label": "Day of year",
+        "value": 1,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "hours-calculator",
+    "modeId": "duration",
+    "inputs": {
+      "start": "22:15",
+      "end": "06:45",
+      "break": "45"
+    },
+    "expected": [
+      {
+        "label": "Decimal hours",
+        "value": 7.75,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "time-duration-calculator",
+    "modeId": "dated",
+    "inputs": {
+      "start": "2026-10-09",
+      "startTime": "09:00",
+      "end": "2026-10-11",
+      "endTime": "10:30"
+    },
+    "expected": [
+      {
+        "label": "Elapsed hours",
+        "value": 49.5,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Elapsed seconds",
+        "value": 178200,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "time-calculator",
+    "modeId": "arithmetic",
+    "inputs": {
+      "a": "2:30:00",
+      "operation": "+",
+      "b": "1:45:00"
+    },
+    "expected": [
+      {
+        "label": "Duration",
+        "value": "04:15:00"
+      },
+      {
+        "label": "Seconds",
+        "value": 15300,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "time-calculator",
+    "modeId": "expression",
+    "inputs": {
+      "expression": "2d 3h + 45m - 30s"
+    },
+    "expected": [
+      {
+        "label": "Total seconds",
+        "value": 186270,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "time-calculator",
+    "modeId": "datetime",
+    "inputs": {
+      "date": "2026-10-09",
+      "time": "23:30",
+      "days": "0",
+      "hours": "2",
+      "minutes": "15",
+      "seconds": "0"
+    },
+    "expected": [
+      {
+        "label": "Civil date and time",
+        "value": "2026-10-10 01:45:00"
+      }
+    ]
+  },
+  {
+    "slug": "time-card-calculator",
+    "modeId": "timesheet",
+    "inputs": {
+      "shifts": "09:00,18:00,0\n09:00,18:00,0\n09:00,18:00,0\n09:00,18:00,0\n09:00,18:00,0",
+      "rate": "20",
+      "threshold": "40",
+      "multiplier": "1.5"
+    },
+    "expected": [
+      {
+        "label": "Total hours",
+        "value": 45,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Estimated gross pay",
+        "value": 950,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "time-zone-calculator",
+    "modeId": "fixed",
+    "inputs": {
+      "date": "2026-10-09",
+      "time": "12:00",
+      "fromOffset": "+05:45",
+      "toOffset": "+00:00"
+    },
+    "expected": [
+      {
+        "label": "Destination local time",
+        "value": "2026-10-09T06:15:00"
+      }
+    ]
+  },
+  {
+    "slug": "conversion-calculator",
+    "modeId": "length",
+    "inputs": {
+      "value": "2.5",
+      "from": "m",
+      "to": "cm"
+    },
+    "expected": [
+      {
+        "label": "Converted value",
+        "value": 250,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "conversion-calculator",
+    "modeId": "area",
+    "inputs": {
+      "value": "2.5",
+      "from": "m²",
+      "to": "cm²"
+    },
+    "expected": [
+      {
+        "label": "Converted value",
+        "value": 25000,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "density-calculator",
+    "modeId": "calculate",
+    "inputs": {
+      "mass": "0.54",
+      "volume": "0.0002"
+    },
+    "expected": [
+      {
+        "label": "Density",
+        "value": 2700,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "mass-calculator",
+    "modeId": "measurement-units",
+    "inputs": {
+      "density": "800",
+      "densityUnit": "kg/m3",
+      "volume": "5",
+      "volumeUnit": "L",
+      "outputMassUnit": "kg"
+    },
+    "expected": [
+      {
+        "label": "Mass",
+        "value": 4,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "weight-calculator",
+    "modeId": "calculate",
+    "inputs": {
+      "mass": "70",
+      "gravity": "9.80665"
+    },
+    "expected": [
+      {
+        "label": "Weight force",
+        "value": 686.4655,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "speed-calculator",
+    "modeId": "calculate",
+    "inputs": {
+      "solve": "speed",
+      "distance": "150",
+      "time": "2.5",
+      "speed": "50"
+    },
+    "expected": [
+      {
+        "label": "Speed",
+        "value": 60,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "molarity-calculator",
+    "modeId": "molarity",
+    "inputs": {
+      "mass": "5.844",
+      "molarMass": "58.44",
+      "volume": "1"
+    },
+    "expected": [
+      {
+        "label": "Molarity",
+        "value": 0.1,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "molarity-calculator",
+    "modeId": "mass",
+    "inputs": {
+      "molarity": "0.1",
+      "molarMass": "58.44",
+      "volume": "0.25"
+    },
+    "expected": [
+      {
+        "label": "Solute mass",
+        "value": 1.461,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "molecular-weight-calculator",
+    "modeId": "formula",
+    "inputs": {
+      "preset": "custom",
+      "formula": "Ca(OH)2"
+    },
+    "expected": [
+      {
+        "label": "Molar mass",
+        "value": 74.094,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gdp-calculator",
+    "modeId": "expenditure",
+    "inputs": {
+      "consumption": "14000",
+      "investment": "4000",
+      "government": "4000",
+      "exports": "3000",
+      "imports": "3500"
+    },
+    "expected": [
+      {
+        "label": "Nominal GDP",
+        "value": 21500,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "horsepower-calculator",
+    "modeId": "work",
+    "inputs": {
+      "force": "1000",
+      "distance": "20",
+      "time": "10"
+    },
+    "expected": [
+      {
+        "label": "Power",
+        "value": 2000,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "horsepower-calculator",
+    "modeId": "torque",
+    "inputs": {
+      "torque": "300",
+      "rpm": "5000"
+    },
+    "expected": [
+      {
+        "label": "Mechanical horsepower",
+        "value": 285.5993321463116,
+        "tolerance": 1e-05
+      }
+    ]
+  },
+  {
+    "slug": "engine-horsepower-calculator",
+    "modeId": "quarter-mile",
+    "inputs": {
+      "method": "et",
+      "raceWeight": "3200",
+      "massUnit": "lb",
+      "elapsed": "11.65",
+      "timeUnit": "s",
+      "trapSpeed": "117",
+      "speedUnit": "mph"
+    },
+    "expected": [
+      {
+        "label": "Empirical horsepower estimate",
+        "value": 400,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "square-footage-calculator",
+    "modeId": "rectangle",
+    "inputs": {
+      "length": "12",
+      "width": "12",
+      "quantity": "1"
+    },
+    "expected": [
+      {
+        "label": "Area",
+        "value": 144,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "concrete-calculator",
+    "modeId": "slab",
+    "inputs": {
+      "length": "20",
+      "width": "10",
+      "depth": "4",
+      "waste": "10"
+    },
+    "expected": [
+      {
+        "label": "Net concrete",
+        "value": 2.4691358024691357,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "With allowance",
+        "value": 2.7160493827160495,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "mulch-calculator",
+    "modeId": "purchasing",
+    "inputs": {
+      "shape": "known-area",
+      "beds": "[{\"name\":\"Bed 1\",\"length\":10,\"width\":5,\"unit\":\"ft\"}]",
+      "area": "200",
+      "areaUnit": "ft2",
+      "length": "10",
+      "lengthUnit": "m",
+      "width": "5",
+      "widthUnit": "m",
+      "diameter": "5",
+      "diameterUnit": "m",
+      "depth": "3",
+      "depthUnit": "in",
+      "waste": "0",
+      "includeMass": "no",
+      "density": "1500",
+      "densityUnit": "kg/m3",
+      "price": "5",
+      "priceBasis": "bag",
+      "bagSize": "2",
+      "bagUnit": "ft3"
+    },
+    "expected": [
+      {
+        "label": "Whole bags to order",
+        "value": 25,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gravel-calculator",
+    "modeId": "bed",
+    "inputs": {
+      "length": "10",
+      "width": "10",
+      "depth": "3",
+      "density": "2800",
+      "price": "50"
+    },
+    "expected": [
+      {
+        "label": "Volume",
+        "value": 0.9259259259259259,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Estimated weight",
+        "value": 2592.5925925925926,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "tile-calculator",
+    "modeId": "tiles",
+    "inputs": {
+      "length": "12",
+      "width": "10",
+      "tileLength": "12",
+      "tileWidth": "12",
+      "waste": "10",
+      "price": "3"
+    },
+    "expected": [
+      {
+        "label": "Tiles required",
+        "value": 132,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "roofing-calculator",
+    "modeId": "materials",
+    "inputs": {
+      "area": "1500",
+      "areaUnit": "ft2",
+      "waste": "10",
+      "coverageMode": "packages-per-square",
+      "packagesPerSquare": "3",
+      "packageCoverage": "2.5",
+      "packageCoverageUnit": "m2",
+      "pricePerPackage": "40"
+    },
+    "expected": [
+      {
+        "label": "Packages",
+        "value": 50,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Package cost",
+        "value": 2000,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "stair-calculator",
+    "modeId": "stairs",
+    "inputs": {
+      "rise": "108",
+      "maxRiser": "7.75",
+      "tread": "10"
+    },
+    "expected": [
+      {
+        "label": "Risers",
+        "value": 14,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Treads",
+        "value": 13,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Total run",
+        "value": 130,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "bandwidth-calculator",
+    "modeId": "measured-transfer",
+    "inputs": {
+      "size": "1",
+      "sizeUnit": "GB",
+      "rate": "100",
+      "rateUnit": "Mbit/s"
+    },
+    "expected": [
+      {
+        "label": "Transfer seconds",
+        "value": "80"
+      }
+    ]
+  },
+  {
+    "slug": "bandwidth-calculator",
+    "modeId": "measured-transfer",
+    "inputs": {
+      "size": "1",
+      "sizeUnit": "GiB",
+      "rate": "100",
+      "rateUnit": "Mbit/s"
+    },
+    "expected": [
+      {
+        "label": "Transfer seconds",
+        "value": "85.89934592"
+      }
+    ]
+  },
+  {
+    "slug": "bandwidth-calculator",
+    "modeId": "website",
+    "inputs": {
+      "views": "100000",
+      "size": "500",
+      "overhead": "20"
+    },
+    "expected": [
+      {
+        "label": "Monthly transfer",
+        "value": 60,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "ip-subnet-calculator",
+    "modeId": "ipv4",
+    "inputs": {
+      "address": "192.168.1.130",
+      "prefix": "26"
+    },
+    "expected": [
+      {
+        "label": "Network",
+        "value": "192.168.1.128/26"
+      },
+      {
+        "label": "Total addresses",
+        "value": "64"
+      },
+      {
+        "label": "Usable addresses",
+        "value": "62"
+      }
+    ]
+  },
+  {
+    "slug": "base64-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "H"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "SA=="
+      }
+    ]
+  },
+  {
+    "slug": "base64-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "Hi"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "SGk="
+      }
+    ]
+  },
+  {
+    "slug": "base64-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "Hi!"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "SGkh"
+      }
+    ]
+  },
+  {
+    "slug": "base64-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "é"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "w6k="
+      }
+    ]
+  },
+  {
+    "slug": "url-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "a+b c"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "a%2Bb%20c"
+      }
+    ]
+  },
+  {
+    "slug": "url-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "fish & chips"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "fish%20%26%20chips"
+      }
+    ]
+  },
+  {
+    "slug": "url-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "100%"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "100%25"
+      }
+    ]
+  },
+  {
+    "slug": "url-encode-decode",
+    "modeId": "text",
+    "inputs": {
+      "direction": "encode",
+      "text": "é"
+    },
+    "expected": [
+      {
+        "label": "Result",
+        "value": "%C3%A9"
+      }
+    ]
+  },
+  {
+    "slug": "roman-numeral-converter",
+    "modeId": "roman",
+    "inputs": {
+      "value": "14"
+    },
+    "expected": [
+      {
+        "label": "Roman numeral",
+        "value": "XIV"
+      }
+    ]
+  },
+  {
+    "slug": "roman-numeral-converter",
+    "modeId": "roman",
+    "inputs": {
+      "value": "49"
+    },
+    "expected": [
+      {
+        "label": "Roman numeral",
+        "value": "XLIX"
+      }
+    ]
+  },
+  {
+    "slug": "roman-numeral-converter",
+    "modeId": "roman",
+    "inputs": {
+      "value": "944"
+    },
+    "expected": [
+      {
+        "label": "Roman numeral",
+        "value": "CMXLIV"
+      }
+    ]
+  },
+  {
+    "slug": "roman-numeral-converter",
+    "modeId": "roman",
+    "inputs": {
+      "value": "2026"
+    },
+    "expected": [
+      {
+        "label": "Roman numeral",
+        "value": "MMXXVI"
+      }
+    ]
+  },
+  {
+    "slug": "tip-calculator",
+    "modeId": "tip",
+    "inputs": {
+      "bill": "120",
+      "tip": "18",
+      "people": "3"
+    },
+    "expected": [
+      {
+        "label": "Tip",
+        "value": 21.6,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Total bill",
+        "value": 141.6,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Per person",
+        "value": 47.2,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "fuel-cost-calculator",
+    "modeId": "metric",
+    "inputs": {
+      "distance": "500",
+      "economy": "7",
+      "price": "1.5"
+    },
+    "expected": [
+      {
+        "label": "Fuel needed",
+        "value": 35,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Fuel cost",
+        "value": 52.5,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "fuel-cost-calculator",
+    "modeId": "us",
+    "inputs": {
+      "distance": "300",
+      "economy": "30",
+      "price": "3.5"
+    },
+    "expected": [
+      {
+        "label": "Fuel needed",
+        "value": 10,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Fuel cost",
+        "value": 35,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gas-mileage-calculator",
+    "modeId": "us",
+    "inputs": {
+      "distance": "300",
+      "fuel": "10"
+    },
+    "expected": [
+      {
+        "label": "US fuel economy",
+        "value": 30,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Consumption",
+        "value": 7.84048611,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gas-mileage-calculator",
+    "modeId": "us",
+    "inputs": {
+      "distance": "400",
+      "fuel": "15"
+    },
+    "expected": [
+      {
+        "label": "US fuel economy",
+        "value": 26.666666666666668,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "tire-size-calculator",
+    "modeId": "compare",
+    "inputs": {
+      "a": "205/55R16",
+      "b": "225/45R17"
+    },
+    "expected": [
+      {
+        "label": "Current diameter",
+        "value": 631.9,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "New diameter",
+        "value": 634.3,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "electricity-calculator",
+    "modeId": "energy",
+    "inputs": {
+      "watts": "1000",
+      "hours": "4",
+      "days": "30",
+      "price": "0.16"
+    },
+    "expected": [
+      {
+        "label": "Energy used",
+        "value": 120,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Energy charge",
+        "value": 19.2,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "electricity-calculator",
+    "modeId": "load",
+    "inputs": {
+      "watts": "1000",
+      "load": "50",
+      "hours": "120",
+      "price": "0.16"
+    },
+    "expected": [
+      {
+        "label": "Energy charge",
+        "value": 9.6,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Energy",
+        "value": 60,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "ohms-law-calculator",
+    "modeId": "ohm",
+    "inputs": {
+      "pair": "vr",
+      "a": "12",
+      "b": "6"
+    },
+    "expected": [
+      {
+        "label": "Current",
+        "value": 2,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Power",
+        "value": 24,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "ohms-law-calculator",
+    "modeId": "ohm",
+    "inputs": {
+      "pair": "vr",
+      "a": "5",
+      "b": "1000"
+    },
+    "expected": [
+      {
+        "label": "Current",
+        "value": 0.005,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Power",
+        "value": 0.025,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "resistor-calculator",
+    "modeId": "network",
+    "inputs": {
+      "values": "100,200",
+      "kind": "parallel"
+    },
+    "expected": [
+      {
+        "label": "Equivalent resistance",
+        "value": 66.66666666666667,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "resistor-calculator",
+    "modeId": "colors",
+    "inputs": {
+      "a": "yellow",
+      "b": "violet",
+      "multiplier": "red",
+      "tolerance": "5"
+    },
+    "expected": [
+      {
+        "label": "Resistance",
+        "value": 4700,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Minimum",
+        "value": 4465,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Maximum",
+        "value": 4935,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "voltage-drop-calculator",
+    "modeId": "dc",
+    "inputs": {
+      "voltage": "12",
+      "current": "10",
+      "length": "10",
+      "area": "2.5",
+      "material": "copper",
+      "temperature": "20"
+    },
+    "expected": [
+      {
+        "label": "Voltage drop",
+        "value": 1.37928,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Drop percentage",
+        "value": 11.494,
+        "tolerance": 1e-07
+      },
+      {
+        "label": "Load voltage",
+        "value": 10.62072,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "voltage-drop-calculator",
+    "modeId": "impedance",
+    "inputs": {
+      "system": "dc",
+      "voltage": "230",
+      "current": "10",
+      "length": "30",
+      "lengthUnit": "m",
+      "parallel": "1",
+      "impedanceMode": "resistance-only",
+      "resistance": "0.01",
+      "reactance": "0.002",
+      "effective": "0.01",
+      "coefficientUnit": "ohm/m",
+      "powerFactor": "0.8",
+      "loadType": "lagging"
+    },
+    "expected": [
+      {
+        "label": "Voltage drop",
+        "value": 6,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "btu-calculator",
+    "modeId": "room",
+    "inputs": {
+      "areaUnit": "ft2",
+      "area": "300",
+      "sun": "normal",
+      "people": "2",
+      "kitchen": "no"
+    },
+    "expected": [
+      {
+        "label": "Estimated cooling capacity",
+        "value": 7000,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "btu-calculator",
+    "modeId": "room",
+    "inputs": {
+      "areaUnit": "ft2",
+      "area": "300",
+      "sun": "sunny",
+      "people": "3",
+      "kitchen": "no"
+    },
+    "expected": [
+      {
+        "label": "Estimated cooling capacity",
+        "value": 8300,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "btu-calculator",
+    "modeId": "heat-energy",
+    "inputs": {
+      "massInput": "mass",
+      "massKg": "2",
+      "lengthM": "5",
+      "widthM": "4",
+      "heightM": "2.5",
+      "densityKgM3": "1.2",
+      "specificHeatJPerKgK": "1000",
+      "deltaTemperature": "10",
+      "differenceUnit": "C"
+    },
+    "expected": [
+      {
+        "label": "Heat energy",
+        "value": 20000,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "btu-calculator",
+    "modeId": "heat-loss",
+    "inputs": {
+      "length": "5",
+      "width": "4",
+      "height": "2.5",
+      "lengthUnit": "m",
+      "indoor": "20",
+      "outdoor": "0",
+      "temperatureUnit": "C",
+      "envelopeInput": "total",
+      "ua": "100",
+      "uaUnit": "W/K",
+      "surfaces": "[{\"name\":\"External wall\",\"area\":20,\"u\":0.5}]",
+      "ach": "0.5",
+      "airCapacity": "1207"
+    },
+    "expected": [
+      {
+        "label": "Heating loss in watts",
+        "value": 2167.638888888889,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "wind-chill-calculator",
+    "modeId": "nws",
+    "inputs": {
+      "temperature": "20",
+      "wind": "5"
+    },
+    "expected": [
+      {
+        "label": "Wind chill",
+        "value": 12.98,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "wind-chill-calculator",
+    "modeId": "nws",
+    "inputs": {
+      "temperature": "20",
+      "wind": "10"
+    },
+    "expected": [
+      {
+        "label": "Wind chill",
+        "value": 8.85,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "wind-chill-calculator",
+    "modeId": "nws",
+    "inputs": {
+      "temperature": "20",
+      "wind": "20"
+    },
+    "expected": [
+      {
+        "label": "Wind chill",
+        "value": 4.24,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "heat-index-calculator",
+    "modeId": "nws",
+    "inputs": {
+      "temperature": "90",
+      "humidity": "70"
+    },
+    "expected": [
+      {
+        "label": "Heat index",
+        "value": 105.92,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "heat-index-calculator",
+    "modeId": "nws",
+    "inputs": {
+      "temperature": "90",
+      "humidity": "50"
+    },
+    "expected": [
+      {
+        "label": "Heat index",
+        "value": 94.6,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "dew-point-calculator",
+    "modeId": "magnus",
+    "inputs": {
+      "temperature": "25",
+      "humidity": "60"
+    },
+    "expected": [
+      {
+        "label": "Dew point",
+        "value": 16.7,
+        "tolerance": 0.006
+      }
+    ]
+  },
+  {
+    "slug": "final-exam-grade-calculator",
+    "modeId": "final",
+    "inputs": {
+      "current": "85",
+      "target": "88",
+      "weight": "30"
+    },
+    "expected": [
+      {
+        "label": "Required final score",
+        "value": 95,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "final-exam-grade-calculator",
+    "modeId": "final",
+    "inputs": {
+      "current": "85",
+      "target": "90",
+      "weight": "30"
+    },
+    "expected": [
+      {
+        "label": "Required final score",
+        "value": 101.66666666666667,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gpa-goal-calculator",
+    "modeId": "target",
+    "inputs": {
+      "current": "3.2",
+      "credits": "60",
+      "target": "3.5",
+      "future": "30",
+      "maximum": "4",
+      "scenarios": "[{\"name\":\"Steady\",\"gpa\":3},{\"name\":\"Improved\",\"gpa\":3.5},{\"name\":\"Stretch\",\"gpa\":4}]"
+    },
+    "expected": [
+      {
+        "label": "Required future GPA",
+        "value": 4.1,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "gpa-goal-calculator",
+    "modeId": "target",
+    "inputs": {
+      "current": "3.2",
+      "credits": "60",
+      "target": "3.5",
+      "future": "60",
+      "maximum": "4",
+      "scenarios": "[{\"name\":\"Steady\",\"gpa\":3},{\"name\":\"Improved\",\"gpa\":3.5},{\"name\":\"Stretch\",\"gpa\":4}]"
+    },
+    "expected": [
+      {
+        "label": "Required future GPA",
+        "value": 3.8,
+        "tolerance": 1e-07
+      }
+    ]
+  },
+  {
+    "slug": "sleep-calculator",
+    "modeId": "duration",
+    "inputs": {
+      "time": "07:00",
+      "direction": "wake",
+      "hours": "8",
+      "latency": "15"
+    },
+    "expected": [
+      {
+        "label": "Suggested bedtime",
+        "value": "22:45",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "sleep-calculator",
+    "modeId": "duration",
+    "inputs": {
+      "time": "22:45",
+      "direction": "bed",
+      "hours": "8",
+      "latency": "15"
+    },
+    "expected": [
+      {
+        "label": "Day relative to entered time",
+        "value": "Next day",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "sleep-calculator",
+    "modeId": "cycles",
+    "inputs": {
+      "time": "07:00",
+      "direction": "wake",
+      "latency": "15"
+    },
+    "expected": [
+      {
+        "label": "5 cycles · 7.5 hours asleep",
+        "value": "23:15",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "height-calculator",
+    "modeId": "parental",
+    "inputs": {
+      "mother": "165",
+      "father": "180",
+      "sex": "male"
+    },
+    "expected": [
+      {
+        "label": "Mid-parental estimate",
+        "value": 179,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "height-calculator",
+    "modeId": "parent-units",
+    "inputs": {
+      "parentUnit": "feet-inches",
+      "mother": "165",
+      "father": "180",
+      "motherFeet": "5",
+      "motherInches": "5",
+      "fatherFeet": "5",
+      "fatherInches": "11",
+      "sex": "male"
+    },
+    "expected": [
+      {
+        "label": "Mid-parental estimate",
+        "value": 179.22,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "height-calculator",
+    "modeId": "converter",
+    "inputs": {
+      "direction": "feet-inches-to-cm",
+      "feet": "5",
+      "inches": "9",
+      "centimeters": "175"
+    },
+    "expected": [
+      {
+        "label": "Centimeters",
+        "value": 175.26,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bra-size-calculator",
+    "modeId": "us",
+    "inputs": {
+      "unitScheme": "shared",
+      "measurementUnit": "in",
+      "under": "32",
+      "bust": "36",
+      "underUnit": "in",
+      "bustUnit": "in"
+    },
+    "expected": [
+      {
+        "label": "US starting size",
+        "value": "32D",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bra-size-calculator",
+    "modeId": "traditional-band",
+    "inputs": {
+      "unitScheme": "shared",
+      "measurementUnit": "in",
+      "under": "32",
+      "bust": "36",
+      "underUnit": "in",
+      "bustUnit": "in"
+    },
+    "expected": [
+      {
+        "label": "US starting size",
+        "value": "36AA",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bra-size-calculator",
+    "modeId": "regional-labels",
+    "inputs": {
+      "system": "uk",
+      "band": "34",
+      "cup": "E"
+    },
+    "expected": [
+      {
+        "label": "EU",
+        "value": "75F",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "bra-size-calculator",
+    "modeId": "dress-labels",
+    "inputs": {
+      "system": "uk",
+      "size": "12"
+    },
+    "expected": [
+      {
+        "label": "US",
+        "value": "8",
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "shoe-size-conversion",
+    "modeId": "length",
+    "inputs": {
+      "measurementUnit": "cm",
+      "length": "26",
+      "system": "men"
+    },
+    "expected": [
+      {
+        "label": "Approximate US size",
+        "value": 8.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "shoe-size-conversion",
+    "modeId": "regional-chart",
+    "inputs": {
+      "group": "adult-men",
+      "source": "usMen",
+      "size": "9",
+      "length": "26",
+      "lengthUnit": "cm"
+    },
+    "expected": [
+      {
+        "label": "Matching chart rows",
+        "value": 1,
+        "tolerance": 1e-08
+      }
+    ],
+    "expectedTableRows": [
+      [
+        "9",
+        "10.5",
+        "—",
+        "8",
+        "42.5",
+        "27",
+        "270",
+        261.9375
+      ]
+    ]
+  },
+  {
+    "slug": "golf-handicap-calculator",
+    "modeId": "differential",
+    "inputs": {
+      "score": "85",
+      "rating": "71.2",
+      "slope": "125",
+      "pcc": "0"
+    },
+    "expected": [
+      {
+        "label": "Score differential",
+        "value": 12.5,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "golf-handicap-calculator",
+    "modeId": "index",
+    "inputs": {
+      "differentials": "10,12,14"
+    },
+    "expected": [
+      {
+        "label": "Estimated handicap index",
+        "value": 8,
+        "tolerance": 1e-08
+      }
+    ]
+  },
+  {
+    "slug": "golf-handicap-calculator",
+    "modeId": "course",
+    "inputs": {
+      "index": "12",
+      "slope": "125",
+      "rating": "71.2",
+      "par": "72"
+    },
+    "expected": [
+      {
+        "label": "Course handicap",
+        "value": 12,
+        "tolerance": 1e-08
+      }
+    ]
+  }
+]
