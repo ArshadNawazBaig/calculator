@@ -3,6 +3,7 @@ import {timeCategory} from './time/tools';
 
 export const site = {
   name: "Finflo", url: process.env.NEXT_PUBLIC_SITE_URL || "https://finflo.org",
+  websiteName: "Finflo.org",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "erushbaig@gmail.com",
   description: "Free calculators for money, health, math, and everyday life. Explore clear results, practical examples, and the formulas behind the numbers.",
   indexable: process.env.NEXT_PUBLIC_INDEXABLE === "true",

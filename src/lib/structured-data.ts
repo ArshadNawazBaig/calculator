@@ -1,6 +1,14 @@
 import {site} from './site';
 import {localizedPath, type Locale} from './i18n/config';
 
+export function websiteData(locale: Locale = 'en', description = site.description) {
+  return {
+    '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`,
+    name: site.websiteName, alternateName: site.name, url: site.url,
+    inLanguage: locale, description,
+  };
+}
+
 export function organizationData() {
   return {
     '@type': 'Organization', '@id': `${site.url}/#organization`,

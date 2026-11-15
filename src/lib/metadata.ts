@@ -7,5 +7,5 @@ export function pageMetadata(title:string,description:string,path:string,index=t
  title = title.replace(/\s*\|\s*Finflo\s*$/i, '');
  const canonical=localizedPath(path,locale);
  const ogLocale={en:'en_US',es:'es_ES',fr:'fr_FR',de:'de_DE',pt:'pt_BR',ar:'ar_SA',hi:'hi_IN',tl:'tl_PH'}[locale];
- return {title:{absolute:title},description,alternates:{canonical,languages:languageAlternates(path)},robots:{index:site.indexable&&index&&isPublishedLocale(locale),follow:true},openGraph:{title,description,url:site.url+canonical,locale:ogLocale,type:'website',siteName:'Finflo',images:[socialImage]},twitter:{card:'summary_large_image',title,description,images:[socialImage.url]}};
+ return {title:{absolute:title},description,alternates:{canonical,languages:languageAlternates(path)},robots:{index:site.indexable&&index&&isPublishedLocale(locale),follow:true},openGraph:{title,description,url:site.url+canonical,locale:ogLocale,type:'website',siteName:site.websiteName,images:[socialImage]},twitter:{card:'summary_large_image',title,description,images:[socialImage.url]}};
 }

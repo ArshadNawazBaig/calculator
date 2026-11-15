@@ -63,6 +63,16 @@ test('English homepage and guide expose consistent identity and authorship', asy
   await expect(page).toHaveTitle('Free Finance, Health, Math & Everyday Calculators');
   const schemas=await page.locator('script[type="application/ld+json"]').allTextContents();
   expect(schemas.map(value=>JSON.parse(value)['@type'])).toEqual(['WebSite','Organization']);
+  expect(JSON.parse(schemas[0])).toMatchObject({
+    '@id': 'https://finflo.org/#website',
+    name: 'Finflo.org', alternateName: 'Finflo', url: 'https://finflo.org',
+  });
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'Finflo.org');
+  await expect(page.locator('.footer-bottom')).toContainText('Finflo.org');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://finflo.org');
+  await page.goto('/area-calculator');
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'Finflo.org');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://finflo.org/area-calculator');
   await page.goto('/guides/understanding-mortgage-payments');
   await expect(page.locator('.editorial-note')).toContainText('Prepared by Finflo');
   const article=await page.locator('script[type="application/ld+json"]').allTextContents();

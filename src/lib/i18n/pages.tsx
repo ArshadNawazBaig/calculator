@@ -41,7 +41,7 @@ import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
 import {cardMessages, getDictionary} from './dictionaries';
 import {localizeToolDefaults} from './tool-defaults';
-import {breadcrumbData, guideData, organizationData} from '@/lib/structured-data';
+import {breadcrumbData, guideData, organizationData, websiteData} from '@/lib/structured-data';
 import translatedPages from '@/data/locales/translated-pages.json';
 import {catalog, toolMap, definitionMap, relatedTools, noInitialExampleTools, sensitiveTools, blocked} from '@/lib/calculators/registry';
 import {calculate} from '@/lib/calculators/engine';
@@ -136,7 +136,7 @@ export function localizedPage(locale: Locale) {
     if (path === '/spin-wheels') return <SpinWheelsPage locale={locale} messages={messages}/>;
     if ('wheel' in route && route.wheel) return <WheelPage slug={route.wheel.slug} locale={locale} messages={messages}/>;
     if (path === '/workspace') return <TranslationMessages messages={cardMessages(messages,catalog)}><WorkspacePage tools={catalog.map(calculatorCardData)}/></TranslationMessages>;
-    if (path === '/') return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:'Finflo',url:site.url+localizedPath('/',locale),inLanguage:locale,description:t(route.description)}}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
+    if (path === '/') return <><JsonLd data={websiteData(locale,t(route.description))}/><JsonLd data={{'@context':'https://schema.org',...organizationData()}}/><LocalizedHome messages={messages}/></>;
     if (path === studentDirectory.path) return <StudentDirectory locale={locale} messages={messages}/>;
     if (path === '/calculators' || path === '/sitemap') return <>
       <SearchHero compact id="directory-title" eyebrow={t('The calculator library')} title={t(route.title)} highlight={t(route.title)} description={t(route.description)}/>
