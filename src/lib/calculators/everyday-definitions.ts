@@ -15,7 +15,13 @@ add("date-calculator","Find date differences, count business days, or add calend
 add("day-counter","Count calendar days or business days between two dates.",[dateDifference,business]);
 add("day-of-the-week-calculator","Find the weekday, day of year, and ISO week for a date.",[mode("weekday","Day of the week","weekday",[t("date","Date","2026-10-09","date")],"The Gregorian calendar and ISO week-date convention determine the result.","ISO weeks begin on Monday; week 1 contains January 4.")]);
 const duration=mode("duration","Time between clock times","clock-duration",[t("start","Start time","09:00","time"),t("end","End time","17:30","time"),n("break","Unpaid break",30,"minutes",0,1440)],"Elapsed clock time = end−start−break; an earlier end time is treated as the following day.","This mode covers one shift of up to 24 hours and does not account for a timezone transition.");
-for(const slug of ["hours-calculator","time-duration-calculator"])add(slug,"Calculate elapsed hours and decimal time for an overnight or same-day interval.",[duration]);
+for(const slug of ["hours-calculator","time-duration-calculator"]){
+ const elapsed=slug==='time-duration-calculator';
+ add(slug,"Calculate elapsed hours and decimal time for an overnight or same-day interval.",[{...duration,
+  fields:duration.fields.map(field=>elapsed&&field.key==='break'?{...field,label:'Break to subtract',default:'0',hint:'Leave 0 for the full elapsed time. Enter only minutes you want to exclude.'}:{...field}),
+  ...(elapsed?{explanation:'An earlier end time is treated as the following day. Matching start and end times give zero; use dated timestamps for 24 hours or longer. Breaks are subtracted only when you enter them. This mode does not apply timezone transitions.'}:{}),
+ }]);
+}
 add("time-calculator","Add or subtract time durations and convert them to seconds or decimal hours.",[mode("arithmetic","Duration arithmetic","time-arithmetic",[t("a","First duration","2:30:00","text","HH:MM:SS; hours may exceed 24."),s("operation","Operation",[["+","Add"],["-","Subtract"]]),t("b","Second duration","1:45:00")],"Convert durations to seconds, perform the operation, and convert back.","Duration arithmetic has no calendar, timezone, or daylight-saving assumption.")]);
 add("time-card-calculator","Total shifts, unpaid breaks, and estimated weekly pay.",[mode("timesheet","Weekly time card","time-card",[t("shifts","Shifts: start, end, break minutes","09:00,17:30,30\n09:00,17:00,30","textarea"),n("rate","Hourly pay",25,"$",0),n("threshold","Weekly overtime threshold",40,"hours",0),n("multiplier","Overtime multiplier",1.5,undefined,1,5)],"Pay = regular hours×rate + overtime hours×rate×multiplier.","This is a configurable weekly estimate. Daily overtime, break rules, exemptions, and local employment law are not automatically modeled.")]);
 

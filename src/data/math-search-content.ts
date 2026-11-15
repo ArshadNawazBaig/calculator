@@ -1,5 +1,6 @@
 type SearchFormulaRow = {
   id: string;
+  modeId?: string;
   label: string;
   formula: string;
   example: string;
@@ -100,52 +101,117 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
     ],
   },
   'ratio-calculator': {
-    modifiedAt: '2026-10-22',
-    answerHeading: 'How do I simplify or solve a ratio?',
-    answer: 'To simplify a ratio, divide both whole-number terms by their greatest common factor: 18:24 becomes 3:4 after dividing by 6. To find a missing value in A:B = C:D, use AD = BC. This calculator can simplify two-term ratios, solve any one missing proportion term, or scale both terms together.',
-    tableHeading: 'Ratio formulas and worked examples',
-    tableIntroduction: 'Keep the quantities in the same order on both sides of A:B = C:D. Select Solve any proportion term for an unknown A, B, C, or D; select Scale a ratio to enlarge or shrink both quantities.',
-    tableCaption: 'Proportion formulas assume nonzero denominators. A divisor of zero can make an equation invalid or prevent a unique solution.',
-    firstColumn: 'Task',
-    rows: [
-      {id: 'simplify', label: 'Simplify a ratio', formula: '(a ÷ g):(b ÷ g), where g = GCF(a, b)', example: '18:24; divide both terms by 6', result: '3:4'},
-      {id: 'solve-a', label: 'Find A', formula: 'A = B × C ÷ D', example: 'A:4 = 9:12', result: 'A = 3'},
-      {id: 'solve-b', label: 'Find B', formula: 'B = A × D ÷ C', example: '3:B = 9:12', result: 'B = 4'},
-      {id: 'solve-c', label: 'Find C', formula: 'C = A × D ÷ B', example: '3:4 = C:12', result: 'C = 9'},
-      {id: 'solve-d', label: 'Find D', formula: 'D = B × C ÷ A', example: '3:4 = 9:D', result: 'D = 12'},
-      {id: 'scale-enlarge', label: 'Enlarge a ratio', formula: '(a × k):(b × k)', example: '3:4 enlarged by a factor of 5', result: '15:20'},
-      {id: 'scale-shrink', label: 'Shrink a ratio', formula: '(a ÷ k):(b ÷ k)', example: '15:20 shrunk by a factor of 5', result: '3:4'},
+    "modifiedAt": "2026-11-15",
+    "answerHeading": "How do I simplify or solve a ratio?",
+    "answer": "To simplify a ratio, divide its whole-number terms by their greatest common factor: 18:24 becomes 3:4 after dividing by 6. Enter decimals or fractions directly; the calculator clears denominators first and shows the exact steps. To find a missing value in A:B = C:D, use AD = BC. You can also scale both terms together.",
+    "tableHeading": "Ratio formulas and worked examples",
+    "tableIntroduction": "Simplify ratio accepts whole numbers, decimals, or integer fractions directly. Keep the quantities in the same order on both sides of A:B = C:D. Select Solve any proportion term for an unknown A, B, C, or D; select Scale a ratio to enlarge or shrink both quantities. After opening the proportion solver, choose the missing term; after opening the scaling calculator, choose enlarge or shrink.",
+    "tableCaption": "Proportion formulas assume nonzero denominators. A divisor of zero can make an equation invalid or prevent a unique solution.",
+    "firstColumn": "Task",
+    "rows": [
+      {
+        "id": "simplify",
+        "label": "Simplify a ratio",
+        "formula": "(a ÷ g):(b ÷ g), where g = GCF(a, b)",
+        "example": "18:24; divide both terms by 6",
+        "result": "3:4",
+        "modeId": "simplify"
+      },
+      {
+        "id": "solve-a",
+        "label": "Find A",
+        "formula": "A = B × C ÷ D",
+        "example": "A:4 = 9:12",
+        "result": "A = 3",
+        "modeId": "all-proportions"
+      },
+      {
+        "id": "solve-b",
+        "label": "Find B",
+        "formula": "B = A × D ÷ C",
+        "example": "3:B = 9:12",
+        "result": "B = 4",
+        "modeId": "all-proportions"
+      },
+      {
+        "id": "solve-c",
+        "label": "Find C",
+        "formula": "C = A × D ÷ B",
+        "example": "3:4 = C:12",
+        "result": "C = 9",
+        "modeId": "all-proportions"
+      },
+      {
+        "id": "solve-d",
+        "label": "Find D",
+        "formula": "D = B × C ÷ A",
+        "example": "3:4 = 9:D",
+        "result": "D = 12",
+        "modeId": "all-proportions"
+      },
+      {
+        "id": "scale-enlarge",
+        "label": "Enlarge a ratio",
+        "formula": "(a × k):(b × k)",
+        "example": "3:4 enlarged by a factor of 5",
+        "result": "15:20",
+        "modeId": "scale"
+      },
+      {
+        "id": "scale-shrink",
+        "label": "Shrink a ratio",
+        "formula": "(a ÷ k):(b ÷ k)",
+        "example": "15:20 shrunk by a factor of 5",
+        "result": "3:4",
+        "modeId": "scale"
+      }
     ],
-    sections: [
+    "sections": [
       {
-        id: 'simplify-decimal-ratio',
-        heading: 'How do I simplify a ratio with decimals or fractions?',
-        paragraphs: [
-          'Simplify ratio accepts whole numbers. For decimal quantities, first multiply both terms by the same power of 10 to remove the decimal places. For example, 1.5:2.25 becomes 150:225; dividing both terms by 75 gives 2:3.',
-          'For fractions, multiply both terms by a common denominator. The ratio 1/2:3/4 becomes 2:3 when both terms are multiplied by 4. Convert these to whole-number terms before entering them in Simplify ratio.',
+        "id": "simplify-decimal-ratio",
+        "heading": "How do I simplify a ratio with decimals or fractions?",
+        "paragraphs": [
+          "Enter each decimal or fraction directly in Simplify ratio. For 1.5:2.25, the exact fractions are 3/2:9/4. Multiplying both terms by 4 gives 6:9; dividing by their greatest common factor, 3, gives 2:3.",
+          "For 1/2:3/4, multiplying both terms by the common denominator 4 gives 2:3 immediately. The calculator keeps decimal digits and integer fractions exact instead of rounding them before simplification. Fraction inputs use integer numerators and nonzero integer denominators; mixed numbers should first be written as improper fractions."
         ],
-        link: {before: 'Use the ', href: '/fraction-calculator', label: 'fraction calculator', after: ' to simplify or compare fractional inputs first.'},
+        "link": {
+          "before": "Use the ",
+          "href": "/fraction-calculator",
+          "label": "fraction calculator",
+          "after": " to convert mixed numbers or perform fraction arithmetic."
+        }
       },
       {
-        id: 'ratio-percentages',
-        heading: 'Does a 3:4 ratio mean 75%?',
-        paragraphs: [
-          'It depends on the comparison. In a 3:4 ratio, the first quantity is 3 ÷ 4 = 75% of the second quantity. But the first quantity is 3 ÷ (3 + 4) ≈ 42.86% of the combined total, and the second is about 57.14%.',
-          'A part-to-part ratio compares the two quantities with each other. A part-to-whole fraction compares one quantity with their sum. Label the quantities before converting a ratio to a percentage.',
+        "id": "ratio-percentages",
+        "heading": "Does a 3:4 ratio mean 75%?",
+        "paragraphs": [
+          "It depends on the comparison. In a 3:4 ratio, the first quantity is 3 ÷ 4 = 75% of the second quantity. But the first quantity is 3 ÷ (3 + 4) ≈ 42.86% of the combined total, and the second is about 57.14%.",
+          "A part-to-part ratio compares the two quantities with each other. A part-to-whole fraction compares one quantity with their sum. Label the quantities before converting a ratio to a percentage."
         ],
-        link: {before: 'For a known part and whole, use the ', href: '/percent-calculator', label: 'percentage calculator', after: ' to calculate the share of the total.'},
+        "link": {
+          "before": "For a known part and whole, use the ",
+          "href": "/percent-calculator",
+          "label": "percentage calculator",
+          "after": " to calculate the share of the total."
+        }
       },
       {
-        id: 'equivalent-ratios',
-        heading: 'How can I tell whether two ratios are equivalent?',
-        paragraphs: [
-          'Cross-multiply: 3:4 and 9:12 are equivalent because 3 × 12 = 4 × 9 = 36. Reversing only one ratio changes the comparison; 3:4 and 12:9 are not equivalent.',
-          'Use matching units when comparing the same kind of measurement. For example, 1 m:50 cm becomes 100 cm:50 cm = 2:1. A ratio of 0:0 has no defined relationship and cannot be simplified.',
+        "id": "equivalent-ratios",
+        "heading": "How can I tell whether two ratios are equivalent?",
+        "paragraphs": [
+          "Cross-multiply: 3:4 and 9:12 are equivalent because 3 × 12 = 4 × 9 = 36. Reversing only one ratio changes the comparison; 3:4 and 12:9 are not equivalent.",
+          "Use matching units when comparing the same kind of measurement. For example, 1 m:50 cm becomes 100 cm:50 cm = 2:1. A ratio of 0:0 has no defined relationship and cannot be simplified."
         ],
-        link: {before: 'To find the divisor for a whole-number ratio by itself, use the ', href: '/gcf-calculator', label: 'greatest common factor calculator', after: '.'},
-      },
-    ],
+        "link": {
+          "before": "To find the divisor for a whole-number ratio by itself, use the ",
+          "href": "/gcf-calculator",
+          "label": "greatest common factor calculator",
+          "after": "."
+        }
+      }
+    ]
   },
+
   'volume-calculator': {
     modifiedAt: '2026-11-15',
     quickLinks: [{href: '#volume-capacity', label: 'Tank capacity'}, {href: '#volume-unit-conversion', label: 'Cubic units and liters'}],

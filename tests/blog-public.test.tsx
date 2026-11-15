@@ -75,9 +75,9 @@ describe('dynamic blog discovery and index behavior',()=>{
   });
   it('excludes an empty blog from XML but adds only repository-published entries at request time',async()=>{
     expect(dynamic).toBe('force-dynamic');
-    const empty=await sitemap();expect(empty).toHaveLength(721);expect(empty.some(entry=>entry.url.includes('/blog'))).toBe(false);
+    const empty=await sitemap();expect(empty.length).toBeGreaterThan(0);expect(empty.some(entry=>entry.url.includes('/blog'))).toBe(false);
     repository.sitemap.mockResolvedValue([{slug:post.slug,updatedAt:post.updatedAt}]);
-    const published=await sitemap();expect(published).toHaveLength(723);expect(published).toContainEqual({url:site.url+'/blog'});expect(published).toContainEqual({url:site.url+'/blog/'+post.slug,lastModified:post.updatedAt});expect(published.some(entry=>entry.url.includes('/admin'))).toBe(false);
+    const published=await sitemap();expect(published).toHaveLength(empty.length+2);expect(published.filter(entry=>!entry.url.includes('/blog'))).toEqual(empty);expect(published).toContainEqual({url:site.url+'/blog'});expect(published).toContainEqual({url:site.url+'/blog/'+post.slug,lastModified:post.updatedAt});expect(published.some(entry=>entry.url.includes('/admin'))).toBe(false);
     repository.sitemap.mockResolvedValue([]);expect((await sitemap()).some(entry=>entry.url.includes('/blog'))).toBe(false);
   });
   it('propagates configured database failures instead of silently claiming an empty blog',async()=>{

@@ -2,6 +2,7 @@ import {evaluateExpression,type ExpressionContext} from './expression-engine';
 import {advancedMathAlgorithms,runAdvancedMath} from "./math-advanced-engine";
 import {triangleSides} from "./geometry";
 import {solidGeometry} from './solid-geometry';
+import {simplifyExactRatio} from './exact-ratio';
 import {extraMathAlgorithms,runExtraMath} from "./math-extra-engine";
 import Decimal from "decimal.js";
 import {num,positive,integer,list,gcd,factorial,choose,summarize,normalCdf,normalSf,invNormal,result} from "./helpers";
@@ -27,7 +28,7 @@ export async function run(op:string,v:Values,context:ExpressionContext={}):Promi
  if(op==="percent-adjust"){const change=N("value")*N("percent")/100*(v.direction==="decrease"?-1:1);return result(m("New value",N("value")+change),m("Change",change));}
  if(op==="percent-error"){if(N("actual")===0)throw new Error("Accepted value cannot be zero.");const e=N("observed")-N("actual");return result(m("Percentage error",Math.abs(e/N("actual"))*100,"percent"),m("Signed error",e));}
  if(op.startsWith("fraction")){let [a,b]=rational(v.a);if(op==="fraction-simplify")return fractionResult(a,b);const [c,d]=rational(v.b);if(op==="fraction-compare")return result(m("Comparison",`${v.a} ${a*d===b*c?"=":a*d>b*c?">":"<"} ${v.b}`));if(v.operation==="+"){a=a*d+c*b;b*=d;}else if(v.operation==="-"){a=a*d-c*b;b*=d;}else if(v.operation==="*"){a*=c;b*=d;}else{a*=d;b*=c;}return fractionResult(a,b);}
- if(op==="ratio"){const a=integer(N("a"),-1e12,1e12),b=integer(N("b"),-1e12,1e12);const g=gcd(a,b);if(!g)throw new Error("Both quantities cannot be zero.");return result(m("Simplified ratio",`${a/g} : ${b/g}`));}
+ if(op==="ratio")return simplifyExactRatio(v.a,v.b);
  if(op==="proportion"){if(!N("a")||!N("b")||!N("c"))throw new Error("The supplied terms must define a nonzero denominator and a unique proportion.");return result(m("D",N("b")*N("c")/N("a")));}
  if(op==="quadratic"){const a=N("a"),b=N("b"),c=N("c");if(a===0){if(b===0)return result(m("Solution",c===0?"Every real number":"No solution"));return result(m("Linear root",-c/b));}const d=b*b-4*a*c;if(d<0){const re=-b/(2*a),im=Math.sqrt(-d)/Math.abs(2*a);return result(textMetric("Roots",`${re} ± ${im}i`),m("Discriminant",d));}const q=-.5*(b+(b<0?-1:1)*Math.sqrt(d));return result(m("Root 1",q===0?0:q/a),m("Root 2",q===0?0:c/q),m("Discriminant",d));}
  if(op==="power")return result(m("Result",N("base")**N("exponent")));

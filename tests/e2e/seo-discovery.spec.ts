@@ -3,12 +3,21 @@ import {test, expect} from '@playwright/test';
 import es from '../../src/data/locales/es.json';
 
 test('avoids unused script-font preloads and retains the correct language fonts', async ({page}) => {
-  for (const [path,font] of [['/','Manrope'],['/es','Manrope'],['/ar','Noto Sans Arabic'],['/hi','Noto Sans Devanagari']] as const) {
+  for (const [path,variable] of [['/','--font-site'],['/es','--font-site'],['/ar','--font-arabic'],['/hi','--font-hindi']] as const) {
     if(!isPublishedLocale(splitLocale(path).locale))continue;
     await page.goto(path);
     await expect(page.locator('link[rel="preload"][as="font"]')).toHaveCount(1);
     await page.evaluate(()=>document.fonts.ready);
-    expect(await page.evaluate(()=>getComputedStyle(document.body).fontFamily)).toContain(font);
+    // next/font/local generates its own family names. Check the language's
+    // configured family and its loaded face, rather than the original font name.
+    const font = await page.evaluate(variable => {
+      const first = (value: string) => value.split(',')[0].trim().replaceAll('"', '').replaceAll("'", '');
+      const expected = first(getComputedStyle(document.documentElement).getPropertyValue(variable));
+      return {expected, actual: first(getComputedStyle(document.body).fontFamily), loaded: [...document.fonts].some(face => first(face.family) === expected && face.status === 'loaded')};
+    }, variable);
+    expect(font.expected).not.toBe('');
+    expect(font.actual).toBe(font.expected);
+    expect(font.loaded).toBe(true);
   }
 });
 

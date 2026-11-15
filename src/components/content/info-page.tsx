@@ -5,12 +5,13 @@ import type {InfoPage as Content} from '@/data/information';
 import {PageHero} from './page-hero';
 import styles from './explanation.module.css';
 
-export function InfoPage({page,guide=false,highlight,slug}:{page:Content;guide?:boolean;highlight?:string;slug?:string}){
+export function InfoPage({page,guide=false,highlight,slug,tools=[]}:{page:Content;guide?:boolean;highlight?:string;slug?:string;tools?:{label:string;href:string}[]}){
   return <>
     <PageHero eyebrow={guide?'THE FINFLO GUIDE':'FINFLO · CLEAR BY DESIGN'} title={page.title} description={page.description} highlight={highlight} breadcrumbs={[...(guide?[{label:'Guides',href:'/guides'}]:[]),{label:page.title}]}/>
     <div className="container document-page page-content">
       <article className="document-body">
         {guide&&<p className="editorial-note">Prepared by <Link href="/about">Finflo</Link>. <Link href="/methodology">Our methodology</Link> · <Link href="/editorial-policy">Editorial policy</Link></p>}
+        {guide&&tools.length>0&&<nav className={styles.methodLinks} aria-label="Calculators for this guide">{tools.map(tool=><Link key={tool.href} href={tool.href}>{tool.label}</Link>)}</nav>}
         {guide&&slug&&<GuideIllustration slug={slug}/>}
         {!guide&&slug&&<InformationInsight slug={slug}/>}
         {guide&&<nav aria-label="In this guide" className={styles.panel}><strong>In this guide</strong><ul>{page.sections.map((section,index)=><li key={section.title}><a href={`#guide-section-${index+1}`}>{section.title}</a></li>)}</ul></nav>}

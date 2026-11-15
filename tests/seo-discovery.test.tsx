@@ -92,6 +92,13 @@ describe('calculator discovery and translated payloads', () => {
     const percent = relatedTools(toolMap.get('percent-calculator')!).map(tool=>tool.slug);
     expect(percent).toContain('discount-calculator');
     expect(percent).toContain('fraction-calculator');
+    const salary = relatedTools(toolMap.get('salary-calculator')!).map(tool=>tool.slug);
+    expect(salary).toContain('take-home-pay-calculator');
+    expect(salary).toContain('time-card-calculator');
+    const duration = relatedTools(toolMap.get('time-duration-calculator')!).map(tool=>tool.slug);
+    expect(duration).toContain('time-card-calculator');
+    expect(duration).toContain('time-zone-calculator');
+    expect(relatedTools(toolMap.get('apr-calculator')!).map(tool=>tool.slug)).toContain('interest-rate-calculator');
   });
 
   it('opens compound interest with growth inputs and preserves the rate converter', async () => {

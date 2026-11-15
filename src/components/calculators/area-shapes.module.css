@@ -1,8 +1,9 @@
-.picker { border: 0; padding: 18px 24px; margin: 0; min-width: 0; }
-.picker legend { padding: 18px 0 0; font-size: 14px; font-weight: 650; color: var(--color-ink); }
+.picker { border: 0; padding: 12px 20px; margin: 0; min-width: 0; }
+.picker legend { padding: 14px 0 0; font-size: 14px; font-weight: 650; color: var(--color-ink); }
 .choices { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
 .choices[data-methods] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.choices button { display: flex; align-items: center; gap: 10px; min-height: 58px; padding: 10px 12px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-text-secondary); text-align: start; font: inherit; font-size: 12px; line-height: 1.4; cursor: pointer; transition: background-color 150ms, border-color 150ms; }
+.choices button { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 10px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-card); color: var(--color-text-secondary); text-align: start; font: inherit; font-size: 12px; line-height: 1.4; cursor: pointer; transition: background-color 150ms, border-color 150ms; }
+.choices button span { min-width: 0; }
 .choices button:hover { border-color: var(--color-focus); background: var(--color-soft); }
 .choices button[aria-pressed="true"] { border-color: var(--color-focus); background: var(--color-brand-tile); color: var(--color-brand-tile-ink); box-shadow: inset 0 0 0 1px var(--color-focus); }
 .choices button[aria-pressed="true"] .diagram { --shape-edge: #d5f915; --shape-fill: #d5f91518; --shape-guide: #d5f915; }
@@ -31,12 +32,20 @@
 .measurement summary { cursor: pointer; padding-block: 8px; }
 .measurement summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 .measurement details p { margin: 8px 0; }
+/* Keep illustrated choices and dimensions visible without delaying the inputs.
+   Material guides share this module but retain their existing dimensions. */
+.measurement[data-geometry-guide] { grid-template-columns: minmax(190px, .9fr) minmax(0, 1fr); gap: 8px 12px; margin-bottom: 16px; padding: 12px; }
+.measurement[data-geometry-guide] > .diagram { max-width: 190px; }
+.measurement[data-geometry-guide] strong { margin-bottom: 4px; }
+.measurement[data-geometry-guide] small { margin-top: 4px; }
 @container (max-width: 340px) {
   .measurement { grid-template-columns: minmax(0, 1fr); }
   .measurement > .diagram { max-width: 210px; }
   .measurement figcaption { text-align: center; }
+  .measurement[data-geometry-guide] { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 1000px) { .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .picker { padding: 14px 18px; } .choices button { flex-direction: column; justify-content: center; text-align: center; gap: 6px; padding: 10px 4px; } .choices { gap: 6px; } }
+@media (max-width: 600px) { .picker { padding: 10px 12px; } .choices button { flex-direction: row; justify-content: flex-start; text-align: start; gap: 6px; padding: 8px 6px; } .choices { gap: 6px; } .choices .diagram { width: 28px; height: 28px; } }
+@media (max-width: 460px) { .choices:not([data-methods]) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .choices button { transition: none; } }
 @media print { .diagram { --shape-edge: #303b20; --shape-fill: #edf2e3; --shape-guide: #59634d; } .label { fill: #17191c; } }

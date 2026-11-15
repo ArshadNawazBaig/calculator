@@ -63,7 +63,10 @@ try {
       for (const section of entry.sections) for (const link of section.links) {
         if (!paths.includes(link.href)) issues.push(`${path}: directory link missing from indexable routes: ${link.href}`);
       }
-      page = {path, kind: 'calculator-directory', guideSections: entry.sections.length};
+      for (const slug of entry.guides || []) {
+        if (!guides[slug]) issues.push(`${path}: unknown guide: ${slug}`);
+      }
+      page = {path, kind: 'calculator-directory', guideSections: entry.sections.length, relatedGuides: entry.guides || []};
     } else if (path === studentDirectory.path) page = {path, kind: 'student-directory'};
     else if (guides[path.replace(/^\/guides\//, '')]) {
       const guide = guides[path.replace(/^\/guides\//, '')];

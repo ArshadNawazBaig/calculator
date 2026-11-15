@@ -1,7 +1,13 @@
 /** Ordered by the next task a visitor is likely to want, across categories where useful. */
 export const relatedCalculatorSlugs: Record<string, string[]> = {
   'area-calculator': ['square-footage-calculator', 'triangle-calculator', 'circle-calculator', 'surface-area-calculator', 'volume-calculator', 'conversion-calculator'],
-  'ratio-calculator': ['fraction-calculator', 'gcf-calculator', 'percent-calculator', 'long-division-calculator', 'triangle-calculator', 'basic-calculator'],
+  'ratio-calculator': ['fraction-calculator', 'gcf-calculator', 'percent-calculator', 'long-division-calculator', 'conversion-calculator', 'basic-calculator'],
+  'salary-calculator': ['take-home-pay-calculator', 'time-card-calculator', 'hours-calculator', 'budget-calculator', 'freelance-rate-calculator', 'tax-calculator'],
+  'apr-calculator': ['interest-rate-calculator', 'loan-calculator', 'personal-loan-calculator', 'amortization-calculator', 'payment-calculator', 'credit-card-payoff-calculator'],
+  'interest-rate-calculator': ['apr-calculator', 'loan-calculator', 'payment-calculator', 'amortization-calculator', 'personal-loan-calculator', 'compound-interest-calculator'],
+  'time-duration-calculator': ['time-calculator', 'hours-calculator', 'time-card-calculator', 'date-calculator', 'time-zone-calculator', 'day-counter'],
+  'hours-calculator': ['time-duration-calculator', 'time-card-calculator', 'time-calculator', 'salary-calculator', 'date-calculator', 'time-zone-calculator'],
+  'time-card-calculator': ['hours-calculator', 'time-duration-calculator', 'salary-calculator', 'take-home-pay-calculator', 'time-calculator', 'date-calculator'],
   'volume-calculator': ['surface-area-calculator', 'area-calculator', 'concrete-calculator', 'density-calculator', 'conversion-calculator', 'square-footage-calculator'],
   'mortgage-calculator': ['mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator'],
   'compound-interest-calculator': ['savings-calculator', 'investment-calculator', 'simple-interest-calculator', 'future-value-calculator', 'interest-calculator', 'inflation-calculator'],

@@ -22,7 +22,7 @@
     "seoTitle": "Age Calculator: Years, Months & Days Between Dates"
   },
   "date-calculator": {
-    "description": "Add or subtract calendar intervals, compare dates, and count or move through business days using chosen workdays and holidays.",
+    "description": "Find days between two dates, add or subtract days, weeks, months or years, and count business days with your selected holidays.",
     "faqs": [
       {
         "question": "Does adding one month mean adding 30 days?",
@@ -35,9 +35,71 @@
     ],
     "sections": [
       {
-        "title": "Choosing elapsed days or business days",
+        "title": "Which date calculation should I use?",
         "paragraphs": [
-          "From January 1 to January 3, the elapsed calendar difference is 2 days; including the end date gives 3 counted dates. Adding one calendar month to January 31, 2026 gives February 28, because this tool clamps to the last available day rather than treating a month as 30 days. For business dates, use the standard Monday–Friday mode or choose working weekdays in the custom mode. Custom modes also support the stated holiday preset and additional exclusions; check the selected calendar before using a deadline."
+          "Choose Between two dates to measure a calendar interval. Choose Add or subtract time to find a date a specified number of years, months, weeks or days away; use negative values to subtract. Business-day modes count only the selected working days and exclude the holiday dates or calendar rules you choose."
+        ],
+        "links": [
+          {
+            "label": "Days between dates",
+            "href": "#mode-difference"
+          },
+          {
+            "label": "Add or subtract dates",
+            "href": "#mode-add"
+          },
+          {
+            "label": "Count business days",
+            "href": "#mode-business"
+          }
+        ]
+      },
+      {
+        "title": "Date calculation examples",
+        "paragraphs": [
+          "Calendar months have different lengths. Adding a month changes the calendar month and clamps an unavailable day to the end of that month; it does not add a fixed 30 days. The date-only modes do not use time zones or daylight-saving offsets."
+        ],
+        "table": {
+          "caption": "Examples using the Gregorian calendar",
+          "headers": [
+            "Task",
+            "Inputs",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Elapsed calendar days",
+              "January 1 to January 3, 2026; exclude end date",
+              "2 days"
+            ],
+            [
+              "Count including the end date",
+              "January 1 to January 3, 2026; include end date",
+              "3 days"
+            ],
+            [
+              "Add one calendar month",
+              "January 31, 2026 + 1 month",
+              "February 28, 2026"
+            ],
+            [
+              "Subtract seven calendar days",
+              "March 1, 2026 − 7 days",
+              "February 22, 2026"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Check the workweek and holiday calendar",
+        "paragraphs": [
+          "Standard business-day modes count Monday through Friday and exclude the holiday dates you supply. Custom modes let you choose working weekdays and the available holiday rules or presets. No preset represents every country, employer or local calendar, so check the selected exclusions before using a deadline."
+        ],
+        "links": [
+          {
+            "label": "Calculate hours and minutes between timestamps",
+            "href": "/time-duration-calculator#mode-dated"
+          }
         ]
       }
     ],
@@ -110,8 +172,16 @@
     "seoTitle": "Hours Calculator: Work Hours, Breaks & Decimal Time"
   },
   "time-duration-calculator": {
-    "description": "Measure elapsed civil time between clock times or dated timestamps, with break subtraction and clear overnight assumptions.",
+    "description": "Calculate elapsed time between clock times or two dates and times. Get hours, minutes and decimal hours, with optional break subtraction for a single-day interval.",
     "faqs": [
+      {
+        "question": "How do I calculate a duration overnight?",
+        "answer": "Enter the clock times normally. If the end is earlier than the start, the calculator treats it as the following day. For example, 22:15 to 06:45 is 8 hours 30 minutes before any break is subtracted."
+      },
+      {
+        "question": "Why is 8 hours 30 minutes shown as 8.5 decimal hours?",
+        "answer": "Thirty minutes is 30 ÷ 60 = 0.5 hours. Decimal hours use fractions of an hour, while hours-and-minutes notation uses 60 minutes per hour."
+      },
       {
         "question": "Which mode should I use for an interval spanning several dates?",
         "answer": "Use Between two dates and times. The clock-time mode represents a single interval of up to 24 hours."
@@ -123,9 +193,77 @@
     ],
     "sections": [
       {
-        "title": "Separating a clock time from a duration",
+        "title": "How to calculate elapsed hours and minutes",
         "paragraphs": [
-          "A clock time identifies a point in a day, while a duration measures elapsed time between points. Check the overnight convention when entering only clock times. Use explicit dates when the interval spans several days. The result follows the selected calculation's assumptions and should not automatically be treated as a timezone-aware elapsed-time calculation across a daylight-saving change."
+          "Enter the start and end time. Leave Break to subtract at 0 to measure the complete interval; enter break minutes only when you want to exclude them. The result shows hours, minutes and seconds, plus decimal hours.",
+          "Decimal hours divide the remaining minutes by 60. For example, 8 hours 30 minutes is 8 + 30 ÷ 60 = 8.5 hours, not 8.30 hours."
+        ],
+        "table": {
+          "caption": "Clock-time examples; an end time earlier than the start is treated as the following day.",
+          "headers": [
+            "Start",
+            "End",
+            "Break",
+            "Elapsed time",
+            "Decimal hours"
+          ],
+          "rows": [
+            [
+              "09:00",
+              "17:30",
+              "0 minutes",
+              "8 hours 30 minutes",
+              "8.5"
+            ],
+            [
+              "09:00",
+              "17:30",
+              "30 minutes",
+              "8 hours",
+              "8"
+            ],
+            [
+              "22:15",
+              "06:45 next day",
+              "0 minutes",
+              "8 hours 30 minutes",
+              "8.5"
+            ],
+            [
+              "10:14",
+              "16:18",
+              "0 minutes",
+              "6 hours 4 minutes",
+              "6.0667 (rounded)"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Calculate between clock times",
+            "href": "#mode-duration"
+          }
+        ]
+      },
+      {
+        "title": "Overnight intervals and durations longer than a day",
+        "paragraphs": [
+          "Clock-time mode treats an earlier end time as the next day. Matching start and end times give zero elapsed time, not 24 hours. For an interval lasting a full day or several days, select Between two dates and times and enter both dates.",
+          "These calculations compare civil clock readings and treat each day as 24 hours. They do not apply timezone offsets or daylight-saving transitions. If your interval crosses such a transition, compare the corresponding zoned instants instead."
+        ],
+        "links": [
+          {
+            "label": "Use dates and times",
+            "href": "#mode-dated"
+          },
+          {
+            "label": "Convert between time zones",
+            "href": "/time-zone-calculator"
+          },
+          {
+            "label": "Add or subtract durations",
+            "href": "/time-calculator"
+          }
         ]
       }
     ],
@@ -1153,7 +1291,7 @@
     "seoTitle": "Sleep Calculator: Bedtime, Wake Time & Duration"
   },
   "height-calculator": {
-    "description": "Convert centimeters and feet/inches, or estimate adult height from parental measurements using the same mid-parental reference in either unit system.",
+    "description": "Estimate adult height from parents’ heights, or convert cm to feet and inches. See the formula and understand the limits of a height prediction.",
     "faqs": [
       {
         "question": "What does the parent-based height estimate show?",
@@ -1166,13 +1304,69 @@
     ],
     "sections": [
       {
-        "title": "Understanding a parental-height estimate",
+        "title": "How tall will my child be?",
         "paragraphs": [
-          "The height estimate uses the supported mid-parental method and entered parent measurements. Check units carefully when combining heights recorded in different systems. The output is a broad model-based estimate, not a prediction of an individual child's final height or a growth assessment. The separate unit-conversion modes only change how a known height is expressed."
+          "The mid-parental method gives a rough family-based adult-height estimate from the parents’ heights. This calculator adds the heights in centimeters, adds 13 cm for a boy or subtracts 13 cm for a girl, then divides by two. For a mother of 165 cm and a father of 180 cm, that gives 179 cm for a boy or 166 cm for a girl.",
+          "This is not an assessment of a child’s current growth and does not use age, current height or bone age. An individual’s final height can differ from the estimate. Discuss growth concerns with a clinician rather than treating this number as a target."
+        ],
+        "links": [
+          {
+            "label": "Estimate from parents’ heights in cm",
+            "href": "#mode-parental"
+          },
+          {
+            "label": "Enter parents’ heights in feet and inches",
+            "href": "#mode-parent-units"
+          }
+        ]
+      },
+      {
+        "title": "Convert height between centimeters and feet/inches",
+        "paragraphs": [
+          "One inch is exactly 2.54 cm, and one foot is 12 inches. For feet and inches to centimeters, multiply the whole feet by 12, add the remaining inches, then multiply by 2.54. For example, 5 feet 9 inches is (5 × 12 + 9) × 2.54 = 175.26 cm. The conversion mode changes the units of a known height; it does not predict growth."
+        ],
+        "table": {
+          "caption": "Common height conversions; inches rounded to two decimal places",
+          "headers": [
+            "Centimeters",
+            "Feet and inches"
+          ],
+          "rows": [
+            [
+              "160 cm",
+              "5 ft 2.99 in"
+            ],
+            [
+              "165 cm",
+              "5 ft 4.96 in"
+            ],
+            [
+              "170 cm",
+              "5 ft 6.93 in"
+            ],
+            [
+              "175 cm",
+              "5 ft 8.90 in"
+            ],
+            [
+              "180 cm",
+              "5 ft 10.87 in"
+            ],
+            [
+              "185 cm",
+              "6 ft 0.83 in"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Use the height unit converter",
+            "href": "#mode-converter"
+          }
         ]
       }
     ],
-    "seoTitle": "Height Calculator: Unit Conversion & Parent Estimate"
+    "seoTitle": "Height Calculator: Adult Height Estimate & cm to Feet"
   },
   "bra-size-calculator": {
     "description": "Estimate a bra starting size from bust and underbust measurements, compare sizing methods, or convert regional labels with fit limitations explained.",
@@ -2139,8 +2333,24 @@
     "description": "Estimate a loan's fee-inclusive borrowing rate by comparing net proceeds with scheduled payments and selected payment frequencies.",
     "faqs": [
       {
+        "question": "How do I calculate APR per month?",
+        "answer": "APR is annual. For a nominal annual rate with monthly periods, divide by 12: 12% annually corresponds to 1% monthly. A fee-inclusive APR is not necessarily the contractual interest rate used to calculate each month’s interest."
+      },
+      {
+        "question": "Can I find APR from only the monthly payment?",
+        "answer": "No. You also need the amount received, payment count and timing, plus the relevant fee assumptions. The linked Interest Rate Calculator solves an implied monthly-payment loan rate but does not include financing fees or irregular payment dates."
+      },
+      {
         "question": "Why can APR exceed the stated interest rate?",
-        "answer": "Upfront financing charges reduce the cash received while scheduled repayments remain based on the loan, increasing the modeled borrowing rate."
+        "answer": "In this loan model, upfront financing charges reduce the initial cash received while scheduled payments stay the same. The discount rate matching those cash flows rises. For the $10,000, 6%, 3-year example, a $300 upfront fee raises the modeled nominal APR to about 8.06%."
+      },
+      {
+        "question": "Is APR the same as the effective annual rate?",
+        "answer": "Not in this model. Nominal APR annualizes the periodic discount rate by multiplication; the effective annual borrowing rate compounds it. A monthly rate of 1% corresponds to 12% nominal annually and about 12.68% effectively."
+      },
+      {
+        "question": "Can I convert a flat interest rate to APR by doubling it?",
+        "answer": "There is no universal multiplier. Flat-rate interest is calculated on the original principal, while repayment reduces the outstanding balance. Use the actual payment amount, term, payment timing and fee treatment to compare costs."
       },
       {
         "question": "Is this a legally compliant APR disclosure for every loan?",
@@ -2149,9 +2359,108 @@
     ],
     "sections": [
       {
-        "title": "Comparing interest rates with borrowing costs",
+        "title": "How do I calculate APR from an interest rate?",
         "paragraphs": [
-          "APR calculations connect the cash received with the payments and supported fees over time. A stated interest rate can differ from a fee-adjusted borrowing rate. Enter fees according to the selected mode and compare offers with consistent payment timing. The result follows the calculator's assumptions; use the lender's required disclosure when a legal or contractual APR definition is needed."
+          "For a fixed loan with equal monthly installments, enter the loan amount before fees, the stated annual interest rate, the term in years and the upfront financing charges. Loan APR mode calculates the scheduled payment, subtracts the charges from the initial loan proceeds, and finds the discount rate that matches those net proceeds to the payments.",
+          "In this monthly model, estimated nominal APR = monthly discount rate × 12. You cannot calculate a fee-inclusive APR from the interest rate alone: the fees, term and payment timing also matter. Use Payment & compounding frequencies when the repayment or compounding interval differs from monthly."
+        ],
+        "links": [
+          {
+            "label": "Estimate monthly-loan APR",
+            "href": "#mode-apr"
+          },
+          {
+            "label": "Choose payment and compounding frequencies",
+            "href": "#mode-frequencies"
+          }
+        ]
+      },
+      {
+        "title": "Worked example: how upfront fees change APR",
+        "paragraphs": [
+          "Consider a $10,000 loan at a 6% nominal annual interest rate, repaid over 3 years in 36 equal monthly installments. The scheduled payment is about $304.22. A $300 upfront financing charge reduces the initial net proceeds to $9,700 without reducing the scheduled payment. The modeled nominal APR therefore rises to about 8.06%.",
+          "The table uses payments calculated at full precision and rounds the displayed amounts. It assumes the fee is deducted from the loan proceeds or paid upfront in cash, with no irregular first payment, additional charges or early repayment. It does not determine which fees a particular disclosure must include."
+        ],
+        "table": {
+          "caption": "Illustrative fixed-rate loan: same amount, interest rate, term and payments; different upfront fees.",
+          "headers": [
+            "Item",
+            "No upfront fee",
+            "$300 upfront fee"
+          ],
+          "rows": [
+            [
+              "Loan amount",
+              "$10,000",
+              "$10,000"
+            ],
+            [
+              "Nominal annual interest rate",
+              "6%",
+              "6%"
+            ],
+            [
+              "Term",
+              "36 monthly installments",
+              "36 monthly installments"
+            ],
+            [
+              "Net loan proceeds",
+              "$10,000",
+              "$9,700"
+            ],
+            [
+              "Monthly payment (rounded)",
+              "$304.22",
+              "$304.22"
+            ],
+            [
+              "Estimated nominal APR",
+              "6.00%",
+              "8.06%"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Compare your own fee assumptions",
+            "href": "#mode-apr"
+          }
+        ]
+      },
+      {
+        "title": "How do I work out a rate from a known monthly payment?",
+        "paragraphs": [
+          "A monthly payment alone does not determine a rate. You also need the principal, number of payments and their timing. If you know those figures but not the stated rate, use the Interest Rate Calculator: it solves a fixed, equal-monthly-payment loan and excludes financing fees and irregular dates.",
+          "For example, a $10,000 principal with 36 monthly payments of $304.22 implies a nominal annual interest rate of approximately 6.00%. That is not automatically a fee-inclusive APR. This APR calculator takes the stated interest rate as an input; use the lender’s disclosure when fees or timing require a different legal calculation."
+        ],
+        "links": [
+          {
+            "label": "Solve an interest rate from monthly payments",
+            "href": "/interest-rate-calculator#mode-rate"
+          }
+        ]
+      },
+      {
+        "title": "Monthly rate, nominal APR and effective annual rate",
+        "paragraphs": [
+          "APR is an annual percentage, not a monthly rate. Under a nominal annual rate with monthly periods, the periodic rate is annual rate ÷ 12: 12% per year corresponds to 1% per month. But a fee-inclusive loan APR divided by 12 is not necessarily the contractual rate used to charge monthly interest; the APR can also reflect upfront financing costs.",
+          "Effective annual rate includes compounding. At 1% each month, EAR = (1 + 0.01)^12 − 1 = about 12.68%, compared with the 12% nominal annual rate. The frequency mode shows modeled nominal APR and effective annual borrowing rate separately.",
+          "Credit cards can use a daily periodic rate and changing daily balances. A monthly division is not an exact credit-card interest bill; the issuer’s day-count convention, payments, purchases and grace-period terms matter."
+        ],
+        "links": [
+          {
+            "label": "Compare nominal and effective borrowing rates",
+            "href": "#mode-frequencies"
+          },
+          {
+            "label": "Convert equivalent compounding rates",
+            "href": "/compound-interest-calculator#mode-equivalent"
+          },
+          {
+            "label": "Estimate credit-card payoff",
+            "href": "/credit-card-calculator"
+          }
         ]
       }
     ],
@@ -2796,7 +3105,7 @@
     "seoTitle": "VAT Calculator: Add or Remove VAT from a Price"
   },
   "salary-calculator": {
-    "description": "Convert gross salary across hourly through annual pay periods, including quarterly pay, and compare unpaid-day adjustments.",
+    "description": "Convert hourly wages to annual salary or yearly pay to hourly, weekly, biweekly and monthly amounts. Compare gross pay and unpaid leave.",
     "faqs": [
       {
         "question": "Why do biweekly and semimonthly pay differ?",
@@ -2809,17 +3118,102 @@
       {
         "question": "Is the converted salary my take-home pay?",
         "answer": "No. These are gross-pay conversions before taxes, benefits and payroll deductions."
+      },
+      {
+        "question": "How much is $25 an hour per year?",
+        "answer": "At 40 paid hours per week for 52 weeks, $25 an hour is $52,000 a year before taxes and deductions. Unpaid time and a different work schedule change that amount."
       }
     ],
     "sections": [
       {
-        "title": "Comparing pay across different periods",
+        "title": "How do I convert hourly pay to yearly salary?",
         "paragraphs": [
-          "An hourly, monthly, and annual salary comparison depends on the work schedule assumed. Check working days, hours, and nonworking days before comparing offers. A simple period conversion does not automatically account for overtime, variable shifts, benefits, or tax withholding. Use the pay-period mode when the calendar or number of paid periods is central to the question."
+          "Multiply your hourly rate by paid hours per week and 52 weeks. For example, $25 per hour × 40 hours × 52 weeks = $52,000 per year before taxes and deductions. To convert annual salary back to hourly pay, divide it by the same scheduled hours: $52,000 ÷ 2,080 = $25 per hour. Change the hours and days to match your own schedule."
+        ],
+        "links": [
+          {
+            "label": "Convert hourly or annual pay",
+            "href": "#mode-salary"
+          }
+        ]
+      },
+      {
+        "title": "Compare salary across pay periods",
+        "paragraphs": [
+          "The same annual salary produces different paycheck amounts depending on the number of pay periods. Biweekly means every two weeks, usually 26 payments per year in this conversion; semimonthly means twice per month, or 24 payments. The table below uses a $52,000 gross salary, 40 hours per week and five working days. Amounts are rounded to cents."
+        ],
+        "table": {
+          "caption": "Example gross-pay conversion: $52,000 per year",
+          "headers": [
+            "Pay period",
+            "Periods per year",
+            "Gross amount"
+          ],
+          "rows": [
+            [
+              "Hourly",
+              "2,080 hours",
+              "$25.00"
+            ],
+            [
+              "Daily",
+              "260 working days",
+              "$200.00"
+            ],
+            [
+              "Weekly",
+              "52",
+              "$1,000.00"
+            ],
+            [
+              "Biweekly",
+              "26",
+              "$2,000.00"
+            ],
+            [
+              "Semimonthly",
+              "24",
+              "$2,166.67"
+            ],
+            [
+              "Monthly",
+              "12",
+              "$4,333.33"
+            ],
+            [
+              "Quarterly",
+              "4",
+              "$13,000.00"
+            ],
+            [
+              "Annual",
+              "1",
+              "$52,000.00"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Compare pay periods and unpaid days",
+            "href": "#mode-schedule-units"
+          }
+        ]
+      },
+      {
+        "title": "Gross pay, take-home pay and unpaid leave",
+        "paragraphs": [
+          "The salary conversion is gross pay, before tax withholding, benefits and other payroll deductions. Overtime, bonuses and variable shifts are not automatically included. A real payroll calendar can have a different number of pay dates from the fixed annualization used here.",
+          "Paid vacation does not automatically reduce a fixed annual salary. Enter only unpaid days in the separate adjustment: at $25 per hour and eight hours per day, ten unpaid days reduce annual earnings by $2,000, from $52,000 to $50,000. The conversion table continues to show the gross schedule before this adjustment."
+        ],
+        "links": [
+          {
+            "label": "Estimate US take-home pay",
+            "href": "/take-home-pay-calculator"
+          }
         ]
       }
     ],
-    "seoTitle": "Salary Calculator: Hourly, Monthly & Annual Gross Pay"
+    "seoTitle": "Salary Calculator: Hourly to Annual Pay Converter"
   },
   "budget-calculator": {
     "description": "Build a monthly budget from take-home totals or mixed-period gross-income lines, with pretax savings, assumed tax and debt payments.",
@@ -3950,8 +4344,12 @@
     "seoTitle": "Fraction Calculator: Add, Subtract, Simplify & Compare"
   },
   "ratio-calculator": {
-    "description": "Simplify a ratio, find a missing value in a proportion, or scale both quantities. See worked examples for equivalent ratios and whole-number simplification.",
+    "description": "Simplify ratios with whole numbers, decimals, or fractions and see exact steps. Find a missing proportion term or scale both quantities up or down.",
     "faqs": [
+      {
+        "question": "Can I enter decimals or fractions directly?",
+        "answer": "Yes. In Simplify ratio, enter each quantity as a whole number, decimal, or integer fraction such as 1/2. Both 1.5:2.25 and 1/2:3/4 simplify to 2:3. The breakdown shows how common denominators and the greatest common factor produce the answer."
+      },
       {
         "question": "Does scaling a ratio change the relationship between its parts?",
         "answer": "No. Multiplying or dividing both parts by the same nonzero factor preserves their proportion."
@@ -3959,6 +4357,10 @@
       {
         "question": "Why can some proportions not be solved uniquely?",
         "answer": "A zero denominator is invalid, and some combinations reduce to an identity with infinitely many possible values rather than one answer."
+      },
+      {
+        "question": "Can a ratio contain zero or negative quantities?",
+        "answer": "Simplify ratio preserves signs and allows one zero term: 0:5 becomes 0:1, and −12:18 becomes −2:3. Both terms cannot be zero. Proportion solving separately requires nonzero denominators and enough information for one unique answer."
       }
     ],
     "sections": [
@@ -3969,7 +4371,7 @@
         ]
       }
     ],
-    "seoTitle": "Ratio Calculator: Simplify, Solve & Scale Ratios"
+    "seoTitle": "Ratio Calculator: Simplify Ratios & Solve Proportions"
   },
   "quadratic-formula-calculator": {
     "description": "Solve quadratic equations, inspect the discriminant and find real or complex roots, with linear handling when the quadratic term is zero.",
@@ -4217,6 +4619,14 @@
     "description": "Round a number to decimal places, significant figures or a chosen increment. Choose how halfway values round and compare the result with your input.",
     "faqs": [
       {
+        "question": "How do I round to the nearest tenth or hundredth?",
+        "answer": "In Round a number, select Decimal places and enter 1 for tenths or 2 for hundredths. For example, 12.346 becomes 12.3 or 12.35, respectively."
+      },
+      {
+        "question": "How do I round to the nearest 10 or 100?",
+        "answer": "Select Increment & rounding rule, set the increment to 10 or 100, and choose the rounding direction. With nearest rounding, 154 becomes 150 at increment 10."
+      },
+      {
         "question": "Are decimal places and significant figures the same?",
         "answer": "No. Decimal places count positions after the decimal point; significant figures count meaningful digits from the first nonzero digit."
       },
@@ -4227,9 +4637,75 @@
     ],
     "sections": [
       {
-        "title": "Choosing a rounding place and tie rule",
+        "title": "How to round to the nearest whole number, tenth or hundredth",
         "paragraphs": [
-          "Rounding changes a value to a chosen level of precision or to a multiple of an increment. Select the rule explicitly when halfway cases matter, especially for negative values. Rounding to decimal places is different from rounding to a cash increment. Keep full intermediate precision when possible, because rounding each step can produce a different final result from rounding once at the end."
+          "Choose Round a number, enter your number and select Decimal places. Use 0 for the nearest whole number, 1 for tenths and 2 for hundredths. This mode rounds to the nearest value; an exact halfway value rounds away from zero.",
+          "For the nearest 10, 100 or another multiple, select Increment & rounding rule and enter that increment. An increment of 0.05 rounds to five-cent steps; it is different from keeping two decimal places."
+        ],
+        "table": {
+          "caption": "Rounding examples using the nearest value, with halfway cases rounded away from zero.",
+          "headers": [
+            "Round to",
+            "Input",
+            "Setting",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Whole number",
+              "18.5",
+              "0 decimal places",
+              "19"
+            ],
+            [
+              "Tenth",
+              "12.34",
+              "1 decimal place",
+              "12.3"
+            ],
+            [
+              "Hundredth",
+              "1.235",
+              "2 decimal places",
+              "1.24"
+            ],
+            [
+              "Nearest 10",
+              "154",
+              "Increment 10",
+              "150"
+            ],
+            [
+              "Nearest 100",
+              "1260",
+              "Increment 100",
+              "1300"
+            ],
+            [
+              "Nearest 0.05",
+              "1.03",
+              "Increment 0.05",
+              "1.05"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Round by decimal places",
+            "href": "#mode-round"
+          },
+          {
+            "label": "Choose an increment and rounding rule",
+            "href": "#mode-increment"
+          }
+        ]
+      },
+      {
+        "title": "Significant figures and negative numbers",
+        "paragraphs": [
+          "Significant figures start at the first nonzero digit. For example, 0.004567 rounded to 3 significant figures is 0.00457; rounding the same number to 3 decimal places gives 0.005. Select the matching method before entering the digit count.",
+          "For negative values, rounding toward positive infinity and rounding away from zero are different. At increment 1, -2.5 rounds to -2 using ties toward positive infinity, but to -3 using ties away from zero. Ties to even gives 2 for 2.5 and 4 for 3.5. The increment mode names each rule explicitly.",
+          "Keep full intermediate precision when possible. Rounding each step can produce a different final answer from rounding once at the end."
         ]
       }
     ],
@@ -4238,6 +4714,14 @@
   "scientific-notation-calculator": {
     "description": "Convert numbers to scientific notation or back to decimals. Add, subtract, multiply and divide using coefficients and powers of ten.",
     "faqs": [
+      {
+        "question": "What does E mean in scientific notation?",
+        "answer": "E means multiply by a power of ten. For example, 3.2e5 means 3.2 × 10^5, or 320000, and 3.2e-5 means 0.000032."
+      },
+      {
+        "question": "Can I convert scientific notation to an ordinary decimal?",
+        "answer": "Yes. Enter a value such as 7.2e-4 or 7.2 × 10^-4 in the converter. The Decimal form result is 0.00072."
+      },
       {
         "question": "What makes scientific notation normalized?",
         "answer": "For a nonzero number, the coefficient's magnitude is at least 1 and below 10, with the scale represented by an integer power of ten."
@@ -4249,9 +4733,64 @@
     ],
     "sections": [
       {
-        "title": "Reading a number in scientific notation",
+        "title": "Convert scientific notation to decimal form and back",
         "paragraphs": [
-          "Scientific notation separates a coefficient from a power of ten. A positive exponent moves the scale toward larger values, while a negative exponent represents a smaller magnitude. Use arithmetic mode when combining numbers already written this way. Check whether the displayed digits reflect the requested precision; changing the notation alone does not make a measurement more accurate."
+          "Enter a number in ordinary decimal form, such as 579.5, or enter scientific notation as 5.795e2 or 5.795 × 10^2. The converter returns both scientific notation and decimal form. In E notation, e means “times ten raised to”; it is not the mathematical constant e.",
+          "For a nonzero value, normalized scientific notation has one nonzero digit before the decimal point. A positive exponent moves the decimal point to the right; a negative exponent moves it to the left."
+        ],
+        "table": {
+          "caption": "Equivalent forms of the same numbers; conversion alone does not round the input.",
+          "headers": [
+            "Decimal form",
+            "Scientific notation",
+            "E notation"
+          ],
+          "rows": [
+            [
+              "579.5",
+              "5.795 × 10^2",
+              "5.795e2"
+            ],
+            [
+              "320000",
+              "3.2 × 10^5",
+              "3.2e5"
+            ],
+            [
+              "0.00072",
+              "7.2 × 10^-4",
+              "7.2e-4"
+            ],
+            [
+              "-0.00125",
+              "-1.25 × 10^-3",
+              "-1.25e-3"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Convert a number",
+            "href": "#mode-notation"
+          }
+        ]
+      },
+      {
+        "title": "Calculate with scientific notation",
+        "paragraphs": [
+          "Use Scientific notation arithmetic to add, subtract, multiply or divide two numbers. Square and square root use only the first number. Power uses the second input as a whole-number exponent.",
+          "For multiplication, multiply the coefficients and add the exponents: (2 × 10^3) × (3 × 10^4) = 6 × 10^7. For division, divide the coefficients and subtract the exponents. For addition and subtraction, first align the powers of ten.",
+          "Significant digits control the arithmetic result: 999.9 at 3 significant digits becomes 1.00e3. Engineering notation uses an exponent divisible by three and keeps a nonzero coefficient’s magnitude from 1 to below 1000. Rounding can therefore change the engineering exponent. The Decimal result expands the rounded value without E notation."
+        ],
+        "links": [
+          {
+            "label": "Calculate with scientific notation",
+            "href": "#mode-arithmetic"
+          },
+          {
+            "label": "Compare decimal places and significant figures",
+            "href": "/rounding-calculator"
+          }
         ]
       }
     ],

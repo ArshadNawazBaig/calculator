@@ -39,7 +39,7 @@ export function GeometryModePicker({slug, modes, selected, disabled, onChange}: 
 
 export function GeometryMeasurementGuide({slug, mode, values}: {slug: string; mode: Mode; values: Values}) {
   const note = isShapeChoice(slug) ? undefined : planarMeasurementNote(slug, mode.id, values);
-  return <figure className={styles.measurement} data-input-guide>
+  return <figure className={styles.measurement} data-input-guide data-geometry-guide>
     <GeometryDiagram slug={slug} mode={mode.id} values={values}/>
     <figcaption><strong>{mode.formula}</strong><small>Diagram is not to scale.</small>{note && <p>{note}</p>}</figcaption>
     <details><summary>Which measurements do I need?</summary><p>{mode.explanation}</p></details>

@@ -32,7 +32,7 @@ export function MathSearchContent({slug}: {slug: string}) {
             <th scope="col">Result</th>
           </tr></thead>
           <tbody>{content.rows.map(row => <tr key={row.id} id={illustrated ? `method-${row.id}` : undefined}>
-            <th scope="row">{illustrated ? <><a href={`#mode-${row.id}`}>{row.label}</a><span className={styles.shapeDiagram}>{slug === 'area-calculator' ? <AreaShapeDiagram shape={row.id}/> : <SolidShapeDiagram shape={row.id}/>}</span></> : row.label}</th>
+            <th scope="row">{illustrated ? <><a href={`#mode-${row.id}`}>{row.label}</a><span className={styles.shapeDiagram}>{slug === 'area-calculator' ? <AreaShapeDiagram shape={row.id}/> : <SolidShapeDiagram shape={row.id}/>}</span></> : row.modeId ? <a href={`#mode-${row.modeId}`}>{row.label}</a> : row.label}</th>
             <td>{row.formula}</td>
             <td>{row.example}</td>
             <td data-numeric>{row.result}</td>

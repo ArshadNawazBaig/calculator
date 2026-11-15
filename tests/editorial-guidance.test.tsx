@@ -8,6 +8,8 @@ import {categories} from '@/lib/site';
 import content from '@/data/calculator-content.json';
 import {getContentDictionary} from '@/lib/i18n/content';
 import {locales, localizedPath} from '@/lib/i18n/config';
+import {guides, guideCalculators} from '@/data/guides';
+import {RelatedGuides} from '@/components/content/related-guides';
 
 describe('server-rendered editorial guidance', () => {
   it('renders distinct interpretation guidance for every available calculator', () => {
@@ -39,6 +41,35 @@ describe('server-rendered editorial guidance', () => {
         expect(link.href.startsWith('/guides') || link.href === '/methodology' || definitions.some(d => link.href === `/${d.slug}`)).toBe(true);
       }
     }
+  });
+
+  it('makes directory guides reachable from their calculators without advertising untranslated pages', () => {
+    const linkedGuides = new Set<string>();
+    for (const [path, entry] of Object.entries(directoryContent)) {
+      if (!entry.guides?.length) continue;
+      const english = renderToStaticMarkup(<DirectoryGuidance path={path}/>);
+      expect(new Set(entry.guides).size, path).toBe(entry.guides.length);
+      for (const slug of entry.guides) {
+        linkedGuides.add(slug);
+        expect(guides[slug], path).toBeDefined();
+        expect(english, path).toContain(`href="/guides/${slug}"`);
+        expect(guideCalculators[slug]?.length, slug).toBeGreaterThan(0);
+        for (const calculator of guideCalculators[slug]) {
+          const html = renderToStaticMarkup(<RelatedGuides slug={calculator}/>);
+          expect(html, calculator).toContain(`href="/guides/${slug}"`);
+        }
+      }
+      for (const locale of locales.filter(locale => locale !== 'en')) {
+        const translated = renderToStaticMarkup(<DirectoryGuidance path={path} locale={locale}/>);
+        expect(translated, `${locale}${path}`).not.toContain('data-directory-guides');
+      }
+    }
+    expect([...linkedGuides].sort()).toEqual([
+      'compare-loan-offers-apr-fees',
+      'elapsed-time-breaks-and-decimal-hours',
+      'hourly-vs-salary-pay-comparison',
+      'sharing-and-scaling-ratios',
+    ]);
   });
 
   it('renders the new article text in each selected language without English fallback', async () => {

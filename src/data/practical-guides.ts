@@ -1,14 +1,23 @@
 import type {InfoPage} from './information';
+import {ratioGuides, ratioGuideCalculators} from './guides/ratio-guide';
+import {payAndBorrowingGuides, payAndBorrowingGuideCalculators} from './guides/pay-and-borrowing-guides';
+import {elapsedTimeGuides, elapsedTimeGuideCalculators} from './guides/elapsed-time-guide';
 
 // These guides are published in English. Add a locale only when its complete
 // article and tables are translated; the guide listings filter by availability.
 export const practicalGuideCalculators: Record<string, string[]> = {
+  ...ratioGuideCalculators,
+  ...payAndBorrowingGuideCalculators,
+  ...elapsedTimeGuideCalculators,
   'comparing-discounts-and-percentage-changes': ['percent-calculator', 'discount-calculator', 'percent-off-calculator'],
   'weighted-grades-and-final-exam-targets': ['grade-calculator', 'final-exam-grade-calculator'],
   'concrete-volume-and-order-allowance': ['concrete-calculator', 'volume-calculator'],
 };
 
 export const practicalGuides: Record<string, InfoPage> = {
+  ...ratioGuides,
+  ...payAndBorrowingGuides,
+  ...elapsedTimeGuides,
   'comparing-discounts-and-percentage-changes': {
     title: 'Compare discounts by the amount you actually pay',
     description: 'Work through competing offers, coupon order, successive discounts, and reverse percentages with a reproducible shopping example.',

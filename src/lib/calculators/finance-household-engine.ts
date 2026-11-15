@@ -1,3 +1,4 @@
+import {salaryConversionTable} from './salary-conversion';
 import {metric as m,type Values,type Result} from './types';
 import {num,integer,positive,result} from './helpers';
 import {parseRows,rowNumber} from './row-data';
@@ -58,7 +59,7 @@ export function runHouseholdFinance(op:string,v:Values):Result{
  }
  if(op==='salary-units'){
   const days=positive(n('daysPerWeek')),hours=positive(n('hoursPerDay')),workdays=days*52,adjusted=workdays-n('holidays')-n('vacationDays');if(adjusted<0)throw Error('Nonworking days exceed the annual work schedule.');const frequency:Record<string,number>={hourly:hours*workdays,daily:workdays,weekly:52,biweekly:26,semimonthly:24,monthly:12,quarterly:4,annual:1},annual=n('salaryAmount')*frequency[v.salaryPeriod];
-  return {metrics:[money('Annual gross',annual),money('Monthly equivalent',annual/12),money('Quarterly equivalent',annual/4),money('Biweekly equivalent',annual/26),money('Semimonthly equivalent',annual/24),m('Adjusted workdays',adjusted),money('Adjusted annual earnings',annual*adjusted/workdays)],notes:['The reduced-workday scenario treats listed days as unpaid. Paid leave for a salaried employee does not automatically reduce annual salary. Annualization uses 52 weeks, 26 biweeks and 24 semimonths.']};
+  return {metrics:[money('Annual gross',annual),money('Monthly equivalent',annual/12),money('Quarterly equivalent',annual/4),money('Biweekly equivalent',annual/26),money('Semimonthly equivalent',annual/24),m('Adjusted workdays',adjusted),money('Adjusted annual earnings',annual*adjusted/workdays)],table:salaryConversionTable(annual,hours*days,days),notes:['The reduced-workday scenario treats listed days as unpaid. Paid leave for a salaried employee does not automatically reduce annual salary. Annualization uses 52 weeks, 26 biweeks and 24 semimonths.']};
  }
  if(op==='budget-lines'){
   const monthly=(key:string)=>parseRows(v[key],key).reduce((sum,row)=>{if(!['annual','monthly'].includes(String(row.period)))throw Error('Choose monthly or annual for every budget line.');return sum+rowNumber(row.amount,'Budget amount',0)/(row.period==='annual'?12:1);},0),gross=monthly('incomeLines'),pretax=monthly('pretaxRetirementLines'),expenses=monthly('expenseLines'),debt=monthly('debtLines'),tax=Math.max(0,gross-pretax)*n('flatIncomeTaxPercent')/100,net=gross-pretax-tax;
