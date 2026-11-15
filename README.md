@@ -28,6 +28,7 @@ The contact address is **erushbaig@gmail.com**. `NEXT_PUBLIC_SITE_URL` controls 
 ## Verify and maintain
 
 ```sh
+npm run check:repo
 npm run typecheck
 npm run lint
 npm test
@@ -38,6 +39,10 @@ node scripts/export-coverage.mjs
 ```
 
 Generated audit reports, screenshots, implementation snapshots, and search-map CSV exports are kept locally and ignored by Git. Historical evidence links point to the last committed copies. Put working notes in `docs/local/`. Run `npm run audit:content` before `node scripts/audit-calculator-browser.mjs`, and `npm run audit:value` before `npm run audit:value:rendered`, to regenerate their input reports on a fresh checkout.
+
+`npm run check:repo` rejects tracked files that match repository ignore rules, including files added with `git add -f`. It runs before the local verification suite and in pull-request/main-branch CI. Keep future commits focused on required project files, as documented in [AGENTS.md](AGENTS.md); retain historical artifacts locally or in Git history.
+
+Next.js generates `next-env.d.ts`; it is also ignored. The typecheck command runs `next typegen` first so it works on a fresh checkout before a build or development server has run.
 
 The browser suite requires Playwright Chromium (`npx playwright install chromium`). Tests include independently derived fixtures, numerical boundaries, composed ledgers, versioned tax rules, invalid inputs, UI interactions, offline use and accessibility checks. Default catalog execution is a smoke check, not independent proof of every mode.
 

@@ -8,6 +8,7 @@ coverage/
 playwright-report/
 test-results/
 *.tsbuildinfo
+/next-env.d.ts
 .DS_Store
 .sites-runtime/
 
@@ -20,3 +21,23 @@ test-results/
 /docs/audit/implementation-snapshot.json
 /docs/research/search/english-page-map.csv
 /docs/research/search/english-query-map.csv
+
+# Archived crawl exports, copy drafts and completed review reports
+/docs/audit/embeds.json
+/docs/audit/summary.json
+/docs/research/editorial/drafts.json
+/docs/research/editorial/finance-content-edits.json
+/docs/research/editorial/latest-source-copy.json
+/docs/research/everyday-completion/reference-checks.json
+/docs/research/independent-audits/
+
+# Local caches, logs and browser report bundles
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.cache/
+blob-report/
+playwright/.cache/

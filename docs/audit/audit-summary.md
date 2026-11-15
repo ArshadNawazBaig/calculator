@@ -55,7 +55,7 @@ Category counts: {"finance": 75, "health": 31, "math": 44, "everyday": 54, "null
 
 - catalog.json: detailed structural inventory for every tool.
 - coverage-manifest.json: compact integration registry with honest pending implementation/test states.
-- embeds.json: separately tracked embed/widget pages.
+- [Archived embeds.json](https://github.com/ArshadNawazBaig/calculator/blob/404dc6033051391bceecd6b7bb6993e32845adc1/docs/audit/embeds.json): captured embed/widget pages; retained locally, outside version control.
 - all-pages.json: all fetched pages and discovery links.
-- summary.json: counts and category reconciliation.
+- [Archived summary.json](https://github.com/ArshadNawazBaig/calculator/blob/404dc6033051391bceecd6b7bb6993e32845adc1/docs/audit/summary.json): completed counts and category reconciliation; retained locally, outside version control.
 - audit.py / enrich.py: reproducible extraction scripts.
