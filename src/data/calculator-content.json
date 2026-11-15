@@ -18,7 +18,8 @@
           "Age depends on both the birth date and the date on which it is measured. Check the reference date before comparing results from different visits. Calendar years and months have different lengths, so a calendar-age breakdown is different from dividing a day count by a fixed year length. The result follows the date handling described by the calculator."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Age Calculator: Years, Months & Days Between Dates"
   },
   "date-calculator": {
     "description": "Add or subtract calendar intervals, compare dates, and count or move through business days using chosen workdays and holidays.",
@@ -61,7 +62,8 @@
           "A day count can change depending on whether the starting and ending dates are included. Review the mode's boundary convention before using the result for an interval or deadline. Business-day modes also depend on the selected weekend pattern and holiday list. Keep the calendar rule consistent when comparing two periods, rather than assuming every day counter uses the same convention."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Day Counter: Calendar Days & Business Days"
   },
   "day-of-the-week-calculator": {
     "description": "Find a date's weekday, day number within the year and ISO week, using Gregorian calendar and Monday-based ISO conventions.",
@@ -82,7 +84,8 @@
           "Enter the complete date, including the year, because the same month and day can fall on different weekdays in different years. The result uses the calendar convention supported by the tool. A weekday calculation identifies the calendar label only; it does not determine whether that date is a public holiday, school day, or working day in a particular location."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Day of the Week Calculator: Weekday & ISO Week"
   },
   "hours-calculator": {
     "description": "Calculate hours between start and end times, subtract unpaid breaks and convert to decimal hours. Supports same-day shifts and shifts crossing midnight.",
@@ -147,7 +150,8 @@
           "Duration arithmetic combines lengths of time, while adding time to a date produces a new calendar value. Choose the matching mode before entering the expression. Keep the hour, minute, and second formats consistent, especially when a duration is longer than a day. A decimal fraction of an hour is different from the digits after a colon in a clock-style entry."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Time Calculator: Add & Subtract Durations"
   },
   "time-card-calculator": {
     "description": "Total dated or weekly shifts, unpaid breaks and estimated pay, with configurable overtime and clock-punch rounding.",
@@ -168,7 +172,8 @@
           "A time card estimate depends on the recorded start and end of each shift, unpaid breaks, and the overtime assumptions selected. Use dated shifts when the calendar position matters. Compare regular and overtime totals with the underlying entries to catch an overnight or break error. The calculation follows the supplied rules and does not certify payroll compliance for a particular employer or jurisdiction."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Time Card Calculator: Hours, Breaks & Overtime Pay"
   },
   "time-zone-calculator": {
     "description": "Convert dates and times using named-zone daylight-saving rules or explicit fixed UTC offsets, with repeated-time handling.",
@@ -189,7 +194,8 @@
           "A named time zone can apply date-dependent offset rules, while a fixed UTC offset stays at the entered difference. Use a date when converting a meeting or event across locations, because seasonal clock changes can affect the result. Review ambiguous or skipped local times near a clock change. A fixed-offset conversion should not be mistaken for a complete regional time-zone calendar."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Time Zone Converter: Named Zones & UTC Offsets"
   },
   "conversion-calculator": {
     "description": "Convert length, area, volume, mass, speed, energy, data and temperature units, with US, imperial and binary distinctions made explicit.",
@@ -210,7 +216,8 @@
           "Choose the measurement category before selecting source and destination units. Length, area, volume, and power describe different quantities even when their unit names look related. Temperature conversion also uses a different relationship from a simple scale factor in many other categories. Keep the original measurement precision in mind; a conversion can add displayed digits without adding new measurement accuracy."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Unit Converter: Length, Area, Volume & More"
   },
   "density-calculator": {
     "description": "Find density from mass and volume, or solve for mass or volume using the labeled SI-unit relationship.",
@@ -231,10 +238,11 @@
           "A sample with mass 54 g and volume 20 cm³ has density 54 ÷ 20 = 2.7 g/cm³, equivalent to 2,700 kg/m³. For this calculator's basic mode, enter 0.054 kg and 0.00002 m³; changing only the unit label would give the wrong answer. Measure mass and volume for the same sample and distinguish material volume from container capacity or a pile's volume including air gaps. The calculator derives density from your measurements; it does not identify a substance or supply its temperature-dependent properties."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Density Calculator: Mass, Volume & Density"
   },
   "mass-calculator": {
-    "description": "Calculate mass from density and volume using the stated units, while distinguishing mass from gravitational weight.",
+    "description": "Calculate mass from density and volume with independent measurement units. Select a result unit and keep mass distinct from gravitational weight.",
     "faqs": [
       {
         "question": "Why does doubling volume double mass at the same density?",
@@ -252,7 +260,8 @@
           "The mass estimate multiplies the modeled volume by the entered density. Check whether the density unit matches the selected volume unit before interpreting the output. The mixed-unit mode helps with conversions, but the density still needs to represent the actual material and conditions. Empty space, packaging, or variable composition can make a simple solid-volume estimate differ from a measured mass."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Mass Calculator: Density, Volume & Unit Conversion"
   },
   "weight-calculator": {
     "description": "Convert mass units or calculate gravitational weight from mass and an entered local acceleration, keeping mass and force distinct.",
@@ -273,7 +282,8 @@
           "Mass-unit conversion changes the unit used to describe the same mass. A weight-force calculation additionally depends on the selected gravitational acceleration. Choose the mode that matches the question rather than treating a force unit as interchangeable with a mass unit. The mathematical result describes the entered assumptions and does not measure an object's mass or the local gravity directly."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Weight Calculator: Mass Conversion & Gravity Force"
   },
   "speed-calculator": {
     "description": "Calculate speed, distance or travel time, including speed from independently selected distance units and an elapsed-duration input.",
@@ -294,7 +304,8 @@
           "Average speed divides a traveled distance by the corresponding elapsed time. Use the same journey interval for both inputs, and decide whether stops are included in that elapsed time. The missing-quantity modes rearrange the same relationship. An average does not describe moment-by-moment speed or guarantee that a trip with changing traffic will take the projected duration."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Speed Calculator: Distance, Time & Average Speed"
   },
   "molarity-calculator": {
     "description": "Calculate molarity, solute mass or solution volume, and convert concentration units with explicit density for mass-fraction ppm or ppb.",
@@ -319,7 +330,8 @@
           "For 5.844 g of a pure solute with molar mass 58.44 g/mol, the amount is 0.1 mol. At a final solution volume of 1 L, the concentration is 0.1 mol/L; at 100 mL it is 1 mol/L. Final solution volume means the volume after dissolving, not the solvent poured in beforehand. Keep mass, molar mass, and volume units consistent. Mass-fraction ppm and ppb conversions additionally require solution density; the tool does not assume every solution has water's density."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Molarity Calculator: Concentration, Mass & Volume"
   },
   "molecular-weight-calculator": {
     "description": "Calculate molar mass and an element-by-element mass breakdown from a supported chemical formula and versioned atomic-mass data.",
@@ -340,7 +352,8 @@
           "The molecular-weight calculator interprets element symbols, counts, and supported grouping notation to build the formula mass. Capitalization matters because it helps identify the elements. Check that parentheses and multipliers describe the intended composition before calculating. The resulting mass reflects the atomic-weight data and formula entered; it does not identify an unknown sample or establish its purity."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Molecular Weight Calculator: Formula & Molar Mass"
   },
   "gdp-calculator": {
     "description": "Calculate expenditure-based GDP or reconcile entered income components, capital consumption and statistical discrepancy to a domestic total.",
@@ -361,7 +374,8 @@
           "The expenditure and income-based modes organize economic activity using different accounting relationships. Match each input to the field definition so that the same amount is not counted more than once. Use figures from a consistent period and unit scale. Adding components calculates the entered accounting total; it does not independently verify official data or measure every aspect of living standards."
         ]
       }
-    ]
+    ],
+    "seoTitle": "GDP Calculator: Expenditure & Income Methods"
   },
   "gpa-calculator": {
     "description": "Calculate semester and cumulative GPA using course grades, credit hours, and your institution’s grading scale.",
@@ -369,6 +383,10 @@
       {
         "question": "Why is cumulative GPA weighted by credits?",
         "answer": "A course or semester with more graded credits contributes more quality points. Averaging GPA figures without their credit weights can give the wrong result."
+      },
+      {
+        "question": "Should I include pass/fail courses in the GPA total?",
+        "answer": "Include only the credits and grade points your institution counts toward GPA. A course with earned credit but no GPA-bearing grade should not silently be treated as a zero-grade-point course."
       }
     ],
     "sections": [
@@ -430,7 +448,8 @@
           "Decide which bill amount is the base for the tip before entering the percentage. The calculator then separates the tip and the total to be divided among the selected number of people. Check whether service charges or tax are already included in the entered bill. An equal split assumes each person shares the same portion and does not allocate individual ordered items."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Tip Calculator: Tip Percentage & Bill Split"
   },
   "fuel-cost-calculator": {
     "description": "Estimate trip fuel and cost using metric, US or independently selected units for distance, fuel economy and pump price.",
@@ -451,7 +470,8 @@
           "A fuel-cost estimate combines trip distance, fuel economy, and the price per fuel unit. Check whether consumption is expressed as distance per fuel amount or fuel amount per distance, because those conventions move in opposite directions. Use the independent-units mode when the inputs come from different systems. Actual traffic, route conditions, and driving can differ from the average consumption entered."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Fuel Cost Calculator: Trip Distance & Fuel Economy"
   },
   "gas-mileage-calculator": {
     "description": "Measure observed fuel economy from distance and fuel used, or compare odometer readings and fuel cost with consistent fill-up assumptions.",
@@ -472,7 +492,8 @@
           "Use the distance traveled and the fuel consumed over the same interval. Odometer mode helps derive distance from two readings, but the fuel measurement still needs to match that journey. Distinguish miles per gallon from liters per distance when comparing results. A single trip's economy can differ from a longer-term average because conditions and measurement error vary."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Gas Mileage Calculator: MPG & Liters per 100 km"
   },
   "horsepower-calculator": {
     "description": "Calculate power from torque or work, and convert mechanical, metric, electric and boiler horsepower with explicit unit definitions.",
@@ -497,7 +518,8 @@
           "Power can be calculated from torque and rotational speed or from work completed over time under the supported modes. Choose the relationship that matches the measurements available. Check units before comparing horsepower with watts or kilowatts. The calculation converts or combines entered quantities; it does not independently measure an engine's output or account for unentered drivetrain losses."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Horsepower Calculator: Torque, Work & Power Units"
   },
   "engine-horsepower-calculator": {
     "description": "Calculate power from torque and RPM, or explore empirical quarter-mile horsepower estimates from elapsed time or measured trap speed.",
@@ -518,7 +540,8 @@
           "The torque-and-speed mode calculates power from mechanical inputs, while the quarter-mile mode infers a performance estimate under its stated model. These are different sources of information and need not agree. Review the vehicle weight and timing assumptions before interpreting a track-based estimate. The result is not a replacement for a controlled engine or chassis dynamometer measurement."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Engine Horsepower Calculator: Torque & Quarter Mile"
   },
   "tire-size-calculator": {
     "description": "Compare nominal tire dimensions and speedometer effects, or estimate the aspect ratio needed for a different rim at the same diameter.",
@@ -539,7 +562,8 @@
           "In 205/55R16, 205 is nominal width in millimeters, 55 is sidewall height as a percentage of width, and 16 is rim diameter in inches. Sidewall height is 205 × 0.55 = 112.75 mm; nominal overall diameter is 16 × 25.4 + 2 × 112.75 = 631.90 mm. Compare the resulting diameters when estimating a speedometer change. These are unloaded geometric dimensions, not measured rolling circumference. Matching diameter alone does not establish clearance, load capacity, rim compatibility, or vehicle approval."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Tire Size Calculator: Dimensions & Speed Comparison"
   },
   "square-footage-calculator": {
     "description": "Calculate square footage for floors, rooms and other shapes. Enter mixed units, set a quantity and estimate material cost from a price per square foot.",
@@ -551,6 +575,10 @@
       {
         "question": "Can each dimension and the area price use different units?",
         "answer": "Yes. Mixed-unit mode converts dimensions independently and converts the price's area unit separately before applying quantity and cost."
+      },
+      {
+        "question": "How do I enter a measurement in feet and inches?",
+        "answer": "Convert it to decimal feet or total inches. For 10 ft 6 in, enter 10.5 Feet or 126 Inches in the mixed-unit mode. Entering 10.6 feet means 10 feet 7.2 inches."
       }
     ],
     "sections": [
@@ -558,6 +586,13 @@
         "title": "Breaking a floor plan into measurable shapes",
         "paragraphs": [
           "For an irregular floor plan, divide the area into shapes supported by the calculator and avoid counting overlaps twice. Check whether measurements refer to the interior area or a different boundary. The mixed-unit and cost modes help convert dimensions and apply an entered area price. Material quantities can still require allowances beyond the geometric floor area."
+        ]
+      },
+      {
+        "title": "Mixed units and irregular-room measurements",
+        "paragraphs": [
+          "A rectangular section 3 ft long and 24 in wide has width 2 ft and area 6 ft². At a price of 2.50 per square foot, the area cost is 15 in the selected currency. Choose each dimension’s actual unit in the mixed-unit mode, and select the unit used by the material price separately.",
+          "For an L-shaped room, divide it into nonoverlapping rectangles, calculate each area using the same area unit, and add them. Subtract openings or cutouts instead of counting them twice. Enter feet and inches as decimal feet or as total inches: 10 ft 6 in is 10.5 ft or 126 in, not 10.6 ft."
         ]
       }
     ],
@@ -577,6 +612,10 @@
       {
         "question": "What shape does the stair-volume mode assume?",
         "answer": "A solid block to ground with N risers, N − 1 regular treads and a top platform at full height."
+      },
+      {
+        "question": "How do I calculate cubic yards when thickness is in inches?",
+        "answer": "For a rectangular slab, multiply length in feet by width in feet by thickness in inches, then divide by 324. This converts inches to feet and cubic feet to cubic yards. Add any entered allowance only after calculating net volume."
       }
     ],
     "sections": [
@@ -585,8 +624,16 @@
         "paragraphs": [
           "Select the shape that matches the slab, column, footing, or stairs, and check each thickness and depth unit carefully. The geometric volume describes the idealized form. Use the supported quantity and cost inputs to explore an allowance or price, while keeping those assumptions explicit. Site irregularities and supplier ordering increments can make the delivered amount differ from the geometric estimate."
         ]
+      },
+      {
+        "title": "Slab volume example: feet, inches, and cubic yards",
+        "paragraphs": [
+          "For a slab 20 ft long, 10 ft wide, and 4 in thick, convert thickness to feet first: 4 ÷ 12 = 1/3 ft. Net volume is 20 × 10 × 1/3 = 66.67 ft³, or 66.67 ÷ 27 ≈ 2.47 yd³. An entered 10% extra allowance raises the modeled quantity to about 2.72 yd³; that percentage is an example assumption, not a universal ordering recommendation.",
+          "Use the mixed-unit mode when individual dimensions use different units, and check whether pricing applies to net volume or volume including the allowance. Enter the overall diameter for a round column, not its radius. A hollow column requires both outer and inner diameters."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Concrete Calculator: Volume, Allowance & Cost"
   },
   "mulch-calculator": {
     "description": "Estimate mulch volume and cost from bed dimensions or a known area, with depth and editable bulk-density assumptions.",
@@ -606,8 +653,16 @@
         "paragraphs": [
           "Mulch volume depends on both the bed area and the intended layer depth. A common mistake is to mix a depth in inches with area measurements in feet without conversion. Use the bag and cost mode to connect volume with the package size being purchased. The estimate assumes the entered bed dimensions and layer depth, which can differ from settled material on site."
         ]
+      },
+      {
+        "title": "From bed measurements to cubic yards or bags",
+        "paragraphs": [
+          "A 20 ft × 10 ft bed at a uniform 3 in depth covers 200 ft² and needs 200 × 3 ÷ 12 = 50 ft³, equivalent to about 1.85 yd³. If each bag supplies 2 ft³, the same net volume is 25 bags before any entered allowance. Use the purchasing mode to combine nonoverlapping beds and round the combined bag count.",
+          "Depth must use the unit shown beside its input. Enter 3 inches as 3 with inches selected, rather than entering 3 feet. Weight additionally depends on your supplied bulk density; changing density changes the weight estimate without changing the bed volume."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Mulch Calculator: Bed Volume, Bags & Material Cost"
   },
   "gravel-calculator": {
     "description": "Estimate gravel volume, weight and cost for rectangular or circular beds, including bag counts from entered density and bag weight.",
@@ -627,8 +682,16 @@
         "paragraphs": [
           "A gravel volume estimate comes from the bed shape and depth, while a mass estimate also depends on the entered material density. Keep these quantities separate when comparing a supplier's price by volume with a price by weight. Bag sizes and cost assumptions should match the product being considered. Compaction and irregular ground can change the amount needed in practice."
         ]
+      },
+      {
+        "title": "Circular-bed example with whole-bag ordering",
+        "paragraphs": [
+          "A circular bed with a 10 ft diameter and a 3 in depth has radius 5 ft and volume π × 5² × 0.25 ≈ 19.63 ft³, or 0.73 yd³. With an illustrative bulk density of 2,800 lb/yd³, the modeled weight is about 2,036.22 lb. Dividing by 50 lb per bag and rounding up gives 41 bags; at 5 per bag, the cost is 205 in the selected currency.",
+          "The density and bag size in this example are inputs, not specifications for every gravel product. Use your supplier’s stated material information, and keep the quantity and price basis consistent when comparing bulk volume, bulk weight, and bags."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Gravel Calculator: Volume, Weight, Bags & Cost"
   },
   "tile-calculator": {
     "description": "Estimate tile quantities, boxes and cost using area or layout assumptions, with grout gaps and an allowance for cuts and waste.",
@@ -648,8 +711,16 @@
         "paragraphs": [
           "An area-based tile estimate describes coverage, while the layout mode accounts for the entered tile dimensions and arrangement assumptions. Check whether gaps, waste, box quantities, and prices are included in the selected fields. Rounding to whole boxes can increase the purchase quantity above the exact coverage. Edge cuts and an unusual room outline can require a separate layout review."
         ]
+      },
+      {
+        "title": "Tile count example and the effect of box rounding",
+        "paragraphs": [
+          "A 12 ft × 10 ft room covers 120 ft². A 12 in × 12 in tile covers 1 ft², so the basic area estimate needs 120 tiles before allowance. With an entered 10% allowance, the result is 132 tiles; at 3 per tile, the material cost is 396 in the selected currency.",
+          "The procurement mode can account for grout joints and compare area-based counting with a rectangular grid. Buying by the box rounds up again after the tile estimate, so purchased tile area may exceed the modeled need. Actual patterns, edge cuts, breakage, and irregular rooms can change the order quantity."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Tile Calculator: Tile Count, Boxes & Cost"
   },
   "roofing-calculator": {
     "description": "Estimate roof surface from footprint, pitch or angle, then calculate allowance, area cost or whole material packages from coverage.",
@@ -669,8 +740,16 @@
         "paragraphs": [
           "A roof's horizontal footprint is different from the surface area on a slope. Choose a footprint-and-pitch mode when that is the information available, or the measured-area mode when the roof surface is already known. Check how overhangs and package coverage are entered. The estimate models the chosen geometry and does not assess structural condition or installation requirements."
         ]
+      },
+      {
+        "title": "Pitch, projected area, and roofing squares",
+        "paragraphs": [
+          "A 6:12 pitch rises 6 units for every 12 horizontal units. For a 40 ft × 30 ft horizontal footprint that already includes overhangs, the slope factor is √(1 + (6/12)²) ≈ 1.118. Modeled roof surface is 1,200 × 1.118 ≈ 1,341.64 ft². An entered 10% allowance gives about 1,475.80 ft², or 14.76 roofing squares of 100 ft² each.",
+          "That calculation assumes a consistent slope across the modeled roof. Calculate sections with different pitches separately. Package ordering starts with roof surface area and the product’s installed coverage, not the horizontal footprint; the calculator rounds packages up to whole units."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Roofing Calculator: Roof Area, Pitch & Material Cost"
   },
   "stair-calculator": {
     "description": "Explore straight-stair geometry, standard or flush mounting and headroom using finished-floor dimensions and explicit layout assumptions.",
@@ -690,8 +769,16 @@
         "paragraphs": [
           "Total rise, tread dimensions, and the number of risers work together to determine a stair layout. Review whether the upper floor acts as the final landing in the selected mode. Mounting and headroom inputs add geometric constraints but do not establish compliance with every building requirement. Verify the actual layout and applicable local rules before using an estimate for construction."
         ]
+      },
+      {
+        "title": "Relating risers, treads, and total run",
+        "paragraphs": [
+          "With a total rise of 108 in and a preferred maximum riser of 7.75 in, the basic mode rounds 108 ÷ 7.75 up to 14 risers. Each riser is then 108 ÷ 14 ≈ 7.71 in. The standard layout has 13 treads; a 10 in tread run gives 130 in of total horizontal run.",
+          "The preferred maximum and tread size are your assumptions, not a statement of local requirements. The layout mode distinguishes standard and flush mounting and uses finished-floor measurements. Its headroom model does not supply a structural stringer design or certify a staircase."
+        ]
       }
-    ]
+    ],
+    "seoTitle": "Stair Calculator: Rise, Run, Treads & Headroom"
   },
   "btu-calculator": {
     "description": "Estimate room cooling needs, or compare steady heating loss and cooling heat gains using US county temperatures and assembly references.",
@@ -724,7 +811,8 @@
           "The BTU calculator separates a room cooling estimate from heat-transfer and steady heating-loss models. Select the method that matches the information you have. US climate presets supply the stated design-temperature reference, while construction and room inputs remain your responsibility. Check whether the result is energy or a rate of heat transfer before comparing it with equipment capacity labels."
         ]
       }
-    ]
+    ],
+    "seoTitle": "BTU Calculator: Room Cooling & Heat Transfer"
   },
   "electricity-calculator": {
     "description": "Estimate appliance energy use and cost from wattage, operating time and tariff, with an optional average-load factor.",
@@ -745,7 +833,8 @@
           "An appliance drawing 1,500 watts uses 1.5 kW. Running at that power for 4 hours per day over 30 days consumes 1.5 × 4 × 30 = 180 kWh. At an entered price of 0.20 per kWh, the energy cost is 36 in the selected currency. Watts describe power; kilowatt-hours describe energy used over time. Use realistic running time or average draw for equipment that cycles on and off. Fixed charges and unentered tariff tiers are not included."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Electricity Cost Calculator: Watts, kWh & Usage"
   },
   "ohms-law-calculator": {
     "description": "Solve voltage, current, resistance and power from two supported known quantities in a DC or purely resistive model.",
@@ -766,7 +855,8 @@
           "Across a 6-ohm resistor, 12 volts gives current 12 ÷ 6 = 2 amperes and power 12 × 2 = 24 watts. Check that the selected pair of known values refers to the same component. Prefixes matter: 6 kilohms is 6,000 ohms, giving 0.002 amperes at the same voltage. This model uses resistive relationships; it does not determine component ratings, safe wiring, or AC behavior involving phase and reactance. Use the resistor tool when first combining a series or parallel network."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Ohm’s Law Calculator: Voltage, Current & Resistance"
   },
   "resistor-calculator": {
     "description": "Find series or parallel resistance, decode supported color bands, or estimate conductor resistance from dimensions and conductivity.",
@@ -787,7 +877,8 @@
           "A color-code mode interprets markings on a resistor, while series and parallel modes combine resistance values in a circuit. Choose the matching mode before entering bands or numbers. Tolerance describes an allowed range around a nominal value rather than an extra resistance to add. A conductor-resistance estimate also depends on the material and dimensions specified in its separate mode."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Resistor Calculator: Color Bands, Series & Parallel"
   },
   "voltage-drop-calculator": {
     "description": "Estimate DC or simplified AC voltage drop from conductor data, or convert AWG and kcmil sizes to nominal wire geometry.",
@@ -812,7 +903,8 @@
           "Voltage drop depends on the circuit type, current, conductor properties, and length convention. Check whether the selected mode expects one-way distance or the full conductor path before entering a value. AC impedance and simple DC resistance are different models. A calculated drop does not by itself verify ampacity, protection, installation conditions, or compliance with an electrical code."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Voltage Drop Calculator: DC, AC & Wire Sizes"
   },
   "wind-chill-calculator": {
     "description": "Calculate National Weather Service wind chill for temperatures at or below 50°F and wind speeds above 3 mph.",
@@ -833,7 +925,8 @@
           "Wind chill combines air temperature and wind under the reference method's stated conditions. Check that both values fall within the formula's intended range and that wind-speed units are correct. The result is an apparent-temperature index rather than a change in the measured air temperature. It does not determine a safe outdoor exposure time for a particular person."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Wind Chill Calculator: Air Temperature & Wind Speed"
   },
   "heat-index-calculator": {
     "description": "Estimate NWS apparent heat from air temperature and humidity, or infer humidity from a supplied dew point.",
@@ -854,7 +947,8 @@
           "Heat index combines temperature with humidity under the selected reference method. The dew-point mode obtains humidity-related information from a different input pair, so check that the measurements describe the same conditions. The resulting index is not a complete measure of personal heat stress. Sun exposure, exertion, and individual circumstances are not all represented by the displayed number."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Heat Index Calculator: Temperature & Humidity"
   },
   "dew-point-calculator": {
     "description": "Estimate dew point, relative humidity or air temperature with the liquid-water Magnus approximation and explicit input ranges.",
@@ -875,7 +969,8 @@
           "Dew point, relative humidity, and air temperature describe related aspects of moisture in air. Choose the unknown quantity and enter the other measurements using compatible units. Relative humidity depends on temperature, so the same moisture content can correspond to different percentages as air warms or cools. The calculator applies the selected approximation and does not replace a measured atmospheric observation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Dew Point Calculator: Temperature & Humidity"
   },
   "bandwidth-calculator": {
     "description": "Convert data units and estimate transfer time, website traffic or average bandwidth with explicit reporting periods and allowance formats.",
@@ -900,7 +995,8 @@
           "A 100 MB file contains 800 megabits, so at a constant 20 Mbps its theoretical transfer time is 40 seconds. A 100 MiB file is larger: the same calculation gives about 41.94 seconds. MB uses decimal bytes, MiB uses binary bytes, and Mbps measures bits per second. Real transfers also include overhead and changing throughput. The hosting modes calculate average traffic across a reporting period; that average is not the peak connection capacity needed for a busy moment."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Bandwidth Calculator: Transfer Time & Data Usage"
   },
   "ip-subnet-calculator": {
     "description": "Calculate IPv4 or IPv6 subnet ranges from CIDR prefixes, or validate a contiguous IPv4 dotted mask and its address capacity.",
@@ -921,10 +1017,11 @@
           "Choose IPv4 or IPv6 and enter a prefix or supported mask that matches the address family. The result describes how address bits divide into network and host portions under that prefix. Review the specific range labels rather than treating every listed address as an ordinary assignable host. Subnet arithmetic does not verify routing, address ownership, or reachability on a real network."
         ]
       }
-    ]
+    ],
+    "seoTitle": "IP Subnet Calculator: IPv4, IPv6 & Subnet Masks"
   },
   "base64-encode-decode": {
-    "description": "Encode UTF-8 text as Base64 or decode Base64 locally in the browser, without treating the encoded output as encryption.",
+    "description": "Encode or decode Base64 text and files locally. Choose UTF-8 or another supported text encoding; Base64 represents data without encrypting it.",
     "faqs": [
       {
         "question": "Does Base64 protect confidential text?",
@@ -942,7 +1039,8 @@
           "Base64 represents bytes using a text-friendly alphabet; it is an encoding, not encryption. Select the text encoding deliberately when converting non-ASCII characters so that decoding can reconstruct the intended bytes. Check whether your input is plain text or already encoded data before choosing the operation. A valid Base64 string does not prove that the decoded content is trustworthy."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Base64 Encoder & Decoder for Text and Files"
   },
   "url-encode-decode": {
     "description": "Percent-encode or decode a UTF-8 URL component locally, keeping component encoding distinct from encrypting or validating a full URL.",
@@ -963,7 +1061,8 @@
           "URL-component encoding represents characters that need special treatment inside a component such as a query value. Encoding a whole URL as one component can also encode its separators, which changes how it is used. Select encode or decode according to the input's current form. Repeated encoding can introduce additional escapes rather than fixing a malformed address."
         ]
       }
-    ]
+    ],
+    "seoTitle": "URL Encoder & Decoder for UTF-8 Components"
   },
   "password-generator": {
     "description": "Generate passwords locally with cryptographic randomness, chosen character classes and optional unique-character constraints.",
@@ -984,7 +1083,8 @@
           "Set the length and character options to fit the destination's requirements before generating a password. Restricting the character set changes the range of possible outputs, so avoid unnecessary restrictions when the service permits them. A generated password still needs to be stored securely and used for its intended account. The tool does not assess the security of the website where it will be entered."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Password Generator: Length & Character Options"
   },
   "dice-roller": {
     "description": "Roll a selected number of dice with equally likely sides using cryptographic random selection, and view each roll and total.",
@@ -1005,7 +1105,8 @@
           "Choose the number of dice and the number of sides to match the game or experiment. The total and the individual outcomes provide different information. Repeated rolls can produce streaks, and a short run need not look evenly distributed. The simulation generates outcomes under its stated method; it does not predict a future physical roll or guarantee a particular game result."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Dice Roller: Multiple Dice, Individual Rolls & Totals"
   },
   "roman-numeral-converter": {
     "description": "Convert integers and standard Roman numerals from 1 to 3,999, or express the components of a validated date in Roman notation.",
@@ -1026,7 +1127,8 @@
           "Roman numerals use symbol combinations rather than ordinary positional decimal digits. Choose number conversion or date conversion depending on the input. A converted date keeps the selected date fields but changes their written representation. Check the supported value range and notation rules before using an output in a design, because historical conventions can differ from a modern standardized conversion."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Roman Numeral Converter: Numbers & Dates"
   },
   "sleep-calculator": {
     "description": "Plan a bedtime or wake time from a chosen sleep duration, or explore illustrative cycle times with a sleep-onset allowance.",
@@ -1047,7 +1149,8 @@
           "The sleep planner works from a chosen bedtime or wake time and the duration assumptions shown in the selected mode. A cycle-based schedule is a planning model, not a measurement of a person's sleep stages. Include the entered time to fall asleep consistently when comparing options. The result does not diagnose a sleep problem or guarantee how rested someone will feel."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Sleep Calculator: Bedtime, Wake Time & Duration"
   },
   "height-calculator": {
     "description": "Convert centimeters and feet/inches, or estimate adult height from parental measurements using the same mid-parental reference in either unit system.",
@@ -1068,10 +1171,11 @@
           "The height estimate uses the supported mid-parental method and entered parent measurements. Check units carefully when combining heights recorded in different systems. The output is a broad model-based estimate, not a prediction of an individual child's final height or a growth assessment. The separate unit-conversion modes only change how a known height is expressed."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Height Calculator: Unit Conversion & Parent Estimate"
   },
   "bra-size-calculator": {
-    "description": "Estimate a US bra starting size from underbust and bust measurements using a direct-underbust convention, with fit limits explained.",
+    "description": "Estimate a bra starting size from bust and underbust measurements, compare sizing methods, or convert regional labels with fit limitations explained.",
     "faqs": [
       {
         "question": "Is the suggested size a universal international conversion?",
@@ -1089,10 +1193,11 @@
           "Bra-size methods and regional labels can differ, so choose the system and measurement approach that match the question. Keep underbust and bust measurements distinct, and check the requested units. A converted label or formula result is a fitting starting point rather than a guarantee across brands and styles. Dress-label conversion is a separate comparison and does not infer fit from bra size."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Bra Size Calculator: Measurements & Regional Labels"
   },
   "shoe-size-conversion": {
-    "description": "Convert foot length to Mondopoint millimeters and an approximate US adult size using a stated allowance and sizing model.",
+    "description": "Estimate shoe size from foot length or compare Nike regional size charts for adults and children. Check sizing assumptions and brand-specific fit limits.",
     "faqs": [
       {
         "question": "What does Mondopoint length represent?",
@@ -1110,7 +1215,8 @@
           "A regional shoe label and a measured foot length are related through the selected reference, but brands and shoe shapes can differ. Choose the correct age group and region before converting. Check whether the entered measurement describes the foot rather than the shoe's outside length. The result is a reference estimate, so use the manufacturer's sizing information when selecting a particular pair."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Shoe Size Converter: Foot Length & Regional Charts"
   },
   "golf-handicap-calculator": {
     "description": "Estimate an 18-hole index from adjusted differentials, calculate a course handicap or derive a score differential from entered course data.",
@@ -1131,7 +1237,8 @@
           "A score differential, handicap index, and course handicap describe different stages of a golf-handicap calculation. Choose the mode that matches the information available, including verified differentials when requested. Course-related inputs affect how an index translates to a particular set of tees. The estimate follows the supported rules and does not replace an official handicap issued through the relevant authorized system."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Golf Handicap Calculator: Index & Course Estimates"
   },
   "love-calculator": {
     "description": "Try a fictional name-match score for entertainment, with a repeatable result that makes no claim about relationship compatibility.",
@@ -1152,7 +1259,8 @@
           "The love calculator turns entered names into a playful score using the displayed method. That score does not measure compatibility, feelings, or the quality of a relationship. Changing the spelling can change the output because the names are part of the calculation. Use it as a lighthearted activity rather than as evidence for a personal decision."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Love Calculator: Name-Match Game for Fun"
   },
   "mortgage-calculator": {
     "description": "Estimate US fixed-rate mortgage payments and ownership costs, and compare monthly, annual or dated extra principal payments.",
@@ -1199,7 +1307,8 @@
           "The amortization schedule shows how each mortgage payment is divided between interest and principal. Look at the remaining balance at the date you expect to sell or refinance, as well as the total interest over the full term. A lower outstanding balance does not mean that every payment went toward principal; the interest column explains the difference."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Mortgage Amortization Calculator: Principal & Interest"
   },
   "canadian-mortgage-calculator": {
     "description": "Estimate Canadian mortgage payments using nominal semiannual compounding, with ownership costs and optional extra principal payments.",
@@ -1221,7 +1330,8 @@
           "The years input is the full amortization period, not the current mortgage contract term. This monthly-payment model does not calculate renewal rates, qualification, prepayment penalties or financed mortgage-insurance premiums. Entered ownership costs are separate from the amount borrowed."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Canadian Mortgage Calculator: Payments & Extra Principal"
   },
   "mortgage-calculator-uk": {
     "description": "Compare UK repayment and interest-only mortgage estimates in pounds, including entered ownership costs and extra repayments.",
@@ -1243,7 +1353,8 @@
           "For a loan of 250,000 at a constant 5% annual rate, the modeled interest-only payment is 1,041.67 per month and 250,000 remains to repay. Product fees, early repayment charges, purchase taxes and future rate changes are excluded unless explicitly entered in a supported field."
         ]
       }
-    ]
+    ],
+    "seoTitle": "UK Mortgage Calculator: Repayment & Interest-Only Payments"
   },
   "loan-calculator": {
     "description": "Compare fixed loan payments, deferred balances and zero-coupon borrowing, with separate payment and compounding frequency options.",
@@ -1286,7 +1397,8 @@
           "An amortization schedule makes the effect of an extra payment visible in the remaining balance and later interest charges. Enter extras in the period when you expect to make them, rather than subtracting them from the starting balance. Compare the original payoff date with the revised date, and check any lender restrictions separately before treating the projection as your actual repayment schedule."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Amortization Calculator: Loan Schedule & Extra Payments"
   },
   "personal-loan-calculator": {
     "description": "Estimate personal-loan payments, origination fees, monthly insurance and the resulting borrowing cash-flow cost.",
@@ -1311,7 +1423,8 @@
           "The amount financed and the cash you receive can differ when a personal loan includes an origination fee or insurance. Use the fee and cash-cost mode to separate those amounts. Compare the payment with the total borrowing cost, and keep the repayment term the same when evaluating offers. The lender's fee treatment matters as much as the advertised rate."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Personal Loan Calculator: Payments, Fees & Total Cost"
   },
   "boat-loan-calculator": {
     "description": "Estimate fixed monthly boat-loan payments, interest and payoff timing, including optional extra payments toward principal.",
@@ -1332,7 +1445,8 @@
           "Start with either the boat price you are considering or the payment you can set aside each month. A down payment reduces the financed balance, but extending the term can make a more expensive boat appear affordable on a monthly basis. Check the resulting price and total interest together. Ongoing ownership expenses need a separate budget beyond the financing calculation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Boat Loan Calculator: Payments, Interest & Price Budget"
   },
   "business-loan-calculator": {
     "description": "Compare business-loan payment schedules and compounding frequencies, with optional extra principal and modeled upfront financing fees.",
@@ -1353,7 +1467,8 @@
           "Match the payment frequency to the schedule in the proposed business loan agreement. A monthly payment cannot be compared directly with a weekly payment without also considering how many payments occur. Review total repayment and the timing of installments alongside your expected business cash flow. The calculation models the entered loan terms; it does not forecast revenue available to make those payments."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Business Loan Calculator: Payments, Fees & Interest"
   },
   "home-equity-loan-calculator": {
     "description": "Estimate a home-equity loan payment and available borrowing capacity from property value, existing debt and a chosen combined LTV limit.",
@@ -1374,7 +1489,8 @@
           "Available home equity and an affordable home-equity loan are different questions. The equity worksheet uses the property value, existing debt, and entered lending limit to estimate capacity. The payment mode then models repayment on a chosen amount. A change in the property-value estimate can change available equity without changing your income or the cash available for monthly payments."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Home Equity Loan Calculator: Payments & Borrowing Limit"
   },
   "payment-calculator": {
     "description": "Find the payment for a fixed-rate loan or estimate payoff time from a monthly payment amount you choose.",
@@ -1396,7 +1512,8 @@
           "For a $10,000 loan at an 8% nominal annual rate over 3 years, Loan & schedule uses 36 monthly payments and a monthly rate of 0.08 / 12. The calculated payment is about $313.36 before fees. The schedule totals about $1,281.09 of interest using unrounded calculations; a lender that rounds each installment or accrues interest daily can produce a different final payment."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Payment Calculator: Loan Payments & Payoff Time"
   },
   "repayment-calculator": {
     "description": "Plan fixed-rate debt repayment by term or payment budget, with a schedule showing the balance, interest and final installment.",
@@ -1418,7 +1535,8 @@
           "For a $10,000 balance at 8% with a fixed $300 monthly payment, the model reaches payoff in 38 installments and charges about $1,346.95 in interest. Keeping the regular payment at $300 and adding $100 each month reduces this to 28 installments and about $976.04 in interest: 10 fewer installments and $370.91 less interest. Both scenarios include a smaller final installment and assume no new borrowing or fees."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Repayment Calculator: Payoff Time & Interest Schedule"
   },
   "mortgage-payoff-calculator": {
     "description": "Estimate mortgage payoff and interest, infer a remaining balance from loan history, or compare an accelerated biweekly scenario.",
@@ -1443,7 +1561,8 @@
           "Compare the baseline mortgage with the extra-payment scenario using the same starting balance and interest rate. Calendar-based extras let you represent payments when they occur, while the balance-inference option estimates a balance from the stated loan history. Review both the interest saved and the earlier payoff date. An inferred balance should be checked against a current lender statement before use."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Mortgage Payoff Calculator: Extra Payments & Interest Saved"
   },
   "credit-card-calculator": {
     "description": "Estimate payoff time or a target payment for a credit-card balance using a fixed rate and no new purchases.",
@@ -1465,10 +1584,11 @@
           "In the opening example, a $5,000 balance at 20% has about $83.33 of first-month interest in this monthly model. A $200 payment therefore reduces the balance by about $116.67 in that first month. With the same payment and no new charges, payoff takes 33 installments and about $1,522.10 in total interest. The final installment is smaller; your issuer may use daily balances and different payment rules."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Credit Card Calculator: Payment & Payoff Time"
   },
   "auto-loan-calculator": {
-    "description": "Estimate an auto-loan payment or vehicle-price budget after down payment, trade-in debt, rebates, entered taxes and financing fees.",
+    "description": "Calculate auto-loan payments and price budgets with trade debt, rebates, fees and scoped US state tax treatment.",
     "faqs": [
       {
         "question": "How does an outstanding trade-in loan affect financing?",
@@ -1476,7 +1596,7 @@
       },
       {
         "question": "Does the calculator choose my local vehicle sales-tax rules?",
-        "answer": "No. Enter the applicable rate and trade-in tax treatment. Local exemptions, fee treatment and rebate rules need separate verification."
+        "answer": "The US state worksheet supports selected state presets and explains their scope after you choose a state. It does not look up local rates or confirm transaction eligibility. Enter your applicable rate, verified taxable-base assumptions, or actual quoted tax amount. The other modes use the trade-in and rebate treatment you enter."
       }
     ],
     "sections": [
@@ -1486,10 +1606,11 @@
           "Compare the vehicle price, down payment, trade-in treatment, fees, and financing term together. A longer term can lower the monthly payment while increasing total interest. The payment-budget mode works backward from an installment you choose. For tax comparisons, select the applicable supported state treatment and review its notes; a vehicle's advertised price alone does not capture the financed amount."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Auto Loan Calculator: Payments, Trade-In & Vehicle Budget"
   },
   "cash-back-or-low-interest-calculator": {
-    "description": "Compare a vehicle cash rebate with a lower financing rate, and explore the purchase price supported by a payment budget.",
+    "description": "Compare a vehicle rebate with promotional financing, recalculating taxes, financed costs and total cash for each offer.",
     "faqs": [
       {
         "question": "How are the rebate and low-rate offers compared?",
@@ -1507,7 +1628,8 @@
           "A cash rebate reduces the purchase cost or amount financed, while a promotional interest rate changes the cost of borrowing over time. Compare both offers using the same vehicle, down payment, and repayment term. The more attractive monthly payment is not necessarily the lower total-cost offer. Include the applicable fees and tax treatment before drawing a conclusion from the difference."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Cash Back or Low Interest Calculator: Compare Auto Loans"
   },
   "auto-lease-calculator": {
     "description": "Estimate a vehicle lease payment from cost, residual value and money factor, or work backward from a monthly payment budget.",
@@ -1528,7 +1650,8 @@
           "A lease payment combines the modeled depreciation and financing charges, with the entered taxes and fees where supported. Residual value describes the vehicle value assumed at the end of the lease, not cash you automatically receive. Compare offers over the same lease term and inspect upfront amounts separately. Mileage charges and end-of-lease conditions require the actual lease agreement."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Auto Lease Calculator: Monthly Payment & Vehicle Budget"
   },
   "lease-calculator": {
     "description": "Calculate an asset-financing lease payment or implied rate from asset value, term and residual, with a separate vehicle-lease model.",
@@ -1549,7 +1672,8 @@
           "Choose the lease mode that matches the agreement you are examining. Asset financing and a residual-value lease answer different questions about repayment and the asset's ending value. Keep the asset price, timing, and any residual assumption visible when comparing payments. A lower installment can reflect a larger amount left at the end rather than a lower overall financing cost."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Lease Calculator: Payments, Residual Value & Implied Rate"
   },
   "heloc-calculator": {
     "description": "Estimate HELOC draw-period interest, later repayment payments and home-equity borrowing capacity under a constant-rate scenario.",
@@ -1570,7 +1694,8 @@
           "A HELOC can have different payment behavior during the draw period and the repayment period. Compare both stages instead of using the initial payment as a long-term budget. The account-fee mode lets you include supported recurring charges. The estimate follows the entered balance and rate assumptions; future draws and a changing interest rate can alter the amount ultimately repaid."
         ]
       }
-    ]
+    ],
+    "seoTitle": "HELOC Calculator: Draw Payments, Repayment & Credit Limit"
   },
   "fha-loan-calculator": {
     "description": "Estimate standard FHA fees, mortgage-insurance schedules and extra-payment payoff, or enter rates in a manual premium worksheet.",
@@ -1595,7 +1720,8 @@
           "FHA loan comparisons should include the supported mortgage-insurance and program-fee assumptions alongside principal and interest. Select the schedule or historical branch that matches the loan details, and review its eligibility notes before interpreting the result. The ownership-cost worksheet can help distinguish the mortgage payment from other housing costs. An estimate does not establish loan eligibility or replace a lender's disclosure."
         ]
       }
-    ]
+    ],
+    "seoTitle": "FHA Loan Calculator: Payments, Fees & Mortgage Insurance"
   },
   "va-mortgage-calculator": {
     "description": "Estimate VA purchase or refinance funding fees and payments, using the selected fee tier, financing choice and verified exemption assumptions.",
@@ -1620,7 +1746,8 @@
           "The VA mortgage calculator separates the financing estimate from supported program-fee assumptions. Review the entered fee treatment and applicable exemption information before comparing scenarios. Financing a fee changes the borrowed balance, while paying it upfront changes cash needed at closing. Use the ownership-cost mode to consider additional recurring housing expenses rather than treating principal and interest as the entire home budget."
         ]
       }
-    ]
+    ],
+    "seoTitle": "VA Mortgage Calculator: Payments & Funding Fees"
   },
   "down-payment-calculator": {
     "description": "Calculate down-payment cash, a purchase-price budget or a savings timeline while allowing for entered closing costs.",
@@ -1641,7 +1768,8 @@
           "A down payment can be expressed as a cash amount or a percentage of the purchase price. Use the matching mode depending on which figure you know. The savings timeline helps connect a target with regular contributions. Keep closing costs and any cash reserve separate from the down payment unless the selected fields explicitly include them, so the same money is not counted twice."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Down Payment Calculator: Cash Needed & Savings Timeline"
   },
   "house-affordability-calculator": {
     "description": "Estimate a home-price budget from income and debt limits, or from an entered monthly housing payment allowance.",
@@ -1662,7 +1790,8 @@
           "Affordability depends on the assumed financing terms and the housing payment available within your budget. Compare the income-based estimate with the mode that starts from a chosen payment. A higher down payment or a different rate can change the estimated purchase price. Treat the result as a planning scenario; it does not confirm that a lender will approve the amount."
         ]
       }
-    ]
+    ],
+    "seoTitle": "House Affordability Calculator: Home Price & Payment Budget"
   },
   "rent-calculator": {
     "description": "Estimate a monthly rent budget from gross income, a chosen spending percentage and the utilities you expect to pay.",
@@ -1683,7 +1812,8 @@
           "Use the rent budget as a starting point for comparing housing choices. The debt-adjusted mode shows how existing monthly obligations affect the amount available under the entered rule. Check which expenses are included before comparing the result with a rental listing. Utilities, transport, and irregular expenses may need their own allowance even when the advertised rent fits the estimate."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Rent Calculator: Monthly Rent Budget from Income"
   },
   "debt-ratio-calculator": {
     "description": "Calculate debt-to-income ratio from gross income and debt payments entered as monthly totals or mixed annual and monthly lines.",
@@ -1708,7 +1838,8 @@
           "Monthly debt payments of 1,200, 300, and 100 total 1,600. With gross monthly income of 5,000, the modeled debt-to-income ratio is 1,600 ÷ 5,000 × 100 = 32%. Using take-home income of 4,000 would produce 40%, which answers a different question. Enter required debt payments rather than outstanding loan balances. A DTI ratio is not the cash left for living expenses; use the budget worksheet for that, and check the obligations counted by the relevant lender."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Debt-to-Income Ratio Calculator: Monthly DTI"
   },
   "refinance-calculator": {
     "description": "Compare refinancing payments, interest and simple break-even, or evaluate payments and remaining debt over the same holding period.",
@@ -1729,7 +1860,8 @@
           "If upfront refinancing costs are 3,000 and the monthly payment falls by 150, simple payment break-even is 20 months. That comparison only recovers the upfront cost through smaller payments; it does not account for a different remaining loan balance. A longer new term can lower the payment while leaving more debt at your planned sale date. Use the common-horizon mode to compare payments, fees, cash-out proceeds, and both ending balances over the same number of months."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Refinance Calculator: Payments, Break-Even & Interest"
   },
   "interest-calculator": {
     "description": "Project compound interest with regular deposits, optional monthly and annual contribution streams, and entered tax and inflation assumptions.",
@@ -1838,7 +1970,8 @@
           "Use the CD calculator with the deposit, term, and rate convention that match the product you are reviewing. Compare the final balance with the interest earned, rather than treating the entire maturity value as a gain. Check the institution's compounding and withdrawal conditions separately. Early-withdrawal charges or a different credited rate can make actual proceeds differ from the modeled maturity value."
         ]
       }
-    ]
+    ],
+    "seoTitle": "CD Calculator: Interest & Maturity Value"
   },
   "mutual-fund-calculator": {
     "description": "Project fund contributions and growth, compare entry loads and annual expenses, or estimate a single-lot redemption charge.",
@@ -1859,10 +1992,11 @@
           "A mutual-fund projection depends on the assumed return and the contributions you make. Use the supported load, expense, or redemption modes to distinguish recurring growth assumptions from specific charges. Keep gross and net return assumptions consistent so that an expense is not deducted twice. A smooth projection illustrates a scenario; actual market returns need not arrive in that sequence."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Mutual Fund Calculator: Growth, Contributions & Fees"
   },
   "compound-interest-calculator": {
-    "description": "Project compound growth with regular deposits, then compare equivalent interest rates and contribution schedules.",
+    "description": "Project compound interest with regular deposits, compounding frequency, tax and inflation assumptions. Compare equivalent interest rates.",
     "faqs": [
       {
         "question": "Why do equivalent nominal rates differ?",
@@ -1898,18 +2032,20 @@
         "answer": "Simple interest is calculated only on the original principal. Compound interest also earns interest on previously accumulated interest."
       },
       {
-        "question": "What time unit should I use with the annual rate?",
-        "answer": "Use years, including a fractional year when appropriate. The inverse model also treats the rate as an annual rate."
+        "question": "Can I enter a simple-interest duration in months?",
+        "answer": "Yes. Choose Months or Years using Duration unit. The calculator divides a month count by 12 before applying the annual rate. For example, 1,000 at 6% annual simple interest for 18 months earns 90 in interest, for an ending balance of 1,090. Interest is not compounded."
       }
     ],
     "sections": [
       {
         "title": "When simple interest is the right model",
         "paragraphs": [
-          "Simple interest uses the original principal for the entered time period, without adding earlier interest to the base. Match the time units to the rate before interpreting the result. The missing-quantity mode can solve for an unknown input when the other values are known. Do not use a simple-interest result as a substitute for a loan schedule that compounds or reduces principal through payments."
+          "Simple interest uses the original principal for the entered time period, without adding earlier interest to the base. Match the time units to the rate before interpreting the result. The missing-quantity mode can solve for an unknown input when the other values are known. Do not use a simple-interest result as a substitute for a loan schedule that compounds or reduces principal through payments.",
+          "For a principal of 1,000 at an annual simple rate of 6%, select Months and enter 18 for the duration. The formula uses 18 ÷ 12 = 1.5 years: interest = 1,000 × 0.06 × 1.5 = 90, and ending balance = 1,090. Entering 18 with Years selected would describe a different term. The inverse mode uses the same duration-unit selection when solving a missing quantity."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Simple Interest Calculator: Principal, Rate & Time"
   },
   "finance-calculator": {
     "description": "Solve time-value-of-money problems for present value, future value, payment, rate or periods, with explicit cash-flow conventions.",
@@ -1930,7 +2066,8 @@
           "Time-value-of-money calculations connect present value, future value, periodic payments, and interest. In the signed cash-flow mode, money paid out and money received use opposite signs. An unexpected negative result may therefore describe cash-flow direction rather than a loss. Check whether payments occur at the beginning or end of each period before comparing the answer with another financial model."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Finance Calculator: Present Value, Future Value & Payments"
   },
   "investment-calculator": {
     "description": "Explore investment targets, required contributions and assumed returns, including signed TVM and separate monthly and annual deposit scenarios.",
@@ -1973,7 +2110,8 @@
           "Present value expresses future money as an equivalent amount at the selected discount rate. A future lump sum and a stream of payments require different inputs. Check the payment frequency and whether payments arrive at the start or end of a period. The discount rate is an assumption you supply; changing it can materially change the value assigned to the same future cash flows."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Present Value Calculator: Lump Sums & Regular Payments"
   },
   "interest-rate-calculator": {
     "description": "Find the implied fixed annual loan rate from a principal balance, monthly payment and repayment term, excluding financing fees.",
@@ -1994,7 +2132,8 @@
           "An implied rate is the rate that reconciles the entered balance, payment, and term under the displayed model. It is not automatically a lender's disclosed annual percentage rate, because fee treatment and timing may differ. Verify the payment frequency and amounts before solving. Small differences in a payment or remaining term can change the rate needed to make the figures consistent."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Interest Rate Calculator: Find the Implied Loan Rate"
   },
   "apr-calculator": {
     "description": "Estimate a loan's fee-inclusive borrowing rate by comparing net proceeds with scheduled payments and selected payment frequencies.",
@@ -2015,7 +2154,8 @@
           "APR calculations connect the cash received with the payments and supported fees over time. A stated interest rate can differ from a fee-adjusted borrowing rate. Enter fees according to the selected mode and compare offers with consistent payment timing. The result follows the calculator's assumptions; use the lender's required disclosure when a legal or contractual APR definition is needed."
         ]
       }
-    ]
+    ],
+    "seoTitle": "APR Calculator: Loan Interest, Fees & Borrowing Cost"
   },
   "inflation-calculator": {
     "description": "Compare US purchasing power with versioned BLS CPI-U data, or explore future price changes using an inflation rate you choose.",
@@ -2036,7 +2176,8 @@
           "The historical inflation mode uses the stated US CPI series and supported dates. The scenario mode instead applies an inflation rate that you choose. Keep these purposes separate: a scenario is not a forecast from the historical dataset. Compare the amount in its original date's money with the equivalent amount at the target date to understand the change in purchasing power."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Inflation Calculator: US CPI & Purchasing Power"
   },
   "annuity-payout-calculator": {
     "description": "Estimate a fixed withdrawal from savings or how long a balance lasts under a constant return and monthly drawdown scenario.",
@@ -2057,7 +2198,8 @@
           "An annuity payout estimate links an opening balance, assumed growth, and a withdrawal schedule. Use the duration mode when the payment is known, or the payment mode when a target duration is known. Check whether withdrawals occur at the beginning or end of each period. A constant-return account projection does not reproduce every feature or guarantee of an insurance annuity contract."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Annuity Payout Calculator: Withdrawals & Balance Duration"
   },
   "annuity-calculator": {
     "description": "Estimate the future value of an initial balance and equal recurring contributions under a constant-return annuity model.",
@@ -2078,7 +2220,8 @@
           "An annuity accumulation calculation models a sequence of contributions growing over time. Earlier contributions usually remain invested for more periods than later ones, so timing matters. Compare the total contributed with the ending balance and keep the payment schedule aligned with the selected mode. Contract charges, changing returns, or withdrawals need explicit treatment before this becomes a model of a particular annuity product."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Annuity Calculator: Future Value & Regular Contributions"
   },
   "retirement-calculator": {
     "description": "Model retirement savings, salary-based contributions and inflation-linked spending, with a year-by-year withdrawal scenario.",
@@ -2129,7 +2272,8 @@
           "A 401(k) projection can separate your contributions from employer matching and investment growth. Review the salary and matching inputs before interpreting the ending balance. Withdrawal modes answer different questions from accumulation and include only the supported tax assumptions. A regional display preference does not change this tool's US account rules, and the projection does not verify the terms of your employer's plan."
         ]
       }
-    ]
+    ],
+    "seoTitle": "401(k) Calculator: Savings, Employer Match & Withdrawals"
   },
   "ira-calculator": {
     "description": "Explore IRA growth and withdrawals, compare traditional and Roth savings from equal pretax resources, or estimate a 2026 contribution ceiling.",
@@ -2154,7 +2298,8 @@
           "The IRA modes cover different planning questions, including account growth, contribution ceilings, and supported distributions. Select the branch that matches the tax year and account scenario before entering values. The equal-budget comparison is useful when tax treatment changes how much can be contributed from the same pretax resources. Read the mode's limitations before using an estimate in a tax or withdrawal decision."
         ]
       }
-    ]
+    ],
+    "seoTitle": "IRA Calculator: Growth, Contributions & Withdrawals"
   },
   "roth-ira-calculator": {
     "description": "Compare Roth, traditional and taxable scenarios using qualified-distribution assumptions, equal pretax resources and a separate 2026 ceiling.",
@@ -2179,7 +2324,8 @@
           "A Roth IRA comparison is most informative when both alternatives begin with a consistent budget. A contribution made from after-tax money is not directly comparable with a larger pretax contribution without accounting for that difference. Use the equal-budget mode for that question, and review the supported contribution-ceiling assumptions separately. The model does not predict future tax rules or investment performance."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Roth IRA Calculator: Growth & Traditional IRA Comparison"
   },
   "pension-calculator": {
     "description": "Compare pension present values, lump sums and single-life or joint-survivor payment streams using explicit timing and lifetime assumptions.",
@@ -2200,7 +2346,8 @@
           "Pension choices can differ in starting date, payment amount, and survivor benefits. Compare the timing of those streams as well as their present value under the selected discount rate. A later start may change the payment without making every scenario equivalent. The calculation values the entered streams; it does not determine personal longevity or establish which pension election best fits a household."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pension Calculator: Present Value & Survivor Payments"
   },
   "rmd-calculator": {
     "description": "Estimate owner RMDs with distribution-year rules, applicable lifetime tables and return-based projections, within the stated account scope.",
@@ -2225,7 +2372,8 @@
           "A required minimum distribution estimate depends on the applicable year, balance, and supported life-expectancy table. Review the owner-calendar mode when timing matters, rather than treating every calendar year as identical. Keep the account balance date consistent with the field instructions. The tool covers the owner scenarios described in its notes and should not be assumed to handle every inherited-account rule."
         ]
       }
-    ]
+    ],
+    "seoTitle": "RMD Calculator: Owner Distributions & Yearly Projections"
   },
   "social-security-calculator": {
     "description": "Compare Social Security claiming ages, full-retirement-age cohorts and two benefit streams under shared COLA and discount assumptions.",
@@ -2250,7 +2398,8 @@
           "A claiming-age comparison combines the assumed benefit with the age when payments begin. A larger monthly benefit can start later, so compare cumulative streams as well as individual payments. Use the birth-cohort mode to check the supported full-retirement-age assumption. The calculator models the benefit figures you enter and does not retrieve an official earnings record or guarantee an award amount."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Social Security Calculator: Claiming Age & Benefit Streams"
   },
   "college-cost-calculator": {
     "description": "Project college costs and a chosen funded share, then estimate monthly savings with optional annual tax on investment interest.",
@@ -2275,7 +2424,8 @@
           "College planning combines a current cost estimate, time until enrollment, cost growth, and savings contributions. Review how much of the projected expense is funded rather than looking only at the account balance. A change in the inflation assumption affects the target, while the investment return affects savings growth. The taxable-savings mode includes only its stated tax treatment, not every education-account rule."
         ]
       }
-    ]
+    ],
+    "seoTitle": "College Cost Calculator: Tuition Growth & Savings Goal"
   },
   "debt-payoff-calculator": {
     "description": "Compare avalanche and snowball debt repayment schedules, with fixed minimum payments and extra cash rolled into remaining balances.",
@@ -2296,7 +2446,8 @@
           "Keep the total payment budget constant when comparing debt-payoff strategies. Otherwise, a faster result may come from paying more rather than changing which debt receives extra money first. Check how minimum payments, rollover amounts, and dated extras are entered. The schedule assumes the modeled debts and rates, so new borrowing or a rate change requires an updated scenario."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Debt Payoff Calculator: Avalanche & Snowball Schedules"
   },
   "credit-card-payoff-calculator": {
     "description": "Plan payoff across multiple credit cards using avalanche or snowball ordering, entered minimum payments and a monthly extra-payment budget.",
@@ -2306,7 +2457,7 @@
         "answer": "No. Entered minimum payments remain fixed until payoff, unlike issuer formulas that may change the minimum each statement."
       },
       {
-        "question": "Does monthly APR divided by 12 match every card statement?",
+        "question": "Does dividing the annual APR by 12 match every card statement?",
         "answer": "No. This schedule uses that monthly approximation; daily interest methods, fees, rate changes and new purchases can produce different statement amounts."
       }
     ],
@@ -2317,7 +2468,8 @@
           "Enter each card balance and rate separately so that the payoff schedule can allocate payments to the correct debt. Compare strategies using the same overall budget and review what happens when a cleared card's payment rolls over. A statement's changing minimum-payment rules may differ from the model. Adding purchases during repayment also changes the balance path shown by the estimate."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Credit Card Payoff Calculator: Multiple Card Repayment"
   },
   "debt-consolidation-calculator": {
     "description": "Compare current debt obligations with a consolidation loan, including financed fees, the new payment and repayment-term effects.",
@@ -2338,7 +2490,8 @@
           "Consolidation replaces several payment streams with a new borrowing arrangement. Compare the new term, fees, and total repayment with the existing debts, not just the first monthly payment. A longer term may make the payment smaller while keeping debt outstanding for longer. Use the fee-adjusted comparison to see how supported upfront charges affect the apparent savings."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Debt Consolidation Calculator: Payments, Fees & Savings"
   },
   "student-loan-calculator": {
     "description": "Model standard student-loan repayment or annual borrowing during school, with explicit delay-interest and capitalization choices.",
@@ -2363,7 +2516,8 @@
           "Borrowing during school and repaying an existing student loan are different stages. Choose the mode that matches the balance and timing you know. The repayment-budget mode works backward from a payment, while fixed-payment payoff estimates how long a balance takes to clear. These scenarios follow the stated loan model and do not automatically reproduce income-based repayment or forgiveness programs."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Student Loan Calculator: Payments & Borrowing During School"
   },
   "bond-calculator": {
     "description": "Calculate regular-coupon bond price or yield, including dated settlement, accrued interest and selectable day-count conventions.",
@@ -2388,7 +2542,8 @@
           "A bond's coupon rate, market price, and yield describe different things. When working with settlement dates, check the payment schedule and day-count convention because accrued interest and remaining cash flows depend on them. Compare clean and settlement-related values using the labels shown. A calculated yield assumes the modeled payments and does not remove the possibility of default or changing market prices."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Bond Calculator: Price, Yield & Accrued Interest"
   },
   "average-return-calculator": {
     "description": "Compare arithmetic and geometric period returns, or estimate annual money-weighted return from dated deposits and receipts.",
@@ -2409,7 +2564,8 @@
           "A gain of 50% followed by a loss of 50% has an arithmetic average of 0%, but 100 invested becomes 150 and then 75. The total loss is 25%; the geometric average is about −13.40% per period. Use equal-length periods for this comparison. If you added or withdrew money between dates, use the dated money-weighted mode instead: the timing and size of those cash flows affect your personal return."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Average Return Calculator: Arithmetic & Geometric Returns"
   },
   "roi-calculator": {
     "description": "Calculate ROI and annualized return from a holding period or exact dates, or use dated cash flows for money-weighted return.",
@@ -2430,7 +2586,8 @@
           "ROI compares the gain or loss with the amount invested, but a percentage alone does not describe how long the investment lasted. Use the exact-date annualized mode when duration matters. If money enters or leaves at several dates, the dated cash-flow mode is more informative than treating everything as one initial purchase. Keep costs consistent across investments being compared."
         ]
       }
-    ]
+    ],
+    "seoTitle": "ROI Calculator: Total & Annualized Investment Return"
   },
   "irr-calculator": {
     "description": "Estimate periodic or dated internal rates of return, including recurring cash-flow scenarios and detected multiple solutions.",
@@ -2451,7 +2608,8 @@
           "IRR is the rate that makes the modeled cash flows balance in present-value terms. Enter outgoing and incoming amounts with the required signs, and select periodic or dated cash flows according to their timing. Irregular sign changes can make interpretation more difficult. Compare the cash-flow schedule and investment size alongside the rate rather than ranking projects from IRR alone."
         ]
       }
-    ]
+    ],
+    "seoTitle": "IRR Calculator: Periodic & Dated Cash Flow Returns"
   },
   "payback-period-calculator": {
     "description": "Estimate simple or discounted payback from entered periodic cash flows or an annual return stream with assumed growth.",
@@ -2472,7 +2630,8 @@
           "The payback period identifies when accumulated modeled inflows recover the initial outlay. Check whether the selected result uses discounted cash flows before comparing it with another payback estimate. Cash received after the recovery point still matters to total project value. A short payback therefore describes recovery speed, rather than proving that a project has the highest overall return."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Payback Period Calculator: Simple & Discounted Recovery"
   },
   "depreciation-calculator": {
     "description": "Compare book-depreciation schedules, including fiscal dates, partial-year conventions and an optional switch to straight-line expense.",
@@ -2497,7 +2656,8 @@
           "Book depreciation spreads the depreciable amount across periods according to the selected method. Enter the asset cost, residual value, and useful life consistently, and use the fiscal-year mode when the acquisition date affects the schedule. The remaining book value is an accounting result rather than a prediction of resale price. Tax depreciation can follow separate rules from the displayed book schedule."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Depreciation Calculator: Asset Value & Book Schedules"
   },
   "margin-calculator": {
     "description": "Calculate profit margin and markup, solve a target selling price, or explore simplified stock and currency margin requirements.",
@@ -2518,7 +2678,8 @@
           "An item that costs 80 and sells for 100 earns 20 before other costs. Its margin is 20 ÷ 100 = 20%, while its markup is 20 ÷ 80 = 25%. To achieve a 30% margin on a cost of 80, divide 80 by 0.70 to get approximately 114.29; adding 30% to cost would give only 104. Include the costs you intend the margin to cover. Stock and foreign-exchange margin modes calculate collateral requirements, a different use of the word margin."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Margin Calculator: Profit Margin, Markup & Selling Price"
   },
   "commission-calculator": {
     "description": "Calculate flat or tiered sales commission, total compensation, or the sales and rate needed for a target commission.",
@@ -2539,7 +2700,8 @@
           "A flat commission applies one rate to the selected sales amount. A marginal tier schedule applies different rates to portions of that amount, rather than automatically applying the highest rate to all sales. Enter the tiers in the order requested and compare the total commission with the underlying sales figure. The result follows the entered schedule, not an employer's unentered bonus or clawback rules."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Commission Calculator: Flat Rates, Tiers & Sales Targets"
   },
   "discount-calculator": {
     "description": "Calculate sale price and savings, combine a percentage and fixed reduction, or recover the original price from a known pair.",
@@ -2586,7 +2748,8 @@
           "A second percentage discount normally applies to the price remaining after the first reduction. Use the consecutive-discount mode to see that effect rather than adding the two percentages. The known-pair mode can work backward from a final price or saving. Keep the original price visible when comparing promotions so that a larger advertised percentage is not mistaken for a lower final cost."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Percent Off Calculator: Sale Price & Combined Discounts"
   },
   "sales-tax-calculator": {
     "description": "Calculate net price, sales tax, gross price or an implied tax rate from a selected pair of known values.",
@@ -2607,7 +2770,8 @@
           "At an entered rate of 8%, a pre-tax price of 100 becomes 108. If 108 already includes tax, divide by 1.08 to recover the pre-tax price of 100; the tax is 8. Multiplying 108 by 8% would incorrectly calculate tax on the tax-inclusive total. Choose the inclusive or exclusive mode to match your receipt. You supply the rate: the calculator does not look up an address, determine taxability, or apply exemptions."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Sales Tax Calculator: Add Tax or Find the Pre-Tax Price"
   },
   "vat-calculator": {
     "description": "Calculate VAT, net or gross amounts, or an implied VAT rate from the values you already know.",
@@ -2628,7 +2792,8 @@
           "A price of 120 including VAT at an illustrative rate of 20% contains 100 net and 20 VAT: 120 ÷ 1.20 = 100. Taking 20% of 120 would give 24 because it uses the wrong base. To add VAT instead, multiply the net price by 1.20. Use one currency consistently and select whether your known amount includes VAT. The entered rate is an assumption; the tool does not determine the applicable rate or whether VAT can be recovered."
         ]
       }
-    ]
+    ],
+    "seoTitle": "VAT Calculator: Add or Remove VAT from a Price"
   },
   "salary-calculator": {
     "description": "Convert gross salary across hourly through annual pay periods, including quarterly pay, and compare unpaid-day adjustments.",
@@ -2653,7 +2818,8 @@
           "An hourly, monthly, and annual salary comparison depends on the work schedule assumed. Check working days, hours, and nonworking days before comparing offers. A simple period conversion does not automatically account for overtime, variable shifts, benefits, or tax withholding. Use the pay-period mode when the calendar or number of paid periods is central to the question."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Salary Calculator: Hourly, Monthly & Annual Gross Pay"
   },
   "budget-calculator": {
     "description": "Build a monthly budget from take-home totals or mixed-period gross-income lines, with pretax savings, assumed tax and debt payments.",
@@ -2678,10 +2844,11 @@
           "Convert income and expenses to a common period before comparing the totals. A yearly bill can be easy to miss in a monthly budget unless an allowance is made for it. Review the remaining balance after recurring obligations, then consider irregular spending separately. The mixed-period mode helps align timing; it does not know about transactions that have not been entered."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Budget Calculator: Monthly Income, Expenses & Debt"
   },
   "tax-calculator": {
-    "description": "Explore US federal ordinary-income tax and separate 2026 self-employment, investment-income, credit and AMT worksheets.",
+    "description": "Estimate 2025 or 2026 US federal tax with combined income, deduction and credit scenarios, plus focused tax worksheets.",
     "faqs": [
       {
         "question": "Does this produce one complete federal tax result?",
@@ -2703,10 +2870,11 @@
           "Start with the tax year and the specific income, deduction, or credit question you need to model. The calculator contains separate supported branches, so a result from one worksheet should not be assumed to represent an entire return. Review eligibility and limitation notes beside the selected mode. Changing the website language or currency does not convert these US federal rules into another country's tax system."
         ]
       }
-    ]
+    ],
+    "seoTitle": "US Federal Tax Calculator: Income & Tax Worksheets"
   },
   "take-home-pay-calculator": {
-    "description": "Estimate take-home wages, 2026 W-4 federal withholding and paycheck FICA, with separate wage bases and year-to-date inputs.",
+    "description": "Estimate annual take-home cash for 2025 or 2026, or calculate 2026 paycheck withholding with separate tax wage bases.",
     "faqs": [
       {
         "question": "Can I estimate withholding for one paycheck?",
@@ -2728,10 +2896,11 @@
           "An annual tax estimate and withholding from a particular paycheck are related but different calculations. Choose the mode that matches the pay period, wage base, and deduction treatment you want to examine. Compare gross pay, deductions, and the resulting net amount using consistent timing. The supported federal calculations do not automatically include every state, local, employer, or benefit-plan adjustment."
         ]
       }
-    ]
+    ],
+    "seoTitle": "US Take-Home Pay Calculator: Tax & Paycheck Withholding"
   },
   "marriage-calculator": {
-    "description": "Compare 2025 or 2026 ordinary-income tax for two eligible single-filer scenarios and one joint scenario, with selected deductions.",
+    "description": "Compare supported 2025 or 2026 federal filing scenarios and separate state/local assumptions, including income, deductions and credits.",
     "faqs": [
       {
         "question": "How do the marriage-tax comparison modes differ?",
@@ -2749,7 +2918,8 @@
           "A marriage-tax comparison needs the same underlying incomes and supported deductions in both scenarios. Review the year and filing assumptions before interpreting the difference. A change in total modeled tax is not a complete measure of the financial effects of marriage. Credits, eligibility rules, and income types outside the selected branch may require a more complete return calculation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "US Marriage Tax Calculator: Single vs Joint Comparison"
   },
   "estate-tax-calculator": {
     "description": "Estimate a 2026 federal estate-tax scenario from asset and deduction lines, adjusted gifts, exclusion and entered credit assumptions.",
@@ -2774,7 +2944,8 @@
           "The estate worksheet starts from the entered assets, adjustments, gifts, and supported credits. Keep estate value separate from the amount potentially subject to tax under the selected federal assumptions. The result is a planning estimate for the stated year and scope. It does not determine asset ownership, valuation disputes, state estate or inheritance taxes, or the effect of an unmodeled trust arrangement."
         ]
       }
-    ]
+    ],
+    "seoTitle": "US Estate Tax Calculator: Federal Planning Estimate"
   },
   "rental-property-calculator": {
     "description": "Estimate rental cash flow and returns, or model a holding period with growing expenses, mortgage payoff and sale proceeds.",
@@ -2795,7 +2966,8 @@
           "Rental income, operating costs, financing, and eventual sale proceeds affect different parts of an investment's return. Review ongoing cash flow separately from the holding-period result. An attractive sale assumption can hide weak annual cash flow, while a positive monthly figure may omit costs not entered. Compare scenarios using consistent vacancy, expense, financing, and holding-period assumptions."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Rental Property Calculator: Cash Flow, Cap Rate & Returns"
   },
   "rent-vs-buy-calculator": {
     "description": "Compare renting and buying through housing cash flows, refundable deposits, mortgage equity and a common investment-return assumption.",
@@ -2820,10 +2992,11 @@
           "A rent-versus-buy result depends on how long you stay and what happens to housing costs, property value, and alternative savings. Compare both paths over the same horizon and review the treatment of deposits and ending equity. A refundable deposit is different from an expense. The model is especially sensitive to long-term assumptions, so test several scenarios before relying on a single break-even point."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Rent vs Buy Calculator: Housing Costs & Ending Equity"
   },
   "currency-calculator": {
-    "description": "Convert currencies with an entered rate or dated ECB daily reference rates, keeping transaction fees and bank spreads separate.",
+    "description": "Convert currencies using an entered exchange rate, dated reference rates, or supported spot quotes. Check source dates and allow for provider fees and spreads.",
     "faqs": [
       {
         "question": "Are ECB reference rates live transaction quotes?",
@@ -2841,7 +3014,8 @@
           "Select the conversion mode according to whether you want an entered rate, a dated reference rate, or a supported spot quote. Check the source and timestamp shown with the result. A reference conversion is not a promise that a bank or payment provider will offer that amount. Fees, spreads, settlement timing, and unsupported dates can affect an actual exchange."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Currency Calculator: Exchange Rates & Conversion"
   },
   "bmi-calculator": {
     "description": "Calculate adult BMI or CDC BMI-for-age percentiles for ages 2 to under 20, with the screening limits of each method explained.",
@@ -2853,6 +3027,10 @@
       {
         "question": "Does a BMI result measure body fat or diagnose a condition?",
         "answer": "No. BMI relates weight to height. Body composition, pregnancy and individual health circumstances can limit its interpretation."
+      },
+      {
+        "question": "How do I enter a height in feet and inches?",
+        "answer": "Select US (lb, inches), then enter total inches in Height. For 5 feet 9 inches, enter 69, not 5.9. In metric mode, enter centimeters: 1.75 meters is 175 centimeters."
       }
     ],
     "sections": [
@@ -2862,7 +3040,8 @@
           "BMI relates weight to height, but the adult and child modes do not interpret that number in the same way. Use the age-appropriate mode and check the measurement units before calculating. A BMI category is a screening reference rather than a complete assessment of health or body composition. The result should be considered alongside the limitations and references shown on this page."
         ]
       }
-    ]
+    ],
+    "seoTitle": "BMI Calculator: Adult BMI & Child Percentiles"
   },
   "anorexic-bmi-calculator": {
     "description": "Understand adult BMI and why it cannot diagnose anorexia, assess an eating disorder or establish an underweight target.",
@@ -2883,7 +3062,8 @@
           "This page provides adult BMI information, not a test for anorexia or another eating disorder. A weight-to-height calculation cannot describe eating behaviors, symptoms, or a person's medical needs. Avoid interpreting a category as either a diagnosis or reassurance that no problem exists. If the concern is about eating or health, the relevant next step is an assessment by a qualified health professional."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Adult BMI & Eating Disorders: Screening Information"
   },
   "overweight-calculator": {
     "description": "Check adult BMI category boundaries, understand rounding near a cutoff, and choose the appropriate adult or child reference without setting a personal weight target.",
@@ -2912,7 +3092,8 @@
           "The calculator uses adult height and weight to produce a BMI screening result. Check the units carefully, especially when switching between metric and imperial measurements. A category does not measure body fat directly or explain why a person's weight has changed. Use the result as one limited piece of information, with the model's notes, rather than as an individualized health target."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Overweight Calculator: Adult BMI Screening Categories"
   },
   "bmr-calculator": {
     "description": "Estimate adult resting energy expenditure using the available equations, and convert food energy between kilocalories and kilojoules.",
@@ -2933,7 +3114,8 @@
           "For a 30-year-old using the male coefficient, weighing 70 kg and measuring 175 cm, the displayed equation gives 10 × 70 + 6.25 × 175 − 5 × 30 + 5 = 1,648.75 kcal/day. This is estimated resting energy expenditure. For an activity-adjusted estimate of total daily expenditure, use the TDEE Calculator. Neither number measures metabolism directly or sets a personal eating target. Enter height in the requested unit; substituting 1.75 meters where centimeters are expected produces a substantial error."
         ]
       }
-    ]
+    ],
+    "seoTitle": "BMR Calculator: Estimate Adult Resting Energy"
   },
   "calorie-calculator": {
     "description": "Estimate adult daily maintenance calories from body measurements and activity assumptions, with food-energy unit conversion.",
@@ -2955,7 +3137,8 @@
           "The opening Mifflin–St Jeor example uses age 30, the male coefficient, 70 kg and 175 cm. Resting expenditure is 1,648.75 kcal/day. The selected sedentary scenario multiplies this by 1.2 to give 1,978.50 kcal/day; selecting Resting energy only returns 1,648.75 instead. The multiplier adds an activity assumption rather than measuring it. A food Calorie is one kcal, so the output should not be multiplied by 1,000 when reading a food label."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Calorie Calculator: Adult Maintenance Energy Estimate"
   },
   "tdee-calculator": {
     "description": "Estimate total daily energy expenditure by combining an adult resting-energy equation with your selected activity factor.",
@@ -2976,7 +3159,8 @@
           "An estimated resting expenditure of 1,600 kcal/day becomes 1,920 with an activity factor of 1.2, or 2,480 with a factor of 1.55. That 560 kcal/day difference comes entirely from the activity assumption, not a new measurement of metabolism. When comparing results, keep body measurements and the resting-energy equation unchanged so you can see that effect. The activity-adjusted total already includes modeled activity; adding a separate exercise estimate may count part of that expenditure twice. This is a scenario estimate, not a personalized intake prescription."
         ]
       }
-    ]
+    ],
+    "seoTitle": "TDEE Calculator: Estimate Daily Energy Expenditure"
   },
   "macro-calculator": {
     "description": "Convert a daily energy target into protein, carbohydrate and fat grams, or explore adult reference ranges from body measurements.",
@@ -2998,7 +3182,8 @@
           "For an entered target of 2,000 kcal with 20% protein, 50% carbohydrate and 30% fat, the allocation is 400, 1,000 and 600 kcal respectively. Dividing by 4, 4 and 9 gives 100 g protein, 250 g carbohydrate and about 66.67 g fat. Changing protein to 30% while leaving the other shares unchanged totals 110%, so the calculator asks you to correct the split. This arithmetic checks energy allocation; it does not choose an appropriate intake for you."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Macro Calculator: Protein, Carbohydrate & Fat Grams"
   },
   "carbohydrate-calculator": {
     "description": "Estimate carbohydrate grams from a calorie target and percentage, or explore adult energy-based carbohydrate reference ranges.",
@@ -3010,6 +3195,10 @@
       {
         "question": "Is the calculated carbohydrate amount an individual dietary prescription?",
         "answer": "No. It is a planning quantity or adult reference range, not individualized advice for medical conditions, pregnancy or growing children."
+      },
+      {
+        "question": "How does a 50% carbohydrate share become grams?",
+        "answer": "For an entered 2,000 kcal scenario, 50% allocates 1,000 kcal to carbohydrate. Dividing by 4 kcal per gram gives 250 g. The other macro shares must bring the total to 100%. This illustrates the arithmetic and does not select a personal intake target."
       }
     ],
     "sections": [
@@ -3019,7 +3208,8 @@
           "Carbohydrate grams depend on the energy target and distribution entered in the selected mode. If the target comes from an activity-based estimate, uncertainty in that estimate also affects the carbohydrate result. Compare amounts using the same daily time period. The calculation translates an energy allocation into grams; it does not evaluate food quality, blood-glucose response, or a personal treatment plan."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Carbohydrate Calculator: Calories to Daily Grams"
   },
   "fat-intake-calculator": {
     "description": "Convert a selected share of daily calories into fat grams and compare adult energy-based fat-intake reference ranges.",
@@ -3031,6 +3221,10 @@
       {
         "question": "Does this tell me which types of dietary fat to choose?",
         "answer": "No. It estimates total fat grams from energy assumptions and does not evaluate food quality or an individual's dietary needs."
+      },
+      {
+        "question": "How does a 30% fat share become grams?",
+        "answer": "For an entered 2,000 kcal scenario, 30% allocates 600 kcal to fat. Dividing by 9 kcal per gram gives about 66.67 g. The other macro shares must bring the total to 100%. This illustrates the arithmetic and does not select a personal intake target."
       }
     ],
     "sections": [
@@ -3040,7 +3234,8 @@
           "The fat-intake result represents the portion of an energy target assigned to fat by the selected inputs. Check the calorie target before comparing the resulting grams with another scenario. A numerical allocation does not distinguish individual foods or assess the balance of different fatty acids. Use the model's assumptions as context rather than interpreting the result as a complete dietary recommendation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Fat Intake Calculator: Calories to Daily Fat Grams"
   },
   "protein-calculator": {
     "description": "Estimate daily protein grams from body weight and a chosen g/kg target, or compare adult energy-based protein reference ranges.",
@@ -3061,7 +3256,8 @@
           "The protein calculator offers a direct daily-protein mode and a mode based on body measurements and activity. Read the selected method before comparing results, because the same label can conceal different assumptions about the calculation base. Check mass units when entering weight. The result is a modeled amount and does not evaluate a person's medical history, diet, or training response."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Protein Calculator: Daily Grams from Weight or Energy"
   },
   "body-fat-calculator": {
     "description": "Estimate body-fat percentage using historical circumference equations or the age- and sex-adjusted BMI study model.",
@@ -3086,7 +3282,8 @@
           "Circumference-based and BMI-based body-fat methods use different measurements, so their results need not agree. Follow the field instructions and use consistent measurement locations and units. Small input changes can affect a percentage estimate. Neither method directly measures all body tissues, and a difference between the two outputs should not be treated as proof that one is an exact measurement."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Body Fat Calculator: Circumference & BMI Estimates"
   },
   "army-body-fat-calculator": {
     "description": "Compare the 2026 Army waist-to-height threshold using recorded measurements, or explore the historical 2023 body-fat equation.",
@@ -3107,7 +3304,8 @@
           "This calculator separates the stated current waist-to-height method from the historical one-site estimate. Select the mode that matches the policy and purpose you are checking before entering measurements. Historical and current outputs should not be compared as if they were the same assessment. Read the source and applicability notes; the calculator does not issue an official fitness or administrative determination."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Army Body Fat Calculator: Waist-to-Height & Legacy Method"
   },
   "lean-body-mass-calculator": {
     "description": "Compare lean-mass estimates from entered body fat, Boer, James, Hume or the pediatric Peters method, with equation-specific limits.",
@@ -3128,7 +3326,8 @@
           "Lean body mass is estimated here from either an entered body-fat percentage or a selected reference equation. These approaches can produce different values because they depend on different assumptions. Use the age-appropriate mode and check height and weight units. The output is an estimate of mass outside the modeled fat component, not a direct measurement of skeletal muscle alone."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Lean Body Mass Calculator: Body Fat & Equation Estimates"
   },
   "body-surface-area-calculator": {
     "description": "Estimate body surface area with eight named equations, age-specific branches and metric or US area units.",
@@ -3144,6 +3343,10 @@
       {
         "question": "Why do the eight equations give different estimates?",
         "answer": "They were fitted to different populations and use different mathematical relationships. The named method and its study limits are part of the result; Finflo does not average them into a clinical assessment."
+      },
+      {
+        "question": "Can I display body surface area in square feet?",
+        "answer": "Choose Eight surface-area equations, then select Square feet under Preferred area unit. The default area unit is square meters. Converting the output unit changes its numerical scale, not the equation or its clinical limitations."
       }
     ],
     "sections": [
@@ -3153,7 +3356,8 @@
           "Body surface area equations estimate an area from measurements such as height and weight. Different equations can give slightly different answers even with identical inputs. Keep the units and selected equation visible when comparing results or communicating a value. This page performs the mathematical estimate; it does not determine a medication dose or replace the method required by a clinical protocol."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Body Surface Area Calculator: Compare BSA Equations"
   },
   "ideal-weight-calculator": {
     "description": "Compare historical adult reference-weight equations or use CDC child BMI-for-age references without setting a personal target weight.",
@@ -3174,7 +3378,8 @@
           "Reference weight equations summarize relationships between measurements under specific models. Their outputs can differ and should not be treated as one uniquely correct weight for an individual. The child and teen mode uses a different age-related framework from the adult reference equations. Review the selected method and limitations before comparing a result with a current weight or a health goal."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Ideal Weight Calculator: Historical Reference Equations"
   },
   "healthy-weight-calculator": {
     "description": "Explore the adult BMI-based reference weight interval for a height, including the exclusive upper boundary and screening limitations.",
@@ -3195,10 +3400,11 @@
           "The displayed range comes from the adult reference method explained on the page. Check height units first, because the result depends directly on that measurement. The range is not an individualized assessment of nutrition, fitness, or health. A person's medical context and changes over time require information that a height-based calculation cannot provide."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Healthy Weight Calculator: Adult BMI Reference Range"
   },
   "body-type-calculator": {
-    "description": "Calculate waist-to-hip and waist-to-height proportions from measurements, without assigning unvalidated body-shape categories.",
+    "description": "Explore body proportions and the 2020 revised FFIT fashion descriptors with their measurement limitations.",
     "faqs": [
       {
         "question": "Does this calculator show body-shape labels?",
@@ -3216,7 +3422,8 @@
           "Body proportions and apparel descriptors answer different questions. A waist of 80 cm and hips of 100 cm give a waist-to-hip ratio of 0.80; with height of 175 cm, waist-to-height is approximately 0.46. The ratios mode reports these relationships. The separate revised FFIT mode uses bust, waist, hip, and high-hip measurements to show matching apparel-research rules. A descriptor is not a medical category or a guarantee of garment fit; measurement placement can change which rules match."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Body Type Calculator: Proportions & Clothing Descriptors"
   },
   "calories-burned-calculator": {
     "description": "Estimate activity calories using METs, selected Compendium activities or a distance-and-speed approximation, with gross and net energy shown.",
@@ -3241,7 +3448,8 @@
           "An activity-energy estimate depends on the selected activity, duration, and body measurements. Check whether the chosen mode uses a reference activity value or a distance-and-speed model. Two activities with the same duration can produce different estimates because their modeled intensities differ. The result is not a direct measurement from a person and should not be treated as exact compensation for food intake."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Calories Burned Calculator: Activity & MET Estimates"
   },
   "one-rep-max-calculator": {
     "description": "Estimate a one-repetition maximum from a submaximal lift using Epley, Brzycki and supported Lombardi comparisons.",
@@ -3262,7 +3470,8 @@
           "A one-repetition-maximum estimate uses a weight lifted for several repetitions to infer a single-repetition value under the displayed equation. The estimate is sensitive to the repetition count and how representative the set was. Use it as a comparison of entered sets, not an instruction to attempt the predicted load. The calculation cannot assess technique, fatigue, injury, or readiness to lift."
         ]
       }
-    ]
+    ],
+    "seoTitle": "One Rep Max Calculator: Compare Estimated 1RM Equations"
   },
   "target-heart-rate-calculator": {
     "description": "Compare estimated maximum heart rates and target ranges, or use the talk test to check exercise intensity.",
@@ -3287,7 +3496,8 @@
           "The heart-rate modes use the selected maximum-rate assumption or measured value to calculate a range. Different maximum-heart-rate equations can therefore change the range without any change in the person's actual response to exercise. The talk-test mode provides a different way to describe intensity. Read the limitations before using a calculated range as an exercise target, particularly when individualized guidance is needed."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Target Heart Rate Calculator: Ranges & Exercise Intensity"
   },
   "pace-calculator": {
     "description": "Calculate pace, speed, time and distance, review cumulative splits, or project a finish from the average pace so far.",
@@ -3299,6 +3509,10 @@
       {
         "question": "Does the finish projection account for slowing down later?",
         "answer": "No. It assumes the average pace over the completed distance continues unchanged for the remaining distance."
+      },
+      {
+        "question": "Can I use miles and enter time as hours, minutes and seconds?",
+        "answer": "Choose Pace, splits & speed in multiple units. Select Miles as the distance unit and HH:MM:SS as the elapsed-time input. For example, enter 00:30:00 for thirty minutes. Decimal-minute fields use 30 for the same duration, not 0.30."
       }
     ],
     "sections": [
@@ -3308,7 +3522,8 @@
           "Pace expresses time per distance, while speed expresses distance per time. A smaller pace value can therefore describe faster movement. Check the distance units and time format before comparing runs. The split modes summarize checkpoints, while projected finish times extend the entered assumptions to a target distance; they do not predict terrain, fatigue, or race-day conditions."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pace Calculator: Running Time, Distance, Speed & Splits"
   },
   "pregnancy-calculator": {
     "description": "Estimate pregnancy dates from menstrual history, conception, ultrasound, IVF transfer or a known due date, with dating assumptions explained.",
@@ -3329,7 +3544,8 @@
           "Select the dating mode that matches the information available, such as a menstrual date, IVF transfer, ultrasound dating, or a known due date. These inputs represent different starting points and should not be substituted for one another. The calculated timeline is an estimate under the selected method. It does not confirm a pregnancy or replace dating and follow-up by a maternity care professional."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pregnancy Calculator: Due Date & Gestational Age"
   },
   "due-date-calculator": {
     "description": "Estimate a due date from the last period, conception date, IVF transfer or ultrasound dating, using the selected method's inputs.",
@@ -3350,7 +3566,8 @@
           "An estimated due date depends on the dating method and the accuracy of the information entered. Choose the menstrual, conception, IVF, or ultrasound mode that matches the source of your dates. A due date is a reference point for a pregnancy timeline rather than a prediction of the exact day of birth. Clinical dating may differ when additional information is available."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Due Date Calculator: Period, Conception, IVF & Ultrasound"
   },
   "pregnancy-conception-calculator": {
     "description": "Estimate conception timing from a known due date or other pregnancy-dating information, while keeping the uncertainty of dates explicit.",
@@ -3371,7 +3588,8 @@
           "Working backward from a due date or another pregnancy date gives a modeled conception timeline, not proof of a particular event. Different dating inputs and their uncertainty can shift the estimate. Select the mode corresponding to the information you actually know. This calculator cannot establish paternity or identify an exact fertilization date from an approximate pregnancy timeline."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pregnancy Conception Calculator: Estimated Conception Date"
   },
   "conception-calculator": {
     "description": "Estimate a possible fertile window from cycle history and explore menstrual, conception, ultrasound or IVF pregnancy-dating methods.",
@@ -3392,7 +3610,8 @@
           "A cycle-based fertile-window estimate and a pregnancy-dating calculation answer different questions. Use cycle inputs to explore a modeled window, or the appropriate dating mode when pregnancy information is already available. Calendar estimates do not confirm ovulation or conception. Avoid treating a calculated window as a reliable method of contraception or as evidence of a specific conception event."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Conception Calculator: Fertile Window & Pregnancy Dates"
   },
   "ovulation-calculator": {
     "description": "Estimate ovulation timing and a possible fertile window from cycle length and luteal-phase assumptions, without confirming ovulation.",
@@ -3413,7 +3632,8 @@
           "The ovulation calculator estimates a window from the cycle information you enter. A typical cycle length does not establish when ovulation occurs in any particular cycle, and variation can shift the dates. Review the result as a calendar estimate rather than a confirmation. It should not be used as a reliable contraceptive method or to diagnose a fertility concern."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Ovulation Calculator: Estimated Fertile Window"
   },
   "period-calculator": {
     "description": "Project a next-period date from menstrual history and assumed cycle length, with associated cycle estimates and their limitations.",
@@ -3434,7 +3654,8 @@
           "A period-date estimate extends the entered cycle pattern into the future. Check that the starting date and cycle length describe the information you intend to use. Cycles can vary, so a predicted date is not a guarantee or a diagnosis when a period arrives earlier or later. The calculation does not identify the reason for a change in a person's cycle."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Period Calculator: Next Period & Cycle Date Estimates"
   },
   "pregnancy-weight-gain-calculator": {
     "description": "Compare pregnancy weight gain with BMI-specific singleton or twin reference guidance, without prescribing an exact week-by-week target.",
@@ -3455,7 +3676,8 @@
           "The calculator compares the entered pregnancy information with the reference framework described on this page. Check the starting measurements and pregnancy timing before interpreting the result. A reference range does not determine what is appropriate for every pregnancy or explain a sudden change in weight. Individual maternity care takes account of information that is not captured by this calculation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pregnancy Weight Gain Calculator: Reference Ranges"
   },
   "gfr-calculator": {
     "description": "Estimate eGFR with adult race-free CKD-EPI 2021 or pediatric bedside Schwartz equations, using creatinine and model-specific inputs.",
@@ -3467,6 +3689,10 @@
       {
         "question": "Can I use the adult equation for a child?",
         "answer": "No. The pediatric mode uses the bedside Schwartz relationship with height and creatinine, under clinical supervision rather than the adult equation."
+      },
+      {
+        "question": "Which creatinine unit should I select?",
+        "answer": "Match the unit printed on the laboratory report before entering the value. The calculator accepts mg/dL and µmol/L. The pediatric mode also asks for a separate height unit; a creatinine value and a height are different measurements."
       }
     ],
     "sections": [
@@ -3476,7 +3702,8 @@
           "The adult and pediatric eGFR modes use different equations and required measurements. Select the appropriate method and verify the laboratory units before entering a result. An estimated filtration rate is not the same as a direct measurement and must be interpreted in clinical context. A single calculated value cannot by itself establish a diagnosis or determine treatment."
         ]
       }
-    ]
+    ],
+    "seoTitle": "GFR Calculator: Adult & Pediatric eGFR Estimates"
   },
   "bac-calculator": {
     "description": "Explore a rough Widmark blood-alcohol estimate from one drink input or multiple beverages, with major safety limitations made explicit.",
@@ -3497,7 +3724,8 @@
           "A BAC estimate models alcohol intake using the selected beverage amounts, timing, and body assumptions. Actual alcohol concentration and impairment can differ from that model. Check whether amounts describe beverage volume or alcohol content, and use the multiple-beverage mode when appropriate. Do not use the estimated concentration or time to decide whether it is safe or legal to drive."
         ]
       }
-    ]
+    ],
+    "seoTitle": "BAC Calculator: Blood Alcohol Estimate & Limitations"
   },
   "average-calculator": {
     "description": "Calculate the mean of a number list and compare it with the median, range and other measures of the dataset's spread.",
@@ -3518,7 +3746,8 @@
           "For the values 10, 12, 14, and 100, the sum is 136 and the arithmetic mean is 34. The median is 13, halfway between the two middle values after sorting. The large value of 100 pulls the mean upward, which is why reporting only the average can hide the shape of the data. Include each observation once and use consistent units. For course grades or other weighted observations, use a tool that accepts weights rather than treating every value equally."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Average Calculator: Mean, Median & Range"
   },
   "mean-median-mode-range-calculator": {
     "description": "Find mean, median, mode and range from a dataset and compare what each measure reveals about its center and spread.",
@@ -3539,7 +3768,8 @@
           "The mean, median, mode, and range answer different questions about the same data. The mode identifies repeated values, while the range depends only on the smallest and largest entries. Two datasets can share a mean and still have very different distributions. Review the original values as well as these summaries, especially when the list contains outliers or repeated measurements."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Mean, Median, Mode & Range Calculator"
   },
   "statistics-calculator": {
     "description": "Summarize a numeric dataset with measures of center, spread and distribution, including sample and population variance.",
@@ -3560,7 +3790,8 @@
           "Before calculating, make sure the dataset contains comparable observations and that missing entries have not been replaced with zeros unless zero is an actual measurement. The summary describes the list you enter. Compare measures of center with measures of spread to avoid presenting a typical value without context. Descriptive statistics alone do not establish a cause or support a population-wide conclusion."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Statistics Calculator: Mean, Variance & Standard Deviation"
   },
   "standard-deviation-calculator": {
     "description": "Calculate sample and population standard deviation and variance from a number list, with the different denominators explained.",
@@ -3581,7 +3812,8 @@
           "For 2, 4, and 6, the mean is 4. Squared deviations are 4, 0, and 4, totaling 8. Treating the list as the whole population gives variance 8 ÷ 3 and standard deviation about 1.63. Treating it as a sample gives variance 8 ÷ 2 = 4 and standard deviation 2. Choose the interpretation that matches your data, not the smaller answer. Standard deviation uses the original unit; variance uses its square."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Standard Deviation Calculator: Sample & Population"
   },
   "percent-calculator": {
     "description": "Find a percentage, percentage change or difference, adjust a value, and reverse a change to recover the original amount.",
@@ -3626,7 +3858,8 @@
           "Percent error compares a measured or estimated value with a reference value. The reference belongs in the denominator, so swapping the two values changes the meaning of the answer. Check the selected formula's treatment of the sign and absolute difference. If the reference is zero, a relative percentage cannot be interpreted in the same way as an ordinary nonzero comparison."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Percent Error Calculator: Absolute & Signed Error"
   },
   "scientific-calculator": {
     "description": "Evaluate mathematical expressions with powers, logarithms and trigonometric functions, using an explicit degree or radian setting.",
@@ -3647,7 +3880,8 @@
           "Use parentheses to make the intended order of operations explicit, particularly around fractions, powers, and negative values. Check the supported function names and angle convention before entering a trigonometric expression. A mathematically valid expression can still answer the wrong question if the grouping is different. Compare the entered expression with the original problem before relying on the numerical result."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Scientific Calculator: Powers, Logs & Trigonometry"
   },
   "basic-calculator": {
     "description": "Calculate arithmetic expressions with parentheses and standard operation order, using explicit multiplication and readable results.",
@@ -3668,7 +3902,8 @@
           "The basic calculator evaluates the expression you enter using its supported operators and order of operations. Use parentheses when a subtotal should be calculated first, such as a combined price before a division. Keep track of units outside the expression so that unlike quantities are not added accidentally. Rounding a displayed answer does not necessarily mean the original inputs were equally precise."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Basic Calculator: Arithmetic & Parentheses"
   },
   "big-number-calculator": {
     "description": "Work with exact integer operations, bounded high-precision decimals and mathematical expressions, choosing the mode suited to the numbers.",
@@ -3689,7 +3924,8 @@
           "Very large integers and decimal expressions can require different arithmetic methods. Use exact integer operations when all inputs and the requested operation fit that mode. For decimal work, review the precision setting and the displayed limitations. A long result is not automatically an exact result, particularly when division creates a repeating decimal or the selected expression uses an approximate function."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Big Number Calculator: Integer & Decimal Arithmetic"
   },
   "fraction-calculator": {
     "description": "Add, subtract, multiply, divide, simplify and compare fractions, with mixed-number and decimal input support.",
@@ -3710,7 +3946,8 @@
           "A fraction represents a numerator relative to a nonzero denominator. Simplifying changes the written form without changing that value. Use comparison mode when you need to order fractions, and arithmetic mode when combining them. For addition and subtraction, the denominators describe the unit being counted, so adding numerators and denominators independently does not produce the correct sum."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Fraction Calculator: Add, Subtract, Simplify & Compare"
   },
   "ratio-calculator": {
     "description": "Simplify a ratio, find a missing value in a proportion, or scale both quantities. See worked examples for equivalent ratios and whole-number simplification.",
@@ -3753,7 +3990,8 @@
           "Write the equation in the standard quadratic form before entering its coefficients, including any negative signs and a zero coefficient for a missing linear term. The roots are the input values where the expression equals zero. The discriminant helps explain whether the roots are distinct, repeated, or non-real under the supported output. A zero leading coefficient describes a different type of equation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Quadratic Formula Calculator: Real & Complex Roots"
   },
   "exponent-calculator": {
     "description": "Calculate a number raised to a power, including negative and fractional exponents. See the result and the limits for real-number calculations.",
@@ -3796,7 +4034,8 @@
           "The root index specifies which power would reproduce the entered value. A square root and a cube root therefore answer different questions about the same number. Review the real-number restrictions when the input is negative or the index is not a whole number. The calculator's root result should not be confused with listing every possible solution of a polynomial equation."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Root Calculator: Square, Cube & nth Roots"
   },
   "log-calculator": {
     "description": "Calculate logarithms in a valid positive base, or solve for a missing argument or base from a known logarithm.",
@@ -3817,7 +4056,8 @@
           "A logarithm asks which exponent gives the entered argument for a chosen base. Changing the base changes the result, even though the argument stays the same. Use the missing-base or missing-argument mode only when those are the unknown quantities in your problem. Check the real logarithm domain before calculating; not every combination of signs and base values is valid."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Log Calculator: Custom Bases & Natural Logarithms"
   },
   "half-life-calculator": {
     "description": "Model exponential decay, solve for remaining or initial quantity and elapsed time, or convert half-life and decay constants.",
@@ -3838,7 +4078,8 @@
           "The half-life calculator uses an exponential-decay model with a constant rate. Choose remaining quantity, initial quantity, elapsed time, or half-life according to what is unknown. Keep the time unit consistent across the inputs. The mathematical model does not establish the actual half-life of a substance or account for additional production, changing conditions, or multiple interacting decay processes."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Half-Life Calculator: Decay, Time & Remaining Quantity"
   },
   "lcm-calculator": {
     "description": "Find the least common multiple of whole numbers and use it to identify a shared repeating interval or denominator.",
@@ -3859,7 +4100,8 @@
           "The least common multiple is useful when you need the smallest positive quantity that is a multiple of every entered whole number. It differs from a greatest common factor, which looks for a shared divisor. For fraction problems, an LCM can help identify a common denominator. Check that inputs represent whole-number quantities before applying the result to a repeating schedule or grouping problem."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Least Common Multiple Calculator (LCM)"
   },
   "gcf-calculator": {
     "description": "Find the greatest common factor of a set of whole numbers using the Euclidean greatest-common-divisor relationship.",
@@ -3880,7 +4122,8 @@
           "The greatest common factor identifies the largest shared positive divisor of the entered whole numbers. It is useful for simplifying ratios and fractions or finding the largest equal grouping size. A common multiple answers a different question and can be much larger than the inputs. Review how the tool handles zeros and signs before interpreting an edge case."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Greatest Common Factor Calculator (GCF & GCD)"
   },
   "common-factor-calculator": {
     "description": "List the positive factors shared by all entered whole numbers and identify their greatest common factor.",
@@ -3901,14 +4144,15 @@
           "Common factors are whole-number divisors shared by the entered values. The largest item has a special role as the greatest common factor, but smaller factors may be useful when choosing a grouping size. Check the original values when verifying the list: each reported factor should divide every relevant input without a remainder. Common factors should not be confused with common multiples."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Common Factor Calculator: Shared Factors of Whole Numbers"
   },
   "factor-calculator": {
-    "description": "List the positive factors of an integer and its prime decomposition, with inputs capped to keep trial division responsive.",
+    "description": "List all positive factors of a whole number and count its divisors. Enter an integer up to one trillion and check which numbers divide it without a remainder.",
     "faqs": [
       {
-        "question": "What is the difference between factors and prime factors?",
-        "answer": "Factors divide the number without a remainder. Prime factors are prime numbers whose repeated product reconstructs it."
+        "question": "Does this calculator show all factors or only prime factors?",
+        "answer": "It lists all positive factors and the factor count. For 12, the list is 1, 2, 3, 4, 6 and 12. Use the Prime Factorization Calculator to express a number as a product of primes."
       },
       {
         "question": "Why is the input limited to one trillion?",
@@ -3917,15 +4161,16 @@
     ],
     "sections": [
       {
-        "title": "Understanding factors and prime factorization",
+        "title": "Reading a positive-factor list",
         "paragraphs": [
-          "A factor divides an integer without leaving a remainder. The factor list and the prime decomposition describe the same integer in different ways: one lists divisors, while the other expresses a product of prime numbers. Check how signs and special inputs are treated in the mode's notes. Multiplying the prime factors back together is a useful way to verify a decomposition."
+          "A positive factor divides the entered integer without a remainder. For 12, both 2 and 6 are factors because 2 × 6 = 12; 1 and the number itself also belong in the list. The calculator reports all positive divisors and their count, rather than a prime decomposition. A prime number has exactly two positive factors, while 1 has one positive factor. Use the separate prime-factorization tool when you need the product of primes."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Factor Calculator: All Positive Factors & Factor Count"
   },
   "prime-factorization-calculator": {
-    "description": "Break a positive integer into prime factors and repeated powers, within the supported one-trillion input limit.",
+    "description": "Express a positive integer as a product of prime factors, including repeated factors. Supports whole numbers up to one trillion.",
     "faqs": [
       {
         "question": "How are repeated prime factors shown mathematically?",
@@ -3938,12 +4183,13 @@
     ],
     "sections": [
       {
-        "title": "Using a prime decomposition",
+        "title": "Reading repeated prime factors",
         "paragraphs": [
-          "Prime factorization writes a supported integer as a product of primes, with repeated factors grouped by exponent where shown. This representation can help compare divisibility or derive common factors and multiples. The exponent counts repeated multiplication; it is not an additional factor to add. Verify the result by reconstructing the original integer from the displayed prime powers."
+          "The calculator displays prime factors as a multiplication product. For 72, the result is 2 × 2 × 2 × 3 × 3. You can write the same product as 2³ × 3²: the exponent counts how many times a prime repeats. Multiplying the displayed factors reconstructs the original integer. One has no prime factors. To list every positive divisor rather than only the prime factors, use the Factor Calculator."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Prime Factorization Calculator: Prime Factors of a Number"
   },
   "long-division-calculator": {
     "description": "Divide whole numbers and see the quotient, remainder and digit-by-digit long division. Check your answer with divisor × quotient + remainder.",
@@ -4030,7 +4276,8 @@
           "Binary notation uses a different place-value base from ordinary decimal notation. The same written sequence of digits can therefore represent a different amount depending on the chosen base. Select conversion mode when changing notation and arithmetic mode when operating on binary inputs. Keep leading zeros only when a fixed bit width is relevant to your separate application."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Binary Calculator: Arithmetic & Decimal Conversion"
   },
   "hex-calculator": {
     "description": "Calculate exact hexadecimal integer operations and convert signed values between base 16 and decimal, using digits 0–9 and A–F.",
@@ -4051,7 +4298,8 @@
           "Hexadecimal notation uses digits and letter symbols to represent values in a base larger than decimal. Check the input mode before pasting a number, because a string containing only digits can still have different values in different bases. Conversion changes representation rather than quantity. Arithmetic results follow the supported number model, not every fixed-width overflow rule used by programming languages."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Hex Calculator: Hexadecimal Arithmetic & Conversion"
   },
   "number-sequence-calculator": {
     "description": "Generate arithmetic, geometric and Fibonacci sequences or find a selected term and series sum with explicit index conventions.",
@@ -4072,7 +4320,8 @@
           "A sequence calculator can extend only the pattern described by the selected model and inputs. Several different rules can fit a short list of terms, so an apparent pattern is not proof of a unique continuation. Distinguish the value of a particular term from the sum of several terms. Check the starting index and common difference or ratio when comparing results."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Number Sequence Calculator: Arithmetic, Geometric & Fibonacci"
   },
   "permutation-and-combination-calculator": {
     "description": "Count ordered selections and unordered groups of distinct objects without replacement, using permutation and combination formulas.",
@@ -4093,7 +4342,8 @@
           "Choosing 3 people from 5 for an unordered team gives 5! ÷ (3! × 2!) = 10 combinations. Assigning 3 different positions to people from the same group gives 5 × 4 × 3 = 60 permutations, because changing the order changes the assignment. Both calculations assume distinct people and no repeated selection. Decide whether positions matter before choosing the result; the number of outcomes alone does not establish that every outcome is equally likely."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Permutation & Combination Calculator: nPr and nCr"
   },
   "random-number-generator": {
     "description": "Generate random whole numbers or fixed-precision decimals within bounds, with unique-value and sorting options using exact sampling.",
@@ -4114,7 +4364,8 @@
           "Choose the minimum, maximum, and number of results according to the sample you need. Check whether endpoints are included and whether repeated values are allowed in the selected options. A random sample can contain clusters or repeats without indicating an error. Keep the generator's stated limitations in mind before using output for a security-sensitive or formally regulated drawing."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Random Number Generator: Ranges, Decimals & No Repeats"
   },
   "z-score-calculator": {
     "description": "Standardize a value as a z-score, explore normal tail probabilities or recover a boundary from a known normal probability.",
@@ -4135,7 +4386,8 @@
           "A z-score expresses how far a value is from the entered mean in standard-deviation units. Its sign shows the direction of that difference. A probability interpretation additionally relies on the selected distribution assumption; standardizing a value does not by itself make the data normally distributed. Use the interval or inverse mode only when that is the probability question you intend to answer."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Z-Score Calculator: Standard Scores & Normal Probabilities"
   },
   "sample-size-calculator": {
     "description": "Estimate a survey proportion's sample size or margin of error, with confidence, expected proportion and finite-population assumptions.",
@@ -4156,7 +4408,8 @@
           "With 95% confidence, a 50% expected proportion, a 5-percentage-point margin of error, and unlimited population, the normal approximation requires 385 observations after rounding up. Halving the margin to 2.5 percentage points increases the requirement to 1,537, roughly four times as many. The 50% proportion gives the largest p(1−p) when no better estimate is available. This count assumes random independent sampling; it does not correct selection bias or include extra invitations needed for nonresponse."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Sample Size Calculator: Surveys & Margin of Error"
   },
   "confidence-interval-calculator": {
     "description": "Estimate a confidence interval for a mean using Student t or normal z assumptions, sample size and standard deviation.",
@@ -4177,7 +4430,8 @@
           "With a sample mean of 100, known population standard deviation of 15, and sample size of 100, the standard error is 15 ÷ √100 = 1.5. A 95% normal-z interval is approximately 100 ± 1.96 × 1.5, or 97.06 to 102.94. If the standard deviation is estimated from the sample, select Student t instead. The interval estimates the population mean; it is not a range containing 95% of individual observations. Its coverage relies on the sampling and distribution assumptions."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Confidence Interval Calculator: Mean, t & z Intervals"
   },
   "p-value-calculator": {
     "description": "Find tail probabilities from z, t, chi-square or F statistics, with required degrees of freedom and normal inverse-probability options.",
@@ -4198,7 +4452,8 @@
           "Select the test direction and distribution assumptions that match the question being tested. One-sided and two-sided probabilities can differ for the same standardized statistic. A p-value describes evidence under the specified null model; it is not the probability that a hypothesis is true or a measure of practical importance. Interpret it alongside the effect size and study design."
         ]
       }
-    ]
+    ],
+    "seoTitle": "P-Value Calculator: z, t, Chi-Square & F Tests"
   },
   "probability-calculator": {
     "description": "Explore event unions and intersections, solve independent-event constraints, model repeated trials or calculate normal probabilities.",
@@ -4210,16 +4465,21 @@
       {
         "question": "Why can the independent-event solver return two solutions?",
         "answer": "Some aggregate constraints fit two labeled event pairs. Redundant constraints can also leave infinitely many possibilities rather than a unique pair."
+      },
+      {
+        "question": "Should I enter a probability as 0.4 or 40?",
+        "answer": "Use 0.4 for a 40% event probability in the event and repeated-trial modes. In Normal probability to boundary, the Tail probability field is labeled %, so use 40 for 40%. Match the field label rather than using one convention for every mode."
       }
     ],
     "sections": [
       {
         "title": "Checking dependence and event definitions",
         "paragraphs": [
-          "For independent events with probabilities 0.4 and 0.3, the chance of both is 0.4 × 0.3 = 0.12. The chance of at least one is 0.4 + 0.3 − 0.12 = 0.58, because outcomes where both happen must not be counted twice. Independence is an assumption, not something established by entering two probabilities. If the events are dependent, use their actual intersection or conditional information rather than the independent-event shortcut. Probability fields use decimals from 0 to 1."
+          "For independent events with probabilities 0.4 and 0.3, the chance of both is 0.4 × 0.3 = 0.12. The chance of at least one is 0.4 + 0.3 − 0.12 = 0.58, because outcomes where both happen must not be counted twice. Independence is an assumption, not something established by entering two probabilities. If the events are dependent, use their actual intersection or conditional information rather than the independent-event shortcut. Event and repeated-trial probability inputs use decimals from 0 to 1. The Normal probability to boundary mode instead labels its input as a percentage, so enter 97.5 for 97.5%."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Probability Calculator: Events, Trials & Normal Distribution"
   },
   "slope-calculator": {
     "description": "Find slope and a line equation from two points, or determine endpoints from a point, distance and direction.",
@@ -4240,7 +4500,8 @@
           "Slope compares the vertical change with the horizontal change between two points. Keep the point order consistent in both differences. A vertical line has no finite slope under this ratio, while a horizontal line has zero slope. In direction-based mode, check the angle convention and distance input before comparing coordinates with a slope obtained from two known points."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Slope Calculator: Two Points, Line Equation & Endpoints"
   },
   "distance-calculator": {
     "description": "Calculate coordinate distance or spherical great-circle distance from decimal or degree-minute-second latitude and longitude.",
@@ -4251,7 +4512,7 @@
       },
       {
         "question": "How do I enter southern or western DMS coordinates?",
-        "answer": "Use a nonnegative degree magnitude and select S or W. The hemisphere supplies the sign."
+        "answer": "Type a nonnegative degree magnitude followed by minutes, seconds and the hemisphere letter. For example, enter 33 52 08 S for a southern latitude. Use W for a western longitude; the hemisphere letter supplies the sign."
       }
     ],
     "sections": [
@@ -4261,7 +4522,8 @@
           "Coordinate distance treats points in the selected mathematical space, while great-circle distance models locations on a curved Earth. Use latitude and longitude fields only with the geographic mode, and check signs and angle units. A geographic straight-line estimate is different from a road route. For travel mileage along roads, use the separate driving-route calculator and review its provider result."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Distance Calculator: Coordinates & Great-Circle Distance"
   },
   "pythagorean-theorem-calculator": {
     "description": "Find a right triangle's hypotenuse from two perpendicular legs, or recover one leg from the hypotenuse and the other leg.",
@@ -4282,7 +4544,8 @@
           "The Pythagorean theorem applies to a right triangle. The hypotenuse is opposite the right angle and is the longest side, so it cannot be interchanged with a leg when choosing the unknown. Use consistent length units for all sides. A valid arithmetic result does not establish that a measured triangle actually has a right angle."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Pythagorean Theorem Calculator: Hypotenuse or Missing Leg"
   },
   "right-triangle-calculator": {
     "description": "Solve a right triangle from supported pairs of known measurements, returning sides, angles, area and possible alternate solutions.",
@@ -4303,7 +4566,8 @@
           "Choose the pair of known quantities supported by the mode, such as two sides or a side and an acute angle. Label the hypotenuse and legs carefully before entering values. The right-angle assumption supplies information that a general triangle problem does not have. Review the resulting side lengths and angle units together to check that the solution matches the diagram you intended."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Right Triangle Calculator: Sides, Angles & Area"
   },
   "triangle-calculator": {
     "description": "Solve SSS, SAS, ASA or ambiguous SSA triangles, with angles, area and derived measurements such as altitudes, medians and radii.",
@@ -4324,7 +4588,8 @@
           "Three sides, two sides with an included angle, and two angles with a side provide different starting information. Select the matching case rather than placing an unrelated measurement in an available field. A side-side-angle problem can have ambiguous solutions, which is why the selected method matters. Check whether the entered values can form a triangle before interpreting its area or angles."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Triangle Calculator: Solve SSS, SAS, ASA & SSA"
   },
   "circle-calculator": {
     "description": "Find a circle's radius, diameter, circumference and area from any one of those measurements using consistent length units.",
@@ -4345,18 +4610,35 @@
           "The radius runs from the center to the circle, while the diameter spans the circle through its center. Circumference measures the boundary and area measures the enclosed region. Mixing those quantities can produce a plausible-looking number with the wrong meaning. Keep length units consistent and remember that area uses squared units rather than the original length unit."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Circle Calculator: Radius, Diameter, Area & Circumference"
   },
   "area-calculator": {
-    "description": "Calculate the area of rectangles, circles, triangles and more. Choose measurement units and see formulas, worked examples and square-unit results.",
+    "description": "Calculate area for rectangles, squares, triangles, circles and more. Mix measurement units and see results in square feet, square meters, acres or hectares.",
     "faqs": [
       {
-        "question": "Is a triangle's height the same as its sloping side?",
-        "answer": "Not usually. Base-and-height area uses the perpendicular distance to the base. Use the three-side mode when only side lengths are known."
+        "question": "How do I calculate area in square feet?",
+        "answer": "Choose the shape and set Area unit to Square feet. For a rectangle measured in feet, multiply length by width: 12 ft × 10 ft = 120 ft². You can also enter inches, meters, or mixed units; the calculator converts each dimension before finding the area."
       },
       {
-        "question": "Can dimensions use different length units?",
-        "answer": "Yes, when the unit selectors are used correctly. The engine converts each dimension and expresses area in the selected square unit."
+        "question": "How do I calculate circle area from a diameter?",
+        "answer": "Divide the diameter by 2, then enter that value as the radius in Circle mode. For a diameter of 10 m, the radius is 5 m and the area is π × 5² ≈ 78.54 m². Using the diameter as the radius makes the answer four times too large."
+      },
+      {
+        "question": "Is a triangle's height the same as its sloping side?",
+        "answer": "Usually not. The height is the perpendicular distance from the opposite vertex to the line containing the base. If you only know the three side lengths, choose Triangle from three sides instead of using a sloping side as the height."
+      },
+      {
+        "question": "Can I calculate land area from four side lengths?",
+        "answer": "Not for an arbitrary quadrilateral. The same four side lengths can enclose different areas as the angles change. A known rectangle needs length and width; a trapezoid needs both parallel bases and perpendicular height. Otherwise, obtain additional measurements such as a diagonal that divides the plot into two triangles."
+      },
+      {
+        "question": "How do I convert square feet to acres or square meters to hectares?",
+        "answer": "Divide square feet by 43,560 to get acres, or square meters by 10,000 to get hectares. For example, 30,000 ft² is approximately 0.688705 acres and 9,600 m² is 0.96 hectares. You can choose Acres or Hectares as the result unit directly."
+      },
+      {
+        "question": "How do I enter feet and inches?",
+        "answer": "Use decimal feet or convert the entire measurement to inches. For 5 ft 6 in, enter 5.5 with Feet selected or 66 with Inches selected. Entering 5.6 feet means 5 feet 7.2 inches, so it changes the area."
       }
     ],
     "sections": [
@@ -4370,11 +4652,27 @@
     "seoTitle": "Area Calculator: Rectangle, Circle, Triangle & More"
   },
   "volume-calculator": {
-    "description": "Calculate the volume of a cylinder, sphere, cube, cone and other solids. Choose units and compare formulas with worked examples in cubic units.",
+    "description": "Calculate volume for 11 solids, including cylinders, spheres, cubes, cones, and prisms. Use mixed units, labeled diagrams, formulas, and cubic-unit examples.",
     "faqs": [
+      {
+        "question": "How do I calculate the volume of a rectangular prism?",
+        "answer": "Multiply length by width by height after converting dimensions to compatible units. A 6 m × 4 m × 2 m prism has a volume of 48 m³. You can select a different unit for each input; the calculator converts the dimensions before calculating."
+      },
+      {
+        "question": "Can I mix feet, inches, and meters?",
+        "answer": "Yes. Choose the actual unit beside each measurement and select the cubic output unit. A box 2 ft long, 12 in wide, and 6 in high has a volume of 1 ft³. Enter 5 ft 6 in as 5.5 feet or 66 inches, not 5.6 feet."
+      },
+      {
+        "question": "How do I convert cubic meters to liters?",
+        "answer": "Multiply cubic meters by 1,000. For example, 0.2 m³ is 200 liters. One cubic centimeter equals one milliliter. Use inside dimensions to estimate the capacity of a full container."
+      },
       {
         "question": "Which volume does the hollow-cylinder mode calculate?",
         "answer": "It subtracts the inner cylinder from the outer cylinder, giving the volume of the surrounding material rather than the empty bore."
+      },
+      {
+        "question": "Does capsule length include the rounded ends?",
+        "answer": "The Cylinder length input includes only the straight section. The total end-to-end length is that straight length plus twice the radius. The calculator adds the volume of both hemispherical ends automatically."
       },
       {
         "question": "Why can spherical-cap dimensions give two answers?",
@@ -4385,22 +4683,38 @@
       {
         "title": "Matching dimensions to a solid shape",
         "paragraphs": [
-          "Volume measures the space inside the modeled solid. Select the correct shape and distinguish radius, diameter, height, and slant-related measurements using the field labels. All dimensions must use compatible units before combining them. The result uses cubic units and describes the idealized shape; wall thickness, openings, or irregular geometry need a mode or separate calculation that accounts for them."
+          "Select a solid and use its diagram to identify radius, perpendicular height, and semi-axes. Each dimension can use its own unit; the calculator converts the lengths before applying the formula. Choose Volume unit to return cubic feet, cubic meters, or another supported cubic unit. For capacity, use inside measurements. Wall thickness and openings need a mode or separate calculation that accounts for them."
         ]
       }
     ],
     "seoTitle": "Volume Calculator: Cylinder, Sphere, Cube & More"
   },
   "surface-area-calculator": {
-    "description": "Calculate the surface area of spheres, cylinders, cones and other solids. Choose units and see the formulas and assumptions for each shape.",
+    "description": "Calculate surface area for 11 solids with labeled diagrams and mixed units. Compare formulas, worked examples, and which faces or bases each result includes.",
     "faqs": [
       {
+        "question": "What is the difference between surface area and volume?",
+        "answer": "Surface area measures a solid’s faces and curved surfaces in square units. Volume measures the space inside it in cubic units. A cube with edges of 3 m has surface area 54 m² and volume 27 m³."
+      },
+      {
+        "question": "Does the cylinder result include both circular ends?",
+        "answer": "Yes. Total cylinder area is 2πr² + 2πrh. For an open-top cylinder, subtract one base area, πr². For only the curved side, use 2πrh."
+      },
+      {
+        "question": "Can I use mixed measurement units?",
+        "answer": "Yes. Choose each dimension’s unit and a square output unit. A prism 2 ft × 12 in × 6 in has surface area 7 ft². The calculator converts the dimensions before adding the faces."
+      },
+      {
         "question": "Does spherical-cap surface area include the flat base?",
-        "answer": "The total includes both the curved surface and flat base. The alternate cap mode also shows those parts separately."
+        "answer": "Yes. Total area is the curved area 2πrh plus the flat base area π(2rh − h²). The alternate cap mode lists the curved area and total area separately, along with cap height and volume."
       },
       {
         "question": "Is the ellipsoid surface-area result exact?",
         "answer": "No. The engine uses the stated Knud Thomsen approximation with exponent 1.6075; ellipsoid volume uses a separate exact formula."
+      },
+      {
+        "question": "Which surfaces are counted for a hollow cylinder?",
+        "answer": "The total includes the outer curved wall, inner curved wall, and both flat ring-shaped ends. If you need only the outside wall, calculate 2πrh using the outer radius and height."
       }
     ],
     "sections": [
@@ -4432,10 +4746,11 @@
           "Matrix operations have different dimension requirements. Addition needs matching shapes, while multiplication matches the first matrix's column count with the second matrix's row count. Reversing multiplication can change the result or make the operation undefined. For an inverse or determinant, review the square-matrix requirements and singularity limitations. Check row order and separators when entering the values."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Matrix Calculator: Multiply, Invert & Find Determinants"
   },
   "mileage-calculator": {
-    "description": "Plan a road journey between selected locations.",
+    "description": "Calculate driving distance and estimated travel time between places or coordinates using mapped roads, without live traffic or stop durations.",
     "faqs": [
       {
         "question": "Is this straight-line distance?",
@@ -4457,7 +4772,8 @@
           "Driving mileage comes from the selected locations and the route returned by the map provider. Check the start and destination details before interpreting the distance, especially when several places share a name. Road distance is different from a straight-line geographic measurement. Provider availability, road data, and route choices can affect the result, and the estimate does not establish actual travel conditions."
         ]
       }
-    ]
+    ],
+    "seoTitle": "Driving Distance Calculator: Road Route & Travel Time"
   },
   "freelance-rate-calculator": {
     "description": "Calculate freelance hourly and day rates, plus project quotes, from your income goal, expenses, tax reserve, time off, and billable hours.",
@@ -5247,6 +5563,10 @@
       {
         "question": "What if the required future GPA exceeds my school's maximum?",
         "answer": "The target is unattainable under the entered credit plan and scale. Changing future credits or the target changes the scenario."
+      },
+      {
+        "question": "Why do remaining credits change the GPA I need?",
+        "answer": "The target is based on total quality points divided by total graded credits. More remaining credits give future grades a larger share of the final cumulative GPA; use only credits that your institution includes in that calculation."
       }
     ],
     "description": "Calculate the future GPA needed to reach your cumulative GPA goal and compare scenarios for your remaining credits.",

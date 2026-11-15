@@ -69,6 +69,10 @@ describe('Independent currency arithmetic and quote precision', () => {
     expect(() => globalConversion(1, 'EUR', 'JPY', snapshot({EUR: quote('EUR', '1e-308'), JPY: quote('JPY', '1e308')}))).toThrow(/range/i);
     expect(() => validateGlobalRates(snapshot({EUR: quote('EUR', '1e-1000')}), NOW)).toThrow();
   });
+
+  it.each(['AAVE', 'USDC', 'USDT'])('does not loosen currency validation to accept unsupported %s assets', code => {
+    expect(() => parseFrankfurterRows([row(), row({quote: code, rate: 1})], NOW)).toThrow();
+  });
 });
 
 describe('Observation dates, freshness and raw attribution', () => {
@@ -197,7 +201,16 @@ describe('Global endpoint with mocked public providers', () => {
       const url = String(input);
       if (fail && url.includes(fail)) return new Response('', {status: 503});
       const date = new Date().toISOString().slice(0, 10);
-      if (url === FRANKFURTER_RATES) return json([row({date}), row({quote: 'CLP', rate: 900, date}), {base: 'USD', quote: 'USD', rate: 1, date}]);
+      if (url.startsWith('https://api.frankfurter.dev/v2/rates?')) {
+        // Frankfurter expanded its unfiltered feed to include crypto assets.
+        // Emulate the documented quotes filter so dropping it recreates the outage.
+        const selected = new URL(url).searchParams.get('quotes')?.split(',');
+        const feed = [row({date}), row({quote: 'CLP', rate: 900, date}),
+          {base: 'USD', quote: 'USD', rate: 1, date},
+          row({quote: 'AAVE', rate: .01, date}), row({quote: 'ETH', rate: .0005, date}),
+          row({quote: 'BTC', rate: .00001, date}), row({quote: 'CLF', rate: .02, date})];
+        return json(selected ? feed.filter(item => selected.includes(item.quote)) : feed);
+      }
       if (url.includes('/rate/eur/usd')) return json({base: 'EUR', quote: 'USD', rate: 1.25, date, providers: [{key: 'ECB', date, rate: 1.25}]});
       if (url.includes('coinbase')) return json({data: {base: 'BTC', currency: 'USD', amount: '83005.615'}});
       if (url.includes('sii.cl')) return new Response(html);
@@ -217,6 +230,25 @@ describe('Global endpoint with mocked public providers', () => {
     expect(data.quotes.EUR.usdPerUnit).toBe('1.25');
     expect(data.quotes.BTC.kind).toBe('spot');
     expect(globalConversion(2, 'CLF', 'CLP', data).converted).toBeCloseTo(82261.88, 8);
+  });
+
+  it('requests supported daily quotes without adopting upstream crypto, historical codes or auxiliary sources', async () => {
+    const fetcher = providerFetch();
+    vi.stubGlobal('fetch', fetcher);
+    const {GET} = await import('@/app/api/global-rates/route');
+    const response = await GET(), data = await response.json() as GlobalRates;
+    expect(response.status).toBe(200);
+    const url = new URL(fetcher.mock.calls.map(call => String(call[0])).find(url => url.startsWith('https://api.frankfurter.dev/v2/rates?'))!);
+    const codes = url.searchParams.get('quotes')!.split(',');
+    expect(url.href).toBe(FRANKFURTER_RATES);
+    expect(url.searchParams.get('base')).toBe('USD');
+    expect(url.searchParams.get('expand')).toBe('providers');
+    expect(codes).toEqual(expect.arrayContaining(['EUR', 'JPY', 'GBP', 'CLP', 'XAU']));
+    for (const unsupported of ['AAVE', 'ETH', 'USDC', 'BTC', 'CLF', 'BGN', 'HRK']) expect(codes).not.toContain(unsupported);
+    expect(data.quotes.AAVE).toBeUndefined();
+    expect(data.quotes.ETH).toBeUndefined();
+    expect(data.quotes.BTC.source).toContain('Coinbase');
+    expect(data.quotes.CLF.source).toContain('SII');
   });
 
   it.each([['coinbase', 'BTC'], ['sii.cl', 'CLF'], ['/rate/eur/usd', 'EUR']])('isolates %s failure to the affected instrument', async (fail, code) => {

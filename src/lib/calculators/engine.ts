@@ -13,5 +13,6 @@ export async function calculate(category:CategoryId,mode:Mode,values:Values,cont
   : await (category==="math"?await import("./math-engine"):category==="finance"?await import("./finance-engine"):category==="health"?await import("./health-engine"):await import("./everyday-engine")).run(mode.algorithm,category==="math"?prepareMathInputs(mode,values):values,context);
  if(r.metrics.some(metric=>metric.numericText&&/NaN|Infinity/.test(String(metric.value))))throw new Error("These inputs do not produce a finite result. Check the values and formula limits.");
  for(const value of [...r.metrics.map(m=>m.value),...(r.table?.rows.flat()||[]),...(r.chart?.map(p=>p.value)||[])])if(typeof value==="number"&&!Number.isFinite(value))throw new Error("These inputs do not produce a finite result. Check the values and formula limits.");
+ if(mode.primaryMetrics){const preferred=mode.primaryMetrics.flatMap(label=>r.metrics.filter(metric=>metric.label===label));r.metrics=[...preferred,...r.metrics.filter(metric=>!mode.primaryMetrics!.includes(metric.label))];}
  return category==="math"?mathOutputUnits(r,values.outputUnit):r;
 }

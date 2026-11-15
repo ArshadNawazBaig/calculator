@@ -68,6 +68,15 @@ for(const slug of ['macro-calculator','carbohydrate-calculator','fat-intake-calc
  d.modes.push(mode('energy-ranges','From body measurements & activity','macro-energy',[...energy,activity,n('adjustment','Daily energy adjustment',0,'kcal/day',-500,500)],restingFormula+' Maintenance energy = resting energy × activity factor. Adult AMDR: carbohydrate 45–65%, fat 20–35%, protein 10–35% of energy; grams divide kcal by 4, 9, and 4 respectively.',energyContext+' The adjustment is an explicit scenario, not a prediction of weight change. Ranges are independent population references and their endpoints are not intended to be combined into a single diet. For adults; excludes pregnancy, breastfeeding, children and individualized medical nutrition care.'));
  d.sources.push(mifflin,energyEquations,{title:'National Academies: Dietary Reference Intakes for macronutrients',url:'https://nap.nationalacademies.org/catalog/10490/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids'});
 }
+const nutrientResults:Record<string,Record<string,string>>={
+ 'carbohydrate-calculator':{macros:'Carbohydrate','macro-energy':'Carbohydrate reference'},
+ 'fat-intake-calculator':{macros:'Fat','macro-energy':'Fat reference'},
+ 'protein-calculator':{'macro-energy':'Protein energy reference'},
+};
+for(const [slug,labels] of Object.entries(nutrientResults)){
+ const definition=definitions.find(d=>d.slug===slug)!;
+ definition.modes=definition.modes.map(m=>labels[m.algorithm]?{...m,primaryMetrics:[labels[m.algorithm]]}:m);
+}
 const lean=definitions.find(d=>d.slug==='lean-body-mass-calculator')!;
 lean.modes.push(mode('pediatric','Pediatric Peters estimate','lean-pediatric',[units,n('weight','Weight',30,'kg or lb',0),n('height','Height',135,'cm or inches',0),n('age','Age',9,'years',2,14)],'Estimated lean mass=3.8×0.0215×weight(kg)^0.6469×height(cm)^0.7236.','A pediatric body-composition estimate derived from extracellular volume. This educational calculation must not be used to determine medication doses. Check interpretation with a clinician.'));
 lean.sources.push({title:'Peters et al.: estimation of lean body mass in children',url:'https://pubmed.ncbi.nlm.nih.gov/21498495/'},{title:'Pediatric Pharmacokinetics study: published Peters equations 8 and 9',url:'https://pmc.ncbi.nlm.nih.gov/articles/PMC5365720/'});

@@ -1,9 +1,10 @@
 "use client";
 import {useI18n} from "@/components/i18n/provider";
 import {Dropdown} from '@/components/ui/dropdown';
-import {DatePicker} from '@/components/ui/date-picker';
+import dynamic from 'next/dynamic';
+const DatePicker=dynamic(()=>import('@/components/ui/date-picker').then(module=>module.DatePicker));
 import {currencyLabel} from '@/lib/i18n/preferences';
-import {RecordRows} from './record-rows';
+const RecordRows=dynamic(()=>import('./record-rows').then(module=>module.RecordRows));
 import type {Field} from '@/lib/calculators/types';
 
 export function CalculatorField({field,value,onChange,prefix,disabled=false,currency}:{currency?:string;field:Field;value:string;onChange:(value:string)=>void;prefix:string;disabled?:boolean}){

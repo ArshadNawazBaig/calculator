@@ -1,6 +1,7 @@
 import {evaluateExpression,type ExpressionContext} from './expression-engine';
 import {advancedMathAlgorithms,runAdvancedMath} from "./math-advanced-engine";
 import {triangleSides} from "./geometry";
+import {solidGeometry} from './solid-geometry';
 import {extraMathAlgorithms,runExtraMath} from "./math-extra-engine";
 import Decimal from "decimal.js";
 import {num,positive,integer,list,gcd,factorial,choose,summarize,normalCdf,normalSf,invNormal,result} from "./helpers";
@@ -11,6 +12,7 @@ function rational(text:string):[bigint,bigint]{text=text.trim();if(text.length>1
 function fractionResult(a:bigint,b:bigint):Result{if(b===0n)throw new Error("Cannot divide by zero.");if(b<0n){a=-a;b=-b;}const g=bigGcd(a,b);a/=g;b/=g;const whole=a/b,rem=a%b;return result(m("Simplified fraction",b===1n?String(a):`${a}/${b}`),{...m(b===1n?"Decimal":"Approximate decimal",b===1n?a.toString():new Decimal(a.toString()).div(b.toString()).toSignificantDigits(15).toString()),numericText:b!==1n},m("Mixed number",rem===0n?String(whole):whole===0n?`${a}/${b}`:`${whole} ${rem<0n?-rem:rem}/${b}`));}
 export function randomInteger(min:number,max:number){integer(min,-1e12,1e12);integer(max,min,1e12);const range=max-min+1;if(range>2**32)throw new Error("Integer range cannot exceed 4,294,967,296 values.");const limit=Math.floor(2**32/range)*range;let x;const buffer=new Uint32Array(1);do{globalThis.crypto.getRandomValues(buffer);x=buffer[0];}while(x>=limit);return min+x%range;}
 const sidesResult=triangleSides;
+const areaStepNumber=(value:number)=>String(Number(value.toPrecision(12)));
 export async function run(op:string,v:Values,context:ExpressionContext={}):Promise<Result>{
  if(advancedMathAlgorithms.has(op))return runAdvancedMath(op,v);
  if(extraMathAlgorithms.has(op))return runExtraMath(op,v);
@@ -54,13 +56,35 @@ export async function run(op:string,v:Values,context:ExpressionContext={}):Promi
  if(op==="pythagoras")return result(m("Hypotenuse",Math.hypot(positive(N("a")),positive(N("b")))));
  if(op==="pythagoras-leg"){const c=positive(N("c")),a=positive(N("a"));if(a>=c)throw new Error("Hypotenuse must exceed the known leg.");return result(m("Other leg",Math.sqrt(c*c-a*a)));}
  if(op==="right-triangle")return sidesResult(N("a"),N("b"),Math.hypot(N("a"),N("b")));
- if(op==="triangle-sss")return sidesResult(N("a"),N("b"),N("c"));
+ if(op==="triangle-sss"){
+  const a=N('a'),b=N('b'),c=N('c'),out=sidesResult(a,b,c),s=a/2+b/2+c/2,f=areaStepNumber;
+  out.explanation=`s = (${f(a)} + ${f(b)} + ${f(c)}) ÷ 2 = ${f(s)} length units. A = √[s(s − a)(s − b)(s − c)] = ${f(Number(out.metrics[0].value))} square units.`;
+  return out;
+ }
  if(op==="triangle-sas"){const a=N("a"),b=N("b"),angle=N("angle");if(angle<=0||angle>=180)throw new Error("Angle must lie between 0° and 180°.");return sidesResult(a,b,Math.sqrt(a*a+b*b-2*a*b*Math.cos(angle*Math.PI/180)));}
  if(op==="triangle-asa"){const a=N("a"),A=N("A"),B=N("B"),C=180-A-B;if(A<=0||B<=0||C<=0)throw new Error("Angles must be positive and sum to less than 180°.");return sidesResult(a,a*Math.sin(B*Math.PI/180)/Math.sin(A*Math.PI/180),a*Math.sin(C*Math.PI/180)/Math.sin(A*Math.PI/180));}
  if(op==="circle"){const x=positive(N("value"));const r=v.known==="diameter"?x/2:v.known==="circumference"?x/(2*Math.PI):v.known==="area"?Math.sqrt(x/Math.PI):x;return result(m("Area",Math.PI*r*r),m("Circumference",2*Math.PI*r),m("Radius",r),m("Diameter",2*r));}
- if(op.startsWith("area-")){const shape=op.slice(5);Object.keys(v).forEach(k=>positive(N(k),k));let a=0;const pi=Math.PI;if(shape==="rectangle")a=N("a")*N("b");if(shape==="triangle")a=N("a")*N("b")/2;if(shape==="trapezoid")a=(N("a")+N("b"))*N("h")/2;if(shape==="circle")a=pi*N("r")**2;if(shape==="sector")a=pi*N("r")**2*N("angle")/360;if(shape==="ellipse")a=pi*N("a")*N("b");if(shape==="parallelogram")a=N("a")*N("h");return result(m("Area",a,"number","square units"));}
- if(op.startsWith("volume-")||op.startsWith("surface-area-")){const volume=op.startsWith("volume-");const shape=op.slice(volume?7:13);Object.keys(v).forEach(k=>positive(N(k),k));const r=N("r",0),h=N("h",0),r2=N("r2",0),a=N("a",0),b=N("b",0),c=N("c",0),pi=Math.PI;let V=0,A=0;
- if(shape==="sphere"){V=4*pi*r**3/3;A=4*pi*r*r;}if(shape==="cone"){V=pi*r*r*h/3;A=pi*r*(r+Math.hypot(r,h));}if(shape==="cube"){V=a**3;A=6*a*a;}if(shape==="cylinder"){V=pi*r*r*h;A=2*pi*r*(r+h);}if(shape==="cuboid"){V=a*b*h;A=2*(a*b+a*h+b*h);}if(shape==="capsule"){V=pi*r*r*h+4*pi*r**3/3;A=2*pi*r*h+4*pi*r*r;}if(shape==="cap"){if(h>2*r)throw new Error("Cap height cannot exceed the sphere diameter.");V=pi*h*h*(3*r-h)/3;A=2*pi*r*h+pi*h*(2*r-h);}if(shape==="frustum"){V=pi*h*(r*r+r*r2+r2*r2)/3;A=pi*(r+r2)*Math.hypot(r-r2,h)+pi*(r*r+r2*r2);}if(shape==="ellipsoid"){V=4*pi*a*b*c/3;const p=1.6075;A=4*pi*((a**p*b**p+a**p*c**p+b**p*c**p)/3)**(1/p);}if(shape==="pyramid"){V=a*b*h/3;A=a*b+a*Math.hypot(b/2,h)+b*Math.hypot(a/2,h);}if(shape==="tube"){if(r2>=r)throw new Error("Inner radius must be smaller than outer radius.");V=pi*(r*r-r2*r2)*h;A=2*pi*(r+r2)*h+2*pi*(r*r-r2*r2);}return result(m(volume?"Volume":"Surface area",volume?V:A,"number",volume?"cubic units":"square units"));}
+ if(op.startsWith('area-')){
+  const shape=op.slice(5),f=(key:string)=>areaStepNumber(N(key));
+  Object.keys(v).forEach(k=>positive(N(k),k));
+  let area:number,substitution:string;
+  switch(shape){
+   case 'rectangle':area=N('a')*N('b');substitution=`${f('a')} × ${f('b')}`;break;
+   case 'square':area=N('a')**2;substitution=`${f('a')}²`;break;
+   case 'triangle':area=N('a')/2*N('b');substitution=`${f('a')} × ${f('b')} ÷ 2`;break;
+   case 'trapezoid':area=(N('a')/2+N('b')/2)*N('h');substitution=`(${f('a')} + ${f('b')}) × ${f('h')} ÷ 2`;break;
+   case 'circle':area=Math.PI*N('r')**2;substitution=`π × ${f('r')}²`;break;
+   case 'sector':
+    if(N('angle')>360)throw Error('A sector angle cannot exceed 360° (2π radians).');
+    area=Math.PI*N('r')**2*(N('angle')/360);substitution=`π × ${f('r')}² × ${f('angle')} ÷ 360`;break;
+   case 'ellipse':area=Math.PI*N('a')*N('b');substitution=`π × ${f('a')} × ${f('b')}`;break;
+   case 'parallelogram':area=N('a')*N('h');substitution=`${f('a')} × ${f('h')}`;break;
+   default:throw Error('Select a supported area shape.');
+  }
+  if(!Number.isFinite(area)||area<=0)throw Error('These dimensions exceed the supported numeric range. Choose smaller or larger units.');
+  return {metrics:[m('Area',area,'number','square units')],explanation:`A = ${substitution} = ${areaStepNumber(area)} square units.`};
+ }
+ if(op.startsWith('volume-')||op.startsWith('surface-area-'))return solidGeometry(op,v);
  if(op==='expression'||op==='big-expression')return evaluateExpression(op,v,context);
  if(op==="matrix"){const math=await import("mathjs");const parse=(s:string)=>{const a=s.trim().split(/\n|;/).map(row=>list(row));if(!a.length||a.length>10||a[0].length>10||a.some(row=>row.length!==a[0].length))throw new Error("Use a rectangular matrix no larger than 10 × 10.");return a;};const a=parse(v.a),operation=v.operation;if(operation==="determinant")return result(m("Determinant",Number(math.det(a))));const b=["add","subtract","multiply"].includes(operation)?parse(v.b):[];const value=operation==="add"?math.add(a,b):operation==="subtract"?math.subtract(a,b):operation==="multiply"?math.multiply(a,b):operation==="scale"?math.multiply(a,N("scalar")):operation==="power"?math.pow(a,integer(N("power"),0,1000)):operation==="transpose"?math.transpose(a):math.inv(a);const arr=(Array.isArray(value)?value:(value as {toArray:()=>unknown}).toArray()) as number[][];return {metrics:[textMetric("Result",arr.map(row=>row.join("  ")).join("\n"))],table:{headers:arr[0].map((_,i)=>`Column ${i+1}`),rows:arr}};}
  throw new Error("This calculation mode is not available.");

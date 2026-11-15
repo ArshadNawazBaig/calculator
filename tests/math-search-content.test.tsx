@@ -12,7 +12,7 @@ async function run(slug: string, id: string, values: Values) {
 }
 
 const areaExamples: Record<string, Values> = {
-  rectangle: {a: '6', b: '4'}, triangle: {a: '8', b: '3'},
+  rectangle: {a: '6', b: '4'}, square: {a: '4'}, triangle: {a: '8', b: '3'},
   'triangle-sss': {a: '5', b: '12', c: '13'}, circle: {r: '3'},
   sector: {r: '4', angle: '90'}, ellipse: {a: '4', b: '2'},
   trapezoid: {a: '4', b: '8', h: '3'}, parallelogram: {a: '7', h: '3'},
@@ -23,6 +23,7 @@ const volumeExamples: Record<string, Values> = {
   cylinder: {r: '2', h: '5'}, sphere: {r: '3'}, cone: {r: '3', h: '4'},
   pyramid: {a: '6', b: '4', h: '3'}, ellipsoid: {a: '3', b: '2', c: '1'},
   capsule: {r: '2', h: '6'}, cap: {r: '5', h: '2'},
+  'cap-inverse': {known: 'base-height', base: '4', h: '2'},
   frustum: {r: '4', r2: '2', h: '3'}, tube: {r: '3', r2: '2', h: '5'},
 };
 
@@ -30,12 +31,14 @@ describe('published formula examples agree with the working calculator', () => {
   for (const [slug, examples, metricLabel] of [
     ['area-calculator', areaExamples, 'Area'],
     ['volume-calculator', volumeExamples, 'Volume'],
+    ['surface-area-calculator', volumeExamples, 'Surface area'],
   ] as const) {
     for (const row of mathSearchContent[slug]!.rows) {
       it(`${slug}: ${row.label}`, async () => {
         expect(examples[row.id]).toBeDefined();
         const result = await run(slug, row.id, examples[row.id]);
-        const metric = result.metrics.find(item => item.label === metricLabel)!;
+        const label = row.id === 'cap-inverse' ? `Cap 1: ${slug === 'volume-calculator' ? 'volume' : 'total surface area'}` : metricLabel;
+        const metric = result.metrics.find(item => item.label === label)!;
         const displayed = new Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(Number(metric.value));
         expect(`${displayed} ${metric.unit}`).toBe(row.result);
       });
@@ -72,6 +75,25 @@ describe('published formula examples agree with the working calculator', () => {
     const tank = await run('volume-calculator', 'cuboid', {a: '100', aUnit: 'cm', b: '50', bUnit: 'cm', h: '40', hUnit: 'cm', outputUnit: 'm'});
     expect(tank.metrics[0].value).toBeCloseTo(0.2, 12);
     expect(Number(tank.metrics[0].value) * 1000).toBeCloseTo(200, 12);
+    const surface = await run('surface-area-calculator', 'cuboid', {a: '2', aUnit: 'ft', b: '12', bUnit: 'in', h: '6', hUnit: 'in', outputUnit: 'ft'});
+    expect(surface.metrics[0].value).toBeCloseTo(7, 12);
+    expect(surface.metrics[0].unit).toBe('ft²');
+  });
+
+  it('checks the open-cylinder and joined-cube surface examples', async () => {
+    const cylinder = await run('surface-area-calculator', 'cylinder', {r: '2', h: '5'});
+    const total = Number(cylinder.metrics[0].value);
+    expect(total).toBeCloseTo(28 * Math.PI, 12);
+    expect(total - Math.PI * 2 ** 2).toBeCloseTo(24 * Math.PI, 12);
+    expect(total - 2 * Math.PI * 2 ** 2).toBeCloseTo(20 * Math.PI, 12);
+    const joined = await run('surface-area-calculator', 'cuboid', {a: '2', b: '1', h: '1'});
+    expect(joined.metrics[0].value).toBe(10);
+  });
+
+  it('checks both spherical caps described by the same sphere and base radii', async () => {
+    const caps = await run('volume-calculator', 'cap-inverse', {known: 'sphere-base', r: '5', base: '4'});
+    expect(caps.metrics.find(metric => metric.label === 'Cap 1: height')!.value).toBe(2);
+    expect(caps.metrics.find(metric => metric.label === 'Cap 2: height')!.value).toBe(8);
   });
 });
 

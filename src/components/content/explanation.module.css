@@ -21,6 +21,7 @@
 .table tbody tr:nth-child(even)>th { background: var(--color-table-alternate); }
 .table tbody tr:hover>th { background: var(--color-table-hover); }
 .table tbody tr:last-child>th { border-bottom: 0; }
+.shapeDiagram { display: block; width: 160px; margin-top: 10px; }
 .table caption:not(:global(.sr-only)) { padding: 14px 22px; color: var(--color-muted); font-size: 12px; line-height: 1.7; text-align: start; }
 .table tr :is(p,li) { font-size: inherit; line-height: 1.7; color: inherit; }
 .table tr p { margin-block: 8px; }

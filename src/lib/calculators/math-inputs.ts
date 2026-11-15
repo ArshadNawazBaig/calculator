@@ -1,6 +1,9 @@
 import type {Mode,Values,Result} from './types';
 export const lengthUnits:[string,string][]=[['m','Meters'],['cm','Centimeters'],['mm','Millimeters'],['km','Kilometers'],['in','Inches'],['ft','Feet'],['yd','Yards'],['mi','Miles']];
+export const areaUnits:[string,string][]=[['m','Square meters'],['cm','Square centimeters'],['mm','Square millimeters'],['km','Square kilometers'],['in','Square inches'],['ft','Square feet'],['yd','Square yards'],['mi','Square miles'],['ac','Acres'],['ha','Hectares']];
 const factors:Record<string,number>={m:1,cm:.01,mm:.001,km:1000,in:.0254,ft:.3048,yd:.9144,mi:1609.344};
+// Acres use the international foot (exactly 0.3048 m), not the former US survey foot.
+const landAreaFactors:Record<string,number>={ac:4046.8564224,ha:10000};
 export function angleLiteral(raw:string):number{
   const text=raw.replace(/\s/g,'').replaceAll('π','pi');
   if(text.length>80)throw Error('Use a shorter angle.');
@@ -22,7 +25,8 @@ export function prepareMathInputs(mode:Mode,original:Values):Values{
     delete v.angleUnit;
   }
   if(v.outputUnit){
-    const output=factors[v.outputUnit];if(!output)throw Error('Select a supported output unit.');
+    const isArea=mode.algorithm.startsWith('area-')||mode.algorithm==='triangle-sss';
+    const output=factors[v.outputUnit]||(isArea&&landAreaFactors[v.outputUnit]?1:0);if(!output)throw Error('Select a supported output unit.');
     for(const field of mode.fields){if(field.key.endsWith('Unit')&&!['outputUnit','angleUnit'].includes(field.key)){
       const key=field.key.slice(0,-4);if(!factors[v[field.key]])throw Error('Select a supported dimension unit.');
       v[key]=String(Number(v[key])*factors[v[field.key]]/output);delete v[field.key];
@@ -35,7 +39,21 @@ export function prepareMathInputs(mode:Mode,original:Values):Values{
 }
 export function mathOutputUnits(result:Result,unit:string|undefined):Result{
   if(!unit)return result;
-  return {...result,metrics:result.metrics.map(m=>({...m,unit:/volume/i.test(m.label)?`${unit}³`:/area/i.test(m.label)?`${unit}²`:m.unit==='°'||/angle|solutions/i.test(m.label)?m.unit:typeof m.value==='number'?unit:m.unit}))};
+  const divisor=landAreaFactors[unit],lengthUnit=divisor?'m':unit,area=result.metrics.find(m=>m.label==='Area');
+  let explanation=result.explanation?.replaceAll('cubic units',`${lengthUnit}³`).replaceAll('square units',`${lengthUnit}²`).replaceAll('length units',lengthUnit);
+  if(explanation&&result.metrics.some(metric=>/area|volume/i.test(metric.label))){
+    explanation=`Lengths use ${lengthUnit} in this calculation. ${explanation}`;
+    if(divisor&&area)explanation+=` Convert to ${unit}: ${Number(Number(area.value).toPrecision(12))} m² ÷ ${divisor} = ${Number((Number(area.value)/divisor).toPrecision(12))} ${unit}.`;
+  }
+  return {
+    ...result,...(explanation?{explanation}:{}),
+    metrics:result.metrics.map(metric=>{
+      const isArea=/area/i.test(metric.label);
+      const value=divisor&&isArea&&typeof metric.value==='number'?metric.value/divisor:metric.value;
+      if(divisor&&isArea&&value===0&&metric.value!==0)throw Error('The area is too small for this unit at the supported precision. Choose a smaller area unit.');
+      return {...metric,value,unit:/volume/i.test(metric.label)?`${lengthUnit}³`:isArea?(divisor?unit:`${unit}²`):metric.unit==='°'||/angle|solutions/i.test(metric.label)?metric.unit:typeof metric.value==='number'?lengthUnit:metric.unit};
+    }),
+  };
 }
 export function dmsCoordinate(raw:string,limit:number):number{
   const match=raw.trim().match(/^(\d+(?:\.\d+)?)\s*[°:,\s]\s*(\d+(?:\.\d+)?)\s*['′:,\s]\s*(\d+(?:\.\d+)?)\s*["″]?\s*([NSEW])$/i);

@@ -11,7 +11,7 @@ const [copy, directories, translatedPaths] = await Promise.all([
   readJSON('src/data/locales/translated-pages.json'),
 ]);
 const server = await createServer({configFile: false, server: {middlewareMode: true}, resolve: {alias: {'@': resolve('src')}}});
-const issues = [], pages = [], descriptions = new Map();
+const issues = [], pages = [], descriptions = new Map(), titles = new Map();
 try {
   const {definitions, catalog, noInitialExampleTools} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
@@ -33,7 +33,13 @@ try {
       const entry = copy[definition.slug];
       const tool = catalog.find(tool => tool.slug === definition.slug);
       if (!entry?.sections?.length || !entry.faqs?.length) issues.push(`${path}: missing guide or FAQ`);
+      if (!entry?.seoTitle?.trim()) issues.push(`${path}: missing specific search title`);
+      else {
+        if (titles.has(entry.seoTitle)) issues.push(`${path}: search title duplicates ${titles.get(entry.seoTitle)}`);
+        titles.set(entry.seoTitle, path);
+      }
       if (!definition.description.trim()) issues.push(`${path}: missing description`);
+      if (entry?.description !== definition.description) issues.push(`${path}: editorial description does not match the calculator metadata`);
       const previous = descriptions.get(definition.description);
       if (previous) issues.push(`${path}: calculator description duplicates ${previous}`);
       descriptions.set(definition.description, path);
@@ -42,7 +48,7 @@ try {
         if (previousPath && previousPath !== path) issues.push(`${path}: guide paragraph duplicates ${previousPath}`);
         seenParagraphs.set(paragraph, path);
       }
-      page = {path, kind: 'calculator', title: tool.title, modes: definition.modes.map(mode => mode.title),
+      page = {path, kind: 'calculator', title: tool.title, modes: definition.modes.map(mode => mode.title), modeIds: definition.modes.map(mode => mode.id),
         guideSections: entry?.sections.length || 0, faqs: entry?.faqs.length || 0,
         references: definition.sources.length, fixedWorkedExample: !noInitialExampleTools.has(definition.slug)};
     } else if (clock) {

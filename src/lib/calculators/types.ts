@@ -2,7 +2,7 @@ import type {CategoryId} from "@/lib/site";
 export type Values=Record<string,string>;
 export type RowColumn={key:string;label:string;type?:"text"|"number"|"date"|"time"|"select";default?:string;options?:{label:string;value:string}[]};
 export type Field={key:string;label:string;type:"number"|"select"|"textarea"|"text"|"date"|"time"|"rows"|"multiselect";default:string;unit?:string;min?:number;max?:number;step?:string;hint?:string;optional?:boolean;group?:string;translateOptions?:boolean;options?:{label:string;value:string}[];rowColumns?:RowColumn[];csv?:boolean};
-export type Mode={id:string;title:string;algorithm:string;fields:Field[];formula:string;explanation:string;notes?:string[]};
+export type Mode={id:string;title:string;algorithm:string;fields:Field[];formula:string;explanation:string;notes?:string[];primaryMetrics?:string[]};
 export type Definition={slug:string;description:string;modes:Mode[];sources:{title:string;url:string}[];notes?:string[];status?:"ready"|"limited";limitations?:string[];example?:string};
 export type CatalogEntry={slug:string;title:string;category:CategoryId;subcategory:string;type:string;sourceUrl:string;observedFormCount:number;searchTerms?:string[]};
 export type Metric={label:string;value:number|string;format?:"number"|"money"|"percent";unit?:string;digits?:number;translateValue?:boolean;displayValue?:string;numericText?:boolean};

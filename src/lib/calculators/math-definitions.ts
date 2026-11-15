@@ -1,4 +1,4 @@
-import {lengthUnits} from './math-inputs';
+import {areaUnits,lengthUnits} from './math-inputs';
 import {advancedMathDefinitions} from "./math-advanced-definitions";
 import {n,t,s,mode,type Definition,type Mode} from "./types";
 const algebra={title:"OpenStax: Algebra and Trigonometry",url:"https://openstax.org/details/books/algebra-and-trigonometry-2e"};
@@ -7,6 +7,9 @@ const defs:Definition[]=[];
 function add(slug:string,description:string,modes:Mode[],notes?:string[]){defs.push({slug,description,modes,sources:[algebra,...(/stat|deviation|confidence|probability|sample|score|p-value|average|mean/.test(slug)?[stats]:[])],notes});}
 const data=t("data","Numbers","2, 4, 4, 4, 5, 5, 7, 9","textarea","Separate numbers with commas, spaces, or new lines.");
 for(const slug of ["average-calculator","mean-median-mode-range-calculator","statistics-calculator","standard-deviation-calculator"]){add(slug,slug==="standard-deviation-calculator"?"Measure the spread of a dataset with sample and population standard deviation.":"Explore the center, spread, and distribution of your numbers.",[mode("summary","Dataset summary","statistics",[data],"Mean = Σx / n; population variance = Σ(x − mean)² / n; sample variance uses n − 1.","The mean uses every value. The median is the middle of the sorted dataset. Sample variance corrects for estimating a population from a sample.")]);}
+const standardDeviation=defs.find(d=>d.slug==='standard-deviation-calculator')!.modes[0];
+standardDeviation.primaryMetrics=['Sample standard deviation','Population standard deviation'];
+standardDeviation.explanation+=' Sample standard deviation requires at least two values; population standard deviation is also shown for a single value.';
 add("percent-calculator","Find percentages, percentage changes, and the difference between two values.",[
 mode("of","Percentage of a number","percent-of",[n("percent","Percentage",15,"%"),n("value","Number",200)],"Result = percentage ÷ 100 × number.","Convert a percentage to a decimal, then multiply by the original number."),
 mode("what","What percentage?","percent-what",[n("part","Part",30),n("whole","Whole",200)],"Percentage = part ÷ whole × 100.","The whole is the comparison base and cannot be zero."),
@@ -48,16 +51,66 @@ add("right-triangle-calculator","Find sides, angles, perimeter, and area of a ri
 add("triangle-calculator","Solve a triangle from three sides or two sides and their included angle.",[mode("sss","Three sides","triangle-sss",[n("a","Side a",3,undefined,0),n("b","Side b",4,undefined,0),n("c","Side c",5,undefined,0)],"s = (a+b+c)/2; area = √[s(s−a)(s−b)(s−c)].","The sum of any two sides must exceed the third. Angles are calculated from normalized side geometry. Altitudes, medians, radii and centers are also shown in coordinates A=(0,0), B=(c,0), with C above the x-axis."),mode("sas","Two sides & included angle","triangle-sas",[n("a","Side a",5,undefined,0),n("b","Side b",7,undefined,0),n("angle","Included angle",60,"degrees",0,180)],"c² = a²+b²−2ab cos(C); area = ab sin(C)/2.","The angle must lie strictly between 0° and 180°."),mode("asa","Two angles & side","triangle-asa",[n("a","Side a (opposite A)",5,undefined,0),n("A","Angle A",40,"degrees",0,180),n("B","Angle B",60,"degrees",0,180)],"a/sin(A) = b/sin(B) = c/sin(C), with C = 180°−A−B.","The sum of the given angles must be less than 180°.")]);
 add("circle-calculator","Calculate circle dimensions from radius, diameter, circumference, or area.",[mode("circle","Circle dimensions","circle",[s("known","Known measurement",["radius","diameter","circumference","area"]),n("value","Value",5,undefined,0)],"Diameter = 2r; circumference = 2πr; area = πr².","All linear outputs use the input length unit; area uses its square.")]);
 const areaShapes:[string,string,ReturnType<typeof n>[],string][]=[
-["rectangle","Rectangle",[n("a","Length",5),n("b","Width",4)],"A = length × width."],["triangle","Triangle",[n("a","Base",5),n("b","Perpendicular height",4)],"A = base × height / 2."],["trapezoid","Trapezoid",[n("a","Base a",5),n("b","Base b",7),n("h","Height",4)],"A = (a+b) × height / 2."],["circle","Circle",[n("r","Radius",5)],"A = πr²."],["sector","Sector",[n("r","Radius",5),n("angle","Central angle",90,"degrees",0,360)],"A = πr² × angle / 360."],["ellipse","Ellipse",[n("a","Semi-axis a",5),n("b","Semi-axis b",3)],"A = πab."],["parallelogram","Parallelogram",[n("a","Base",5),n("h","Perpendicular height",4)],"A = base × height."]];
-add("area-calculator","Find areas of seven common shapes using their defining dimensions.",areaShapes.map(([id,title,fields,formula])=>mode(id,title,`area-${id}`,fields,formula,"Enter positive dimensions in one consistent unit. The result is in square units.")));
+["rectangle","Rectangle",[n("a","Length",5),n("b","Width",4)],"A = length × width."],["triangle","Triangle",[n("a","Base",5),n("b","Perpendicular height",4)],"A = base × height / 2."],["trapezoid","Trapezoid",[n("a","Base a",5),n("b","Base b",7),n("h","Height",4)],"A = (a+b) × height / 2."],["circle","Circle",[n("r","Radius",5)],"A = πr²."],["sector","Sector",[n("r","Radius",5),n("angle","Central angle",90,"degrees",0,360)],"A = πr² × θ / 360 (degrees); A = r²θ / 2 (radians)."],["ellipse","Ellipse",[n("a","Semi-axis a",5),n("b","Semi-axis b",3)],"A = πab."],["parallelogram","Parallelogram",[n("a","Base",5),n("h","Perpendicular height",4)],"A = base × height."]];
+areaShapes.splice(1,0,['square','Square',[n('a','Side length',5)],'A = side².']);
+const areaExplanations:Record<string,string>={
+ rectangle:'Multiply the length by the width. The two measurements must meet at a right angle.',
+ square:'Enter one side length. All four sides must be equal and all four angles must be right angles.',
+ triangle:'Use a base and its perpendicular height. A sloping side is not the height.',
+ trapezoid:'Enter the two parallel bases and the perpendicular distance between them.',
+ circle:'Enter the radius, measured from the center to the edge. Divide a known diameter by two first.',
+ sector:'Enter the radius and central angle. The angle must be greater than zero and no more than 360° (2π radians).',
+ ellipse:'Enter the semi-major and semi-minor axes: half the full width and half the full height.',
+ parallelogram:'Use the base and perpendicular height, not the sloping side.',
+};
+add("area-calculator","Find areas of eight common shapes using their defining dimensions.",areaShapes.map(([id,title,fields,formula])=>mode(id,title,`area-${id}`,fields,formula,areaExplanations[id])));
+defs.find(d=>d.slug==='area-calculator')!.sources=[
+ {title:'OpenStax: properties of rectangles, triangles, and trapezoids',url:'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'},
+ {title:'OpenStax: circles and irregular figures',url:'https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures'},
+ {title:'NIST Handbook 133 (2026), Appendix E: general tables of units of measurement',url:'https://www.nist.gov/system/files/documents/2025/12/23/2026_NIST_HB133_AppendixE-20251222.pdf'},
+];
 const solids:[string,string,ReturnType<typeof n>[],string,string][]=[
 ["sphere","Sphere",[n("r","Radius",5)],"V = 4πr³/3.","A = 4πr²."],["cone","Cone",[n("r","Radius",3),n("h","Height",5)],"V = πr²h/3.","A = πr(r + √(r²+h²))."],["cube","Cube",[n("a","Edge",5)],"V = a³.","A = 6a²."],["cylinder","Cylinder",[n("r","Radius",3),n("h","Height",5)],"V = πr²h.","A = 2πr(r+h)."],["cuboid","Rectangular prism",[n("a","Length",5),n("b","Width",4),n("h","Height",3)],"V = length × width × height.","A = 2(ab+ah+bh)."],["capsule","Capsule",[n("r","Radius",3),n("h","Cylinder length",5)],"V = πr²h + 4πr³/3.","A = 2πrh + 4πr²."],["cap","Spherical cap",[n("r","Sphere radius",5),n("h","Cap height",2)],"V = πh²(3r−h)/3.","Total area = 2πrh + π(2rh−h²), including the flat base."],["frustum","Conical frustum",[n("r","Bottom radius",5),n("r2","Top radius",3),n("h","Height",4)],"V = πh(r²+rr₂+r₂²)/3.","A = π(r+r₂)√((r−r₂)²+h²)+π(r²+r₂²)."],["ellipsoid","Ellipsoid",[n("a","Semi-axis a",5),n("b","Semi-axis b",4),n("c","Semi-axis c",3)],"V = 4πabc/3.","Surface area uses the Knud Thomsen approximation with p = 1.6075."],["pyramid","Rectangular pyramid",[n("a","Base length",5),n("b","Base width",4),n("h","Perpendicular height",6)],"V = abh/3.","A = ab + a√((b/2)²+h²) + b√((a/2)²+h²)."],["tube","Hollow cylinder",[n("r","Outer radius",5),n("r2","Inner radius",3),n("h","Height",6)],"V = π(r²−r₂²)h.","A = 2π(r+r₂)h + 2π(r²−r₂²)."]];
-for(const kind of ["volume","surface-area"]){add(`${kind}-calculator`,kind==="volume"?"Calculate the volume of common three-dimensional solids.":"Calculate the total surface area of common three-dimensional solids.",solids.map(([id,title,fields,v,a])=>mode(id,title,`${kind}-${id}`,fields,kind==="volume"?v:a,"Use consistent length units. Dimensions must be positive. A spherical cap includes its flat base; ellipsoid surface area is an approximation.")));}
+const solidMeasurements:Record<string,string>={
+ sphere:'Enter the center-to-surface radius. Divide a known diameter by two first.',
+ cone:'Enter the radius of the circular base and the perpendicular height, not the slant height. The cone is a right circular cone.',
+ cube:'Enter one edge length. All six faces must be equal squares.',
+ cylinder:'Enter the radius and perpendicular height of a right circular cylinder. For capacity, measure inside the container.',
+ cuboid:'Enter length, width, and height along three mutually perpendicular edges.',
+ capsule:'Enter the radius and straight cylinder length between the two hemispherical ends. Overall length is cylinder length + 2 × radius.',
+ cap:'Enter the radius of the sphere and the height from the flat cut to the top of the cap. Cap height cannot exceed the sphere diameter.',
+ frustum:'Enter both circular radii and the perpendicular distance between their planes. This is a right conical frustum, not a sloping-side measurement.',
+ ellipsoid:'Enter three semi-axes, each measured from the center to the surface. Halve the full length of each axis.',
+ pyramid:'Enter the rectangular base length and width, and the perpendicular height. The apex is directly above the center of the base.',
+ tube:'Enter outer radius, inner radius, and perpendicular height. Inner radius must be smaller than outer radius.',
+};
+const solidSurfaces:Record<string,string>={
+ sphere:'The result covers the entire spherical surface.',
+ cone:'Total area includes the curved side and flat circular base. Slant height is calculated from radius and perpendicular height.',
+ cube:'Total area includes all six square faces.',
+ cylinder:'Total area includes the curved side and both circular ends. Subtract one circular end for an open-top cylinder.',
+ cuboid:'Total area includes all six faces of the closed rectangular prism.',
+ capsule:'Total area includes the straight curved side and two hemispheres. No internal join circles are counted.',
+ cap:'Total area includes the curved cap and its flat circular base. Use alternate dimensions to see curved and total areas separately.',
+ frustum:'Total area includes the sloping side and both circular bases.',
+ ellipsoid:'Surface area uses the Knud Thomsen approximation with exponent p = 1.6075.',
+ pyramid:'Total area includes the rectangular base and four triangular sides. Both pairs of slant heights are calculated from the perpendicular height.',
+ tube:'Total area includes the outer and inner curved walls plus both flat annular ends; it is not only the outside wall.',
+};
+const solidSources=[
+ {title:'OpenStax: volume and surface area',url:'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'},
+ {title:'Wolfram MathWorld: spherical cap formulas',url:'https://mathworld.wolfram.com/SphericalCap.html'},
+ {title:'NIST Handbook 133 (2026), Appendix E: general tables of units of measurement',url:'https://www.nist.gov/system/files/documents/2025/12/23/2026_NIST_HB133_AppendixE-20251222.pdf'},
+];
+for(const kind of ['volume','surface-area']){
+ add(`${kind}-calculator`,kind==='volume'?'Calculate the volume of eleven solids with mixed dimension units and cubic-unit results.':'Calculate the total surface area of eleven solids with mixed dimension units and square-unit results.',solids.map(([id,title,fields,v,a])=>mode(id,title,`${kind}-${id}`,fields,kind==='volume'?v:a,`${solidMeasurements[id]} ${kind==='surface-area'?solidSurfaces[id]:id==='tube'?'Volume measures the surrounding material, excluding the empty bore.':'Volume measures the space enclosed by the modeled solid.'}`)));
+ defs.find(d=>d.slug===`${kind}-calculator`)!.sources=[...solidSources,...(kind==='surface-area'?[{title:'Numericana: Knud Thomsen’s ellipsoid surface-area approximation',url:'https://www.numericana.com/answer/ellipsoid.htm#thomsen'}]:[])];
+}
 add("matrix-calculator","Add, multiply, transpose, and invert matrices, or calculate a determinant.",[mode("matrix","Matrix operation","matrix",[s("operation","Operation",[["add","A + B"],["subtract","A − B"],["multiply","A × B"],["scale","Scalar × A"],["power","A raised to an integer power"],["transpose","Transpose A"],["determinant","Determinant of A"],["inverse","Inverse of A"]]),t("a","Matrix A","1, 2\n3, 4","textarea","One row per line; separate entries with commas or spaces."),t("b","Matrix B","5, 6\n7, 8","textarea"),n("scalar","Scalar",3),n("power","Integer power",2,undefined,0,1000)],"Matrix multiplication uses row-by-column dot products. Inversion requires a nonsingular square matrix.","Matrices are limited to 10 × 10. Matrix B is used only for addition, subtraction, and multiplication.")]);
 function extend(slug:string,modes:Mode[]){defs.find(d=>d.slug===slug)!.modes.push(...modes);}
-const q:[string,string][]=[["a","Leg a"],["b","Leg b"],["c","Hypotenuse c"],["h","Altitude h"],["area","Area"],["perimeter","Perimeter"],["A","Angle A (degrees)"],["B","Angle B (degrees)"]];
+const q:[string,string][]=[["a","Leg a"],["b","Leg b"],["c","Hypotenuse c"],["h","Altitude h"],["area","Area"],["perimeter","Perimeter"],["A","Angle A"],["B","Angle B"]];
 const pairs:[string,string][]=q.flatMap(([a,al],i)=>q.slice(i+1).filter(([b])=>!(a==='A'&&b==='B')).map(([b,bl])=>[a+','+b,al+' + '+bl] as [string,string]));
-extend('right-triangle-calculator',[mode('pair','Any two known quantities','right-pair',[s('pair','Known quantities',pairs),n('first','First known value',3,undefined,0),n('second','Second known value',4,undefined,0)],'a=c sin(A); b=c cos(A); h=ab/c; area=ab/2; perimeter=a+b+c.','Enter the first and second values in the order shown. Angles use degrees; lengths use a shared unit and area uses its square. Multiple labeled solutions are displayed when applicable.')]);
+extend('right-triangle-calculator',[mode('pair','Any two known quantities','right-pair',[s('pair','Known quantities',pairs),n('first','First known value',3,undefined,0),n('second','Second known value',4,undefined,0)],'a=c sin(A); b=c cos(A); h=ab/c; area=ab/2; perimeter=a+b+c.','Enter the first and second values in the order shown. Lengths use a shared unit and area uses its square. Multiple labeled solutions are displayed when applicable.')]);
 extend('triangle-calculator',[mode('ssa','Two sides & a non-included angle','triangle-ssa',[n('a','Side a (opposite A)',10,undefined,0),n('b','Side b',12,undefined,0),n('A','Angle A',30,'degrees',0,180)],'sin(B)=b sin(A)/a. Both B and 180°−B must be checked.','SSA can give no triangle, one triangle, or two triangles. Solutions with nonpositive remaining angles are excluded.')]);
 extend('percent-calculator',[mode('base','Find the original whole','percent-base',[n('part','Known part',30),n('percent','Percentage of the whole',15,'%')],'Whole=part×100/percentage.','Use this when the part and its percentage are known.'),mode('reverse','Reverse a percentage change','percent-reverse-change',[n('final','Final value',120),n('change','Signed change',20,'%')],'Original=final/(1+change/100).','Use a negative change for a decrease. A 100% decrease cannot determine the original value.')]);
 extend('log-calculator',[mode('inverse','Solve base or argument','log-inverse',[s('solve','Find',[['argument','Argument'],['base','Base']]),n('base','Base',10,undefined,0),n('value','Argument',1000,undefined,0),n('exponent','Logarithm value',3)],'If log_b(x)=y, then x=b^y and b=x^(1/y).','A valid base is positive and different from one. Some zero or unit inputs do not give a unique inverse.')]);
@@ -66,7 +119,11 @@ extend('number-sequence-calculator',[mode('nth','Nth term and series sum','nth-s
 extend('sample-size-calculator',[mode('margin','Find margin of error','margin-error',[n('confidence','Confidence level',95,'%',50,99.999),n('size','Sample size',400,undefined,1),n('proportion','Estimated proportion',50,'%',0,100),n('population','Population size (0 = unlimited)',0,undefined,0)],'Margin=z√[p(1−p)/n], with finite-population correction √[(N−n)/(N−1)].','Assumes a random independent sample and the normal proportion approximation.')]);
 extend('probability-calculator',[mode('inverse-normal','Normal probability to boundary','normal-inverse',[n('probability','Tail probability',97.5,'%',.00000001,99.99999999),s('tail','Tail',[['left','Below the boundary'],['right','Above the boundary']]),n('mean','Mean',0),n('sd','Standard deviation',1,undefined,0)],'Boundary=mean+standard deviation×inverse normal probability.','Select the tail whose probability is given.')]);
 for(const [slug,modes]of Object.entries(advancedMathDefinitions()))defs.find(d=>d.slug===slug)!.modes.push(...modes);
-defs.find(d=>d.slug==="area-calculator")!.modes.push({...defs.find(d=>d.slug==="triangle-calculator")!.modes[0],id:"triangle-sss",title:"Triangle from three sides"});
+for(const slug of ['volume-calculator','surface-area-calculator']){
+ const cap=defs.find(d=>d.slug===slug)!.modes.find(m=>m.id==='cap-inverse')!;
+ cap.explanation='Choose base radius and cap height, or sphere radius and base radius. A sphere radius and a smaller base radius describe two caps; both heights are shown. The results list the sphere radius, then each cap’s height, volume, curved area, and total area including the base.';
+}
+defs.find(d=>d.slug==="area-calculator")!.modes.push({...defs.find(d=>d.slug==="triangle-calculator")!.modes[0],id:"triangle-sss",title:"Triangle from three sides",explanation:'Enter all three side lengths. The two shorter sides must add up to more than the longest side. Area uses a numerically stable form of Heron’s formula.'});
 
 const probability=defs.find(d=>d.slug==='probability-calculator')!;
 const quantities:[string,string][]=[['A','P(A)'],['B','P(B)'],['notA','P(not A)'],['notB','P(not B)'],['intersection','P(A and B)'],['union','P(A or B)'],['xor','P(exactly one)'],['neither','P(neither)']];
@@ -75,12 +132,14 @@ probability.modes.push(mode('series','Repeated independent trials','probability-
 const normal=probability.modes.find(m=>m.id==='normal')!;normal.algorithm='normal-interval';normal.fields=normal.fields.map(f=>['lower','upper'].includes(f.key)?{...f,type:'text',hint:'Use a number, -inf, or inf.'}:f);normal.explanation+=' The results also show central coverage intervals, which are not confidence intervals for an estimated mean.';
 const random=defs.find(d=>d.slug==='random-number-generator')!.modes[0];random.algorithm='random-exact';random.fields=[t('min','Minimum','1'),t('max','Maximum','100'),n('count','How many',10,undefined,1,1000),s('kind','Number type',[['integer','Whole numbers'],['decimal','Fixed decimal places']]),n('places','Decimal places',2,undefined,0,999),s('replacement','Duplicates',[['yes','Allow duplicates'],['no','Unique values']]),s('sort','Sort order',[['none','Generation order'],['ascending','Ascending'],['descending','Descending']])];random.explanation='Both endpoints are inclusive. Decimal mode samples a fixed grid at your chosen precision. Bounds support exponents through ±5,000, up to 999 decimal places and 1,000 results, within a one-million-character output budget. Uniform sampling uses cryptographic random bytes and exact integers.';
 
+const volumeUnits:[string,string][]=lengthUnits.map(([value,label])=>[value,`Cubic ${label.toLowerCase()}`]);
+const surfaceAreaUnits=areaUnits.filter(([value])=>lengthUnits.some(([lengthValue])=>lengthValue===value));
 for(const slug of ['area-calculator','volume-calculator','surface-area-calculator']){
  for(const m of defs.find(d=>d.slug===slug)!.modes){
   const dimensions=m.fields.filter(f=>f.type==='number'&&!['angle','A','B'].includes(f.key));
   m.fields=m.fields.flatMap(f=>dimensions.includes(f)?[f,s(`${f.key}Unit`,`${f.label} unit`,lengthUnits,'m')]:[f]);
-  m.fields.push(s('outputUnit','Result length unit (squared for area, cubed for volume)',lengthUnits,'m'));
-  m.explanation+=' Each dimension can use its own unit. Results use the selected output unit with the appropriate square or cube.';
+  m.fields.push(slug==='area-calculator'?s('outputUnit','Area unit',areaUnits,'m'):slug==='volume-calculator'?s('outputUnit','Volume unit',volumeUnits,'m'):s('outputUnit','Surface area unit',surfaceAreaUnits,'m'));
+  m.explanation+=slug==='area-calculator'?' Enter positive dimensions and choose a unit for each measurement. Lengths are converted before calculating area; choose square units, acres, or hectares for the result.':` Enter positive dimensions and choose a unit for each measurement. Lengths are converted before calculating; the ${slug==='volume-calculator'?'volume':'surface area'} result uses the selected ${slug==='volume-calculator'?'cubic':'square'} unit.`;
  }
 }
 for(const slug of ['triangle-calculator','area-calculator','right-triangle-calculator']){

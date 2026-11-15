@@ -97,6 +97,8 @@ definitions.find(d=>d.slug==='debt-ratio-calculator')!.sources.unshift({title:'C
 definitions.find(d=>d.slug==='refinance-calculator')!.sources.unshift({title:'CFPB: mortgage refinancing and loan terms',url:'https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/'});
 definitions.find(d=>d.slug==='confidence-interval-calculator')!.sources.unshift({title:'NIST: confidence limits for the mean',url:'https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm'});
 separateStudentCalculators(definitions);
+// Keep the square-footage answer prominent when mixed-unit mode also returns metric area.
+definitions.find(d=>d.slug==='square-footage-calculator')!.modes.find(m=>m.algorithm==='floor-measured')!.primaryMetrics=['Area in square feet'];
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));
 export const blocked:Record<string,string>={};

@@ -15,6 +15,7 @@ type SearchContentSection = {
 
 export type MathSearchContentEntry = {
   modifiedAt: string;
+  quickLinks?: {href: string; label: string}[];
   answerHeading: string;
   answer: string;
   tableHeading: string;
@@ -28,15 +29,17 @@ export type MathSearchContentEntry = {
 /** English editorial copy for the existing pages; examples are checked against the calculator engine. */
 export const mathSearchContent: Record<string, MathSearchContentEntry | undefined> = {
   'area-calculator': {
-    modifiedAt: '2026-10-22',
+    modifiedAt: '2026-11-15',
+    quickLinks: [{href: '#irregular-area', label: 'Irregular shapes'}, {href: '#land-area', label: 'Acres and hectares'}],
     answerHeading: 'How do I calculate area?',
-    answer: 'To calculate area, choose a shape and enter its dimensions. A rectangle uses length × width, a triangle uses base × perpendicular height ÷ 2, and a circle uses π × radius². Select the unit beside each measurement to get the answer in square feet, square meters, or another square unit.',
+    answer: 'Area measures the space inside a flat shape. A rectangle uses length × width, a triangle uses base × perpendicular height ÷ 2, and a circle uses π × radius². Choose your shape, enter each dimension with its unit, select an area unit, then press Calculate. Results can use square feet, square meters, acres, or hectares.',
     tableHeading: 'Area formulas and examples by shape',
-    tableIntroduction: 'Choose the mode that matches the measurements you know. For a square, use Rectangle with equal length and width. In the formulas below, h is perpendicular height, r is radius, and θ is the sector angle in degrees.',
+    tableIntroduction: 'Choose the shape that matches the measurements you know. There are eight shapes and a second triangle method for three known sides. In these formulas, h is perpendicular height, r is radius, and θ is the sector angle in degrees. For an ellipse, a and b are half the full axis lengths.',
     tableCaption: 'Area examples use meters and return square meters (m²). Answers involving π are rounded to two decimal places.',
     firstColumn: 'Shape or mode',
     rows: [
-      {id: 'rectangle', label: 'Rectangle or square', formula: 'A = l × w; square: A = s²', example: 'Length 6 m; width 4 m', result: '24 m²'},
+      {id: 'rectangle', label: 'Rectangle', formula: 'A = l × w', example: 'Length 6 m; width 4 m', result: '24 m²'},
+      {id: 'square', label: 'Square', formula: 'A = s²', example: 'Side 4 m', result: '16 m²'},
       {id: 'triangle', label: 'Triangle: base and height', formula: 'A = b × h ÷ 2', example: 'Base 8 m; height 3 m', result: '12 m²'},
       {id: 'triangle-sss', label: 'Triangle: three sides', formula: 's = (a + b + c) ÷ 2; A = √[s(s − a)(s − b)(s − c)]', example: 'Sides 5 m, 12 m, 13 m; s = 15 m', result: '30 m²'},
       {id: 'circle', label: 'Circle', formula: 'A = πr²', example: 'Radius 3 m', result: '28.27 m²'},
@@ -50,17 +53,18 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'area-measurements',
         heading: 'Which measurements do I need?',
         paragraphs: [
-          'Measure height at a right angle to the base. A sloping edge is not the height of a triangle, trapezoid, or parallelogram. For a circle, divide the diameter by 2 to get the radius. Ellipse inputs are semi-axes: an ellipse 8 m across and 4 m high needs inputs of 4 m and 2 m.',
-          'If a triangle has no known height, choose Triangle from three sides. The three side lengths must form a valid triangle: the sum of the two shorter sides must exceed the longest side.',
+          'Measure height at a right angle to the base, even when the perpendicular line falls outside the shape. A sloping side is not the height of a triangle, trapezoid, or parallelogram. For a circle, halve the diameter to get the radius. For an ellipse 8 m across and 4 m high, enter semi-axes of 4 m and 2 m.',
+          'When only three triangle side lengths are known, choose Triangle from three sides. The two shorter sides must add up to more than the longest side: 3, 4, and 5 form a triangle, but 3, 4, and 7 do not. A sector needs a central angle; select degrees or radians to match your measurement.',
         ],
         link: {before: 'If you know triangle angles as well as sides, use the ', href: '/triangle-calculator', label: 'triangle calculator', after: ' to solve the missing measurements.'},
       },
       {
         id: 'irregular-area',
-        heading: 'How do I find the area of an irregular shape?',
+        heading: 'Area of an irregular shape or L-shaped room',
         paragraphs: [
-          'Split a composite shape into rectangles, triangles, or circular pieces that do not overlap, calculate each area, then add them. Alternatively, calculate an enclosing shape and subtract the cutouts. An L-shaped floor formed from a 6 m × 4 m rectangle with a 2 m × 1 m corner removed has area 24 − 2 = 22 m².',
-          'Run the calculator once for each piece and combine the results in the same square unit. Four outside side lengths alone do not determine the area of an arbitrary quadrilateral; you also need information such as a diagonal, an angle, or coordinates.',
+          'Draw the outline and split it into rectangles, triangles, or circular pieces without overlap. Calculate each piece using the same area unit, then add the results. For a cutout, subtract its area instead.',
+          'For example, an L-shaped floor fits inside a 6 m × 4 m rectangle and has a 2 m × 1 m corner missing. The outer rectangle is 24 m² and the missing corner is 2 m², so the floor covers 24 − 2 = 22 m². Calculate the two rectangles separately; do not multiply the two longest sides and ignore the cutout.',
+          'This calculator uses dimensions you enter, rather than tracing a boundary on a map. For a four-sided plot without right angles or parallel bases, four side lengths alone are insufficient: you also need information such as a diagonal and triangle side lengths, an angle, or coordinates.',
         ],
         link: {before: 'For flooring measurements and material estimates, see the ', href: '/square-footage-calculator', label: 'square footage calculator', after: '.'},
       },
@@ -68,10 +72,30 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'area-unit-conversion',
         heading: 'Square feet, square meters, and mixed units',
         paragraphs: [
-          'You can choose a different unit for each dimension. For example, a rectangle 3 ft long and 24 in wide has area 6 ft² when the result unit is Feet. The calculator converts lengths before multiplying them.',
-          'Area conversions square the length conversion factor: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². Area measures a surface; perimeter measures the distance around its boundary.',
+          'Each dimension has its own unit selector. A rectangle 3 ft long and 24 in wide covers 6 ft² when Area unit is Square feet: 24 in equals 2 ft, then 3 × 2 = 6. For a measurement such as 5 ft 6 in, enter 5.5 Feet or 66 Inches, not 5.6 Feet.',
+          'Square the length conversion factor when converting area: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². To convert square feet to square meters, multiply by 0.09290304; to convert square meters to square feet, divide by 0.09290304.',
         ],
         link: {before: 'To include depth and calculate the space inside a solid, use the ', href: '/volume-calculator', label: 'volume calculator', after: '.'},
+      },
+      {
+        id: 'land-area',
+        heading: 'Land area in acres and hectares',
+        paragraphs: [
+          'For a rectangular plot, enter the length and width, then choose Acres or Hectares as the area unit. A 150 ft × 200 ft plot has an area of 30,000 ft². Dividing by 43,560 gives approximately 0.688705 acres. A 120 m × 80 m field covers 9,600 m², or 0.96 hectares.',
+          'One acre equals 43,560 ft² or 4,046.8564224 m² using the international foot; one hectare equals 10,000 m². Acres and hectares are already area units, so they are not squared again.',
+          'Use horizontal dimensions for a plan-view land area. Distances measured along a slope describe a different surface. Irregular boundaries need additional measurements or a survey; an idealized rectangle cannot establish a property boundary.',
+        ],
+        link: {before: 'For converting an area you already know, use the ', href: '/conversion-calculator', label: 'unit conversion calculator', after: '.'},
+      },
+      {
+        id: 'area-checks',
+        heading: 'Check the result before using it',
+        paragraphs: [
+          'A circle with radius 3 m has area 9π ≈ 28.27 m². Entering its 6 m diameter as the radius would give four times the correct area. Similarly, an ellipse needs semi-axes, not its full width and height.',
+          'Area and perimeter answer different questions. A 6 m × 4 m rectangle covers 24 m² but needs 20 m of edging around its boundary. Flooring uses area; fencing uses perimeter. Covering the outside of a three-dimensional object requires surface area.',
+          'Keep unrounded values while combining pieces, then round the final total to suit your measurements. Extra decimal places do not make a tape measurement more accurate. A flooring or paint allowance is a separate decision from the geometric area.',
+        ],
+        link: {before: 'For the outside of a box, cylinder, sphere, or other solid, use the ', href: '/surface-area-calculator', label: 'surface area calculator', after: '.'},
       },
     ],
   },
@@ -123,27 +147,37 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
     ],
   },
   'volume-calculator': {
-    modifiedAt: '2026-10-22',
+    modifiedAt: '2026-11-15',
+    quickLinks: [{href: '#volume-capacity', label: 'Tank capacity'}, {href: '#volume-unit-conversion', label: 'Cubic units and liters'}],
     answerHeading: 'How do I calculate volume?',
-    answer: 'To calculate volume, choose a three-dimensional shape and enter its dimensions. A rectangular prism uses length × width × height, a cylinder uses π × radius² × height, and a sphere uses 4π × radius³ ÷ 3. Select the input and output length units to get cubic feet, cubic meters, or another cubic unit.',
+    answer: 'Volume measures the space inside a three-dimensional shape. A rectangular prism uses length × width × height, a cylinder uses π × radius² × height, and a sphere uses 4π × radius³ ÷ 3. Choose a solid, enter each dimension with its unit, select a volume unit, then press Calculate for cubic feet, cubic meters, or another cubic unit.',
     tableHeading: 'Volume formulas and examples by solid',
-    tableIntroduction: 'Here r is radius, h is perpendicular height, and R is the larger radius where two radii are needed. For an ellipsoid, a, b, and c are semi-axes. Divide a diameter or full axis length by 2 before using a radius or semi-axis field.',
+    tableIntroduction: 'Choose from eleven solids and an alternate spherical-cap method. Here r and r₂ are radii, and h is perpendicular height or the capsule’s straight length. For an ellipsoid, a, b, and c are semi-axes. Divide a diameter or full axis length by two before entering a radius or semi-axis.',
     tableCaption: 'Volume examples use meters and return cubic meters (m³). Answers involving π are rounded to two decimal places.',
     firstColumn: 'Solid',
     rows: [
-      {id: 'cuboid', label: 'Rectangular prism', formula: 'V = l × w × h', example: 'Length 6 m; width 4 m; height 2 m', result: '48 m³'},
+      {id: 'cuboid', label: 'Rectangular prism', formula: 'V = a × b × h', example: 'Length 6 m; width 4 m; height 2 m', result: '48 m³'},
       {id: 'cube', label: 'Cube', formula: 'V = a³', example: 'Edge 3 m', result: '27 m³'},
       {id: 'cylinder', label: 'Cylinder', formula: 'V = πr²h', example: 'Radius 2 m; height 5 m', result: '62.83 m³'},
       {id: 'sphere', label: 'Sphere', formula: 'V = 4πr³ ÷ 3', example: 'Radius 3 m', result: '113.1 m³'},
       {id: 'cone', label: 'Cone', formula: 'V = πr²h ÷ 3', example: 'Radius 3 m; height 4 m', result: '37.7 m³'},
-      {id: 'pyramid', label: 'Rectangular pyramid', formula: 'V = l × w × h ÷ 3', example: 'Base 6 m × 4 m; height 3 m', result: '24 m³'},
+      {id: 'pyramid', label: 'Rectangular pyramid', formula: 'V = a × b × h ÷ 3', example: 'Base 6 m × 4 m; height 3 m', result: '24 m³'},
       {id: 'ellipsoid', label: 'Ellipsoid', formula: 'V = 4πabc ÷ 3', example: 'Semi-axes 3 m, 2 m, 1 m', result: '25.13 m³'},
       {id: 'capsule', label: 'Capsule', formula: 'V = πr²h + 4πr³ ÷ 3', example: 'Radius 2 m; straight cylinder length 6 m', result: '108.91 m³'},
-      {id: 'cap', label: 'Spherical cap', formula: 'V = πh²(3R − h) ÷ 3', example: 'Sphere radius 5 m; cap height 2 m', result: '54.45 m³'},
-      {id: 'frustum', label: 'Conical frustum', formula: 'V = πh(R² + Rr + r²) ÷ 3', example: 'Radii 4 m and 2 m; height 3 m', result: '87.96 m³'},
-      {id: 'tube', label: 'Hollow cylinder: material', formula: 'V = π(R² − r²)h', example: 'Outer radius 3 m; inner radius 2 m; height 5 m', result: '78.54 m³'},
+      {id: 'cap', label: 'Spherical cap', formula: 'V = πh²(3r − h) ÷ 3', example: 'Sphere radius 5 m; cap height 2 m', result: '54.45 m³'},
+      {id: 'cap-inverse', label: 'Cap: alternate dimensions', formula: 'V = πh(3a² + h²) ÷ 6, where a is base radius', example: 'Base radius 4 m; cap height 2 m', result: '54.45 m³'},
+      {id: 'frustum', label: 'Conical frustum', formula: 'V = πh(r² + rr₂ + r₂²) ÷ 3', example: 'Radii 4 m and 2 m; height 3 m', result: '87.96 m³'},
+      {id: 'tube', label: 'Hollow cylinder: material', formula: 'V = π(r² − r₂²)h', example: 'Outer radius 3 m; inner radius 2 m; height 5 m', result: '78.54 m³'},
     ],
     sections: [
+      {
+        id: 'volume-measurements',
+        heading: 'Measure the radius, perpendicular height, and straight length',
+        paragraphs: [
+          'Use the center-to-edge radius of a sphere, cylinder, cone, or capsule. Entering diameter instead of radius makes a sphere’s volume eight times too large and a cylinder’s volume four times too large. Cone and pyramid height is perpendicular to the base, not measured along the sloping side.',
+          'A capsule combines a cylinder with two hemispherical ends. Enter only the straight cylinder length as h; overall length is h + 2r. For an ellipsoid, enter half of each full axis length. A solid measuring 6 m × 4 m × 2 m across its three axes has semi-axes 3 m, 2 m, and 1 m.',
+        ],
+      },
       {
         id: 'volume-capacity',
         heading: 'How do I calculate the capacity of a tank or container?',
@@ -157,9 +191,9 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         heading: 'How do cubic units convert to liters?',
         paragraphs: [
           'One cubic meter equals 1,000 liters. One cubic centimeter equals 1 milliliter. To convert a result in m³ to liters, multiply by 1,000; to convert cm³ to liters, divide by 1,000.',
-          'Volume conversions cube the length factor: 1 ft³ = 1,728 in³ = 0.028316846592 m³. Select each dimension’s actual unit before calculating. For example, a box 2 ft × 12 in × 6 in has volume 1 ft³ when the result unit is Feet.',
+          'Volume conversions cube the length factor: 1 ft³ = 1,728 in³ = 0.028316846592 m³. Select each dimension’s actual unit before calculating. For example, a box 2 ft × 12 in × 6 in has volume 1 ft³ when Volume unit is Cubic feet. Enter 5 ft 6 in as 5.5 Feet or 66 Inches, not 5.6 Feet.',
         ],
-        link: {before: 'If your measurements describe a flat region with no depth, use the ', href: '/area-calculator', label: 'area calculator', after: ' to get square units.'},
+        link: {before: 'To convert a known volume to liters, milliliters, or US or imperial gallons, use the ', href: '/conversion-calculator', label: 'unit conversion calculator', after: '.'},
       },
       {
         id: 'composite-volume',
@@ -169,6 +203,93 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'The Hollow cylinder mode calculates the surrounding material. To calculate the capacity of its central opening, use Cylinder mode with the inner radius instead. Arbitrary irregular objects need additional geometry or a measurement method such as fluid displacement.',
         ],
         link: {before: 'To measure the outside covering of a solid rather than its capacity, use the ', href: '/surface-area-calculator', label: 'surface area calculator', after: '.'},
+      },
+      {
+        id: 'spherical-cap-volume',
+        heading: 'Why can a spherical cap have two answers?',
+        paragraphs: [
+          'With the sphere radius r and cap height h, the cap is defined: h must be greater than zero and no greater than 2r. With a base radius a and cap height h, the alternate mode first finds r = (a² + h²) ÷ (2h). For a = 4 m and h = 2 m, r = 5 m and volume is about 54.45 m³.',
+          'With only sphere radius r and base radius a, there can be two cap heights: r − √(r² − a²) and r + √(r² − a²). A sphere of radius 5 m cut along a base circle of radius 4 m gives heights 2 m and 8 m. The alternate mode shows both caps, so choose the one matching the piece you measured.',
+        ],
+      },
+      {
+        id: 'volume-checks',
+        heading: 'Volume, material allowance, and measurement precision',
+        paragraphs: [
+          'Area uses square units; volume uses cubic units. A slab 6 m long, 4 m wide, and 0.1 m thick covers 24 m² and contains 2.4 m³. Thickness must be included when estimating material, even when it is much smaller than the other dimensions.',
+          'The result models the dimensions entered. Keep unrounded values when combining pieces, then round to match measurement precision. Material allowances, compaction, and purchase quantities are separate from geometric volume.',
+        ],
+        link: {before: 'For slabs and round columns with an extra-material allowance, use the ', href: '/concrete-calculator', label: 'concrete calculator', after: '.'},
+      },
+    ],
+  },
+  'surface-area-calculator': {
+    modifiedAt: '2026-11-15',
+    quickLinks: [{href: '#open-and-closed-surfaces', label: 'Open and closed surfaces'}, {href: '#surface-area-units', label: 'Square units'}],
+    answerHeading: 'How do I calculate surface area?',
+    answer: 'Surface area is the sum of the faces or curved surfaces of a three-dimensional object. A closed rectangular prism uses 2(ab + ah + bh), a closed cylinder uses 2πr(r + h), and a sphere uses 4πr². Choose a solid, enter each dimension with its unit, and select a surface area unit for a result in square feet, square meters, or another square unit.',
+    tableHeading: 'Surface area formulas and examples by solid',
+    tableIntroduction: 'These formulas give total surface area, including the bases or ends described below. Here r and r₂ are radii, h is perpendicular height or the capsule’s straight length, and a, b, and c are ellipsoid semi-axes. Ellipsoid surface area uses an approximation; the other listed formulas are exact for their ideal shapes.',
+    tableCaption: 'Examples use meters and return square meters (m²). Decimal results are rounded to two places; the ellipsoid result is approximate.',
+    firstColumn: 'Solid and included surfaces',
+    rows: [
+      {id: 'cuboid', label: 'Rectangular prism: six faces', formula: 'A = 2(ab + ah + bh)', example: 'Length 6 m; width 4 m; height 2 m', result: '88 m²'},
+      {id: 'cube', label: 'Cube: six faces', formula: 'A = 6a²', example: 'Edge 3 m', result: '54 m²'},
+      {id: 'cylinder', label: 'Cylinder: side and both ends', formula: 'A = 2πr(r + h)', example: 'Radius 2 m; height 5 m', result: '87.96 m²'},
+      {id: 'sphere', label: 'Sphere', formula: 'A = 4πr²', example: 'Radius 3 m', result: '113.1 m²'},
+      {id: 'cone', label: 'Cone: side and base', formula: 'A = πr(r + √(r² + h²))', example: 'Radius 3 m; perpendicular height 4 m', result: '75.4 m²'},
+      {id: 'pyramid', label: 'Rectangular pyramid: sides and base', formula: 'A = ab + a√((b/2)² + h²) + b√((a/2)² + h²)', example: 'Base 6 m × 4 m; perpendicular height 3 m', result: '62.6 m²'},
+      {id: 'ellipsoid', label: 'Ellipsoid: approximate', formula: 'A ≈ 4π[((ab)ᵖ + (ac)ᵖ + (bc)ᵖ) ÷ 3]^(1/p), p = 1.6075', example: 'Semi-axes 3 m, 2 m, 1 m', result: '48.97 m²'},
+      {id: 'capsule', label: 'Capsule: cylinder and rounded ends', formula: 'A = 2πrh + 4πr²', example: 'Radius 2 m; straight cylinder length 6 m', result: '125.66 m²'},
+      {id: 'cap', label: 'Spherical cap: curved face and base', formula: 'A = 2πrh + π(2rh − h²)', example: 'Sphere radius 5 m; cap height 2 m', result: '113.1 m²'},
+      {id: 'cap-inverse', label: 'Cap: alternate dimensions', formula: 'r = (a² + h²) ÷ (2h); A = 2πrh + πa², where a is base radius', example: 'Base radius 4 m; cap height 2 m', result: '113.1 m²'},
+      {id: 'frustum', label: 'Conical frustum: side and both bases', formula: 'A = π(r + r₂)√((r − r₂)² + h²) + π(r² + r₂²)', example: 'Radii 4 m and 2 m; height 3 m', result: '130.79 m²'},
+      {id: 'tube', label: 'Hollow cylinder: inner, outer, and end rings', formula: 'A = 2π(r + r₂)h + 2π(r² − r₂²)', example: 'Outer radius 3 m; inner radius 2 m; height 5 m', result: '188.5 m²'},
+    ],
+    sections: [
+      {
+        id: 'surface-area-measurements',
+        heading: 'Which measurements define each solid?',
+        paragraphs: [
+          'Use radius from center to edge, not diameter across the whole circle. Cone, frustum, and pyramid height is perpendicular to the base. The calculator derives slant height for the surface formula. The pyramid is a right rectangular pyramid, with its apex above the center of the base.',
+          'For a capsule, h is only the straight cylindrical section between the rounded ends. Its full length is h + 2r. For an ellipsoid, enter three semi-axes, each half of a full axis. A hollow cylinder needs an outer radius strictly larger than its inner radius.',
+        ],
+      },
+      {
+        id: 'open-and-closed-surfaces',
+        heading: 'Total, lateral, and open-container surface area',
+        paragraphs: [
+          'Total area includes every face in the selected model. Lateral area includes the sides but excludes the bases. A closed cylinder includes the curved side and two circular ends. For an open-top cylinder, subtract πr² from its total; for the curved side alone, subtract 2πr².',
+          'For a cylinder with radius 2 m and height 5 m, total area is 28π ≈ 87.96 m². With the top removed, it is 24π ≈ 75.40 m². The curved side alone is 20π ≈ 62.83 m². These are three different surfaces of the same dimensions.',
+          'The cone and rectangular pyramid include their bases. The hollow cylinder includes its inner curved wall, outer curved wall, and two flat annular ends. It does not mean only the outside wall: for that, use 2πrh with the outer radius.',
+        ],
+      },
+      {
+        id: 'surface-area-units',
+        heading: 'Square feet, square meters, and mixed dimensions',
+        paragraphs: [
+          'Select the actual unit for each measurement. A rectangular prism with length 2 ft, width 12 in, and height 6 in becomes 2 ft × 1 ft × 0.5 ft. Its surface area is 2(2 + 1 + 0.5) = 7 ft² when Surface area unit is Square feet.',
+          'Area conversion squares the length factor: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². Surface area always uses square units, even though the object itself is three-dimensional. Volume uses cubic units.',
+        ],
+        link: {before: 'To calculate how much space a solid contains, use the ', href: '/volume-calculator', label: 'volume calculator', after: '.'},
+      },
+      {
+        id: 'cap-and-ellipsoid-surfaces',
+        heading: 'Spherical caps and the ellipsoid approximation',
+        paragraphs: [
+          'A spherical cap’s total area combines the curved portion, 2πrh, and its flat circular base, π(2rh − h²). For sphere radius 5 m and cap height 2 m, these are 20π and 16π m², giving 36π ≈ 113.10 m² in total. The alternate-dimensions mode shows curved and total areas separately.',
+          'Base radius and cap height determine one cap. Sphere radius and base radius can describe a smaller and a larger cap, so the alternate mode can show two solutions. Use the measurements and the indicated cap heights to identify your surface.',
+          'The ellipsoid calculation uses A ≈ 4π[((ab)ᵖ + (ac)ᵖ + (bc)ᵖ) ÷ 3]^(1/p), with p = 1.6075. This is the Knud Thomsen approximation, not an exact general ellipsoid surface formula. When all three semi-axes equal r, it reduces to the sphere formula 4πr².',
+        ],
+      },
+      {
+        id: 'composite-surface-area',
+        heading: 'Joined solids and material estimates',
+        paragraphs: [
+          'Adding the total areas of two touching solids counts their hidden contact surfaces twice. Subtract both copies of each shared face when finding the exposed area of the joined object. Two 1 m cubes joined along one face have exposed area 6 + 6 − 2 = 10 m², rather than 12 m².',
+          'For painting, wrapping, or cladding, count only the surfaces you plan to cover. Coats, overlaps, openings, and material waste require separate adjustments. Keep unrounded numbers while combining areas, then round the final result to the precision of your measurements.',
+        ],
+        link: {before: 'For an individual flat face, use the ', href: '/area-calculator', label: 'area calculator', after: '.'},
       },
     ],
   },

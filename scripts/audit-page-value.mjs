@@ -9,6 +9,7 @@ const calculators=Object.assign({},...await Promise.all(['finance','health','mat
 const informationNotes=await readJSON('src/data/insights/information.json');
 const server=await createServer({configFile:false,server:{middlewareMode:true,watch:null},resolve:{alias:{'@':resolve('src')}}});
 const issues=[],pages=[],seen=new Map();
+const illustratedMathSlugs=new Set(['area-calculator','volume-calculator','surface-area-calculator']);
 function checkNote(path,record){
   for(const locale of locales){
     const note=record?.[locale];
@@ -22,6 +23,7 @@ function checkNote(path,record){
 try{
   const {publishedLocales}=await server.ssrLoadModule('/src/lib/i18n/config.ts');
   const {definitions}=await server.ssrLoadModule('/src/lib/calculators/registry.ts');
+  const {mathSearchContent}=await server.ssrLoadModule('/src/data/math-search-content.ts');
   const {information}=await server.ssrLoadModule('/src/data/information.ts');
   const {guides}=await server.ssrLoadModule('/src/data/guides.ts');
   const paths=[...new Set([...translatedPaths,...Object.keys(guides).map(slug=>`/guides/${slug}`)])];
@@ -36,7 +38,19 @@ try{
     let review;
     if(definition){
       checkNote(path,calculators[slug]);
-      review={kind:'calculator',addition:calculators[slug]?.en.heading,implementation:'Original interpretation note, method navigation, input → formula → result example, and on-page numeric scenario comparison where applicable.',sourceReferences:definition.sources.length};
+      const reference=illustratedMathSlugs.has(slug)?mathSearchContent[slug]:undefined;
+      if(illustratedMathSlugs.has(slug)){
+        if(!reference?.answerHeading?.trim()||!reference?.answer?.trim())issues.push(`${path}: missing illustrated math answer`);
+        const rows=reference?.rows||[],rowIds=rows.map(row=>row.id),modeIds=definition.modes.map(mode=>mode.id);
+        if(new Set(rowIds).size!==rowIds.length)issues.push(`${path}: duplicate formula-reference row IDs`);
+        for(const id of modeIds)if(!rowIds.includes(id))issues.push(`${path}: formula reference missing mode ${id}`);
+        for(const row of rows){
+          if(!modeIds.includes(row.id))issues.push(`${path}: formula reference has unknown mode ${row.id}`);
+          if(['label','formula','example','result'].some(key=>!row[key]?.trim()))issues.push(`${path}: incomplete formula reference ${row.id}`);
+        }
+        for(const link of reference?.quickLinks||[])if(!['#common-questions',...reference.sections.map(section=>'#'+section.id)].includes(link.href))issues.push(`${path}: unknown math quick-link target ${link.href}`);
+      }
+      review={kind:'calculator',addition:reference?.answerHeading||calculators[slug]?.en.heading,implementation:reference?'English direct answer, illustrated formula table with one example and mode link per supported method, measurement guidance, and numeric scenario comparison. Draft translations retain their localized interpretation notes.':'Original interpretation note, method navigation, input → formula → result example, and on-page numeric scenario comparison where applicable.',sourceReferences:definition.sources.length,...(reference?{englishReference:'math-search',referenceModes:reference.rows.map(row=>row.id)}:{})};
     }else if(clock)review={kind:'regional-clock',addition:`${clock.id}: dated cross-zone comparison and quarterly offset table`,implementation:'Server-rendered data for this zone; repeated full world-clock guide removed.'};
     else if(wheel)review={kind:'spin-wheel',addition:`${wheel.title}: initial entry counts and selection probabilities`,implementation:'Accessible table and proportion bars, explicitly distinguished from edited entries.'};
     else if(directories[path])review={kind:'directory',addition:'Compare the required inputs and methods of relevant tools before choosing.',implementation:'Tool-choice table drawn from actual active calculator fields and formulas.'};
@@ -63,7 +77,7 @@ try{
   const report={checkedAt:new Date().toISOString(),sourceRoutes:pages.length,localizedURLs:pages.reduce((sum,page)=>sum+page.languages.length,0),calculatorNotes:Object.keys(calculators).length,informationNotes:Object.keys(informationNotes).length,languages:publishedLocales,supportedLanguages:locales,issues,
     scope:'Inventory of published routes; structural checks also retain all draft locale guidance records. This is not editorial approval of translations or a claim of browser inspection of every URL.',
     additionalRoutes:[{path:'/real-estate-calculator',review:'Shares the improved real-estate tool-selection guide; existing non-indexed directory behavior retained.'},{path:'/search',review:'Added localized guidance for matching a task to a calculation method; remains noindex.'},{path:'/workspace',review:'Added localized advice for naming and comparing assumptions; remains noindex.'},...['/offline','/network-error','/maintenance','404','error boundaries'].map(path=>({path,review:'Reviewed recovery instructions, navigation and noindex behavior. Kept focused on recovery; no unrelated search copy added.'}))],
-    checks:['Distinct original note bodies within each language','No missing calculator or information-page locale','Every indexable route has a recorded functional or editorial improvement','Existing formula references retained','No ranking promises, invented author credentials, or artificial review dates added to pages'],pages};
+    checks:['Distinct original note bodies within each language','No missing calculator or information-page locale','Illustrated English math references contain unique examples and links covering every supported mode','Every indexable route has a recorded functional or editorial improvement','Existing formula references retained','No ranking promises, invented author credentials, or artificial review dates added to pages'],pages};
   await mkdir('docs/validation',{recursive:true});
   await writeFile('docs/validation/page-value-review.json',JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({sourceRoutes:report.sourceRoutes,localizedURLs:report.localizedURLs,calculatorNotes:report.calculatorNotes,informationNotes:report.informationNotes,issues},null,2));

@@ -1,5 +1,11 @@
 import Decimal from 'decimal.js';
-export const FRANKFURTER_RATES = 'https://api.frankfurter.dev/v2/rates?base=USD&expand=providers';
+import instruments from '@/data/currency-instruments.json';
+
+// The unfiltered feed also includes assets outside our supported currency list.
+// Request the published catalog's daily-reference instruments explicitly;
+// Bitcoin and Chilean UF retain their separate source and freshness policies.
+const dailyReferenceCodes = instruments.filter(instrument => instrument.strategy === 'daily_reference_quote').map(instrument => instrument.code);
+export const FRANKFURTER_RATES = `https://api.frankfurter.dev/v2/rates?base=USD&expand=providers&quotes=${dailyReferenceCodes.join(',')}`;
 export type Contributor = {key: string; date?: string; rate?: number; excluded?: boolean};
 export type GlobalQuote = {code: string; usdPerUnit: string; date: string; kind: 'daily-reference' | 'spot'; source: string; contributors: Contributor[]; pegDerived: boolean; inverseQuote?: boolean};
 export type GlobalRates = {retrievedAt: string; quotes: Record<string, GlobalQuote>; missing: string[]; cached?: boolean};

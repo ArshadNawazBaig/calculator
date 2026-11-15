@@ -69,11 +69,11 @@ test('explains incompatible units instead of showing a misleading numerical diff
   await panel.getByRole('button',{name:explanations.en.pin,exact:true}).click();
   await page.locator('#rectangle-outputUnit').scrollIntoViewIfNeeded();
   await page.locator('#rectangle-outputUnit').click();
-  await page.getByRole('option',{name:'Centimeters',exact:true}).click();
+  await page.getByRole('option',{name:'Square centimeters',exact:true}).click();
   await page.locator('[data-calculator-submit]').click();
   await expect(panel.getByRole('status')).toHaveText(explanations.en.incompatible);
   await expect(panel.locator('table')).toHaveCount(1);
-  await expect(panel.locator('table')).toContainText('Centimeters');
+  await expect(panel.locator('table')).toContainText('Square centimeters');
 });
 
 test('publishes localized insight text and usable tables across published languages',async ({page})=>{

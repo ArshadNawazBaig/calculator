@@ -13,6 +13,6 @@ export function FieldGroup({fields, values, onChange, prefix, disabled, currency
     if (name) groups.set(name, [...(groups.get(name) || []), field]);
     else basic.push(field);
   }
-  const render = (field: Field) => <CalculatorField currency={currency} key={field.key} field={field} value={values[field.key] ?? ''} prefix={prefix} disabled={disabled} onChange={value => onChange(field.key, value)}/>;
+  const render = (field: Field) => <CalculatorField currency={currency} key={`${prefix}-${field.key}`} field={field} value={values[field.key] ?? ''} prefix={prefix} disabled={disabled} onChange={value => onChange(field.key, value)}/>;
   return <><div className="calculator-fields">{basic.map(render)}</div>{groups.size>0&&<Accordion className="advanced-fields">{[...groups].map(([name, fields]) => <AccordionItem title={t(name)} key={name}><div className="calculator-fields">{fields.map(render)}</div></AccordionItem>)}</Accordion>}</>;
 }
