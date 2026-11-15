@@ -12,6 +12,7 @@ export const relatedCalculatorSlugs: Record<string, string[]> = {
   'mortgage-calculator': ['mortgage-amortization-calculator', 'mortgage-payoff-calculator', 'house-affordability-calculator', 'down-payment-calculator', 'refinance-calculator', 'rent-vs-buy-calculator'],
   'compound-interest-calculator': ['savings-calculator', 'investment-calculator', 'simple-interest-calculator', 'future-value-calculator', 'interest-calculator', 'inflation-calculator'],
   'bmi-calculator': ['healthy-weight-calculator', 'body-fat-calculator', 'lean-body-mass-calculator', 'bmr-calculator', 'calorie-calculator', 'height-calculator'],
+  'calorie-calculator': ['tdee-calculator', 'bmr-calculator', 'macro-calculator', 'calories-burned-calculator', 'protein-calculator', 'body-fat-calculator'],
   'percent-calculator': ['percent-off-calculator', 'discount-calculator', 'percent-error-calculator', 'fraction-calculator', 'ratio-calculator', 'margin-calculator'],
 };
 

@@ -1,25 +1,256 @@
 {
   "age-calculator": {
-    "description": "Find calendar age in years, months and days, plus elapsed days between a birth date and a selected comparison date.",
-    "faqs": [
-      {
-        "question": "Why is calendar age different from total days divided by 365?",
-        "answer": "Calendar years and months have different lengths. The calculator counts completed calendar periods before the remaining days."
-      },
-      {
-        "question": "How are month-end anniversaries handled?",
-        "answer": "If the matching day does not exist in a target month, the anniversary is clamped to that month's final day."
-      }
-    ],
+    "description": "Calculate age in years, months and days from a date of birth. See completed months and weeks, total days, and the countdown to your next birthday.",
+    "seoTitle": "Age Calculator: Years, Months, Days & Next Birthday",
     "sections": [
       {
-        "title": "Reading age on a selected date",
+        "title": "Calculate your age today or on a specific date",
         "paragraphs": [
-          "Age depends on both the birth date and the date on which it is measured. Check the reference date before comparing results from different visits. Calendar years and months have different lengths, so a calendar-age breakdown is different from dividing a day count by a fixed year length. The result follows the date handling described by the calculator."
+          "Enter your Date of birth and the Age on date, then select Calculate. For your age today, open the Age on calendar and choose Today; it uses the current date in your device’s time zone. You can also enter a past date or a future date to answer “How old was I then?” or “How old will I be?” The comparison date must be on or after the birth date.",
+          "The main result is calendar age: completed years, additional completed months and remaining days. The calculator also shows total elapsed days, completed calendar months, complete weeks with leftover days, and the next birthday on or after your chosen date. The initial dates are a worked example, so replace them before reading the result as your own age."
+        ]
+      },
+      {
+        "title": "Worked age example: 23 September 1998 to 15 June 2026",
+        "paragraphs": [
+          "Someone born on 23 September 1998 is 27 years, 8 months and 23 days old on 15 June 2026. Enter Date of birth 1998-09-23 and Age on 2026-06-15 to reproduce the result. The year subtraction 2026 − 1998 gives 28, but the September birthday has not yet occurred in June.",
+          "Count 27 complete years to 23 September 2025, then eight additional months to 23 May 2026, then 23 days to 15 June. The full interval contains 10,127 days. Its next birthday is 23 September 2026, exactly 100 calendar days after the selected date."
+        ],
+        "table": {
+          "caption": "Different ways to describe the same example age",
+          "headers": [
+            "Measure",
+            "Result",
+            "How to interpret it"
+          ],
+          "rows": [
+            [
+              "Calendar age",
+              "27 years, 8 months, 23 days",
+              "Completed calendar periods plus the remaining days"
+            ],
+            [
+              "Completed calendar months",
+              "332",
+              "27 × 12 + 8; the remaining 23 days are separate"
+            ],
+            [
+              "Elapsed days",
+              "10,127",
+              "Days from the birth date to the selected date"
+            ],
+            [
+              "Complete weeks and leftover days",
+              "1,446 weeks + 5 days",
+              "1,446 × 7 + 5 = 10,127"
+            ],
+            [
+              "Next birthday",
+              "23 September 2026",
+              "100 days after 15 June 2026"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Enter the dates in Age on a date",
+            "href": "/age-calculator#mode-age"
+          }
+        ]
+      },
+      {
+        "title": "Watch completed years change at the birthday boundary",
+        "paragraphs": [
+          "For a birth date of 15 June 2000, compare the three dates below. One elapsed day passes between each row, but the completed-year result changes only at the birthday. This is why subtracting birth year from comparison year can overstate someone’s age before their birthday.",
+          "The birthday countdown includes an anniversary on the selected date: it reads zero on 15 June. On 16 June, it points to the following year. The countdown is measured from Age on, which may be a historical or future date, not necessarily from today."
+        ],
+        "table": {
+          "caption": "One birth date, three neighboring comparison dates",
+          "headers": [
+            "Age on",
+            "Calendar age",
+            "Next birthday",
+            "Days until birthday"
+          ],
+          "rows": [
+            [
+              "14 June 2026",
+              "25 years, 11 months, 30 days",
+              "15 June 2026",
+              "1"
+            ],
+            [
+              "15 June 2026",
+              "26 years, 0 months, 0 days",
+              "15 June 2026",
+              "0"
+            ],
+            [
+              "16 June 2026",
+              "26 years, 0 months, 1 day",
+              "15 June 2027",
+              "364"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Understand age in months when the birth date is at month end",
+        "paragraphs": [
+          "Calendar months do not all contain the same number of days. Finflo counts complete months from the original birth date. If that day does not exist in the target month, it uses that month’s final day. It then counts the days remaining after the latest complete-month anniversary.",
+          "A birth date of 31 January 2025 reaches one complete month on 28 February. Two complete months end on 31 March, so 30 March is still one month plus 30 days under this convention. The calculator keeps the original day as its reference instead of repeatedly adding a month to the previously shortened February date."
+        ],
+        "table": {
+          "caption": "Month-end counting for a 31 January 2025 birth date",
+          "headers": [
+            "Age on",
+            "Calendar age",
+            "Total elapsed days"
+          ],
+          "rows": [
+            [
+              "28 February 2025",
+              "0 years, 1 month, 0 days",
+              "28"
+            ],
+            [
+              "30 March 2025",
+              "0 years, 1 month, 30 days",
+              "58"
+            ],
+            [
+              "31 March 2025",
+              "0 years, 2 months, 0 days",
+              "59"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Check the February 29 birthday convention",
+        "paragraphs": [
+          "For a February 29 birth, this calculator uses February 28 as the anniversary in a non-leap year and February 29 when that date exists. Both calendar age and the next-birthday countdown follow this same rule. It is a stated counting convention, not a determination of legal age or eligibility.",
+          "Gregorian years divisible by four normally have a February 29, but century years must also be divisible by 400. Thus 2000 is a leap year and 2100 is not. The table illustrates a person born on 29 February 2024; the 2028 anniversary returns to February 29 rather than staying on February 28."
+        ],
+        "table": {
+          "caption": "A leap-day birth across common and leap years",
+          "headers": [
+            "Age on",
+            "Calendar age",
+            "Next birthday",
+            "Countdown"
+          ],
+          "rows": [
+            [
+              "28 February 2025",
+              "1 year, 0 months, 0 days",
+              "28 February 2025",
+              "0 days"
+            ],
+            [
+              "1 March 2025",
+              "1 year, 0 months, 1 day",
+              "28 February 2026",
+              "364 days"
+            ],
+            [
+              "28 February 2028",
+              "3 years, 11 months, 30 days",
+              "29 February 2028",
+              "1 day"
+            ],
+            [
+              "29 February 2028",
+              "4 years, 0 months, 0 days",
+              "29 February 2028",
+              "0 days"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "U.S. Naval Observatory: Gregorian leap-year rules",
+            "href": "https://aa.usno.navy.mil/faq/leap_years"
+          }
+        ]
+      },
+      {
+        "title": "Keep elapsed age separate from inclusive day counting",
+        "paragraphs": [
+          "On the birth date itself, calendar age and elapsed days are both zero. On the following date, one day has elapsed. Counting every date on a list, including both endpoints, answers a different question and would give one for a same-date range. Use the Day Counter’s Include end date option when that is the count you need.",
+          "Weeks always contain seven days, so the complete-weeks result and leftover days can be checked against Total days. Months and years vary in length: dividing days by 30 or 365 does not recover the calendar-age breakdown. For example, 31 January to 28 February is one complete month here even though only 28 days have elapsed."
+        ],
+        "links": [
+          {
+            "label": "Count dates with an optional inclusive end date",
+            "href": "/day-counter#mode-difference"
+          },
+          {
+            "label": "Add or subtract calendar years, months and days",
+            "href": "/date-calculator#mode-add"
+          }
+        ]
+      },
+      {
+        "title": "Know what a date-only age result can establish",
+        "paragraphs": [
+          "This tool uses Gregorian dates without a birth time or time zone. Its day count is calendar arithmetic; daylight-saving clock changes do not add or remove a calendar date. It therefore does not claim your exact age in hours, minutes or seconds. For elapsed time between known instants, keep both dates, clock times and zones, convert both endpoints to UTC, and use the Time Duration Calculator.",
+          "Use the applicable organization’s rules when an age affects enrollment, insurance or another eligibility decision. A Gregorian date calculation does not reproduce every administrative rule or other calendar’s age-counting system. Supported input years are 0001–9999; if the next birthday falls after year 9999, the age totals remain available and the birthday result is omitted."
+        ],
+        "links": [
+          {
+            "label": "Calculate a duration from dated clock times",
+            "href": "/time-duration-calculator#mode-dated"
+          },
+          {
+            "label": "Convert date-specific times between named zones",
+            "href": "/time-zone-calculator#mode-zone"
+          },
+          {
+            "label": "TC39: calendar dates independent of time zones",
+            "href": "https://tc39.es/proposal-temporal/docs/plaindate.html"
+          }
         ]
       }
     ],
-    "seoTitle": "Age Calculator: Years, Months & Days Between Dates"
+    "faqs": [
+      {
+        "question": "How do I calculate my age today?",
+        "answer": "Enter your date of birth, open the Age on calendar and choose Today, then select Calculate. Today follows your device’s local time zone. Replace the illustrative starting dates before using the result as your own age."
+      },
+      {
+        "question": "Can I calculate my age on a past or future date?",
+        "answer": "Yes. Enter the date you want in Age on. It may be before or after today, but it must be on or after your birth date. The birthday countdown is also measured from that selected date."
+      },
+      {
+        "question": "Why is my age not simply this year minus my birth year?",
+        "answer": "Subtract one from that year difference if your birthday has not occurred by the selected date. For example, someone born on 23 September 1998 is 27, not 28, on 15 June 2026."
+      },
+      {
+        "question": "How can I find my age in months or weeks?",
+        "answer": "Read Completed calendar months for the whole-month count, leaving the remaining days separate. Complete weeks and Days after complete weeks divide the total elapsed-day count by seven. Neither calculation assumes a 30-day month."
+      },
+      {
+        "question": "Why can age show one month and 30 days?",
+        "answer": "Each month anniversary is anchored to the original birth date and shortened only when that day is absent from the target month. From 31 January 2025, one month ends on 28 February and two months end on 31 March. Therefore 30 March is one month plus 30 days."
+      },
+      {
+        "question": "What happens if I was born on February 29?",
+        "answer": "Finflo uses February 28 as the anniversary in a non-leap year and February 29 in a leap year. Calendar age and the next-birthday countdown use that same convention. Check the relevant rules separately for an official eligibility decision."
+      },
+      {
+        "question": "Why does the birthday countdown show zero?",
+        "answer": "The next-birthday result includes the selected Age on date. If that date is your birthday under the calculator’s anniversary convention, the countdown is zero. The following date points to the next year’s anniversary."
+      },
+      {
+        "question": "Does the age calculator count the birth date as day one?",
+        "answer": "No. It measures elapsed calendar days, so the birth date compared with itself is zero days and the following date is one day later. Counting both endpoint dates is an inclusive counting task, available in the Day Counter."
+      },
+      {
+        "question": "Can a date of birth alone give an exact age in hours or seconds?",
+        "answer": "No. Exact elapsed clock time also requires a birth time, comparison time and time-zone information. This calculator uses dates only and reports calendar periods and whole elapsed days."
+      }
+    ]
   },
   "date-calculator": {
     "description": "Find days between two dates, add or subtract days, weeks, months or years, and count business days with your selected holidays.",
@@ -517,55 +748,501 @@
   },
   "gpa-calculator": {
     "description": "Calculate semester and cumulative GPA using course grades, credit hours, and your institution’s grading scale.",
-    "faqs": [
-      {
-        "question": "Why is cumulative GPA weighted by credits?",
-        "answer": "A course or semester with more graded credits contributes more quality points. Averaging GPA figures without their credit weights can give the wrong result."
-      },
-      {
-        "question": "Should I include pass/fail courses in the GPA total?",
-        "answer": "Include only the credits and grade points your institution counts toward GPA. A course with earned credit but no GPA-bearing grade should not silently be treated as a zero-grade-point course."
-      }
-    ],
+    "seoTitle": "College GPA Calculator: Semester & Cumulative GPA",
     "sections": [
       {
-        "title": "Calculate semester and cumulative GPA with credit hours",
+        "title": "How GPA is calculated from grades and credit hours",
         "paragraphs": [
-          "Use Courses & semester GPA to enter each course, semester, grade, and credit hours. Choose letter grades, grade points, or percentages, and check the editable scale against your institution’s rules. Previous cumulative GPA and previous graded credits combine your existing record with the new courses. Do not also enter those previous courses in the course rows.",
-          "Each course contributes grade points × credits. An A worth 4 points in a 3-credit course and a B worth 3 points in a 4-credit course produce 24 quality points over 7 credits: a semester GPA of 3.43. The results table groups courses by semester, and the cumulative result weights all included courses by credits."
+          "GPA = total quality points ÷ total graded credits. For each included course, quality points equal its grade-point value multiplied by its credits. A 4-credit course therefore affects GPA more than a 2-credit course with the same grade-point change.",
+          "Choose Courses & semester GPA, select Letter grades, Grade points or Percentages, and enter each course once. Use the Semester field to group the results. Open Grade scale to check the editable mappings and maximum against your school’s rules before calculating; the starting scale is an example, not a universal conversion."
+        ],
+        "table": {
+          "caption": "A nine-credit semester using A = 4, B = 3 and C = 2",
+          "headers": [
+            "Course",
+            "Credits",
+            "Grade points",
+            "Quality points"
+          ],
+          "rows": [
+            [
+              "Economics: A",
+              "4",
+              "4",
+              "16"
+            ],
+            [
+              "Composition: B",
+              "3",
+              "3",
+              "9"
+            ],
+            [
+              "Laboratory: C",
+              "2",
+              "2",
+              "4"
+            ],
+            [
+              "Total",
+              "9",
+              "—",
+              "29"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Enter course grades and credit hours",
+            "href": "/gpa-calculator#mode-semester-grades"
+          }
+        ]
+      },
+      {
+        "title": "Read the semester GPA and cumulative GPA as different totals",
+        "paragraphs": [
+          "The example semester has 29 quality points over 9 graded credits, so its GPA is 29 ÷ 9 = 3.2222, or about 3.22. The unweighted average of A, B and C would be 3.00, because it would ignore the unequal credits.",
+          "Now suppose your previous cumulative GPA is 2.80 over 30 graded credits. Those earlier courses represent 2.80 × 30 = 84 quality points. Combining the records gives (84 + 29) ÷ (30 + 9) = 113 ÷ 39 = 2.8974, or about 2.90. Averaging 2.80 and 3.22 directly would give the two records equal weight even though one contains over three times as many credits.",
+          "Enter Previous cumulative GPA 2.8 and Previous graded credits 30 for this example. Do not also list those same prior courses in the course rows. If your transcript supplies more precision than its displayed GPA, use the most precise approved figure available when recreating the result."
+        ],
+        "table": {
+          "caption": "Combine records through quality points and graded credits",
+          "headers": [
+            "Record",
+            "Graded credits",
+            "Quality points",
+            "GPA"
+          ],
+          "rows": [
+            [
+              "Previous record",
+              "30",
+              "84",
+              "2.80"
+            ],
+            [
+              "New semester",
+              "9",
+              "29",
+              "3.2222…"
+            ],
+            [
+              "Combined record",
+              "39",
+              "113",
+              "2.8974…"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Check the 4.0 scale, plus/minus grades and percentage cutoffs",
+        "paragraphs": [
+          "The table below records Finflo’s starting letter scale. Open Grade scale to edit it in the form. For example, a school may use B+ = 3.33 instead of 3.3, or assign a different value to A+. Change both the mapping and Maximum grade points when the official scale requires it; changing the maximum alone does not rewrite the letter values.",
+          "Percentage grades also require a specified conversion table. Select Percentages, open Grade scale and edit the minimum-percentage cutoffs to match your institution. In Finflo’s starting percentage example, 85% maps to 3 grade points because it reaches the 80% cutoff but not 90%. Dividing 85 by 25 would produce 3.4 and would not follow that example table. Neither rule is a universal conversion.",
+          "For a 10-point cumulative GPA (CGPA), select Grade points and set Maximum grade points to 10 under Grade scale. Enter the official grade points rather than rescaling percentages yourself. Four credits at 9 points, three at 8 and two at 7 produce 74 quality points over 9 credits: approximately 8.22. Previous GPA and new courses must use the same scale."
+        ],
+        "table": {
+          "caption": "Editable starting letter scale; use your institution’s actual values",
+          "headers": [
+            "Letter",
+            "Grade points in the starting example"
+          ],
+          "rows": [
+            [
+              "A+ or A",
+              "4.0"
+            ],
+            [
+              "A−",
+              "3.7"
+            ],
+            [
+              "B+",
+              "3.3"
+            ],
+            [
+              "B",
+              "3.0"
+            ],
+            [
+              "B−",
+              "2.7"
+            ],
+            [
+              "C+",
+              "2.3"
+            ],
+            [
+              "C",
+              "2.0"
+            ],
+            [
+              "C−",
+              "1.7"
+            ],
+            [
+              "D+",
+              "1.3"
+            ],
+            [
+              "D",
+              "1.0"
+            ],
+            [
+              "D−",
+              "0.7"
+            ],
+            [
+              "F",
+              "0"
+            ],
+            [
+              "P or NP",
+              "Excluded in this example scale"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "University of Illinois: an institution-specific grade-point scale",
+            "href": "https://www.registrar.illinois.edu/courses-grades/explanation-of-grades/"
+          }
+        ]
+      },
+      {
+        "title": "Distinguish excluded courses from a zero-grade-point F",
+        "paragraphs": [
+          "An excluded course contributes neither quality points nor graded credits. A GPA-bearing F contributes zero quality points but still adds its graded credits. Adding a 3-credit excluded P to the nine-credit example leaves 29 ÷ 9 ≈ 3.22. If that same 3-credit course instead carries an included F, the result becomes 29 ÷ 12 ≈ 2.42.",
+          "Use Include in GPA = No for a row your institution excludes, or define an excluded grade symbol in the editable letter scale. The starting P and NP exclusions are example settings, not a ruling about every pass/fail system. Check the treatment of withdrawals, incompletes, transfer work and failed pass/fail courses before entering them."
+        ]
+      },
+      {
+        "title": "Model weighted high-school or honors GPA with the actual grade points",
+        "paragraphs": [
+          "Credit weighting and honors weighting are separate. Credits determine how strongly a course counts in the average; an honors or AP policy may also change the grade-point value assigned to that course. Finflo does not automatically add a bonus based on the course name.",
+          "If your school assigns 5 points to an A in one advanced course and 4 points to an A in a regular course, choose Grade points, open Grade scale and set Maximum grade points to at least 5. An illustrative 3-credit course at 5 points and a 4-credit course at 4 points produce (3 × 5 + 4 × 4) ÷ 7 = 4.4286. Enter the already adjusted points from the applicable policy; do not add an honors bonus twice."
+        ],
+        "links": [
+          {
+            "label": "Enter course-specific numeric grade points",
+            "href": "/gpa-calculator#mode-semester-grades"
+          }
+        ]
+      },
+      {
+        "title": "Handle repeated courses and transcript rounding explicitly",
+        "paragraphs": [
+          "The calculator does not decide which attempt replaces a repeated course or which transfer courses belong in your GPA. Include the attempts required by your institution’s policy. If a previous cumulative total contains an attempt that is now removed, use the corrected prior GPA and graded credits; excluding a newly entered row does not remove points already inside the previous total.",
+          "A displayed estimate may differ slightly from an official transcript because of the scale, exclusions, stored precision or final reporting rule. For example, the University of Illinois reports GPA to two decimal places by truncation. Finflo’s displayed numerical rounding is not a substitute for that institution’s reporting procedure. Keep the underlying quality-point calculation when checking a boundary."
+        ],
+        "links": [
+          {
+            "label": "University of Illinois: quality points, GPA hours and transcript reporting",
+            "href": "https://www.registrar.illinois.edu/courses-grades/calculate-your-gpa/"
+          },
+          {
+            "label": "Stanford: examples of grade symbols and repeated-course notation",
+            "href": "https://bulletin.stanford.edu/academic-polices/grading/general"
+          }
+        ]
+      },
+      {
+        "title": "Estimate the GPA needed in future courses",
+        "paragraphs": [
+          "To raise a 2.80 cumulative GPA over 30 graded credits to 3.00 after another 15 graded credits, the future courses must average [3.00 × 45 − 2.80 × 30] ÷ 15 = 3.40. The required value depends on both the target and the number of future graded credits.",
+          "Use the GPA Goal Calculator for that calculation and its alternative scenarios. Improving a future semester affects an established cumulative GPA less when many credits are already completed. The planner compares the required future GPA with your selected maximum rather than assuming every target is reachable."
+        ],
+        "links": [
+          {
+            "label": "Calculate the future GPA needed for your target",
+            "href": "/gpa-goal-calculator#mode-target"
+          },
+          {
+            "label": "Calculate a course percentage before converting it to a grade",
+            "href": "/grade-calculator"
+          }
         ]
       }
     ],
-    "seoTitle": "College GPA Calculator: Semester & Cumulative GPA"
+    "faqs": [
+      {
+        "question": "How do I calculate GPA with credit hours?",
+        "answer": "Multiply each included course’s grade points by its credits, add those quality points, and divide by the included credits. The example 4-credit A, 3-credit B and 2-credit C gives 29 quality points over 9 credits: approximately 3.22 on the stated scale."
+      },
+      {
+        "question": "What is the difference between semester GPA and cumulative GPA?",
+        "answer": "Semester GPA covers the courses grouped into that semester. Cumulative GPA combines their quality points and graded credits with the earlier record. Unequal-credit semesters must not be averaged as if they had equal weight."
+      },
+      {
+        "question": "Does an A+ count as 4.0 or 4.3?",
+        "answer": "That depends on the institution. Finflo’s starting A+ value is 4.0. Open Grade scale to edit the letter table. If your school uses 4.3, update the A+ row and set Maximum grade points to at least 4.3."
+      },
+      {
+        "question": "Can I convert a percentage directly into GPA?",
+        "answer": "Only after specifying the conversion scale. Choose Percentages, open Grade scale and edit the cutoffs to the applicable school policy. A single formula such as percentage divided by 25 is not a universal GPA conversion."
+      },
+      {
+        "question": "Can I calculate CGPA on a 10-point scale?",
+        "answer": "Yes. Choose Grade points, open Grade scale and set Maximum grade points to 10. Enter the institution’s official points and GPA-bearing credits, using the same scale for previous GPA. This computes the entered credit-weighted average; it does not certify equivalence between different institutions or convert an arbitrary percentage into CGPA."
+      },
+      {
+        "question": "Do pass/fail, withdrawals or incompletes count toward GPA?",
+        "answer": "Use your institution’s rules. Set Include in GPA to No for a course that is excluded, or define an excluded grade symbol in the letter scale. An included F is different: it adds graded credits with zero quality points."
+      },
+      {
+        "question": "Can this calculate weighted high-school GPA?",
+        "answer": "Yes, when you enter the grade-point values and credits specified by your school. Use Grade points for course-specific honors or AP values and open Grade scale to set an adequate maximum. The calculator does not identify course difficulty or add bonuses automatically."
+      },
+      {
+        "question": "Can I include my previous GPA without entering every past course?",
+        "answer": "Yes. Enter Previous cumulative GPA and Previous graded credits, then add only courses not already included in that record. Correct the prior totals first if a repeat or exclusion changes the historical GPA."
+      },
+      {
+        "question": "Why does the result differ from my transcript?",
+        "answer": "Check plus/minus values, included credits, repeated-course treatment, transfer work and reporting precision. Institutions can round or truncate differently. Your registrar’s official record determines the reported GPA."
+      },
+      {
+        "question": "How can I find the grades needed to raise my GPA?",
+        "answer": "Open the GPA Goal Calculator with your current GPA, completed graded credits, target GPA and future graded credits. It calculates the required future average and shows whether it exceeds the selected scale maximum."
+      }
+    ]
   },
   "grade-calculator": {
     "description": "Calculate weighted or points-based grades, exclude ungraded work, and compare what-if scores.",
-    "faqs": [
-      {
-        "question": "What does a weighted result mean when weights total less than 100%?",
-        "answer": "The calculator normalizes the entered weights. The result is the average of the included completed work, not necessarily the final course grade."
-      },
-      {
-        "question": "Do ungraded assignments count as zero?",
-        "answer": "In Category weights & what-if grades, a blank current score is excluded from the current average. An entered zero counts as a graded score. Enter a what-if score to include ungraded work in a projection."
-      }
-    ],
+    "seoTitle": "Weighted Grade Calculator: Categories & Points",
     "sections": [
       {
-        "title": "Weighted grades, category weights, and ungraded work",
+        "title": "How to calculate your grade from the course rules",
         "paragraphs": [
-          "Choose Category weights & what-if grades to enter each category once with its weight from the syllabus. Use the category average from your gradebook, such as Homework at 30% and Midterm at 40%. Leave a current score blank for ungraded work; a zero means the work was graded and earned zero. Optional what-if scores affect only the projection.",
-          "For example, 90% on Homework worth 30% and 80% on a Midterm worth 40% gives a current average of 84.29% over the graded 70% of the course. A planned 90% on the remaining 30% Final exam gives a projected course grade of 86%. A projection covering less than 100% is labeled as an average of entered scores."
+          "A weighted grade is the sum of each score multiplied by its weight, divided by the sum of the included weights. Use percentages consistently: a score of 88% in a category worth 20% contributes 88 × 0.20 = 17.6 percentage points toward the whole course. A course that adds raw points instead uses 100 × total points earned ÷ total points possible.",
+          "Start with your syllabus and gradebook. Choose Category weights & what-if grades for categories such as homework and exams; use each category’s current average once. Choose Earned and possible points when every point has equal value. The calculator’s mode links select a method; enter your own scores after opening it."
+        ],
+        "table": {
+          "caption": "Choose the method that matches the way your course is graded",
+          "headers": [
+            "Your gradebook supplies",
+            "Use this method",
+            "What to enter"
+          ],
+          "rows": [
+            [
+              "Category percentages and category averages",
+              "Category weights & what-if grades",
+              "One row per category; leave ungraded scores blank"
+            ],
+            [
+              "Numerical scores with relative weights",
+              "Weighted grade",
+              "Score percentage, then weight on each line"
+            ],
+            [
+              "Earned and possible points",
+              "Earned and possible points",
+              "Earned points, then possible points on each line"
+            ],
+            [
+              "Letters or percentages with weights",
+              "Weighted letter or percentage assessments",
+              "Assessment grade and weight; check the letter mapping"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Enter course categories and what-if scores",
+            "href": "/grade-calculator#mode-categories"
+          },
+          {
+            "label": "Add earned and possible points",
+            "href": "/grade-calculator#mode-points"
+          },
+          {
+            "label": "Enter weighted letter or percentage assessments",
+            "href": "/grade-calculator#mode-letter-assessments"
+          }
         ]
       },
       {
-        "title": "When to use points instead of weights",
+        "title": "Worked example: current grade with an unfinished final",
         "paragraphs": [
-          "Choose Earned and possible points when each point has the same value across the course. For example, 80 out of 100 and 45 out of 50 combine to 125 out of 150, or 83.33%. Do not mix raw points with category percentages. Use the GPA calculator for course credits and grade points after determining your course grades."
+          "Suppose homework is worth 20% of a course, the midterm 30%, a project 25%, and the final exam 25%. Your completed scores are 88%, 75%, and 92%. Those categories contribute 17.6 + 22.5 + 23 = 63.1 course percentage points. Because they cover 75% of the course, your current average is 63.1 ÷ 0.75 = 84.1333%, or about 84.13%.",
+          "Enter these four categories, leave the final’s Current score blank, and clear the example What-if score values. The current result describes completed work. The 63.1 course points are not the current average, and 84.13% is not yet a final course grade."
+        ],
+        "table": {
+          "caption": "Three completed categories and one ungraded final",
+          "headers": [
+            "Category",
+            "Course weight",
+            "Current score",
+            "Course points earned"
+          ],
+          "rows": [
+            [
+              "Homework",
+              "20%",
+              "88%",
+              "17.60"
+            ],
+            [
+              "Midterm",
+              "30%",
+              "75%",
+              "22.50"
+            ],
+            [
+              "Project",
+              "25%",
+              "92%",
+              "23.00"
+            ],
+            [
+              "Final exam",
+              "25%",
+              "Ungraded",
+              "Not yet earned"
+            ],
+            [
+              "Completed work",
+              "75%",
+              "84.13% average",
+              "63.10"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Keep a blank score, a zero and a what-if score separate",
+        "paragraphs": [
+          "For the same example, a blank final score leaves the current average at 84.13%. Entering an actual zero on the final makes all 100% of the course graded and reduces the course grade to 63.1%. A missing grade and an earned zero therefore answer different questions.",
+          "To explore an 80% final without changing the current record, put 80 in the final’s What-if score. It adds 80 × 0.25 = 20 course points, producing a projected course grade of 83.1%. A what-if entry replaces that row’s current score in the projection; it does not add a second assessment or change the current result.",
+          "A projection covering less than 100% is an average of the entered scores. Add the missing categories and their planned scores before treating it as a whole-course projection. Category weights may total less than 100% while a course is being set up, but they cannot exceed 100% in this mode."
+        ]
+      },
+      {
+        "title": "Why averaging assignment percentages can give the wrong answer",
+        "paragraphs": [
+          "Two assessments scored 18 out of 20 and 42 out of 60 give a total of 60 out of 80: 75%. Averaging their percentages, 90% and 70%, gives 80%, which incorrectly treats the 20-point and 60-point assessments as equally important in a points-based course.",
+          "If those two assessments belong to a category worth 25% of the course, first obtain the 75% category average, then enter one category row with score 75 and weight 25. Its contribution is 18.75 course points. Do not give each assignment the full 25% category weight. This two-step method assumes the assignments are combined by points within that category."
+        ],
+        "table": {
+          "caption": "Points-based assessments are weighted by their possible points",
+          "headers": [
+            "Assessment",
+            "Earned",
+            "Possible",
+            "Individual percentage"
+          ],
+          "rows": [
+            [
+              "Assessment 1",
+              "18",
+              "20",
+              "90%"
+            ],
+            [
+              "Assessment 2",
+              "42",
+              "60",
+              "70%"
+            ],
+            [
+              "Combined",
+              "60",
+              "80",
+              "75%"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Calculate the category average from points",
+            "href": "/grade-calculator#mode-points"
+          }
+        ]
+      },
+      {
+        "title": "Translate letter grades only with an explicit scoring convention",
+        "paragraphs": [
+          "A letter does not identify one exact percentage. In Weighted letter or percentage assessments, the editable starting example represents A as 95 and B as 85. With A worth 40 and B worth 60, the weighted result is (95 × 40 + 85 × 60) ÷ 100 = 89%. Changing the representative values changes that estimate.",
+          "Use actual percentage scores when available. Otherwise, confirm the representative scores with your instructor. These input mappings are not letter-grade cutoffs, so the calculator does not infer a final letter from the weighted average. Grade points such as A = 4 belong in GPA calculations, not in a percentage score field."
+        ],
+        "links": [
+          {
+            "label": "Check or edit representative letter scores",
+            "href": "/grade-calculator#mode-letter-assessments"
+          },
+          {
+            "label": "Calculate GPA from course grades and credits",
+            "href": "/gpa-calculator"
+          }
+        ]
+      },
+      {
+        "title": "Find the final-exam score needed for a target grade",
+        "paragraphs": [
+          "In the four-category example, an 85% final course target requires another 85 − 63.1 = 21.9 course points. The final is worth 25%, so its required score is 21.9 ÷ 0.25 = 87.6%. A perfect final would produce 88.1% overall under these weights.",
+          "Open the Final Exam Grade Calculator and enter the unrounded current average 84.1333333333, target 85, and final weight 25. Use the completed-work average, not the 63.1 course points. The dedicated calculator checks whether a target is possible within the entered scoring assumptions."
+        ],
+        "links": [
+          {
+            "label": "Calculate the required final-exam score",
+            "href": "/final-exam-grade-calculator#mode-final"
+          },
+          {
+            "label": "Read a full final-exam planning example",
+            "href": "/guides/weighted-grades-and-final-exam-targets"
+          }
+        ]
+      },
+      {
+        "title": "Check dropped work, extra credit and rounding before relying on a result",
+        "paragraphs": [
+          "Apply any drop-lowest, replacement-exam, late-penalty or category-specific rule before entering the retained scores or category averages. These modes do not infer those rules from an assessment name. The points method accepts earned points above possible points for an extra-credit scenario, but whether those points count is determined by your course. Category current and what-if scores are limited to 0–100%.",
+          "Keep unrounded averages while calculating and apply the instructor’s rounding rule at the end. A displayed 89.5% is not automatically an A or a passing result. The worked numbers on this page are illustrative; the syllabus determines category weights, letter boundaries and which work counts."
+        ],
+        "links": [
+          {
+            "label": "NIST: the weighted mean formula",
+            "href": "https://www.itl.nist.gov/div898/software/dataplot/refman2/ch2/weigmean.pdf"
+          }
         ]
       }
     ],
-    "seoTitle": "Weighted Grade Calculator: Categories & Points"
+    "faqs": [
+      {
+        "question": "How do I calculate my current grade before the final exam?",
+        "answer": "Multiply each graded category score by its course weight, add the contributions, then divide by the graded share of the course. Leave the ungraded final blank in Category weights & what-if grades; do not enter zero unless it is an actual zero."
+      },
+      {
+        "question": "What if my grade weights add up to less than 100%?",
+        "answer": "The included scores are normalized over their entered weights. That is an average for the work included, not a complete final course grade. A whole-course projection needs categories and projected scores covering 100%."
+      },
+      {
+        "question": "Should missing assignments be blank or zero?",
+        "answer": "Use a blank current score for ungraded work in Category weights & what-if grades. Enter zero for work that your gradebook actually counts as a zero. An instructor may treat missing work as zero, so follow the course policy."
+      },
+      {
+        "question": "Can I mix letter grades and percentages?",
+        "answer": "Yes, in Weighted letter or percentage assessments. Letter inputs use editable representative percentages. Those values are examples rather than universal school cutoffs; use the original numeric scores when available."
+      },
+      {
+        "question": "How do I calculate a grade from points earned?",
+        "answer": "Add all earned points, divide by all possible points, and multiply by 100. For 18/20 and 42/60, the combined result is 60/80 = 75%. A simple average of the two percentages would be incorrect for that points-based system."
+      },
+      {
+        "question": "Can I see how a future assignment changes my grade?",
+        "answer": "Enter a what-if score in the category row to compare a projection while keeping the current grade separate. For a single assignment inside a category, first recalculate that category’s average and use the new average as the what-if category score."
+      },
+      {
+        "question": "Does this calculate the final score I need to pass?",
+        "answer": "Use the linked Final Exam Grade Calculator with your current completed-work average, desired overall grade and remaining assessment weight. It calculates the required score; your course defines the pass boundary."
+      },
+      {
+        "question": "Does the calculator automatically drop the lowest grade?",
+        "answer": "No. Apply the syllabus rule to the correct category first and enter the resulting average or retained points. Dropping an assessment with a different weight can change the answer differently from dropping the lowest percentage."
+      }
+    ]
   },
   "tip-calculator": {
     "description": "Calculate a tip from a chosen percentage and divide the bill plus tip evenly among a selected number of people.",
@@ -3512,27 +4189,317 @@
     "seoTitle": "BMR Calculator: Estimate Adult Resting Energy"
   },
   "calorie-calculator": {
-    "description": "Estimate adult daily maintenance calories from body measurements and activity assumptions, with food-energy unit conversion.",
-    "faqs": [
-      {
-        "question": "Does the displayed calorie estimate prescribe how much I should eat?",
-        "answer": "No. It is an adult maintenance-energy estimate. Individual needs can differ, and the model excludes pregnancy, breastfeeding and growing children."
-      },
-      {
-        "question": "What is the difference between a food Calorie and a kilocalorie?",
-        "answer": "They refer to the same food-energy unit. One kilocalorie equals 4.184 kilojoules."
-      }
-    ],
+    "description": "Estimate daily maintenance calories with Mifflin–St Jeor, Harris–Benedict or Katch–McArdle. Compare activity assumptions and convert kcal to kJ.",
+    "seoTitle": "Calorie Calculator: Daily Calories, BMR & TDEE",
     "sections": [
       {
-        "title": "Understanding a daily calorie estimate",
+        "title": "Calculate daily maintenance calories from resting energy",
         "paragraphs": [
-          "The daily calorie result combines the selected resting-energy method with an activity assumption. An activity setting describes a modeled average rather than measuring everything done during a day. Compare the assumptions before treating a difference between calculators as an error. The estimate is not a personalized meal prescription, and the displayed limitations explain situations where a simple model is less informative.",
-          "The opening Mifflin–St Jeor example uses age 30, the male coefficient, 70 kg and 175 cm. Resting expenditure is 1,648.75 kcal/day. The selected sedentary scenario multiplies this by 1.2 to give 1,978.50 kcal/day; selecting Resting energy only returns 1,648.75 instead. The multiplier adds an activity assumption rather than measuring it. A food Calorie is one kcal, so the output should not be multiplied by 1,000 when reading a food label."
+          "This calorie calculator estimates maintenance energy by multiplying a resting-energy estimate by the activity factor you select. Maintenance means the modeled energy needed to keep body weight broadly stable under those assumptions. It is different from the energy used at rest, often called BMR or RMR, and from a meal plan for an individual.",
+          "Choose Daily energy to enter body measurements and an equation. The result separates estimated maintenance energy, resting energy and maintenance energy in kilojoules. Choose Food energy conversion for kcal and kJ, or Calories, kilocalories & joules when you also need small calories or joules. The daily-energy form is for adults age 20 and above; it does not model pregnancy, breastfeeding or children."
+        ],
+        "links": [
+          {
+            "label": "Enter measurements for a daily energy estimate",
+            "href": "/calorie-calculator#mode-energy"
+          },
+          {
+            "label": "Convert a food-energy value",
+            "href": "/calorie-calculator#mode-energy-conversion"
+          }
+        ]
+      },
+      {
+        "title": "Work through the calorie calculator’s starting example",
+        "paragraphs": [
+          "The opening example uses age 30, the male equation coefficient, 70 kg, 175 cm and Mifflin–St Jeor. Its resting estimate is 10 × 70 + 6.25 × 175 − 5 × 30 + 5 = 1,648.75 kcal/day. Selecting Sedentary multiplies that result by 1.2: 1,648.75 × 1.2 = 1,978.50 kcal/day.",
+          "Changing Activity level to Resting energy only selects a factor of 1, so the main result becomes 1,648.75 kcal/day. That setting removes the activity allowance; it does not describe the full energy needs of an ordinary day. The two decimal places make the arithmetic reproducible, not a claim that a person’s daily expenditure is known to that precision."
+        ],
+        "table": {
+          "caption": "Separate the two stages of the 30-year-old example",
+          "headers": [
+            "Stage",
+            "Calculation",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Resting estimate",
+              "700 + 1,093.75 − 150 + 5",
+              "1,648.75 kcal/day"
+            ],
+            [
+              "Selected activity scenario",
+              "1,648.75 × 1.2",
+              "1,978.50 kcal/day"
+            ],
+            [
+              "Same maintenance energy in kJ",
+              "1,978.50 × 4.184",
+              "8,278.044 kJ/day"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Mifflin et al.: the original resting-energy study",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+          }
+        ]
+      },
+      {
+        "title": "Compare the three available calorie equations",
+        "paragraphs": [
+          "Mifflin–St Jeor and revised Harris–Benedict use weight, height, age and the selected sex coefficient. Katch–McArdle instead uses estimated lean mass, calculated from weight and body-fat percentage. Selecting Katch–McArdle reveals the Body fat field. Replace its example value with an appropriate estimate; the prefilled 20% is not a measurement of you.",
+          "For the same 30-year-old example, the equations give the results below. Katch–McArdle additionally assumes 20% body fat, so lean mass is 70 × 0.8 = 56 kg and resting energy is 370 + 21.6 × 56 = 1,579.60 kcal/day. These differences illustrate model choice. The range between equations is not a measured error bound, and choosing the largest or smallest result does not establish which estimate fits an individual."
+        ],
+        "table": {
+          "caption": "Same example measurements and 1.2 activity factor; Katch also assumes 20% body fat",
+          "headers": [
+            "Equation",
+            "Resting estimate",
+            "Maintenance estimate"
+          ],
+          "rows": [
+            [
+              "Mifflin–St Jeor",
+              "1,648.75 kcal/day",
+              "1,978.50 kcal/day"
+            ],
+            [
+              "Revised Harris–Benedict",
+              "1,695.67 kcal/day",
+              "2,034.80 kcal/day"
+            ],
+            [
+              "Katch–McArdle",
+              "1,579.60 kcal/day",
+              "1,895.52 kcal/day"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Roza and Shizgal: revised Harris–Benedict research",
+            "href": "https://pubmed.ncbi.nlm.nih.gov/6741850/"
+          },
+          {
+            "label": "Published comparison of resting-energy equations, Table 1",
+            "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9246861/#T1"
+          }
+        ]
+      },
+      {
+        "title": "See how the activity assumption changes maintenance calories",
+        "paragraphs": [
+          "Activity factors describe scenarios, not a direct measurement from a workout count. The labels are a starting point for identifying an assumption; duration, intensity, work and movement outside exercise can differ even when two people exercise on the same number of days. Compare nearby settings if you are unsure which scenario represents your usual routine.",
+          "The table holds resting energy at 1,648.75 kcal/day and changes only the multiplier. Moving from Light to Moderate raises the result by about 289 kcal/day. That difference comes entirely from the selected assumption. The activity-adjusted estimate already includes an allowance for movement, so automatically adding a separate workout estimate can count some activity twice."
+        ],
+        "table": {
+          "caption": "Activity scenarios for the same example, rounded to the nearest whole kcal",
+          "headers": [
+            "Available setting",
+            "Factor",
+            "Modeled energy"
+          ],
+          "rows": [
+            [
+              "Resting energy only",
+              "1",
+              "1,649 kcal/day"
+            ],
+            [
+              "Sedentary: little planned activity",
+              "1.2",
+              "1,979 kcal/day"
+            ],
+            [
+              "Light: 1–3 exercise days per week",
+              "1.375",
+              "2,267 kcal/day"
+            ],
+            [
+              "Between light and moderate",
+              "1.465",
+              "2,415 kcal/day"
+            ],
+            [
+              "Moderate: 3–5 exercise days",
+              "1.55",
+              "2,556 kcal/day"
+            ],
+            [
+              "Very active: 6–7 exercise days",
+              "1.725",
+              "2,844 kcal/day"
+            ],
+            [
+              "Highly active: demanding work and training",
+              "1.9",
+              "3,133 kcal/day"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Explore daily expenditure in the TDEE calculator",
+            "href": "/tdee-calculator#mode-energy"
+          },
+          {
+            "label": "Estimate energy for a specified activity separately",
+            "href": "/calories-burned-calculator"
+          }
+        ]
+      },
+      {
+        "title": "Enter pounds and total inches correctly",
+        "paragraphs": [
+          "Metric mode uses kilograms and centimeters. US mode uses pounds and total inches, so a height of 5 feet 9 inches is entered as 5 × 12 + 9 = 69 inches. Entering 5.9 does not mean 5 feet 9 inches. Changing Measurement system converts the existing weight and height entries; inspect the displayed units before editing the converted numbers.",
+          "For an equivalent-unit check, 70 kg is about 154.3236 lb and 175 cm is about 68.8976 inches. Entering those equivalents with the same age, equation and activity factor should reproduce the same energy estimate apart from rounding. A result that changes substantially after a unit switch is a reason to check what the numbers represent."
+        ],
+        "links": [
+          {
+            "label": "Convert feet and inches before entering height",
+            "href": "/height-calculator#mode-converter"
+          }
+        ]
+      },
+      {
+        "title": "Convert Calories, kcal and kJ without a thousandfold error",
+        "paragraphs": [
+          "A food Calorie is one kilocalorie, written kcal. Finflo uses the thermochemical conversion: 1 kcal = 4.184 kJ = 4,184 J. A small calorie, written cal, is one-thousandth of a kcal. Do not interpret a food label’s 250 Calories as 250 small calories.",
+          "To convert a kilojoule label to kcal, divide by 4.184; to convert kcal to kJ, multiply by 4.184. In Calories, kilocalories & joules, enter the amount and select its input unit. The four outputs describe the same energy, not four amounts to add together."
+        ],
+        "table": {
+          "caption": "Equivalent food-energy amounts using the thermochemical calorie",
+          "headers": [
+            "Food Calories / kcal",
+            "Kilojoules",
+            "Joules"
+          ],
+          "rows": [
+            [
+              "100",
+              "418.4 kJ",
+              "418,400 J"
+            ],
+            [
+              "250",
+              "1,046 kJ",
+              "1,046,000 J"
+            ],
+            [
+              "500",
+              "2,092 kJ",
+              "2,092,000 J"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "Convert between all four energy units",
+            "href": "/calorie-calculator#mode-energy-units"
+          },
+          {
+            "label": "NIST: calorie and joule conversion factors",
+            "href": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+          }
+        ]
+      },
+      {
+        "title": "Match the serving size before comparing food labels",
+        "paragraphs": [
+          "Consider an illustrative label showing 180 kcal per 45 g serving. A 67.5 g portion contains 67.5 ÷ 45 = 1.5 labeled servings, so its energy is 180 × 1.5 = 270 kcal, equivalent to 1,129.68 kJ. Comparing the label’s 180 kcal directly with a different portion would compare different quantities.",
+          "If another label gives energy per 100 g, put both labels on that basis first. In this example, 180 ÷ 45 × 100 = 400 kcal per 100 g. A serving size describes the basis of the label; it is not a personal recommendation. Likewise, the 2,000-calorie reference used on U.S. Nutrition Facts labels is general nutrition guidance, not an individualized maintenance estimate."
+        ],
+        "table": {
+          "caption": "One illustrative food label expressed for different amounts",
+          "headers": [
+            "Amount",
+            "Number of 45 g servings",
+            "Energy"
+          ],
+          "rows": [
+            [
+              "45 g",
+              "1",
+              "180 kcal"
+            ],
+            [
+              "67.5 g",
+              "1.5",
+              "270 kcal"
+            ],
+            [
+              "100 g",
+              "100 ÷ 45",
+              "400 kcal"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "label": "FDA: serving information and Calories on food labels",
+            "href": "https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label"
+          }
+        ]
+      },
+      {
+        "title": "Know what a maintenance estimate cannot predict",
+        "paragraphs": [
+          "This page estimates energy for the measurements and activity scenario you enter. It does not calculate a weight-loss deadline, guarantee a particular weight change, or decide an appropriate intake for a person with medical or nutritional needs. A fixed calories-per-pound rule cannot account for changing energy expenditure and body composition over time.",
+          "NIDDK’s Body Weight Planner uses a different, dynamic model for adult weight-change scenarios. Its planning assumptions should not be mixed with this page’s simple activity multipliers as though the methods were identical. For pregnancy, breastfeeding, childhood growth or medical nutrition care, use advice specific to those circumstances rather than adapting this maintenance calculator."
+        ],
+        "links": [
+          {
+            "label": "NIDDK: why static weight-change rules miss metabolic changes",
+            "href": "https://www.niddk.nih.gov/research-funding/technology-advancement-transfer/research-materials-licensing/body-weight-simulator-java-applet"
+          },
+          {
+            "label": "NIDDK: Body Weight Planner and its scope",
+            "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+          }
         ]
       }
     ],
-    "seoTitle": "Calorie Calculator: Adult Maintenance Energy Estimate"
+    "faqs": [
+      {
+        "question": "How many calories do I need per day to maintain weight?",
+        "answer": "This calculator estimates maintenance calories from a resting-energy equation and an activity factor. Enter your own measurements and compare the assumptions; there is no single daily calorie number that applies to everyone. The result is an estimate rather than a prescribed intake."
+      },
+      {
+        "question": "What is the difference between BMR and TDEE in this calculator?",
+        "answer": "The resting-energy result estimates energy used at rest. The maintenance or TDEE result multiplies that estimate by the selected activity factor. Choosing Resting energy only sets the multiplier to 1 and excludes the activity allowance."
+      },
+      {
+        "question": "Which calorie equation should I use if I do not know my body-fat percentage?",
+        "answer": "Mifflin–St Jeor and revised Harris–Benedict run without a body-fat input. Katch–McArdle requires one because it estimates lean mass. Its prefilled body-fat percentage is an example, not a measurement; do not assume it describes you."
+      },
+      {
+        "question": "Why do different calorie calculators give different answers?",
+        "answer": "Check the equation, activity multiplier, age, measurements and units first. A different coefficient or activity assumption changes the result even when both calculators implement their formulas correctly. Extra decimal places do not resolve the uncertainty in those assumptions."
+      },
+      {
+        "question": "Can I enter height in feet and inches?",
+        "answer": "The US setting accepts total inches. Convert feet to inches and add the remaining inches: 5 feet 9 inches is 69 inches. Metric mode accepts centimeters. The separate Height Calculator can convert a feet-and-inches measurement."
+      },
+      {
+        "question": "Are Calories and kcal the same on a food label?",
+        "answer": "Yes. One food Calorie equals 1 kcal, or 4.184 kJ using the thermochemical convention. It is also 1,000 small calories. Match the serving size as well as the energy unit when comparing labels."
+      },
+      {
+        "question": "Should I add exercise calories to the maintenance result?",
+        "answer": "The selected activity factor already adds an allowance above resting energy. Automatically adding a workout estimate can count overlapping activity twice. Keep the assumptions separate and check what each estimate includes."
+      },
+      {
+        "question": "Does this calculator set a calorie deficit or predict a weight-loss date?",
+        "answer": "No. It estimates maintenance energy under fixed inputs and converts food-energy units. Weight-change predictions need additional assumptions about time and changing expenditure; a fixed daily subtraction does not guarantee a specific outcome."
+      },
+      {
+        "question": "Can children, pregnant people or breastfeeding people use this estimate?",
+        "answer": "The daily-energy form starts at age 20 and does not model growth, pregnancy or breastfeeding. Those circumstances, and medical nutrition care, require an appropriate assessment rather than this general maintenance estimate."
+      }
+    ]
   },
   "tdee-calculator": {
     "description": "Estimate total daily energy expenditure by combining an adult resting-energy equation with your selected activity factor.",

@@ -37,7 +37,24 @@ export function run(a:string,v:Values):Result{
  const x=(k:string)=>num(v,k);
  if(a.startsWith('convert-')){const factors=conversionFactors[a.slice(8)];if(!factors||!(v.from in factors)||!(v.to in factors))throw Error('Select supported units.');return result(m('Converted value',x('value')*factors[v.from]/factors[v.to],'number',v.to));}
  switch(a){
- case 'age':{const birth=dateUTC(v.birth),end=dateUTC(v.asof);if(end<birth)throw Error('Age-on date must be on or after birth.');let months=(end.getUTCFullYear()-birth.getUTCFullYear())*12+end.getUTCMonth()-birth.getUTCMonth();if(addMonths(birth,months)>end)months--;const days=(end.getTime()-addMonths(birth,months).getTime())/dayMs;return result(m('Calendar age',`${Math.floor(months/12)} years, ${months%12} months, ${days} days`),m('Total days',(end.getTime()-birth.getTime())/dayMs));}
+ case 'age':{
+  const birth=dateUTC(v.birth),end=dateUTC(v.asof);
+  if(birth.getUTCFullYear()<1||end.getUTCFullYear()<1)throw Error('Use dates from year 0001 through 9999.');
+  if(end<birth)throw Error('Age-on date must be on or after birth.');
+  let months=(end.getUTCFullYear()-birth.getUTCFullYear())*12+end.getUTCMonth()-birth.getUTCMonth();
+  if(addMonths(birth,months)>end)months--;
+  const days=(end.getTime()-addMonths(birth,months).getTime())/dayMs,totalDays=(end.getTime()-birth.getTime())/dayMs;
+  // Always anchor anniversaries to the original birth date. This preserves
+  // February 29 in leap years and avoids Date.UTC's special handling of 0–99.
+  const birthdayMonths=(end.getUTCFullYear()-birth.getUTCFullYear())*12;
+  let nextBirthday=addMonths(birth,birthdayMonths);
+  if(nextBirthday<end)nextBirthday=addMonths(birth,birthdayMonths+12);
+  const agePart=(count:number,unit:string)=>`${count} ${unit}${count===1?'':'s'}`;
+  const calendarAge=[agePart(Math.floor(months/12),'year'),agePart(months%12,'month'),agePart(days,'day')].join(', ');
+  const metrics=[m('Calendar age',calendarAge),m('Total days',totalDays),m('Completed calendar months',months),m('Complete weeks',Math.floor(totalDays/7)),m('Days after complete weeks',totalDays%7)];
+  if(nextBirthday.getUTCFullYear()<=9999)metrics.push(m('Next birthday',isoDate(nextBirthday)),m('Days until next birthday',(nextBirthday.getTime()-end.getTime())/dayMs));
+  return {metrics,notes:nextBirthday.getUTCFullYear()>9999?['The next birthday falls beyond the supported year 9999; the age and elapsed-day totals are still shown.']:['The next birthday is on or after the selected date, so the countdown is zero on that date. February 29 anniversaries use February 28 in non-leap years.']};
+ }
  case 'date-difference':{const days=(dateUTC(v.end).getTime()-dateUTC(v.start).getTime())/dayMs+(v.inclusive==='yes'?(v.end<v.start?-1:1):0);return result(m('Days',days),m('Weeks',days/7));}
  case 'date-add':{let d=addMonths(dateUTC(v.start),integer(x('years'),-9998,9998)*12+integer(x('months'),-120000,120000));d=new Date(d.getTime()+(integer(x('weeks'),-1000000,1000000)*7+integer(x('days'),-10000000,10000000))*dayMs);if(d.getUTCFullYear()<1||d.getUTCFullYear()>9999)throw Error('Result must be between years 0001 and 9999.');return result(m('Result date',isoDate(d)));}
  case 'business-days':{const from=dateUTC(v.start).getTime(),to=dateUTC(v.end).getTime();const direction=to>=from?1:-1;const span=Math.abs(to-from)/dayMs;if(span>100000)throw Error('Use a range of at most 100,000 days.');const holidays=new Set((v.holidays||'').trim().split(/\s+/).filter(Boolean).map(s=>isoDate(dateUTC(s))));let count=0;const stops=span+(v.inclusive==='yes'?1:0);for(let i=0;i<stops;i++){const d=new Date(from+i*direction*dayMs);if(d.getUTCDay()!==0&&d.getUTCDay()!==6&&!holidays.has(isoDate(d)))count++;}return result(m('Business days',count*direction));}

@@ -33,6 +33,8 @@ export function separateStudentCalculators(definitions: Definition[]) {
   grade.modes = [categoryGradesMode, ...grade.modes.filter(mode => !finalModes.includes(mode))];
   const target = gpa.modes.find(mode => mode.id === 'target')!;
   const semester = gpa.modes.find(mode => mode.id === 'semester-grades')!;
+  semester.fields = semester.fields.map(field => ['maximum', 'gradeScale', 'percentScale'].includes(field.key)
+    ? {...field, group: 'Grade scale'} : field);
   gpa.modes = [semester, ...gpa.modes.filter(mode => mode !== target && mode !== semester)];
   definitions.push(
     {slug: 'final-exam-grade-calculator', description: '', modes: finalModes, sources: structuredClone(grade.sources)},
