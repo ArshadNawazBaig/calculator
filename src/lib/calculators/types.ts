@@ -6,7 +6,7 @@ export type Mode={id:string;title:string;algorithm:string;fields:Field[];formula
 export type Definition={slug:string;description:string;modes:Mode[];sources:{title:string;url:string}[];notes?:string[];status?:"ready"|"limited";limitations?:string[];example?:string};
 export type CatalogEntry={slug:string;title:string;category:CategoryId;subcategory:string;type:string;sourceUrl:string;observedFormCount:number;searchTerms?:string[]};
 export type Metric={label:string;value:number|string;format?:"number"|"money"|"percent";unit?:string;digits?:number;translateValue?:boolean;displayValue?:string;numericText?:boolean};
-export type Result={metrics:Metric[];explanation?:string;notes?:string[];table?:{headers:string[];rows:(number|string)[][];moneyDigits?:number;translateColumns?:number[]};chart?:{label:string;value:number}[]};
+export type Result={metrics:Metric[];dice?:{sides:number;values:number[]};explanation?:string;notes?:string[];table?:{headers:string[];rows:(number|string)[][];moneyDigits?:number;translateColumns?:number[]};chart?:{label:string;value:number}[]};
 export const n=(key:string,label:string,value:number,unit?:string,min?:number,max?:number):Field=>({key,label,type:"number",default:String(value),unit,min,max,step:"any"});
 export const t=(key:string,label:string,value:string,type:Field["type"]="text",hint?:string):Field=>({key,label,type,default:value,hint});
 export const s=(key:string,label:string,options:(string|[string,string])[],value?:string):Field=>{const opts=options.map(o=>typeof o==="string"?{label:o,value:o}:{label:o[1],value:o[0]});return {key,label,type:"select",default:value||opts[0].value,options:opts};};

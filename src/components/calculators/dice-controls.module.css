@@ -1,0 +1,27 @@
+.controls { display: grid; gap: 20px; min-width: 0; }
+.picker { min-width: 0; margin: 0; padding: 0; border: 0; }
+.picker legend { margin-bottom: 10px; padding: 0; color: var(--color-ink); font-size: 14px; font-weight: 650; }
+.choices .countIcon svg { width: 34px; height: 28px; }
+.choices button { min-height: 58px; }
+.hint { margin: -4px 0 0; color: var(--color-muted); font-size: 13px; line-height: 1.6; }
+.preview { width: 100%; min-width: 0; padding-block: 12px; }
+.selection { margin: 16px 0 20px; color: var(--color-ink); font-size: 26px; font-weight: 600; }
+.preview > p { margin-top: 20px; color: var(--color-muted); font-size: 14px; line-height: 1.7; }
+.tray { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.die { display: grid; place-items: center; flex: 0 0 72px; width: 72px; height: 72px; border: 1px solid var(--color-line); border-radius: 14px; background: var(--color-card); color: var(--color-ink); box-shadow: 0 3px 0 var(--color-line); }
+.die svg { display: block; width: 58px; height: 58px; }
+.preview .die { color: var(--color-muted); box-shadow: none; }
+.tray[data-many] { gap: 8px; }
+.tray[data-many] .die { flex-basis: 48px; width: 48px; height: 48px; border-radius: 10px; }
+.tray[data-many] .die svg { width: 40px; height: 40px; }
+.rollSummary { margin: 0 0 14px; color: var(--color-muted); font-size: 14px; font-weight: 500; }
+.roll { min-width: 0; padding-block: 8px; }
+@media (max-width: 700px) {
+  .controls { gap: 18px; }
+  .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .choices button { grid-template-columns: minmax(0, 1fr); justify-items: center; align-content: center; gap: 4px; padding: 8px 10px; text-align: center; }
+  .choices .countIcon { width: 34px; }
+  .tray { gap: 10px; }
+  .die { flex-basis: 64px; width: 64px; height: 64px; }
+  .die svg { width: 52px; height: 52px; }
+}
