@@ -31,8 +31,7 @@ test('compound interest opens with savings growth and retains rate conversion', 
   await page.getByRole('button',{name:'Calculate',exact:true}).click();
   await expect(page.locator('.primary-metric dd')).toHaveText('$10,000.00');
   await expect(page.locator('#related-guides a')).toHaveAttribute('href','/guides/compound-interest-and-contributions');
-  await page.getByRole('button',{name:/What would you like to calculate/}).click();
-  await page.getByRole('option',{name:'Equivalent interest rate',exact:true}).click();
+  await page.locator('#calculation-mode').getByRole('button',{name:'Equivalent interest rate',exact:true}).click();
   await expect(page.locator('#equivalent-rate')).toBeVisible();
   await page.getByRole('button',{name:'Calculate',exact:true}).click();
   await expect(page.locator('.primary-metric dd')).toHaveText('6.17%');

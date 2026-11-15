@@ -3,10 +3,10 @@ import {useI18n} from '@/components/i18n/provider';
 import styles from './input-guide.module.css';
 
 /** Keep the selected method's assumptions beside the inputs, including in server HTML. */
-export function InputGuide({mode}: {mode: Mode}) {
+export function InputGuide({mode, compact=false}: {mode: Mode; compact?: boolean}) {
   const {t} = useI18n();
-  return <details key={mode.id} className={styles.guide} data-input-guide>
-    <summary>{t('Formula and input guidance')}</summary>
+  return <details key={mode.id} className={styles.guide} data-input-guide data-compact={compact || undefined}>
+    <summary aria-label={compact ? `${t('How it works')}: ${t('Formula and input guidance')}` : undefined}>{t(compact ? 'How it works' : 'Formula and input guidance')}</summary>
     <div>
       <p className={styles.title}>{t(mode.title)}</p>
       <p className={styles.formula} dir="auto">{t(mode.formula)}</p>

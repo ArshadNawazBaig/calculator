@@ -8,3 +8,7 @@
 .formula { padding: 10px 12px; border-inline-start: 2px solid var(--color-focus); background: var(--color-card); }
 .guide ul { padding-inline-start: 20px; margin: 12px 0 0; }
 .guide li + li { margin-top: 8px; }
+.guide[data-compact] { margin: 0; margin-inline-start: auto; border: 0; background: transparent; }
+.guide[data-compact] summary { padding: 10px 4px; font-size: 12px; }
+.guide[data-compact][open] { flex-basis: 100%; margin-inline-start: 0; border: 1px solid var(--color-line); background: var(--color-surface); }
+.guide[data-compact][open] summary { padding-inline: 14px; }

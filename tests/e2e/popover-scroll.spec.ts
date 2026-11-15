@@ -17,16 +17,16 @@ async function expectPageUnchanged(page: Page, before: Awaited<ReturnType<typeof
 for (const locale of ['en', 'ar'] as const) test(`${locale}: dropdowns and nested preferences keep the page scrollbar`, async ({page}) => {
   test.skip(!isPublishedLocale(locale), 'This translation is not published.');
   const prefix = locale === 'en' ? '' : '/ar';
-  await page.goto(`${prefix}/loan-calculator`);
-  const mode = page.locator('#calculation-mode');
-  await expect(mode).toBeEnabled();
-  await mode.scrollIntoViewIfNeeded();
+  await page.goto(`${prefix}/loan-calculator#mode-frequencies`);
+  const frequency = page.locator('#frequencies-payments');
+  await expect(frequency).toBeEnabled();
+  await frequency.scrollIntoViewIfNeeded();
   const before = await pageGeometry(page);
-  await mode.click();
+  await frequency.click();
   await expect(page.getByRole('listbox')).toBeVisible();
   await expectPageUnchanged(page, before);
   await page.keyboard.press('Escape');
-  await expect(mode).toBeFocused();
+  await expect(frequency).toBeFocused();
 
   await page.evaluate(() => window.scrollTo(0, 0));
   const headerBefore = await pageGeometry(page);
@@ -72,10 +72,10 @@ test('calendar and its year menu preserve scrolling and dismiss in order', async
 });
 
 test('page scrolling dismisses a dropdown while full search remains modal', async ({page}) => {
-  await page.goto('/loan-calculator');
-  const mode = page.locator('#calculation-mode');
-  await expect(mode).toBeEnabled();
-  await mode.click();
+  await page.goto('/loan-calculator#mode-frequencies');
+  const frequency = page.locator('#frequencies-payments');
+  await expect(frequency).toBeEnabled();
+  await frequency.click();
   await expect(page.getByRole('listbox')).toBeVisible();
   const before = await pageGeometry(page);
   await page.mouse.move(10, 400);

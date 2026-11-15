@@ -13,6 +13,8 @@
 .disclosure, :global(.calculator-settings[data-has-mode="true"]) .disclosure { display: block; }
 :global(.calculator-settings[data-has-mode="true"]) .selection { min-width: 0; }
 :global(.calculator-settings[data-has-mode="true"]) .selection label { margin-bottom: 8px; }
+:global(.calculator-settings[data-mode-cards]) .panel { border-inline-start: 0; border-top: 1px solid var(--color-line); padding-block: 8px; }
+:global(.calculator-settings[data-mode-cards]) .disclosure:not([open]) { padding-block: 0; }
 .panel p { font-size: 12px; }
 @media(max-width:800px) { :global(.calculator-settings[data-has-mode="true"]) .panel { border-inline-start: 0; border-top: 1px solid var(--color-line); } }
 @media(max-width:700px) { .panel { align-items: stretch; flex-direction: column; gap: 8px; padding: 14px 18px; } .disclosure { padding: 8px 18px; } .selection { flex-basis: auto; } }

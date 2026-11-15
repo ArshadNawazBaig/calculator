@@ -100,8 +100,7 @@ test('regional tools keep their rules and currencies despite preferences',async(
   }
   await page.goto('/inflation-calculator');
   await expect(page.locator('[data-calculator-currency]')).toContainText('Calculator currency: USD');
-  await page.locator('#calculation-mode').click();
-  await page.getByRole('option',{name:'Inflation scenario',exact:true}).click();
+  await page.locator('#calculation-mode').getByRole('button',{name:'Inflation scenario',exact:true}).click();
   await expect(page.locator('#calculator-currency')).toContainText('AED');
 });
 

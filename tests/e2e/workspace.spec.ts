@@ -135,15 +135,14 @@ test('saved currency is restored and different currencies cannot be compared', a
 
 test('non-default calculator modes and expression answer context reopen correctly', async ({page}) => {
   await page.goto('/loan-calculator');
-  await page.locator('#calculation-mode').click();
-  const modes = page.getByRole('option');const modeName = await modes.nth(1).innerText();
+  const modes = page.locator('#calculation-mode button[data-mode-choice]');const modeName = await modes.nth(1).innerText();
   await modes.nth(1).click();
   await page.getByRole('button', {name: 'Calculate', exact: true}).click();
   await page.getByLabel('Calculation name', {exact: true}).fill('Other loan mode');
   await page.getByRole('button', {name: 'Save calculation', exact: true}).click();
   await page.goto('/workspace');
   await page.getByRole('link', {name: 'Open calculation', exact: true}).click();
-  await expect(page.locator('#calculation-mode')).toContainText(modeName);
+  await expect(page.locator('#calculation-mode').getByRole('button', {name: modeName, exact: true})).toHaveAttribute('aria-pressed', 'true');
   await page.goto('/scientific-calculator');
   const expression = page.locator('input[id$="-expression"]');
   await expression.fill('2+3');await page.getByRole('button', {name: 'Calculate', exact: true}).click();

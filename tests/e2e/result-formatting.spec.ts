@@ -24,8 +24,7 @@ test('final grades explain impossible and secured targets without out-of-range s
 
 test('percentages above 100 remain valid when they measure growth',async({page})=>{
  await page.goto('/percent-calculator');
- await page.locator('#calculation-mode').click();
- await page.getByRole('option',{name:'Percentage change',exact:true}).click();
+ await page.locator('#calculation-mode').getByRole('button',{name:'Percentage change',exact:true}).click();
  await page.locator('#change-from').fill('3');
  await page.locator('#change-to').fill('10');
  await page.getByRole('button',{name:'Calculate',exact:true}).click();

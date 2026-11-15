@@ -8,7 +8,7 @@ const pick = async (page: Page, id: string, option: string) => {
 };
 const start = async (page: Page) => {
   await page.goto('/btu-calculator');
-  await pick(page, 'calculation-mode', 'US room and building heat transfer');
+  await page.locator('#calculation-mode').getByRole('button', {name: 'US room and building heat transfer', exact: true}).click();
 };
 const calculate = (page: Page) => page.locator('.calculator-form button[type=submit]').click();
 
@@ -79,7 +79,7 @@ for (const locale of ['es','fr','de','pt','ar'] as const) test(`${locale}: desig
   const t = (key: string) => ui[key] || content[key];
   await page.setViewportSize({width: 390, height: 844});
   await page.goto(`/${locale}/btu-calculator`);
-  await pick(page, 'calculation-mode', t('US room and building heat transfer'));
+  await page.locator('#calculation-mode').getByRole('button', {name: t('US room and building heat transfer'), exact: true}).click();
   await expect(page.locator('#us-design-state')).toContainText('Texas');
   await pick(page, 'us-design-state', 'Alaska');
   await pick(page, 'us-design-county', 'Fairbanks North Star');

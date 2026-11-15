@@ -4,16 +4,15 @@ import AxeBuilder from '@axe-core/playwright';
 test('method guidance and formula links follow the selected calculation without clearing active inputs', async ({page}) => {
   await page.goto('/simple-interest-calculator');
   const guide = page.locator('#calculator-inputs [data-input-guide]');
-  await guide.getByText('Formula and input guidance', {exact: true}).click();
+  await guide.locator('summary').click();
   await expect(guide).toContainText('original principal');
   await page.locator('a[href="#mode-inverse"]').click();
   await expect(page.locator('#calculator-inputs')).toHaveAttribute('data-mode', 'inverse');
-  await guide.getByText('Formula and input guidance', {exact: true}).click();
+  await guide.locator('summary').click();
   await expect(guide).toContainText('Solve');
   const input = page.locator('#calculator-inputs input[type="number"]').first();
   await input.fill('123');
-  await page.locator('#calculation-mode').click();
-  await page.getByRole('option', {selected: true}).click();
+  await page.locator('#calculation-mode button[aria-pressed="true"]').click();
   await expect(input).toHaveValue('123');
 });
 
@@ -58,7 +57,7 @@ test('material diagrams follow shape inputs and preserve textual help for other 
   await page.locator('#measured-shape').click();
   await page.getByRole('option', {name: 'Curb and gutter', exact: true}).click();
   await expect(guide.getByRole('img')).toHaveCount(0);
-  await guide.getByText('Formula and input guidance', {exact: true}).click();
+  await guide.locator('summary').click();
   await expect(guide).toContainText('Ordered volume = net volume');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   expect((await new AxeBuilder({page}).include('.calculator-workspace').analyze()).violations).toEqual([]);

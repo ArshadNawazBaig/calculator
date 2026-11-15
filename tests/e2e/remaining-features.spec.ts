@@ -3,8 +3,7 @@ import {test, expect, type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFileSync} from 'node:fs';
 const choose = async (page: Page, title: string) => {
-  await page.locator('#calculation-mode').click();
-  await page.getByRole('option', {name: title, exact: true}).click();
+  await page.locator('#calculation-mode').getByRole('button', {name: title, exact: true}).click();
 };
 const calculate = (page: Page) => page.getByRole('button', {name: 'Calculate', exact: true}).click();
 

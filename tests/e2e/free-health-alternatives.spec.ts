@@ -15,7 +15,7 @@ for (const locale of ['en', 'es', 'fr', 'de', 'pt', 'ar'] as const) test(`${loca
   await page.setViewportSize({width: 390, height: 844});
   await page.goto(`${prefix}/target-heart-rate-calculator`);
   await expect(page.locator('main')).not.toContainText(/Borg|Khamis|WeightWatch/i);
-  await choose(page, 'calculation-mode', t('Talk test for exercise intensity'));
+  await page.locator('#calculation-mode').getByRole('button', {name: t('Talk test for exercise intensity'), exact: true}).click();
   for (const [choice, answer] of [
     ['Conversation is comfortable, but singing is difficult', 'Moderate relative intensity'],
     ['A few words require a pause for breath', 'Vigorous relative intensity'],

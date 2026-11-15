@@ -35,8 +35,7 @@ for (const item of priorityPages) {
 test('mobile ratio calculator solves a missing term and keeps references within the viewport', async ({page}) => {
   await page.setViewportSize({width: 390, height: 844});
   await page.goto('/ratio-calculator');
-  await page.getByRole('button', {name: /What would you like to calculate/}).click();
-  await page.getByRole('option', {name: 'Solve any proportion term', exact: true}).click();
+  await page.locator('#calculation-mode').getByRole('button', {name: 'Solve any proportion term', exact: true}).click();
   await page.locator('#all-proportions-A').fill('3');
   await page.locator('#all-proportions-B').fill('4');
   await page.locator('#all-proportions-C').fill('9');

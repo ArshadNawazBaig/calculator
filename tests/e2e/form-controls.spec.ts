@@ -101,8 +101,7 @@ test('typed dates preserve ISO values, calculate correctly, validate, and reset'
 
 test('optional dates remain usable when adding and removing calculator rows',async({page})=>{
   await page.goto('/debt-payoff-calculator');
-  await page.locator('#calculation-mode').click();
-  await page.getByRole('option',{name:'Payment budgets, rollover & dated extras',exact:true}).click();
+  await page.locator('#calculation-mode').getByRole('button',{name:'Payment budgets, rollover & dated extras',exact:true}).click();
   const extras=page.getByRole('group',{name:'One-time extras',exact:true});
   await extras.getByRole('button',{name:'Add row',exact:true}).click();
   await extras.getByRole('button',{name:'Open calendar Date (optional)',exact:true}).click();
