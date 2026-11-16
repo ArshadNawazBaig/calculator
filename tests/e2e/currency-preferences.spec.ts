@@ -118,7 +118,7 @@ test('Arabic defaults and preference popovers work on small screens',async({page
   const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   expect(audit.violations.map(v=>v.id)).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.screenshot({path:'/tmp/finflo-currency-arabic.png'});
+  await page.screenshot({path:'/tmp/finflo-currency-arabic.png',caret:'initial'});
   expect(errors).toEqual([]);
 });
 

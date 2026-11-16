@@ -50,6 +50,8 @@ Edit the maintained artwork in `scripts/illustrations/sources/`, then run `npm r
 
 The browser suite requires Playwright Chromium (`npx playwright install chromium`). Tests include independently derived fixtures, numerical boundaries, composed ledgers, versioned tax rules, invalid inputs, UI interactions, offline use and accessibility checks. Default catalog execution is a smoke check, not independent proof of every mode.
 
+Pass `caret: 'initial'` to Playwright page and locator screenshots: the default caret hiding temporarily changes input styles and can race with hydration. Before client-controlled interactions, wait for the control's actual hydrated readiness, such as an initially disabled slider becoming enabled. Check `console.error` messages for hydration diagnostics as well as `pageerror`; attribute mismatches may not throw an exception.
+
 `publishedLocales` in `src/lib/i18n/config.ts` enables all eight supported languages. English uses unprefixed URLs; other languages use `/es`, `/fr`, `/de`, `/pt`, `/ar`, `/hi` and `/tl`. Language switching preserves the current page, query, fragment and browser preferences. The menu also supports translated search, workspace and status pages, which remain outside the sitemap. `npm run i18n:check` requires every enabled dictionary to contain the current source messages and preserve placeholders, numbers and formulas. Update translations whenever English content changes, then regenerate the message manifests with `npm run i18n:check -- --all-locales --write-manifests`.
 
 - [Coverage manifest](docs/audit/coverage-manifest.json) and [captured competitor controls](docs/audit/catalog.json)
