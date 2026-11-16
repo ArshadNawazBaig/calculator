@@ -2,11 +2,12 @@
 .eyebrow { display: block; color: var(--color-brand-text); font-size: 12px; font-weight: 700; letter-spacing: .11em; line-height: 1.5; text-transform: uppercase; margin-bottom: 10px; }
 .section { padding-block: 48px; }
 .sectionHeading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 28px; }
-.sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: clamp(28px,2.6vw,34px); line-height: 1.22; font-weight: 700; letter-spacing: -1.1px; text-wrap: balance; }
+.sectionHeading h2,.faqIntro h2 { font-size: clamp(28px,2.6vw,34px); line-height: 1.22; font-weight: 700; letter-spacing: -1.1px; text-wrap: balance; }
 .sectionHeading p { color: var(--color-muted); font-size: 15px; line-height: 1.7; margin-top: 10px; }
 .sectionLink { display: inline-flex; align-items: center; gap: 8px; color: var(--color-brand-text-strong); font-size: 14px; line-height: 1.6; font-weight: 650; text-underline-offset: 4px; }
 .sectionLink:hover { text-decoration: underline; }
 .sectionHeading>.sectionLink { white-space: nowrap; padding-block: 7px; }
+.sectionImage { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
 
 /* A consistent row of useful tools, with one separate topical feature. */
 .filters { margin-bottom: 22px; }
@@ -41,21 +42,11 @@
 .category a:hover { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 4px; }
 .categoryAll { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 1.6; font-weight: 650; color: var(--color-brand-text-strong); }
 
-/* Explain the product through a calm split section. */
-.confidence { background: var(--color-soft); border-block: 1px solid var(--color-line); }
-.confidenceInner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-block: 64px; align-items: center; }
-.confidenceIntro>p { color: var(--color-muted); font-size: 15px; line-height: 1.9; margin: 18px 0 24px; max-width: 450px; }
-.benefits { display: grid; }
-.benefit { display: flex; gap: 20px; padding-block: 23px; border-bottom: 1px solid var(--color-line); }
-.benefit:first-child { padding-top: 0; }
-.benefit:last-child { border-bottom: 0; padding-bottom: 0; }
-.benefit>svg { color: var(--color-brand-text); margin-top: 3px; }
-.benefit h3 { font-size: 15px; line-height: 1.6; font-weight: 650; letter-spacing: -.2px; }
-.benefit p { color: var(--color-muted); font-size: 14px; line-height: 1.8; margin-top: 6px; }
 
-/* Text-led editorial guides use a different rhythm from calculator cards. */
+/* Original editorial images introduce each practical guide. */
 .guideGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 36px; }
-.guide { display: flex; flex-direction: column; align-items: start; border-top: 2px solid var(--color-line-strong); padding-top: 19px; }
+.guide { display: flex; flex-direction: column; align-items: start; min-width: 0; }
+.guideImage { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; background: var(--color-soft); margin-bottom: 20px; }
 .guideMeta { display: flex; justify-content: space-between; gap: 15px; width: 100%; color: var(--color-brand-text-strong); font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: .065em; margin-bottom: 16px; }
 .guideMeta>span:last-child { color: var(--color-muted); font-variant-numeric: tabular-nums; }
 .guide h3 { font-size: 21px; font-weight: 650; letter-spacing: -.5px; line-height: 1.45; text-wrap: initial; }
@@ -87,7 +78,7 @@
 @media print { .closing { background: #fff; break-inside: avoid; } }
 
 @media(max-width:1100px) {
-  .confidenceInner,.faq { gap: 56px; }
+.faq { gap: 56px; }
   .featuredGrid { gap: 12px; }
   .category { padding-inline: 20px; }
   .spotlight { gap: 42px; }
@@ -95,7 +86,7 @@
 @media(max-width:800px) {
   .section { padding-block: 48px; }
   .sectionHeading { align-items: start; gap: 20px; }
-  .sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: 29px; }
+  .sectionHeading h2,.faqIntro h2 { font-size: 29px; }
   .sectionHeading p { font-size: 14px; }
   .featuredGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
   .spotlight { padding: 28px; gap: 28px; grid-template-columns: 1fr 1fr; }
@@ -105,8 +96,6 @@
   .category:nth-child(odd) { border-inline-start: 0; padding-inline-start: 0; }
   .category>p { max-width: 260px; }
   .browse,.faq { padding-top: 0; }
-  .confidenceInner { gap: 36px; padding-block: 48px; }
-  .confidenceIntro h2 br { display: none; }
   .guideGrid { gap: 22px; }
   .guide h3 { font-size: 18px; }
   .faq { gap: 40px; }
@@ -118,7 +107,7 @@
   .sectionHeading { display: block; margin-bottom: 22px; }
   .sectionHeading>.sectionLink { margin-top: 10px; padding: 0; }
   .eyebrow { font-size: 11px; }
-  .sectionHeading h2,.confidenceIntro h2,.faqIntro h2 { font-size: 28px; letter-spacing: -.85px; }
+  .sectionHeading h2,.faqIntro h2 { font-size: 28px; letter-spacing: -.85px; }
   .sectionHeading p { font-size: 14px; }
   .filters { margin-bottom: 18px; }
   .featuredGrid { gap: 12px; }
@@ -136,10 +125,6 @@
   .category>p { font-size: 14px; }
   .category li { font-size: 13px; }
   .categoryAll { font-size: 13px; gap: 3px; }
-  .confidenceInner { grid-template-columns: 1fr; gap: 30px; padding-block: 40px; }
-  .confidenceIntro>p { font-size: 14px; margin-block: 14px 18px; }
-  .benefit { gap: 17px; padding-block: 21px; }
-  .benefit h3 { font-size: 14px; }
   .guideGrid { grid-template-columns: 1fr; gap: 28px; }
   .guide h3 { font-size: 21px; }
   .guideMeta { margin-bottom: 11px; }

@@ -15,6 +15,7 @@ import {translator, type Dictionary} from '@/lib/i18n/config';
 import {TranslationMessages} from './provider';
 import {PlanningPathways, FinanceToolkit, HealthToolkit, EverydayToolkit, HowItWorks, WorkspaceIntroduction} from '@/components/home/home-details';
 import {LearningGuides} from '@/components/home/learning-guides';
+import {ConfidenceSection} from '@/components/home/calculation-confidence';
 import {HomeCta} from '@/components/home/home-cta';
 import styles from '@/components/home/home.module.css';
 
@@ -44,14 +45,13 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     <EverydayToolkit messages={messages}/>
     <HowItWorks messages={messages}/>
     <PercentageDemo/>
-    <section className={styles.confidence} aria-labelledby="confidence-title"><div className={`container ${styles.confidenceInner}`}>
-      <div className={styles.confidenceIntro}><span className={styles.eyebrow}>{t('Clarity comes from context')}</span><h2 id="confidence-title">{t('Understand the number.')}</h2><p>{t('Check units and assumptions before using a result.')}</p></div>
-      <div className={styles.benefits}>{[
-        {icon: BookOpen, title: 'Formulas explained', text: 'Check units and assumptions before using a result.'},
-        {icon: SlidersHorizontal, title: 'Your everyday toolkit', text: 'Change a rate, a date, or an amount to explore different scenarios.'},
-        {icon: UserRoundCheck, title: 'No account needed', text: 'Most calculations run in your browser. Sharing a tool link does not include your inputs.'},
-      ].map(({icon: BenefitIcon, title, text}) => <div className={styles.benefit} key={title}><BenefitIcon size={23}/><div><h3>{t(title)}</h3><p>{t(text)}</p></div></div>)}</div>
-    </div></section>
+    <ConfidenceSection messages={messages} eyebrow={t('Clarity comes from context')} title={t('Understand the number.')}
+      description={t('Check units and assumptions before using a result.')} linkLabel={t('Editorial policy')}
+      benefits={[
+        {icon: BookOpen, title: t('Formulas explained'), text: t('Check units and assumptions before using a result.')},
+        {icon: SlidersHorizontal, title: t('Your everyday toolkit'), text: t('Change a rate, a date, or an amount to explore different scenarios.')},
+        {icon: UserRoundCheck, title: t('No account needed'), text: t('Most calculations run in your browser. Sharing a tool link does not include your inputs.')},
+      ]}/>
     <WorkspaceIntroduction messages={messages}/>
     <LearningGuides messages={messages}/>
     <section className={`container ${styles.section} ${styles.faq}`} aria-labelledby="faq-title"><div className={styles.faqIntro}><h2 id="faq-title">{t('Good to know.')}</h2><p><Link href="/faq">{t('Browse all FAQs')}</Link></p></div><Accordion>{questions.map(([question, answer]) => <AccordionItem key={question} title={t(question)}><p>{t(answer)}</p></AccordionItem>)}</Accordion></section>

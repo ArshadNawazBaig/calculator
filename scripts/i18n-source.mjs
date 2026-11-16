@@ -206,6 +206,13 @@ export async function translationSource() {
       collect(wheelGuides[wheel.slug], keys);
     }
     const wheelRuntime = new Set(), homeRuntime = new Set();
+    const {homeGuideImages} = await server.ssrLoadModule('/src/data/home-guide-images.ts');
+    const {homeSectionImages} = await server.ssrLoadModule('/src/data/home-section-images.ts');
+    // Card and section descriptions live in image metadata, outside t() calls.
+    for (const images of [homeGuideImages, homeSectionImages]) {
+      collect(images, keys);
+      collect(images, homeRuntime);
+    }
     for (const file of ['src/components/spin-wheels/wheel-page.tsx', 'src/components/spin-wheels/library-page.tsx', 'src/components/spin-wheels/wheel-editor.tsx', 'src/lib/spin-wheels/engine.ts', 'src/components/home/home-explorer.tsx', 'src/components/home/featured-tools.tsx', 'src/components/home/home-details.tsx', 'src/components/home/learning-guides.tsx', 'src/components/i18n/localized-home.tsx', 'src/lib/home-content.ts']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
       if (file.endsWith('wheel-editor.tsx') || file.endsWith('spin-wheels/engine.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) wheelRuntime.add(key);
