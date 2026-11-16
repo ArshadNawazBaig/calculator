@@ -22,9 +22,10 @@
 .spotlightLinks a:last-child { border-bottom: 0; }
 .spotlightLinks a>svg { color: var(--color-brand-text); }
 .spotlightLinks a:hover { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 4px; }
-.growthIllustration { position: absolute; width: 25%; max-width: 300px; right: 37%; bottom: -12px; z-index: -1; opacity: .17; }
-.spotlightIllustration { position: absolute; bottom: -22px; right: 37%; opacity: .09; z-index: -1; }
-@media print { .spotlight { background: #fff; } }
+.growthIllustration { position: absolute; width: 25%; aspect-ratio: 2; max-width: 300px; right: 37%; bottom: -12px; z-index: -1; opacity: .17; }
+.spotlightIllustration { position: absolute; width: 125px; height: 125px; bottom: -22px; right: 37%; opacity: .09; z-index: -1; }
+.growthIllustration img,.spotlightIllustration img { object-fit: contain; }
+@media print { .spotlight { background: #fff; } .growthIllustration,.spotlightIllustration { filter: grayscale(1) brightness(0); } }
 
 /* Categories stay light and scannable instead of becoming another card wall. */
 .browse { padding-top: 0; }

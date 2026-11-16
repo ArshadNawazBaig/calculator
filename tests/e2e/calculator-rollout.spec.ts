@@ -1,5 +1,6 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {expectLoadedIllustrations} from './illustration-assertions';
 
 test('method guidance and formula links follow the selected calculation without clearing active inputs', async ({page}) => {
   await page.goto('/simple-interest-calculator');
@@ -46,14 +47,16 @@ test('material diagrams follow shape inputs and preserve textual help for other 
   const guide = page.locator('#calculator-inputs [data-input-guide]');
   await page.locator('#measured-shape').click();
   await page.getByRole('option', {name: 'circle', exact: true}).click();
-  await expect(guide.getByRole('img')).toHaveAttribute('aria-label', /diameter d/);
+  await expect(guide.getByRole('img')).toHaveAttribute('alt', /diameter d/);
+  await expectLoadedIllustrations(guide.getByRole('img'));
   await page.locator('#measured-outerDiameter').fill('10');
   await page.getByRole('button', {name: 'Calculate', exact: true}).click();
   await expect(page.locator('.primary-metric dd')).toContainText('78.54');
   await page.goto('/concrete-calculator#mode-measured');
   await page.locator('#measured-shape').click();
   await page.getByRole('option', {name: 'Hollow column', exact: true}).click();
-  await expect(guide.getByRole('img')).toHaveAttribute('aria-label', /outer diameter D, inner diameter d/);
+  await expect(guide.getByRole('img')).toHaveAttribute('alt', /outer diameter D, inner diameter d/);
+  await expectLoadedIllustrations(guide.getByRole('img'));
   await page.locator('#measured-shape').click();
   await page.getByRole('option', {name: 'Curb and gutter', exact: true}).click();
   await expect(guide.getByRole('img')).toHaveCount(0);
@@ -67,7 +70,7 @@ test('switching methods replaces shared-key dropdown IDs and options', async ({p
   await page.goto('/square-footage-calculator#mode-shapes');
   await page.locator('#shapes-shape').click();
   await page.getByRole('option', {name: 'Parallelogram: base a, perpendicular height b', exact: true}).click();
-  await page.locator('a[href="#mode-measured"]').click();
+  await page.locator('#method-measured a[href="#mode-measured"]').click();
   await expect(page.locator('#calculator-inputs')).toHaveAttribute('data-mode', 'measured');
   await expect(page.locator('#shapes-shape')).toHaveCount(0);
   await expect(page.locator('#measured-shape')).toHaveAttribute('aria-labelledby', /(?:^|\s)measured-shape-label(?:\s|$)/);

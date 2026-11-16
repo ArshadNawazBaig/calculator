@@ -24,7 +24,10 @@ describe('material guides follow actual selected measurements', () => {
     for (const shape of ['slab', 'column', 'tube']) {
       const input = props('concrete-calculator', 'measured', {shape});
       expect(materialMeasurement(input)?.shape).toBe(shape);
-      expect(renderToStaticMarkup(<MaterialMeasurementDiagram {...input}/>)).toContain('role="img"');
+      const html = renderToStaticMarkup(<MaterialMeasurementDiagram {...input}/>);
+      expect(html).toMatch(/<img\b[^>]*src="\/illustrations\/material\/[^"\s]+\.webp"/);
+      expect(html).toContain(`alt="${materialMeasurement(input)!.description}"`);
+      expect(html).not.toContain('<svg');
     }
     for (const shape of ['stairs', 'curb']) {
       expect(renderToStaticMarkup(<MaterialMeasurementDiagram {...props('concrete-calculator', 'measured', {shape})}/>)).toBe('');

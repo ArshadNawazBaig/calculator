@@ -27,6 +27,14 @@ describe('translation release coverage', () => {
     expect(translationIssues(source, {'Blog': 'Blogue'}, {'New explanation': 'Nouvelle explication'}).missingShared).toEqual([]);
   });
 
+  it('collects descriptive image alternatives without translating asset URLs or decorative images', () => {
+    const keys = collectContentMessages({
+      'area-circle': {src: '/illustrations/area/circle.webp', width: 260, height: 180, alt: 'Circle with radius r measured from the marked center to the edge'},
+      'area-circle-compact': {src: '/illustrations/area/circle-compact.webp', width: 40, height: 32, alt: ''},
+    });
+    expect([...keys]).toEqual(['Circle with radius r measured from the marked center to the edge']);
+  });
+
   it('rejects missing updates and changed placeholders, example numbers, or formulas', () => {
     const formula = 'Area = length × width';
     const source = {keys: ['New paragraph', 'Result: {value0}', 'Use 25 percent.', formula], sharedKeys: [], formulas: [formula]};

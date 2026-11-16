@@ -1,5 +1,6 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {expectLoadedIllustrations} from './illustration-assertions';
 
 for (const [slug, unit, result] of [
   ['volume-calculator', 'Cubic feet', '1 ft³'],
@@ -10,7 +11,12 @@ for (const [slug, unit, result] of [
     await page.goto(`/${slug}`);
     const shapes = page.getByRole('group', {name: 'Choose a shape'});
     await expect(shapes.getByRole('button')).toHaveCount(12);
+    await expect(shapes.locator('img[alt=""]')).toHaveCount(12);
+    await expect(shapes.getByRole('img')).toHaveCount(0);
+    await expectLoadedIllustrations(shapes.locator('img'));
     await shapes.getByRole('button', {name: 'Rectangular prism', exact: true}).click();
+    await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('alt', /Rectangular prism with length a, width b/);
+    await expectLoadedIllustrations(page.locator('#calculator-inputs').getByRole('img'));
     for (const [key, value, label] of [['a', '2', 'Feet'], ['b', '12', 'Inches'], ['h', '6', 'Inches']]) {
       await page.locator(`#cuboid-${key}`).fill(value);
       await page.locator(`#cuboid-${key}Unit`).click();
@@ -36,13 +42,15 @@ test('circle changes its diagram and field label to the known measurement', asyn
   await page.goto('/circle-calculator');
   await page.locator('#circle-known').click();
   await page.getByRole('option', {name: 'diameter', exact: true}).click();
-  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('aria-label', /diameter d crossing the center/);
+  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('alt', /diameter d crossing the center/);
+  await expectLoadedIllustrations(page.locator('#calculator-inputs').getByRole('img'));
   await page.getByRole('spinbutton', {name: /^Diameter/}).fill('10');
   await page.getByRole('button', {name: 'Calculate', exact: true}).click();
   await expect(page.locator('.primary-metric dd')).toHaveText('78.54');
   await page.locator('#circle-known').click();
   await page.getByRole('option', {name: 'area', exact: true}).click();
-  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('aria-label', /interior marked A/);
+  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('alt', /interior marked A/);
+  await expectLoadedIllustrations(page.locator('#calculator-inputs').getByRole('img'));
   await expect(page.getByRole('spinbutton', {name: /^Area/})).toBeVisible();
   await expect(page.locator('#calculator-inputs')).toContainText('square units');
 });
@@ -52,7 +60,8 @@ test('triangle method buttons preserve angle conventions and radians', async ({p
   await page.goto('/triangle-calculator');
   const methods = page.getByRole('group', {name: 'Choose known measurements'});
   await methods.getByRole('button', {name: 'Two sides & included angle', exact: true}).click();
-  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('aria-label', /included angle C/);
+  await expect(page.locator('#calculator-inputs').getByRole('img')).toHaveAttribute('alt', /included angle C/);
+  await expectLoadedIllustrations(page.locator('#calculator-inputs').getByRole('img'));
   await page.locator('#sas-a').fill('3');
   await page.locator('#sas-b').fill('4');
   await page.locator('#sas-angleUnit').click();
@@ -90,12 +99,16 @@ test('solid references and all measurement guides are readable without JavaScrip
     const page = await context.newPage();
     for (const slug of ['volume-calculator', 'surface-area-calculator', 'circle-calculator', 'triangle-calculator', 'right-triangle-calculator', 'pythagorean-theorem-calculator']) {
       await page.goto(`/${slug}`);
-      await expect(page.locator('#calculator-inputs svg[role="img"]')).toHaveCount(1);
+      const measurement = page.locator('#calculator-inputs').getByRole('img');
+      await expect(measurement).toHaveCount(1);
+      await expectLoadedIllustrations(measurement);
       await expect(page.locator('h1')).toHaveCount(1);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://finflo.org/${slug}`);
       if (slug === 'volume-calculator' || slug === 'surface-area-calculator') {
         await expect(page.locator('#formula-reference tbody a[href^="#mode-"]')).toHaveCount(12);
-        await expect(page.locator('#formula-reference svg[role="img"]')).toHaveCount(12);
+        const illustrations = page.locator('#formula-reference').getByRole('img');
+        await expect(illustrations).toHaveCount(12);
+        await expectLoadedIllustrations(illustrations);
         await expect(page.locator('#method-cap-inverse')).toHaveCount(1);
         await expect(page.locator('#common-questions details')).toHaveCount(6);
         await expect(page.locator('time[datetime="2026-11-15"]')).toBeVisible();

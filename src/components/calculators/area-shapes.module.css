@@ -6,22 +6,17 @@
 .choices button span { min-width: 0; }
 .choices button:hover { border-color: var(--color-focus); background: var(--color-soft); }
 .choices button[aria-pressed="true"] { border-color: var(--color-focus); background: var(--color-brand-tile); color: var(--color-brand-tile-ink); box-shadow: inset 0 0 0 1px var(--color-focus); }
-.choices button[aria-pressed="true"] .diagram { --shape-edge: #d5f915; --shape-fill: #d5f91518; --shape-guide: #d5f915; }
 .choices button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 .choices button:disabled { cursor: default; }
 .choices .diagram { flex-shrink: 0; width: 40px; height: 32px; }
-.diagram { --shape-edge: light-dark(#52632c, #c6e875); --shape-fill: light-dark(#b4ce7024, #b4ce7018); --shape-guide: light-dark(#5c6750, #b8c3a6); display: block; max-width: 100%; height: auto; overflow: visible; }
-.outline { fill: var(--shape-fill); stroke: var(--shape-edge); stroke-width: 1.8; stroke-linejoin: round; }
-.outline > *, .measure, .dimension, .height, .extension, .axis, .angle { vector-effect: non-scaling-stroke; }
-.measure, .dimension, .height, .extension, .axis, .angle { fill: none; stroke: var(--shape-guide); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2; }
-.height { stroke-dasharray: 4 4; }
-.extension { opacity: .5; stroke-width: .8; }
-.axis { stroke-dasharray: 3 5; opacity: .4; }
-.angle { stroke: var(--shape-edge); stroke-width: 1.8; }
-.point { fill: var(--shape-edge); }
-.label { fill: var(--color-ink); font: italic 22px Georgia, serif; text-anchor: middle; }
-.diagram[data-compact] .outline { stroke-width: 1.6; }
-.diagram[data-compact] .height { stroke-width: 1; stroke-dasharray: 2 3; }
+.diagram { display: block; max-width: 100%; height: auto; object-fit: contain; }
+/* A single crawlable image URL serves both themes; this preserves transparent
+   fills while making dark measurement text and strokes readable on dark cards. */
+:global(html[data-theme="dark"]) .diagram { filter: invert(1) hue-rotate(180deg); }
+@media (prefers-color-scheme: dark) {
+  :global(html:not([data-theme="light"])) .diagram { filter: invert(1) hue-rotate(180deg); }
+}
+.choices button[aria-pressed="true"] .diagram { filter: brightness(0) saturate(100%) invert(88%) sepia(91%) saturate(1480%) hue-rotate(12deg) brightness(103%) contrast(99%); }
 .measurement { display: grid; grid-template-columns: minmax(160px, .95fr) minmax(0, 1fr); align-items: center; gap: 10px 16px; margin: 0 0 22px; padding: 14px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-surface); }
 .measurement > .diagram { width: 100%; max-width: 240px; margin-inline: auto; }
 .measurement figcaption { min-width: 0; font-size: 13px; color: var(--color-muted); line-height: 1.6; }
@@ -48,4 +43,4 @@
 @media (max-width: 600px) { .picker { padding: 10px 12px; } .choices button { flex-direction: row; justify-content: flex-start; text-align: start; gap: 6px; padding: 8px 6px; } .choices { gap: 6px; } .choices .diagram { width: 28px; height: 28px; } }
 @media (max-width: 460px) { .choices:not([data-methods]) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .choices button { transition: none; } }
-@media print { .diagram { --shape-edge: #303b20; --shape-fill: #edf2e3; --shape-guide: #59634d; } .label { fill: #17191c; } }
+@media print { .diagram { filter: none !important; } }

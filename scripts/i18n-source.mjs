@@ -5,8 +5,8 @@ import {readFile, readdir, writeFile, mkdir, access} from 'node:fs/promises';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue', 'seoTitle', 'summary', 'entryLabel', 'steps', 'caption', 'headers', 'rows', 'quickAnswer', 'heading', 'answerHeading', 'tableHeading', 'tableIntroduction', 'tableCaption', 'firstColumn', 'before', 'after', 'sentence']);
-const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name', 'd', 'viewBox', 'transform', 'fill', 'stroke', 'strokeWidth']);
+const textProperties = new Set(['title', 'description', 'alt', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue', 'seoTitle', 'summary', 'entryLabel', 'steps', 'caption', 'headers', 'rows', 'quickAnswer', 'heading', 'answerHeading', 'tableHeading', 'tableIntroduction', 'tableCaption', 'firstColumn', 'before', 'after', 'sentence']);
+const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'src', 'srcSet', 'sizes', 'className', 'format', 'name', 'd', 'viewBox', 'transform', 'fill', 'stroke', 'strokeWidth']);
 export function collectContentMessages(value, set = new Set(), parent = '') {
   if (typeof value === 'string') {
     if (textProperties.has(parent) && value.trim() && /[a-zA-Z]/.test(value) && !/^(?:https?:|mailto:|\/)/.test(value)) set.add(value);
@@ -138,6 +138,9 @@ export async function translationSource() {
     collect(JSON.parse(await readFile('src/data/vehicle-tax-2026.json', 'utf8')), keys);
     const runtime = {};
     const common = new Set((await sourceModule(resolve(root, 'src/lib/calculators/engine.ts'))).keys);
+    // The exported artwork owns its descriptive alt text. Keep it in the
+    // calculator client bundles after the source SVG moves out of runtime code.
+    collect(JSON.parse(await readFile('src/data/illustrations.json', 'utf8')), common);
     for (const entry of await readdir('src/components/calculators')) {
       if (!/\.tsx?$/.test(entry)) continue;
       const parsed = await sourceModule(resolve(root, 'src/components/calculators', entry));
