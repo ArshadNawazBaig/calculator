@@ -1,3 +1,4 @@
+import {translator, type Dictionary} from '@/lib/i18n/config';
 import styles from './area-shapes.module.css';
 
 const descriptions: Record<string, string> = {
@@ -29,11 +30,12 @@ function HorizontalDimension({from, to, y, label, labelY}: {from: number; to: nu
 }
 
 /** Server-rendered vectors shared by the selector, input guide and formula table. */
-export function AreaShapeDiagram({shape, compact = false}: {shape: string; compact?: boolean}) {
+export function AreaShapeDiagram({shape, compact = false, messages = {}}: {shape: string; compact?: boolean; messages?: Dictionary}) {
+  const t = translator(messages);
   const triangle = shape === 'triangle' || shape === 'triangle-sss';
   return <svg className={styles.diagram} data-compact={compact || undefined}
     viewBox={compact ? iconFrames[shape] : '0 0 260 180'} width="260" height="180"
-    role={compact ? undefined : 'img'} aria-label={compact ? undefined : descriptions[shape]}
+    role={compact ? undefined : 'img'} aria-label={compact ? undefined : t(descriptions[shape])}
     aria-hidden={compact || undefined} focusable="false">
     <g className={styles.outline}>
       {shape === 'rectangle' && <rect x="40" y="36" width="170" height="86" rx="2"/>}

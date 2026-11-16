@@ -1,6 +1,7 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {practicalGuides} from '../../src/data/practical-guides';
+import {publishedLocales, localizedPath} from '../../src/lib/i18n/config';
 
 test('English aliases reach the canonical page and preserve query parameters',async({request})=>{
   for(const [alias,target] of [['/en','/'],['/en/','/'],['/en?source=review','/?source=review'],['/en/?source=review','/?source=review'],['/en/guides','/guides']]){
@@ -84,16 +85,21 @@ test('new tables fit mobile and use accessible headings and captions',async({pag
   }
 });
 
-test('English-only guides do not advertise missing translations',async({page,request})=>{
+test('practical guides offer every language and retain translated content',async({page,request})=>{
   const slug=Object.keys(practicalGuides)[0];
   await page.goto(`/guides/${slug}`);
-  await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(0);
+  await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(publishedLocales.length+1);
   await page.getByRole('button',{name:'Language: English',exact:true}).click();
-  await expect(page.getByRole('navigation',{name:'Website language'}).getByRole('link')).toHaveCount(1);
-  const alias=await request.get(`/es/guides/${slug}`,{maxRedirects:0});
-  expect(alias.status()).toBe(307);
-  expect(new URL(alias.headers().location,alias.url()).pathname).toBe(`/guides/${slug}`);
+  await expect(page.getByRole('navigation',{name:'Website language'}).getByRole('link')).toHaveCount(publishedLocales.length);
+  for(const locale of publishedLocales.filter(locale=>locale!=='en')){
+    const response=await request.get(localizedPath(`/guides/${slug}`,locale),{maxRedirects:0});
+    expect(response.status(),locale).toBe(200);
+    const html=await response.text();
+    expect(html).toContain(`lang="${locale}"`);
+    expect(html).toContain(`href="https://finflo.org/${locale}/guides/${slug}"`);
+  }
   await page.goto('/es/guides');
-  await expect(page).toHaveURL(/\/guides$/);
-  await expect(page.locator('html')).toHaveAttribute('lang','en');
+  await expect(page).toHaveURL(/\/es\/guides$/);
+  await expect(page.locator('html')).toHaveAttribute('lang','es');
+  await expect(page.locator(`main a[href="/es/guides/${slug}"]`)).toBeVisible();
 });

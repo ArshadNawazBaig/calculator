@@ -9,7 +9,7 @@ type BreadcrumbsProps={items:BreadcrumbItem[];className?:string;tone?:'default'|
 export function Breadcrumbs({items,className='',tone='default'}:BreadcrumbsProps){
  const {t}=useI18n();
 
-  return <nav className={`breadcrumbs ${className}`} data-tone={tone} aria-label="Breadcrumb">
+  return <nav className={`breadcrumbs ${className}`} data-tone={tone} aria-label={t('Breadcrumb')}>
     <ol>
       <li><Link href="/">{t("Home")}</Link></li>
       {items.map((item,i)=><li key={i}>

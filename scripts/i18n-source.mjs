@@ -5,8 +5,27 @@ import {readFile, readdir, writeFile, mkdir, access} from 'node:fs/promises';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue', 'seoTitle', 'summary', 'entryLabel', 'steps']);
+const textProperties = new Set(['title', 'description', 'label', 'unit', 'hint', 'group', 'formula', 'explanation', 'question', 'answer', 'example', 'notes', 'limitations', 'paragraphs', 'displayValue', 'seoTitle', 'summary', 'entryLabel', 'steps', 'caption', 'headers', 'rows', 'quickAnswer', 'heading', 'answerHeading', 'tableHeading', 'tableIntroduction', 'tableCaption', 'firstColumn', 'before', 'after', 'sentence']);
 const skippedProperties = new Set(['key', 'id', 'value', 'default', 'slug', 'algorithm', 'type', 'url', 'href', 'className', 'format', 'name', 'd', 'viewBox', 'transform', 'fill', 'stroke', 'strokeWidth']);
+export function collectContentMessages(value, set = new Set(), parent = '') {
+  if (typeof value === 'string') {
+    if (textProperties.has(parent) && value.trim() && /[a-zA-Z]/.test(value) && !/^(?:https?:|mailto:|\/)/.test(value)) set.add(value);
+  } else if (Array.isArray(value)) value.forEach(item => collectContentMessages(item, set, parent));
+  else if (value && typeof value === 'object') for (const [key, child] of Object.entries(value)) {
+    // Geographic names retain their source spelling; controls and hints translate.
+    if (key === 'options' && value.translateOptions === false) continue;
+    // Exact input samples, encoded output, and executable expressions belong to
+    // their table context. The same text may still translate elsewhere.
+    if (key === 'rows' && Array.isArray(child) && Array.isArray(value.literalColumns)) {
+      for (const row of child) if (Array.isArray(row)) row.forEach((cell, column) => {
+        if (!value.literalColumns.includes(column)) collectContentMessages(cell, set, key);
+      });
+      continue;
+    }
+    collectContentMessages(child, set, key);
+  }
+  return set;
+}
 export async function translationSource() {
   const root = process.cwd();
   const server = await createServer({configFile: false, root, server: {middlewareMode: true, watch: null}, resolve: {alias: {'@': resolve(root, 'src')}}});
@@ -14,15 +33,7 @@ export async function translationSource() {
   const add = (set, value) => {
     if (typeof value === 'string' && value.trim() && /[a-zA-Z]/.test(value) && !/^(?:https?:|mailto:|\/)/.test(value)) set.add(value);
   };
-  function collect(value, set, parent = '') {
-    if (typeof value === 'string') { if (textProperties.has(parent)) add(set, value); }
-    else if (Array.isArray(value)) value.forEach(item => collect(item, set, parent));
-    else if (value && typeof value === 'object') for (const [key, child] of Object.entries(value)) {
-      // Geographic names retain their source spelling; controls and hints still translate.
-      if (key === 'options' && value.translateOptions === false) continue;
-      collect(child, set, key);
-    }
-  }
+  const collect = collectContentMessages;
   async function sourceModule(file) {
     if (modules.has(file)) return modules.get(file);
     const source = ts.createSourceFile(file, await readFile(file, 'utf8'), ts.ScriptTarget.Latest, true, file.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
@@ -33,6 +44,10 @@ export async function translationSource() {
       if (/[a-zA-Z]/.test(value) && (/\s/.test(value) || /^[A-Z][a-z]+$/.test(value)) && !/^(?:https?:|mailto:|\/|@\/|\.\/|use client|text\/)/.test(value)) add(entry.keys, value);
     }
     function visit(node) {
+      if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
+        const owner = node.parent;
+        if (ts.isPropertyAssignment(owner) && owner.name.getText(source).replace(/['"]/g, '') === 'formula') formulas.add(node.text);
+      }
       if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
         const p = node.parent;
         if (ts.isImportDeclaration(p) || ts.isExportDeclaration(p) || ts.isCallExpression(p) && p.expression.kind === ts.SyntaxKind.ImportKeyword) entry.imports.add(node.text);
@@ -75,7 +90,7 @@ export async function translationSource() {
     return result;
   }
   try {
-    const {definitions, catalog, blocked} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
+    const {definitions, catalog, blocked, isIndexableTool} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
     const {calculate} = await server.ssrLoadModule('/src/lib/calculators/engine.ts');
     const {defaults} = await server.ssrLoadModule('/src/lib/calculators/types.ts');
     const rendered = {finance: new Set(), health: new Set(), math: new Set(), everyday: new Set()};
@@ -108,13 +123,12 @@ export async function translationSource() {
     const info = JSON.parse(await readFile('src/data/information-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/analytics-copy.json', 'utf8')), keys);
     const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
-    const {practicalGuides} = await server.ssrLoadModule('/src/data/practical-guides.ts');
-    const publishedTranslations = new Set(JSON.parse(await readFile('src/data/locales/translated-pages.json', 'utf8')));
-    // Practical guides are explicitly English-only until their locale routes are
-    // published. Keep checking every other guide, including newly added guides,
-    // and resume checking a practical guide as soon as its route is published.
-    const translatedGuides = Object.fromEntries(Object.entries(guides).filter(([slug]) =>
-      !Object.hasOwn(practicalGuides, slug) || publishedTranslations.has(`/guides/${slug}`)));
+    // The current source owns translation coverage. A stale generated manifest
+    // must never exclude a new or revised guide from the release check.
+    const translatedGuides = guides;
+    const {mathSearchContent} = await server.ssrLoadModule('/src/data/math-search-content.ts');
+    collect(mathSearchContent, keys);
+    for (const entry of Object.values(mathSearchContent)) for (const row of entry?.rows || []) formulas.add(row.formula);
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
     for (const entry of [...Object.values(info), ...Object.values(translatedGuides), ...Object.values(content)]) collect(entry, keys);
@@ -148,8 +162,37 @@ export async function translationSource() {
     }
     const existing = JSON.parse(await readFile('src/data/locales/es.json', 'utf8'));
     Object.keys(existing).filter(key => !/^tool\.|^description\./.test(key)).forEach(key => keys.add(key));
-    // Routes match localized content. English-only guides, unavailable tools,
-    // and system pages stay excluded from the published translation manifest.
+    // Discover current t() messages independently of the existing dictionaries,
+    // so editing a shared control cannot silently leave every locale in English.
+    const sharedKeys = new Set();
+    async function translatedComponentKeys(directory) {
+      for (const entry of await readdir(directory, {withFileTypes: true})) {
+        const file = resolve(directory, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name !== 'admin') await translatedComponentKeys(file);
+          continue;
+        }
+        if (!/\.tsx?$/.test(entry.name)) continue;
+        const source = ts.createSourceFile(file, await readFile(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+        const client = source.statements.some(node => ts.isExpressionStatement(node) && ts.isStringLiteral(node.expression) && node.expression.text === 'use client');
+        function accept(node) {
+          if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
+            add(keys, node.text);
+            if ((!file.includes('/content/') || client) && !file.includes('/calculators/') && !file.includes('/spin-wheels/') && !file.includes('/time/')) add(sharedKeys, node.text);
+          } else if (ts.isConditionalExpression(node)) {accept(node.whenTrue); accept(node.whenFalse);}
+        }
+        function visit(node) {
+          if (ts.isCallExpression(node) && node.expression.getText(source) === 't' && node.arguments[0]) accept(node.arguments[0]);
+          ts.forEachChild(node, visit);
+        }
+        visit(source);
+      }
+    }
+    await translatedComponentKeys(resolve(root, 'src/components'));
+    const {navigationLinks, secondaryNavigationLinks} = await server.ssrLoadModule('/src/components/layout/navigation.ts');
+    for (const {label} of [...navigationLinks, ...secondaryNavigationLinks]) {add(keys, label); add(sharedKeys, label);}
+    // Routes match current localized content. Unavailable tools and system pages
+    // stay outside the indexable translation manifest.
     const {categories} = await server.ssrLoadModule('/src/lib/site.ts');
     const {categorySlug} = await server.ssrLoadModule('/src/lib/catalog-paths.ts');
     const {spinWheels} = await server.ssrLoadModule('/src/lib/spin-wheels/catalog.ts');
@@ -160,7 +203,7 @@ export async function translationSource() {
       collect(wheelGuides[wheel.slug], keys);
     }
     const wheelRuntime = new Set(), homeRuntime = new Set();
-    for (const file of ['src/components/spin-wheels/wheel-page.tsx', 'src/components/spin-wheels/library-page.tsx', 'src/components/spin-wheels/wheel-editor.tsx', 'src/lib/spin-wheels/engine.ts', 'src/components/home/home-explorer.tsx', 'src/components/home/featured-tools.tsx', 'src/lib/home-content.ts']) {
+    for (const file of ['src/components/spin-wheels/wheel-page.tsx', 'src/components/spin-wheels/library-page.tsx', 'src/components/spin-wheels/wheel-editor.tsx', 'src/lib/spin-wheels/engine.ts', 'src/components/home/home-explorer.tsx', 'src/components/home/featured-tools.tsx', 'src/components/home/home-details.tsx', 'src/components/home/learning-guides.tsx', 'src/components/i18n/localized-home.tsx', 'src/lib/home-content.ts']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) keys.add(key);
       if (file.endsWith('wheel-editor.tsx') || file.endsWith('spin-wheels/engine.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) wheelRuntime.add(key);
       if (file.includes('/home/') || file.endsWith('home-content.ts')) for (const key of (await sourceModule(resolve(root, file))).keys) homeRuntime.add(key);
@@ -187,10 +230,13 @@ export async function translationSource() {
       visit(source);
     }
     for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
+    for (const file of ['src/components/time/meeting-planner.tsx', 'src/lib/time/meeting.ts', 'src/lib/time/wall-time.ts']) {
+      for (const key of (await sourceModule(resolve(root, file))).keys) {add(keys,key); add(timeRuntime,key);}
+    }
     for (const color of ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Teal','White','Black']) add(keys, color);
-    const paths = [...timePaths, '/', '/calculators', '/calculators/students', '/guides', '/sitemap','/faq', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(translatedGuides).map(slug => `/guides/${slug}`), ...definitions.map(d => `/${d.slug}`)];
+    const paths = [...timePaths, '/', '/calculators', '/calculators/students', '/guides', '/sitemap','/faq', '/spin-wheels', ...spinWheels.map(wheel => `/spin-wheels/${wheel.slug}`), ...categories.map(c => `/calculators/${c.id}`), ...new Set(catalog.map(tool => `/calculators/${tool.category}/${categorySlug(tool.subcategory)}`)), ...Object.keys(info).map(slug => `/${slug}`), ...Object.keys(translatedGuides).map(slug => `/guides/${slug}`), ...catalog.filter(tool => isIndexableTool(tool.slug)).map(tool => `/${tool.slug}`)];
     const {publishedLocales} = await server.ssrLoadModule('/src/lib/i18n/config.ts');
-    return {publishedLocales, timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
+    return {publishedLocales, sharedKeys: [...sharedKeys].sort(), timeRuntime: [...timeRuntime].sort(), keys: [...keys].sort(), formulas: [...formulas].sort(), pages, runtime, pageCategories, paths, descriptions, wheelRuntime: [...wheelRuntime].sort(), homeRuntime: [...homeRuntime].sort()};
   } finally { await server.close(); }
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

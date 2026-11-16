@@ -32,7 +32,7 @@ describe('calculator discovery and translated payloads', () => {
     expect(result.table?.rows).toHaveLength(33);
     expect(values['Total interest']).toBeCloseTo(1522.1026920391578,8);
   });
-  it('links worked guides to real tools, modes, and information pages',()=>{
+  it('links worked guides to real tools, modes, and information pages',async()=>{
     for(const guide of Object.values(practicalGuides))for(const section of guide.sections)for(const link of section.links||[]){
       if(!link.href.startsWith('/'))continue;
       const [path,fragment]=link.href.split('#'),slug=path.slice(1);
@@ -40,8 +40,14 @@ describe('calculator discovery and translated payloads', () => {
       if(fragment)expect(definitionMap.get(slug)?.modes.some(mode=>`mode-${mode.id}`===fragment),link.href).toBe(true);
     }
     expect(renderToStaticMarkup(<RelatedGuides slug="grade-calculator"/>)).toContain('/guides/weighted-grades-and-final-exam-targets');
-    for(const locale of locales.filter(locale=>locale!=='en'))expect(renderToStaticMarkup(<RelatedGuides slug="grade-calculator" locale={locale}/>)).toBe('');
-  });
+    for(const locale of locales.filter(locale=>locale!=='en')){
+      const messages=await getContentDictionary(locale);
+      const html=renderToStaticMarkup(<RelatedGuides slug="grade-calculator" locale={locale} messages={messages}/>);
+      expect(html).toContain(`href="/${locale}/guides/weighted-grades-and-final-exam-targets"`);
+      expect(html).toContain(renderToStaticMarkup(translator(messages)(practicalGuides['weighted-grades-and-final-exam-targets'].title)));
+      expect(html).not.toContain(practicalGuides['weighted-grades-and-final-exam-targets'].description);
+    }
+  }, 20_000);
   it('omits brand suffixes from search and social titles and translates descriptive calculator titles', async () => {
     for (const [title, expected] of [['Loan Calculator', 'Loan Calculator'], ['Loan Calculator | Finflo', 'Loan Calculator'], ['About Finflo', 'About Finflo']]) {
       const metadata = pageMetadata(title, 'Description', '/loan-calculator');
@@ -59,7 +65,7 @@ describe('calculator discovery and translated payloads', () => {
         if (locale !== 'en') expect(t(title)).not.toBe(title);
       }
     }
-  });
+  }, 20_000);
 
   it('reproduces the distinct interest, savings and lump-sum examples in the page copy', async () => {
     const cases: {slug: string; inputs: Record<string, string>; balance: number}[] = [

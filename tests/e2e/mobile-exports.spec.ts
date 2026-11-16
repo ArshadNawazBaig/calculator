@@ -118,7 +118,7 @@ test('PDF creation failures show a retryable message',async({page})=>{
   expect((await pending).suggestedFilename()).toBe('finflo-grade-calculator.pdf');
 });
 
-for(const [locale,downloadText,title] of [['hi','फ़ाइल डाउनलोड करें','ग्रेड कैलकुलेटर'],['ar','تنزيل الملف','الدرجات الدراسية']] as const) {
+for(const [locale,downloadText,title] of [['hi','फ़ाइल डाउनलोड करें','भारित ग्रेड कैलकुलेटर'],['ar','تنزيل الملف','حاسبة الدرجات المرجّحة']] as const) {
   test(`${locale} PDF renders localized text and a mobile save link`,async({page},info)=>{
     test.skip(!isPublishedLocale(locale), 'This translation is not published.');
     await page.goto(`/${locale}/grade-calculator`);

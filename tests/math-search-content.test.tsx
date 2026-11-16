@@ -98,6 +98,18 @@ describe('published formula examples agree with the working calculator', () => {
 });
 
 describe('search guidance is readable in the initial server HTML', () => {
+  it('allows a Hindi guidance sentence to move its calculator link after the purpose', () => {
+    const sentence = 'Use the {calculatorLink} to convert mixed numbers or perform fraction arithmetic.';
+    const messages = {
+      [sentence]: 'मिश्रित संख्याओं को बदलने या भिन्नों की गणना करने के लिए {calculatorLink} का उपयोग करें।',
+      'fraction calculator': 'भिन्न कैलकुलेटर',
+    };
+    const html = renderToStaticMarkup(<MathSearchContent slug="ratio-calculator" locale="hi" messages={messages}/>);
+    expect(html).toContain('<p>मिश्रित संख्याओं को बदलने या भिन्नों की गणना करने के लिए <a href="/hi/fraction-calculator">भिन्न कैलकुलेटर</a> का उपयोग करें।</p>');
+    expect(html).not.toContain('{calculatorLink}');
+    expect(html).not.toContain('to convert mixed numbers or perform fraction arithmetic.');
+  });
+
   it.each(Object.keys(mathSearchContent))('renders accessible references and real tool links for %s', slug => {
     const content = mathSearchContent[slug]!;
     const html = renderToStaticMarkup(<><MathSearchAnswer slug={slug}/><MathSearchContent slug={slug}/></>);

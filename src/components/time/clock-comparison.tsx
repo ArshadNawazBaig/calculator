@@ -16,8 +16,8 @@ export function ClockComparison({zoneId, at, locale = 'en'}: {zoneId: string; at
   const format = (epoch: number, zone: string) => timeFormatter(tag, zone, {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(epoch);
   const meetingDate = localDateTime(at,zoneId).slice(0,10);
   let initialMeeting:ReturnType<typeof compareMeeting>|null = null;
-  if (locale === 'en' && meetingDate >= '2026-01-01' && meetingDate <= '2035-12-31') {
-    try {initialMeeting = compareMeeting(meetingDate,'12:00',zoneId,zoneId === 'America/New_York' ? 'Europe/London' : 'America/New_York','earlier');}
+  if (meetingDate >= '2026-01-01' && meetingDate <= '2035-12-31') {
+    try {initialMeeting = compareMeeting(meetingDate,'12:00',zoneId,zoneId === 'America/New_York' ? 'Europe/London' : 'America/New_York','earlier',tag);}
     catch {/* An unusual skipped noon must not prevent the live clock from rendering. */}
   }
   return <>

@@ -11,7 +11,7 @@ type SearchContentSection = {
   id: string;
   heading: string;
   paragraphs: string[];
-  link?: {before: string; href: string; label: string; after: string};
+  link?: {sentence: string; href: string; label: string};
 };
 
 export type MathSearchContentEntry = {
@@ -57,7 +57,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Measure height at a right angle to the base, even when the perpendicular line falls outside the shape. A sloping side is not the height of a triangle, trapezoid, or parallelogram. For a circle, halve the diameter to get the radius. For an ellipse 8 m across and 4 m high, enter semi-axes of 4 m and 2 m.',
           'When only three triangle side lengths are known, choose Triangle from three sides. The two shorter sides must add up to more than the longest side: 3, 4, and 5 form a triangle, but 3, 4, and 7 do not. A sector needs a central angle; select degrees or radians to match your measurement.',
         ],
-        link: {before: 'If you know triangle angles as well as sides, use the ', href: '/triangle-calculator', label: 'triangle calculator', after: ' to solve the missing measurements.'},
+        link: {sentence: "If you know triangle angles as well as sides, use the {calculatorLink} to solve the missing measurements.", href: "/triangle-calculator", label: "triangle calculator"},
       },
       {
         id: 'irregular-area',
@@ -67,7 +67,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'For example, an L-shaped floor fits inside a 6 m × 4 m rectangle and has a 2 m × 1 m corner missing. The outer rectangle is 24 m² and the missing corner is 2 m², so the floor covers 24 − 2 = 22 m². Calculate the two rectangles separately; do not multiply the two longest sides and ignore the cutout.',
           'This calculator uses dimensions you enter, rather than tracing a boundary on a map. For a four-sided plot without right angles or parallel bases, four side lengths alone are insufficient: you also need information such as a diagonal and triangle side lengths, an angle, or coordinates.',
         ],
-        link: {before: 'For flooring measurements and material estimates, see the ', href: '/square-footage-calculator', label: 'square footage calculator', after: '.'},
+        link: {sentence: "For flooring measurements and material estimates, see the {calculatorLink}.", href: "/square-footage-calculator", label: "square footage calculator"},
       },
       {
         id: 'area-unit-conversion',
@@ -76,7 +76,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Each dimension has its own unit selector. A rectangle 3 ft long and 24 in wide covers 6 ft² when Area unit is Square feet: 24 in equals 2 ft, then 3 × 2 = 6. For a measurement such as 5 ft 6 in, enter 5.5 Feet or 66 Inches, not 5.6 Feet.',
           'Square the length conversion factor when converting area: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². To convert square feet to square meters, multiply by 0.09290304; to convert square meters to square feet, divide by 0.09290304.',
         ],
-        link: {before: 'To include depth and calculate the space inside a solid, use the ', href: '/volume-calculator', label: 'volume calculator', after: '.'},
+        link: {sentence: "To include depth and calculate the space inside a solid, use the {calculatorLink}.", href: "/volume-calculator", label: "volume calculator"},
       },
       {
         id: 'land-area',
@@ -86,7 +86,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'One acre equals 43,560 ft² or 4,046.8564224 m² using the international foot; one hectare equals 10,000 m². Acres and hectares are already area units, so they are not squared again.',
           'Use horizontal dimensions for a plan-view land area. Distances measured along a slope describe a different surface. Irregular boundaries need additional measurements or a survey; an idealized rectangle cannot establish a property boundary.',
         ],
-        link: {before: 'For converting an area you already know, use the ', href: '/conversion-calculator', label: 'unit conversion calculator', after: '.'},
+        link: {sentence: "For converting an area you already know, use the {calculatorLink}.", href: "/conversion-calculator", label: "unit conversion calculator"},
       },
       {
         id: 'area-checks',
@@ -96,7 +96,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Area and perimeter answer different questions. A 6 m × 4 m rectangle covers 24 m² but needs 20 m of edging around its boundary. Flooring uses area; fencing uses perimeter. Covering the outside of a three-dimensional object requires surface area.',
           'Keep unrounded values while combining pieces, then round the final total to suit your measurements. Extra decimal places do not make a tape measurement more accurate. A flooring or paint allowance is a separate decision from the geometric area.',
         ],
-        link: {before: 'For the outside of a box, cylinder, sphere, or other solid, use the ', href: '/surface-area-calculator', label: 'surface area calculator', after: '.'},
+        link: {sentence: "For the outside of a box, cylinder, sphere, or other solid, use the {calculatorLink}.", href: "/surface-area-calculator", label: "surface area calculator"},
       },
     ],
   },
@@ -174,12 +174,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           "Enter each decimal or fraction directly in Simplify ratio. For 1.5:2.25, the exact fractions are 3/2:9/4. Multiplying both terms by 4 gives 6:9; dividing by their greatest common factor, 3, gives 2:3.",
           "For 1/2:3/4, multiplying both terms by the common denominator 4 gives 2:3 immediately. The calculator keeps decimal digits and integer fractions exact instead of rounding them before simplification. Fraction inputs use integer numerators and nonzero integer denominators; mixed numbers should first be written as improper fractions."
         ],
-        "link": {
-          "before": "Use the ",
-          "href": "/fraction-calculator",
-          "label": "fraction calculator",
-          "after": " to convert mixed numbers or perform fraction arithmetic."
-        }
+        "link": {sentence: "Use the {calculatorLink} to convert mixed numbers or perform fraction arithmetic.", href: "/fraction-calculator", label: "fraction calculator"}
       },
       {
         "id": "ratio-percentages",
@@ -188,12 +183,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           "It depends on the comparison. In a 3:4 ratio, the first quantity is 3 ÷ 4 = 75% of the second quantity. But the first quantity is 3 ÷ (3 + 4) ≈ 42.86% of the combined total, and the second is about 57.14%.",
           "A part-to-part ratio compares the two quantities with each other. A part-to-whole fraction compares one quantity with their sum. Label the quantities before converting a ratio to a percentage."
         ],
-        "link": {
-          "before": "For a known part and whole, use the ",
-          "href": "/percent-calculator",
-          "label": "percentage calculator",
-          "after": " to calculate the share of the total."
-        }
+        "link": {sentence: "For a known part and whole, use the {calculatorLink} to calculate the share of the total.", href: "/percent-calculator", label: "percentage calculator"}
       },
       {
         "id": "equivalent-ratios",
@@ -202,12 +192,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           "Cross-multiply: 3:4 and 9:12 are equivalent because 3 × 12 = 4 × 9 = 36. Reversing only one ratio changes the comparison; 3:4 and 12:9 are not equivalent.",
           "Use matching units when comparing the same kind of measurement. For example, 1 m:50 cm becomes 100 cm:50 cm = 2:1. A ratio of 0:0 has no defined relationship and cannot be simplified."
         ],
-        "link": {
-          "before": "To find the divisor for a whole-number ratio by itself, use the ",
-          "href": "/gcf-calculator",
-          "label": "greatest common factor calculator",
-          "after": "."
-        }
+        "link": {sentence: "To find the divisor for a whole-number ratio by itself, use the {calculatorLink}.", href: "/gcf-calculator", label: "greatest common factor calculator"}
       }
     ]
   },
@@ -259,7 +244,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'One cubic meter equals 1,000 liters. One cubic centimeter equals 1 milliliter. To convert a result in m³ to liters, multiply by 1,000; to convert cm³ to liters, divide by 1,000.',
           'Volume conversions cube the length factor: 1 ft³ = 1,728 in³ = 0.028316846592 m³. Select each dimension’s actual unit before calculating. For example, a box 2 ft × 12 in × 6 in has volume 1 ft³ when Volume unit is Cubic feet. Enter 5 ft 6 in as 5.5 Feet or 66 Inches, not 5.6 Feet.',
         ],
-        link: {before: 'To convert a known volume to liters, milliliters, or US or imperial gallons, use the ', href: '/conversion-calculator', label: 'unit conversion calculator', after: '.'},
+        link: {sentence: "To convert a known volume to liters, milliliters, or US or imperial gallons, use the {calculatorLink}.", href: "/conversion-calculator", label: "unit conversion calculator"},
       },
       {
         id: 'composite-volume',
@@ -268,7 +253,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Calculate each non-overlapping solid separately, then add their volumes in the same unit. Subtract empty regions when measuring material. A 4 m × 3 m × 2 m block with a 1 m × 1 m opening through its 2 m height contains 24 − 2 = 22 m³ of material.',
           'The Hollow cylinder mode calculates the surrounding material. To calculate the capacity of its central opening, use Cylinder mode with the inner radius instead. Arbitrary irregular objects need additional geometry or a measurement method such as fluid displacement.',
         ],
-        link: {before: 'To measure the outside covering of a solid rather than its capacity, use the ', href: '/surface-area-calculator', label: 'surface area calculator', after: '.'},
+        link: {sentence: "To measure the outside covering of a solid rather than its capacity, use the {calculatorLink}.", href: "/surface-area-calculator", label: "surface area calculator"},
       },
       {
         id: 'spherical-cap-volume',
@@ -285,7 +270,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Area uses square units; volume uses cubic units. A slab 6 m long, 4 m wide, and 0.1 m thick covers 24 m² and contains 2.4 m³. Thickness must be included when estimating material, even when it is much smaller than the other dimensions.',
           'The result models the dimensions entered. Keep unrounded values when combining pieces, then round to match measurement precision. Material allowances, compaction, and purchase quantities are separate from geometric volume.',
         ],
-        link: {before: 'For slabs and round columns with an extra-material allowance, use the ', href: '/concrete-calculator', label: 'concrete calculator', after: '.'},
+        link: {sentence: "For slabs and round columns with an extra-material allowance, use the {calculatorLink}.", href: "/concrete-calculator", label: "concrete calculator"},
       },
     ],
   },
@@ -337,7 +322,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Select the actual unit for each measurement. A rectangular prism with length 2 ft, width 12 in, and height 6 in becomes 2 ft × 1 ft × 0.5 ft. Its surface area is 2(2 + 1 + 0.5) = 7 ft² when Surface area unit is Square feet.',
           'Area conversion squares the length factor: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². Surface area always uses square units, even though the object itself is three-dimensional. Volume uses cubic units.',
         ],
-        link: {before: 'To calculate how much space a solid contains, use the ', href: '/volume-calculator', label: 'volume calculator', after: '.'},
+        link: {sentence: "To calculate how much space a solid contains, use the {calculatorLink}.", href: "/volume-calculator", label: "volume calculator"},
       },
       {
         id: 'cap-and-ellipsoid-surfaces',
@@ -355,7 +340,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'Adding the total areas of two touching solids counts their hidden contact surfaces twice. Subtract both copies of each shared face when finding the exposed area of the joined object. Two 1 m cubes joined along one face have exposed area 6 + 6 − 2 = 10 m², rather than 12 m².',
           'For painting, wrapping, or cladding, count only the surfaces you plan to cover. Coats, overlaps, openings, and material waste require separate adjustments. Keep unrounded numbers while combining areas, then round the final result to the precision of your measurements.',
         ],
-        link: {before: 'For an individual flat face, use the ', href: '/area-calculator', label: 'area calculator', after: '.'},
+        link: {sentence: "For an individual flat face, use the {calculatorLink}.", href: "/area-calculator", label: "area calculator"},
       },
     ],
   },

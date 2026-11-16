@@ -1,9 +1,9 @@
 import translatedPages from '@/data/locales/translated-pages.json';
 export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const;
 export type Locale = (typeof locales)[number];
-// Translation support is retained for review. Public availability is a separate,
-// reversible decision: add a locale only after its content has been reviewed.
-export const publishedLocales: readonly Locale[] = ['en'];
+// Keep publication explicit so a locale can be withdrawn without removing its
+// translations. Every enabled language is required to pass the translation audit.
+export const publishedLocales: readonly Locale[] = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'];
 export function isPublishedLocale(locale: Locale): boolean {
   return publishedLocales.includes(locale);
 }
@@ -33,6 +33,9 @@ export function localizedPath(path: string, locale: Locale): string {
   if (!path.startsWith('/') || path.startsWith('//')) return path;
   const clean = splitLocale(path).path;
   if (/^\/(?:api|_next)(?:\/|$)/.test(clean) || /\.[a-z0-9]+(?:[?#]|$)/i.test(clean)) return clean;
+  // Database-authored articles and administration have separate English routes.
+  // Keep links usable until those surfaces have their own locale content.
+  if (/^\/(?:blog|admin)(?:[/?#]|$)/.test(clean)) return clean;
   return locale === 'en' ? clean : `/${locale}${clean === '/' ? '' : clean}`;
 }
 export type Dictionary = Record<string, string>;
@@ -85,4 +88,10 @@ export function isTranslatedPage(path: string): boolean {
 }
 export function publishedPageLocales(path: string): readonly Locale[] {
   return isTranslatedPage(path) ? publishedLocales : ['en'];
+}
+const translatedUtilityPaths = new Set(['/search', '/workspace', '/maintenance', '/offline', '/network-error']);
+/** Language choices also exist on translated pages that stay out of search. */
+export function availablePageLocales(path: string): readonly Locale[] {
+  const sourcePath = splitLocale(path).path.split(/[?#]/)[0];
+  return isTranslatedPage(sourcePath) || translatedUtilityPaths.has(sourcePath) ? publishedLocales : ['en'];
 }

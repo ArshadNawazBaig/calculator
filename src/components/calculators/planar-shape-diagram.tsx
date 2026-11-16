@@ -1,7 +1,8 @@
+import {translator, type Dictionary} from '@/lib/i18n/config';
 import type {Values} from '@/lib/calculators/types';
 import styles from './area-shapes.module.css';
 
-type PlanarDiagramProps = {slug: string; mode: string; values?: Values; compact?: boolean};
+type PlanarDiagramProps = {slug: string; mode: string; values?: Values; compact?: boolean; messages?: Dictionary};
 
 /** Measurement hints describe the inputs, not a particular numerical solution. */
 export function planarMeasurementNote(slug: string, mode: string, values: Values = {}) {
@@ -109,7 +110,8 @@ function RightTriangleDiagram({mode, values, compact}: {mode: string; values: Va
 }
 
 /** Native vectors stay visible in server HTML and use no per-instance SVG IDs. */
-export function PlanarShapeDiagram({slug, mode, values = {}, compact = false}: PlanarDiagramProps) {
+export function PlanarShapeDiagram({slug, mode, values = {}, compact = false, messages = {}}: PlanarDiagramProps) {
+  const t = translator(messages);
   const circle = slug === 'circle-calculator';
   const triangle = slug === 'triangle-calculator';
   const known = values.known || 'radius';
@@ -130,7 +132,7 @@ export function PlanarShapeDiagram({slug, mode, values = {}, compact = false}: P
     : `Right triangle with legs a and b, hypotenuse c, and a right-angle marker at C${altitude ? '; altitude h meets the hypotenuse at a right angle' : ''}`;
   return <svg className={styles.diagram} data-compact={compact || undefined}
     viewBox={compact ? circle ? '60 15 140 140' : triangle ? '22 20 216 125' : '30 20 200 130' : '0 0 260 180'} width="260" height="180"
-    role={compact ? undefined : 'img'} aria-label={compact ? undefined : description}
+    role={compact ? undefined : 'img'} aria-label={compact ? undefined : t(description)}
     aria-hidden={compact || undefined} focusable="false">
     {circle ? <CircleDiagram known={known} compact={compact}/>
       : triangle ? <TriangleDiagram mode={mode} compact={compact}/>

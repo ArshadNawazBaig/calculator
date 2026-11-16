@@ -1,10 +1,9 @@
+import {InfoPage} from '@/components/content/info-page';
 import {FaqPage} from '@/components/content/faq-page';
 import {getFaqContent} from '@/lib/faq';
-import {InformationInsight} from '@/components/content/information-insight';
 import homeSeo from '@/data/locales/home-seo.json';
 import {ToolChooser} from '@/components/content/tool-chooser';
 import {SitemapIndex} from '@/components/content/sitemap-index';
-import {GuideIllustration} from '@/components/content/guide-illustration';
 import {isStudentCalculator, studentDirectory} from '@/lib/student-tools';
 import {StudentDirectory} from '@/components/content/student-directory';
 import {CategoryNavigation} from '@/components/content/category-navigation';
@@ -50,7 +49,7 @@ import {calculatorCardData} from '@/lib/calculator-cards';
 import {categorySlug} from '@/lib/catalog-paths';
 import {categories, site} from '@/lib/site';
 import {information} from '@/data/information';
-import {guides} from '@/data/guides';
+import {guides, guideCalculators} from '@/data/guides';
 import {pageMetadata} from '@/lib/metadata';
 import {isPublishedLocale, isTranslatedPage, localizedPath, translator, type Locale} from './config';
 
@@ -173,12 +172,12 @@ export function localizedPage(locale: Locale) {
     }
     if ('info' in route && route.info) {
       const guide = path.startsWith('/guides/');
-      return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)} breadcrumbs={[...(guide?[{label:t('Guides'),href:'/guides'}]:[]),{label:t(route.title)}]}/><div className="container document-page page-content"><article className="document-body">
-        {guide&&<p className="editorial-note"><Link href="/about">{t('Prepared by Finflo.')}</Link> <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link></p>}
-        {guide&&<GuideIllustration slug={path.split('/').at(-1)!} locale={locale} messages={messages}/>}
-        {!guide&&<InformationInsight slug={path.slice(1)} locale={locale}/>}
-        {route.info.sections.map((section,index) => <section key={index}><h2>{t(section.title)}</h2>{section.paragraphs.map((paragraph,i) => <p key={i}>{t(paragraph)}</p>)}{section.links && <ul>{section.links.map(link => <li key={link.href}><Link href={link.href}>{t(link.label)}</Link></li>)}</ul>}</section>)}
-      </article></div>{guide&&<><JsonLd data={guideData(t(route.title),t(route.description),path,locale)}/><JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t('Guides'),path:'/guides'},{name:t(route.title),path}],locale)}/></>}</>;
+      const slug = guide ? path.slice('/guides/'.length) : path.slice(1);
+      const tools = (guideCalculators[slug] || []).slice(0,3).flatMap(toolSlug => {
+        const tool = toolMap.get(toolSlug);
+        return tool ? [{label: t(`tool.${toolSlug}`), href: `/${toolSlug}`}] : [];
+      });
+      return <><InfoPage page={route.info} guide={guide} slug={slug} tools={tools} messages={messages} locale={locale}/>{guide&&<><JsonLd data={guideData(t(route.title),t(route.description),path,locale)}/><JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t('Guides'),path:'/guides'},{name:t(route.title),path}],locale)}/></>}</>;
     }
     if (path === '/guides') return <><PageHero eyebrow="FINFLO" title={t('Guides')} description={t('Practical guides to the formulas, assumptions, and limits behind your calculations.')}/><div className="container directory-page page-content"><div className="guide-grid">{Object.entries(guides).filter(([slug])=>isTranslatedPage(`/guides/${slug}`)).map(([slug,guide]) => <article className="guide-card" key={slug}><h2><Link href={`/guides/${slug}`}>{t(guide.title)}</Link></h2><p>{t(guide.description)}</p></article>)}</div><ToolChooser slugs={['mortgage-calculator','compound-interest-calculator','bmi-calculator']} locale={locale} messages={messages}/></div></>;
     return <PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}><Link className="button button-primary" href="/">{t('Go home')}</Link></PageHero>;

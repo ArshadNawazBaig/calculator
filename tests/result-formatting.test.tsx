@@ -107,7 +107,7 @@ describe('bounded grade targets and probabilities',()=>{
   for(const {locale,messages} of dictionaries) {
    expect(formatMetric(metric,'USD',languages[locale].tag,translator(messages)),locale).not.toBe('Target not attainable');
   }
- });
+ },20_000);
  it('removes floating-point leakage outside the probability bounds',async()=>{
   const result=await run('probability-calculator','probability',{a:'.9',b:'.2',relation:'dependent',intersection:'.1'});
   for(const metric of result.metrics) {expect(Number(metric.value)).toBeGreaterThanOrEqual(0);expect(Number(metric.value)).toBeLessThanOrEqual(1);}

@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import {locales, publishedLocales, publishedPageLocales, localizedPath, splitLocale, translator} from '@/lib/i18n/config';
+import {locales, publishedLocales, publishedPageLocales, availablePageLocales, localizedPath, splitLocale, translator} from '@/lib/i18n/config';
 import {getDictionary} from '@/lib/i18n/dictionaries';
 import {searchCalculators} from '@/lib/calculator-search';
 import {money, number} from '@/lib/format';
@@ -18,6 +18,9 @@ describe('multilingual navigation and content', () => {
     expect(localizedPath('/', 'ar')).toBe('/ar');
     expect(splitLocale('/fr')).toEqual({locale:'fr', path:'/'});
     expect(localizedPath('/api/health', 'de')).toBe('/api/health');
+    expect(localizedPath('/blog', 'de')).toBe('/blog');
+    expect(localizedPath('/fr/blog/example?source=menu#article', 'ar')).toBe('/blog/example?source=menu#article');
+    expect(localizedPath('/admin/sign-in', 'hi')).toBe('/admin/sign-in');
     expect(localizedPath('/og.png', 'pt')).toBe('/og.png');
     expect(localizedPath('https://example.com/', 'fr')).toBe('https://example.com/');
     expect(localizedPath('//example.com/', 'ar')).toBe('//example.com/');
@@ -59,17 +62,31 @@ describe('multilingual navigation and content', () => {
     expect(translator({})('constructor')).toBe('constructor');
     expect(translator({})('toString')).toBe('toString');
   });
-  it('retains supported translations while advertising only published languages', () => {
+  it('advertises all eight languages on translated pages', () => {
     expect(locales).toHaveLength(8);
-    expect(publishedLocales).toEqual(['en']);
-    expect(publishedPageLocales('/mortgage-calculator')).toEqual(['en']);
-    expect(publishedPageLocales('/guides/comparing-discounts-and-percentage-changes')).toEqual(['en']);
-    expect(languageAlternates('/calculators/finance')).toBeUndefined();
-    expect(languageAlternates('/mortgage-calculator')).toBeUndefined();
+    expect(publishedLocales).toEqual(locales);
+    expect(publishedPageLocales('/mortgage-calculator')).toEqual(locales);
+    for (const path of ['/calculators/finance', '/mortgage-calculator']) {
+      const alternates = languageAlternates(path);
+      expect(Object.keys(alternates!)).toEqual([...locales, 'x-default']);
+      for (const locale of locales) expect(alternates?.[locale]).toBe(`https://finflo.org${localizedPath(path, locale)}`);
+      expect(alternates?.['x-default']).toBe(`https://finflo.org${path}`);
+    }
+    expect(publishedPageLocales('/blog')).toEqual(['en']);
     expect(languageAlternates('/search')).toBeUndefined();
     const meta = pageMetadata('Hypothek','Beschreibung','/mortgage-calculator',false,'de');
     expect(meta.alternates?.canonical).toBe('/de/mortgage-calculator');
     expect(meta.robots).toEqual({index:false,follow:true});
     expect(translator({})('Interest')).toBe('Interest');
+  });
+  it('keeps every language available on translated utility pages without indexing them', () => {
+    for (const path of ['/search', '/workspace', '/maintenance', '/offline', '/network-error']) {
+      expect(availablePageLocales(path)).toEqual(locales);
+      expect(availablePageLocales(`/es${path}?q=loan#main`)).toEqual(locales);
+      expect(languageAlternates(path)).toBeUndefined();
+    }
+    for (const path of ['/admin', '/admin/sign-in', '/api/health', '/unknown-route']) {
+      expect(availablePageLocales(path)).toEqual(['en']);
+    }
   });
 });

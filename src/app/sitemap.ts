@@ -4,7 +4,7 @@ import {timePaths} from '@/lib/time/catalog';
 import {categorySlug} from '@/lib/catalog-paths';
 import type {MetadataRoute} from 'next';
 import {site,categories} from '@/lib/site';
-import {catalog,definitionMap} from '@/lib/calculators/registry';
+import {catalog,isIndexableTool} from '@/lib/calculators/registry';
 import {information} from '@/data/information';
 import {guides} from '@/data/guides';
 import {localizedPath,publishedPageLocales} from '@/lib/i18n/config';
@@ -14,7 +14,7 @@ import {getPublishedPostSitemapEntries} from '@/lib/server/blog';
 export const dynamic = 'force-dynamic';
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  if(!site.indexable)return [];
- const paths=[...timePaths,'/','/calculators',studentDirectory.path,'/guides','/sitemap','/faq','/spin-wheels',...spinWheels.map(wheel=>wheelHref(wheel.slug)),...categories.map(c=>`/calculators/${c.id}`),...[...new Set(catalog.map(t=>`/calculators/${t.category}/${categorySlug(t.subcategory)}`))],...Object.keys(information).map(s=>`/${s}`),...Object.keys(guides).map(s=>`/guides/${s}`),...catalog.filter(t=>definitionMap.has(t.slug)).map(t=>`/${t.slug}`)];
+ const paths=[...timePaths,'/','/calculators',studentDirectory.path,'/guides','/sitemap','/faq','/spin-wheels',...spinWheels.map(wheel=>wheelHref(wheel.slug)),...categories.map(c=>`/calculators/${c.id}`),...[...new Set(catalog.map(t=>`/calculators/${t.category}/${categorySlug(t.subcategory)}`))],...Object.keys(information).map(s=>`/${s}`),...Object.keys(guides).map(s=>`/guides/${s}`),...catalog.filter(t=>isIndexableTool(t.slug)).map(t=>`/${t.slug}`)];
  const legacy=paths.flatMap(path=>{
    const languages=languageAlternates(path);
    // These dates record actual English content edits, never the sitemap fetch/build time.

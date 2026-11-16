@@ -1,3 +1,4 @@
+import {translator, type Dictionary} from '@/lib/i18n/config';
 import styles from './area-shapes.module.css';
 
 const descriptions: Record<string, string> = {
@@ -39,9 +40,10 @@ function Center({x, y}: {x: number; y: number}) {
 }
 
 /** Native, server-rendered vectors shared by solid selectors and measurement guides. */
-export function SolidShapeDiagram({shape, compact = false, known = 'base-height'}: {
-  shape: string; compact?: boolean; known?: string;
+export function SolidShapeDiagram({shape, compact = false, known = 'base-height', messages = {}}: {
+  shape: string; compact?: boolean; known?: string; messages?: Dictionary;
 }) {
+  const t = translator(messages);
   const cap = shape === 'cap' || shape === 'cap-inverse';
   const capHeight = shape === 'cap' || known === 'base-height';
   const sphereRadius = shape === 'cap' || known === 'sphere-base';
@@ -53,7 +55,7 @@ export function SolidShapeDiagram({shape, compact = false, known = 'base-height'
 
   return <svg className={styles.diagram} data-compact={compact || undefined}
     viewBox={compact ? iconFrames[shape] : '0 0 260 180'} width="260" height="180"
-    role={compact ? undefined : 'img'} aria-label={compact ? undefined : description}
+    role={compact ? undefined : 'img'} aria-label={compact ? undefined : t(description)}
     aria-hidden={compact || undefined} focusable="false">
     {shape === 'sphere' && <>
       <g className={styles.outline}><circle cx="130" cy="85" r="57"/></g>

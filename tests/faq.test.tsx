@@ -52,7 +52,7 @@ describe('FAQ publishing', () => {
     expect(translatedPages.filter(path => path === '/faq')).toHaveLength(1);
     expect(isTranslatedPage('/faq')).toBe(true);
     expect(localizedStaticParams('en')).toContainEqual({path: ['faq']});
-    expect(languageAlternates('/faq')).toBeUndefined();
+    expect(Object.keys(languageAlternates('/faq')!)).toEqual([...locales, 'x-default']);
     for (const locale of locales) {
       if (!isPublishedLocale(locale)) expect(localizedStaticParams(locale)).toEqual([]);
       const metadata = locale === 'en' ? await generateMetadata() : await localizedMetadata(locale)({params: Promise.resolve({path: ['faq']})});

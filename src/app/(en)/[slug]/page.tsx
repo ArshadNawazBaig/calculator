@@ -18,7 +18,7 @@ import {calculatorCardData} from '@/lib/calculator-cards';
 import {CalculatorQuestions} from '@/components/content/calculator-questions';
 import Link from '@/components/document-link';
 import {notFound} from 'next/navigation';
-import {catalog,definitionMap,toolMap,blocked,relatedTools,noInitialExampleTools,sensitiveTools} from '@/lib/calculators/registry';
+import {catalog,definitionMap,toolMap,blocked,isIndexableTool,relatedTools,noInitialExampleTools,sensitiveTools} from '@/lib/calculators/registry';
 import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
 import {site,categories} from '@/lib/site';
@@ -32,7 +32,7 @@ import {CalculatorForm} from '@/components/calculators/calculator';
 import {WorkedExample} from '@/components/content/worked-example';
 export const dynamicParams=false;
 export function generateStaticParams(){return [...catalog.map(t=>({slug:t.slug})),...Object.keys(information).map(slug=>({slug}))];}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const info=information[slug],tool=toolMap.get(slug),definition=definitionMap.get(slug);if(info)return pageMetadata(({about:'About Finflo',methodology:'Our methodology'} as Record<string,string>)[slug]||info.title,info.description,`/${slug}`);if(tool)return pageMetadata(getCalculatorSeoTitle(slug)||tool.title,definition?.description||blocked[slug]||'Explore calculators for property and home ownership.',`/${slug}`,Boolean(definition));return {};}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const info=information[slug],tool=toolMap.get(slug),definition=definitionMap.get(slug);if(info)return pageMetadata(({about:'About Finflo',methodology:'Our methodology'} as Record<string,string>)[slug]||info.title,info.description,`/${slug}`);if(tool)return pageMetadata(getCalculatorSeoTitle(slug)||tool.title,definition?.description||blocked[slug]||'Explore calculators for property and home ownership.',`/${slug}`,isIndexableTool(slug));return {};}
 export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;if(information[slug])return <InfoPage page={information[slug]} slug={slug}/>;const tool=toolMap.get(slug);if(!tool)notFound();const category=categories.find(c=>c.id===tool.category)!;const def=definitionMap.get(slug);const currency=slug==='mortgage-calculator-uk'?'GBP':slug==='canadian-mortgage-calculator'?'CAD':'USD';
  if(!def)return <><PageHero eyebrow={category.name} title={tool.title} description={blocked[slug]||'Explore calculations for buying, financing, and owning property.'} breadcrumbs={[{label:category.name,href:`/calculators/${tool.category}`},{label:tool.title}]}/><div className="container tool-page page-content">{blocked[slug]?<div className="availability-panel"><h2>Not available yet</h2><p>{blocked[slug]}</p><Link className="text-link" href="/calorie-calculator">Explore a related tool</Link></div>:<ToolDirectory tools={catalog.filter(t=>['mortgage-calculator','rent-vs-buy-calculator','rental-property-calculator','refinance-calculator','house-affordability-calculator','down-payment-calculator'].includes(t.slug))} grouped={false}/>}{slug==='real-estate-calculator'&&<DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate"/>}</div></>;
  const illustratedReference=['area-calculator','volume-calculator','surface-area-calculator'].includes(slug);

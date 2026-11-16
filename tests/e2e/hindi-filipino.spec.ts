@@ -18,8 +18,17 @@ for (const language of [
     await expect(page.locator('.primary-metric dd')).toContainText('50');
     expect(await page.locator('#understanding-1').innerText()).not.toContain('Choosing the correct percentage question');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    const family = await page.locator('#understanding-1').evaluate(element => getComputedStyle(element).fontFamily);
-    if (language.locale === 'hi') expect(family).toMatch(/Noto[_ ]Sans[_ ]Devanagari/i);
+    if (language.locale === 'hi') {
+      const font = await page.locator('#understanding-1').evaluate(async element => {
+        const style = getComputedStyle(element);
+        const configured = style.getPropertyValue('--font-hindi').trim().split(',')[0].replaceAll('"', '').trim();
+        const faces = configured ? await document.fonts.load(`16px "${configured}"`, 'हिन्दी') : [];
+        return {configured, applied: style.fontFamily.split(',')[0].replaceAll('"', '').trim(), loaded: faces.some(face => face.status === 'loaded')};
+      });
+      expect(font.configured).not.toBe('');
+      expect(font.applied).toBe(font.configured);
+      expect(font.loaded).toBe(true);
+    }
     await page.goto(`/${language.locale}/loan-calculator`);
     await expect(page.locator('.calculator-form')).toContainText(language.currency);
     await page.goto(`/${language.locale}/calculators/finance`);
@@ -36,7 +45,7 @@ test('published languages fit the menu and retain query parameters and fragment'
   await page.getByRole('button', {name:'Language: English'}).click();
   const dialog = page.getByRole('dialog', {name:'Website language'});
   await expect(dialog.getByRole('link')).toHaveCount(publishedLocales.length);
-  await expect(dialog.getByRole('link', {name:'English', exact:true})).toHaveAttribute('href', '/search');
+  await expect(dialog.getByRole('link', {name:'English', exact:true})).toHaveAttribute('href', '/search?q=loan&category=finance#main');
   if(isPublishedLocale('tl')){
     await dialog.getByRole('link', {name:'Filipino', exact:true}).click();
     await expect(page).toHaveURL(/\/tl\/search\?q=loan&category=finance#main$/);

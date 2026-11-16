@@ -1,4 +1,4 @@
-import {isPublishedLocale,publishedLocales,languages,splitLocale} from '../../src/lib/i18n/config';
+import {isPublishedLocale,publishedLocales,languages,splitLocale,localizedPath} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -22,8 +22,10 @@ test('language menu lists published languages and keeps the current calculator',
   const dialog=page.getByRole('dialog',{name:'Website language'});
   await expect(dialog.getByRole('link')).toHaveCount(publishedLocales.length);
   await expect(dialog.getByRole('link',{name:'English',exact:true})).toHaveAttribute('href','/mortgage-calculator');
-  for(const [locale,{name}] of Object.entries(languages)){
-    if(!publishedLocales.some(published=>published===locale))await expect(dialog.getByRole('link',{name,exact:true})).toHaveCount(0);
+  for(const locale of publishedLocales){
+    const option=dialog.getByRole('link',{name:languages[locale].name,exact:true});
+    await expect(option).toBeVisible();
+    await expect(option).toHaveAttribute('href',localizedPath('/mortgage-calculator',locale));
   }
   if(!isPublishedLocale('es'))return;
   await page.getByRole('link',{name:'Español',exact:true}).click();
@@ -35,6 +37,19 @@ test('language menu lists published languages and keeps the current calculator',
   await page.getByRole('link',{name:'English',exact:true}).click();
   await expect(page).toHaveURL(/\/mortgage-calculator$/);
   await expect(page.locator('html')).toHaveAttribute('lang','en');
+});
+
+test('search and workspace keep all language choices on mobile',async({page})=>{
+  await page.setViewportSize({width:390,height:844});
+  for(const path of ['/search?q=loan', '/workspace']){
+    await page.goto(path);
+    await page.getByRole('button',{name:'Language: English'}).click();
+    const dialog=page.getByRole('dialog',{name:'Website language'});
+    await expect(dialog.getByRole('link')).toHaveCount(publishedLocales.length);
+    for(const locale of publishedLocales)await expect(dialog.getByRole('link',{name:languages[locale].name,exact:true})).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    await page.keyboard.press('Escape');
+  }
 });
 
 test('Spanish suggestions and category filters search translated names',async({page})=>{
@@ -104,6 +119,7 @@ test('French date picker uses Gregorian dates and the language switch preserves 
   if(!isPublishedLocale('es'))return;
   await page.goto('/es/search?q=hipoteca&category=finance#main');
   await page.getByRole('button',{name:'Idioma: Español'}).click();
+  await expect(page.getByRole('link',{name:'Français',exact:true})).toHaveAttribute('href','/fr/search?q=hipoteca&category=finance#main');
   await page.getByRole('link',{name:'Français',exact:true}).click();
   await expect(page).toHaveURL(/\/fr\/search\?q=hipoteca&category=finance#main$/);
 });

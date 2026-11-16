@@ -49,6 +49,7 @@ test('serialized clock strings hydrate even if browser date formatting differs',
   await page.goto('/time');
   await expect(page.locator('[data-live-clock]')).toContainText('browser:');
   await expect(page.locator('#clock-zone')).toContainText('Asia/Tokyo');
+  await expect(page.locator('[data-meeting-result]')).not.toContainText('browser:');
   expect(errors).toEqual([]);
 });
 

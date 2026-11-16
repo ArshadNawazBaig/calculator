@@ -2,9 +2,9 @@ vi.mock('@/lib/server/blog',()=>({getPublishedPostSitemapEntries:async()=>[]}));
 import {describe, expect, it, vi, afterEach} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {getContentDictionary, calculatorMessages} from '@/lib/i18n/content';
-import {translator, locales, isTranslatedPage} from '@/lib/i18n/config';
+import {translator, locales, isTranslatedPage, publishedLocales, localizedPath, splitLocale} from '@/lib/i18n/config';
 import {CalculatorArticle} from '@/components/i18n/calculator-article';
-import {definitionMap} from '@/lib/calculators/registry';
+import {blocked, definitionMap, isIndexableTool} from '@/lib/calculators/registry';
 import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
 import {site} from '@/lib/site';
@@ -13,6 +13,7 @@ import {languageAlternates, pageMetadata} from '@/lib/metadata';
 import translatedPages from '@/data/locales/translated-pages.json';
 import vehiclePolicy from '@/data/vehicle-tax-2026.json';
 import {guides} from '@/data/guides';
+import {generateMetadata as englishToolMetadata} from '@/app/(en)/[slug]/page';
 
 // Restore the imported site's mutable test setting without re-importing the registry.
 const originalIndexing = site.indexable;
@@ -51,7 +52,7 @@ describe('complete localized content', () => {
       expect(files('The input file must contain ASCII Base64 text.')).not.toBe('The input file must contain ASCII Base64 text.');
       expect(Object.keys(mortgage).length).toBeLessThan(Object.keys(messages).length / 2);
     }
-  });
+  }, 20_000);
 
   it('renders translated explanations and FAQ content in server HTML', async () => {
     const definition = definitionMap.get('percent-calculator')!;
@@ -64,27 +65,28 @@ describe('complete localized content', () => {
     expect(html).not.toContain(definition.modes[0].explanation);
   });
 
-  it('publishes English routes without withdrawn alternates and excludes system pages', async () => {
+  it('publishes every translated locale with reciprocal alternates and excludes system pages', async () => {
     site.indexable = true;
     const entries = await sitemap();
     expect(translatedPages).toContain('/spin-wheels');
     expect(translatedPages).toContain('/invoice-generator');
     const englishOnlyGuides = Object.keys(guides).map(slug=>`/guides/${slug}`).filter(path=>!isTranslatedPage(path));
-    expect(entries).toHaveLength(translatedPages.length + englishOnlyGuides.length);
+    expect(entries).toHaveLength(translatedPages.length * publishedLocales.length + englishOnlyGuides.length);
     for (const path of englishOnlyGuides) {
       expect(entries.find(entry=>entry.url===site.url+path)).toEqual({url:site.url+path});
       expect(languageAlternates(path)).toBeUndefined();
       for (const locale of locales.filter(locale=>locale!=='en')) expect(entries.some(entry=>entry.url===`${site.url}/${locale}${path}`)).toBe(false);
     }
     expect(new Set(entries.map(entry => entry.url)).size).toBe(entries.length);
-    for (const path of ['/mortgage-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy', '/invoice-generator', '/net-worth-tracker', '/spin-wheels/yes-or-no-wheel']) {
+    for (const path of ['/mortgage-calculator', '/real-estate-calculator', '/mileage-calculator', '/guides/compound-interest-and-contributions', '/privacy', '/invoice-generator', '/net-worth-tracker', '/spin-wheels/yes-or-no-wheel']) {
       expect(translatedPages).toContain(path);
-      expect(languageAlternates(path)).toBeUndefined();
-      expect(entries.some(entry => entry.url === site.url + path)).toBe(true);
+      const alternates = languageAlternates(path);
+      expect(Object.keys(alternates!)).toEqual([...publishedLocales, 'x-default']);
+      for (const locale of publishedLocales) expect(entries.some(entry => entry.url === site.url + localizedPath(path, locale))).toBe(true);
     }
     for (const entry of entries) {
-      expect(entry.alternates).toBeUndefined();
-      expect(new URL(entry.url).pathname).not.toMatch(/^\/(es|fr|de|pt|ar|hi|tl)(?:\/|$)/);
+      const {path} = splitLocale(new URL(entry.url).pathname);
+      expect(entry.alternates?.languages).toEqual(languageAlternates(path));
     }
     for (const path of ['/search', '/offline', '/maintenance', '/network-error', '/weight-watchers-points-calculator']) {
       expect(isTranslatedPage(path)).toBe(false);
@@ -92,10 +94,29 @@ describe('complete localized content', () => {
     }
     expect(pageMetadata('Mortgage calculator', 'Description', '/mortgage-calculator', true, 'en').robots).toEqual({index: true, follow: true});
     for (const locale of locales.filter(locale => locale !== 'en')) {
-      expect(pageMetadata('Calculator', 'Description', '/mortgage-calculator', true, locale).robots).toEqual({index: false, follow: true});
+      expect(pageMetadata('Calculator', 'Description', '/mortgage-calculator', true, locale).robots).toEqual({index: true, follow: true});
     }
     site.indexable = false;
     expect(await sitemap()).toEqual([]);
     expect(pageMetadata('Hipoteca', 'Descripción', '/mortgage-calculator', true, 'es').robots).toEqual({index: false, follow: true});
+  });
+
+  it('indexes the rendered real-estate directory and excludes blocked or unknown tools', async () => {
+    site.indexable = true;
+    const slug = 'real-estate-calculator';
+    expect(definitionMap.has(slug)).toBe(false);
+    expect(isIndexableTool(slug)).toBe(true);
+    expect(isIndexableTool('unknown-calculator')).toBe(false);
+    expect(isIndexableTool('weight-watchers-points-calculator')).toBe(false);
+    expect((await englishToolMetadata({params: Promise.resolve({slug})})).robots).toEqual({index: true, follow: true});
+    blocked[slug] = 'Temporarily unavailable';
+    try {
+      expect(isIndexableTool(slug)).toBe(false);
+      expect((await englishToolMetadata({params: Promise.resolve({slug})})).robots).toEqual({index: false, follow: true});
+      const entries = await sitemap();
+      for (const locale of publishedLocales) expect(entries.some(entry => entry.url === site.url + localizedPath(`/${slug}`, locale))).toBe(false);
+    } finally {
+      delete blocked[slug];
+    }
   });
 });

@@ -1,35 +1,37 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import {translationSource} from './i18n-source.mjs';
+import {translationIssues} from './i18n-validation.mjs';
 
 const source = await translationSource();
-const placeholders = text => (text.match(/\{\w+\}/g) || []).sort().join('|');
-const numbers = text => (text.normalize('NFKC').replace(/[٠-٩۰-۹०-९]/g, digit => String(digit.charCodeAt(0) - (digit <= '٩' ? 0x660 : digit <= '۹' ? 0x6f0 : 0x966))).match(/\d+(?:[.,]\d+)*/g) || []).map(number => number.replace(/[.,]/g, '').replace(/^0+/, '') || '0').sort().join('|');
-const notation = text => (text.match(/[=×÷^+*Σ∑√≤≥±≠⁻²³≈−<>|\[\]]/g) || []).sort().join('');
 let failed = false;
 const requireDrafts = process.argv.includes('--all-locales');
 console.log(`Published languages: ${source.publishedLocales.join(', ')}. ${requireDrafts ? 'All supported dictionaries are required.' : 'Unpublished dictionaries are draft diagnostics; use --all-locales for strict draft checks.'}`);
 for (const locale of ['es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl']) {
   const ui = JSON.parse(await readFile(`src/data/locales/${locale}.json`, 'utf8'));
   const content = JSON.parse(await readFile(`src/data/locales/content/${locale}.json`, 'utf8'));
-  const dictionary = {...content, ...ui};
-  const missing = source.keys.filter(key => !Object.hasOwn(dictionary, key) || !dictionary[key].trim());
-  const malformed = source.keys.filter(key => dictionary[key] && placeholders(key) !== placeholders(dictionary[key]));
-  const changedNumbers = source.keys.filter(key => dictionary[key] && numbers(key) !== numbers(dictionary[key]));
-  const damagedFormulas = source.formulas.filter(key => dictionary[key] && notation(key) !== notation(dictionary[key]));
-  const unreadable = source.keys.filter(key => dictionary[key] && /<unk>|⁇/.test(dictionary[key]));
+  const issues = translationIssues(source, ui, content, locale);
+  const {missing, missingShared, malformed, changedNumbers, damagedFormulas, unreadable, unexpectedScripts, changedIdentifiers} = issues;
   const required = requireDrafts || source.publishedLocales.includes(locale);
-  console.log(`${locale}${required ? '' : ' (unpublished draft)'}: ${source.keys.length - missing.length}/${source.keys.length} messages, ${malformed.length} placeholder errors, ${changedNumbers.length} numeric changes, ${damagedFormulas.length} formula changes, ${unreadable.length} unreadable messages`);
-  if (missing.length || malformed.length || changedNumbers.length || damagedFormulas.length || unreadable.length) {
+  console.log(`${locale}${required ? '' : ' (unpublished draft)'}: ${source.keys.length - missing.length}/${source.keys.length} messages, ${missingShared.length} missing shared messages, ${malformed.length} placeholder errors, ${changedNumbers.length} numeric changes, ${damagedFormulas.length} formula changes, ${unreadable.length} unreadable messages, ${unexpectedScripts.length} unexpected-script messages, ${changedIdentifiers.length} changed technical identifiers`);
+  if (Object.values(issues).some(entries => entries.length)) {
     if (required) failed = true;
-    console.error(JSON.stringify({locale, required, missing, malformed, changedNumbers, damagedFormulas, unreadable}, null, 2));
+    const detail = process.argv.includes('--verbose') ? issues : Object.fromEntries(Object.entries(issues).map(([kind, entries]) => [kind, entries.slice(0, 5)]));
+    console.error(JSON.stringify({locale, required, ...detail, ...(!process.argv.includes('--verbose') ? {note: 'At most five examples per issue. Use --verbose for every affected message.'} : {})}, null, 2));
+  }
+}
+const manifests = [['page-keys', source.pages], ['runtime-keys', source.runtime], ['translated-pages', source.paths], ['wheel-runtime-keys', source.wheelRuntime], ['home-runtime-keys', source.homeRuntime], ['time-runtime-keys', source.timeRuntime]];
+if (!failed && process.argv.includes('--write-manifests')) {
+  for (const [file, data] of manifests) {
+    await writeFile(`src/data/locales/${file}.json`, JSON.stringify(data, null, 2) + '\n');
+  }
+  console.log(`Updated message bundles and ${source.paths.length} translated routes for ${source.publishedLocales.join(', ')}.`);
+} else if (!process.argv.includes('--write-manifests')) {
+  for (const [file, data] of manifests) {
+    const stored = JSON.parse(await readFile(`src/data/locales/${file}.json`, 'utf8'));
+    if (JSON.stringify(stored) !== JSON.stringify(data)) {
+      failed = true;
+      console.error(`${file}.json is stale. Complete translations, then run npm run i18n:check -- --write-manifests.`);
+    }
   }
 }
 if (failed) process.exitCode = 1;
-else if (process.argv.includes('--write-manifests')) {
-  // These are translation-development manifests. Public availability is controlled
-  // separately by publishedLocales after editorial review. Active locales must pass.
-  for (const [file, data] of [['page-keys', source.pages], ['runtime-keys', source.runtime], ['translated-pages', source.paths], ['wheel-runtime-keys', source.wheelRuntime], ['home-runtime-keys', source.homeRuntime], ['time-runtime-keys', source.timeRuntime]]) {
-    await writeFile(`src/data/locales/${file}.json`, JSON.stringify(data, null, 2) + '\n');
-  }
-  console.log(`${source.paths.length} translation-development routes; published languages: ${source.publishedLocales.join(', ')}. This manifest does not publish a language.`);
-}

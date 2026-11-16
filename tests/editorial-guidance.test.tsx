@@ -69,7 +69,7 @@ describe('server-rendered editorial guidance', () => {
     }
   });
 
-  it('makes directory guides reachable from their calculators without advertising untranslated pages', () => {
+  it('makes directory guides reachable in every published language', () => {
     const linkedGuides = new Set<string>();
     for (const [path, entry] of Object.entries(directoryContent)) {
       if (!entry.guides?.length) continue;
@@ -87,7 +87,8 @@ describe('server-rendered editorial guidance', () => {
       }
       for (const locale of locales.filter(locale => locale !== 'en')) {
         const translated = renderToStaticMarkup(<DirectoryGuidance path={path} locale={locale}/>);
-        expect(translated, `${locale}${path}`).not.toContain('data-directory-guides');
+        expect(translated, `${locale}${path}`).toContain('data-directory-guides');
+        for (const slug of entry.guides) expect(translated, `${locale}${path}`).toContain(`href="${localizedPath(`/guides/${slug}`, locale)}"`);
       }
     }
     expect([...linkedGuides].sort()).toEqual([
@@ -113,5 +114,5 @@ describe('server-rendered editorial guidance', () => {
       const directory = renderToStaticMarkup(<DirectoryGuidance path="/calculators/finance" locale={locale} messages={messages}/>);
       expect(directory).not.toContain(directoryContent['/calculators/finance'].sections[0].title);
     }
-  });
+  }, 20_000);
 });

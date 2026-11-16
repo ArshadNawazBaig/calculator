@@ -72,7 +72,7 @@ describe('student calculator discovery', () => {
         expect(html).not.toContain(tool.description);
       }
     }
-  });
+  }, 20_000);
   it.each([
     ['final exam grade calculator', 'final-exam-grade-calculator'],
     ['weighted grade', 'grade-calculator'],

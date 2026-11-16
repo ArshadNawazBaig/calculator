@@ -102,6 +102,9 @@ definitions.find(d=>d.slug==='square-footage-calculator')!.modes.find(m=>m.algor
 export const definitionMap=new Map(definitions.map(d=>[d.slug,d]));
 export const toolMap=new Map(catalog.map(d=>[d.slug,d]));
 export const blocked:Record<string,string>={};
+export function isIndexableTool(slug:string):boolean {
+ return !blocked[slug]&&(definitionMap.has(slug)||(slug==='real-estate-calculator'&&toolMap.get(slug)?.type==='directory'));
+}
 export const sensitiveTools=new Set(['password-generator','base64-encode-decode','url-encode-decode']);
 export const randomTools=new Set(['password-generator','dice-roller','random-number-generator']);
 export const noInitialExampleTools=new Set([...randomTools,'mileage-calculator']);

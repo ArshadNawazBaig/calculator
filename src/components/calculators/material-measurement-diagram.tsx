@@ -1,3 +1,4 @@
+import {translator, type Dictionary} from '@/lib/i18n/config';
 import type {ReactNode} from 'react';
 import type {Mode, Values} from '@/lib/calculators/types';
 import styles from './area-shapes.module.css';
@@ -124,12 +125,13 @@ function Diagram({measurement}: {measurement: Measurement}) {
 }
 
 /** A selected-shape guide; unsupported geometries use the shared textual help. */
-export function MaterialMeasurementDiagram(props: Props & {fallback?: ReactNode}) {
+export function MaterialMeasurementDiagram(props: Props & {fallback?: ReactNode; messages?: Dictionary}) {
+  const t = translator(props.messages || {});
   const measurement = materialMeasurement(props);
   if (!measurement) return props.fallback ?? null;
   return <figure className={styles.measurement} data-input-guide>
-    <Diagram measurement={measurement}/>
-    <figcaption><strong>{measurement.formula}</strong><small>Diagram is not to scale.</small></figcaption>
-    <details><summary>Which measurements do I need?</summary><p>{measurement.hint}</p></details>
+    <Diagram measurement={{...measurement, description:t(measurement.description)}}/>
+    <figcaption><strong>{t(measurement.formula)}</strong><small>{t('Diagram is not to scale.')}</small></figcaption>
+    <details><summary>{t('Which measurements do I need?')}</summary><p>{t(measurement.hint)}</p></details>
   </figure>;
 }
