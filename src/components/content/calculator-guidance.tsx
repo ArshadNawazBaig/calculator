@@ -3,6 +3,8 @@ import {localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18
 import styles from './explanation.module.css';
 
 export type GuidanceSection = {
+  id?: string;
+  aliasIds?: string[];
   title: string;
   paragraphs: string[];
   table?: {caption: string; headers: string[]; rows: string[][]; literalColumns?: number[]};
@@ -17,9 +19,10 @@ export function CalculatorGuidance({slug, messages = {}, contents = false, local
   return <>
     {contents && entry.sections.length >= 3 && <nav className={styles.guideContents} aria-label={t('On this page')} data-calculator-guide-nav>
       <h2>{t('On this page')}</h2>
-      <ul>{entry.sections.map((section, index) => <li key={section.title}><a href={`#understanding-${index + 1}`}>{t(section.title)}</a></li>)}</ul>
+      <ul>{entry.sections.map((section, index) => <li key={section.title}><a href={`#${section.id || `understanding-${index + 1}`}`}>{t(section.title)}</a></li>)}</ul>
     </nav>}
-    {entry.sections.map((section, index) => <section key={section.title} id={`understanding-${index + 1}`}>
+    {entry.sections.map((section, index) => <section key={section.title} id={section.id || `understanding-${index + 1}`}>
+    {section.aliasIds?.map(id => <span key={id} id={id} aria-hidden="true"/>)}
     <h2>{t(section.title)}</h2>
     {section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}
     {section.table && <div className={styles.scroll} role="region" aria-label={t(section.table.caption)} tabIndex={0}>

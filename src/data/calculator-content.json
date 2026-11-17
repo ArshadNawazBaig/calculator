@@ -12815,87 +12815,20 @@
         "answer": "At 40 paid hours per week for 52 weeks, $25 an hour is $52,000 a year before taxes and deductions. Unpaid time and a different work schedule change that amount."
       },
       {
-        "question": "Is the monthly result my take-home pay?",
-        "answer": "No. It is a gross equivalent before tax and deductions."
-      },
-      {
-        "question": "Why are biweekly and semimonthly amounts different?",
-        "answer": "The conversion uses 26 biweekly periods versus 24 semimonthly periods per year."
-      },
-      {
-        "question": "Should paid vacation be entered as unpaid leave?",
-        "answer": "No. Only enter days that reduce the earnings in the scenario you want to model."
-      },
-      {
         "question": "Does an hourly conversion include overtime premiums?",
         "answer": "No. The basic conversion multiplies the entered rate by the schedule. Overtime or other premiums require a separate earnings assumption."
       }
     ],
     "sections": [
       {
+        "id": "understanding-1",
         "title": "Convert gross pay using the working schedule",
         "paragraphs": [
           "Select the period for the entered pay amount and provide working hours and days per week. The calculator annualizes the amount using its displayed convention, then converts that annual figure into other periods. These are gross equivalents before taxes, benefits and other payroll deductions."
         ]
       },
       {
-        "title": "Worked example: 25 per hour at 40 hours per week",
-        "paragraphs": [
-          "At 25 per hour for 40 hours across 52 weeks, annual gross pay is 52,000. That corresponds to 4,333.33 per month, 2,000 per biweekly period or 2,166.67 per semimonthly period. With five workdays per week, ten unpaid days reduce the separate annual scenario to 50,000."
-        ],
-        "table": {
-          "caption": "Gross equivalents under the example schedule",
-          "headers": [
-            "Period or scenario",
-            "Amount"
-          ],
-          "rows": [
-            [
-              "Annual",
-              "52,000.00"
-            ],
-            [
-              "Monthly",
-              "4,333.33"
-            ],
-            [
-              "Biweekly: 26 periods",
-              "2,000.00"
-            ],
-            [
-              "Semimonthly: 24 periods",
-              "2,166.67"
-            ],
-            [
-              "Annual after ten unpaid days",
-              "50,000.00"
-            ]
-          ]
-        }
-      },
-      {
-        "title": "Biweekly and semimonthly are different frequencies",
-        "paragraphs": [
-          "Biweekly means every two weeks; the standard conversion uses 26 periods in a year. Semimonthly means twice per month, or 24 periods. A monthly average is not the same as the exact cash received in each calendar month, and a particular payroll year can have a different count of pay dates."
-        ]
-      },
-      {
-        "title": "Treat unpaid days separately from paid leave",
-        "paragraphs": [
-          "The adjusted scenario subtracts the specified unpaid days from the annual work schedule. Paid holidays or vacation do not automatically reduce an agreed annual salary. Overtime premiums, bonuses, variable hours and local payroll rules need to be added to the compensation assumption rather than inferred by this conversion."
-        ],
-        "links": [
-          {
-            "label": "Estimate tax and payroll deductions",
-            "href": "/take-home-pay-calculator"
-          },
-          {
-            "label": "Convert a freelance income goal into a billing rate",
-            "href": "/freelance-rate-calculator"
-          }
-        ]
-      },
-      {
+        "id": "understanding-5",
         "title": "How do I convert hourly pay to yearly salary?",
         "paragraphs": [
           "Multiply your hourly rate by paid hours per week and 52 weeks. For example, $25 per hour × 40 hours × 52 weeks = $52,000 per year before taxes and deductions. To convert annual salary back to hourly pay, divide it by the same scheduled hours: $52,000 ÷ 2,080 = $25 per hour. Change the hours and days to match your own schedule."
@@ -12908,6 +12841,11 @@
         ]
       },
       {
+        "id": "understanding-6",
+        "aliasIds": [
+          "understanding-2",
+          "understanding-3"
+        ],
         "title": "Compare salary across pay periods",
         "paragraphs": [
           "The same annual salary produces different paycheck amounts depending on the number of pay periods. Biweekly means every two weeks, usually 26 payments per year in this conversion; semimonthly means twice per month, or 24 payments. The table below uses a $52,000 gross salary, 40 hours per week and five working days. Amounts are rounded to cents."
@@ -12970,6 +12908,10 @@
         ]
       },
       {
+        "id": "understanding-7",
+        "aliasIds": [
+          "understanding-4"
+        ],
         "title": "Gross pay, take-home pay and unpaid leave",
         "paragraphs": [
           "The salary conversion is gross pay, before tax withholding, benefits and other payroll deductions. Overtime, bonuses and variable shifts are not automatically included. A real payroll calendar can have a different number of pay dates from the fixed annualization used here.",
@@ -12979,6 +12921,10 @@
           {
             "label": "Estimate US take-home pay",
             "href": "/take-home-pay-calculator"
+          },
+          {
+            "label": "Convert a freelance income goal into a billing rate",
+            "href": "/freelance-rate-calculator"
           }
         ]
       }

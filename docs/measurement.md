@@ -1,6 +1,6 @@
 # Search and visitor measurement
 
-Updated October 22, 2026: public crawl checks and local analysis of supplied Search Console CSV exports are available. There is no connected Search Console/Bing account or configured visitor-analytics token. Missing measurements are unknown, not zero. See the [search growth release](seo-growth-2026-10-22.md) for the current implementation and verification status.
+Updated November 17, 2026: public crawl checks and local analysis of supplied Search Console CSV exports are available. The latest available performance export covers October 17–November 13, before the November 15–17 content and language updates. Search Console/Bing account actions remain unavailable, and the sampled live pages do not load visitor analytics. Missing measurements are unknown, not zero. The [October search growth release](seo-growth-2026-10-22.md) records historical work; use the deployed revision and dated checks to establish current behavior.
 
 Run `npm run audit:search -- /path/to/export-folder` to analyze the seven standard CSV exports. The generated `test-results/search-console.json` stays outside version control. It preserves property/page/query aggregation differences, reports complete seven-day trends and flags possible export truncation. Compare exports with matching search type, dates and filters; the independent CSV tables do not provide joined page/query/device data.
 
@@ -15,6 +15,22 @@ Run `npm run audit:search -- /path/to/export-folder` to analyze the seven standa
 The 203-page keyword inventory and 46 researched query candidates are in [the search map](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/research/search/english-page-map.csv) and [query assignments](https://github.com/ArshadNawazBaig/calculator/blob/f7b79ba0d13dbbc6166c2d9703311faa950a0f85/docs/research/search/english-query-map.csv). The three Australian queries have no approved regional landing page. Prioritize actual demand before developing one.
 
 The supplied performance export establishes its own dated observations; it does not prove current sitemap submission, current indexing coverage, account ownership or the effect of an undeployed change. Live account access is still needed for URL Inspection and submission actions. [Google setup guidance](https://developers.google.com/search/docs/monitor-debug/search-console-start).
+
+## Current organic-search priorities
+
+Use the existing canonical pages for area, ratio, volume, salary and time duration as the first measured group. They have observed search exposure in the supplied export. Start with the questions those tools actually answer; do not infer a page/query relationship from separate CSV tables or assume that low CTR proves a title defect.
+
+The area, ratio and volume pages received substantive improvements on November 15–17. Keep their current titles stable while gathering data after Google recrawls them. The next discovery changes give salary and time duration persistent, translated homepage links, and consolidate repeated salary guidance. Confirm the exact deployed revision before attributing any traffic change to this work.
+
+For each deployment:
+
+1. Record the revision, deployment date and verified canonical URLs in an ignored `docs/validation/` report. Check the initial HTML for correct titles, descriptions, indexability, working tool links and reciprocal language alternatives.
+2. Inspect the changed URLs in Search Console and request indexing where needed. Record Google's last-crawl date; publication alone does not establish that Google has processed the changes.
+3. Review complete seven-day windows for crawl or usability regressions, then compare matching 28-day periods for the same pages, devices, countries and search type. Read clicks, impressions, CTR and position together. Record when a comparison still overlaps the old version.
+4. Export page-filtered queries for the priority pages before choosing the next content task. Improve a missing explanation, measurement example or tool workflow when the query and page reveal a real gap. Keep existing useful URLs and fragment links working.
+5. Use a working calculator and its relevant guide as the material for an original demonstration or resource submission. Share only where it is relevant and permitted; outreach or social posts require the owner's instruction. Do not buy ranking links or manufacture visits, reviews or engagement.
+
+Organic search and referral traffic are separate measurements. Search Console measures Google search activity; visitor analytics is needed for total pageviews and referral sources. No rank, viral distribution or traffic deadline is promised by these changes.
 
 ## Optional visitor statistics
 

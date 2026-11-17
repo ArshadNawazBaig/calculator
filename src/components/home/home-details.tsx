@@ -60,7 +60,7 @@ export function FinanceToolkit({messages = {}}: HomeDetailsProps) {
             <Link className={home.sectionLink} href="/compound-interest-calculator">{toolTitle('compound-interest-calculator', messages)}<ArrowRight size={17} aria-hidden="true"/></Link>
           </div>
         </div>
-        <div className={styles.toolList}>{['loan-calculator', 'savings-calculator', 'retirement-calculator'].map(slug => <ToolLink key={slug} slug={slug} messages={messages} detailed/>)}</div>
+        <div className={styles.toolList}>{['salary-calculator', 'loan-calculator', 'savings-calculator', 'retirement-calculator'].map(slug => <ToolLink key={slug} slug={slug} messages={messages} detailed/>)}</div>
       </div>
     </div>
   </section>;
@@ -79,7 +79,7 @@ export function HealthToolkit({messages = {}}: HomeDetailsProps) {
 
 const everydayGroups = [
   {title: 'Percentages & fractions', description: 'Check a change, simplify a fraction, or work through a proportion.', slugs: ['percent-calculator', 'fraction-calculator', 'ratio-calculator']},
-  {title: 'Dates & time', description: 'Count days, shift a date, or add up hours and minutes.', slugs: ['date-calculator', 'time-calculator']},
+  {title: 'Dates & time', description: 'Count days, shift a date, or add up hours and minutes.', slugs: ['date-calculator', 'time-calculator', 'time-duration-calculator']},
   {title: 'Units & measurements', description: 'Convert between units and work out the area of a space.', slugs: ['conversion-calculator', 'area-calculator', 'volume-calculator']},
   {title: 'Bills & projects', description: 'Split a restaurant bill or estimate materials for your next project.', slugs: ['tip-calculator', 'concrete-calculator']},
 ];

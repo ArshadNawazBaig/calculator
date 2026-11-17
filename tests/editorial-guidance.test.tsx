@@ -36,7 +36,9 @@ describe('server-rendered editorial guidance', () => {
       const html = renderToStaticMarkup(<CalculatorGuidance slug={slug} contents/>);
       expect(html.includes('data-calculator-guide-nav'), slug).toBe(entry.sections.length >= 3);
       for (const [index, section] of entry.sections.entries()) {
-        if (entry.sections.length >= 3) expect(html).toContain(`href="#understanding-${index + 1}"`);
+        const id = section.id || `understanding-${index + 1}`;
+        expect(html).toContain(`id="${id}"`);
+        if (entry.sections.length >= 3) expect(html).toContain(`href="#${id}"`);
         if (section.table) {
           for (const row of section.table.rows) expect(row.length, `${slug}: ${section.title}`).toBe(section.table.headers.length);
         }
@@ -54,6 +56,24 @@ describe('server-rendered editorial guidance', () => {
       }
       expect(new Set(entry.faqs.map(faq => faq.question)).size, slug).toBe(entry.faqs.length);
     }
+  });
+
+  it('preserves every salary guidance bookmark after consolidating repeated explanations', () => {
+    const html = renderToStaticMarkup(<CalculatorGuidance slug="salary-calculator" contents/>);
+    const sections = [...html.matchAll(/<section id="([^"]+)">([\s\S]*?)<\/section>/g)];
+    expect(sections.map(section => section[1])).toEqual(['understanding-1', 'understanding-5', 'understanding-6', 'understanding-7']);
+    const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+    expect(ids.sort()).toEqual(Array.from({length: 7}, (_, index) => `understanding-${index + 1}`));
+    const comparison = sections.find(section => section[1] === 'understanding-6')![2];
+    expect(comparison).toContain('id="understanding-2"');
+    expect(comparison).toContain('id="understanding-3"');
+    expect(comparison).toContain('Example gross-pay conversion: $52,000 per year');
+    expect(comparison.match(/scope="row"/g)).toHaveLength(8);
+    const leave = sections.find(section => section[1] === 'understanding-7')![2];
+    expect(leave).toContain('id="understanding-4"');
+    expect(leave).toContain('href="/freelance-rate-calculator"');
+    expect(leave).toContain('A real payroll calendar can have a different number of pay dates');
+    expect(content['salary-calculator'].faqs).toHaveLength(5);
   });
 
   it('covers actual directory paths, including punctuation in subcategory names', () => {
