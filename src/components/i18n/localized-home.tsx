@@ -3,7 +3,7 @@ import {TimeCollection} from '@/components/time/time-collection';
 import {timeTools} from '@/lib/time/tools';
 import Link from '@/components/i18n/link';
 import {HomeExplorer} from '@/components/home/home-explorer';
-import {featuredTools} from '@/lib/home-content';
+import {homeFeaturedTools} from '@/lib/home-featured';
 import {homeMessages} from '@/lib/i18n/content';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import {Icon} from '@/components/ui/icon';
@@ -28,7 +28,7 @@ export function LocalizedHome({messages}: {messages: Dictionary}) {
     ['Do my inputs leave my device?', 'Most calculations run in your browser without an account. Road mileage sends selected locations to map services. Reference-data modes retrieve public snapshots without sending your entered amount or selected pair. The privacy policy explains local files, sharing, and optional browser-assistant tools.'],
   ];
   return <>
-    <TranslationMessages messages={homeMessages(messages, Object.values(featuredTools).flat())}><HomeExplorer/></TranslationMessages>
+    <TranslationMessages messages={homeMessages(messages, Object.values(homeFeaturedTools).flat())}><HomeExplorer tools={homeFeaturedTools}/></TranslationMessages>
     <section className={`container ${styles.section}`} aria-labelledby="categories-title">
       <div className={styles.sectionHeading}><h2 id="categories-title">{t('Browse by category')}</h2></div>
       <div className={styles.categoryGrid}>{categories.filter(category => category.id !== 'everyday').map(category => <article className={styles.category} data-category={category.id} key={category.id}>

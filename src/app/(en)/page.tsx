@@ -1,6 +1,7 @@
 import {PercentageDemo} from '@/components/home/percentage-demo';
 import {TimeCollection} from '@/components/time/time-collection';
 import {HomeExplorer} from "@/components/home/home-explorer";
+import {homeFeaturedTools} from '@/lib/home-featured';
 import {BrowseCategories} from "@/components/home/browse-categories";
 import {CalculationConfidence} from "@/components/home/calculation-confidence";
 import {LearningGuides} from "@/components/home/learning-guides";
@@ -18,7 +19,7 @@ export default function Home() {
   return <>
     <JsonLd data={websiteData()}/>
     <JsonLd data={{"@context":"https://schema.org",...organizationData()}}/>
-    <HomeExplorer/>
+    <HomeExplorer tools={homeFeaturedTools}/>
     <BrowseCategories/>
     <WheelCollection homepage/>
     <TimeCollection homepage/>
