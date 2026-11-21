@@ -36,6 +36,6 @@ export function WheelCollection({messages = {}, homepage = false}: {messages?: D
     </div>;
   return <section id="spin-wheels" className="category-directory" aria-labelledby="wheel-collection-title">
     {heading}
-    <TranslationMessages messages={cardMessages(messages, tools)}><div className="directory-grid">{tools.map(tool => <CalculatorCard key={tool.slug} tool={calculatorCardData(tool)}/>)}</div></TranslationMessages>
+    <TranslationMessages messages={cardMessages(messages, tools)}><div className="directory-grid">{tools.map(tool => <CalculatorCard key={tool.slug} tool={calculatorCardData(tool)} appearance="directory"/>)}</div></TranslationMessages>
   </section>;
 }

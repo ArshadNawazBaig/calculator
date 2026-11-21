@@ -1,5 +1,6 @@
 import {ArrowUpRight, GraduationCap} from 'lucide-react';
 import Link from '@/components/document-link';
+import {ToolIcon} from '@/components/ui/tool-icon';
 import {studentTools, studentToolHref} from '@/lib/student-tools';
 import {localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 import styles from './student-tools.module.css';
@@ -22,8 +23,9 @@ export function StudentTools({compact = false, currentSlug, locale = 'en', messa
     <p className={styles.intro}>{t('Check where you stand, work out what you need, and plan your next semester.')}</p>
     <nav aria-label={t('Student calculators')} className={styles.grid}>
       {studentTools.map(tool => <Link key={tool.slug} href={localizedPath(studentToolHref(tool), locale)} className={styles.card}>
-        <h3 className={styles.title}>{t(tool.title)}<ArrowUpRight size={17} aria-hidden="true"/></h3>
-        <p className={styles.description}>{t(tool.description)}</p>
+        <span className={styles.icon}><ToolIcon slug={tool.slug} size={17}/></span>
+        <div className={styles.copy}><h3 className={styles.title}>{t(tool.title)}</h3><p className={styles.description}>{t(tool.description)}</p></div>
+        <ArrowUpRight className={styles.arrow} size={16} aria-hidden="true"/>
       </Link>)}
     </nav>
     {/* Native navigation emits hashchange when switching modes on the same calculator page. */}

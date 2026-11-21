@@ -3,13 +3,17 @@
 .heading :global(.eyebrow) { display: flex; align-items: center; gap: 7px; }
 .heading h2 { margin: 8px 0 0; font-size: clamp(22px, 3vw, 28px); letter-spacing: -.6px; }
 .intro { color: var(--color-muted); margin: -4px 0 20px; }
-.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.card { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--color-card); border: 1px solid var(--color-line); border-radius: 12px; }
-.card:hover { border-color: var(--color-brand-text); }
-.card:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
-.title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin: 0; font-size: 16px; font-weight: 650; line-height: 1.5; }
-.title svg { flex-shrink: 0; margin-top: 4px; color: var(--color-brand-text); }
-.description { margin: 0; color: var(--color-muted); font-size: 14px; line-height: 1.7; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; padding: 4px 16px; background: var(--color-card); border: 1px solid var(--color-line); border-radius: 11px; }
+.grid > * { border-bottom: 1px solid var(--color-line); }
+.grid > :where(:nth-last-child(-n+3):nth-child(3n+1), :nth-last-child(-n+3):nth-child(3n+1) ~ *) { border-bottom: 0; }
+.card { display: flex; align-items: center; gap: 9px; min-width: 0; min-height: 56px; padding: 9px 0; }
+.card:focus-visible { outline: 3px solid var(--color-focus); outline-offset: -3px; }
+.icon { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 8px; background: var(--color-brand-tile); color: var(--color-brand-tile-ink); }
+.copy { flex: 1; min-width: 0; }
+.title { margin: 0; color: var(--color-ink); font-size: 14px; font-weight: 650; line-height: 1.35; letter-spacing: -.15px; overflow-wrap: anywhere; }
+.description { overflow: hidden; margin: 3px 0 0; color: var(--color-muted); font-size: 12px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.arrow { flex-shrink: 0; color: var(--color-muted); }
+@media (hover:hover) { .card:hover .title { text-decoration: underline; text-underline-offset: 3px; } }
 .points { margin: 12px 0 0; font-size: 14px; }
 .points a { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
 .shortcuts { margin-bottom: 16px; }
@@ -19,5 +23,15 @@
 .shortcuts a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 .shortcutLinks { display: flex; align-items: center; flex-wrap: wrap; gap: 0 18px; font-size: 12px; line-height: 1.5; }
 .shortcutLinks a { display: inline-flex; align-items: center; min-height: 36px; color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width: 900px) { .grid, .shortcuts nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .grid { grid-template-columns: minmax(0, 1fr); } .shortcuts nav a { font-size: 12px; padding-inline: 8px; } }
+@media (max-width: 900px) {
+  .grid, .shortcuts nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid > * { border-bottom: 1px solid var(--color-line); }
+  .grid > :where(:nth-last-child(-n+2):nth-child(2n+1), :nth-last-child(-n+2):nth-child(2n+1) ~ *) { border-bottom: 0; }
+}
+@media (max-width: 540px) {
+  .grid { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+  .grid > * { border-bottom: 1px solid var(--color-line); }
+  .grid > :last-child { border-bottom: 0; }
+}
+@media (max-width: 480px) { .shortcuts nav a { font-size: 12px; padding-inline: 8px; } }
+@media print { .description { white-space: normal; overflow: visible; } }

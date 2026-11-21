@@ -7,11 +7,11 @@ import {useHydrated} from '@/lib/use-hydrated';
 import {toggleFavorite, useWorkspace} from '@/lib/workspace/store';
 import styles from './workspace.module.css';
 
-export function FavoriteButton({slug, title, compact = false}: {slug: string; title: string; compact?: boolean}) {
+export function FavoriteButton({slug, title, compact = false, className}: {slug: string; title: string; compact?: boolean; className?: string}) {
   const {t} = useI18n(), hydrated = useHydrated();
   const {data} = useWorkspace(), selected = data.favorites.includes(slug);
   const [failed, setFailed] = useState(false);
-  return <span className={compact ? styles.favoriteCompact : styles.favoriteWrap}>
+  return <span className={[compact ? styles.favoriteCompact : styles.favoriteWrap, className].filter(Boolean).join(' ')}>
     <button type="button" className={styles.favorite} disabled={!hydrated} aria-pressed={selected}
       aria-label={t(selected ? 'Remove {title} from favorites' : 'Add {title} to favorites', {title})}
       onClick={() => setFailed(!toggleFavorite(slug).ok)}>

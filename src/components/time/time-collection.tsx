@@ -30,6 +30,6 @@ export function TimeCollection({messages = {}, homepage = false}: {messages?: Di
   const heading = <div className={home.sectionHeading}><div><span className={home.eyebrow}>{t('Time & clocks')}</span><h2 id="time-collection-title">{t('Make time work for you.')}</h2><p>{t('Plan a call, check a date, or focus on what comes next.')}</p></div><Link className={home.sectionLink} href="/time">{t('Explore time tools')}<ChevronRight size={16} aria-hidden="true"/></Link></div>;
   return <section id="time" className="category-directory" aria-labelledby="time-collection-title">
     {heading}
-    <TranslationMessages messages={cardMessages(messages, timeListings)}><div className="directory-grid">{timeListings.map(tool => <CalculatorCard key={tool.slug} tool={{...tool, description: tool.description || ''}}/>)}</div></TranslationMessages>
+    <TranslationMessages messages={cardMessages(messages, timeListings)}><div className="directory-grid">{timeListings.map(tool => <CalculatorCard key={tool.slug} tool={{...tool, description: tool.description || ''}} appearance="directory"/>)}</div></TranslationMessages>
   </section>;
 }

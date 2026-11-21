@@ -354,7 +354,9 @@ th:first-child, td:first-child { text-align: left; }
 .directory-groups { display: grid; gap: 34px; }
 .directory-groups section>h2 { font-size: 17px; font-weight: 650; margin-bottom: 14px; letter-spacing: -.3px; }
 .directory-groups section>h2 a:hover { color: var(--color-brand-text); }
-.directory-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.directory-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); column-gap: 24px; padding: 4px 16px; border: 1px solid var(--color-line); border-radius: 11px; background: var(--color-card); }
+.directory-grid > * { border-bottom: 1px solid var(--color-line); }
+.directory-grid > :where(:nth-last-child(-n+3):nth-child(3n+1), :nth-last-child(-n+3):nth-child(3n+1) ~ *) { border-bottom: 0; }
 .search-count { color: var(--color-muted); font-size: 14px; margin-bottom: 22px; }
 .availability-panel { padding: 30px; background: var(--color-soft); border-radius: 8px; max-width: 800px; }
 .availability-panel h2 { font-size: 23px; font-weight: 650; margin-bottom: 12px; }
@@ -405,6 +407,8 @@ th:first-child, td:first-child { text-align: left; }
   .category-top h3 { font-size: 16px; }
   .category-links a { font-size: 14px; }
   .directory-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .directory-grid > * { border-bottom: 1px solid var(--color-line); }
+  .directory-grid > :where(:nth-last-child(-n+2):nth-child(2n+1), :nth-last-child(-n+2):nth-child(2n+1) ~ *) { border-bottom: 0; }
   .guide-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .clarity-strip { padding: 24px; gap: 18px; }
   .clarity-strip p { font-size: 13px; }
@@ -500,6 +504,8 @@ th:first-child, td:first-child { text-align: left; }
   .form-heading { margin-bottom: 18px; }
   .directory-grid, .guide-grid, .related-card-grid { grid-template-columns: minmax(0,1fr); }
   .directory-grid { column-gap: 0; }
+  .directory-grid > * { border-bottom: 1px solid var(--color-line); }
+  .directory-grid > :last-child { border-bottom: 0; }
   .page-content { padding-top: 12px; }
   .breadcrumbs { font-size: 12px; }
   .result-metrics { gap: 0 14px; }
