@@ -1,8 +1,10 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
+import catalog from '../../src/data/catalog.json';
 import {locales,translator,isPublishedLocale,publishedLocales,localizedPath} from '../../src/lib/i18n/config';
 import {spinWheels} from '../../src/lib/spin-wheels/catalog';
+import {timeTools} from '../../src/lib/time/tools';
 import {toolkitDefinitions} from '../../src/lib/calculators/toolkit-definitions';
 
 async function getContentDictionary(locale:string):Promise<Record<string,string>> {
@@ -41,8 +43,16 @@ for(const locale of locales.filter(locale=>locale!=='en')){
   await page.setViewportSize({width:390,height:844});
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto(`/${locale}`);
-  await page.getByRole('group',{name:t('Filter featured calculators')}).getByRole('button',{name:t('Spin wheels'),exact:true}).click();
-  await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(4);
+  const filters=page.getByRole('group',{name:t('Filter featured calculators')});
+  await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(catalog.length+spinWheels.length+timeTools.length);
+  await expect(page.locator('[data-featured-group="finance"]')).toHaveAttribute('aria-label',t('Finance'));
+  await expect(page.locator('[data-featured-group="math"]').getByRole('heading',{name:t('Geometry'),level:3,exact:true})).toBeVisible();
+  await filters.getByRole('button',{name:t('Finance'),exact:true}).click();
+  await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(catalog.filter(tool=>tool.category==='finance').length);
+  await expect(page.locator('#featured-calculators [data-calculator-card="401k-calculator"] p')).toHaveText(messages['description.401k-calculator']);
+  await expect(page.locator('section[aria-labelledby="featured-title"]').getByRole('link',{name:t('View all calculators'),exact:true})).toHaveAttribute('href',`/${locale}/calculators/finance`);
+  await filters.getByRole('button',{name:t('Spin wheels'),exact:true}).click();
+  await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(spinWheels.length);
   await page.locator('#featured-calculators a[href$="/yes-or-no-wheel"]').click();
   await expect(page).toHaveURL(new RegExp(`/${locale}/spin-wheels/yes-or-no-wheel$`));
   await expect(page.getByRole('heading',{level:1})).toHaveText(t('Yes or No Wheel'));

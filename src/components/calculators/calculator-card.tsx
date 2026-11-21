@@ -17,12 +17,12 @@ export type CalculatorCardData={
   status?:"available"|"unavailable"|"directory";
 };
 
-type CalculatorCardProps={tool:CalculatorCardData;size?:"regular"|"compact";headingLevel?:2|3;appearance?:"card"|"directory";showCategory?:boolean};
+type CalculatorCardProps={tool:CalculatorCardData;size?:"regular"|"compact";headingLevel?:2|3|4;appearance?:"card"|"directory";showCategory?:boolean};
 
 export function CalculatorCard({tool,size="regular",headingLevel=3,appearance="card",showCategory=false}:CalculatorCardProps) {
  const {t,locale,messages}=useI18n();
 
-  const Heading=headingLevel===2?"h2":"h3";
+  const Heading=headingLevel===2?"h2":headingLevel===4?"h4":"h3";
   const unavailable=tool.status==="unavailable";
   const title=messages[`tool.${tool.slug}`]||tool.title;
   const description=locale==='en'?tool.description:messages[`description.${tool.slug}`];

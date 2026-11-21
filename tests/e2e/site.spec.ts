@@ -1,13 +1,40 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import catalog from '../../src/data/catalog.json';
+import {spinWheels} from '../../src/lib/spin-wheels/catalog';
+import {timeTools} from '../../src/lib/time/tools';
 test('homepage links and search',async({page})=>{await page.goto('/');await expect(page.getByRole('heading',{level:1})).toHaveText('Find your answer.');await page.getByRole('combobox',{name:'Search calculators'}).fill('mortgage');await page.getByRole('button',{name:'Search',exact:true}).click();await expect(page).toHaveURL(/search\?q=mortgage/);await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();await page.goto('/search?q=zzzz-no-match');await expect(page.getByRole('heading',{name:'No matching calculators'})).toBeVisible();});
 test('homepage category filters and keyboard search',async({page})=>{
   await page.goto('/');const input=page.getByRole('combobox',{name:'Search calculators'});
-  await page.keyboard.press('/');await expect(input).toBeFocused();await input.fill('bmi');await page.keyboard.press('/');await expect(input).toHaveValue('bmi/');
   const filters=page.getByRole('group',{name:'Filter featured calculators'});
-  for(const [label,category] of [['Finance','finance'],['Health','health'],['Math','math'],['Everyday','everyday'],['Spin wheels','spin-wheels']]){
+  await expect(filters.getByRole('button',{name:'All tools',exact:true})).toBeEnabled();
+  await expect(page.locator('#featured-calculators [data-calculator-card]')).toHaveCount(catalog.length+spinWheels.length+timeTools.length);
+  const section=page.locator('section[aria-labelledby="featured-title"]');
+  await expect(section.getByRole('link',{name:'View all calculators',exact:true})).toHaveAttribute('href','/calculators');
+  await page.keyboard.press('/');await expect(input).toBeFocused();await input.fill('bmi');await page.keyboard.press('/');await expect(input).toHaveValue('bmi/');
+  const categories=[['Finance','finance','/calculators/finance'],['Health','health','/calculators/health'],['Math','math','/calculators/math'],['Everyday','everyday','/calculators/everyday'],['Spin wheels','spin-wheels','/spin-wheels'],['Time & clocks','time','/time']] as const;
+  for(const [label,category] of categories){
+    const expected=category==='spin-wheels'?spinWheels.map(tool=>tool.slug):category==='time'?timeTools.map(tool=>tool.slug):catalog.filter(tool=>tool.category===category).map(tool=>tool.slug);
+    const group=page.locator(`[data-featured-group="${category}"]`);
+    await expect(group).toHaveAttribute('aria-label',label);
+    await expect(group.locator('[data-calculator-card]')).toHaveCount(expected.length);
+    const subcategories=category==='spin-wheels'?['Random pickers']:category==='time'?['Time & clocks']:[...new Set(catalog.filter(tool=>tool.category===category).map(tool=>tool.subcategory))];
+    await expect(group.locator('[data-featured-subcategory]')).toHaveCount(subcategories.length);
+    for(const subcategory of subcategories){
+      const subgroup=group.locator(`[data-featured-subcategory="${subcategory}"]`);
+      await expect(subgroup.getByRole('heading',{name:subcategory,level:3,exact:true})).toBeVisible();
+      const slugs=category==='spin-wheels'?spinWheels.map(tool=>tool.slug):category==='time'?timeTools.map(tool=>tool.slug):catalog.filter(tool=>tool.category===category&&tool.subcategory===subcategory).map(tool=>tool.slug);
+      const cards=subgroup.locator('[data-calculator-card]');await expect(cards).toHaveCount(slugs.length);
+      expect((await cards.evaluateAll(elements=>elements.map(element=>element.getAttribute('data-calculator-card')))).sort()).toEqual([...slugs].sort());
+    }
+  }
+  for(const [label,category,href] of categories){
     await filters.getByRole('button',{name:label,exact:true}).click();await expect(filters.getByRole('button',{name:label,exact:true})).toHaveAttribute('aria-pressed','true');
-    await expect(page.locator('#featured-calculators article')).toHaveCount(5);await expect(page.locator(`#featured-calculators article:not([data-category="${category}"])`)).toHaveCount(0);
+    const expected=category==='spin-wheels'?spinWheels.map(tool=>tool.slug):category==='time'?timeTools.map(tool=>tool.slug):catalog.filter(tool=>tool.category===category).map(tool=>tool.slug);
+    const cards=page.locator('#featured-calculators [data-calculator-card]');
+    await expect(cards).toHaveCount(expected.length);await expect(page.locator(`#featured-calculators article:not([data-category="${category}"])`)).toHaveCount(0);
+    expect((await cards.evaluateAll(elements=>elements.map(element=>element.getAttribute('data-calculator-card')))).sort()).toEqual([...expected].sort());
+    await expect(section.getByRole('link',{name:category==='spin-wheels'?'Explore spin wheels':category==='time'?'Explore time tools':'View all calculators',exact:true})).toHaveAttribute('href',href);
   }
   await filters.getByRole('button',{name:'Health',exact:true}).click();await input.fill('mortgage');await page.getByRole('button',{name:'Search',exact:true}).click();await expect(page).toHaveURL(/category=health/);await expect(page.getByRole('heading',{name:'No matching calculators'})).toBeVisible();
   await page.getByRole('link',{name:'Search all categories'}).click();await expect(page.getByRole('link',{name:'Mortgage Calculator',exact:true})).toBeVisible();

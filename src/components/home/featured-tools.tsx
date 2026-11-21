@@ -19,5 +19,5 @@ export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
 }
 
 export function FeaturedToolCard({tool}:{tool:FeaturedTool}) {
-  return <CalculatorCard tool={tool}/>;
+  return <CalculatorCard tool={tool} appearance="directory" headingLevel={4}/>;
 }
