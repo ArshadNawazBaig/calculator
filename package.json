@@ -18,6 +18,7 @@
     "coverage:manifest": "node scripts/export-coverage.mjs",
     "i18n:check": "node scripts/check-translations.mjs",
     "illustrations:generate": "node scripts/generate-illustrations.mjs",
+    "illustrations:calculators": "node scripts/generate-calculator-visuals.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:search": "node scripts/analyze-search-console.mjs",
     "audit:content": "node scripts/audit-content.mjs",

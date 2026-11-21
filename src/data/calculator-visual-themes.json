@@ -1,0 +1,371 @@
+{
+  "templates": {
+    "en": "Illustration for {tool}: {symbol}; {motif}.",
+    "es": "Ilustración para {tool}: {symbol}; {motif}.",
+    "fr": "Illustration pour {tool} : {symbol} ; {motif}.",
+    "de": "Illustration für {tool}: {symbol}; {motif}.",
+    "pt": "Ilustração para {tool}: {symbol}; {motif}.",
+    "ar": "رسم توضيحي لـ{tool}: {symbol}؛ {motif}.",
+    "hi": "{tool} के लिए चित्र: {symbol}; {motif}।",
+    "tl": "Ilustrasyon para sa {tool}: {symbol}; {motif}."
+  },
+  "subcategories": {
+    "Retirement": "retirement",
+    "Date and Time": "dates",
+    "Mortgage and Real Estate": "property",
+    "Fitness": "health",
+    "Geometry": "geometry",
+    "Auto": "auto",
+    "Statistics": "statistics",
+    "Investment": "investment",
+    "Internet": "internet",
+    "Arithmetic and Number Theory": "arithmetic",
+    "Everyday Utility": "utility",
+    "Housing/Building": "building",
+    "Pregnancy": "pregnancy",
+    "Various Measurements/Units": "measurement",
+    "Weather": "weather",
+    "Entertainment/Anecdotes": "entertainment",
+    "Electronics/Circuits": "electronics",
+    "Transportation": "transport",
+    "Tax and Salary": "tax"
+  },
+  "defaults": {
+    "finance": "finance",
+    "health": "health",
+    "math": "arithmetic",
+    "everyday": "measurement"
+  },
+  "themes": {
+    "retirement": {
+      "icons": [
+        "PiggyBank",
+        "Coins"
+      ],
+      "motif": {
+        "en": "a piggy bank and coins",
+        "es": "una alcancía y monedas",
+        "fr": "une tirelire et des pièces",
+        "de": "ein Sparschwein und Münzen",
+        "pt": "um cofrinho e moedas",
+        "ar": "حصالة نقود وعملات معدنية",
+        "hi": "गुल्लक और सिक्कों",
+        "tl": "alkansya at mga barya"
+      }
+    },
+    "dates": {
+      "icons": [
+        "Calendar",
+        "Clock3"
+      ],
+      "motif": {
+        "en": "a calendar and clock",
+        "es": "un calendario y un reloj",
+        "fr": "un calendrier et une horloge",
+        "de": "ein Kalender und eine Uhr",
+        "pt": "um calendário e um relógio",
+        "ar": "تقويم وساعة",
+        "hi": "कैलेंडर और घड़ी",
+        "tl": "kalendaryo at orasan"
+      }
+    },
+    "property": {
+      "icons": [
+        "House",
+        "Calculator"
+      ],
+      "motif": {
+        "en": "a house and calculator",
+        "es": "una casa y una calculadora",
+        "fr": "une maison et une calculatrice",
+        "de": "ein Haus und ein Taschenrechner",
+        "pt": "uma casa e uma calculadora",
+        "ar": "منزل وآلة حاسبة",
+        "hi": "घर और कैलकुलेटर",
+        "tl": "bahay at calculator"
+      }
+    },
+    "health": {
+      "icons": [
+        "Heart",
+        "Activity"
+      ],
+      "motif": {
+        "en": "a heart and pulse line",
+        "es": "un corazón y una línea de pulso",
+        "fr": "un cœur et une ligne de pouls",
+        "de": "ein Herz und eine Pulslinie",
+        "pt": "um coração e uma linha de pulso",
+        "ar": "قلب وخط نبض",
+        "hi": "दिल और नाड़ी रेखा",
+        "tl": "puso at linya ng pulso"
+      }
+    },
+    "geometry": {
+      "icons": [
+        "Triangle",
+        "Ruler"
+      ],
+      "motif": {
+        "en": "a triangle and ruler",
+        "es": "un triángulo y una regla",
+        "fr": "un triangle et une règle",
+        "de": "ein Dreieck und ein Lineal",
+        "pt": "um triângulo e uma régua",
+        "ar": "مثلث ومسطرة",
+        "hi": "त्रिभुज और स्केल",
+        "tl": "tatsulok at ruler"
+      }
+    },
+    "auto": {
+      "icons": [
+        "Car",
+        "Gauge"
+      ],
+      "motif": {
+        "en": "a car and speedometer",
+        "es": "un automóvil y un velocímetro",
+        "fr": "une voiture et un compteur de vitesse",
+        "de": "ein Auto und ein Tachometer",
+        "pt": "um carro e um velocímetro",
+        "ar": "سيارة وعداد سرعة",
+        "hi": "कार और स्पीडोमीटर",
+        "tl": "kotse at speedometer"
+      }
+    },
+    "statistics": {
+      "icons": [
+        "ChartNoAxesColumn",
+        "Search"
+      ],
+      "motif": {
+        "en": "a bar chart and magnifying glass",
+        "es": "un gráfico de barras y una lupa",
+        "fr": "un diagramme en barres et une loupe",
+        "de": "ein Balkendiagramm und eine Lupe",
+        "pt": "um gráfico de barras e uma lupa",
+        "ar": "مخطط أعمدة وعدسة مكبرة",
+        "hi": "बार चार्ट और आवर्धक लेंस",
+        "tl": "bar chart at lente"
+      }
+    },
+    "investment": {
+      "icons": [
+        "Coins",
+        "ChartPie"
+      ],
+      "motif": {
+        "en": "coins and a pie chart",
+        "es": "monedas y un gráfico circular",
+        "fr": "des pièces et un diagramme circulaire",
+        "de": "Münzen und ein Kreisdiagramm",
+        "pt": "moedas e um gráfico de setores",
+        "ar": "عملات معدنية ومخطط دائري",
+        "hi": "सिक्कों और पाई चार्ट",
+        "tl": "mga barya at pie chart"
+      }
+    },
+    "internet": {
+      "icons": [
+        "Globe",
+        "LockKeyhole"
+      ],
+      "motif": {
+        "en": "a globe and padlock",
+        "es": "un globo terráqueo y un candado",
+        "fr": "un globe et un cadenas",
+        "de": "ein Globus und ein Vorhängeschloss",
+        "pt": "um globo e um cadeado",
+        "ar": "كرة أرضية وقفل",
+        "hi": "ग्लोब और ताले",
+        "tl": "globo at kandado"
+      }
+    },
+    "arithmetic": {
+      "icons": [
+        "Plus",
+        "Divide"
+      ],
+      "motif": {
+        "en": "plus and division symbols",
+        "es": "símbolos de suma y división",
+        "fr": "des symboles d’addition et de division",
+        "de": "Plus- und Divisionszeichen",
+        "pt": "símbolos de adição e divisão",
+        "ar": "رمزي الجمع والقسمة",
+        "hi": "जोड़ और भाग के चिह्नों",
+        "tl": "mga simbolo ng pagdaragdag at paghahati"
+      }
+    },
+    "utility": {
+      "icons": [
+        "Calculator",
+        "Sparkles"
+      ],
+      "motif": {
+        "en": "a calculator and sparkles",
+        "es": "una calculadora y destellos",
+        "fr": "une calculatrice et des étincelles",
+        "de": "ein Taschenrechner und Glanzpunkten",
+        "pt": "uma calculadora e brilhos",
+        "ar": "آلة حاسبة ولمعات",
+        "hi": "कैलकुलेटर और चमक",
+        "tl": "calculator at mga kislap"
+      }
+    },
+    "building": {
+      "icons": [
+        "House",
+        "Ruler"
+      ],
+      "motif": {
+        "en": "a house and ruler",
+        "es": "una casa y una regla",
+        "fr": "une maison et une règle",
+        "de": "ein Haus und ein Lineal",
+        "pt": "uma casa e uma régua",
+        "ar": "منزل ومسطرة",
+        "hi": "घर और स्केल",
+        "tl": "bahay at ruler"
+      }
+    },
+    "pregnancy": {
+      "icons": [
+        "Calendar",
+        "Heart"
+      ],
+      "motif": {
+        "en": "a calendar and heart",
+        "es": "un calendario y un corazón",
+        "fr": "un calendrier et un cœur",
+        "de": "ein Kalender und ein Herz",
+        "pt": "um calendário e um coração",
+        "ar": "تقويم وقلب",
+        "hi": "कैलेंडर और दिल",
+        "tl": "kalendaryo at puso"
+      }
+    },
+    "measurement": {
+      "icons": [
+        "Ruler",
+        "Scale"
+      ],
+      "motif": {
+        "en": "a ruler and scales",
+        "es": "una regla y una balanza",
+        "fr": "une règle et une balance",
+        "de": "ein Lineal und eine Waage",
+        "pt": "uma régua e uma balança",
+        "ar": "مسطرة وميزان",
+        "hi": "स्केल और तराजू",
+        "tl": "ruler at timbangan"
+      }
+    },
+    "weather": {
+      "icons": [
+        "Thermometer",
+        "Sun"
+      ],
+      "motif": {
+        "en": "a thermometer and sun",
+        "es": "un termómetro y el sol",
+        "fr": "un thermomètre et un soleil",
+        "de": "ein Thermometer und eine Sonne",
+        "pt": "um termômetro e um sol",
+        "ar": "مقياس حرارة وشمس",
+        "hi": "थर्मामीटर और सूरज",
+        "tl": "thermometer at araw"
+      }
+    },
+    "entertainment": {
+      "icons": [
+        "Heart",
+        "Dice5"
+      ],
+      "motif": {
+        "en": "a heart and die",
+        "es": "un corazón y un dado",
+        "fr": "un cœur et un dé",
+        "de": "ein Herz und ein Würfel",
+        "pt": "um coração e um dado",
+        "ar": "قلب وحجر نرد",
+        "hi": "दिल और पासे",
+        "tl": "puso at dice"
+      }
+    },
+    "electronics": {
+      "icons": [
+        "CircuitBoard",
+        "Zap"
+      ],
+      "motif": {
+        "en": "a circuit board and lightning bolt",
+        "es": "una placa de circuito y un rayo",
+        "fr": "un circuit électronique et un éclair",
+        "de": "eine Platine und ein Blitz",
+        "pt": "uma placa de circuito e um raio",
+        "ar": "لوحة دوائر وبرق",
+        "hi": "सर्किट बोर्ड और बिजली के चिह्न",
+        "tl": "circuit board at kidlat"
+      }
+    },
+    "transport": {
+      "icons": [
+        "Car",
+        "Route"
+      ],
+      "motif": {
+        "en": "a car and route",
+        "es": "un automóvil y una ruta",
+        "fr": "une voiture et un itinéraire",
+        "de": "ein Auto und eine Route",
+        "pt": "um carro e uma rota",
+        "ar": "سيارة ومسار",
+        "hi": "कार और मार्ग",
+        "tl": "kotse at ruta"
+      }
+    },
+    "tax": {
+      "icons": [
+        "Receipt",
+        "Wallet"
+      ],
+      "motif": {
+        "en": "a receipt and wallet",
+        "es": "un recibo y una cartera",
+        "fr": "un reçu et un portefeuille",
+        "de": "ein Beleg und eine Geldbörse",
+        "pt": "um recibo e uma carteira",
+        "ar": "إيصال ومحفظة",
+        "hi": "रसीद और बटुए",
+        "tl": "resibo at pitaka"
+      }
+    },
+    "finance": {
+      "icons": [
+        "Coins",
+        "Calculator"
+      ],
+      "motif": {
+        "en": "coins and a calculator",
+        "es": "monedas y una calculadora",
+        "fr": "des pièces et une calculatrice",
+        "de": "Münzen und ein Taschenrechner",
+        "pt": "moedas e uma calculadora",
+        "ar": "عملات معدنية وآلة حاسبة",
+        "hi": "सिक्कों और कैलकुलेटर",
+        "tl": "mga barya at calculator"
+      }
+    }
+  },
+  "repeatedTemplates": {
+    "en": "Illustration for {tool}: {motif}.",
+    "es": "Ilustración para {tool}: {motif}.",
+    "fr": "Illustration pour {tool} : {motif}.",
+    "de": "Illustration für {tool}: {motif}.",
+    "pt": "Ilustração para {tool}: {motif}.",
+    "ar": "رسم توضيحي لـ{tool}: {motif}.",
+    "hi": "{tool} के लिए चित्र: {motif}।",
+    "tl": "Ilustrasyon para sa {tool}: {motif}."
+  }
+}

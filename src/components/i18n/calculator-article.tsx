@@ -2,6 +2,8 @@ import {MathSearchAnswer, MathSearchContent} from '@/components/content/math-sea
 import {mathSearchContent} from '@/data/math-search-content';
 import {ToolkitSummary, ToolkitArticleData} from '@/components/content/toolkit-summary';
 import {CalculatorInsight} from '@/components/content/calculator-insight';
+import {PregnancyVisual} from '@/components/content/pregnancy-visual';
+import {CalculatorVisual} from '@/components/content/calculator-visual';
 import {AdultBmiScreening} from '@/components/content/adult-bmi-screening';
 import {MethodNavigation} from '@/components/content/method-navigation';
 import Link from './link';
@@ -9,14 +11,16 @@ import {CalculatorGuidance} from '@/components/content/calculator-guidance';
 import {RelatedGuides} from '@/components/content/related-guides';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import content from '@/data/calculator-content.json';
+import catalog from '@/data/catalog.json';
 import {type Definition, type Result} from '@/lib/calculators/types';
 import {WorkedExample} from '@/components/content/worked-example';
 import {translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 
-export function CalculatorArticle({definition, initial, currency, messages, locale}: {
-  definition: Definition; initial: Result|null; currency: string; messages: Dictionary; locale: Locale;
+export function CalculatorArticle({definition, initial, currency, messages, locale, title}: {
+  definition: Definition; initial: Result|null; currency: string; messages: Dictionary; locale: Locale; title?: string;
 }) {
   const t=translator(messages);
+  const visualTitle=title||messages['tool.'+definition.slug]||catalog.find(tool=>tool.slug===definition.slug)?.title||definition.slug;
   const reference = mathSearchContent[definition.slug];
   const illustratedReference = Boolean(reference) && ['area-calculator','volume-calculator','surface-area-calculator'].includes(definition.slug);
   const referenceModes = new Set(illustratedReference ? reference!.rows.map(row => row.id) : []);
@@ -25,6 +29,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
     <MathSearchAnswer slug={definition.slug} messages={messages}/>
     <ToolkitSummary slug={definition.slug} messages={messages}/>
     <section id="how-it-works" tabIndex={-1}><h2>{t('How it works')}</h2><MethodNavigation modes={definition.modes} messages={messages} locale={locale}/></section>
+    {definition.slug==='pregnancy-calculator'?<PregnancyVisual locale={locale}/>:<CalculatorVisual slug={definition.slug} title={visualTitle} mode={definition.modes[0]} locale={locale} messages={messages}/>}
     {!illustratedReference&&<CalculatorInsight slug={definition.slug} locale={locale}/>}
     {definition.slug==='overweight-calculator'&&<AdultBmiScreening messages={messages} locale={locale}/>}
     {!illustratedReference&&<CalculatorGuidance slug={definition.slug} messages={messages} locale={locale} contents/>}
