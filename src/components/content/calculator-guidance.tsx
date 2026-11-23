@@ -17,8 +17,8 @@ export function CalculatorGuidance({slug, messages = {}, contents = false, local
   const entry = (content as Record<string, {sections: GuidanceSection[]}>)[slug];
   if (!entry) return null;
   return <>
-    {contents && entry.sections.length >= 3 && <nav className={styles.guideContents} aria-label={t('On this page')} data-calculator-guide-nav>
-      <h2>{t('On this page')}</h2>
+    {contents && entry.sections.length >= 3 && <nav className={styles.guideContents} aria-label={t('In this guide')} data-calculator-guide-nav>
+      <h2>{t('In this guide')}</h2>
       <ul>{entry.sections.map((section, index) => <li key={section.title}><a href={`#${section.id || `understanding-${index + 1}`}`}>{t(section.title)}</a></li>)}</ul>
     </nav>}
     {entry.sections.map((section, index) => <section key={section.title} id={section.id || `understanding-${index + 1}`}>

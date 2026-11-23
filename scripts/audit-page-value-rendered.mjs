@@ -1,6 +1,7 @@
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {dirname, resolve} from 'node:path';
 import {createServer} from 'vite';
+import {attributes} from './html-attributes.mjs';
 
 // Run against an already-running server. This script never starts or stops one.
 // AUDIT_URL controls the HTTP target; AUDIT_CANONICAL_URL can override the public origin.
@@ -32,12 +33,6 @@ const jobs = selectedPages.flatMap(page => page.languages.map(locale => ({...pag
 if (new Set(jobs.map(job => job.pathname)).size !== jobs.length) throw Error('The review manifest contains duplicate localized routes.');
 
 const htmlEscape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;');
-const decodeAttribute = value => value.replace(/&(?:amp|quot|apos|lt|gt|#\d+|#x[0-9a-f]+);/gi, entity => {
-  const named = {'&amp;': '&', '&quot;': '"', '&apos;': "'", '&lt;': '<', '&gt;': '>'};
-  if (entity.toLowerCase() in named) return named[entity.toLowerCase()];
-  return String.fromCodePoint(Number.parseInt(entity.slice(entity[2].toLowerCase() === 'x' ? 3 : 2, -1), entity[2].toLowerCase() === 'x' ? 16 : 10));
-});
-const attributes = tag => Object.fromEntries([...tag.matchAll(/\s([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g)].map(match => [match[1].toLowerCase(), decodeAttribute(match[2] ?? match[3] ?? match[4] ?? '')]));
 const markerFor = page => {
   if (page.kind === 'calculator') return [usesMathReference(page) ? 'data-math-search-answer' : 'data-calculator-insight'];
   if (page.kind === 'regional-clock' || page.kind === 'time-tool' && page.path === '/time') return ['data-clock-comparison'];

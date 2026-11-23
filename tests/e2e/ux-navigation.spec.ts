@@ -5,6 +5,7 @@ test('mobile calculator shortcuts cross the full table and return keyboard focus
   await page.setViewportSize({width: 390, height: 844});
   await page.goto('/loan-calculator');
   const nav = page.getByRole('navigation', {name: 'On this page'});
+  await expect(page.getByRole('navigation', {name: 'In this guide'})).toBeVisible();
   await expect(page.locator('#calculation-table tbody tr')).toHaveCount(360);
   await nav.getByRole('link', {name: 'How it works'}).click();
   await expect(page.locator('#how-it-works')).toBeFocused();
@@ -13,6 +14,8 @@ test('mobile calculator shortcuts cross the full table and return keyboard focus
   await nav.getByRole('link', {name: 'Your inputs'}).focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('#calculator-inputs')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#calculator-inputs [data-input-guide] summary')).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.locator('#loan-principal')).toBeFocused();
   await page.locator('#loan-principal').fill('1200');

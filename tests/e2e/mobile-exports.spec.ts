@@ -6,6 +6,31 @@ import {PDFDocument} from 'pdf-lib';
 // These controls depend on touch capabilities, even under the default desktop project.
 test.use({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
 
+for (const [slug, label] of [['loan-calculator', 'PDF'], ['invoice-generator', 'Download invoice PDF']]) {
+  test(`${slug} waits for the new result before enabling its PDF download`, async ({page}) => {
+    await page.goto('/' + slug);
+    const calculate = page.locator('[data-calculator-submit]');
+    const download = page.getByRole('button', {name: label, exact: true});
+    await expect(calculate).toBeEnabled();
+    await expect(download).toBeEnabled();
+    let release = () => {};
+    const ready = new Promise<void>(resolve => {release = resolve;});
+    await page.route(/\/_next\/static\/chunks\/.*\.js(?:\?.*)?$/, async route => {
+      await ready;
+      await route.continue();
+    });
+    try {
+      await calculate.click();
+      await expect(calculate).toBeDisabled();
+      await expect(download).toBeDisabled();
+    } finally {
+      release();
+    }
+    await expect(calculate).toBeEnabled();
+    await expect(download).toBeEnabled();
+  });
+}
+
 test('CSV downloads contain the full schedule and the retry link stays usable',async({page})=>{
   await page.goto('/loan-calculator');
   await expect(page.getByRole('button',{name:'CSV',exact:true})).toBeEnabled();

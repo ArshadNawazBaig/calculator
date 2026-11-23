@@ -33,6 +33,7 @@ test('the homepage percentage demonstration responds to keyboard input',async ({
   await page.goto('/',{waitUntil:'domcontentloaded'});
   const slider=page.getByRole('slider',{name:demoCopy.en.rate});
   await expect(page.locator('output').last()).toHaveText('96');
+  await expect(slider).toBeEnabled();
   await slider.focus();
   await slider.press('End');
   await expect(slider).toHaveValue('50');

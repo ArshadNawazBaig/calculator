@@ -1,6 +1,7 @@
 import {createServer} from 'vite';
 import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {dirname, resolve} from 'node:path';
+import {attributes} from './html-attributes.mjs';
 
 const output = process.env.SOURCE_OUTPUT || 'docs/validation/source-links.json';
 const server = await createServer({configFile:false, server:{middlewareMode:true}, resolve:{alias:{'@':resolve('src')}}});
@@ -29,6 +30,27 @@ const results = [];
 const pending = new Set();
 const hostQueues = new Map();
 const sleep = ms => new Promise(resolve=>setTimeout(resolve,ms));
+
+function classifySource(response, title, html) {
+  if ([404, 410].includes(response.status)) return 'broken';
+  if ([403, 429].includes(response.status)) return 'access_unverified';
+  if (!response.ok) return 'http_error';
+  const gateTitle = /page not found|404 not found|access denied|just a moment|robot check|^checking your browser\b|^redirecting[.…]*$/i;
+  const cookieGate = /<h1\b[^>]*>\s*Cookies must be enabled\s*<\/h1>/i;
+  return gateTitle.test(title || '') || cookieGate.test(html) ? 'content_unverified' : 'reachable';
+}
+
+function fragmentTargets(html) {
+  const targets = new Set();
+  const markup = html.replace(/<!--[\s\S]*?-->|<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
+  for (const [tag, name] of markup.matchAll(/<([a-z][\w:.-]*)\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi)) {
+    const attrs = attributes(tag);
+    if (attrs.id) targets.add(attrs.id);
+    if (name.toLowerCase() === 'a' && attrs.name) targets.add(attrs.name);
+  }
+  return targets;
+}
+
 async function inspect(entry) {
   const host = new URL(entry.url).host;
   const previous = hostQueues.get(host) || Promise.resolve();
@@ -55,10 +77,18 @@ async function inspect(entry) {
       title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.replace(/\s+/g,' ').trim() || null;
     } else await response.body?.cancel();
     const status = response.status;
-    const classification = status===404 || status===410 ? 'broken' : status===403 || status===429 ? 'access_unverified' : !response.ok ? 'http_error' : title && /(?:page not found|404 not found|access denied|just a moment|robot check)/i.test(title) ? 'content_unverified' : 'reachable';
-    const fragments = entry.references.filter(item=>new URL(item.url).hash).map(item=>{
+    const classification = classifySource(response, title, html);
+    const fragmentLinks = entry.references.filter(item => new URL(item.url).hash);
+    const targets = fragmentLinks.length && classification === 'reachable' ? fragmentTargets(html) : new Set();
+    const fragments = fragmentLinks.map(item=>{
       const hash = decodeURIComponent(new URL(item.url).hash.slice(1));
-      return {page:item.page, fragment:hash, status:/application\/pdf/i.test(contentType)?'pdf_fragment_not_checked':!complete?'not_checked':html.includes(`id="${hash}"`)||html.includes(`id='${hash}'`)||html.includes(`name="${hash}"`)?'found':'not_found_in_server_html'};
+      let fragmentStatus = 'not_checked';
+      if (classification === 'reachable') {
+        if (/application\/pdf/i.test(contentType)) fragmentStatus = 'pdf_fragment_not_checked';
+        else if (targets.has(hash)) fragmentStatus = 'found';
+        else if (complete) fragmentStatus = 'not_found_in_server_html';
+      }
+      return {page:item.page, fragment:hash, status:fragmentStatus};
     });
     return {...entry,status,finalUrl:response.url,contentType,title,classification,fragments};
   } catch (error) {

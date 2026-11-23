@@ -14,10 +14,10 @@ const fragmentLinks = new Map(), documentTargets = new Map();
 const browser = await chromium.launch({headless:true});
 const normalizeURL = value => new URL(value).href;
 const alternateSignature = alternates => JSON.stringify(Object.entries(alternates).map(([lang,url])=>[lang,normalizeURL(url)]).sort());
-const fetchPage = path => new Promise((resolve,reject)=>{
+const fetchPage = (path, freshConnection = false) => new Promise((resolve,reject)=>{
   const url=new URL(path,base), request=url.protocol==='https:'?httpsRequest:httpRequest;
   // Node's fetch can discard Host overrides; the HTTP client preserves the real host-rule check.
-  const req=request(url,{signal:AbortSignal.timeout(30000),headers:{host:canonical.host,'user-agent':'FinfloSEOCheck/1.0'}},response=>{
+  const req=request(url,{agent:freshConnection ? false : undefined,signal:AbortSignal.timeout(30000),headers:{host:canonical.host,'user-agent':'FinfloSEOCheck/1.0'}},response=>{
     const chunks=[];
     response.on('data',chunk=>chunks.push(chunk));
     response.on('error',reject);
@@ -26,7 +26,12 @@ const fetchPage = path => new Promise((resolve,reject)=>{
       headers:Object.fromEntries(Object.entries(response.headers).filter(([,value])=>value!==undefined).map(([key,value])=>[key,Array.isArray(value)?value.join(', '):value])),
     })));
   });
-  req.on('error',reject);req.end();
+  req.on('error',error=>{
+    // Parsing the sitemap can outlast the server's keep-alive timeout.
+    if (!freshConnection && req.reusedSocket && error.code === 'ECONNRESET') resolve(fetchPage(path, true));
+    else reject(error);
+  });
+  req.end();
 });
 try {
   const parser = await browser.newPage();

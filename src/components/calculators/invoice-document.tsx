@@ -14,10 +14,11 @@ import {ResultSection} from './result-section';
 import {ResultDataTable} from './result-table';
 import styles from './toolkit.module.css';
 
-export function InvoiceDocument({values, currency, example}: {values: Values; currency: string; example: boolean}) {
+export function InvoiceDocument({values, currency, example, disabled}: {values: Values; currency: string; example: boolean; disabled: boolean}) {
   const {t,locale} = useI18n();
   const doc = calculateInvoice(values);
-  const [logo, setLogo] = useState(''), [logoName, setLogoName] = useState(''), [accent, setAccent] = useState('brand'), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
+  const [logo, setLogo] = useState(''), [logoName, setLogoName] = useState(''), [accent, setAccent] = useState('brand'), [preparing, setPreparing] = useState(false), [message, setMessage] = useState('');
+  const busy = disabled || preparing;
   const logoInput = useRef<HTMLInputElement>(null), colorId = useId();
   const [file, setFile] = useState<{url: string; name: string} | null>(null);
   const operation = useRef<AbortController | null>(null), url = useRef<string | null>(null), logoRead = useRef(0);
@@ -39,7 +40,7 @@ export function InvoiceDocument({values, currency, example}: {values: Values; cu
   async function pdf() {
     operation.current?.abort();
     const controller = new AbortController(); operation.current = controller;
-    setBusy(true); setMessage(''); setFile(null);
+    setPreparing(true); setMessage(''); setFile(null);
     try {
       const {resultPdf} = await import('@/lib/exports/pdf');
       const blob = await resultPdf({title: doc.business, subtitle: `${t(doc.type)} ${doc.number}`, caption: `${example ? t('EXAMPLE DOCUMENT — replace sample details before sharing.') + '\n' : ''}${t('Issued')}: ${doc.issueDate} | ${t(doc.type === 'Invoice' ? 'Payment due' : 'Valid until')}: ${doc.dueDate}\n${t('Currency')}: ${currency}`,
@@ -53,11 +54,11 @@ export function InvoiceDocument({values, currency, example}: {values: Values; cu
       if (url.current) releaseDownload(url.current);
       url.current = URL.createObjectURL(blob); setFile({url: url.current, name}); downloadFile(url.current, name);
     } catch {if (!controller.signal.aborted) setMessage('The PDF could not be prepared. Please try again.');}
-    finally {if (!controller.signal.aborted) setBusy(false);}
+    finally {if (!controller.signal.aborted) setPreparing(false);}
   }
   return <ResultSection titleId="invoice-preview-heading" title={t("{type} preview", {type:t(doc.type)})} icon={<FileText size={19} aria-hidden="true"/>}
     description={t("Review your document, add your logo, and download a PDF.")}
-    action={<Button type="button" variant="secondary" onClick={pdf} disabled={busy}><FileDown size={16} aria-hidden="true"/>{busy ? t('Preparing PDF…') : t('Download {type} PDF', {type:locale==='en'?doc.type.toLowerCase():t(doc.type)})}</Button>}>
+    action={<Button type="button" variant="secondary" onClick={pdf} disabled={busy}><FileDown size={16} aria-hidden="true"/>{preparing ? t('Preparing PDF…') : t('Download {type} PDF', {type:locale==='en'?doc.type.toLowerCase():t(doc.type)})}</Button>}>
     <div className={styles.body}>
     <div className={styles.brandControls}>
       <div className="calculator-field"><span className={styles.fieldLabel}>{t("Logo (optional PNG or JPEG)")}</span><div className={styles.uploadActions}>
