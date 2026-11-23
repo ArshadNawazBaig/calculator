@@ -84,10 +84,15 @@ test('net-worth snapshots survive reload and restore original inputs',async({pag
 test('cash-flow CSV import updates the forecast and invalid CSV preserves its rows',async({page})=>{
   await page.goto('/cash-flow-calculator');
   const rows=page.locator('.record-editor');
-  await rows.locator('input[type=file]').setInputFiles({name:'movements.csv',mimeType:'text/csv',buffer:Buffer.from('month,description,direction,amount\n6,"Funding, committed",in,10000')});
+  const importCsv = async (name: string, content: string) => {
+    const chooser = page.waitForEvent('filechooser');
+    await rows.getByRole('button', {name:'Import CSV', exact:true}).click();
+    await (await chooser).setFiles({name, mimeType:'text/csv', buffer:Buffer.from(content)});
+  };
+  await importCsv('movements.csv', 'month,description,direction,amount\n6,"Funding, committed",in,10000');
   await expect(rows.locator('.record-row')).toHaveCount(1); await calculate(page);
   await expect(page.locator('.primary-metric dd')).toHaveText('-$3,200.00');
-  await rows.locator('input[type=file]').setInputFiles({name:'invalid.csv',mimeType:'text/csv',buffer:Buffer.from('bad,headers\n1,2')});
+  await importCsv('invalid.csv', 'bad,headers\n1,2');
   await expect(rows.getByRole('status')).toContainText('CSV headers must match'); await expect(rows.locator('.record-row')).toHaveCount(1);
 });
 
