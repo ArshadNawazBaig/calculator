@@ -1597,18 +1597,18 @@
       "mode": "historical",
       "overrides": {
         "from": "2026-08",
-        "to": "2026-10",
+        "to": "2026-11",
         "amount": "100"
       },
       "expected": [],
       "expectedErrorContains": "published months",
       "scope": "",
-      "provenance": "Unpublished October 2026 remains rejected as of 2026-11-09; September was released October 14. Official BLS archive: https://www.bls.gov/news.release/archives/cpi_10142026.htm",
+      "provenance": "November 2026 remains unpublished as of 2026-11-23. BLS published the October observation on November 10 and scheduled the November release for December 10. https://www.bls.gov/news.release/archives/cpi_11102026.htm",
       "algorithm": "cpi-historical",
       "inputs": {
         "amount": "100",
         "from": "2026-08",
-        "to": "2026-10"
+        "to": "2026-11"
       }
     },
     {

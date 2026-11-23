@@ -1,5 +1,6 @@
 import {TimeExample} from './time-examples';
 import {ClockComparison} from './clock-comparison';
+import {SelectedClockComparison} from './selected-clock-comparison';
 import {notFound} from 'next/navigation';
 import {connection} from 'next/server';
 import {ArrowUpRight} from 'lucide-react';
@@ -40,13 +41,8 @@ export async function TimePage({path = '/time', locale = 'en', messages = {}}: {
   const countries = Object.fromEntries(zones.filter(zone => zone.country).map(zone => [zone.country, countryNames.of(zone.country) || zone.country]));
   const breadcrumbs = path === '/time' ? [{label: t('Time & clocks')}] : [{label: t('Time & clocks'), href: '/time'}, {label: title}];
   const navigation = <nav className={`${tabStyles.tabs} ${styles.toolNav}`} aria-label={t('Time tools')}>{timeTools.map(tool => <Link className={tabStyles.item} key={tool.slug} href={tool.href} aria-current={(tool.href === path || tool.href === '/time' && zone) ? 'page' : undefined}>{t(tool.title)}</Link>)}</nav>;
-  return <TranslationMessages messages={timeMessages(messages)}>
-    {mode === 'clock' ? <WorldClock initialZone={zone} initialSnapshot={initialSnapshot} countries={countries}
-      breadcrumbs={<Breadcrumbs items={breadcrumbs} tone="inverse"/>}
-      introduction={<div className={styles.clockIntro}><h1 id="page-title">{title}</h1><p>{description}</p></div>}
-      navigation={navigation}/>
-      : <PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={breadcrumbs}>{navigation}</PageHero>}
-    <div className={`container tool-page${mode === 'clock' ? '' : ' page-content'}`}>
+  const comparison = initialSnapshot && <ClockComparison zoneId={initialSnapshot.zoneId} at={initialSnapshot.at} locale={locale}/>;
+  const content = <div className={`container tool-page${mode === 'clock' ? '' : ' page-content'}`}>
       {(mode === 'timer' || mode === 'stopwatch') && <TimerTool stopwatch={mode === 'stopwatch'}/>}
       {(mode === 'clock' || mode === 'directory') && <ZoneDirectory countries={countries} compact={mode === 'clock'}/>}
       <div className={styles.guideLayout}>
@@ -54,13 +50,19 @@ export async function TimePage({path = '/time', locale = 'en', messages = {}}: {
           {!zone&&<section className={styles.answer}><h2>{t(guide.question)}</h2><p>{t(guide.answer)}</p></section>}
           {zone && <section><h2>{t('About the {place} clock', {place: zone.place})}</h2><p>{t('This page displays the current local time for {zone}. Its representative location is {place}. The clock’s date, UTC offset, and calendar information all use this selected zone.', {zone: zone.id, place: zone.place})}</p>{zone.country && <p>{t('Country or territory: {country}. Search the directory for other regional clocks and save the places you want to compare.', {country: countries[zone.country]})}</p>}{zone.aliases.length > 0 && <p>{t('Alternate time-zone names: {aliases}.', {aliases: zone.aliases.join(', ')})}</p>}</section>}
           {mode !== 'clock' && <TimeExample mode={mode} locale={locale}/>}
-          {initialSnapshot && <ClockComparison zoneId={zone?.id || 'UTC'} at={initialSnapshot.at} locale={locale}/>}
+          {initialSnapshot && !zone ? <SelectedClockComparison at={initialSnapshot.at} locale={locale}>{comparison}</SelectedClockComparison> : comparison}
           {(zone ? [] : guide.sections).map(section => <section key={section.title}><h2>{t(section.title)}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</section>)}
           <p className={styles.note}>{t('Time-zone directory: IANA {version}. Clock rules use your runtime with verified IANA 2026f corrections for seven recently changed regions during 2026–2035; other dates use runtime rules. Future political changes can alter these projections.', {version: clockZoneVersion})}{' '}<a href="https://www.iana.org/time-zones">{t('IANA Time Zone Database')}</a></p>
         </article>
         <aside className={styles.related} aria-label={t('Related time tools')}><span className="eyebrow">{t('A LITTLE MORE CLARITY')}</span><h2>{t('Make time work for you.')}</h2><p>{t('Plan a call, check a date, or focus on what comes next.')}</p>{[...timeTools, {href: '/time-zone-calculator', title: 'Time Zone Calculator'}, {href: '/date-calculator', title: 'Date Calculator'}, {href: '/time-calculator', title: locale === 'en' ? 'Time Calculator' : 'tool.time-calculator'}].filter(tool => tool.href !== path).map(tool => <Link href={tool.href} key={tool.href}>{t(tool.title)}<ArrowUpRight size={16} aria-hidden="true"/></Link>)}</aside>
       </div>
-    </div>
+    </div>;
+  return <TranslationMessages messages={timeMessages(messages)}>
+    {mode === 'clock' ? <WorldClock initialZone={zone} initialSnapshot={initialSnapshot} countries={countries}
+      breadcrumbs={<Breadcrumbs items={breadcrumbs} tone="inverse"/>}
+      introduction={<div className={styles.clockIntro}><h1 id="page-title">{title}</h1><p>{description}</p></div>}
+      navigation={navigation}>{content}</WorldClock>
+      : <><PageHero eyebrow={t('TIME & CLOCKS · FREE ONLINE TOOLS')} title={title} description={description} breadcrumbs={breadcrumbs}>{navigation}</PageHero>{content}</>}
     <JsonLd data={{'@context': 'https://schema.org', '@type': mode === 'directory' ? 'CollectionPage' : 'WebApplication', name: title, description, url: site.url + localizedPath(path, locale), inLanguage: locale, ...(mode !== 'directory' ? {applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', isAccessibleForFree: true, offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'}} : {})}}/>
     <JsonLd data={breadcrumbData([{name: t('Home'), path: '/'}, {name: t('Time & clocks'), path: '/time'}, ...(path === '/time' ? [] : [{name: title, path}])], locale)}/>
   </TranslationMessages>;

@@ -22,7 +22,7 @@ function checkNote(path,record){
 }
 try{
   const {publishedLocales}=await server.ssrLoadModule('/src/lib/i18n/config.ts');
-  const {definitions}=await server.ssrLoadModule('/src/lib/calculators/registry.ts');
+  const {definitions,catalog,isIndexableTool}=await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {mathSearchContent}=await server.ssrLoadModule('/src/data/math-search-content.ts');
   const {information}=await server.ssrLoadModule('/src/data/information.ts');
   const {guides}=await server.ssrLoadModule('/src/data/guides.ts');
@@ -50,10 +50,15 @@ try{
         }
         for(const link of reference?.quickLinks||[])if(!['#common-questions',...reference.sections.map(section=>'#'+section.id)].includes(link.href))issues.push(`${path}: unknown math quick-link target ${link.href}`);
       }
-      review={kind:'calculator',addition:reference?.answerHeading||calculators[slug]?.en.heading,implementation:reference?'English direct answer, illustrated formula table with one example and mode link per supported method, measurement guidance, and numeric scenario comparison. Draft translations retain their localized interpretation notes.':'Original interpretation note, method navigation, input → formula → result example, and on-page numeric scenario comparison where applicable.',sourceReferences:definition.sources.length,...(reference?{englishReference:'math-search',referenceModes:reference.rows.map(row=>row.id)}:{})};
+      review={kind:'calculator',addition:reference?.answerHeading||calculators[slug]?.en.heading,implementation:reference?'Localized direct answer, illustrated formula table with one example and mode link per supported method, measurement guidance, and numeric scenario comparison.':'Original interpretation note, method navigation, input → formula → result example, and on-page numeric scenario comparison where applicable.',sourceReferences:definition.sources.length,...(reference?{reference:'math-search',referenceModes:reference.rows.map(row=>row.id)}:{})};
     }else if(clock)review={kind:'regional-clock',addition:`${clock.id}: dated cross-zone comparison and quarterly offset table`,implementation:'Server-rendered data for this zone; repeated full world-clock guide removed.'};
     else if(wheel)review={kind:'spin-wheel',addition:`${wheel.title}: initial entry counts and selection probabilities`,implementation:'Accessible table and proportion bars, explicitly distinguished from edited entries.'};
-    else if(directories[path])review={kind:'directory',addition:'Compare the required inputs and methods of relevant tools before choosing.',implementation:'Tool-choice table drawn from actual active calculator fields and formulas.'};
+    else if(directories[path]||path==='/real-estate-calculator'){
+      const guidancePath=path==='/real-estate-calculator'?'/calculators/finance/mortgage-and-real-estate':path;
+      if(!directories[guidancePath])issues.push(`${path}: missing directory guidance at ${guidancePath}`);
+      if(path==='/real-estate-calculator'&&(!catalog.some(tool=>tool.slug==='real-estate-calculator'&&tool.type==='directory')||!isIndexableTool('real-estate-calculator')))issues.push(`${path}: expected an indexable directory in the calculator catalog`);
+      review={kind:'directory',addition:'Compare the required inputs and methods of relevant tools before choosing.',implementation:'Tool-choice table drawn from actual active calculator fields and formulas.',guidancePath};
+    }
     else if(information[slug]){checkNote(path,informationNotes[slug]);review={kind:'information',addition:informationNotes[slug]?.en.heading,implementation:'Practical page-specific guidance without changing policy commitments.'};}
     else if(path.startsWith('/guides/')&&guides[path.slice(8)]){
       const guide=guides[path.slice(8)],tables=guide.sections.filter(section=>section.table);
@@ -76,7 +81,7 @@ try{
   }
   const report={checkedAt:new Date().toISOString(),sourceRoutes:pages.length,localizedURLs:pages.reduce((sum,page)=>sum+page.languages.length,0),calculatorNotes:Object.keys(calculators).length,informationNotes:Object.keys(informationNotes).length,languages:publishedLocales,supportedLanguages:locales,issues,
     scope:'Inventory of published routes; structural checks also retain all draft locale guidance records. This is not editorial approval of translations or a claim of browser inspection of every URL.',
-    additionalRoutes:[{path:'/real-estate-calculator',review:'Shares the improved real-estate tool-selection guide; existing non-indexed directory behavior retained.'},{path:'/search',review:'Added localized guidance for matching a task to a calculation method; remains noindex.'},{path:'/workspace',review:'Added localized advice for naming and comparing assumptions; remains noindex.'},...['/offline','/network-error','/maintenance','404','error boundaries'].map(path=>({path,review:'Reviewed recovery instructions, navigation and noindex behavior. Kept focused on recovery; no unrelated search copy added.'}))],
+    additionalRoutes:[{path:'/search',review:'Added localized guidance for matching a task to a calculation method; remains noindex.'},{path:'/workspace',review:'Added localized advice for naming and comparing assumptions; remains noindex.'},...['/offline','/network-error','/maintenance','404','error boundaries'].map(path=>({path,review:'Reviewed recovery instructions, navigation and noindex behavior. Kept focused on recovery; no unrelated search copy added.'}))],
     checks:['Distinct original note bodies within each language','No missing calculator or information-page locale','Illustrated English math references contain unique examples and links covering every supported mode','Every indexable route has a recorded functional or editorial improvement','Existing formula references retained','No ranking promises, invented author credentials, or artificial review dates added to pages'],pages};
   await mkdir('docs/validation',{recursive:true});
   await writeFile('docs/validation/page-value-review.json',JSON.stringify(report,null,2)+'\n');

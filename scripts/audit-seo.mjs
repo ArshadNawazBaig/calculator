@@ -10,6 +10,7 @@ const canonical = new URL(process.env.CANONICAL_ORIGIN || 'https://finflo.org');
 const output = process.env.SEO_OUTPUT || 'docs/validation/seo-crawl.json';
 const concurrency = Math.max(1, Math.min(8, Number(process.env.SEO_CONCURRENCY) || 4));
 const errors = [], pages = [], internalPaths = new Set();
+const fragmentLinks = new Map(), documentTargets = new Map();
 const browser = await chromium.launch({headless:true});
 const normalizeURL = value => new URL(value).href;
 const alternateSignature = alternates => JSON.stringify(Object.entries(alternates).map(([lang,url])=>[lang,normalizeURL(url)]).sort());
@@ -71,9 +72,11 @@ try {
             alternates:Object.fromEntries([...doc.querySelectorAll('link[rel="alternate"][hreflang]')].map(link=>[link.getAttribute('hreflang'),link.getAttribute('href')])),
             schemas:[...doc.querySelectorAll('script[type="application/ld+json"]')].map(script=>JSON.parse(script.textContent)),
             links:[...doc.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')),
+            targets:[...doc.querySelectorAll('[id],a[name]')].flatMap(node=>[node.id,node.getAttribute('name')]).filter(Boolean),
           };
         },html);
         const issues=[];
+        documentTargets.set(entry.url,new Set(parsed.targets));
         if(response.status!==200) issues.push(`HTTP ${response.status}`);
         if(parsed.canonicals.length!==1||normalizeURL(parsed.canonicals[0])!==normalizeURL(entry.url)) issues.push('non-self or duplicate canonical');
         if(!parsed.title.trim()||!parsed.description.trim()) issues.push('missing title or description');
@@ -84,7 +87,12 @@ try {
         if(alternateSignature(parsed.alternates)!==alternateSignature(entry.alternates)) issues.push('HTML/sitemap hreflang mismatch');
         for(const href of parsed.links) {
           const link=new URL(href,entry.url);
-          if(link.origin===canonical.origin) internalPaths.add(link.pathname);
+          if(link.origin!==canonical.origin) continue;
+          internalPaths.add(link.pathname);
+          const fragment=link.hash.slice(1).split(':~:text=')[0];
+          if(fragment && fragment.toLowerCase()!=='top' && !fragmentLinks.has(link.href)) {
+            fragmentLinks.set(link.href,{document:link.origin+link.pathname+link.search,fragment:decodeURIComponent(fragment),from:entry.url});
+          }
         }
         for(const issue of issues) errors.push(`${entry.url}: ${issue}`);
         pages.push({url:entry.url,status:response.status,title:parsed.title,description:parsed.description,lang:parsed.lang,h1:parsed.h1,schemas:parsed.schemas.map(schema=>schema['@type']),htmlBytes:Buffer.byteLength(html),issues});
@@ -94,7 +102,7 @@ try {
     await page.close();
   }));
   const extraPaths=[...internalPaths].filter(path=>!urls.has(canonical.origin+path)), extraChecks=[];
-  // Query parameters and fragments are intentionally excluded from this link-target check.
+  // Test ordinary link destinations independently of in-document targets.
   for(const path of extraPaths) {
     try {
       const response=await fetchPage(path);
@@ -103,8 +111,20 @@ try {
       await response.body?.cancel();
     } catch(error) {errors.push(`${path}: ${error.message}`);}
   }
+  for(const [href,link] of fragmentLinks) {
+    try {
+      if(!documentTargets.has(link.document)) {
+        const url=new URL(link.document),response=await fetchPage(url.pathname+url.search);
+        const targets=await parser.evaluate(html=>[...new DOMParser().parseFromString(html,'text/html').querySelectorAll('[id],a[name]')].flatMap(node=>[node.id,node.getAttribute('name')]).filter(Boolean),await response.text());
+        documentTargets.set(link.document,new Set(targets));
+      }
+      if(!documentTargets.get(link.document).has(link.fragment)) errors.push(`Missing fragment ${href} linked from ${link.from}`);
+    } catch(error) {errors.push(`${href}: ${error.message}`);}
+  }
   const localizedSearches=['es','fr','de','pt','ar','hi','tl'].filter(locale=>urls.has(`${canonical.origin}/${locale}`)).map(locale=>`/${locale}/search?q=mortgage`);
-  for(const path of ['/search?q=mortgage',...localizedSearches,'/real-estate-calculator']) {
+  // The real-estate collection is indexable and is already checked through
+  // the sitemap above. Search-result pages must remain outside the index.
+  for(const path of ['/search?q=mortgage',...localizedSearches]) {
     const response=await fetchPage(path), html=await response.text();
     const noindex=await parser.evaluate(html=>new DOMParser().parseFromString(html,'text/html').querySelector('meta[name="robots"]')?.content.includes('noindex'),html);
     if(response.status!==200||!noindex) errors.push(`${path}: expected 200 and noindex`);
@@ -115,7 +135,7 @@ try {
     await response.body?.cancel();
   }
   const duplicateGroups=key=>Object.values(Object.groupBy(pages,page=>`${page.lang}:${page[key]}`)).filter(group=>group.length>1).map(group=>({locale:group[0].lang,value:group[0][key],urls:group.map(page=>page.url)}));
-  const report={measuredAt:new Date().toISOString(),base:base.origin,canonical:canonical.origin,scope:'All sitemap URLs; initial server HTML; unique internal path targets. No external links, fragment targets, JavaScript rendering, search-engine indexing status, or field performance measured.',sitemapURLs:entries.length,checkedPages:pages.length,internalPaths:internalPaths.size,extraChecks,errors,duplicateTitles:duplicateGroups('title'),duplicateDescriptions:duplicateGroups('description'),pages:pages.sort((a,b)=>a.url.localeCompare(b.url))};
+  const report={measuredAt:new Date().toISOString(),base:base.origin,canonical:canonical.origin,scope:'All sitemap URLs, initial server HTML, internal paths and fragment targets. External links, JavaScript rendering, indexing status and field performance require separate checks.',sitemapURLs:entries.length,checkedPages:pages.length,internalPaths:internalPaths.size,fragmentTargets:fragmentLinks.size,extraChecks,errors,duplicateTitles:duplicateGroups('title'),duplicateDescriptions:duplicateGroups('description'),pages:pages.sort((a,b)=>a.url.localeCompare(b.url))};
   await mkdir(dirname(output),{recursive:true});
   await writeFile(output,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({output,sitemapURLs:entries.length,checkedPages:pages.length,internalPaths:internalPaths.size,errors,duplicateTitles:report.duplicateTitles.length,duplicateDescriptions:report.duplicateDescriptions.length},null,2));

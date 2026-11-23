@@ -1,9 +1,10 @@
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
-import {resolve} from 'node:path';
+import {dirname, resolve} from 'node:path';
 import {createServer} from 'vite';
 
 // Run against an already-running server. This script never starts or stops one.
 // AUDIT_URL controls the HTTP target; AUDIT_CANONICAL_URL can override the public origin.
+// AUDIT_PATHS may select comma-separated source paths, and AUDIT_OUTPUT may set the report path.
 const base = new URL(process.env.AUDIT_URL || 'http://127.0.0.1:3100');
 const canonicalBase = new URL(process.env.AUDIT_CANONICAL_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://finflo.org');
 const root = resolve(import.meta.dirname, '..');
@@ -12,12 +13,22 @@ const manifest = await json('docs/validation/page-value-review.json');
 const calculatorNotes = Object.assign({}, ...await Promise.all(['finance', 'health', 'math', 'everyday'].map(category => json(`src/data/insights/${category}.json`))));
 const informationNotes = await json('src/data/insights/information.json');
 const sourceServer = await createServer({configFile:false,server:{middlewareMode:true,watch:null},resolve:{alias:{'@':resolve(root,'src')}}});
-let mathSearchContent;
-try {({mathSearchContent} = await sourceServer.ssrLoadModule('/src/data/math-search-content.ts'));}
+let mathSearchContent,translator;
+try {
+  ({mathSearchContent} = await sourceServer.ssrLoadModule('/src/data/math-search-content.ts'));
+  ({translator} = await sourceServer.ssrLoadModule('/src/lib/i18n/config.ts'));
+}
 finally {await sourceServer.close();}
+const translate = Object.fromEntries(await Promise.all(['en','es','fr','de','pt','ar','hi','tl'].map(async locale => {
+  const messages = locale === 'en' ? {} : {...await json(`src/data/locales/content/${locale}.json`),...await json(`src/data/locales/${locale}.json`)};
+  return [locale,translator(messages)];
+})));
 const illustratedMathSlugs = new Set(['area-calculator','volume-calculator','surface-area-calculator']);
-const usesMathReference = page => page.kind === 'calculator' && page.locale === 'en' && illustratedMathSlugs.has(page.path.slice(1));
-const jobs = manifest.pages.flatMap(page => page.languages.map(locale => ({...page, locale, pathname: locale === 'en' ? page.path : `/${locale}${page.path === '/' ? '' : page.path}`})));
+const usesMathReference = page => page.kind === 'calculator' && illustratedMathSlugs.has(page.path.slice(1));
+const selectedPaths = process.env.AUDIT_PATHS?.split(',').map(path => path.trim()).filter(Boolean);
+const selectedPages = selectedPaths?.length ? manifest.pages.filter(page => selectedPaths.includes(page.path)) : manifest.pages;
+for (const path of selectedPaths || []) if (!selectedPages.some(page => page.path === path)) throw Error(`Unknown audit source path: ${path}`);
+const jobs = selectedPages.flatMap(page => page.languages.map(locale => ({...page, locale, pathname: locale === 'en' ? page.path : `/${locale}${page.path === '/' ? '' : page.path}`})));
 if (new Set(jobs.map(job => job.pathname)).size !== jobs.length) throw Error('The review manifest contains duplicate localized routes.');
 
 const htmlEscape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;');
@@ -85,13 +96,14 @@ async function inspect(job) {
 
     if (usesMathReference(job)) {
       const record = mathSearchContent[job.path.slice(1)];
+      const t = translate[job.locale];
       if (!record) issues.push('Missing source math reference.');
       else {
         if (marker) {
           const start = marker.index + marker[0].length, end = document.indexOf('</section>', start);
           const section = document.slice(start, end < 0 ? undefined : end);
-          if (!section.includes(`>${htmlEscape(record.answerHeading)}</h2>`)) issues.push('Math answer heading does not match rendered section.');
-          if (!section.includes(`<p>${htmlEscape(record.answer)}</p>`)) issues.push('Math answer text does not match rendered section.');
+          if (!section.includes(`>${htmlEscape(t(record.answerHeading))}</h2>`)) issues.push('Localized math answer heading does not match rendered section.');
+          if (!section.includes(`<p>${htmlEscape(t(record.answer))}</p>`)) issues.push('Localized math answer text does not match rendered section.');
         }
         if (!openingTags.some(match => Object.hasOwn(attributes(match[0]), 'data-math-search-content'))) issues.push('Missing rendered math reference content.');
         const referenceTags = openingTags.filter(match => attributes(match[0]).id === 'formula-reference');
@@ -105,7 +117,7 @@ async function inspect(job) {
             if (openingTags.filter(match => attributes(match[0]).id === methodId).length !== 1) issues.push(`Expected one unique ${methodId} target.`);
             if (tags.filter(item => item.tag === 'tr' && item.attrs.id === methodId).length !== 1) issues.push(`Missing formula row for ${row.id}.`);
             if (tags.filter(item => item.tag === 'a' && item.attrs.href === `#mode-${row.id}`).length !== 1) issues.push(`Expected one formula-row mode link for ${row.id}.`);
-            for (const key of ['label','formula','example','result']) if (!section.includes(htmlEscape(row[key]))) issues.push(`Formula-reference ${row.id} ${key} does not match source text.`);
+            for (const key of ['label','formula','example','result']) if (!section.includes(htmlEscape(t(row[key])))) issues.push(`Formula-reference ${row.id} ${key} does not match localized source text.`);
           }
           if (tags.filter(item => item.tag === 'tr' && item.attrs.id?.startsWith('method-')).length !== record.rows.length) issues.push('Formula-reference mode-row count differs from source.');
         }
@@ -141,18 +153,19 @@ async function worker() {
     await inspect(job);
   }
 }
-console.log(JSON.stringify({audit: 'rendered-page-value', target: base.origin, sourceRoutes: manifest.pages.length, localizedURLs: jobs.length, concurrency: 2}));
+console.log(JSON.stringify({audit: 'rendered-page-value', target: base.origin, sourceRoutes: selectedPages.length, localizedURLs: jobs.length, concurrency: 2}));
 await Promise.all([worker(), worker()]);
 const report = {
   checkedAt: new Date().toISOString(), baseURL: base.href, canonicalBaseURL: canonicalBase.href,
-  sourceRoutes: manifest.pages.length, localizedURLs: jobs.length, concurrency: 2,
+  sourceRoutes: selectedPages.length, localizedURLs: jobs.length, concurrency: 2,
   checked: completed, passed, failed: failures.length, localizedNoteChecks: noteChecks, mathReferenceChecks,
   elapsedSeconds: Math.round((Date.now() - started) / 1000), receivedBytes, httpStatuses, byKind, byLocale,
-  checks: ['HTTP 200 and HTML content type', 'Exactly one nonempty rendered H1', 'Exact localized canonical URL after standard URL normalization', 'Actual opening HTML tag for the page-family addition, excluding scripts and comments', 'Exact escaped localized heading and body inside calculator and information note sections', 'English illustrated math answers and formula text match source, with unique method targets and mode links for every reference row'],
-  scope: 'HTTP response HTML for every manifest route and language. This verifies rendered content, not client interaction, visual layout, or the substantive correctness of every calculation.',
+  checks: ['HTTP 200 and HTML content type', 'Exactly one nonempty rendered H1', 'Exact localized canonical URL after standard URL normalization', 'Actual opening HTML tag for the page-family addition, excluding scripts and comments', 'Exact escaped localized heading and body inside calculator and information note sections', 'Localized illustrated math answers and formula text match source translations, with unique method targets and mode links for every reference row'],
+  scope: `HTTP response HTML for ${selectedPaths?.length ? 'the selected manifest routes' : 'every manifest route'} and language. This verifies rendered content, not client interaction, visual layout, or the substantive correctness of every calculation.`,
   failures,
 };
-await mkdir(resolve(root, 'docs/validation'), {recursive: true});
-await writeFile(resolve(root, 'docs/validation/page-value-rendered.json'), JSON.stringify(report, null, 2) + '\n');
-console.log(JSON.stringify({checked: completed, passed, failed: failures.length, localizedNoteChecks: noteChecks, mathReferenceChecks, elapsedSeconds: report.elapsedSeconds, report: 'docs/validation/page-value-rendered.json'}));
+const output = resolve(root, process.env.AUDIT_OUTPUT || 'docs/validation/page-value-rendered.json');
+await mkdir(dirname(output), {recursive: true});
+await writeFile(output, JSON.stringify(report, null, 2) + '\n');
+console.log(JSON.stringify({checked: completed, passed, failed: failures.length, localizedNoteChecks: noteChecks, mathReferenceChecks, elapsedSeconds: report.elapsedSeconds, report: output}));
 if (failures.length) process.exitCode = 1;

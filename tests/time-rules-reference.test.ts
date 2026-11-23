@@ -42,6 +42,20 @@ describe('IANA 2026f corrections shared by clocks and conversions', () => {
 });
 
 describe('local date and time resolution', () => {
+  it('keeps a weekly meeting at the source wall time when only the destination changes its clocks', () => {
+    const first = compareMeeting('2026-03-06','17:00','Europe/London','America/New_York');
+    expect(first).toMatchObject({destinationOffset:'UTC−05:00',nextWeek:{times:[
+      {epoch:Date.parse('2026-03-13T17:00:00Z'),offset:'UTC−04:00'},
+    ]}});
+  });
+
+  it('handles missing and repeated source times the following week and respects the planning horizon', () => {
+    expect(compareMeeting('2026-03-01','02:30','America/New_York','UTC')).toMatchObject({nextWeek:{times:[]}});
+    expect(compareMeeting('2026-10-25','01:30','America/New_York','UTC')).toMatchObject({nextWeek:{times:[
+      {epoch:Date.parse('2026-11-01T05:30:00Z')},{epoch:Date.parse('2026-11-01T06:30:00Z')},
+    ]}});
+    expect(compareMeeting('2035-12-25','12:00','Pacific/Kiritimati','UTC')).toMatchObject({nextWeek:null});
+  });
   it('compares a dated meeting with explicit day shifts and offset difference', () => {
     expect(compareMeeting('2026-11-09','23:30','Asia/Karachi','Asia/Tokyo')).toMatchObject({repeated:false,epoch:Date.parse('2026-11-09T18:30:00Z'),dayDifference:1,minuteDifference:240,sourceOffset:'UTC+05:00',destinationOffset:'UTC+09:00'});
     expect(compareMeeting('2026-11-09','00:30','Asia/Karachi','America/New_York')).toMatchObject({dayDifference:-1,minuteDifference:-600});

@@ -22,6 +22,8 @@ test('meeting comparison keeps full dates and day changes usable on mobile',asyn
   await expect(page.locator('[data-meeting-result]')).toContainText('03:30');
   await expect(page.locator('[data-meeting-summary]')).toContainText('4 hours ahead');
   await expect(page.locator('[data-meeting-summary]')).toContainText('one calendar day later');
+  await expect(page.locator('[data-weekly-meeting] time')).toHaveAttribute('datetime','2026-11-16T18:30:00.000Z');
+  await expect(page.locator('[data-weekly-meeting]')).toContainText('Nov 17, 2026');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
   expect((await new AxeBuilder({page}).include('[data-meeting-planner]').analyze()).violations).toEqual([]);
 });

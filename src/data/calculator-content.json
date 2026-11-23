@@ -171,6 +171,10 @@
           {
             "label": "U.S. Naval Observatory: Gregorian leap-year rules",
             "href": "https://aa.usno.navy.mil/faq/leap_years"
+          },
+          {
+            "label": "RFC 3339 Appendix C on Gregorian leap years",
+            "href": "https://www.rfc-editor.org/rfc/rfc3339.html#appendix-C"
           }
         ]
       },
@@ -359,6 +363,10 @@
           {
             "label": "Gregorian leap-year rules",
             "href": "https://aa.usno.navy.mil/faq/leap_years"
+          },
+          {
+            "label": "RFC 3339 Appendix C on Gregorian leap years",
+            "href": "https://www.rfc-editor.org/rfc/rfc3339.html#appendix-C"
           }
         ]
       },
@@ -6135,14 +6143,6 @@
     "description": "Estimate US fixed-rate mortgage payments and ownership costs, and compare monthly, annual or dated extra principal payments.",
     "faqs": [
       {
-        "question": "Is the mortgage payment the same as my total housing cost?",
-        "answer": "Principal and interest repay the loan. The ownership-cost worksheet separately accepts annual or monthly costs and percentages of original purchase price, with independent growth assumptions."
-      },
-      {
-        "question": "Will an extra payment automatically lower future monthly payments?",
-        "answer": "The schedule applies extra money to principal and shortens repayment. It does not model a lender-approved recast of the scheduled payment."
-      },
-      {
         "question": "Can I compare dated extras and a biweekly schedule?",
         "answer": "Use Calendar-based extra payments for dated principal additions. The accelerated biweekly mode instead uses 26 equal interest periods, which may differ from your lender’s actual posting schedule."
       },
@@ -8289,20 +8289,12 @@
         "answer": "No. It divides the remaining cash target by monthly savings, without interest, investment returns or changing contributions."
       },
       {
-        "question": "Does the down payment include closing costs?",
-        "answer": "Not in this model. It calculates the two amounts separately and adds them to estimate initial cash needed."
-      },
-      {
         "question": "Can I find a purchase price from a fixed cash amount?",
         "answer": "Yes. Use the price method with available cash and the chosen down-payment and closing-cost percentages."
       },
       {
         "question": "What if part of my savings must remain available?",
         "answer": "Subtract the reserve you want to keep from the cash entered for the purchase. The calculator cannot decide an appropriate reserve for you."
-      },
-      {
-        "question": "Does the saving-time mode include interest?",
-        "answer": "No. It divides the remaining cash target by the monthly savings contribution and assumes the target stays unchanged."
       }
     ],
     "sections": [
@@ -8811,10 +8803,6 @@
         "answer": "Yes. A beginning-of-period deposit receives one additional deposit period of growth compared with the same end-of-period deposit."
       },
       {
-        "question": "Can I enter monthly and annual contributions together?",
-        "answer": "Use the two-stream method. The annual contribution is extra money, not the annual total of the monthly deposits."
-      },
-      {
         "question": "Does the tax rate reproduce my tax return?",
         "answer": "No. It applies a simplified tax assumption to investment growth and does not determine exemptions, allowances or account-specific tax rules."
       }
@@ -9118,14 +9106,6 @@
       {
         "question": "Does the estimate deduct an early-withdrawal penalty?",
         "answer": "Not automatically. Penalties, promotional terms and product-specific interest rules must be checked against the CD agreement."
-      },
-      {
-        "question": "Why should recurring contributions usually be zero for a CD?",
-        "answer": "Many conventional CDs are opened with a single deposit. Enter later deposits only if the product actually allows them."
-      },
-      {
-        "question": "Does the result include an early withdrawal penalty?",
-        "answer": "No. The projection assumes the modeled term is completed and does not price a product-specific withdrawal penalty."
       },
       {
         "question": "Can I compare two CDs with different compounding schedules?",
@@ -9736,10 +9716,6 @@
       {
         "question": "What should I enter for payments when there is only a lump sum?",
         "answer": "Enter zero for recurring payments so the same future amount is not counted twice."
-      },
-      {
-        "question": "Does a higher discount rate increase present value?",
-        "answer": "No. Holding future cash flows fixed, a higher positive discount rate reduces their present value."
       },
       {
         "question": "Can I value monthly payments?",
@@ -10461,11 +10437,11 @@
     "seoTitle": "Retirement Calculator: Savings & Withdrawals"
   },
   "401k-calculator": {
-    "description": "Project 401(k)-style savings, salary-based deferrals and tiered employer matching, with optional frozen 2026 caps and withdrawal estimates.",
+    "description": "Project 401(k)-style savings, salary-based deferrals and tiered employer matching, with optional frozen 2026 or 2027 caps and withdrawal estimates.",
     "faqs": [
       {
         "question": "Are contribution limits always applied to the projection?",
-        "answer": "No. The salary-based mode offers uncapped scenarios or frozen 2026 limits. Future limits and plan eligibility are not predicted."
+        "answer": "No. The salary-based mode offers uncapped scenarios or frozen 2026 or 2027 limits. Future limits and plan eligibility are not predicted."
       },
       {
         "question": "How are employer matching tiers applied?",
@@ -10549,6 +10525,10 @@
           {
             "label": "IRS: retirement distribution rules",
             "href": "https://www.irs.gov/retirement-plans/plan-participant-employee/401k-resource-guide-plan-participants-general-distribution-rules"
+          },
+          {
+            "label": "IRS: retirement contribution limits for 2027",
+            "href": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500"
           }
         ]
       },
@@ -10562,7 +10542,7 @@
     "seoTitle": "401(k) Calculator: Savings, Employer Match & Withdrawals"
   },
   "ira-calculator": {
-    "description": "Explore IRA growth and withdrawals, compare traditional and Roth savings from equal pretax resources, or estimate a 2026 contribution ceiling.",
+    "description": "Explore IRA growth and withdrawals, compare traditional and Roth savings from equal pretax resources, or estimate a 2026 or 2027 contribution ceiling.",
     "faqs": [
       {
         "question": "Does the IRA ceiling determine deductibility or full eligibility?",
@@ -10597,7 +10577,7 @@
       {
         "title": "Choose growth, tax comparison or contribution-ceiling analysis",
         "paragraphs": [
-          "The growth method projects an opening balance and annual deposits. For an ordinary personal IRA example, put the intended annual IRA contribution in the contribution field and set the employer contribution field to zero. The 2026 ceiling method and equal-pre-tax-budget comparison answer different questions from the generic growth projection."
+          "The growth method projects an opening balance and annual deposits. For an ordinary personal IRA example, put the intended annual IRA contribution in the contribution field and set the employer contribution field to zero. The 2026 and 2027 ceiling methods and equal-pre-tax-budget comparison answer different questions from the generic growth projection."
         ]
       },
       {
@@ -10634,7 +10614,7 @@
       {
         "title": "A contribution ceiling does not establish deductibility",
         "paragraphs": [
-          "For 2026 the basic combined traditional-and-Roth IRA limit is 7,500, with an additional 1,100 catch-up amount from age 50, subject to compensation and other rules. The ceiling method does not determine Roth income eligibility or whether a traditional IRA contribution is deductible. The generic growth mode does not enforce those limits."
+          "For 2026 and 2027 the basic combined traditional-and-Roth IRA limit is 7,500, with an additional 1,100 catch-up amount from age 50, subject to compensation and other rules. The ceiling methods do not determine Roth income eligibility or whether a traditional IRA contribution is deductible. The generic growth mode does not enforce those limits."
         ]
       },
       {
@@ -10654,6 +10634,10 @@
           {
             "label": "IRS: IRA distribution rules",
             "href": "https://www.irs.gov/publications/p590b"
+          },
+          {
+            "label": "IRS: retirement contribution limits for 2027",
+            "href": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500"
           }
         ]
       },
@@ -10667,7 +10651,7 @@
     "seoTitle": "IRA Calculator: Growth, Contributions & Withdrawals"
   },
   "roth-ira-calculator": {
-    "description": "Compare Roth, traditional and taxable scenarios using qualified-distribution assumptions, equal pretax resources and a separate 2026 ceiling.",
+    "description": "Compare Roth, traditional and taxable scenarios using qualified-distribution assumptions, equal pretax resources and separate 2026 and 2027 ceilings.",
     "faqs": [
       {
         "question": "Why is Roth growth treated as tax-free in the comparison?",
@@ -10678,7 +10662,7 @@
         "answer": "Roth funding uses after-tax money in this model, so the entered current tax reduces the amount invested from the same pretax budget."
       },
       {
-        "question": "Does the 2026 ceiling account for every income restriction?",
+        "question": "Do the 2026 and 2027 ceilings account for every income restriction?",
         "answer": "No. It is an age-and-compensation ceiling before MAGI restrictions, deductibility and other eligibility rules."
       },
       {
@@ -10741,7 +10725,7 @@
       {
         "title": "Check the tax year and account rules separately",
         "paragraphs": [
-          "The 2026 ceiling method checks age and compensation against its stated annual limit; it is not an income-phaseout test. Traditional and Roth contributions share the basic IRA limit. Qualified Roth distributions have conditions, including the applicable five-year rule and a qualifying circumstance, so a projected tax-free balance is not permission for an unrestricted early withdrawal."
+          "The 2026 and 2027 ceiling methods check age and compensation against the stated annual limits; they are not income-phaseout tests. Traditional and Roth contributions share the basic IRA limit. Qualified Roth distributions have conditions, including the applicable five-year rule and a qualifying circumstance, so a projected tax-free balance is not permission for an unrestricted early withdrawal."
         ],
         "links": [
           {
@@ -10755,6 +10739,10 @@
           {
             "label": "Compare traditional IRA projections",
             "href": "/ira-calculator"
+          },
+          {
+            "label": "IRS: retirement contribution limits for 2027",
+            "href": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500"
           }
         ]
       },
@@ -10991,14 +10979,6 @@
       {
         "question": "Does waiting beyond age 70 add delayed credits?",
         "answer": "No. The model caps age-based delayed credits at 70; later changes in an actual benefit can have other causes."
-      },
-      {
-        "question": "Does the calculator estimate benefits from my lifetime earnings?",
-        "answer": "No. The simple method starts from the full-retirement-age benefit you supply."
-      },
-      {
-        "question": "Does delaying beyond age 70 add more delayed retirement credits?",
-        "answer": "SSA delayed retirement credits stop at age 70. A later claiming date does not continue that credit increase."
       },
       {
         "question": "Why can an earlier claim have more cumulative benefits initially?",
@@ -11508,10 +11488,6 @@
       {
         "question": "Can I estimate how much principal fits a monthly budget?",
         "answer": "Yes. Select the principal-from-payment method and enter the affordable payment, rate and term."
-      },
-      {
-        "question": "Does this estimate income-driven repayment or forgiveness?",
-        "answer": "No. The fixed-payment and borrowing scenarios do not establish eligibility or benefits under those programs."
       }
     ],
     "sections": [
@@ -12207,10 +12183,6 @@
         "answer": "No. They use entered ratios, leverage and exchange rates. Broker rules, financing charges and instrument requirements can differ."
       },
       {
-        "question": "Why are margin and markup different for the same sale?",
-        "answer": "Margin divides profit by revenue; markup divides it by cost. Different denominators produce different percentages."
-      },
-      {
         "question": "How do I price for a target margin?",
         "answer": "For cost C and target margin m as a decimal, price = C/(1 − m). A target below 100% is required for a finite positive price."
       },
@@ -12307,14 +12279,6 @@
       {
         "question": "What happens above the highest entered tier?",
         "answer": "The final tier's rate continues above its upper limit. Confirm that this matches the actual commission agreement."
-      },
-      {
-        "question": "Does a tiered rate apply to all sales once a threshold is reached?",
-        "answer": "Not in this method. Each rate applies only to its marginal sales band."
-      },
-      {
-        "question": "What happens above the final tier’s lower threshold?",
-        "answer": "The final rate continues for the remaining sales. Check the displayed tier table when matching a contract."
       },
       {
         "question": "Should I enter invoiced sales or collected cash?",
@@ -13590,10 +13554,6 @@
         "answer": "Final cash flow includes the sale proceeds after selling costs and remaining mortgage debt. It is counted once in the investor-return stream."
       },
       {
-        "question": "Should loan payments be included in operating expenses?",
-        "answer": "No. Enter them through the financing inputs so they are subtracted after NOI rather than counted twice."
-      },
-      {
         "question": "Why can cap rate be positive while cash flow is negative?",
         "answer": "Cap rate excludes debt service. Loan payments can exceed the income left after operating expenses."
       },
@@ -13806,10 +13766,6 @@
       {
         "question": "How do I reverse an exchange rate?",
         "answer": "Take its reciprocal. If one source unit buys r target units, one target unit buys 1/r source units before costs."
-      },
-      {
-        "question": "Are reference rates the same as a bank’s transaction quote?",
-        "answer": "No. A provider can apply its own spread and fees, and market prices can change between observation and execution."
       },
       {
         "question": "Why can the two currencies show different quote dates?",

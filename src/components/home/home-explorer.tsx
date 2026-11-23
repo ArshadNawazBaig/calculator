@@ -24,6 +24,12 @@ export function HomeExplorer({tools}:{tools:Record<ToolCategoryId,HomeFeaturedTo
     <SearchHero id="home-title" eyebrow={t("A little clarity goes a long way")} title={t("Find your answer.")} highlight={t("answer.")}
       description={t("Free calculators for life’s big and small decisions. From your next home to your everyday numbers.")}
       category={category==="all"?undefined:category} onClearCategory={()=>setCategory("all")}/>
+    <nav className={`container ${styles.jumpLinks}`} aria-label={t('On this page')}>
+      <span>{t('On this page')}</span>
+      <a href="#featured-title">{t('Calculators')}</a>
+      <a href="#how-it-works-title">{t('How it works')}</a>
+      <a href="#guides-title">{t('Guides')}</a>
+    </nav>
     <section className={`container ${styles.section}`} aria-labelledby="featured-title">
       <SectionHeading id="featured-title" eyebrow={t("Your everyday toolkit")} title={t("Start with a calculator.")} link={{href:collectionHref,label:collectionLabel}}/>
       <div className={`${tabStyles.tabs} ${styles.filters}`} role="group" aria-label={t("Filter featured calculators")}>{homeFilters.map(filter=><button className={tabStyles.item} key={filter.id} type="button" disabled={!hydrated} aria-pressed={category===filter.id} aria-controls="featured-calculators" onClick={()=>setCategory(filter.id)}>{t(filter.label)}</button>)}</div>

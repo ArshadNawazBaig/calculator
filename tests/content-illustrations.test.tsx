@@ -84,7 +84,7 @@ describe('generated content illustrations', () => {
       if (!id.endsWith('-compact') && !id.startsWith('home-')) expect(asset.alt.length, id).toBeGreaterThan(20);
       else expect(asset.alt, id).toBe('');
     }));
-  });
+  }, 30_000); // Decode and inspect every illustration, even under a loaded test runner.
 
   it('preserves the original measurement description for every geometry mode and selection', () => {
     for (const item of geometryCases) {

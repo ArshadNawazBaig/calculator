@@ -29,7 +29,7 @@ export const ratioGuides: Record<string, InfoPage> = {
         title: 'Share $960 in the ratio 3:5',
         paragraphs: [
           'Add the ratio terms: 3 + 5 = 8 parts. One part is 960 ÷ 8 = 120. Multiply that value by each term: the first share is 3 × 120 = $360, and the second is 5 × 120 = $600. Check both the total, 360 + 600 = 960, and the simplified ratio, 360:600 = 3:5.',
-          'For any two nonnegative weights a:b and total T, the shares are T × a/(a + b) and T × b/(a + b). Finflo’s Scale a ratio mode can perform the final multiplication: enter First term 3, Second term 5, Scale factor 120 and Direction enlarge. Calculate the per-part factor from your total first; the scale-factor field is not a total-amount field.',
+          'For two nonnegative weights a:b whose sum is positive and a total T, the shares are T × a/(a + b) and T × b/(a + b). Finflo’s Scale a ratio mode can perform the final multiplication: enter First term 3, Second term 5, Scale factor 120 and Direction enlarge. Calculate the per-part factor from your total first; the scale-factor field is not a total-amount field.',
         ],
         table: {
           caption: 'The two shares exhaust the $960 example budget',

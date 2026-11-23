@@ -185,6 +185,7 @@
         "title": "Cookies, advertising, and analytics",
         "paragraphs": [
           "Finflo currently loads no advertising networks, marketing analytics, or optional tracking cookies. Your browser may cache pages, code, and public reference data so they can load again more quickly.",
+          "If Finflo enables Google AdSense, Google and its advertising partners may use cookies to choose ads based on previous visits to Finflo or other websites. You can turn off personalized Google ads in My Ad Center.",
           "If these practices change, we will update this notice and provide any relevant preferences before enabling the new service.",
           "When you choose a country or currency, Finflo stores those preferences in this browser’s local storage so they can apply on future visits. Calculator inputs and results are not saved with these preferences. Use “Use language defaults” in the language menu, or clear site data in your browser, to remove them. If browser storage is unavailable, preferences apply only for the current page session.",
           "Saved world clocks and your default clock are stored in this browser when you choose Save clock or Make default. Remove saved clocks individually or clear site data to remove clock preferences. The countdown timer uses this tab’s session storage to restore its state after a reload; this session data normally lasts until the tab is closed. Stopwatch laps stay only on the open page.",
@@ -195,6 +196,14 @@
           {
             "label": "Cookies and preferences",
             "href": "/cookies"
+          },
+          {
+            "label": "Google My Ad Center",
+            "href": "https://myadcenter.google.com/"
+          },
+          {
+            "label": "How Google uses data on partner sites",
+            "href": "https://policies.google.com/technologies/partner-sites"
           }
         ]
       },
@@ -215,7 +224,7 @@
         "title": "External links and updates",
         "paragraphs": [
           "External sources and services linked from Finflo have their own privacy practices. This notice describes Finflo’s current functionality.",
-          "Last updated November 9, 2026."
+          "Last updated November 23, 2026."
         ]
       }
     ]
@@ -378,10 +387,28 @@
         ]
       },
       {
+        "title": "Documented corrections",
+        "paragraphs": [
+          "November 23, 2026. Selecting a city on the world clock could leave the meeting planner on UTC. The city selector and saved default now set the source for the meeting, date and offset comparisons.",
+          "November 23, 2026. Some Arabic deduction and withdrawal instructions expanded IRA incorrectly. The revised instructions identify the U.S. individual retirement account and distinguish it from an employer retirement plan."
+        ],
+        "links": [
+          {
+            "label": "World Clock",
+            "href": "/time"
+          },
+          {
+            "label": "IRA Calculator",
+            "href": "/ira-calculator"
+          }
+        ]
+      },
+      {
         "title": "Review schedule",
         "paragraphs": [
           "We review time-dependent sources before adding a new supported year and when a relevant official update is identified. Source-link checks run weekly; formula, language and browser checks accompany affected releases.",
-          "A working reference link does not prove that every statement is current. Translations receive separate review for numbers, units, scope and meaning. Automated checks do not replace specialist or fluent-language review."
+          "A working reference link does not prove that every statement is current. Translations receive separate review for numbers, units, scope and meaning. Automated checks do not replace specialist or fluent-language review.",
+          "Some language versions use machine-assisted drafts and may not have been independently reviewed. The language does not change a calculator’s stated region, tax year, or assumptions."
         ]
       }
     ]

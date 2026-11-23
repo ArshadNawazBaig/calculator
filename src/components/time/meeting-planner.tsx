@@ -56,5 +56,13 @@ export function MeetingPlanner({source,date:initialDate,initial}: {source:string
       <tbody>{[[comparison.source,comparison.sourceOffset,comparison.sourceTime],[comparison.destination,comparison.destinationOffset,comparison.destinationTime]].map(([zone,offset,localTime],index)=><tr key={index}><th scope="row"><small>{t(index===0?'Source':'Destination')}</small><br/><span dir="ltr">{zone}</span></th><td><time dateTime={new Date(comparison.epoch).toISOString()}>{localTime}</time></td><td dir="ltr">{offset}</td></tr>)}</tbody>
     </table></div>
     <p data-meeting-summary>{comparison.minuteDifference === 0 ? t('Both locations have the same local time and calendar date.') : t(comparison.minuteDifference > 0 ? 'The destination is {duration} ahead of the source, {day}.' : 'The destination is {duration} behind the source, {day}.',{duration,day:dayText})}{' '}{t('Offsets apply to this date; a different date may change the difference.')}</p>
+    {comparison.nextWeek && <div data-weekly-meeting>
+      <h3>{t('Same source time one week later')}</h3>
+      {comparison.nextWeek.times.length === 0 && <p>{t('On {date}, the source clock skips this time in {zone}. Choose another time for that week.',{date:comparison.nextWeek.date,zone:source})}</p>}
+      {comparison.nextWeek.times.length === 2 && <p>{t('On {date}, this time occurs twice in {zone}. The two destination times are shown in order.',{date:comparison.nextWeek.date,zone:source})}</p>}
+      {comparison.nextWeek.times.map(next => <p key={next.epoch}>
+        <bdi>{comparison.destination}</bdi>{' · '}<time dateTime={new Date(next.epoch).toISOString()}>{next.destinationTime}</time>{' · '}<bdi>{next.offset}</bdi>
+      </p>)}
+    </div>}
   </section>;
 }

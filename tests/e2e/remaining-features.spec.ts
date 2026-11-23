@@ -7,6 +7,28 @@ const choose = async (page: Page, title: string) => {
 };
 const calculate = (page: Page) => page.getByRole('button', {name: 'Calculate', exact: true}).click();
 
+test('changing methods retires the previous form while new inputs load', async ({page}) => {
+  await page.goto('/golf-handicap-calculator');
+  const mixed = page.getByRole('button', {name:'Mixed rounds with verified differentials', exact:true});
+  await expect(mixed).toBeEnabled();
+  let release = () => {};
+  const ready = new Promise<void>(resolve => {release = resolve;});
+  await page.route(/\/_next\/static\/chunks\/.*\.js(?:\?.*)?$/, async route => {
+    await ready;
+    await route.continue();
+  });
+  try {
+    await mixed.click();
+    await expect(mixed).toHaveAttribute('aria-pressed','true');
+    await expect(page.locator('#calculator-inputs[data-mode="index"]')).toBeHidden();
+  } finally {
+    release();
+  }
+  await calculate(page);
+  await expect(page.locator('#calculator-inputs')).toHaveAttribute('data-mode','mixed-rounds');
+  await expect(page.locator('.primary-metric dd')).toHaveText('8');
+});
+
 test('regional sizing and documented boundaries work in the form', async ({page}) => {
   await page.goto('/bra-size-calculator');
   await choose(page, 'International bra label conversion');

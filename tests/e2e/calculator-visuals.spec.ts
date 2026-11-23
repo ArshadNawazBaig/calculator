@@ -5,7 +5,8 @@ test('calculator images and share metadata appear in crawlable mobile HTML', asy
   const context = await browser.newContext({javaScriptEnabled: false, viewport: {width: 390, height: 844}, userAgent: 'Googlebot'});
   const page = await context.newPage();
   for (const slug of ['age-calculator', 'mortgage-calculator', 'area-calculator', 'real-estate-calculator']) {
-    const response = await page.goto('/' + slug, {waitUntil: 'domcontentloaded'});
+    // Measure the styled, JavaScript-free layout. DOMContentLoaded can precede the first paint.
+    const response = await page.goto('/' + slug, {waitUntil: 'load'});
     expect(response?.status()).toBe(200);
     const figure = page.locator('[data-calculator-visual]');
     const image = figure.getByRole('img');

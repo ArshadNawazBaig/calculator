@@ -48,9 +48,11 @@ for(const path of ['/','/mortgage-calculator','/bmi-calculator','/calculators','
 test('404, canonical, indexing, and structured data',async({page,request})=>{expect((await request.get('/this-tool-does-not-exist')).status()).toBe(404);const response=await page.goto('/mortgage-calculator');expect(response?.status()).toBe(200);await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://finflo.org/mortgage-calculator');await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',process.env.TEST_INDEXABLE==='true'?'index, follow':'noindex, follow');const schemas=await page.locator('script[type="application/ld+json"]').allTextContents();expect(schemas.map(s=>JSON.parse(s)['@type'])).toEqual(['WebApplication','BreadcrumbList']);expect((await request.get('/favicon.ico')).status()).toBe(200);const redirect=await request.get('/percentage-calculator',{maxRedirects:0});expect(redirect.status()).toBe(308);});
 
 test('new logo and sharing assets load across page templates',async({page,request})=>{
-  for(const path of ['/','/mortgage-calculator','/bmi-calculator']){
+  for(const [path,asset] of [['/','/og.png'],['/mortgage-calculator','/illustrations/calculators/mortgage-calculator-social.jpg'],['/bmi-calculator','/illustrations/calculators/bmi-calculator-social.jpg']]){
     await page.goto(path);const logo=page.locator('header .logo img:visible');await expect(logo).toHaveAttribute('src',/\/finflo-logo-(light|dark)\.webp/);await expect.poll(()=>logo.evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0)).toBe(true);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://finflo.org/og.png');await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://finflo.org/og.png');
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
+    expect((await request.get(asset)).ok()).toBe(true);
     await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href','/apple-touch-icon.png');
   }
   for(const asset of ['/finflo-logo-light.webp','/finflo-logo-dark.webp','/favicon.ico','/favicon-16x16.png','/favicon-32x32.png','/apple-touch-icon.png','/icon-192.png','/icon-512.png','/site.webmanifest','/og.png'])expect((await request.get(asset)).status(),asset).toBe(200);

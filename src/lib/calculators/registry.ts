@@ -1,5 +1,6 @@
 import {separateStudentCalculators} from './student-definitions';
 import methodCopy from '@/data/method-copy.json';
+import cpi from '@/data/us-cpi-u-monthly.json';
 import {toolkitDefinitions} from './toolkit-definitions';
 import {calculatorFamilies, relatedCalculatorSlugs} from '@/data/calculator-relationships';
 import {remainingDefinitions} from './remaining-definitions';
@@ -40,7 +41,7 @@ export const catalog=rawCatalog as CatalogEntry[];
 export const definitions:Definition[]=structuredClone([...financeCoreDefinitions,...financeExtraDefinitions,...healthDefinitions,...mathDefinitions,...everydayDefinitions,roadRouteDefinition,...toolkitDefinitions]);
 for(const [slug,modes]of Object.entries(advancedFinanceDefinitions())){const d=definitions.find(d=>d.slug===slug)!;if(slug==='lease-calculator'||slug==='inflation-calculator')d.modes.unshift(...modes);else d.modes.push(...modes);}
 const lease=definitions.find(d=>d.slug==='lease-calculator')!;lease.description='Calculate an asset-financing lease payment or implied rate from asset value, residual, and term.';
-const inflation=definitions.find(d=>d.slug==='inflation-calculator')!;inflation.description='Compare historical US purchasing power using official CPI data, or explore an assumed future inflation rate.';inflation.sources.push({title:'BLS CPI-U all items, US city average (CUUR0000SA0)',url:'https://data.bls.gov/timeseries/CUUR0000SA0'});inflation.notes=['Historical calculations use a versioned BLS dataset. Future scenarios use your assumed rate; they are not forecasts.'];
+const inflation=definitions.find(d=>d.slug==='inflation-calculator')!;inflation.description='Compare historical US purchasing power using official CPI data, or explore an assumed future inflation rate.';inflation.sources.push({title:'BLS CPI-U all items, US city average (CUUR0000SA0)',url:'https://data.bls.gov/timeseries/CUUR0000SA0'},{title:'BLS release for the latest month in this dataset',url:cpi.latestObservation.releaseUrl});inflation.notes=['Historical calculations use a versioned BLS dataset. Future scenarios use your assumed rate; they are not forecasts.'];
 for(const d of definitions){if(d.slug==='canadian-mortgage-calculator'||d.slug==='mortgage-calculator-uk'){const symbol=d.slug==='mortgage-calculator-uk'?'£':'CAD';d.modes=d.modes.map(mode=>({...mode,fields:mode.fields.map(f=>({...f,unit:f.unit?.replace('$',symbol),...(d.slug==='canadian-mortgage-calculator'&&f.key==='years'?{label:'Amortization period'}:{})}))}));}}
 for(const [slug,modes]of Object.entries(growthFinanceDefinitions())){const d=definitions.find(d=>d.slug===slug);if(!d)throw Error('Missing '+slug);d.modes.push(...modes);}
 for(const [slug,modes]of Object.entries(planningFinanceDefinitions())){const d=definitions.find(d=>d.slug===slug);if(!d)throw Error('Missing '+slug);d.modes.push(...modes);}

@@ -49,6 +49,12 @@ test('serialized clock strings hydrate even if browser date formatting differs',
   await page.goto('/time');
   await expect(page.locator('[data-live-clock]')).toContainText('browser:');
   await expect(page.locator('#clock-zone')).toContainText('Asia/Tokyo');
+  await expect(page.locator('[data-meeting-result] tbody th').first()).toContainText('Asia/Tokyo');
+  await expect(page.locator('[data-meeting-result]')).toContainText('browser:');
+  // A regional URL keeps its own serialized comparison even when the saved clock differs.
+  await page.goto('/time/asia-karachi');
+  await expect(page.locator('[data-live-clock]')).toContainText('browser:');
+  await expect(page.locator('[data-meeting-result] tbody th').first()).toContainText('Asia/Karachi');
   await expect(page.locator('[data-meeting-result]')).not.toContainText('browser:');
   expect(errors).toEqual([]);
 });
@@ -103,15 +109,22 @@ test('clock dropdown searches zones, updates dates, saves the choice and keeps c
   await expect(page.locator('[data-live-clock]')).toContainText('14:30:');
   await expect(page.locator('[data-clock-date]')).toContainText('December 31, 2025');
   await expect(page.getByRole('heading', {name: 'Today in Honolulu'})).toBeVisible();
+  const sourceCell = page.locator('[data-meeting-result] tbody tr').first().getByRole('rowheader');
+  await expect(sourceCell).toContainText('Pacific/Honolulu');
+  await expect(page.locator('[data-clock-comparison] tbody tr').first()).toContainText('Pacific/Honolulu');
+  await expect(page.locator('caption').filter({hasText:'Pacific/Honolulu'})).toBeVisible();
   await expect(page.getByText('UTC−10:00', {exact: true}).first()).toBeVisible();
   await page.getByRole('button', {name: 'Save clock', exact: true}).click();
   await page.getByRole('button', {name: 'Make default'}).click();
   await page.reload();
   await expect(picker).toContainText('Pacific/Honolulu');
+  await expect(sourceCell).toContainText('Pacific/Honolulu');
   await expect(page.getByRole('button', {name: 'Saved clock', exact: true})).toBeVisible();
   const localTime = await page.evaluate(() => new Intl.DateTimeFormat('en', {hour: '2-digit', minute: '2-digit', hourCycle: 'h23'}).format(Date.parse('2026-01-01T00:30:00Z')));
   await page.getByRole('button', {name: 'Use my time zone'}).click();
   await expect(page.locator('[data-live-clock]')).toContainText(localTime);
+  const deviceZone = await page.evaluate(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
+  await expect(sourceCell).toContainText(deviceZone);
 
   await page.goto('/time/asia-karachi');
   await picker.click();

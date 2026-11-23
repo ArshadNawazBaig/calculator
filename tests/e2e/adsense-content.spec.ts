@@ -64,9 +64,23 @@ test('worked guides and comparison tables are readable without JavaScript',async
   }finally{await context.close();}
 });
 
+test('the initial purchasing-power worksheet and its data date are visible without JavaScript',async({browser})=>{
+  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
+  try {
+    const page=await context.newPage();
+    await page.goto('/inflation-calculator');
+    await expect(page.locator('main #historical-to')).toBeVisible();
+    const hint=page.locator('main #historical-to-hint');
+    await expect(hint).toBeVisible();
+    await expect(hint).toContainText('Source checked');
+  } finally {
+    await context.close();
+  }
+});
+
 test('new guides link to working calculator modes and are discoverable from tools',async({page})=>{
   await page.goto('/percent-calculator');
-  await page.locator('#related-guides a').click();
+  await page.locator('#related-guides').getByRole('link',{name:'Compare discounts by the amount you actually pay',exact:true}).click();
   await expect(page).toHaveURL(/comparing-discounts-and-percentage-changes$/);
   await page.getByRole('link',{name:'Recover an original value with the percentage calculator'}).click();
   await expect(page.locator('#reverse-final')).toBeVisible();

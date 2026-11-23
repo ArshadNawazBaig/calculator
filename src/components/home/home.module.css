@@ -10,6 +10,9 @@
 .sectionImage { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
 
 /* A consistent row of useful tools, with one separate topical feature. */
+.jumpLinks { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding-block-start: 20px; font-size: 14px; line-height: 1.5; }
+.jumpLinks span { color: var(--color-muted); }
+.jumpLinks a { color: var(--color-brand-text-strong); text-decoration: underline; text-underline-offset: 4px; }
 .filters { margin-bottom: 22px; }
 .featuredLayout { display: grid; gap: 24px; }
 .featuredGroups { display: grid; gap: 28px; }

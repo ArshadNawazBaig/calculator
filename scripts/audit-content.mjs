@@ -13,7 +13,7 @@ const [copy, directories, translatedPaths] = await Promise.all([
 const server = await createServer({configFile: false, server: {middlewareMode: true}, resolve: {alias: {'@': resolve('src')}}});
 const issues = [], pages = [], descriptions = new Map(), titles = new Map();
 try {
-  const {definitions, catalog, noInitialExampleTools} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
+  const {definitions, catalog, isIndexableTool, noInitialExampleTools} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
   const paths = [...new Set([...translatedPaths, ...Object.keys(guides).map(slug=>`/guides/${slug}`)])];
   const {information} = await server.ssrLoadModule('/src/data/information.ts');
@@ -58,15 +58,27 @@ try {
       const guide = wheelGuides[wheel.slug];
       if (!guide?.steps.length || !guide.questions.length) issues.push(`${path}: missing wheel instructions or FAQ`);
       page = {path, kind: 'spin-wheel', title: wheel.title, guideSections: guide?.sections.length || 0, faqs: guide?.questions.length || 0};
-    } else if (directories[path]) {
-      const entry = directories[path];
+    } else if (directories[path] || path === '/real-estate-calculator') {
+      // The real-estate collection deliberately reuses the mortgage directory
+      // guidance; it is a public directory, not a calculator definition.
+      const guidancePath = path === '/real-estate-calculator' ? '/calculators/finance/mortgage-and-real-estate' : path;
+      if (path === '/real-estate-calculator' && (!catalog.some(tool => tool.slug === 'real-estate-calculator' && tool.type === 'directory') || !isIndexableTool('real-estate-calculator'))) {
+        issues.push(`${path}: expected an indexable directory in the calculator catalog`);
+      }
+      const entry = directories[guidancePath];
+      if (!entry) {
+        issues.push(`${path}: missing directory guidance at ${guidancePath}`);
+        page = {path, kind: 'calculator-directory', guideSections: 0, relatedGuides: []};
+        pages.push(page);
+        continue;
+      }
       for (const section of entry.sections) for (const link of section.links) {
         if (!paths.includes(link.href)) issues.push(`${path}: directory link missing from indexable routes: ${link.href}`);
       }
       for (const slug of entry.guides || []) {
         if (!guides[slug]) issues.push(`${path}: unknown guide: ${slug}`);
       }
-      page = {path, kind: 'calculator-directory', guideSections: entry.sections.length, relatedGuides: entry.guides || []};
+      page = {path, kind: 'calculator-directory', guidancePath, guideSections: entry.sections.length, relatedGuides: entry.guides || []};
     } else if (path === studentDirectory.path) page = {path, kind: 'student-directory'};
     else if (guides[path.replace(/^\/guides\//, '')]) {
       const guide = guides[path.replace(/^\/guides\//, '')];

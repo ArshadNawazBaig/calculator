@@ -10,10 +10,11 @@ import {calendarFacts, nextClockChange, offsetLabel, offsetMinutes, supportsZone
 import {zones, zoneById, zoneHref, type ClockZone} from '@/lib/time/catalog';
 import {defaultClockIds, type ClockSnapshot} from '@/lib/time/snapshot';
 import {useClock} from './use-clock';
+import {SelectedClockZone} from './selected-clock-comparison';
 import styles from './time.module.css';
 
 const savedKey = 'finflo-world-clocks-v1', defaultKey = 'finflo-default-clock-v1';
-export function WorldClock({initialZone, initialSnapshot, countries, breadcrumbs, introduction, navigation}: {initialZone?: ClockZone; initialSnapshot: ClockSnapshot; countries: Record<string, string>; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode}) {
+export function WorldClock({initialZone, initialSnapshot, countries, breadcrumbs, introduction, navigation, children}: {initialZone?: ClockZone; initialSnapshot: ClockSnapshot; countries: Record<string, string>; breadcrumbs: ReactNode; introduction: ReactNode; navigation: ReactNode; children: ReactNode}) {
   const {t, locale, href} = useI18n(), hydrated = useHydrated();
   const zoneOptions = useMemo(() => zones.map(zone => ({value: zone.id, label: [countries[zone.country], zone.place, zone.place === zone.id ? '' : zone.id].filter(Boolean).join(' · ')})), [countries]);
   const clock = useClock();
@@ -111,5 +112,6 @@ export function WorldClock({initialZone, initialSnapshot, countries, breadcrumbs
       <p className={styles.note}>{t('Initial clock details use server time-zone data; live updates use your browser’s data. Keep your browser updated for new local rules. Week numbers follow ISO 8601.')}</p>
     </section>
     </div>
+    <SelectedClockZone.Provider value={zone.id}>{children}</SelectedClockZone.Provider>
   </>;
 }

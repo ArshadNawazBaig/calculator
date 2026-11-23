@@ -1,5 +1,5 @@
 import {createServer} from 'vite';
-import {mkdir, writeFile} from 'node:fs/promises';
+import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {dirname, resolve} from 'node:path';
 
 const output = process.env.SOURCE_OUTPUT || 'docs/validation/source-links.json';
@@ -17,8 +17,9 @@ try {
   const {definitions} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {guides} = await server.ssrLoadModule('/src/data/guides.ts');
   const {information} = await server.ssrLoadModule('/src/data/information.ts');
+  const articles = JSON.parse(await readFile(new URL('../src/data/calculator-content.json', import.meta.url),'utf8'));
   for (const tool of definitions) for (const source of tool.sources) add(source.url, `/${tool.slug}`, source.title);
-  for (const [slug, page] of [...Object.entries(information), ...Object.entries(guides).map(([slug,page])=>[`guides/${slug}`,page])]) {
+  for (const [slug, page] of [...Object.entries(articles), ...Object.entries(information), ...Object.entries(guides).map(([slug,page])=>[`guides/${slug}`,page])]) {
     for (const section of page.sections) for (const link of section.links || []) add(link.href, `/${slug}`, link.label);
   }
 } finally { await server.close(); }
@@ -75,7 +76,7 @@ for (const entry of entries) {
 await Promise.all(pending);
 results.sort((a,b)=>a.url.localeCompare(b.url));
 const counts = Object.fromEntries([...new Set(results.map(item=>item.classification))].map(key=>[key,results.filter(item=>item.classification===key).length]));
-const report = {checkedAt:new Date().toISOString(),scope:'Distinct external references rendered by calculator definitions, guides and information pages.',limitations:['Reachability does not establish factual correctness or licensing.','Blocked requests and timeouts remain unverified, not confirmed broken links.','Fragment checks inspect server HTML only; PDF page fragments are not checked.'],counts,total:results.length,results};
+const report = {checkedAt:new Date().toISOString(),scope:'Distinct external references from calculator definitions and articles, guides and information pages.',limitations:['Reachability does not establish factual correctness or licensing.','Blocked requests and timeouts remain unverified, not confirmed broken links.','Fragment checks inspect server HTML only; PDF page fragments are not checked.'],counts,total:results.length,results};
 await mkdir(dirname(output),{recursive:true});
 await writeFile(output,JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({output,total:results.length,...counts}));

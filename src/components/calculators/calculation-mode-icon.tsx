@@ -103,7 +103,7 @@ const algorithmGroups: Partial<Record<IconName, readonly string[]>> = {
   Network: ['ipv4', 'ipv6'],
   Package: ['landscape-purchasing', 'roof-packages'],
   Percent: ['simple-interest', 'interest-only', 'down-percent', 'percent-of', 'percent-change', 'retail-tax'],
-  PiggyBank: ['retirement-save', 'retirement-account', 'roth', 'ira-limit', 'tax-ira-deduction-2026'],
+  PiggyBank: ['retirement-save', 'retirement-account', 'roth', 'ira-limit', 'ira-limit-2027', 'tax-ira-deduction-2026'],
   Plus: ['percent-adjust'],
   Proportions: ['proportion-all', 'body-ratios', 'bra', 'bra-legacy', 'fashion-ffit', 'bsa'],
   Radical: ['normal-inverse'],
