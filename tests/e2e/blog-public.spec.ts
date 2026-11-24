@@ -1,6 +1,100 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test.describe('blog article cards', () => {
+  test.use({javaScriptEnabled: false});
+
+  test('aligns the read buttons in each row and opens the selected article by keyboard', async ({page}) => {
+    await page.goto('/blog');
+    const cards = page.locator('main article').filter({has: page.locator('h2 a[href^="/blog/"]')});
+    const count = await cards.count();
+    test.skip(count === 0, 'This check needs a published article.');
+    const buttons = cards.getByRole('button', {name: /^Read article\b/});
+    await expect(buttons).toHaveCount(count);
+
+    for (const width of [1440, 860, 375]) {
+      await page.setViewportSize({width, height: 900});
+      const positions = await buttons.evaluateAll(elements => elements.map(button => {
+        const card = button.closest('article')!;
+        const style = getComputedStyle(card);
+        const box = card.getBoundingClientRect();
+        const bottom = button.getBoundingClientRect().bottom;
+        return {row: box.top, bottom, expected: box.bottom - parseFloat(style.borderBottomWidth) - parseFloat(style.paddingBottom)};
+      }));
+      const rows = new Map<number, number>();
+      for (const {row, bottom, expected} of positions) {
+        expect(bottom).toBeCloseTo(expected, 0);
+        expect(bottom).toBeCloseTo(rows.get(row) ?? bottom, 0);
+        rows.set(row, bottom);
+      }
+    }
+
+    const titleLink = cards.first().locator('h2 a');
+    const path = await titleLink.getAttribute('href');
+    const title = await titleLink.innerText();
+    await buttons.first().focus();
+    await page.keyboard.press('Space');
+    await expect(page).toHaveURL(url => url.pathname === path);
+    await expect(page.getByRole('heading', {level: 1, name: title, exact: true})).toBeVisible();
+  });
+});
+
+test('pins related calculators while scrolling the article with the wheel over a card', async ({page}) => {
+  await page.goto('/blog');
+  const articleLink = page.locator('main article h2 a[href^="/blog/"]').first();
+  test.skip(await articleLink.count() === 0, 'The blog needs a published article for this reading-layout check.');
+  const errors: string[] = [];
+  page.on('console', message => {
+    if (['error', 'warning'].includes(message.type()) && /hydrat|didn.t match/i.test(message.text())) errors.push(message.text());
+  });
+  page.on('pageerror', error => errors.push(error.message));
+  await articleLink.click();
+  const sidebar = page.getByRole('complementary', {name: /^(Related|Featured) calculators$/});
+  await sidebar.waitFor();
+  await page.evaluate(async () => {
+    // Give short posts room to scroll while preserving the server-rendered markup.
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync('[data-blog-markdown] { min-height: 2400px; }');
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+    await document.fonts.ready;
+  });
+
+  for (const viewport of [{width: 1440, height: 857}, {width: 860, height: 740}, {width: 720, height: 530}]) {
+    await page.setViewportSize(viewport);
+    await page.evaluate(() => window.scrollTo({top: 0, behavior: 'instant'}));
+    const article = await page.locator('article[aria-labelledby="page-title"]').boundingBox();
+    const start = await sidebar.boundingBox();
+    expect(start!.x).toBeGreaterThan(article!.x + article!.width);
+    expect(start!.y).toBeCloseTo(article!.y, 0);
+
+    await page.evaluate(y => window.scrollTo({top: y, behavior: 'instant'}), start!.y + start!.height);
+    await expect.poll(async () => {
+      const box = await sidebar.boundingBox();
+      return viewport.height - (box!.y + box!.height);
+    }).toBeCloseTo(16, 0);
+    const pinned = await sidebar.boundingBox();
+    expect(pinned!.y).toBeLessThanOrEqual(24);
+    expect(await sidebar.locator('.related-card-grid').evaluate(list => list.scrollHeight - list.clientHeight)).toBeLessThanOrEqual(1);
+    const card = await sidebar.getByRole('link').last().boundingBox();
+    expect(card!.y).toBeGreaterThanOrEqual(0);
+    expect(card!.y + card!.height).toBeLessThanOrEqual(viewport.height);
+
+    await page.mouse.move(card!.x + card!.width / 2, card!.y + card!.height / 2);
+    const before = await page.evaluate(() => scrollY);
+    await page.mouse.wheel(0, 250);
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(before + 240);
+    expect((await sidebar.boundingBox())!.y).toBeCloseTo(pinned!.y, 0);
+
+    await page.mouse.wheel(0, -Math.ceil(pinned!.height));
+    await expect.poll(async () => (await sidebar.boundingBox())!.y).toBeCloseTo(16, 0);
+    await page.evaluate(() => window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'instant'}));
+    const end = await sidebar.getByRole('link').last().boundingBox();
+    const footer = await page.locator('footer.site-footer').boundingBox();
+    expect(end!.y + end!.height).toBeLessThanOrEqual(footer!.y);
+  }
+  expect(errors).toEqual([]);
+});
+
 test('blog has real content or useful existing guides, accessible mobile navigation and safe metadata',async({page})=>{
   await page.setViewportSize({width:360,height:844});
   const response=await page.goto('/blog');

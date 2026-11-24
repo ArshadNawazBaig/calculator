@@ -5,7 +5,7 @@ const mocks = vi.hoisted(() => ({configured: vi.fn(), db: vi.fn(), authorize: vi
 vi.mock('server-only', () => ({}));
 vi.mock('@/lib/server/db', () => ({getDb: mocks.db, isDatabaseConfigured: mocks.configured}));
 vi.mock('@/lib/server/auth', () => ({requireSuperAdmin: mocks.authorize}));
-import {BlogConflictError, BlogUnavailableError, BlogValidationError, findPublishedPostBySlug, getAdminPost, getPublishedPostSitemapEntries, listAdminPosts, listPublishedPosts, saveBlogPost, setBlogPostStatus} from '@/lib/server/blog';
+import {BlogConflictError, BlogUnavailableError, BlogValidationError, deleteBlogPost, findPublishedPostBySlug, getAdminPost, getPublishedPostSitemapEntries, listAdminPosts, listPublishedPosts, listRelatedPublishedPosts, saveBlogPost, setBlogPostStatus} from '@/lib/server/blog';
 
 const id = '1b67a110-f2d0-4a26-a260-1a2ed7bf9588';
 const row: BlogPost = {id, slug: 'local-test-example', title: 'Local test example', excerpt: 'This post exists only in a unit-test fixture.', content: 'A readable worked example for local testing.', category: 'Math', coverImageUrl: null, coverImageAlt: '', seoTitle: '', seoDescription: '', status: 'published', authorId: 'original-author', authorName: 'Fixture Author', publishedAt: '2026-11-09T10:00:00.000Z', createdAt: '2026-11-08T10:00:00.000Z', updatedAt: '2026-11-09T10:00:00.000Z', version: 1};
@@ -27,6 +27,7 @@ describe('public blog repository boundaries', () => {
     mocks.configured.mockReturnValue(false);
     expect(await listPublishedPosts()).toEqual({posts: [], total: 0});
     expect(await findPublishedPostBySlug(row.slug)).toBeNull();
+    expect(await listRelatedPublishedPosts(row)).toEqual([]);
     expect(await getPublishedPostSitemapEntries()).toEqual([]);
     expect(mocks.db).not.toHaveBeenCalled();
     expect(mocks.authorize).not.toHaveBeenCalled();
@@ -49,12 +50,31 @@ describe('public blog repository boundaries', () => {
     expect(query.mock.calls[0][0]).toContain("AND p.status = 'published'");
     expect(query.mock.calls[0][1]).toEqual(['valid-draft-slug']);
   });
+  it('returns up to three other published posts from the category, newest first', async () => {
+    const match = {slug: 'more-math', title: 'More math', category: 'Math', coverImageUrl: null, coverImageAlt: ''};
+    query.mockResolvedValue({rows: [match]});
+    expect(await listRelatedPublishedPosts(row)).toEqual([match]);
+    expect(query).toHaveBeenCalledOnce();
+    const [sql, params] = query.mock.calls[0];
+    expect(sql).toContain("status = 'published' AND id <> $1 AND category = $2");
+    expect(sql).toContain('ORDER BY published_at DESC, id DESC LIMIT 3');
+    expect(params).toEqual([row.id, row.category]);
+  });
+  it('falls back to recent published posts only when the category has no other articles', async () => {
+    const recent = {slug: 'recent-guide', title: 'Recent guide', category: 'Finance', coverImageUrl: null, coverImageAlt: ''};
+    query.mockResolvedValueOnce(empty).mockResolvedValueOnce({rows: [recent]});
+    expect(await listRelatedPublishedPosts(row)).toEqual([recent]);
+    const [sql, params] = query.mock.calls[1];
+    expect(sql).toContain("status = 'published' AND id <> $1 AND category <> $2");
+    expect(sql).toContain('ORDER BY published_at DESC, id DESC LIMIT 3');
+    expect(params).toEqual([row.id, row.category]);
+  });
   it('normalizes database timestamps and includes only published sitemap entries', async () => {
     query.mockResolvedValue({rows: [{slug: row.slug, updatedAt: new Date(row.updatedAt)}]});
     expect(await getPublishedPostSitemapEntries()).toEqual([{slug: row.slug, updatedAt: row.updatedAt}]);
     expect(query.mock.calls[0][1]).toEqual(['published']);
   });
-  it.each([() => listPublishedPosts(), () => findPublishedPostBySlug(row.slug), () => getPublishedPostSitemapEntries()])('throws a sanitized outage when a configured database fails', async run => {
+  it.each([() => listPublishedPosts(), () => findPublishedPostBySlug(row.slug), () => listRelatedPublishedPosts(row), () => getPublishedPostSitemapEntries()])('throws a sanitized outage when a configured database fails', async run => {
     query.mockRejectedValue(new Error('SELECT private_table; password=secret'));
     try {await run(); expect.fail('Expected a configured outage');} catch (error) {
       expect(error).toBeInstanceOf(BlogUnavailableError);
@@ -65,7 +85,7 @@ describe('public blog repository boundaries', () => {
 
 describe('admin authorization and safe filtering', () => {
   it.each([
-    () => listAdminPosts(), () => getAdminPost(id), () => saveBlogPost(input), () => setBlogPostStatus(id, 'archived', 1),
+    () => listAdminPosts(), () => getAdminPost(id), () => saveBlogPost(input), () => setBlogPostStatus(id, 'archived', 1), () => deleteBlogPost(id, 1),
   ])('authorizes at the repository entry before accessing data', async run => {
     const denied = new Error('Access denied by auth fixture');
     mocks.authorize.mockRejectedValue(denied);
@@ -82,6 +102,30 @@ describe('admin authorization and safe filtering', () => {
 });
 
 describe('atomic editorial writes', () => {
+  it.each(['draft', 'published', 'archived'])('deletes a %s at its reviewed version and records the authenticated actor', async status => {
+    clientQuery.mockResolvedValueOnce(empty).mockResolvedValueOnce({rows: [{slug: row.slug, status, version: 7}]});
+    await expect(deleteBlogPost(id, 7)).resolves.toBe(row.slug);
+    expect(clientQuery.mock.calls[1]).toEqual([expect.stringContaining('WHERE id = $1 AND version = $2'), [id, 7]]);
+    expect(clientQuery.mock.calls[2]).toEqual([expect.stringContaining('INSERT INTO blog_post_audit'), [id, 'authorized-author', 'deleted', status, 'deleted', 8]]);
+    expect(clientQuery.mock.calls.at(-1)?.[0]).toBe('COMMIT');
+  });
+  it('rejects a stale deletion and preserves the newer article', async () => {
+    clientQuery.mockResolvedValueOnce(empty).mockResolvedValueOnce(empty).mockResolvedValueOnce({rows: [{exists: 1}]});
+    await expect(deleteBlogPost(id, 1)).rejects.toBeInstanceOf(BlogConflictError);
+    expect(clientQuery.mock.calls.at(-1)?.[0]).toBe('ROLLBACK');
+    expect(clientQuery.mock.calls.some(([sql]) => String(sql).startsWith('INSERT'))).toBe(false);
+  });
+  it('allows a delete retry after the article is gone without duplicating the audit event', async () => {
+    await expect(deleteBlogPost(id, 1)).resolves.toBeNull();
+    expect(clientQuery.mock.calls.some(([sql]) => String(sql).startsWith('INSERT'))).toBe(false);
+    expect(clientQuery.mock.calls.at(-1)?.[0]).toBe('COMMIT');
+  });
+  it('rolls back the deletion if its audit event cannot be recorded', async () => {
+    clientQuery.mockResolvedValueOnce(empty).mockResolvedValueOnce({rows: [row]}).mockRejectedValueOnce(new Error('audit unavailable'));
+    await expect(deleteBlogPost(id, 1)).rejects.toBeInstanceOf(BlogUnavailableError);
+    expect(clientQuery.mock.calls.at(-1)?.[0]).toBe('ROLLBACK');
+    expect(release).toHaveBeenCalledOnce();
+  });
   it('creates a draft with the authenticated author, ignoring form author and timestamps', async () => {
     clientQuery.mockImplementation(async (sql: string, values?: unknown[]) => {
       if (sql.startsWith('SELECT')) return {rows: [{...row, id: 'server-generated', status: 'draft', publishedAt: null, authorId: 'authorized-author'}]};

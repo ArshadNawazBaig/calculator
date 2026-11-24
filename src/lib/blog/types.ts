@@ -24,6 +24,7 @@ export type BlogPost = {
   version: number;
 };
 export type BlogPostSummary = Omit<BlogPost, 'content'>;
+export type RelatedBlogPost = Pick<BlogPost, 'slug' | 'title' | 'category' | 'coverImageUrl' | 'coverImageAlt'>;
 export type BlogPostInput = Pick<BlogPost,
   'slug' | 'title' | 'excerpt' | 'content' | 'category' | 'coverImageUrl' |
   'coverImageAlt' | 'seoTitle' | 'seoDescription' | 'status'>;

@@ -1,6 +1,7 @@
 import Link from '@/components/document-link';
 import {FileText, Plus} from 'lucide-react';
 import type {BlogPostSummary} from '@/lib/blog/types';
+import {DeletePostButton} from './delete-post-button';
 import styles from './admin.module.css';
 
 export function PostTable({posts}: {posts: BlogPostSummary[]}) {
@@ -16,7 +17,11 @@ export function PostTable({posts}: {posts: BlogPostSummary[]}) {
       <td><Link href={`/admin/posts/${post.id}`}>{post.title || 'Untitled draft'}</Link><div className={styles.muted}>{post.category}</div></td>
       <td><span className={`${styles.badge} ${post.status === 'published' ? styles.published : ''}`}>{post.status}</span></td>
       <td><time dateTime={new Date(post.updatedAt).toISOString()}>{new Intl.DateTimeFormat('en', {dateStyle: 'medium', timeZone: 'UTC'}).format(new Date(post.updatedAt))}</time></td>
-      <td><div className={styles.tableActions}><Link href={`/admin/posts/${post.id}/preview`}>Preview</Link>{post.status === 'published' && <Link href={`/blog/${post.slug}`}>Live page</Link>}</div></td>
+      <td><div className={styles.tableActions}>
+        <Link href={`/admin/posts/${post.id}/preview`}>Preview</Link>
+        {post.status === 'published' && <Link href={`/blog/${post.slug}`}>Live page</Link>}
+        <DeletePostButton key={post.version} id={post.id} version={post.version} title={post.title || post.slug}/>
+      </div></td>
     </tr>)}</tbody>
   </table></div>;
 }

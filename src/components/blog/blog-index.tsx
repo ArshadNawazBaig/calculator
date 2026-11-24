@@ -2,15 +2,10 @@ import Link from '@/components/document-link';
 import type {BlogPostSummary} from '@/lib/blog/types';
 import {BlogCard} from './blog-card';
 import {BlogGuides} from './blog-guides';
-import {blogCategories,type PublicBlogCategory} from './blog-meta';
+import {blogCategories,blogIndexPath,type PublicBlogCategory} from './blog-meta';
 import styles from './blog.module.css';
 
-export function blogIndexPath(page=1,category?:PublicBlogCategory) {
-  const query=new URLSearchParams();
-  if (category) query.set('category',category);
-  if (page>1) query.set('page',String(page));
-  return '/blog'+(query.size?'?'+query.toString():'');
-}
+export {blogIndexPath};
 
 export function BlogIndex({posts,total,page,category}: {posts:BlogPostSummary[];total:number;page:number;category?:PublicBlogCategory}) {
   const pages=Math.ceil(total/12);

@@ -4,13 +4,13 @@ import type {PoolClient} from 'pg';
 import {z} from 'zod';
 import {requireSuperAdmin} from './auth';
 import {getDb, isDatabaseConfigured} from './db';
-import {BLOG_CATEGORIES, BLOG_POST_STATUSES, type AdminPostOptions, type BlogPage, type BlogPost, type BlogPostStatus, type BlogPostSummary, type PublishedPostOptions, type SaveBlogPostInput} from '@/lib/blog/types';
+import {BLOG_CATEGORIES, BLOG_POST_STATUSES, type AdminPostOptions, type BlogPage, type BlogPost, type BlogPostStatus, type BlogPostSummary, type PublishedPostOptions, type RelatedBlogPost, type SaveBlogPostInput} from '@/lib/blog/types';
 import {BlogValidationError, blogSlugSchema, validateBlogPostInput} from '@/lib/blog/validation';
 
 export {BlogValidationError} from '@/lib/blog/validation';
 export class BlogConflictError extends Error {
   readonly status = 409;
-  constructor() {super('This post changed while you were editing. Reload the latest version before saving.'); this.name = 'BlogConflictError';}
+  constructor(message = 'This post changed while you were editing. Reload the latest version before saving.') {super(message); this.name = 'BlogConflictError';}
 }
 export class BlogUnavailableError extends Error {
   readonly status = 503;
@@ -77,7 +77,7 @@ async function readPost(client: PoolClient, id: string): Promise<BlogPost> {
   if (!result.rows[0]) throw new BlogNotFoundError();
   return post(result.rows[0]);
 }
-async function audit(client: PoolClient, postId: string, actorId: string, action: string, fromStatus: BlogPostStatus | null, toStatus: BlogPostStatus, version: number) {
+async function audit(client: PoolClient, postId: string, actorId: string, action: string, fromStatus: BlogPostStatus | null, toStatus: BlogPostStatus | 'deleted', version: number) {
   await client.query('INSERT INTO blog_post_audit (post_id, actor_id, action, from_status, to_status, post_version) VALUES ($1, $2, $3, $4, $5, $6)', [postId, actorId, action, fromStatus, toStatus, version]);
 }
 
@@ -103,6 +103,20 @@ export async function findPublishedPostBySlug(slug: string): Promise<BlogPost | 
   try {
     const result = await getDb().query<PostRow>(`${fullSelect} WHERE p.slug = $1 AND p.status = 'published'`, [slug]);
     return result.rows[0] ? post(result.rows[0]) : null;
+  } catch (error) {throw sanitize(error);}
+}
+
+export async function listRelatedPublishedPosts(post: Pick<BlogPost, 'id' | 'category'>): Promise<RelatedBlogPost[]> {
+  if (!isDatabaseConfigured()) return [];
+  const select = `SELECT slug, title, category, cover_image_url AS "coverImageUrl", cover_image_alt AS "coverImageAlt"
+    FROM blog_posts WHERE status = 'published' AND id <> $1`;
+  const order = 'ORDER BY published_at DESC, id DESC LIMIT 3';
+  try {
+    const db = getDb();
+    const matches = await db.query<RelatedBlogPost>(`${select} AND category = $2 ${order}`, [post.id, post.category]);
+    if (matches.rows.length) return matches.rows;
+    const recent = await db.query<RelatedBlogPost>(`${select} AND category <> $2 ${order}`, [post.id, post.category]);
+    return recent.rows;
   } catch (error) {throw sanitize(error);}
 }
 
@@ -183,5 +197,26 @@ export async function setBlogPostStatus(id: string, status: BlogPostStatus, expe
     if (!saved.rows[0]) throw new BlogConflictError();
     await audit(client, id, session.user.id, 'status_changed', existing.status, status, saved.rows[0].version);
     return readPost(client, id);
+  });
+}
+
+/** Returns the removed slug, or null if a previous deletion already completed. */
+export async function deleteBlogPost(id: string, expectedVersion: number): Promise<string | null> {
+  const session = await requireSuperAdmin();
+  valid(idSchema, id, 'post');
+  valid(versionSchema, expectedVersion, 'version');
+  return transaction(async client => {
+    const deleted = await client.query<Pick<BlogPost, 'slug' | 'status' | 'version'>>(
+      'DELETE FROM blog_posts WHERE id = $1 AND version = $2 RETURNING slug, status, version',
+      [id, expectedVersion],
+    );
+    const post = deleted.rows[0];
+    if (!post) {
+      const current = await client.query('SELECT 1 FROM blog_posts WHERE id = $1', [id]);
+      if (current.rows.length) throw new BlogConflictError('This article has changed. Review the latest version before deleting it.');
+      return null;
+    }
+    await audit(client, id, session.user.id, 'deleted', post.status, 'deleted', post.version + 1);
+    return post.slug;
   });
 }

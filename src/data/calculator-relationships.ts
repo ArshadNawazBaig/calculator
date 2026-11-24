@@ -52,3 +52,7 @@ export const calculatorFamilies: string[][] = [
   ['molecular-weight-calculator', 'molarity-calculator', 'density-calculator', 'mass-calculator'],
   ['grade-calculator', 'final-exam-grade-calculator', 'gpa-calculator', 'gpa-goal-calculator', 'college-cost-calculator', 'student-loan-calculator'],
 ];
+
+export function preferredCalculatorSlugs(slug: string): string[] {
+  return relatedCalculatorSlugs[slug] ?? calculatorFamilies.filter(family => family.includes(slug)).flat();
+}

@@ -7,17 +7,18 @@ import {BlogIndex,blogIndexPath} from '@/components/blog/blog-index';
 import {site} from '@/lib/site';
 import type {BlogPost} from '@/lib/blog/types';
 
-const repository=vi.hoisted(()=>({list:vi.fn(),find:vi.fn(),sitemap:vi.fn()}));
-vi.mock('@/lib/server/blog',()=>({listPublishedPosts:repository.list,findPublishedPostBySlug:repository.find,getPublishedPostSitemapEntries:repository.sitemap}));
+const repository=vi.hoisted(()=>({list:vi.fn(),find:vi.fn(),related:vi.fn(),sitemap:vi.fn()}));
+vi.mock('@/lib/server/blog',()=>({BlogUnavailableError:class extends Error {},listPublishedPosts:repository.list,findPublishedPostBySlug:repository.find,listRelatedPublishedPosts:repository.related,getPublishedPostSitemapEntries:repository.sitemap}));
 vi.mock('next/server',()=>({connection:vi.fn(async()=>{})}));
 vi.mock('next/navigation',()=>({notFound:()=>{throw Error('NEXT_NOT_FOUND');}}));
 import BlogPage,{generateMetadata as indexMetadata} from '@/app/(en)/blog/page';
 import PostPage,{generateMetadata as postMetadata} from '@/app/(en)/blog/[slug]/page';
+import {BlogUnavailableError} from '@/lib/server/blog';
 import sitemap,{dynamic} from '@/app/sitemap';
 
 const originalIndexing=site.indexable;
 const post:BlogPost={id:'post-1',slug:'understanding-a-result',title:'Understanding a result',excerpt:'Check the units and assumptions before deciding what comes next.',content:'# A useful example\n\nUse the [percentage calculator](/percent-calculator).',category:'Math',coverImageUrl:'/og.png',coverImageAlt:'Finflo calculator example',seoTitle:'Understanding calculation results',seoDescription:'A practical example of checking units, rounding and assumptions.',status:'published',authorId:'author-1',authorName:'Actual author',publishedAt:'2026-11-01T09:00:00.000Z',createdAt:'2026-10-31T08:00:00.000Z',updatedAt:'2026-11-09T10:30:00.000Z',version:2};
-beforeEach(()=>{site.indexable=true;repository.list.mockResolvedValue({posts:[],total:0});repository.find.mockResolvedValue(null);repository.sitemap.mockResolvedValue([]);});
+beforeEach(()=>{site.indexable=true;repository.list.mockResolvedValue({posts:[],total:0});repository.find.mockResolvedValue(null);repository.related.mockResolvedValue([]);repository.sitemap.mockResolvedValue([]);});
 afterEach(()=>{site.indexable=originalIndexing;vi.clearAllMocks();});
 
 describe('safe shared Markdown rendering',()=>{
@@ -46,15 +47,87 @@ describe('published article presentation and metadata',()=>{
     const html=renderToStaticMarkup(<BlogArticle post={post}/>), metadata=blogPostMetadata(post), data=blogArticleData(post);
     expect((html.match(/<h1\b/g)||[])).toHaveLength(1);expect(html).toContain('By Actual author');expect(html).toContain('2026-11-01T09:00:00.000Z');expect(html).toContain('2026-11-09T10:30:00.000Z');
     expect(metadata.title).toEqual({absolute:post.seoTitle});expect(metadata.description).toBe(post.seoDescription);expect(metadata.alternates?.canonical).toBe('/blog/understanding-a-result');expect(metadata.openGraph).toMatchObject({type:'article',publishedTime:post.publishedAt,modifiedTime:post.updatedAt});
-    expect(data).toMatchObject({'@type':'BlogPosting',author:{'@type':'Person',name:post.authorName},datePublished:post.publishedAt,dateModified:post.updatedAt});expect(data).not.toHaveProperty('reviewedBy');
+    expect(data).toMatchObject({'@type':'BlogPosting',datePublished:post.publishedAt,dateModified:post.updatedAt});expect(data).not.toHaveProperty('reviewedBy');
+    expect(data.author).toEqual({'@type':'Person',name:post.authorName});
+    expect(html).not.toContain('/avatars/finflo-blog-writer.png');
+  });
+  it.each(['Finflo administrator', 'Erush'])('shows the Erush profile for %s across the blog and article metadata', authorName => {
+    const article = {...post, authorName};
+    const avatar = '/avatars/finflo-blog-writer.png';
+    for (const html of [
+      renderToStaticMarkup(<BlogArticle post={article}/>),
+      renderToStaticMarkup(<BlogIndex posts={[article]} total={1} page={1}/>),
+    ]) {
+      expect(html).toContain('>Erush</strong>');
+      expect(html).toContain('CFO at Finflo');
+      expect(html).toContain(`src="${avatar}"`);
+      expect(html).not.toContain('Finflo administrator');
+    }
+    const metadata = blogPostMetadata(article);
+    expect(metadata.authors).toEqual([{name:'Erush'}]);
+    expect(metadata.openGraph).toMatchObject({authors:['Erush']});
+    const data = blogArticleData(article);
+    expect(data.author).toMatchObject({
+      '@type':'Person', name:'Erush', jobTitle:'CFO',
+      image:new URL(avatar,site.url).href, worksFor:{'@id':data.publisher['@id']},
+    });
   });
   it('escapes schema script boundaries even when author-supplied text contains markup',()=>{
     const html=renderToStaticMarkup(<BlogArticle post={{...post,title:'</script><script>alert(1)</script>'}}/>);
     expect(html).not.toContain('</script><script>alert');expect(html).toContain('\\u003c/script>');
   });
+  it('puts distinct linked calculators first and fills the sidebar with related tools', () => {
+    const content = [
+      '[Outside source](https://example.org/bmi-calculator) and `[code](/age-calculator)`.',
+      '[Room area][floor] and [another mode](https://finflo.org/area-calculator#mode-circle).',
+      'https://finflo.org/volume-calculator',
+      '[floor]: /area-calculator/?units=feet',
+      '[unused]: /retirement-calculator',
+    ].join('\n\n');
+    const html = renderToStaticMarkup(<BlogArticle post={{...post, content}}/>);
+    const sidebar = html.split('<aside')[1].split('</aside>')[0];
+    expect([...sidebar.matchAll(/data-calculator-card="([^"]+)"/g)].map(match => match[1])).toEqual([
+      'area-calculator', 'volume-calculator', 'square-footage-calculator', 'triangle-calculator',
+    ]);
+    expect(sidebar).toContain('>Related calculators</h2>');
+    expect(sidebar).toContain('href="/area-calculator"');
+    expect(sidebar).toContain('Add Area Calculator to favorites');
+  });
+  it.each([
+    ['Finance', 'What to measure before retirement', 'Related calculators', 'retirement-calculator'],
+    ['Health', 'A general health update', 'Related calculators', 'body-fat-calculator'],
+    ['Updates', 'An update to our blog', 'Featured calculators', 'compound-interest-calculator'],
+  ] as const)('selects calculators for an unlinked %s article', (category, title, heading, first) => {
+    const html = renderToStaticMarkup(<BlogArticle post={{...post, category, title, content:'An update for readers.'}}/>);
+    const sidebar = html.split('<aside')[1].split('</aside>')[0];
+    expect(sidebar).toContain(`>${heading}</h2>`);
+    expect(sidebar.match(/data-calculator-card="([^"]+)"/)?.[1]).toBe(first);
+  });
   it('returns notFound for a non-public slug rather than exposing a draft fallback',async()=>{
     const props={params:Promise.resolve({slug:'draft-secret'})};
     await expect(PostPage(props)).rejects.toThrow('NEXT_NOT_FOUND');await expect(postMetadata(props)).rejects.toThrow('NEXT_NOT_FOUND');
+    expect(repository.related).not.toHaveBeenCalled();
+  });
+  it.each([['Math','Related posts'],['Health','More from the blog']])('renders links below the article with the correct heading for %s suggestions',async(category,heading)=>{
+    repository.find.mockResolvedValue(post);
+    repository.related.mockResolvedValue([{slug:'next-article',title:'Next article',category,coverImageUrl:'http://example.com/insecure.png',coverImageAlt:'Example'}]);
+    const html=renderToStaticMarkup(await PostPage({params:Promise.resolve({slug:post.slug})}));
+    const section=html.slice(html.indexOf('id="related-posts"')).split('</section>')[0];
+    expect(html.indexOf('id="related-posts"')).toBeGreaterThan(html.indexOf('</footer>'));
+    expect(section).toContain(`>${heading}</h2>`);
+    expect(section.includes('href="/blog?category=Math"')).toBe(category===post.category);
+    expect(section).toContain('href="/blog/next-article"');
+    expect(section).toContain('>Next article</h3>');
+    expect(section).not.toContain('<img');
+  });
+  it('keeps the article readable when it is the only post or related posts are unavailable',async()=>{
+    repository.find.mockResolvedValue(post);
+    repository.related.mockResolvedValueOnce([]).mockRejectedValueOnce(new BlogUnavailableError());
+    for(let i=0;i<2;i++){
+      const html=renderToStaticMarkup(await PostPage({params:Promise.resolve({slug:post.slug})}));
+      expect(html).toContain('By Actual author');
+      expect(html).not.toContain('id="related-posts"');
+    }
   });
 });
 

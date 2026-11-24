@@ -1,5 +1,6 @@
 import {randomUUID} from 'node:crypto';
 import {test, expect, request as requestFactory} from '@playwright/test';
+import {blogAuthor} from '../../src/lib/blog/author';
 import {disposableBlogState, signInDisposableBlog} from './helpers/disposable-blog';
 
 // This workflow writes only to an explicitly configured disposable test app.
@@ -8,10 +9,12 @@ test.use({trace: 'off', screenshot: 'off', video: 'off', actionTimeout: 15_000, 
 test.describe.serial('disposable blog publishing workflow', () => {
   test.skip(process.env.FINFLO_BLOG_E2E !== '1', 'Requires an explicitly enabled disposable database and test account.');
 
-  test('sign in, edit privately, publish, unpublish, archive, restore and sign out', async ({page, context, browser}, testInfo) => {
+  test('sign in, edit privately, publish, unpublish, archive, restore, delete and sign out', async ({page, context, browser}, testInfo) => {
     test.setTimeout(120_000);
     const state = await disposableBlogState(testInfo);
     const {baseURL, authorName} = state;
+    const author = blogAuthor(authorName);
+    const byline = author.avatar ? author.name : `By ${author.name}`;
     const publicRequest = await requestFactory.newContext({baseURL});
     const publicContext = await browser.newContext();
     const publicPage = await publicContext.newPage();
@@ -63,6 +66,11 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await page.getByLabel('Title', {exact: true}).fill(editedTitle);
       await page.getByRole('button', {name: 'Save draft', exact: true}).click();
       await expect(page.getByRole('status')).toContainText('Draft saved.');
+      await competingEditor.getByRole('button', {name: `Delete article “${title}”`}).click();
+      const staleDialog = competingEditor.getByRole('alertdialog');
+      await staleDialog.getByRole('button', {name: 'Delete permanently'}).click();
+      await expect(staleDialog.getByRole('alert')).toContainText('Review the latest version before deleting');
+      await staleDialog.getByRole('button', {name: 'Cancel'}).click();
       await competingEditor.getByLabel('Title', {exact: true}).fill(`${title}: stale overwrite attempt`);
       await competingEditor.getByRole('button', {name: 'Save draft', exact: true}).click();
       await expect(competingEditor.getByRole('alert').filter({hasText: 'This post changed while you were editing.'})).toBeVisible();
@@ -73,6 +81,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await competingEditor.close();
       await page.getByRole('link', {name: 'Saved preview', exact: true}).click();
       await expect(page.getByRole('heading', {name: editedTitle, exact: true})).toBeVisible();
+      await expect(page.locator('article').getByText(byline, {exact: true})).toBeVisible();
       await expect(page.locator('[data-blog-markdown]')).toContainText('Twenty percent of 50 is 10.');
       expect(await (await publicRequest.get(`${editorPath}/preview`, {maxRedirects: 0})).headers().location).toMatch(/\/admin\/sign-in/);
       await page.getByRole('link', {name: 'Return to editor', exact: true}).click();
@@ -83,7 +92,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       const live = await publicPage.goto(`${baseURL}/blog/${slug}`);
       expect(live?.status()).toBe(200);
       await expect(publicPage.getByRole('heading', {level: 1, name: editedTitle, exact: true})).toBeVisible();
-      await expect(publicPage.getByText(`By ${authorName}`, {exact: true})).toBeVisible();
+      await expect(publicPage.locator('article[aria-labelledby="page-title"]').getByText(byline, {exact: true})).toBeVisible();
       const markdown = publicPage.locator('[data-blog-markdown]');
       await expect(markdown.getByRole('heading', {name: 'A local worked example', exact: true})).toBeVisible();
       await expect(markdown.getByRole('table')).toHaveCount(1);
@@ -91,7 +100,9 @@ test.describe.serial('disposable blog publishing workflow', () => {
       expect(await publicPage.evaluate(() => '__blogXss' in globalThis)).toBe(false);
       const firstPublication = await publicPage.locator('article time').first().getAttribute('datetime');
       expect(firstPublication).toBeTruthy();
-      expect(await (await publicRequest.get('/sitemap.xml')).text()).toContain(`/blog/${slug}</loc>`);
+      const publishedSitemap = await (await publicRequest.get('/sitemap.xml')).text();
+      expect(publishedSitemap.includes(`/blog/${slug}</loc>`)).toBe(process.env.TEST_INDEXABLE === 'true');
+      expect(await (await publicRequest.get('/sitemap')).text()).toContain(`href="/blog/${slug}"`);
       expect(await (await publicRequest.get('/blog')).text()).toContain(editedTitle);
 
       // Saving an already-published article must retain publication status.
@@ -117,10 +128,27 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await publicPage.goto(`${baseURL}/blog/${slug}`);
       expect(await publicPage.locator('article time').first().getAttribute('datetime')).toBe(firstPublication);
 
-      // Leave the disposable fixture archived rather than publicly listed.
-      await page.getByRole('button', {name: 'Archive', exact: true}).click();
-      await expect(page.getByRole('status')).toContainText('Article archived.');
+      const excerpt = page.locator('textarea[name="excerpt"]');
+      const savedExcerpt = await excerpt.inputValue();
+      await excerpt.fill('An unsaved edit to preserve when cancelling.');
+      await page.getByRole('button', {name: `Delete article “${editedTitle}”`}).click();
+      await expect(page.getByRole('alertdialog')).toContainText(editedTitle);
+      await page.getByRole('alertdialog').getByRole('button', {name: 'Cancel'}).click();
+      await expect(excerpt).toHaveValue('An unsaved edit to preserve when cancelling.');
+      expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(200);
+      await excerpt.fill(savedExcerpt);
+
+      await page.goto(`${baseURL}/admin/posts`);
+      const articleRow = page.getByRole('row').filter({has: page.getByRole('link', {name: editedTitle, exact: true})});
+      await articleRow.getByRole('button', {name: /^Delete article/}).click();
+      await page.getByRole('alertdialog').getByRole('button', {name: 'Delete permanently'}).click();
+      await expect(page.getByRole('status')).toContainText('Article deleted.');
+      await expect(articleRow).toHaveCount(0);
       expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(404);
+      expect(await (await publicRequest.get('/blog')).text()).not.toContain(editedTitle);
+      expect(await (await publicRequest.get('/sitemap.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
+      expect(await (await publicRequest.get('/sitemap')).text()).not.toContain(`href="/blog/${slug}"`);
+      expect((await page.request.get(`${baseURL}${editorPath}/preview`)).status()).toBe(404);
       await page.getByRole('button', {name: 'Sign out', exact: true}).click();
       await expect(page).toHaveURL(/\/admin\/sign-in$/);
       await page.goto(`${baseURL}/admin/posts`);

@@ -11,6 +11,7 @@ import {Button} from '@/components/ui/button';
 import {Dropdown} from '@/components/ui/dropdown';
 import {TextField} from '@/components/ui/text-field';
 import {AdminPageHeader} from './admin-page-header';
+import {DeletePostButton} from './delete-post-button';
 import {RichArticleEditor} from './rich-article-editor';
 import {useHydrated} from '@/lib/use-hydrated';
 import tabs from '@/components/ui/segmented-tabs.module.css';
@@ -145,6 +146,7 @@ export function PostEditor({initialPost}: {initialPost?: BlogPost}) {
         <Button type="button" variant="secondary" disabled={cannotSave} onClick={() => submit(values.status === 'published' ? 'published' : 'draft')}><Save size={16} aria-hidden="true"/>{values.status === 'published' ? 'Save changes' : 'Save draft'}</Button>
         {values.status === 'published' ? <Button type="button" variant="secondary" disabled={cannotSave} onClick={() => submit('draft')}>Unpublish</Button> : <Button type="button" disabled={cannotSave} onClick={() => submit('published')}><Send size={16} aria-hidden="true"/>Publish article</Button>}
         {savedPost && values.status !== 'archived' && <Button type="button" variant="ghost" className={styles.dangerButton} disabled={cannotSave} onClick={() => submit('archived')}><Archive size={16} aria-hidden="true"/>Archive</Button>}
+        {savedPost && <DeletePostButton key={savedPost.version} id={savedPost.id} version={savedPost.version} title={savedPost.title || savedPost.slug} disabled={disabled || conflict}/>}
       </div>
     </div>
   </form>;

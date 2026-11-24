@@ -20,6 +20,7 @@ export default async function AdminPostsPage({searchParams}: {searchParams: Prom
     <AdminPageHeader title="All posts" description={`${result.total} ${result.total === 1 ? 'article' : 'articles'}. Find a draft, review a published article or revisit the archive.`}>
       <Link className="button button-primary" href="/admin/posts/new"><Plus size={17} aria-hidden="true"/>Write an article</Link>
     </AdminPageHeader>
+    {params.deleted === '1' && <p role="status" className={styles.notice}>Article deleted.</p>}
     <PostFilters query={query} status={status}/>
     <PostTable posts={result.posts}/>
     <nav className={styles.pagination} aria-label="Post list pages">{page > 1 && <Link href={pageLink(page - 1)}>Previous</Link>}<span>Page {page} of {Math.max(1, Math.ceil(result.total / 20))}</span>{page * 20 < result.total && <Link href={pageLink(page + 1)}>Next</Link>}</nav>
