@@ -111,7 +111,23 @@ test('solid references and all measurement guides are readable without JavaScrip
         await expectLoadedIllustrations(illustrations);
         await expect(page.locator('#method-cap-inverse')).toHaveCount(1);
         await expect(page.locator('#common-questions details')).toHaveCount(6);
-        await expect(page.locator('time[datetime="2026-11-15"]')).toBeVisible();
+        const updated = slug === 'volume-calculator' ? '2026-11-25' : '2026-11-15';
+        await expect(page.locator(`time[datetime="${updated}"]`)).toBeVisible();
+        if (slug === 'volume-calculator') {
+          await expect(page.locator('[data-calculator-visual] figcaption')).toContainText('Rectangular prism');
+          for (const [section, description] of [
+            ['#volume-capacity', /water depth of 35 cm holds 175 L/],
+            ['#tapered-planter', /30 cm across at the soil line/],
+            ['#composite-volume', /inside diameter is 4 cm/],
+          ] as const) {
+            const diagram = page.locator(section).getByRole('img', {name: description});
+            await expect(diagram).toHaveCount(1);
+            await expectLoadedIllustrations(diagram);
+          }
+          const planter = page.locator('#tapered-planter');
+          await expect(planter.locator('ol li')).toHaveCount(3);
+          await expect(planter.getByRole('link')).toHaveAttribute('href', '#mode-frustum');
+        }
         await expect(page.locator('body')).not.toContainText('Use consistent length units. Dimensions must be positive.');
       }
     }

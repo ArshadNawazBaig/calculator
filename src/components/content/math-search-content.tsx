@@ -4,6 +4,7 @@ import {languages, localizedPath, translator, type Dictionary, type Locale} from
 import {mathSearchContent} from '@/data/math-search-content';
 import {SolidShapeDiagram} from '@/components/calculators/solid-shape-diagram';
 import {AreaShapeDiagram} from '@/components/calculators/area-shape-diagram';
+import {ContentIllustration} from '@/components/illustrations/content-illustration';
 import styles from './explanation.module.css';
 
 /** Keep this component on the server so the direct answer is in the initial HTML. */
@@ -46,7 +47,16 @@ export function MathSearchContent({slug, messages = {}, locale = 'en'}: {slug: s
     </section>
     {content.sections.map(section => <section key={section.id} id={section.id} className={styles.panel} aria-labelledby={`${section.id}-heading`}>
       <h2 id={`${section.id}-heading`}>{t(section.heading)}</h2>
-      {section.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}
+      {section.paragraphs.map((paragraph, index) => <Fragment key={paragraph}>
+        <p>{t(paragraph)}</p>
+        {index === 0 && section.figure && <figure className={styles.exampleFigure}>
+          <ContentIllustration id={section.figure.id} messages={messages} sizes="auto, (max-width: 720px) calc(100vw - 36px), 680px"/>
+          <figcaption>{t(section.figure.caption)}</figcaption>
+        </figure>}
+      </Fragment>)}
+      {section.steps && <ol className={styles.exampleSteps}>
+        {section.steps.map(step => <li key={step}>{t(step)}</li>)}
+      </ol>}
       {section.link && <p>{t(section.link.sentence).split('{calculatorLink}').map((part, index) => <Fragment key={index}>{index > 0 && <Link href={localizedPath(section.link!.href, locale)}>{t(section.link!.label)}</Link>}{part}</Fragment>)}</p>}
     </section>)}
     {illustrated && <p className="editorial-note">{t('Content and calculation examples updated')} <time dateTime={content.modifiedAt}>{new Intl.DateTimeFormat(languages[locale].tag, {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'}).format(new Date(`${content.modifiedAt}T00:00:00Z`))}</time>.</p>}

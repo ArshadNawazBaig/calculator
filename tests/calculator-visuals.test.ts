@@ -4,6 +4,7 @@ import {describe, expect, it, vi} from 'vitest';
 import sharp from 'sharp';
 import catalog from '@/data/catalog.json';
 import manifest from '@/data/calculator-visuals.json';
+import illustrations from '@/data/illustrations.json';
 import symbolGroups from '../scripts/illustrations/sources/calculator-symbols.json';
 import {calculatorIcons} from '@/lib/calculator-icons';
 import {calculatorVisual} from '@/lib/calculator-visual';
@@ -47,11 +48,32 @@ describe('calculator illustrations and discovery', () => {
     expect(calculatorVisual('mortgage-calculator', 'en', 'Mortgage Calculator')?.alt).toBe('Illustration for Mortgage Calculator: a house and calculator.');
     expect(calculatorVisual('area-calculator', 'es', 'Área')?.alt).toContain('un cuadrado discontinuo; un triángulo y una regla');
     expect(calculatorVisual('bmi-calculator', 'ar', 'مؤشر كتلة الجسم')?.alt).toContain('ميزان ذو كفتين');
-    for (const slug of ['age-calculator', 'mortgage-calculator', 'area-calculator', 'bmi-calculator']) {
+    expect(calculatorVisual('volume-calculator', 'en', 'Volume Calculator')?.alt).toBe('Illustration for Volume Calculator: a rectangular prism; a triangle and ruler.');
+    for (const slug of ['age-calculator', 'mortgage-calculator', 'area-calculator', 'bmi-calculator', 'volume-calculator']) {
       const visual = calculatorVisual(slug, 'en', slug)!;
       for (const path of [visual.src, visual.socialSrc]) {
         const image = await sharp('public' + path).metadata();
         expect([image.width, image.height]).toEqual([1200, 630]);
+      }
+    }
+  });
+
+  it('uses the geometry cover’s tile positions and colors for the volume illustrations and share preview', async () => {
+    const reference = calculatorVisual('area-calculator', 'en', 'Area Calculator')!;
+    const cover = calculatorVisual('volume-calculator', 'en', 'Volume Calculator')!;
+    const sources = [cover.src, cover.socialSrc, illustrations['solid-tank-waterline'].src,
+      illustrations['solid-tapered-planter'].src, illustrations['solid-pipe-section'].src];
+    const pixels = (path: string) => sharp('public' + path).resize(240, 126).removeAlpha().raw().toBuffer();
+    const expected = await pixels(reference.src);
+    // Compare the background, three tile interiors, and lime dot away from the variable artwork.
+    const points = [[4, 8], [28, 33], [151, 43], [176, 88], [133, 24]];
+    for (const path of sources) {
+      const actual = await pixels(path);
+      for (const [x, y] of points) {
+        const start = (y * 240 + x) * 3;
+        for (let index = start; index < start + 3; index++) {
+          expect(Math.abs(actual[index] - expected[index]), `${path} at ${x},${y}`).toBeLessThan(12);
+        }
       }
     }
   });

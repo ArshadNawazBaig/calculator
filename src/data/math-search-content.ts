@@ -11,6 +11,8 @@ type SearchContentSection = {
   id: string;
   heading: string;
   paragraphs: string[];
+  figure?: {id: string; caption: string};
+  steps?: string[];
   link?: {sentence: string; href: string; label: string};
 };
 
@@ -198,10 +200,15 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
   },
 
   'volume-calculator': {
-    modifiedAt: '2026-11-15',
-    quickLinks: [{href: '#volume-capacity', label: 'Tank capacity'}, {href: '#volume-unit-conversion', label: 'Cubic units and liters'}],
+    modifiedAt: '2026-11-25',
+    quickLinks: [
+      {href: '#volume-capacity', label: 'Tank capacity'},
+      {href: '#tapered-planter', label: 'Tapered planter'},
+      {href: '#composite-volume', label: 'Pipe wall and bore'},
+      {href: '#volume-unit-conversion', label: 'Cubic units and liters'},
+    ],
     answerHeading: 'How do I calculate volume?',
-    answer: 'Volume measures the space inside a three-dimensional shape. A rectangular prism uses length × width × height, a cylinder uses π × radius² × height, and a sphere uses 4π × radius³ ÷ 3. Choose a solid, enter each dimension with its unit, select a volume unit, then press Calculate for cubic feet, cubic meters, or another cubic unit.',
+    answer: 'Volume measures the space a solid occupies. For a box, multiply length × width × height. For a cylinder, multiply the area of its circular base (π × radius²) by its height. A cone with the same base and height holds one third as much. Choose your shape and set the unit beside each measurement.',
     tableHeading: 'Volume formulas and examples by solid',
     tableIntroduction: 'Choose from eleven solids and an alternate spherical-cap method. Here r and r₂ are radii, and h is perpendicular height or the capsule’s straight length. For an ellipsoid, a, b, and c are semi-axes. Divide a diameter or full axis length by two before entering a radius or semi-axis.',
     tableCaption: 'Volume examples use meters and return cubic meters (m³). Answers involving π are rounded to two decimal places.',
@@ -231,29 +238,55 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
       },
       {
         id: 'volume-capacity',
-        heading: 'How do I calculate the capacity of a tank or container?',
+        heading: 'How much water is in a partly filled tank?',
         paragraphs: [
-          'For a full rectangular container, use its inside length, width, and height in Rectangular prism mode. For a full cylindrical container, use its inside radius and height in Cylinder mode. Outside measurements include the walls and can overstate the space available for liquid.',
-          'A tank with inside dimensions 100 cm × 50 cm × 40 cm holds 200,000 cm³ = 0.2 m³ = 200 liters. This is its geometric full capacity; usable capacity may be lower if space is left at the top. A partially filled horizontal cylinder needs a liquid-segment calculation, not the full-cylinder formula.',
+          'A rectangular tank measures 100 cm long, 50 cm wide, and 40 cm high on the inside. It holds 200 L to the brim. If the water sits 5 cm below the rim, enter 35 cm for Height. The water occupies 100 × 50 × 35 = 175,000 cm³, or 175 L.',
+          'Each extra centimeter of water in this tank adds 5 L because the footprint stays the same. Water depth also works as the height of an upright cylinder. In a cylinder lying on its side, the width of the water surface changes as it fills. A partial fill in that position needs a circular segment calculation.',
         ],
+        figure: {
+          id: 'solid-tank-waterline',
+          caption: 'Measure the tank along the inside edges. For the water volume, the height stops at the waterline.',
+        },
+      },
+      {
+        id: 'tapered-planter',
+        heading: 'How much soil will fill a tapered planter?',
+        paragraphs: [
+          'A round pot with straight, sloping sides measures 20 cm across the inside base and 32 cm across the inside rim. It is 24 cm deep. You want to leave 4 cm at the top for watering. How much potting mix will reach the mark?',
+        ],
+        figure: {
+          id: 'solid-tapered-planter',
+          caption: 'The upper diameter for this calculation is the width at the soil line. The empty space above it widens out to the rim.',
+        },
+        steps: [
+          'Use the filled depth. From the inside floor to the soil line, the height is 24 − 4 = 20 cm.',
+          'Find the width at that height. The pot widens by 12 cm over its full depth, so the diameter at the mark is 20 + 12 × (20 ÷ 24) = 30 cm. You can also measure across the pot at the mark.',
+          'Choose Conical frustum. Enter 10 cm for Bottom radius, 15 cm for Top radius, and 20 cm for Height. In cubic centimeters the result is about 9,948 cm³, or 9.95 L. If a root ball is going into the pot, it takes up some of that space.',
+        ],
+        link: {sentence: 'Try your measurements in the {calculatorLink}.', href: '#mode-frustum', label: 'conical frustum calculator'},
       },
       {
         id: 'volume-unit-conversion',
         heading: 'How do cubic units convert to liters?',
         paragraphs: [
-          'One cubic meter equals 1,000 liters. One cubic centimeter equals 1 milliliter. To convert a result in m³ to liters, multiply by 1,000; to convert cm³ to liters, divide by 1,000.',
-          'Volume conversions cube the length factor: 1 ft³ = 1,728 in³ = 0.028316846592 m³. Select each dimension’s actual unit before calculating. For example, a box 2 ft × 12 in × 6 in has volume 1 ft³ when Volume unit is Cubic feet. Enter 5 ft 6 in as 5.5 Feet or 66 Inches, not 5.6 Feet.',
+          'Picture a cube 10 cm on each side. It holds exactly 1 liter because 10 × 10 × 10 = 1,000 cm³. To turn cubic centimeters into liters, divide by 1,000. For cubic meters, multiply by 1,000. A single cubic centimeter is 1 mL.',
+          'A box measuring 2 ft × 12 in × 6 in is 2 ft long, 1 ft wide, and half a foot tall. Its volume is 1 ft³, which equals 1,728 in³ or about 28.32 L. For cubic yards, divide cubic feet by 27.',
         ],
         link: {sentence: "To convert a known volume to liters, milliliters, or US or imperial gallons, use the {calculatorLink}.", href: "/conversion-calculator", label: "unit conversion calculator"},
       },
       {
         id: 'composite-volume',
-        heading: 'How do I find the volume of a composite or hollow shape?',
+        heading: 'How much water fits in a pipe, and how much material is in its wall?',
         paragraphs: [
+          'Take a 2 m pipe with an outside diameter of 5 cm and an inside diameter of 4 cm. For water capacity, choose Cylinder. Use the inside radius of 2 cm and enter the pipe length of 2 m as Height. The pipe holds about 2,513 cm³, or 2.51 L.',
+          'For the wall itself, choose Hollow cylinder. Use the same length with an outer radius of 2.5 cm and an inner radius of 2 cm. Subtracting the hollow center leaves about 1,414 cm³ of pipe material.',
           'Calculate each non-overlapping solid separately, then add their volumes in the same unit. Subtract empty regions when measuring material. A 4 m × 3 m × 2 m block with a 1 m × 1 m opening through its 2 m height contains 24 − 2 = 22 m³ of material.',
-          'The Hollow cylinder mode calculates the surrounding material. To calculate the capacity of its central opening, use Cylinder mode with the inner radius instead. Arbitrary irregular objects need additional geometry or a measurement method such as fluid displacement.',
         ],
-        link: {sentence: "To measure the outside covering of a solid rather than its capacity, use the {calculatorLink}.", href: "/surface-area-calculator", label: "surface area calculator"},
+        figure: {
+          id: 'solid-pipe-section',
+          caption: 'Use the opening to find water capacity and the hatched ring to find wall material. Both extend the full length of the pipe.',
+        },
+        link: {sentence: 'To find the area you would paint or wrap, use the {calculatorLink}.', href: '/surface-area-calculator', label: 'surface area calculator'},
       },
       {
         id: 'spherical-cap-volume',

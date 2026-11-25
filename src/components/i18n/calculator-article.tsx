@@ -29,7 +29,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
     <MathSearchAnswer slug={definition.slug} messages={messages}/>
     <ToolkitSummary slug={definition.slug} messages={messages}/>
     <section id="how-it-works" tabIndex={-1}><h2>{t('How it works')}</h2><MethodNavigation modes={definition.modes} messages={messages} locale={locale}/></section>
-    {definition.slug==='pregnancy-calculator'?<PregnancyVisual locale={locale}/>:<CalculatorVisual slug={definition.slug} title={visualTitle} mode={definition.modes[0]} locale={locale} messages={messages}/>}
+    {definition.slug==='pregnancy-calculator'?<PregnancyVisual locale={locale}/>:<CalculatorVisual slug={definition.slug} title={visualTitle} modes={definition.modes} locale={locale} messages={messages}/>}
     {!illustratedReference&&<CalculatorInsight slug={definition.slug} locale={locale}/>}
     {definition.slug==='overweight-calculator'&&<AdultBmiScreening messages={messages} locale={locale}/>}
     {!illustratedReference&&<CalculatorGuidance slug={definition.slug} messages={messages} locale={locale} contents/>}

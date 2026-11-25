@@ -90,6 +90,25 @@ describe('published formula examples agree with the working calculator', () => {
     expect(joined.metrics[0].value).toBe(10);
   });
 
+  it('matches the planter, waterline, and pipe examples to the calculator output', async () => {
+    const sections = mathSearchContent['volume-calculator']!.sections;
+    const planter = sections.find(section => section.id === 'tapered-planter')!;
+    const tank = sections.find(section => section.id === 'volume-capacity')!;
+    const pipe = sections.find(section => section.id === 'composite-volume')!;
+    const examples: {mode: string; values: Values; copy: string; liters?: boolean}[] = [
+      {mode: 'frustum', values: {r: '10', rUnit: 'cm', r2: '15', r2Unit: 'cm', h: '20', hUnit: 'cm'}, copy: planter.steps![2], liters: true},
+      {mode: 'cuboid', values: {a: '100', aUnit: 'cm', b: '50', bUnit: 'cm', h: '35', hUnit: 'cm'}, copy: tank.paragraphs[0], liters: true},
+      {mode: 'cylinder', values: {r: '2', rUnit: 'cm', h: '2', hUnit: 'm'}, copy: pipe.paragraphs[0], liters: true},
+      {mode: 'tube', values: {r: '2.5', rUnit: 'cm', r2: '2', r2Unit: 'cm', h: '2', hUnit: 'm'}, copy: pipe.paragraphs[1]},
+    ];
+    for (const {mode, values, copy, liters} of examples) {
+      const {metrics: [volume]} = await run('volume-calculator', mode, {...values, outputUnit: 'cm'});
+      const cubicCentimeters = Number(volume.value);
+      expect(copy).toContain(`${cubicCentimeters.toLocaleString('en-US', {maximumFractionDigits: 0})} ${volume.unit}`);
+      if (liters) expect(copy).toContain(`${(cubicCentimeters / 1000).toLocaleString('en-US', {maximumFractionDigits: 2})} L`);
+    }
+  });
+
   it('checks both spherical caps described by the same sphere and base radii', async () => {
     const caps = await run('volume-calculator', 'cap-inverse', {known: 'sphere-base', r: '5', base: '4'});
     expect(caps.metrics.find(metric => metric.label === 'Cap 1: height')!.value).toBe(2);
@@ -119,8 +138,13 @@ describe('search guidance is readable in the initial server HTML', () => {
     expect(html).toContain('aria-labelledby="formula-reference-heading" aria-describedby="formula-scroll-hint" tabindex="0"');
     for (const section of content.sections) {
       if (section.link) {
-        expect(definitionMap.has(section.link.href.slice(1))).toBe(true);
-        expect(html).toContain(`href="${section.link.href}"`);
+        const {href} = section.link;
+        if (href.startsWith('#mode-')) {
+          expect(definitionMap.get(slug)!.modes.some(mode => href === `#mode-${mode.id}`)).toBe(true);
+        } else {
+          expect(definitionMap.has(href.slice(1))).toBe(true);
+        }
+        expect(html).toContain(`href="${href}"`);
       }
     }
   });

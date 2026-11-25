@@ -25,6 +25,7 @@ const server = await createServer({configFile: false, server: {middlewareMode: t
 try {
   const {AreaShapeDiagram} = await server.ssrLoadModule('/scripts/illustrations/sources/area.tsx');
   const {SolidShapeDiagram} = await server.ssrLoadModule('/scripts/illustrations/sources/solid.tsx');
+  const {TankWaterline, TaperedPlanter, PipeSection} = await server.ssrLoadModule('/scripts/illustrations/sources/volume-examples.tsx');
   const {PlanarShapeDiagram} = await server.ssrLoadModule('/scripts/illustrations/sources/planar.tsx');
   const {MaterialDrawingSource} = await server.ssrLoadModule('/scripts/illustrations/sources/material.tsx');
   const {HomeIllustrationSource, homeIllustrations} = await server.ssrLoadModule('/scripts/illustrations/sources/home.tsx');
@@ -33,7 +34,7 @@ try {
   const {definitionMap} = await server.ssrLoadModule('/src/lib/calculators/registry.ts');
   const {defaults} = await server.ssrLoadModule('/src/lib/calculators/types.ts');
 
-  async function exportImage(id, family, name, Component, props, {width = 260, height = 180, alt, compact = false} = {}) {
+  async function exportImage(id, family, name, Component, props, {width = 260, height = 180, alt, compact = false, webp = {lossless: true, effort: 6}} = {}) {
     if (manifest[id]) return;
     if (compact) {width = 40; height = 32;}
     const scale = compact ? 4 : 3;
@@ -54,7 +55,7 @@ try {
     const src = `/illustrations/${family}/${encodeURIComponent(name)}.webp`;
     const file = `public/illustrations/${family}/${name}.webp`;
     await mkdir(`public/illustrations/${family}`, {recursive: true});
-    const bytes = await sharp(Buffer.from(svg)).webp({lossless: true, effort: 6}).toBuffer();
+    const bytes = await sharp(Buffer.from(svg)).webp(webp).toBuffer();
     await writeFile(file, bytes);
     manifest[id] = {src, width, height, alt: description};
   }
@@ -71,6 +72,15 @@ try {
         await exportImage(`solid-${name}`, 'solid', name, SolidShapeDiagram, {shape, known, compact}, {compact});
       }
     }
+  }
+  const volumeArt = {width: 480, height: 252, webp: {quality: 86, effort: 5}};
+  const volumeDrawings = [
+    ['solid-tank-waterline', 'rectangular-tank-water-depth', TankWaterline],
+    ['solid-tapered-planter', 'tapered-planter-soil-depth', TaperedPlanter],
+    ['solid-pipe-section', 'pipe-inside-outside-diameters', PipeSection],
+  ];
+  for (const [id, name, drawing] of volumeDrawings) {
+    await exportImage(id, 'solid', name, drawing, {}, volumeArt);
   }
   const planar = [
     ...['radius', 'diameter', 'circumference', 'area'].map(known => ({name: `circle-${known}`, slug: 'circle-calculator', mode: 'circle', values: {known}})),

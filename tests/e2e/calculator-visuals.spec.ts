@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 test('calculator images and share metadata appear in crawlable mobile HTML', async ({browser, request}) => {
   const context = await browser.newContext({javaScriptEnabled: false, viewport: {width: 390, height: 844}, userAgent: 'Googlebot'});
   const page = await context.newPage();
-  for (const slug of ['age-calculator', 'mortgage-calculator', 'area-calculator', 'real-estate-calculator']) {
+  for (const slug of ['age-calculator', 'mortgage-calculator', 'area-calculator', 'real-estate-calculator', 'volume-calculator']) {
     // Measure the styled, JavaScript-free layout. DOMContentLoaded can precede the first paint.
     const response = await page.goto('/' + slug, {waitUntil: 'load'});
     expect(response?.status()).toBe(200);
@@ -16,7 +16,9 @@ test('calculator images and share metadata appear in crawlable mobile HTML', asy
     await expect.poll(() => image.evaluate(img => img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0)).toBe(true);
     const rendition = new URL(await image.evaluate(img => (img as HTMLImageElement).currentSrc));
     expect(rendition.pathname).toBe('/_next/image');
-    expect(rendition.searchParams.get('url')).toBe(`/illustrations/calculators/${slug}.webp`);
+    const source = rendition.searchParams.get('url');
+    if (slug === 'volume-calculator') expect(source).toMatch(/\/_next\/static\/media\/volume-calculator[^/]*\.webp$/);
+    else expect(source).toBe(`/illustrations/calculators/${slug}.webp`);
     const alt = await image.getAttribute('alt');
     expect(alt).toBeTruthy();
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://finflo.org/illustrations/calculators/${slug}-social.jpg`);

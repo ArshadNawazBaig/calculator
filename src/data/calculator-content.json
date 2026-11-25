@@ -21857,31 +21857,31 @@
     "seoTitle": "Area Calculator: Rectangle, Circle, Triangle & More"
   },
   "volume-calculator": {
-    "description": "Calculate volume for 11 solids, including cylinders, spheres, cubes, cones, and prisms. Use mixed units, labeled diagrams, formulas, and cubic-unit examples.",
+    "description": "Calculate volume for 11 shapes in cubic units. See which measurements to use for a tank’s capacity, a tapered planter, or the material in a pipe wall.",
     "faqs": [
       {
-        "question": "How do I calculate the volume of a rectangular prism?",
-        "answer": "Multiply length by width by height after converting dimensions to compatible units. A 6 m × 4 m × 2 m prism has a volume of 48 m³. You can select a different unit for each input; the calculator converts the dimensions before calculating."
+        "question": "How do I find the radius if I can only measure around a cylinder?",
+        "answer": "Wrap a tape once around the cylinder and divide that circumference by 2π. A can measuring 31.4 cm around has an outside radius of about 5 cm. To find what it holds, use the inside radius or subtract the wall thickness from the outside radius."
       },
       {
         "question": "Can I mix feet, inches, and meters?",
-        "answer": "Yes. Choose the actual unit beside each measurement and select the cubic output unit. A box 2 ft long, 12 in wide, and 6 in high has a volume of 1 ft³. Enter 5 ft 6 in as 5.5 feet or 66 inches, not 5.6 feet."
+        "answer": "Yes. Set the unit beside each dimension. If one side measures 5 ft 6 in, enter 5.5 feet or 66 inches. Those 6 inches are half a foot."
       },
       {
-        "question": "How do I convert cubic meters to liters?",
-        "answer": "Multiply cubic meters by 1,000. For example, 0.2 m³ is 200 liters. One cubic centimeter equals one milliliter. Use inside dimensions to estimate the capacity of a full container."
+        "question": "How do I find the volume of an irregular stone?",
+        "answer": "For a stone that sinks and does not absorb water, use water displacement. Read the level in a graduated cylinder at eye level. Lower the stone until it is fully covered and release any trapped bubbles. A rise from 75 mL to 93 mL gives a stone volume of 18 mL, or 18 cm³."
       },
       {
-        "question": "Which volume does the hollow-cylinder mode calculate?",
-        "answer": "It subtracts the inner cylinder from the outer cylinder, giving the volume of the surrounding material rather than the empty bore."
+        "question": "Which gallon should I use for tank capacity?",
+        "answer": "A US liquid gallon is about 3.785 L. An imperial gallon is about 4.546 L. If a tank label just says “gal,” check which gallon the manufacturer uses before comparing capacities."
       },
       {
         "question": "Does capsule length include the rounded ends?",
         "answer": "The Cylinder length input includes only the straight section. The total end-to-end length is that straight length plus twice the radius. The calculator adds the volume of both hemispherical ends automatically."
       },
       {
-        "question": "Why can spherical-cap dimensions give two answers?",
-        "answer": "A sphere radius and cap-base radius can describe a smaller cap or the corresponding larger cap. The alternate-dimensions mode shows both."
+        "question": "How deep will a known volume of water be in a rectangular tray?",
+        "answer": "Divide the water volume by the inside base area. A tray measuring 40 cm by 25 cm inside has a base area of 1,000 cm². Pour in 12 L (12,000 cm³) and the water will be 12 cm deep, provided the sides are vertical and tall enough."
       }
     ],
     "sections": [
@@ -21892,7 +21892,7 @@
         ]
       }
     ],
-    "seoTitle": "Volume Calculator: Cylinder, Sphere, Cube & More"
+    "seoTitle": "Volume Calculator for 11 Shapes | Box, Cylinder & Sphere"
   },
   "surface-area-calculator": {
     "description": "Calculate surface area for 11 solids with labeled diagrams and mixed units. Compare formulas, worked examples, and which faces or bases each result includes.",

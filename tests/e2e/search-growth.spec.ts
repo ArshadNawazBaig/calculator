@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test';
 const priorityPages = [
   {slug: 'area-calculator', title: 'Area Calculator: Rectangle, Circle, Triangle & More', rows: 9, answer: 'How do I calculate area?'},
   {slug: 'ratio-calculator', title: 'Ratio Calculator: Simplify Ratios & Solve Proportions', rows: 7, answer: 'How do I simplify or solve a ratio?'},
-  {slug: 'volume-calculator', title: 'Volume Calculator: Cylinder, Sphere, Cube & More', rows: 12, answer: 'How do I calculate volume?'},
+  {slug: 'volume-calculator', title: 'Volume Calculator for 11 Shapes | Box, Cylinder & Sphere', rows: 12, answer: 'How do I calculate volume?'},
 ];
 
 for (const item of priorityPages) {
