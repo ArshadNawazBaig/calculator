@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import Link from '@/components/document-link';
+import {blogImageProps} from '@/lib/blog/image-props';
 import type {BlogCategory, RelatedBlogPost} from '@/lib/blog/types';
 import {blogCoverUrl, blogIndexPath, blogPostPath} from './blog-meta';
 import styles from './blog.module.css';
@@ -22,8 +24,7 @@ export function RelatedPosts({category, posts}: {category: BlogCategory; posts: 
               {!sameCategory && <span className={styles.category}>{post.category}</span>}
               <h3 id={titleId}>{post.title}</h3>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            {image && <img src={image} alt="" width={112} height={72} loading="lazy" decoding="async" referrerPolicy="no-referrer"/>}
+            {image && <Image {...blogImageProps(image)} alt="" width={112} height={72} sizes="auto, 112px"/>}
           </Link>
         </li>;
       })}

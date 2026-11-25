@@ -12,7 +12,8 @@ export function CalculatorVisual({slug, title, mode, locale = 'en', messages = {
   if (!visual) return null;
   const t = translator(messages);
   return <figure className={styles.figure} data-calculator-visual={slug}>
-    <Image className={styles.image} src={visual.src} width={visual.width} height={visual.height} alt={visual.alt} sizes="(max-width: 700px) 100vw, 820px" unoptimized/>
+    <Image className={styles.image} src={visual.src} overrideSrc={visual.src} width={visual.width} height={visual.height}
+      alt={visual.alt} sizes="auto, (max-width: 860px) calc(100vw - 36px), 820px" loading="lazy"/>
     {mode && <figcaption className={styles.caption}>
       <strong>{t(mode.title)}</strong><span dir="auto">{t(mode.formula)}</span>
     </figcaption>}

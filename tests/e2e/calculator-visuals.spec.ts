@@ -11,6 +11,12 @@ test('calculator images and share metadata appear in crawlable mobile HTML', asy
     const figure = page.locator('[data-calculator-visual]');
     const image = figure.getByRole('img');
     await expect(image).toHaveAttribute('src', `/illustrations/calculators/${slug}.webp`);
+    await expect(image).toHaveAttribute('loading', 'lazy');
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate(img => img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0)).toBe(true);
+    const rendition = new URL(await image.evaluate(img => (img as HTMLImageElement).currentSrc));
+    expect(rendition.pathname).toBe('/_next/image');
+    expect(rendition.searchParams.get('url')).toBe(`/illustrations/calculators/${slug}.webp`);
     const alt = await image.getAttribute('alt');
     expect(alt).toBeTruthy();
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://finflo.org/illustrations/calculators/${slug}-social.jpg`);

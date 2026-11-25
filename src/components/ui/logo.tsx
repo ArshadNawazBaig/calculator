@@ -4,6 +4,8 @@ import Link from '@/components/i18n/link';
 import Image from 'next/image';
 import styles from './logo.module.css';
 
+const logoSizes = '(max-width: 360px) 80px, (max-width: 1000px) 116px, 128px';
+
 export function Logo() {
  const {t}=useI18n();
 
@@ -19,8 +21,8 @@ export function Logo() {
         width={576}
         height={175}
         alt="Finflo"
-        unoptimized
-        fetchPriority="high"
+        sizes={logoSizes}
+        loading="lazy"
       />
       <Image
         className={`${styles.image} ${styles.dark}`}
@@ -28,8 +30,8 @@ export function Logo() {
         width={576}
         height={175}
         alt="Finflo"
-        unoptimized
-        fetchPriority="high"
+        sizes={logoSizes}
+        loading="lazy"
       />
     </Link>
   );

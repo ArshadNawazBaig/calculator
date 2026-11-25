@@ -3,12 +3,15 @@ import copy from '@/data/locales/pregnancy-visuals.json';
 import type {Locale} from '@/lib/i18n/config';
 import styles from './pregnancy-visual.module.css';
 
+const imageSrc = '/illustrations/pregnancy/pregnancy-dating.webp';
+
 /** The bars share an endpoint and illustrate the usual 28-day-cycle convention. */
 export function PregnancyVisual({locale = 'en'}: {locale?: Locale}) {
   const text = copy[locale];
   return <section className={styles.section} aria-labelledby="pregnancy-dating-visual-title" data-pregnancy-visual>
     <h2 id="pregnancy-dating-visual-title">{text.title}</h2>
-    <Image className={styles.image} src="/illustrations/pregnancy/pregnancy-dating.webp" width={1200} height={675} alt={text.alt} sizes="(max-width: 700px) 100vw, 820px" unoptimized/>
+    <Image className={styles.image} src={imageSrc} overrideSrc={imageSrc} width={1200} height={675}
+      alt={text.alt} sizes="auto, (max-width: 860px) calc(100vw - 36px), 820px" loading="lazy"/>
     <figure className={styles.chart}>
       <figcaption className={styles.caption}>{text.example}</figcaption>
       <div className={styles.row}>

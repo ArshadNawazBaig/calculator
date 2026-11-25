@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import {blogImageProps} from '@/lib/blog/image-props';
 import {remarkArticleBreaks} from '@/lib/blog/markdown-breaks';
 import styles from './blog.module.css';
 
@@ -25,8 +27,7 @@ export function BlogMarkdown({content}: {content:string}) {
         // Informative images must retain a useful text alternative. Invalid
         // destinations are omitted rather than becoming tracking/broken images.
         if (!source || !alt?.trim()) return alt?<span>{alt}</span>:null;
-        // eslint-disable-next-line @next/next/no-img-element
-        return <img src={source} alt={alt} title={title} loading="lazy" decoding="async" referrerPolicy="no-referrer"/>;
+        return <Image {...blogImageProps(source)} alt={alt} title={title}/>;
       },
       table:({children})=><div className={styles.tableScroll} role="region" aria-label="Article table" tabIndex={0}><table>{children}</table></div>,
     }}>{content}</Markdown>

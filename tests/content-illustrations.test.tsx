@@ -44,6 +44,8 @@ function expectImage(html: string, expectedAlt: string) {
   expect(images).toHaveLength(1);
   const image = images[0]!;
   expect(attr(image, 'alt')).toBe(expectedAlt);
+  expect(attr(image, 'loading')).toBe('lazy');
+  expect(attr(image, 'srcSet')).toContain('/_next/image?');
   const asset = bySource.get(attr(image, 'src') || '');
   expect(asset, `Missing image manifest entry: ${image}`).toBeDefined();
   expect(attr(image, 'width')).toBe(String(asset!.width));

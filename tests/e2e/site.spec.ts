@@ -49,7 +49,13 @@ test('404, canonical, indexing, and structured data',async({page,request})=>{exp
 
 test('new logo and sharing assets load across page templates',async({page,request})=>{
   for(const [path,asset] of [['/','/og.png'],['/mortgage-calculator','/illustrations/calculators/mortgage-calculator-social.jpg'],['/bmi-calculator','/illustrations/calculators/bmi-calculator-social.jpg']]){
-    await page.goto(path);const logo=page.locator('header .logo img:visible');await expect(logo).toHaveAttribute('src',/\/finflo-logo-(light|dark)\.webp/);await expect.poll(()=>logo.evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0)).toBe(true);
+    await page.goto(path);
+    const logo = page.locator('header .logo img:visible');
+    await expect(logo).toHaveAttribute('loading', 'lazy');
+    await expect.poll(() => logo.evaluate(img => img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0)).toBe(true);
+    const source = new URL(await logo.evaluate(img => (img as HTMLImageElement).currentSrc));
+    expect(source.pathname).toBe('/_next/image');
+    expect(source.searchParams.get('url')).toMatch(/^\/finflo-logo-(light|dark)\.webp$/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
     expect((await request.get(asset)).ok()).toBe(true);

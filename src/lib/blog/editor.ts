@@ -10,6 +10,8 @@ import StarterKit from '@tiptap/starter-kit';
 import {fromMarkdown} from 'mdast-util-from-markdown';
 import {gfmFromMarkdown} from 'mdast-util-gfm';
 import {gfm} from 'micromark-extension-gfm';
+import {getImageProps} from 'next/image';
+import {blogImageProps} from './image-props';
 
 /** The editor accepts the same destination types as the public article renderer. */
 export function articleEditorUrl(value: string, image = false): string | undefined {
@@ -187,7 +189,10 @@ const ArticleImage = Image.extend({
   renderHTML({node}) {
     const src = typeof node.attrs.src === 'string' ? articleEditorUrl(node.attrs.src, true) : undefined;
     const alt = typeof node.attrs.alt === 'string' ? node.attrs.alt.trim() : '';
-    return src && alt ? ['img', {src, alt, title: node.attrs.title || null, loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer'}] : ['span', {}, alt];
+    if (!src || !alt) return ['span', {}, alt];
+    // ProseMirror renders a DOM spec and also uses its src when copying an image.
+    const {props} = getImageProps({...blogImageProps(src), alt});
+    return ['img', {...props, style: null, title: node.attrs.title}];
   },
   parseMarkdown(token, helpers) {
     const src = typeof token.href === 'string' ? articleEditorUrl(token.href, true) : undefined;

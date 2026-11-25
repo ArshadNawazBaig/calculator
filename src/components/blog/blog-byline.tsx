@@ -12,7 +12,7 @@ export function BlogByline({authorName, children}: {authorName: string; children
     return <div className={styles.byline}><span>By {author.name}</span>{dates && <> · {dates}</>}</div>;
   }
   return <div className={`${styles.byline} ${styles.authorProfile}`}>
-    <Image className={styles.authorAvatar} src={author.avatar} width={60} height={60} alt="" unoptimized/>
+    <Image className={styles.authorAvatar} src={author.avatar} width={60} height={60} alt="" loading="lazy"/>
     <div>
       <span className="sr-only">By </span><strong className={styles.authorName}>{author.name}</strong>
       {author.jobTitle && <span className={styles.authorRole}>{author.jobTitle} at {site.name}</span>}

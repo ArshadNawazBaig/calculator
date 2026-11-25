@@ -14,7 +14,7 @@ export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
     <div className={styles.spotlightCopy}><span className={styles.spotlightLabel}>{t('{category} in focus',{category:t(categoryLabels[spotlight.category])})}</span>
       <h3>{t(spotlight.title)}</h3><p>{t(spotlight.description)}</p></div>
     <div className={styles.spotlightLinks}>{spotlight.links.map(link=><Link key={link.slug} href={link.href || `/${link.slug}`}>{t(link.title)}<ChevronRight size={18} aria-hidden="true"/></Link>)}</div>
-    <span className={growth?styles.growthIllustration:styles.spotlightIllustration} aria-hidden="true"><Image src={`/illustrations/home/${spotlight.category}.webp`} fill sizes={growth?'(max-width: 600px) 55vw, 300px':'125px'} alt="" aria-hidden="true" unoptimized/></span>
+    <span className={growth?styles.growthIllustration:styles.spotlightIllustration} aria-hidden="true"><Image src={`/illustrations/home/${spotlight.category}.webp`} fill sizes={growth?'(max-width: 600px) calc(55vw - 20px), min(25vw, 300px)':'125px'} alt="" aria-hidden="true" loading="lazy"/></span>
   </article>;
 }
 

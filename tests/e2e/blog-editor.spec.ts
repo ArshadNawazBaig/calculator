@@ -123,7 +123,10 @@ test.describe('Finflo visual article editor', () => {
     await expect(body.locator('img')).toHaveCount(0);
     await page.getByRole('textbox', {name: 'Alternative text', exact: true}).fill('Finflo calculator example');
     await page.getByRole('button', {name: 'Insert image', exact: true}).last().click();
-    await expect(body.getByRole('img', {name: 'Finflo calculator example', exact: true})).toHaveAttribute('src', '/og.png');
+    const image = body.getByRole('img', {name: 'Finflo calculator example', exact: true});
+    await expect(image).toHaveAttribute('src', '/og.png');
+    await expect(image).toHaveAttribute('srcset', /\/_next\/image\?url=%2Fog\.png/);
+    await expect(image).toHaveAttribute('loading', 'lazy');
 
     await body.press('ControlOrMeta+End');
     await body.press('Enter');

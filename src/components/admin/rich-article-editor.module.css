@@ -36,7 +36,7 @@
 .document :not(pre)>code{padding:2px 5px;border:1px solid var(--color-line);border-radius:4px;background:var(--color-soft);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
 .document pre{max-width:100%;overflow:auto;margin:1.4em 0;padding:18px;border:1px solid var(--color-line);border-radius:6px;background:var(--color-soft);color:var(--color-ink);font-size:.88em;white-space:pre;tab-size:2}
 .document pre code{padding:0;background:transparent;color:inherit;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.document img{display:block;max-width:100%;height:auto;max-height:600px;object-fit:contain;margin:1.4em auto;border-radius:6px}
+.document img{display:block;width:auto;max-width:100%;height:auto;max-height:600px;object-fit:contain;margin:1.4em auto;border-radius:6px}
 .document :global(.ProseMirror-selectednode){outline:2px solid var(--color-focus);outline-offset:3px}
 .document :global(.tableWrapper){overflow-x:auto;max-width:100%;margin:1.4em 0}
 .document table{width:100%;border-collapse:collapse;table-layout:fixed;margin:0;font-size:.94em}

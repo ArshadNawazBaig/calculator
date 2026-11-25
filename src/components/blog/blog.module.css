@@ -18,7 +18,7 @@
 .card p { margin:12px 0 20px; font-size:14px; line-height:1.85; color:var(--color-text-secondary); }
 .cardAction { display:flex; margin-block-start:auto; }
 .category { color:var(--color-brand-text); font-size:11px; font-weight:650; letter-spacing:.07em; text-transform:uppercase; }
-.cover { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--color-line); border-radius:8px; margin-bottom:22px; background:var(--color-soft); }
+.cover { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--color-line); border-radius:8px; margin-bottom:22px; background:var(--color-soft); }
 .pagination { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; margin-top:32px; }
 .pagination span { color:var(--color-muted); font-size:13px; }
 .empty { max-width:800px; margin-bottom:30px; }
@@ -40,7 +40,7 @@
 .markdown ul,.markdown ol { padding-inline-start:25px; margin:18px 0; }
 .markdown li { margin:7px 0; }
 .markdown a { color:var(--color-article-link); text-decoration:underline; text-underline-offset:4px; }
-.markdown img { display:block; max-width:100%; height:auto; border-radius:8px; margin:24px auto; }
+.markdown img { display:block; width:auto; max-width:100%; height:auto; border-radius:8px; margin:24px auto; }
 .markdown pre { max-width:100%; overflow-x:auto; padding:18px; border:1px solid var(--color-line); border-radius:8px; background:var(--color-soft); font-size:13px; line-height:1.8; }
 .markdown :not(pre)>code { padding:2px 5px; border-radius:4px; background:var(--color-soft); font-size:.9em; }
 .markdown blockquote { border-inline-start:3px solid var(--color-brand); margin:24px 0; padding:1px 20px; background:var(--color-soft); }

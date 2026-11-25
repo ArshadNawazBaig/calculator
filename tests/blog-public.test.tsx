@@ -32,6 +32,20 @@ describe('safe shared Markdown rendering',()=>{
     const html=renderToStaticMarkup(<BlogMarkdown content={'<script>alert(document.cookie)</script>\n\n<iframe src="https://evil.example"></iframe>\n\n<img src=x onerror=alert(1)>\n\n[bad](javascript:alert(1))\n\n[encoded](javascript&#58;alert)\n\n![bad](data:image/svg+xml,test)\n\n[safe](https://example.com/source)\n\n![Chart](/charts/example.png)'}/>);
     expect(html).not.toMatch(/<script|<iframe|onerror|javascript:|data:image|src="x"/i);
     expect(html).toContain('href="https://example.com/source"');expect(html).toContain('src="/charts/example.png"');expect(html).toContain('alt="Chart"');
+    expect(html).toContain('loading="lazy"');
+    expect(html).toContain(`srcSet="/_next/image?url=${encodeURIComponent('/charts/example.png')}`);
+  });
+  it.each([
+    [new URL('/og.png', site.url).href, true],
+    ['https://images.example.com/chart.png', false],
+    ['/charts/example.png?version=2', false],
+    ['/charts/example.svg#detail', false],
+  ] as const)('preserves the authored image URL %s', (src, optimized) => {
+    const html = renderToStaticMarkup(<BlogMarkdown content={`![Chart](${src})`}/>);
+    expect(html).toContain(`src="${src}"`);
+    expect(html).toContain('loading="lazy"');
+    expect(html).toContain('referrerPolicy="no-referrer"');
+    expect(html.includes('srcSet="/_next/image?')).toBe(optimized);
   });
   it.each(['javascript:alert(1)','data:text/html,hello','//evil.example/x','/\\evil.example/x','https://user:password@example.com','https://example.com/\nwrong','ftp://example.com'])('rejects unsafe link destination %s',value=>{expect(blogContentUrl(value)).toBeUndefined();});
   it('allows explicit web/mailto and local links while requiring secure informative images',()=>{
@@ -49,7 +63,7 @@ describe('published article presentation and metadata',()=>{
     expect(metadata.title).toEqual({absolute:post.seoTitle});expect(metadata.description).toBe(post.seoDescription);expect(metadata.alternates?.canonical).toBe('/blog/understanding-a-result');expect(metadata.openGraph).toMatchObject({type:'article',publishedTime:post.publishedAt,modifiedTime:post.updatedAt});
     expect(data).toMatchObject({'@type':'BlogPosting',datePublished:post.publishedAt,dateModified:post.updatedAt});expect(data).not.toHaveProperty('reviewedBy');
     expect(data.author).toEqual({'@type':'Person',name:post.authorName});
-    expect(html).not.toContain('/avatars/finflo-blog-writer.png');
+    expect(html).not.toContain('finflo-blog-writer.png');
   });
   it.each(['Finflo administrator', 'Erush'])('shows the Erush profile for %s across the blog and article metadata', authorName => {
     const article = {...post, authorName};
@@ -60,7 +74,7 @@ describe('published article presentation and metadata',()=>{
     ]) {
       expect(html).toContain('>Erush</strong>');
       expect(html).toContain('CFO at Finflo');
-      expect(html).toContain(`src="${avatar}"`);
+      expect(html).toContain(`src="/_next/image?url=${encodeURIComponent(avatar)}&amp;`);
       expect(html).not.toContain('Finflo administrator');
     }
     const metadata = blogPostMetadata(article);
