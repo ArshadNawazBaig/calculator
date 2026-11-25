@@ -7,7 +7,7 @@ export const calculatorPalettes = {
   everyday: {dark: '#373e2b', medium: '#e9e3cf', accent: '#d5f915', background: '#f7f4e9'},
 };
 
-/** Shared frame for calculator covers, social previews, and illustrated volume examples. */
+/** Shared frame for calculator covers, social previews, and illustrated examples. */
 export function CalculatorArtwork({palette, primary, upper, lower, description}: {
   palette: typeof calculatorPalettes.math;
   primary: ReactNode;

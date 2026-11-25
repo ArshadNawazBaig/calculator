@@ -36,6 +36,7 @@ import {JsonLd} from '@/components/content/json-ld';
 import {LocalizedHome} from '@/components/i18n/localized-home';
 import {WorkspacePage} from '@/components/workspace/workspace';
 import {CalculatorArticle} from '@/components/i18n/calculator-article';
+import {CalculatorExample} from '@/components/content/calculator-example';
 import {CalculatorVisual} from '@/components/content/calculator-visual';
 import {TranslationMessages} from '@/components/i18n/provider';
 import {getContentDictionary, calculatorMessages} from './content';
@@ -165,7 +166,10 @@ export function localizedPage(locale: Locale) {
           {def&&isStudentCalculator(tool.slug)&&<StudentTools compact locale={locale} messages={messages}/>}
           {def&&<CalculatorNavigation messages={messages}/>}
           {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
-          {!def&&tool.slug==='real-estate-calculator'&&<CalculatorVisual slug={tool.slug} title={t(route.title)} locale={locale}/>}
+          {!def&&tool.slug==='real-estate-calculator'&&<>
+            <CalculatorVisual slug={tool.slug} title={t(route.title)} locale={locale}/>
+            <CalculatorExample slug={tool.slug} locale={locale} messages={messages}/>
+          </>}
           {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}
           <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale} title={t(route.title)}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div>{def&&<MethodologyNote messages={messages}/>}</aside></div>
           {def&&<JsonLd data={{'@context':'https://schema.org','@type':'WebApplication',name:t(route.title),url:site.url+localizedPath(path,locale),description:t(route.description),inLanguage:locale,applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}}/>}

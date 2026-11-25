@@ -1,0 +1,958 @@
+{
+  "area-calculator": {
+    "title": "Which part of a wall needs paint?",
+    "notation": "A − a",
+    "inputHeading": "Quantity",
+    "resultHeading": "Area",
+    "given": [
+      {
+        "label": "Wall",
+        "value": "4 m × 2.5 m"
+      },
+      {
+        "label": "Window",
+        "value": "150 cm × 120 cm"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Wall",
+        "calculation": "4 × 2.5",
+        "result": "10 m²"
+      },
+      {
+        "label": "Wall minus window",
+        "calculation": "4 × 2.5 − (150 ÷ 100) × (120 ÷ 100)",
+        "result": "8.2 m²"
+      }
+    ]
+  },
+  "average-calculator": {
+    "title": "Combine two classes of different sizes",
+    "notation": "Σnx / Σn",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Class A",
+        "value": "12 × 80"
+      },
+      {
+        "label": "Class B",
+        "value": "28 × 90"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Total score",
+        "calculation": "12 × 80 + 28 × 90",
+        "result": "3480"
+      },
+      {
+        "label": "Combined mean",
+        "calculation": "3480 ÷ (12 + 28)",
+        "result": "87"
+      }
+    ]
+  },
+  "basic-calculator": {
+    "title": "Do the brackets change the shopping total?",
+    "notation": "a + b × c",
+    "inputHeading": "Expression",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "input": "12 + 3 × 4",
+        "calculation": "12 + 12",
+        "result": "24"
+      },
+      {
+        "input": "(12 + 3) × 4",
+        "calculation": "15 × 4",
+        "result": "60"
+      }
+    ]
+  },
+  "big-number-calculator": {
+    "title": "Can two adjacent integers survive rounding?",
+    "notation": "n + 1",
+    "inputHeading": "Integer",
+    "resultHeading": "Exact difference",
+    "rows": [
+      {
+        "input": "9007199254740992",
+        "calculation": "9007199254740992 − 9007199254740991",
+        "result": "1"
+      },
+      {
+        "input": "9007199254740993",
+        "calculation": "9007199254740993 − 9007199254740992",
+        "result": "1"
+      }
+    ]
+  },
+  "binary-calculator": {
+    "title": "The same byte can represent two integers",
+    "notation": "2⁷",
+    "inputHeading": "Interpretation",
+    "resultHeading": "Decimal value",
+    "given": [
+      {
+        "label": "Bit pattern",
+        "value": "11111111"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Unsigned",
+        "calculation": "128 + 64 + 32 + 16 + 8 + 4 + 2 + 1",
+        "result": "255"
+      },
+      {
+        "label": "Signed",
+        "calculation": "−128 + 64 + 32 + 16 + 8 + 4 + 2 + 1",
+        "result": "−1"
+      }
+    ]
+  },
+  "circle-calculator": {
+    "title": "Add the same width to two circular borders",
+    "notation": "π(R² − r²)",
+    "inputHeading": "Inner radius",
+    "resultHeading": "Border area",
+    "given": [
+      {
+        "label": "Border width",
+        "value": "1 m"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2 m",
+        "calculation": "π × (3^2 − 2^2)",
+        "result": "15.71 m²"
+      },
+      {
+        "input": "5 m",
+        "calculation": "π × (6^2 − 5^2)",
+        "result": "34.56 m²"
+      }
+    ]
+  },
+  "common-factor-calculator": {
+    "title": "Which box sizes divide both orders evenly?",
+    "notation": "a mod k",
+    "inputHeading": "Items per box",
+    "resultHeading": "Boxes for each order",
+    "given": [
+      {
+        "label": "Order quantities",
+        "value": "18, 30"
+      }
+    ],
+    "rows": [
+      {
+        "input": "3",
+        "calculation": "(18 ÷ 3, 30 ÷ 3)",
+        "result": "6, 10"
+      },
+      {
+        "input": "6",
+        "calculation": "(18 ÷ 6, 30 ÷ 6)",
+        "result": "3, 5"
+      }
+    ]
+  },
+  "confidence-interval-calculator": {
+    "title": "How does a larger sample narrow a confidence interval?",
+    "notation": "zσ / √n",
+    "inputHeading": "Sample size",
+    "resultHeading": "Margin of error",
+    "given": [
+      {
+        "label": "Confidence level",
+        "value": "95%"
+      },
+      {
+        "label": "Population standard deviation",
+        "value": "10"
+      }
+    ],
+    "rows": [
+      {
+        "input": "25",
+        "calculation": "1.96 × 10 ÷ √25",
+        "result": "3.92"
+      },
+      {
+        "input": "100",
+        "calculation": "1.96 × 10 ÷ √100",
+        "result": "1.96"
+      }
+    ],
+    "note": "Both rows assume independent observations and a known population standard deviation. Quadrupling the sample size halves the margin of error at the same confidence level."
+  },
+  "distance-calculator": {
+    "title": "Find the short way across the date line",
+    "notation": "360° − Δλ",
+    "inputHeading": "Quantity",
+    "resultHeading": "Angular distance",
+    "given": [
+      {
+        "label": "Longitude",
+        "value": "179° E, 179° W"
+      },
+      {
+        "label": "Latitude",
+        "value": "0°"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Longitude difference",
+        "calculation": "179 − (−179)",
+        "result": "358°"
+      },
+      {
+        "label": "Shorter arc",
+        "calculation": "360 − 358",
+        "result": "2°"
+      }
+    ]
+  },
+  "exponent-calculator": {
+    "title": "How far apart are three doublings and three additions?",
+    "notation": "2³",
+    "inputHeading": "Operation",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "input": "× 2",
+        "calculation": "5 × 2^3",
+        "result": "40"
+      },
+      {
+        "input": "+ 2",
+        "calculation": "5 + 3 × 2",
+        "result": "11"
+      }
+    ]
+  },
+  "factor-calculator": {
+    "title": "Where do the factor pairs meet?",
+    "notation": "a × b = n",
+    "inputHeading": "Factor pair",
+    "resultHeading": "Product",
+    "rows": [
+      {
+        "input": "3 × 12",
+        "calculation": "3 × 12",
+        "result": "36"
+      },
+      {
+        "input": "6 × 6",
+        "calculation": "6 × 6",
+        "result": "36"
+      }
+    ]
+  },
+  "fraction-calculator": {
+    "title": "How many small cups fit in a larger measure?",
+    "notation": "¾ ÷ ⅛",
+    "inputHeading": "Cup size",
+    "resultHeading": "Number of cups",
+    "given": [
+      {
+        "label": "Total volume",
+        "value": "¾"
+      }
+    ],
+    "rows": [
+      {
+        "input": "⅛",
+        "calculation": "¾ ÷ ⅛",
+        "result": "6"
+      },
+      {
+        "input": "¼",
+        "calculation": "¾ ÷ ¼",
+        "result": "3"
+      }
+    ]
+  },
+  "gcf-calculator": {
+    "title": "Make identical kits without leftovers",
+    "notation": "gcd(a,b)",
+    "inputHeading": "Quantity",
+    "resultHeading": "Items per kit",
+    "given": [
+      {
+        "label": "Order quantities",
+        "value": "24, 36"
+      },
+      {
+        "label": "Number of kits",
+        "value": "12"
+      }
+    ],
+    "rows": [
+      {
+        "input": "24",
+        "calculation": "24 ÷ 12",
+        "result": "2"
+      },
+      {
+        "input": "36",
+        "calculation": "36 ÷ 12",
+        "result": "3"
+      }
+    ]
+  },
+  "half-life-calculator": {
+    "title": "How much disappears in each interval?",
+    "notation": "N × ½",
+    "inputHeading": "Interval",
+    "resultHeading": "Amount lost",
+    "given": [
+      {
+        "label": "Starting mass",
+        "value": "80 g"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "80 − 80 ÷ 2",
+        "result": "40 g"
+      },
+      {
+        "input": "2",
+        "calculation": "40 − 40 ÷ 2",
+        "result": "20 g"
+      }
+    ]
+  },
+  "hex-calculator": {
+    "title": "What comes after the largest two-digit hex value?",
+    "notation": "16²",
+    "inputHeading": "Hexadecimal",
+    "resultHeading": "Decimal value",
+    "rows": [
+      {
+        "input": "FF",
+        "calculation": "15 × 16 + 15",
+        "result": "255"
+      },
+      {
+        "input": "100",
+        "calculation": "1 × 16^2",
+        "result": "256"
+      }
+    ]
+  },
+  "lcm-calculator": {
+    "title": "When will two bells ring together again?",
+    "notation": "lcm(6,8)",
+    "inputHeading": "Period",
+    "resultHeading": "Cycles in 24 minutes",
+    "given": [
+      {
+        "label": "Start time",
+        "value": "09:00"
+      }
+    ],
+    "rows": [
+      {
+        "input": "6 min",
+        "calculation": "24 ÷ 6",
+        "result": "4"
+      },
+      {
+        "input": "8 min",
+        "calculation": "24 ÷ 8",
+        "result": "3"
+      }
+    ]
+  },
+  "log-calculator": {
+    "title": "Which exponent gives a number below one?",
+    "notation": "10ˣ",
+    "inputHeading": "Number",
+    "resultHeading": "Base-10 logarithm",
+    "rows": [
+      {
+        "input": "0.1",
+        "calculation": "10^(−1) = 0.1",
+        "result": "−1"
+      },
+      {
+        "input": "0.001",
+        "calculation": "10^(−3) = 0.001",
+        "result": "−3"
+      }
+    ]
+  },
+  "long-division-calculator": {
+    "title": "Does the leftover require another box?",
+    "notation": "q × d + r",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Items",
+        "value": "53"
+      },
+      {
+        "label": "Items per box",
+        "value": "8"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Full boxes",
+        "calculation": "53 = 6 × 8 + 5",
+        "result": "6"
+      },
+      {
+        "label": "Boxes required",
+        "calculation": "6 + 1",
+        "result": "7"
+      }
+    ]
+  },
+  "matrix-calculator": {
+    "title": "How does an off-diagonal term change when a matrix is squared?",
+    "notation": "A²",
+    "inputHeading": "Matrix entry",
+    "resultHeading": "Squared matrix entry",
+    "given": [
+      {
+        "label": "Matrix A",
+        "value": "[[1, 2], [0, 1]]"
+      }
+    ],
+    "rows": [
+      {
+        "input": "a₁₁",
+        "calculation": "1 × 1 + 2 × 0",
+        "result": "1"
+      },
+      {
+        "input": "a₁₂",
+        "calculation": "1 × 2 + 2 × 1",
+        "result": "4"
+      }
+    ]
+  },
+  "mean-median-mode-range-calculator": {
+    "title": "Move the middle value and keep both endpoints",
+    "notation": "x̃",
+    "inputHeading": "Dataset",
+    "resultHeading": "Median",
+    "rows": [
+      {
+        "input": "1, 2, 9",
+        "calculation": "(1, 2, 9) → x̃",
+        "result": "2"
+      },
+      {
+        "input": "1, 7, 9",
+        "calculation": "(1, 7, 9) → x̃",
+        "result": "7"
+      }
+    ]
+  },
+  "number-sequence-calculator": {
+    "title": "The last term and the running total",
+    "notation": "a₄ ≠ S₄",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "First term",
+        "value": "3"
+      },
+      {
+        "label": "Common difference",
+        "value": "2"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Fourth term",
+        "calculation": "3 + (4 − 1) × 2",
+        "result": "9"
+      },
+      {
+        "label": "Sum of four terms",
+        "calculation": "3 + 5 + 7 + 9",
+        "result": "24"
+      }
+    ]
+  },
+  "p-value-calculator": {
+    "title": "Which tail probabilities count in a symmetric test?",
+    "notation": "p₁, 2p₁",
+    "inputHeading": "Test",
+    "resultHeading": "P-value",
+    "given": [
+      {
+        "label": "One-sided tail probability",
+        "value": "0.03"
+      }
+    ],
+    "rows": [
+      {
+        "label": "One-sided",
+        "calculation": "0.03",
+        "result": "0.03"
+      },
+      {
+        "label": "Two-sided",
+        "calculation": "2 × 0.03",
+        "result": "0.06"
+      }
+    ]
+  },
+  "percent-calculator": {
+    "title": "Can an equal increase undo a decrease?",
+    "notation": "0.75 × 1.25",
+    "inputHeading": "Change",
+    "resultHeading": "Value",
+    "rows": [
+      {
+        "input": "−25%",
+        "calculation": "80 × 0.75",
+        "result": "60"
+      },
+      {
+        "input": "+25%",
+        "calculation": "60 × 1.25",
+        "result": "75"
+      }
+    ]
+  },
+  "percent-error-calculator": {
+    "title": "How large is the same measurement miss?",
+    "notation": "Δ / x",
+    "inputHeading": "Reference value",
+    "resultHeading": "Absolute percent error",
+    "given": [
+      {
+        "label": "Measurement error",
+        "value": "1 mm"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20 mm",
+        "calculation": "1 ÷ 20 × 100",
+        "result": "5%"
+      },
+      {
+        "input": "200 mm",
+        "calculation": "1 ÷ 200 × 100",
+        "result": "0.5%"
+      }
+    ]
+  },
+  "permutation-and-combination-calculator": {
+    "title": "Choose a pair or assign two different jobs",
+    "notation": "nPr / nCr",
+    "inputHeading": "Selection",
+    "resultHeading": "Count",
+    "given": [
+      {
+        "label": "People",
+        "value": "5"
+      },
+      {
+        "label": "Positions",
+        "value": "2"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Ordered",
+        "calculation": "5 × 4",
+        "result": "20"
+      },
+      {
+        "label": "Unordered",
+        "calculation": "5 × 4 ÷ 2",
+        "result": "10"
+      }
+    ]
+  },
+  "prime-factorization-calculator": {
+    "title": "Count divisors from the prime exponents",
+    "notation": "2ᵃ × 3ᵇ",
+    "inputHeading": "Number",
+    "resultHeading": "Positive divisors",
+    "rows": [
+      {
+        "input": "18",
+        "calculation": "(1 + 1) × (2 + 1)",
+        "result": "6"
+      },
+      {
+        "input": "36",
+        "calculation": "(2 + 1) × (2 + 1)",
+        "result": "9"
+      }
+    ]
+  },
+  "probability-calculator": {
+    "title": "Will at least one of two independent attempts succeed?",
+    "notation": "1 − q²",
+    "inputHeading": "Quantity",
+    "resultHeading": "Probability",
+    "given": [
+      {
+        "label": "Success probability",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Neither",
+        "calculation": "0.8 × 0.8 × 100",
+        "result": "64%"
+      },
+      {
+        "label": "At least one",
+        "calculation": "(1 − 0.8^2) × 100",
+        "result": "36%"
+      }
+    ]
+  },
+  "pythagorean-theorem-calculator": {
+    "title": "How much longer is the diagonal of a doubled rectangle?",
+    "notation": "√(a² + b²)",
+    "inputHeading": "Side lengths",
+    "resultHeading": "Diagonal",
+    "rows": [
+      {
+        "input": "3 m × 4 m",
+        "calculation": "√(3^2 + 4^2)",
+        "result": "5 m"
+      },
+      {
+        "input": "6 m × 8 m",
+        "calculation": "√(6^2 + 8^2)",
+        "result": "10 m"
+      }
+    ]
+  },
+  "quadratic-formula-calculator": {
+    "title": "Check both roots in the original equation",
+    "notation": "x² = 5x − 6",
+    "inputHeading": "Candidate root",
+    "resultHeading": "Residual",
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "2^2 − 5 × 2 + 6",
+        "result": "0"
+      },
+      {
+        "input": "3",
+        "calculation": "3^2 − 5 × 3 + 6",
+        "result": "0"
+      }
+    ]
+  },
+  "random-number-generator": {
+    "title": "How many unique decimal draws are possible?",
+    "notation": "n + 1",
+    "inputHeading": "Decimal places",
+    "resultHeading": "Distinct values from 0 to 1",
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "(1 − 0) × 10 + 1",
+        "result": "11"
+      },
+      {
+        "input": "2",
+        "calculation": "(1 − 0) × 100 + 1",
+        "result": "101"
+      }
+    ]
+  },
+  "ratio-calculator": {
+    "title": "Which paint mixture keeps the same shade?",
+    "notation": "A : B",
+    "inputHeading": "Mixture",
+    "resultHeading": "Simplified ratio",
+    "rows": [
+      {
+        "input": "6 : 9",
+        "calculation": "6 ÷ 3 : 9 ÷ 3",
+        "result": "2 : 3"
+      },
+      {
+        "input": "8 : 11",
+        "calculation": "gcd(8, 11) = 1",
+        "result": "8 : 11"
+      }
+    ]
+  },
+  "right-triangle-calculator": {
+    "title": "Which height reaches the longest side?",
+    "notation": "ab / c",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Side lengths",
+        "value": "6 m, 8 m, 10 m"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Area",
+        "calculation": "6 × 8 ÷ 2",
+        "result": "24 m²"
+      },
+      {
+        "label": "Altitude to hypotenuse",
+        "calculation": "2 × 24 ÷ 10",
+        "result": "4.8 m"
+      }
+    ]
+  },
+  "root-calculator": {
+    "title": "Check the two numbers whose square is sixteen",
+    "notation": "x² = 16",
+    "inputHeading": "Candidate root",
+    "resultHeading": "Square",
+    "rows": [
+      {
+        "input": "4",
+        "calculation": "4 × 4",
+        "result": "16"
+      },
+      {
+        "input": "−4",
+        "calculation": "(−4) × (−4)",
+        "result": "16"
+      }
+    ]
+  },
+  "rounding-calculator": {
+    "title": "Round a cash total in two different ways",
+    "notation": "Δ = 0.05",
+    "inputHeading": "Rounding increment",
+    "resultHeading": "Rounded amount",
+    "rows": [
+      {
+        "input": "0.01",
+        "calculation": "1.02 → 1.02",
+        "result": "1.02"
+      },
+      {
+        "input": "0.05",
+        "calculation": "1.02 → 1.00",
+        "result": "1.00"
+      }
+    ]
+  },
+  "sample-size-calculator": {
+    "title": "Do complementary proportions give different uncertainty?",
+    "notation": "p(1 − p)",
+    "inputHeading": "Expected proportion",
+    "resultHeading": "Variance factor",
+    "given": [
+      {
+        "label": "Probability",
+        "value": "p"
+      }
+    ],
+    "rows": [
+      {
+        "input": "30%",
+        "calculation": "0.30 × 0.70",
+        "result": "0.21"
+      },
+      {
+        "input": "70%",
+        "calculation": "0.70 × 0.30",
+        "result": "0.21"
+      }
+    ]
+  },
+  "scientific-calculator": {
+    "title": "Check the angle setting with a quarter turn",
+    "notation": "π / 2",
+    "inputHeading": "Angle unit",
+    "resultHeading": "Sine",
+    "rows": [
+      {
+        "label": "Degrees",
+        "calculation": "sin(90°)",
+        "result": "1"
+      },
+      {
+        "label": "Radians",
+        "calculation": "sin(π ÷ 2)",
+        "result": "1"
+      }
+    ]
+  },
+  "scientific-notation-calculator": {
+    "title": "Align the powers before adding two measurements",
+    "notation": "a × 10ⁿ",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "label": "Second term",
+        "calculation": "8 × 10^4",
+        "result": "80000"
+      },
+      {
+        "label": "Sum",
+        "calculation": "2 × 10^5 + 8 × 10^4",
+        "result": "280000"
+      }
+    ]
+  },
+  "slope-calculator": {
+    "title": "Read the same ramp as a grade and an angle",
+    "notation": "Δy / Δx",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "label": "Grade",
+        "calculation": "1 ÷ 12 × 100",
+        "result": "8.33%"
+      },
+      {
+        "label": "angle",
+        "calculation": "arctan(1 ÷ 12) × 180 ÷ π",
+        "result": "4.76°"
+      }
+    ]
+  },
+  "standard-deviation-calculator": {
+    "title": "What happens when meters become centimeters?",
+    "notation": "σ × k",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Standard deviation",
+        "value": "0.2 m"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Standard deviation",
+        "calculation": "0.2 × 100",
+        "result": "20 cm"
+      },
+      {
+        "label": "Variance",
+        "calculation": "0.2^2 × 100^2",
+        "result": "400 cm²"
+      }
+    ]
+  },
+  "statistics-calculator": {
+    "title": "Spot duplicate observations in a summary",
+    "notation": "Σx / n",
+    "inputHeading": "Dataset",
+    "resultHeading": "Mean",
+    "rows": [
+      {
+        "input": "2, 4, 6",
+        "calculation": "(2 + 4 + 6) ÷ 3",
+        "result": "4"
+      },
+      {
+        "input": "2, 2, 4, 4, 6, 6",
+        "calculation": "24 ÷ 6",
+        "result": "4"
+      }
+    ]
+  },
+  "surface-area-calculator": {
+    "title": "How much sheet material does an open cylinder need?",
+    "notation": "2πrh + πr²",
+    "inputHeading": "Quantity",
+    "resultHeading": "Surface area",
+    "given": [
+      {
+        "label": "Radius",
+        "value": "3 cm"
+      },
+      {
+        "label": "Height",
+        "value": "5 cm"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Closed cylinder",
+        "calculation": "2 × π × 3 × 5 + 2 × π × 3^2",
+        "result": "150.80 cm²"
+      },
+      {
+        "label": "Open cylinder",
+        "calculation": "2 × π × 3 × 5 + π × 3^2",
+        "result": "122.52 cm²"
+      }
+    ],
+    "note": "Removing the lid saves one circle of material, about 28.27 cm². A real seam or folded rim needs an allowance beyond the geometric area."
+  },
+  "triangle-calculator": {
+    "title": "Can the same two sides enclose different areas?",
+    "notation": "½ab sin C",
+    "inputHeading": "Included angle",
+    "resultHeading": "Area",
+    "given": [
+      {
+        "label": "Side lengths",
+        "value": "8 cm, 10 cm"
+      }
+    ],
+    "rows": [
+      {
+        "input": "30°",
+        "calculation": "0.5 × 8 × 10 × sin(30°)",
+        "result": "20 cm²"
+      },
+      {
+        "input": "90°",
+        "calculation": "0.5 × 8 × 10 × sin(90°)",
+        "result": "40 cm²"
+      }
+    ]
+  },
+  "z-score-calculator": {
+    "title": "Where is the probability outside a central interval?",
+    "notation": "1 − C",
+    "inputHeading": "Quantity",
+    "resultHeading": "Probability",
+    "given": [
+      {
+        "label": "Central probability",
+        "value": "95%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Both tails",
+        "calculation": "(1 − 0.95) × 100",
+        "result": "5%"
+      },
+      {
+        "label": "One tail",
+        "calculation": "(1 − 0.95) ÷ 2 × 100",
+        "result": "2.5%"
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import {MathSearchAnswer, MathSearchContent} from '@/components/content/math-search-content';
 import {mathSearchContent} from '@/data/math-search-content';
 import {ToolkitSummary, ToolkitArticleData} from '@/components/content/toolkit-summary';
+import {CalculatorExample} from '@/components/content/calculator-example';
 import {CalculatorInsight} from '@/components/content/calculator-insight';
 import {PregnancyVisual} from '@/components/content/pregnancy-visual';
 import {CalculatorVisual} from '@/components/content/calculator-visual';
@@ -30,7 +31,9 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
     <ToolkitSummary slug={definition.slug} messages={messages}/>
     <section id="how-it-works" tabIndex={-1}><h2>{t('How it works')}</h2><MethodNavigation modes={definition.modes} messages={messages} locale={locale}/></section>
     {definition.slug==='pregnancy-calculator'?<PregnancyVisual locale={locale}/>:<CalculatorVisual slug={definition.slug} title={visualTitle} modes={definition.modes} locale={locale} messages={messages}/>}
-    {!illustratedReference&&<CalculatorInsight slug={definition.slug} locale={locale}/>}
+    {definition.slug!=='volume-calculator'&&<CalculatorInsight slug={definition.slug} locale={locale}>
+      <CalculatorExample slug={definition.slug} locale={locale} messages={messages} nested/>
+    </CalculatorInsight>}
     {definition.slug==='overweight-calculator'&&<AdultBmiScreening messages={messages} locale={locale}/>}
     {!illustratedReference&&<CalculatorGuidance slug={definition.slug} messages={messages} locale={locale} contents/>}
     <MathSearchContent slug={definition.slug} messages={messages} locale={locale}/>

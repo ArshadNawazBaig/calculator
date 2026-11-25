@@ -1,0 +1,2203 @@
+{
+  "401k-calculator": {
+    "title": "Where does the employer match stop?",
+    "notation": "½ × 6%",
+    "inputHeading": "Employee contribution",
+    "resultHeading": "Employer match",
+    "given": [
+      {
+        "label": "Annual salary",
+        "value": "$48000"
+      },
+      {
+        "label": "Match rate",
+        "value": "50%"
+      },
+      {
+        "label": "Employee match limit",
+        "value": "6%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "4%",
+        "calculation": "48000 × 0.04 × 0.5",
+        "result": "$960"
+      },
+      {
+        "input": "8%",
+        "calculation": "48000 × 0.06 × 0.5",
+        "result": "$1440"
+      }
+    ]
+  },
+  "amortization-calculator": {
+    "title": "What does one month earlier save?",
+    "notation": "ΔP × r/12",
+    "inputHeading": "Extra payment",
+    "resultHeading": "Next month's interest saved",
+    "given": [
+      {
+        "label": "Annual interest rate",
+        "value": "6%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$600",
+        "calculation": "600 × 0.06 ÷ 12",
+        "result": "$3"
+      },
+      {
+        "input": "$1200",
+        "calculation": "1200 × 0.06 ÷ 12",
+        "result": "$6"
+      }
+    ]
+  },
+  "annuity-calculator": {
+    "title": "Which deposits go into the annual total?",
+    "notation": "12M + A",
+    "inputHeading": "Deposits",
+    "resultHeading": "Annual contribution",
+    "given": [
+      {
+        "label": "Monthly contribution",
+        "value": "$150"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Monthly",
+        "calculation": "12 × 150",
+        "result": "$1800"
+      },
+      {
+        "label": "Monthly + annual",
+        "calculation": "12 × 150 + 300",
+        "result": "$2100"
+      }
+    ]
+  },
+  "annuity-payout-calculator": {
+    "title": "Keep the yearly withdrawal fixed",
+    "notation": "4Q = 12M",
+    "inputHeading": "Withdrawal frequency",
+    "resultHeading": "Annual withdrawals",
+    "given": [
+      {
+        "label": "Annual withdrawals",
+        "value": "$9000"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Monthly",
+        "calculation": "12 × 750",
+        "result": "$9000"
+      },
+      {
+        "label": "Quarterly",
+        "calculation": "4 × 2250",
+        "result": "$9000"
+      }
+    ]
+  },
+  "apr-calculator": {
+    "title": "How much of a small loan reaches your account?",
+    "notation": "P − F",
+    "inputHeading": "Upfront fee",
+    "resultHeading": "Net proceeds",
+    "given": [
+      {
+        "label": "Loan amount",
+        "value": "$5000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "5000 − 0",
+        "result": "$5000"
+      },
+      {
+        "input": "$250",
+        "calculation": "5000 − 250",
+        "result": "$4750"
+      }
+    ]
+  },
+  "auto-lease-calculator": {
+    "title": "Compare two lease quotes on equal terms",
+    "notation": "P + D/n",
+    "inputHeading": "Upfront payment",
+    "resultHeading": "Effective monthly cost",
+    "given": [
+      {
+        "label": "Term in months",
+        "value": "36"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "380 + 0 ÷ 36",
+        "result": "$380"
+      },
+      {
+        "input": "$3600",
+        "calculation": "290 + 3600 ÷ 36",
+        "result": "$390"
+      }
+    ]
+  },
+  "auto-loan-calculator": {
+    "title": "What rolls into the next car loan?",
+    "notation": "P − V + B",
+    "inputHeading": "Trade-in value",
+    "resultHeading": "Amount financed",
+    "given": [
+      {
+        "label": "Purchase price",
+        "value": "$24000"
+      },
+      {
+        "label": "Outstanding balance",
+        "value": "$15000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$12000",
+        "calculation": "24000 − 12000 + 15000",
+        "result": "$27000"
+      },
+      {
+        "input": "$16000",
+        "calculation": "24000 − 16000 + 15000",
+        "result": "$23000"
+      }
+    ]
+  },
+  "average-return-calculator": {
+    "title": "Follow the same investment through two years",
+    "notation": "1.2 × 0.8",
+    "inputHeading": "Year",
+    "resultHeading": "Ending balance",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$1000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "1000 × 1.20",
+        "result": "$1200"
+      },
+      {
+        "input": "2",
+        "calculation": "1200 × 0.80",
+        "result": "$960"
+      }
+    ]
+  },
+  "boat-loan-calculator": {
+    "title": "How much room is left for the boat payment?",
+    "notation": "B − C",
+    "inputHeading": "Monthly ownership costs",
+    "resultHeading": "Available payment",
+    "given": [
+      {
+        "label": "Monthly budget",
+        "value": "$700"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$175",
+        "calculation": "700 − 175",
+        "result": "$525"
+      },
+      {
+        "input": "$260",
+        "calculation": "700 − 260",
+        "result": "$440"
+      }
+    ]
+  },
+  "bond-calculator": {
+    "title": "What changes when the bond price falls?",
+    "notation": "C / P",
+    "inputHeading": "Purchase price",
+    "resultHeading": "Current yield",
+    "given": [
+      {
+        "label": "Annual coupon",
+        "value": "$50"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$1000",
+        "calculation": "50 ÷ 1000 × 100",
+        "result": "5%"
+      },
+      {
+        "input": "$800",
+        "calculation": "50 ÷ 800 × 100",
+        "result": "6.25%"
+      }
+    ]
+  },
+  "break-even-calculator": {
+    "title": "How many extra sales cover a price cut?",
+    "notation": "F / (P − V)",
+    "inputHeading": "Selling price",
+    "resultHeading": "Break-even units",
+    "given": [
+      {
+        "label": "Fixed costs",
+        "value": "$3000"
+      },
+      {
+        "label": "Variable cost per unit",
+        "value": "$30"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$50",
+        "calculation": "3000 ÷ (50 − 30)",
+        "result": "150"
+      },
+      {
+        "input": "$45",
+        "calculation": "3000 ÷ (45 − 30)",
+        "result": "200"
+      }
+    ]
+  },
+  "budget-calculator": {
+    "title": "An annual bill due in three months",
+    "notation": "B / n",
+    "inputHeading": "Months remaining",
+    "resultHeading": "Monthly amount to save",
+    "given": [
+      {
+        "label": "Annual bill",
+        "value": "$1200"
+      }
+    ],
+    "rows": [
+      {
+        "input": "12",
+        "calculation": "1200 ÷ 12",
+        "result": "$100"
+      },
+      {
+        "input": "3",
+        "calculation": "1200 ÷ 3",
+        "result": "$400"
+      }
+    ]
+  },
+  "business-loan-calculator": {
+    "title": "Separate the loan balance from usable cash",
+    "notation": "P − F",
+    "inputHeading": "Upfront fee",
+    "resultHeading": "Net proceeds",
+    "given": [
+      {
+        "label": "Loan amount",
+        "value": "$40000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$800",
+        "calculation": "40000 − 800",
+        "result": "$39200"
+      },
+      {
+        "input": "$1600",
+        "calculation": "40000 − 1600",
+        "result": "$38400"
+      }
+    ]
+  },
+  "canadian-mortgage-calculator": {
+    "title": "What balance reaches renewal at zero interest?",
+    "notation": "P − nA",
+    "inputHeading": "Years",
+    "resultHeading": "Balance after five years",
+    "given": [
+      {
+        "label": "Loan amount",
+        "value": "CA$240000"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "0%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20",
+        "calculation": "240000 − 60 × (240000 ÷ 240)",
+        "result": "CA$180000"
+      },
+      {
+        "input": "25",
+        "calculation": "240000 − 60 × (240000 ÷ 300)",
+        "result": "CA$192000"
+      }
+    ]
+  },
+  "cash-back-or-low-interest-calculator": {
+    "title": "How much interest cancels a cash rebate?",
+    "notation": "P − R + I",
+    "inputHeading": "Total interest",
+    "resultHeading": "Total repaid",
+    "given": [
+      {
+        "label": "Purchase price",
+        "value": "$25000"
+      },
+      {
+        "label": "Cash rebate",
+        "value": "$2000"
+      },
+      {
+        "label": "Comparison rate",
+        "value": "0%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$1500",
+        "calculation": "25000 − 2000 + 1500",
+        "result": "$24500"
+      },
+      {
+        "input": "$2400",
+        "calculation": "25000 − 2000 + 2400",
+        "result": "$25400"
+      }
+    ]
+  },
+  "cash-flow-calculator": {
+    "title": "Can cash cover the bill before the customer pays?",
+    "notation": "B + R − E",
+    "inputHeading": "Receipts this month",
+    "resultHeading": "Closing balance",
+    "given": [
+      {
+        "label": "Opening balance",
+        "value": "$900"
+      },
+      {
+        "label": "Expenses",
+        "value": "$1400"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "900 + 0 − 1400",
+        "result": "−$500"
+      },
+      {
+        "input": "$1800",
+        "calculation": "900 + 1800 − 1400",
+        "result": "$1300"
+      }
+    ]
+  },
+  "cd-calculator": {
+    "title": "What does a quoted APY buy in one year?",
+    "notation": "P × APY",
+    "inputHeading": "Starting balance",
+    "resultHeading": "Interest earned",
+    "given": [
+      {
+        "label": "Annual percentage yield",
+        "value": "4%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$2500",
+        "calculation": "2500 × 0.04",
+        "result": "$100"
+      },
+      {
+        "input": "$7500",
+        "calculation": "7500 × 0.04",
+        "result": "$300"
+      }
+    ]
+  },
+  "college-cost-calculator": {
+    "title": "Price the second year at its own tuition rate",
+    "notation": "C × (1 + g)",
+    "inputHeading": "Academic year",
+    "resultHeading": "Tuition",
+    "given": [
+      {
+        "label": "First-year tuition",
+        "value": "$20000"
+      },
+      {
+        "label": "Annual cost increase",
+        "value": "4%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "20000 × 1",
+        "result": "$20000"
+      },
+      {
+        "input": "2",
+        "calculation": "20000 × 1.04",
+        "result": "$20800"
+      }
+    ]
+  },
+  "commission-calculator": {
+    "title": "Follow a sale across a commission tier",
+    "notation": "S₁r₁ + S₂r₂",
+    "inputHeading": "Sales",
+    "resultHeading": "Commission",
+    "given": [
+      {
+        "label": "Commission threshold",
+        "value": "$10000"
+      },
+      {
+        "label": "Tier rates",
+        "value": "10% / 20%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$9000",
+        "calculation": "9000 × 0.10",
+        "result": "$900"
+      },
+      {
+        "input": "$11000",
+        "calculation": "10000 × 0.10 + 1000 × 0.20",
+        "result": "$1200"
+      }
+    ]
+  },
+  "compound-interest-calculator": {
+    "title": "Compare two ways to quote the same annual growth",
+    "notation": "1.01¹²",
+    "inputHeading": "Compounding",
+    "resultHeading": "Ending balance",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$1000"
+      },
+      {
+        "label": "Years",
+        "value": "1"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Monthly",
+        "calculation": "1000 × 1.01^12",
+        "result": "$1126.83"
+      },
+      {
+        "label": "Annual",
+        "calculation": "1000 × (1 + 0.12682503)",
+        "result": "$1126.83"
+      }
+    ]
+  },
+  "credit-card-calculator": {
+    "title": "Where does the first card payment go?",
+    "notation": "P − I",
+    "inputHeading": "Monthly payment",
+    "resultHeading": "Principal repaid",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$3000"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "24%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$80",
+        "calculation": "80 − 3000 × 0.24 ÷ 12",
+        "result": "$20"
+      },
+      {
+        "input": "$120",
+        "calculation": "120 − 3000 × 0.24 ÷ 12",
+        "result": "$60"
+      }
+    ]
+  },
+  "credit-card-payoff-calculator": {
+    "title": "Where can a cleared card's payment go?",
+    "notation": "P₁ + P₂",
+    "inputHeading": "Monthly payment",
+    "resultHeading": "Next card payment",
+    "given": [
+      {
+        "label": "Monthly payment",
+        "value": "$140"
+      },
+      {
+        "label": "Freed payment",
+        "value": "$75"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "140 + 0",
+        "result": "$140"
+      },
+      {
+        "input": "$75",
+        "calculation": "140 + 75",
+        "result": "$215"
+      }
+    ]
+  },
+  "currency-calculator": {
+    "title": "Check an exchange rate in both directions",
+    "notation": "A ⇄ B",
+    "inputHeading": "Currency pair",
+    "resultHeading": "Converted amount",
+    "given": [
+      {
+        "label": "Exchange rate",
+        "value": "1 A = 0.80 B"
+      }
+    ],
+    "rows": [
+      {
+        "input": "A → B",
+        "calculation": "125 × 0.8",
+        "result": "100 B"
+      },
+      {
+        "input": "B → A",
+        "calculation": "100 ÷ 0.8",
+        "result": "125 A"
+      }
+    ]
+  },
+  "debt-consolidation-calculator": {
+    "title": "How much must the new loan actually provide?",
+    "notation": "N / (1 − f)",
+    "inputHeading": "Fee rate",
+    "resultHeading": "Gross loan amount",
+    "given": [
+      {
+        "label": "Net proceeds",
+        "value": "$9800"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2%",
+        "calculation": "9800 ÷ (1 − 0.02)",
+        "result": "$10000"
+      },
+      {
+        "input": "5%",
+        "calculation": "9800 ÷ (1 − 0.05)",
+        "result": "$10315.79"
+      }
+    ]
+  },
+  "debt-payoff-calculator": {
+    "title": "What can an extra payment save in the first month?",
+    "notation": "ΔP × r/12",
+    "inputHeading": "Annual interest rate",
+    "resultHeading": "Next month's interest saved",
+    "given": [
+      {
+        "label": "Extra payment",
+        "value": "$600"
+      }
+    ],
+    "rows": [
+      {
+        "input": "12%",
+        "calculation": "600 × 0.12 ÷ 12",
+        "result": "$6"
+      },
+      {
+        "input": "24%",
+        "calculation": "600 × 0.24 ÷ 12",
+        "result": "$12"
+      }
+    ]
+  },
+  "debt-ratio-calculator": {
+    "title": "Which payment moves the debt ratio?",
+    "notation": "D / I",
+    "inputHeading": "Monthly debt payments",
+    "resultHeading": "Debt-to-income ratio",
+    "given": [
+      {
+        "label": "Gross monthly income",
+        "value": "$4500"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$900",
+        "calculation": "900 ÷ 4500 × 100",
+        "result": "20%"
+      },
+      {
+        "input": "$1125",
+        "calculation": "1125 ÷ 4500 × 100",
+        "result": "25%"
+      }
+    ]
+  },
+  "depreciation-calculator": {
+    "title": "Which part of the purchase price is depreciable?",
+    "notation": "(C − S) / n",
+    "inputHeading": "Salvage value",
+    "resultHeading": "Annual depreciation",
+    "given": [
+      {
+        "label": "Purchase price",
+        "value": "$15000"
+      },
+      {
+        "label": "Useful life",
+        "value": "5"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "(15000 − 0) ÷ 5",
+        "result": "$3000"
+      },
+      {
+        "input": "$3000",
+        "calculation": "(15000 − 3000) ÷ 5",
+        "result": "$2400"
+      }
+    ]
+  },
+  "discount-calculator": {
+    "title": "Apply the second discount to the sale price",
+    "notation": "0.8 × 0.9",
+    "inputHeading": "Discount",
+    "resultHeading": "Sale price",
+    "given": [
+      {
+        "label": "Original price",
+        "value": "$150"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20%",
+        "calculation": "150 × 0.80",
+        "result": "$120"
+      },
+      {
+        "input": "20% → 10%",
+        "calculation": "150 × 0.80 × 0.90",
+        "result": "$108"
+      }
+    ]
+  },
+  "down-payment-calculator": {
+    "title": "How much of the cash goes to closing?",
+    "notation": "C / (d + f)",
+    "inputHeading": "Closing costs",
+    "resultHeading": "Purchase price",
+    "given": [
+      {
+        "label": "Available cash",
+        "value": "$36000"
+      },
+      {
+        "label": "Down payment",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "0%",
+        "calculation": "36000 ÷ 0.20",
+        "result": "$180000"
+      },
+      {
+        "input": "4%",
+        "calculation": "36000 ÷ (0.20 + 0.04)",
+        "result": "$150000"
+      }
+    ]
+  },
+  "emergency-fund-calculator": {
+    "title": "How many months can the unreserved cash cover?",
+    "notation": "C / E",
+    "inputHeading": "Reserved savings",
+    "resultHeading": "Months covered",
+    "given": [
+      {
+        "label": "Savings",
+        "value": "$9000"
+      },
+      {
+        "label": "Monthly expenses",
+        "value": "$1500"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "9000 ÷ 1500",
+        "result": "6"
+      },
+      {
+        "input": "$3000",
+        "calculation": "(9000 − 3000) ÷ 1500",
+        "result": "4"
+      }
+    ]
+  },
+  "estate-tax-calculator": {
+    "title": "Reconcile one asset with its outstanding debt",
+    "notation": "A − D",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Gross assets",
+        "value": "$700000"
+      },
+      {
+        "label": "Debt",
+        "value": "$150000"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Gross assets",
+        "calculation": "500000 + 200000",
+        "result": "$700000"
+      },
+      {
+        "label": "Net estate",
+        "calculation": "700000 − 150000",
+        "result": "$550000"
+      }
+    ]
+  },
+  "fha-loan-calculator": {
+    "title": "Where does an upfront premium appear?",
+    "notation": "P + F",
+    "inputHeading": "Financed premium",
+    "resultHeading": "Starting loan balance",
+    "given": [
+      {
+        "label": "Base loan amount",
+        "value": "$200000"
+      },
+      {
+        "label": "Upfront premium",
+        "value": "$3500"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "200000 + 0",
+        "result": "$200000"
+      },
+      {
+        "input": "$3500",
+        "calculation": "200000 + 3500",
+        "result": "$203500"
+      }
+    ]
+  },
+  "finance-calculator": {
+    "title": "Check the payment sign on a zero-interest loan",
+    "notation": "ΣCF = 0",
+    "inputHeading": "Cash flow",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Annual interest rate",
+        "value": "0%"
+      },
+      {
+        "label": "Term in months",
+        "value": "12"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Loan proceeds",
+        "calculation": "12 × 250",
+        "result": "+$3000"
+      },
+      {
+        "label": "Monthly payment",
+        "calculation": "−3000 ÷ 12",
+        "result": "−$250"
+      }
+    ]
+  },
+  "freelance-rate-calculator": {
+    "title": "Price a week with fewer billable hours",
+    "notation": "R / h",
+    "inputHeading": "Billable hours",
+    "resultHeading": "Required hourly rate",
+    "given": [
+      {
+        "label": "Weekly revenue target",
+        "value": "$1800"
+      }
+    ],
+    "rows": [
+      {
+        "input": "30",
+        "calculation": "1800 ÷ 30",
+        "result": "$60"
+      },
+      {
+        "input": "20",
+        "calculation": "1800 ÷ 20",
+        "result": "$90"
+      }
+    ]
+  },
+  "future-value-calculator": {
+    "title": "What can the ending balance actually buy?",
+    "notation": "FV / CPI",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$5000"
+      },
+      {
+        "label": "Cumulative inflation",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Future value",
+        "calculation": "5000 × 1.20",
+        "result": "$6000"
+      },
+      {
+        "label": "Purchasing power",
+        "calculation": "6000 ÷ 1.20",
+        "result": "$5000"
+      }
+    ]
+  },
+  "heloc-calculator": {
+    "title": "What does another interest-only year cost?",
+    "notation": "P × r × t",
+    "inputHeading": "Years",
+    "resultHeading": "Draw-period interest",
+    "given": [
+      {
+        "label": "Drawn balance",
+        "value": "$30000"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "8%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "30000 × 0.08 × 2",
+        "result": "$4800"
+      },
+      {
+        "input": "3",
+        "calculation": "30000 × 0.08 × 3",
+        "result": "$7200"
+      }
+    ]
+  },
+  "home-equity-loan-calculator": {
+    "title": "How much equity is available under the limit?",
+    "notation": "V × L − D",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Home value",
+        "value": "$350000"
+      },
+      {
+        "label": "Outstanding balance",
+        "value": "$210000"
+      },
+      {
+        "label": "Combined LTV limit",
+        "value": "80%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Home equity",
+        "calculation": "350000 − 210000",
+        "result": "$140000"
+      },
+      {
+        "label": "Available borrowing",
+        "calculation": "350000 × 0.80 − 210000",
+        "result": "$70000"
+      }
+    ]
+  },
+  "house-affordability-calculator": {
+    "title": "Which monthly housing limit is tighter?",
+    "notation": "min(H, D)",
+    "inputHeading": "Other monthly debts",
+    "resultHeading": "Housing budget",
+    "given": [
+      {
+        "label": "Housing-only limit",
+        "value": "$1680"
+      },
+      {
+        "label": "Total debt limit",
+        "value": "$2160"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$700",
+        "calculation": "min(1680, 2160 − 700)",
+        "result": "$1460"
+      },
+      {
+        "input": "$200",
+        "calculation": "min(1680, 2160 − 200)",
+        "result": "$1680"
+      }
+    ]
+  },
+  "inflation-calculator": {
+    "title": "Follow a price as inflation slows",
+    "notation": "P × (1 + i)",
+    "inputHeading": "Year",
+    "resultHeading": "Price",
+    "given": [
+      {
+        "label": "Starting price",
+        "value": "$100"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "100 × 1.05",
+        "result": "$105"
+      },
+      {
+        "input": "2",
+        "calculation": "105 × 1.02",
+        "result": "$107.10"
+      }
+    ]
+  },
+  "interest-calculator": {
+    "title": "Can a positive interest payment preserve buying power?",
+    "notation": "1.04 / 1.04",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$1000"
+      },
+      {
+        "label": "Inflation rate",
+        "value": "4%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "After-tax balance",
+        "calculation": "1000 + 1000 × 0.05 × 0.80",
+        "result": "$1040"
+      },
+      {
+        "label": "Purchasing power",
+        "calculation": "1040 ÷ 1.04",
+        "result": "$1000"
+      }
+    ]
+  },
+  "interest-rate-calculator": {
+    "title": "Can the payment even cover the principal?",
+    "notation": "n × A",
+    "inputHeading": "Monthly payment",
+    "resultHeading": "Total repaid in 24 months",
+    "given": [
+      {
+        "label": "Loan amount",
+        "value": "$12000"
+      },
+      {
+        "label": "Term in months",
+        "value": "24"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$450",
+        "calculation": "24 × 450",
+        "result": "$10800"
+      },
+      {
+        "input": "$500",
+        "calculation": "24 × 500",
+        "result": "$12000"
+      }
+    ]
+  },
+  "investment-calculator": {
+    "title": "What can contributions achieve with no investment growth?",
+    "notation": "n × A",
+    "inputHeading": "Monthly contribution",
+    "resultHeading": "Amount after five years",
+    "given": [
+      {
+        "label": "Investment return",
+        "value": "0%"
+      },
+      {
+        "label": "Years",
+        "value": "5"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$150",
+        "calculation": "60 × 150",
+        "result": "$9000"
+      },
+      {
+        "input": "$250",
+        "calculation": "60 × 250",
+        "result": "$15000"
+      }
+    ]
+  },
+  "invoice-generator": {
+    "title": "A customer deposit and a discount produce different balances",
+    "notation": "T − P",
+    "inputHeading": "Adjustment",
+    "resultHeading": "Balance due",
+    "given": [
+      {
+        "label": "Subtotal",
+        "value": "$1000"
+      },
+      {
+        "label": "Tax rate",
+        "value": "10%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Deposit",
+        "calculation": "(1000 × 1.10) − 200",
+        "result": "$900"
+      },
+      {
+        "label": "Discount",
+        "calculation": "(1000 − 200) × 1.10",
+        "result": "$880"
+      }
+    ]
+  },
+  "ira-calculator": {
+    "title": "Compare equal pretax resources at one assumed tax rate",
+    "notation": "1.2 × 0.8",
+    "inputHeading": "Account type",
+    "resultHeading": "After-tax value",
+    "given": [
+      {
+        "label": "Pretax amount",
+        "value": "$1000"
+      },
+      {
+        "label": "Tax rate",
+        "value": "20%"
+      },
+      {
+        "label": "Growth",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Traditional",
+        "calculation": "1000 × 1.2 × 0.8",
+        "result": "$960"
+      },
+      {
+        "input": "Roth",
+        "calculation": "1000 × 0.8 × 1.2",
+        "result": "$960"
+      }
+    ]
+  },
+  "irr-calculator": {
+    "title": "Check both roots against the cash flows",
+    "notation": "NPV = 0",
+    "inputHeading": "Discount rate",
+    "resultHeading": "Net present value",
+    "given": [
+      {
+        "label": "Cash flows",
+        "value": "−100, +230, −132"
+      }
+    ],
+    "rows": [
+      {
+        "input": "10%",
+        "calculation": "−100 + 230 ÷ 1.10 − 132 ÷ 1.10^2",
+        "result": "$0"
+      },
+      {
+        "input": "20%",
+        "calculation": "−100 + 230 ÷ 1.20 − 132 ÷ 1.20^2",
+        "result": "$0"
+      }
+    ]
+  },
+  "lease-calculator": {
+    "title": "A residual moves principal into the final payment",
+    "notation": "(P − R) / n",
+    "inputHeading": "Residual value",
+    "resultHeading": "Monthly payment at zero interest",
+    "given": [
+      {
+        "label": "Asset value",
+        "value": "$18000"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "0%"
+      },
+      {
+        "label": "Term in months",
+        "value": "36"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "(18000 − 0) ÷ 36",
+        "result": "$500"
+      },
+      {
+        "input": "$7200",
+        "calculation": "(18000 − 7200) ÷ 36",
+        "result": "$300"
+      }
+    ]
+  },
+  "loan-calculator": {
+    "title": "Watch interest build during a payment deferral",
+    "notation": "P × (1 + i)ⁿ",
+    "inputHeading": "Months",
+    "resultHeading": "Balance with no payments",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$10000"
+      },
+      {
+        "label": "Monthly interest rate",
+        "value": "1%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "10000 × 1.01",
+        "result": "$10100"
+      },
+      {
+        "input": "2",
+        "calculation": "10000 × 1.01^2",
+        "result": "$10201"
+      }
+    ]
+  },
+  "margin-calculator": {
+    "title": "Include fulfillment before reading the margin",
+    "notation": "(P − C) / P",
+    "inputHeading": "Total cost",
+    "resultHeading": "Profit margin",
+    "given": [
+      {
+        "label": "Selling price",
+        "value": "$70"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$42",
+        "calculation": "(70 − 42) ÷ 70 × 100",
+        "result": "40%"
+      },
+      {
+        "input": "$49",
+        "calculation": "(70 − 49) ÷ 70 × 100",
+        "result": "30%"
+      }
+    ]
+  },
+  "marriage-calculator": {
+    "title": "Compare households with the same combined earnings",
+    "notation": "A + B",
+    "inputHeading": "Income split",
+    "resultHeading": "Combined income",
+    "rows": [
+      {
+        "input": "50% / 50%",
+        "calculation": "60000 + 60000",
+        "result": "$120000"
+      },
+      {
+        "input": "75% / 25%",
+        "calculation": "90000 + 30000",
+        "result": "$120000"
+      }
+    ]
+  },
+  "mortgage-amortization-calculator": {
+    "title": "Inspect the first two principal payments",
+    "notation": "A − B × i",
+    "inputHeading": "Month",
+    "resultHeading": "Principal repaid",
+    "given": [
+      {
+        "label": "Starting balance",
+        "value": "$100000"
+      },
+      {
+        "label": "Monthly interest rate",
+        "value": "0.5%"
+      },
+      {
+        "label": "Monthly payment",
+        "value": "$1000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "1000 − 100000 × 0.005",
+        "result": "$500"
+      },
+      {
+        "input": "2",
+        "calculation": "1000 − 99500 × 0.005",
+        "result": "$502.50"
+      }
+    ]
+  },
+  "mortgage-calculator": {
+    "title": "What if the property tax bill grows?",
+    "notation": "P + I + T/12",
+    "inputHeading": "Annual property tax",
+    "resultHeading": "Monthly housing cost",
+    "given": [
+      {
+        "label": "Principal and interest",
+        "value": "$1200"
+      },
+      {
+        "label": "Monthly insurance",
+        "value": "$100"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$2400",
+        "calculation": "1200 + 2400 ÷ 12 + 100",
+        "result": "$1500"
+      },
+      {
+        "input": "$3000",
+        "calculation": "1200 + 3000 ÷ 12 + 100",
+        "result": "$1550"
+      }
+    ],
+    "note": "The extra $600 on the annual tax bill adds $50 to the monthly housing budget. The scheduled loan payment stays at $1,200."
+  },
+  "mortgage-calculator-uk": {
+    "title": "Set aside the capital on an interest-only mortgage",
+    "notation": "P / n",
+    "inputHeading": "Years remaining",
+    "resultHeading": "Monthly saving at zero growth",
+    "given": [
+      {
+        "label": "Interest-only balance",
+        "value": "£180000"
+      },
+      {
+        "label": "Savings growth",
+        "value": "0%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20",
+        "calculation": "180000 ÷ (20 × 12)",
+        "result": "£750"
+      },
+      {
+        "input": "15",
+        "calculation": "180000 ÷ (15 × 12)",
+        "result": "£1000"
+      }
+    ]
+  },
+  "mortgage-payoff-calculator": {
+    "title": "What changes when you use the statement balance?",
+    "notation": "B × r/12",
+    "inputHeading": "Outstanding balance",
+    "resultHeading": "Next month's interest",
+    "given": [
+      {
+        "label": "Annual interest rate",
+        "value": "6%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$120000",
+        "calculation": "120000 × 0.06 ÷ 12",
+        "result": "$600"
+      },
+      {
+        "input": "$114000",
+        "calculation": "114000 × 0.06 ÷ 12",
+        "result": "$570"
+      }
+    ]
+  },
+  "mutual-fund-calculator": {
+    "title": "Trace the later value of an early fund charge",
+    "notation": "F × (1 + r)ⁿ",
+    "inputHeading": "Years",
+    "resultHeading": "Value of the foregone investment",
+    "given": [
+      {
+        "label": "Upfront fee",
+        "value": "$100"
+      },
+      {
+        "label": "Annual return",
+        "value": "5%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "0",
+        "calculation": "100 × 1.05^0",
+        "result": "$100"
+      },
+      {
+        "input": "5",
+        "calculation": "100 × 1.05^5",
+        "result": "$127.63"
+      }
+    ]
+  },
+  "net-worth-tracker": {
+    "title": "Follow a principal payment on both sides of the balance sheet",
+    "notation": "A − D",
+    "inputHeading": "Quantity",
+    "resultHeading": "Net worth",
+    "given": [
+      {
+        "label": "Principal payment",
+        "value": "$1000"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Before payment",
+        "calculation": "18000 − 6000",
+        "result": "$12000"
+      },
+      {
+        "label": "After payment",
+        "calculation": "17000 − 5000",
+        "result": "$12000"
+      }
+    ]
+  },
+  "payback-period-calculator": {
+    "title": "What happens after the first recovery?",
+    "notation": "ΣCF",
+    "inputHeading": "Period",
+    "resultHeading": "Cumulative cash flow",
+    "given": [
+      {
+        "label": "Cash flows",
+        "value": "−1000, +600, +600, −1000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "−1000 + 600 + 600",
+        "result": "$200"
+      },
+      {
+        "input": "3",
+        "calculation": "−1000 + 600 + 600 − 1000",
+        "result": "−$800"
+      }
+    ]
+  },
+  "payment-calculator": {
+    "title": "Check the size of the last installment",
+    "notation": "P − nA",
+    "inputHeading": "Payment number",
+    "resultHeading": "Payment at zero interest",
+    "given": [
+      {
+        "label": "Loan amount",
+        "value": "$1000"
+      },
+      {
+        "label": "Regular payment",
+        "value": "$300"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "0%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "3",
+        "calculation": "300",
+        "result": "$300"
+      },
+      {
+        "input": "4",
+        "calculation": "1000 − 3 × 300",
+        "result": "$100"
+      }
+    ]
+  },
+  "payment-fee-calculator": {
+    "title": "Work backward from the amount you need to receive",
+    "notation": "N / (1 − f)",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Net amount",
+        "value": "$97"
+      },
+      {
+        "label": "Processing rate",
+        "value": "3%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Customer charge",
+        "calculation": "97 ÷ (1 − 0.03)",
+        "result": "$100"
+      },
+      {
+        "label": "Processing fee",
+        "calculation": "100 × 0.03",
+        "result": "$3"
+      }
+    ]
+  },
+  "pension-calculator": {
+    "title": "Add the survivor payments to the household total",
+    "notation": "12 × P × t",
+    "inputHeading": "Years of survivor payments",
+    "resultHeading": "Total survivor payments",
+    "given": [
+      {
+        "label": "Monthly survivor benefit",
+        "value": "$600"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "12 × 600 × 2",
+        "result": "$14400"
+      },
+      {
+        "input": "8",
+        "calculation": "12 × 600 × 8",
+        "result": "$57600"
+      }
+    ]
+  },
+  "percent-off-calculator": {
+    "title": "Which base restores the original price?",
+    "notation": "ΔP / P",
+    "inputHeading": "Price change",
+    "resultHeading": "Percentage change",
+    "rows": [
+      {
+        "input": "$120 → $90",
+        "calculation": "(90 − 120) ÷ 120 × 100",
+        "result": "−25%"
+      },
+      {
+        "input": "$90 → $120",
+        "calculation": "(120 − 90) ÷ 90 × 100",
+        "result": "33.33%"
+      }
+    ]
+  },
+  "personal-loan-calculator": {
+    "title": "Add monthly insurance over the full loan term",
+    "notation": "n × I",
+    "inputHeading": "Term in months",
+    "resultHeading": "Total insurance cost",
+    "given": [
+      {
+        "label": "Monthly insurance",
+        "value": "$25"
+      }
+    ],
+    "rows": [
+      {
+        "input": "36",
+        "calculation": "36 × 25",
+        "result": "$900"
+      },
+      {
+        "input": "60",
+        "calculation": "60 × 25",
+        "result": "$1500"
+      }
+    ]
+  },
+  "present-value-calculator": {
+    "title": "Which amount today grows back to the promised payment?",
+    "notation": "FV / 1.05ⁿ",
+    "inputHeading": "Years until payment",
+    "resultHeading": "Present value",
+    "given": [
+      {
+        "label": "Future value",
+        "value": "$1100"
+      },
+      {
+        "label": "Discount rate",
+        "value": "5%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "1100 ÷ 1.05",
+        "result": "$1047.62"
+      },
+      {
+        "input": "2",
+        "calculation": "1100 ÷ 1.05^2",
+        "result": "$997.73"
+      }
+    ]
+  },
+  "real-estate-calculator": {
+    "title": "How much of the purchase price needs financing?",
+    "notation": "P − D",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Purchase price",
+        "value": "$300000"
+      },
+      {
+        "label": "Down payment",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Down payment",
+        "calculation": "300000 × 0.20",
+        "result": "$60000"
+      },
+      {
+        "label": "Loan amount",
+        "calculation": "300000 − 60000",
+        "result": "$240000"
+      }
+    ],
+    "note": "Putting 20% down leaves 80% of the price to finance. Closing costs and prepaid expenses need their own place in the cash budget."
+  },
+  "refinance-calculator": {
+    "title": "How long do monthly savings take to recover the fees?",
+    "notation": "F / ΔA",
+    "inputHeading": "Monthly saving",
+    "resultHeading": "Break-even months",
+    "given": [
+      {
+        "label": "Closing costs",
+        "value": "$3600"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$100",
+        "calculation": "3600 ÷ 100",
+        "result": "36"
+      },
+      {
+        "input": "$150",
+        "calculation": "3600 ÷ 150",
+        "result": "24"
+      }
+    ]
+  },
+  "rent-calculator": {
+    "title": "Compare the rent after adding utilities",
+    "notation": "R + U",
+    "inputHeading": "Advertised rent",
+    "resultHeading": "Monthly housing cost",
+    "rows": [
+      {
+        "input": "$1250",
+        "calculation": "1250 + 180",
+        "result": "$1430"
+      },
+      {
+        "input": "$1375",
+        "calculation": "1375 + 25",
+        "result": "$1400"
+      }
+    ]
+  },
+  "rent-vs-buy-calculator": {
+    "title": "What is the present cost of a fully refunded deposit?",
+    "notation": "D − PV",
+    "inputHeading": "Years until refund",
+    "resultHeading": "Present cost at 5%",
+    "given": [
+      {
+        "label": "Refundable deposit",
+        "value": "$2100"
+      },
+      {
+        "label": "Discount rate",
+        "value": "5%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "2100 − 2100 ÷ 1.05",
+        "result": "$100"
+      },
+      {
+        "input": "2",
+        "calculation": "2100 − 2100 ÷ 1.05^2",
+        "result": "$195.24"
+      }
+    ]
+  },
+  "rental-property-calculator": {
+    "title": "Separate operating income from the loan payment",
+    "notation": "NOI − DS",
+    "inputHeading": "Annual debt service",
+    "resultHeading": "Annual cash flow",
+    "given": [
+      {
+        "label": "Net operating income",
+        "value": "$15000"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$9000",
+        "calculation": "15000 − 9000",
+        "result": "$6000"
+      },
+      {
+        "input": "$12000",
+        "calculation": "15000 − 12000",
+        "result": "$3000"
+      }
+    ]
+  },
+  "repayment-calculator": {
+    "title": "How much is already included in the payment budget?",
+    "notation": "A + E",
+    "inputHeading": "Extra monthly payment",
+    "resultHeading": "Total monthly payment",
+    "given": [
+      {
+        "label": "Regular payment",
+        "value": "$450"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$0",
+        "calculation": "450 + 0",
+        "result": "$450"
+      },
+      {
+        "input": "$80",
+        "calculation": "450 + 80",
+        "result": "$530"
+      }
+    ]
+  },
+  "retirement-calculator": {
+    "title": "What must savings cover when outside income stays flat?",
+    "notation": "E − I",
+    "inputHeading": "Year",
+    "resultHeading": "Annual spending gap",
+    "given": [
+      {
+        "label": "Annual outside income",
+        "value": "$24000"
+      },
+      {
+        "label": "Spending growth",
+        "value": "3%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "36000 − 24000",
+        "result": "$12000"
+      },
+      {
+        "input": "2",
+        "calculation": "36000 × 1.03 − 24000",
+        "result": "$13080"
+      }
+    ]
+  },
+  "rmd-calculator": {
+    "title": "The balance date matters even with the same divisor",
+    "notation": "B / d",
+    "inputHeading": "Account balance",
+    "resultHeading": "Distribution with an illustrative divisor of 25",
+    "given": [
+      {
+        "label": "Illustrative divisor",
+        "value": "25"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$200000",
+        "calculation": "200000 ÷ 25",
+        "result": "$8000"
+      },
+      {
+        "input": "$150000",
+        "calculation": "150000 ÷ 25",
+        "result": "$6000"
+      }
+    ],
+    "note": "Use the divisor that applies to your distribution year and circumstances. The example holds it at 25 to isolate the effect of the account balance."
+  },
+  "roi-calculator": {
+    "title": "Separate the gain earned from its annualized equivalent",
+    "notation": "(1 + R)² − 1",
+    "inputHeading": "Horizon",
+    "resultHeading": "Return",
+    "rows": [
+      {
+        "label": "6 months",
+        "calculation": "(110 − 100) ÷ 100 × 100",
+        "result": "10%"
+      },
+      {
+        "label": "Annualized",
+        "calculation": "(1.10^2 − 1) × 100",
+        "result": "21%"
+      }
+    ]
+  },
+  "roth-ira-calculator": {
+    "title": "Compare contributions at equal out-of-pocket cost",
+    "notation": "C × (1 − t)",
+    "inputHeading": "Account type",
+    "resultHeading": "Current after-tax cost",
+    "given": [
+      {
+        "label": "Current tax rate",
+        "value": "25%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Traditional",
+        "calculation": "2000 × (1 − 0.25)",
+        "result": "$1500"
+      },
+      {
+        "input": "Roth",
+        "calculation": "1500",
+        "result": "$1500"
+      }
+    ]
+  },
+  "salary-calculator": {
+    "title": "How many paychecks are in the annual total?",
+    "notation": "n × P",
+    "inputHeading": "Pay frequency",
+    "resultHeading": "Annual gross pay",
+    "given": [
+      {
+        "label": "Gross pay per period",
+        "value": "$1800"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Biweekly",
+        "calculation": "26 × 1800",
+        "result": "$46800"
+      },
+      {
+        "label": "Semimonthly",
+        "calculation": "24 × 1800",
+        "result": "$43200"
+      }
+    ]
+  },
+  "sales-tax-calculator": {
+    "title": "Which items belong in the taxable subtotal?",
+    "notation": "T × r",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Taxable amount",
+        "value": "$75"
+      },
+      {
+        "label": "Exempt amount",
+        "value": "$25"
+      },
+      {
+        "label": "Tax rate",
+        "value": "8%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Sales tax",
+        "calculation": "75 × 0.08",
+        "result": "$6"
+      },
+      {
+        "label": "Receipt total",
+        "calculation": "75 + 25 + 6",
+        "result": "$106"
+      }
+    ]
+  },
+  "savings-calculator": {
+    "title": "Track your own deposits before counting growth",
+    "notation": "12 × M",
+    "inputHeading": "Year",
+    "resultHeading": "Annual contribution",
+    "given": [
+      {
+        "label": "Starting monthly deposit",
+        "value": "$250"
+      },
+      {
+        "label": "Annual contribution growth",
+        "value": "8%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "12 × 250",
+        "result": "$3000"
+      },
+      {
+        "input": "2",
+        "calculation": "12 × 250 × 1.08",
+        "result": "$3240"
+      }
+    ]
+  },
+  "seller-profit-calculator": {
+    "title": "Does free shipping change the money left over?",
+    "notation": "P + S − C − F",
+    "inputHeading": "Shipping charged",
+    "resultHeading": "Profit",
+    "given": [
+      {
+        "label": "Item cost",
+        "value": "$20"
+      },
+      {
+        "label": "Shipping cost",
+        "value": "$8"
+      }
+    ],
+    "rows": [
+      {
+        "input": "$8",
+        "calculation": "32 + 8 − 20 − 8",
+        "result": "$12"
+      },
+      {
+        "input": "$0",
+        "calculation": "40 + 0 − 20 − 8",
+        "result": "$12"
+      }
+    ]
+  },
+  "simple-interest-calculator": {
+    "title": "Count only the fraction of a year the money is lent",
+    "notation": "P × r × t",
+    "inputHeading": "Months",
+    "resultHeading": "Simple interest",
+    "given": [
+      {
+        "label": "Principal",
+        "value": "$2400"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "5%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "3",
+        "calculation": "2400 × 0.05 × 3 ÷ 12",
+        "result": "$30"
+      },
+      {
+        "input": "9",
+        "calculation": "2400 × 0.05 × 9 ÷ 12",
+        "result": "$90"
+      }
+    ]
+  },
+  "social-security-calculator": {
+    "title": "How much do earlier checks add before a later start?",
+    "notation": "n × B",
+    "inputHeading": "Months of payments",
+    "resultHeading": "Benefits received",
+    "given": [
+      {
+        "label": "Monthly benefit",
+        "value": "$1400"
+      }
+    ],
+    "rows": [
+      {
+        "input": "12",
+        "calculation": "12 × 1400",
+        "result": "$16800"
+      },
+      {
+        "input": "24",
+        "calculation": "24 × 1400",
+        "result": "$33600"
+      }
+    ]
+  },
+  "student-loan-calculator": {
+    "title": "Compare the same borrowing at two different dates",
+    "notation": "P × r × t",
+    "inputHeading": "Years accruing simple interest",
+    "resultHeading": "Accrued interest",
+    "given": [
+      {
+        "label": "Principal",
+        "value": "$4000"
+      },
+      {
+        "label": "Annual interest rate",
+        "value": "5%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "4000 × 0.05 × 1",
+        "result": "$200"
+      },
+      {
+        "input": "3",
+        "calculation": "4000 × 0.05 × 3",
+        "result": "$600"
+      }
+    ]
+  },
+  "subscription-cost-tracker": {
+    "title": "Compare monthly billing with a $120 annual offer",
+    "notation": "n × M",
+    "inputHeading": "Months used",
+    "resultHeading": "Cost at the monthly rate",
+    "given": [
+      {
+        "label": "Monthly price",
+        "value": "$12"
+      },
+      {
+        "label": "Annual price",
+        "value": "$120"
+      }
+    ],
+    "rows": [
+      {
+        "input": "8",
+        "calculation": "8 × 12",
+        "result": "$96"
+      },
+      {
+        "input": "12",
+        "calculation": "12 × 12",
+        "result": "$144"
+      }
+    ]
+  },
+  "take-home-pay-calculator": {
+    "title": "What does an extra withholding entry prepay?",
+    "notation": "n × W",
+    "inputHeading": "Pay periods",
+    "resultHeading": "Additional tax withheld",
+    "given": [
+      {
+        "label": "Extra withholding per paycheck",
+        "value": "$40"
+      }
+    ],
+    "rows": [
+      {
+        "input": "12",
+        "calculation": "12 × 40",
+        "result": "$480"
+      },
+      {
+        "input": "26",
+        "calculation": "26 × 40",
+        "result": "$1040"
+      }
+    ]
+  },
+  "tax-calculator": {
+    "title": "Compare a deduction with a fully usable credit",
+    "notation": "D × r",
+    "inputHeading": "Adjustment",
+    "resultHeading": "Tax reduction",
+    "given": [
+      {
+        "label": "Marginal tax rate",
+        "value": "22%"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Deduction",
+        "calculation": "500 × 0.22",
+        "result": "$110"
+      },
+      {
+        "label": "Credit",
+        "calculation": "500",
+        "result": "$500"
+      }
+    ]
+  },
+  "va-mortgage-calculator": {
+    "title": "Which housing costs continue after payoff?",
+    "notation": "T/12 + I",
+    "inputHeading": "Quantity",
+    "resultHeading": "Monthly cost",
+    "given": [
+      {
+        "label": "Annual property tax",
+        "value": "$3600"
+      },
+      {
+        "label": "Monthly insurance",
+        "value": "$95"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Property tax",
+        "calculation": "3600 ÷ 12",
+        "result": "$300"
+      },
+      {
+        "label": "Tax and insurance",
+        "calculation": "300 + 95",
+        "result": "$395"
+      }
+    ]
+  },
+  "vat-calculator": {
+    "title": "Build the tax from two different rates",
+    "notation": "Σ(N × r)",
+    "inputHeading": "Net price",
+    "resultHeading": "VAT amount",
+    "rows": [
+      {
+        "input": "€80",
+        "calculation": "80 × 0.20",
+        "result": "€16"
+      },
+      {
+        "input": "€50",
+        "calculation": "50 × 0.10",
+        "result": "€5"
+      }
+    ]
+  }
+}

@@ -1,5 +1,47 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {captureIllustration} from './illustration-assertions';
+
+test('capturing the volume cover preserves the save field through hydration', async ({page}) => {
+  const errors: string[] = [];
+  page.on('console', message => {
+    if (message.type() === 'error' && /hydrat|didn.t match/i.test(message.text())) errors.push(message.text());
+  });
+  page.on('pageerror', error => errors.push(error.message));
+
+  let releaseScripts!: () => void;
+  const ready = new Promise<void>(resolve => {releaseScripts = resolve;});
+  await page.route('**/_next/static/**/*.js', async route => {await ready; await route.continue();});
+  await page.goto('/volume-calculator', {waitUntil: 'commit'});
+  const name = page.getByLabel('Calculation name', {exact: true});
+  try {
+    await expect(name).toBeDisabled();
+    expect(await name.getAttribute('style')).toBeNull();
+    const mutations = await name.evaluateHandle(input => {
+      let count = 0;
+      const observer = new MutationObserver(records => {count += records.length;});
+      observer.observe(input, {attributes: true, attributeFilter: ['style']});
+      return () => {observer.disconnect(); return count;};
+    });
+    const cover = page.locator('[data-calculator-visual] img');
+    await cover.scrollIntoViewIfNeeded();
+    await cover.evaluate(image => (image as HTMLImageElement).decode());
+    await captureIllustration(cover);
+    expect(await mutations.evaluate(stop => stop())).toBe(0);
+    await mutations.dispose();
+  } finally {
+    releaseScripts();
+  }
+
+  await expect(name).toBeEnabled();
+  await name.fill('Saved volume');
+  await page.getByRole('button', {name: 'Calculate', exact: true}).click();
+  await page.getByRole('button', {name: 'Save calculation', exact: true}).click();
+  await expect(page.getByText('Calculation saved on this device.', {exact: true})).toBeVisible();
+  await page.goto('/workspace');
+  await expect(page.getByRole('heading', {name: 'Saved volume', exact: true})).toBeVisible();
+  expect(errors).toEqual([]);
+});
 
 test('calculator images and share metadata appear in crawlable mobile HTML', async ({browser, request}) => {
   const context = await browser.newContext({javaScriptEnabled: false, viewport: {width: 390, height: 844}, userAgent: 'Googlebot'});

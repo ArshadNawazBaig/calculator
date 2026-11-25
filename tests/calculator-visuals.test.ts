@@ -8,8 +8,9 @@ import illustrations from '@/data/illustrations.json';
 import symbolGroups from '../scripts/illustrations/sources/calculator-symbols.json';
 import {calculatorIcons} from '@/lib/calculator-icons';
 import {calculatorVisual} from '@/lib/calculator-visual';
+import {calculatorExamples, exampleImage} from '@/lib/calculator-examples';
 import {getDictionary} from '@/lib/i18n/dictionaries';
-import {locales} from '@/lib/i18n/config';
+import {locales, localizedPath, publishedPageLocales} from '@/lib/i18n/config';
 import {pageMetadata, socialImage} from '@/lib/metadata';
 import {site} from '@/lib/site';
 import sitemap from '@/app/sitemap';
@@ -58,11 +59,12 @@ describe('calculator illustrations and discovery', () => {
     }
   });
 
-  it('uses the geometry cover’s tile positions and colors for the volume illustrations and share preview', async () => {
+  it('uses the volume design’s tile positions and colors for the worked illustrations across categories', async () => {
     const reference = calculatorVisual('area-calculator', 'en', 'Area Calculator')!;
     const cover = calculatorVisual('volume-calculator', 'en', 'Volume Calculator')!;
     const sources = [cover.src, cover.socialSrc, illustrations['solid-tank-waterline'].src,
-      illustrations['solid-tapered-planter'].src, illustrations['solid-pipe-section'].src];
+      illustrations['solid-tapered-planter'].src, illustrations['solid-pipe-section'].src,
+      ...['mortgage-calculator', 'bmi-calculator', 'tile-calculator', 'surface-area-calculator'].map(exampleImage)];
     const pixels = (path: string) => sharp('public' + path).resize(240, 126).removeAlpha().raw().toBuffer();
     const expected = await pixels(reference.src);
     // Compare the background, three tile interiors, and lime dot away from the variable artwork.
@@ -87,12 +89,22 @@ describe('calculator illustrations and discovery', () => {
     try {
       site.indexable = true;
       const entries = await sitemap();
+      const byUrl = new Map(entries.map(entry => [entry.url, entry]));
+      for (const slug of Object.keys(calculatorExamples)) {
+        const path = '/' + slug;
+        for (const locale of publishedPageLocales(path)) {
+          const url = site.url + localizedPath(path, locale);
+          expect(byUrl.get(url)?.images, url).toContain(site.url + exampleImage(slug));
+        }
+      }
       for (const [path, image] of [
         ['/age-calculator', '/illustrations/calculators/age-calculator.webp'],
         ['/ar/bmi-calculator', '/illustrations/calculators/bmi-calculator.webp'],
         ['/real-estate-calculator', '/illustrations/calculators/real-estate-calculator.webp'],
         ['/pregnancy-calculator', '/illustrations/pregnancy/pregnancy-dating.webp'],
-      ]) expect(entries.find(entry => entry.url === site.url + path)?.images).toEqual([site.url + image]);
+      ]) expect(entries.find(entry => entry.url === site.url + path)?.images).toEqual([
+        site.url + image, site.url + '/illustrations/examples/' + path.split('/').at(-1) + '.webp',
+      ]);
       expect(entries.find(entry => entry.url === site.url + '/about')?.images).toBeUndefined();
     } finally {
       site.indexable = wasIndexable;

@@ -1,0 +1,14 @@
+.figure { margin: 24px 0 38px; max-width: 680px; min-width: 0; }
+.figure figcaption :is(h2,h3) { margin: 0 0 14px; color: var(--color-ink); font-size: 20px; font-weight: 650; line-height: 1.4; }
+.image { width: 100%; height: auto; display: block; border: 1px solid var(--color-line); border-radius: 12px; }
+.givens { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0 0 14px; }
+.givens div { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 6px; }
+.givens dt { color: var(--color-muted); font-size: 13px; }
+.givens dd { margin: 0; color: var(--color-ink); font-size: 14px; font-weight: 600; }
+.scroll { composes: scroll from './explanation.module.css'; margin-block: 12px 0; }
+.table { composes: table from './explanation.module.css'; border-collapse: collapse; }
+.table :is(th,td) { padding: 12px 14px; min-width: 0; overflow-wrap: anywhere; }
+.table td { font-variant-numeric: tabular-nums; }
+.key { display: inline-block; margin-inline-end: 3px; padding-inline: 5px; border: 1px solid var(--color-line); border-radius: 4px; color: var(--color-ink); font-size: 12px; }
+.figure .note { margin: 12px 0 0; color: var(--color-text-secondary); font-size: 15px; line-height: 1.7; }
+@media (max-width: 480px) { .table :is(th,td) { padding: 10px 7px; } }

@@ -1,0 +1,661 @@
+{
+  "anorexic-bmi-calculator": {
+    "title": "What does a BMI entry leave out?",
+    "notation": "m / h²",
+    "inputHeading": "Measurement units",
+    "resultHeading": "BMI",
+    "rows": [
+      {
+        "input": "kg, m",
+        "calculation": "70 ÷ 1.75^2",
+        "result": "22.9"
+      },
+      {
+        "input": "kg, cm",
+        "calculation": "70 ÷ (175 ÷ 100)^2",
+        "result": "22.9"
+      }
+    ]
+  },
+  "army-body-fat-calculator": {
+    "title": "Can two different waist measurements give the same ratio?",
+    "notation": "W / H",
+    "inputHeading": "Waist and height",
+    "resultHeading": "Waist-to-height ratio",
+    "rows": [
+      {
+        "input": "30 in / 60 in",
+        "calculation": "30 ÷ 60",
+        "result": "0.50"
+      },
+      {
+        "input": "36 in / 72 in",
+        "calculation": "36 ÷ 72",
+        "result": "0.50"
+      }
+    ]
+  },
+  "bac-calculator": {
+    "title": "Compare alcohol volume before comparing drinks",
+    "notation": "V × ABV",
+    "inputHeading": "Serving size",
+    "resultHeading": "Pure alcohol volume",
+    "rows": [
+      {
+        "input": "330 mL",
+        "calculation": "330 × 0.05",
+        "result": "16.5 mL"
+      },
+      {
+        "input": "150 mL",
+        "calculation": "150 × 0.11",
+        "result": "16.5 mL"
+      }
+    ]
+  },
+  "bmi-calculator": {
+    "title": "How much does a height entry change the result?",
+    "notation": "m / h²",
+    "inputHeading": "Height",
+    "resultHeading": "BMI at 70 kg",
+    "given": [
+      {
+        "label": "Weight",
+        "value": "70 kg"
+      }
+    ],
+    "rows": [
+      {
+        "input": "170 cm",
+        "calculation": "70 ÷ 1.70^2",
+        "result": "24.22"
+      },
+      {
+        "input": "172 cm",
+        "calculation": "70 ÷ 1.72^2",
+        "result": "23.66"
+      }
+    ]
+  },
+  "bmr-calculator": {
+    "title": "Isolate the age term in the Mifflin equation",
+    "notation": "−5a",
+    "inputHeading": "Age in years",
+    "resultHeading": "Age term in kcal per day",
+    "rows": [
+      {
+        "input": "30",
+        "calculation": "−5 × 30",
+        "result": "−150"
+      },
+      {
+        "input": "31",
+        "calculation": "−5 × 31",
+        "result": "−155"
+      }
+    ]
+  },
+  "body-fat-calculator": {
+    "title": "Which tape readings enter the male circumference equation?",
+    "notation": "W − N",
+    "inputHeading": "Waist and neck",
+    "resultHeading": "Difference",
+    "rows": [
+      {
+        "input": "90 cm / 38 cm",
+        "calculation": "90 − 38",
+        "result": "52 cm"
+      },
+      {
+        "input": "92 cm / 40 cm",
+        "calculation": "92 − 40",
+        "result": "52 cm"
+      }
+    ]
+  },
+  "body-surface-area-calculator": {
+    "title": "Compare two Mosteller estimates at a fixed height",
+    "notation": "√(h × m / 3600)",
+    "inputHeading": "Weight",
+    "resultHeading": "Body surface area",
+    "given": [
+      {
+        "label": "Height",
+        "value": "180 cm"
+      }
+    ],
+    "rows": [
+      {
+        "input": "64 kg",
+        "calculation": "√(180 × 64 ÷ 3600)",
+        "result": "1.79 m²"
+      },
+      {
+        "input": "72 kg",
+        "calculation": "√(180 × 72 ÷ 3600)",
+        "result": "1.90 m²"
+      }
+    ]
+  },
+  "body-type-calculator": {
+    "title": "What gets lost when measurements become a ratio?",
+    "notation": "W / H",
+    "inputHeading": "Waist and hip",
+    "resultHeading": "Waist-to-hip ratio",
+    "rows": [
+      {
+        "input": "72 cm / 90 cm",
+        "calculation": "72 ÷ 90",
+        "result": "0.80"
+      },
+      {
+        "input": "84 cm / 105 cm",
+        "calculation": "84 ÷ 105",
+        "result": "0.80"
+      }
+    ]
+  },
+  "calorie-calculator": {
+    "title": "Read two food labels in the same energy unit",
+    "notation": "kJ / 4.184",
+    "inputHeading": "Label energy",
+    "resultHeading": "Equivalent energy",
+    "rows": [
+      {
+        "input": "418.4 kJ",
+        "calculation": "418.4 ÷ 4.184",
+        "result": "100 kcal"
+      },
+      {
+        "input": "836.8 kJ",
+        "calculation": "836.8 ÷ 4.184",
+        "result": "200 kcal"
+      }
+    ]
+  },
+  "calories-burned-calculator": {
+    "title": "What does the resting portion of an activity estimate count?",
+    "notation": "MET − 1",
+    "inputHeading": "Quantity",
+    "resultHeading": "Energy estimate",
+    "given": [
+      {
+        "label": "Weight",
+        "value": "60 kg"
+      },
+      {
+        "label": "Activity intensity",
+        "value": "4 MET"
+      },
+      {
+        "label": "Duration",
+        "value": "30 min"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Gross energy",
+        "calculation": "4 × 3.5 × 60 ÷ 200 × 30",
+        "result": "126 kcal"
+      },
+      {
+        "label": "Above resting",
+        "calculation": "(4 − 1) × 3.5 × 60 ÷ 200 × 30",
+        "result": "94.5 kcal"
+      }
+    ]
+  },
+  "carbohydrate-calculator": {
+    "title": "Read the carbohydrate energy on a food label",
+    "notation": "4 kcal/g",
+    "inputHeading": "Carbohydrate",
+    "resultHeading": "Energy from carbohydrate",
+    "rows": [
+      {
+        "input": "15 g",
+        "calculation": "15 × 4",
+        "result": "60 kcal"
+      },
+      {
+        "input": "30 g",
+        "calculation": "30 × 4",
+        "result": "120 kcal"
+      }
+    ]
+  },
+  "conception-calculator": {
+    "title": "How many dates are in the estimated window?",
+    "notation": "d − 5 … d",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Estimated ovulation",
+        "value": "2026-06-15"
+      }
+    ],
+    "rows": [
+      {
+        "label": "First day",
+        "calculation": "2026-06-15 − 5 d",
+        "result": "2026-06-10"
+      },
+      {
+        "label": "Calendar dates",
+        "calculation": "15 − 10 + 1",
+        "result": "6"
+      }
+    ]
+  },
+  "due-date-calculator": {
+    "title": "Compare embryo ages on the same transfer date",
+    "notation": "266 − a",
+    "inputHeading": "Embryo age",
+    "resultHeading": "Days from transfer to estimated due date",
+    "rows": [
+      {
+        "input": "3 d",
+        "calculation": "266 − 3",
+        "result": "263 d"
+      },
+      {
+        "input": "5 d",
+        "calculation": "266 − 5",
+        "result": "261 d"
+      }
+    ]
+  },
+  "fat-intake-calculator": {
+    "title": "Compare food-label grams with their energy contribution",
+    "notation": "9 kcal/g",
+    "inputHeading": "Fat",
+    "resultHeading": "Energy from fat",
+    "rows": [
+      {
+        "input": "8 g",
+        "calculation": "8 × 9",
+        "result": "72 kcal"
+      },
+      {
+        "input": "12 g",
+        "calculation": "12 × 9",
+        "result": "108 kcal"
+      }
+    ]
+  },
+  "gfr-calculator": {
+    "title": "Match the creatinine units on two lab reports",
+    "notation": "× 88.4",
+    "inputHeading": "Serum creatinine",
+    "resultHeading": "Equivalent concentration",
+    "rows": [
+      {
+        "input": "1.0 mg/dL",
+        "calculation": "1.0 × 88.4",
+        "result": "88.4 µmol/L"
+      },
+      {
+        "input": "1.5 mg/dL",
+        "calculation": "1.5 × 88.4",
+        "result": "132.6 µmol/L"
+      }
+    ],
+    "note": "For an eGFR entry, pair the number with the unit on the lab report. Entering 88.4 in a field set to mg/dL would describe a different concentration."
+  },
+  "healthy-weight-calculator": {
+    "title": "Why keep the unrounded screening value?",
+    "notation": "m / h²",
+    "inputHeading": "Weight",
+    "resultHeading": "BMI at 1.70 m",
+    "given": [
+      {
+        "label": "Height",
+        "value": "1.70 m"
+      }
+    ],
+    "rows": [
+      {
+        "input": "72.2 kg",
+        "calculation": "72.2 ÷ 1.70^2",
+        "result": "24.98"
+      },
+      {
+        "input": "72.3 kg",
+        "calculation": "72.3 ÷ 1.70^2",
+        "result": "25.02"
+      }
+    ]
+  },
+  "ideal-weight-calculator": {
+    "title": "What can an average hide about two estimates?",
+    "notation": "Σx / n",
+    "inputHeading": "Pair of estimates",
+    "resultHeading": "Arithmetic mean",
+    "rows": [
+      {
+        "input": "60 kg / 70 kg",
+        "calculation": "(60 + 70) ÷ 2",
+        "result": "65 kg"
+      },
+      {
+        "input": "64 kg / 66 kg",
+        "calculation": "(64 + 66) ÷ 2",
+        "result": "65 kg"
+      }
+    ]
+  },
+  "lean-body-mass-calculator": {
+    "title": "What changes when the estimated fat percentage changes?",
+    "notation": "m × (1 − f)",
+    "inputHeading": "Estimated body fat",
+    "resultHeading": "Estimated lean mass",
+    "given": [
+      {
+        "label": "Weight",
+        "value": "80 kg"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20%",
+        "calculation": "80 × (1 − 0.20)",
+        "result": "64 kg"
+      },
+      {
+        "input": "25%",
+        "calculation": "80 × (1 − 0.25)",
+        "result": "60 kg"
+      }
+    ]
+  },
+  "macro-calculator": {
+    "title": "Account for the energy in a sample meal",
+    "notation": "4P + 4C + 9F",
+    "inputHeading": "Quantity",
+    "resultHeading": "Energy",
+    "given": [
+      {
+        "label": "Protein",
+        "value": "20 g"
+      },
+      {
+        "label": "Carbohydrate",
+        "value": "40 g"
+      },
+      {
+        "label": "Fat",
+        "value": "10 g"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Protein + carbohydrate",
+        "calculation": "4 × (20 + 40)",
+        "result": "240 kcal"
+      },
+      {
+        "label": "Total",
+        "calculation": "240 + 9 × 10",
+        "result": "330 kcal"
+      }
+    ]
+  },
+  "one-rep-max-calculator": {
+    "title": "Compare two estimates from the same training set",
+    "notation": "60 kg × 5",
+    "inputHeading": "Model",
+    "resultHeading": "Estimated one-rep maximum",
+    "given": [
+      {
+        "label": "Weight lifted",
+        "value": "60 kg"
+      },
+      {
+        "label": "Repetitions",
+        "value": "5"
+      }
+    ],
+    "rows": [
+      {
+        "input": "Epley",
+        "calculation": "60 × (1 + 5 ÷ 30)",
+        "result": "70 kg"
+      },
+      {
+        "input": "Brzycki",
+        "calculation": "60 × 36 ÷ (37 − 5)",
+        "result": "67.5 kg"
+      }
+    ]
+  },
+  "overweight-calculator": {
+    "title": "Why check the unrounded adult screening result?",
+    "notation": "m / h²",
+    "inputHeading": "Weight",
+    "resultHeading": "BMI at 1.80 m",
+    "given": [
+      {
+        "label": "Height",
+        "value": "1.80 m"
+      }
+    ],
+    "rows": [
+      {
+        "input": "80.9 kg",
+        "calculation": "80.9 ÷ 1.80^2",
+        "result": "24.97"
+      },
+      {
+        "input": "81.1 kg",
+        "calculation": "81.1 ÷ 1.80^2",
+        "result": "25.03"
+      }
+    ]
+  },
+  "ovulation-calculator": {
+    "title": "Where does the assumed luteal interval enter the estimate?",
+    "notation": "L − ℓ",
+    "inputHeading": "Cycle length",
+    "resultHeading": "Days from cycle start to estimated ovulation",
+    "given": [
+      {
+        "label": "Assumed luteal phase",
+        "value": "14 d"
+      }
+    ],
+    "rows": [
+      {
+        "input": "28 d",
+        "calculation": "28 − 14",
+        "result": "14 d"
+      },
+      {
+        "input": "32 d",
+        "calculation": "32 − 14",
+        "result": "18 d"
+      }
+    ]
+  },
+  "pace-calculator": {
+    "title": "Average two legs by their distances",
+    "notation": "Σt / Σd",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "label": "Total time",
+        "calculation": "2 × 5 + 4 × 6.5",
+        "result": "36 min"
+      },
+      {
+        "label": "Average pace",
+        "calculation": "36 ÷ (2 + 4)",
+        "result": "6 min/km"
+      }
+    ]
+  },
+  "period-calculator": {
+    "title": "Watch a cycle-length difference accumulate",
+    "notation": "n × Δd",
+    "inputHeading": "Cycles projected",
+    "resultHeading": "Difference in days",
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "2 × (30 − 28)",
+        "result": "4 d"
+      },
+      {
+        "input": "5",
+        "calculation": "5 × (30 − 28)",
+        "result": "10 d"
+      }
+    ]
+  },
+  "pregnancy-calculator": {
+    "title": "Translate weeks and days across a week boundary",
+    "notation": "7w + d",
+    "inputHeading": "Weeks + days",
+    "resultHeading": "Gestational days",
+    "rows": [
+      {
+        "input": "8 + 6",
+        "calculation": "8 × 7 + 6",
+        "result": "62 d"
+      },
+      {
+        "input": "9 + 0",
+        "calculation": "9 × 7",
+        "result": "63 d"
+      }
+    ]
+  },
+  "pregnancy-conception-calculator": {
+    "title": "What moves when the estimated due date changes?",
+    "notation": "EDD − 266",
+    "inputHeading": "Estimated due date",
+    "resultHeading": "Estimated conception date",
+    "given": [
+      {
+        "label": "Dating interval",
+        "value": "266 d"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2026-10-01",
+        "calculation": "2026-10-01 − 266 d",
+        "result": "2026-01-08"
+      },
+      {
+        "input": "2026-10-04",
+        "calculation": "2026-10-04 − 266 d",
+        "result": "2026-01-11"
+      }
+    ]
+  },
+  "pregnancy-weight-gain-calculator": {
+    "title": "Keep the same baseline between visits",
+    "notation": "m − m₀",
+    "inputHeading": "Current weight",
+    "resultHeading": "Change from 65 kg",
+    "given": [
+      {
+        "label": "Pre-pregnancy weight",
+        "value": "65 kg"
+      }
+    ],
+    "rows": [
+      {
+        "input": "68 kg",
+        "calculation": "68 − 65",
+        "result": "3 kg"
+      },
+      {
+        "input": "70 kg",
+        "calculation": "70 − 65",
+        "result": "5 kg"
+      }
+    ]
+  },
+  "protein-calculator": {
+    "title": "Compare two ways to describe protein on a label",
+    "notation": "4 kcal/g",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Protein",
+        "value": "18 g"
+      },
+      {
+        "label": "Meal energy",
+        "value": "400 kcal"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Energy from protein",
+        "calculation": "18 × 4",
+        "result": "72 kcal"
+      },
+      {
+        "label": "Share of meal energy",
+        "calculation": "72 ÷ 400 × 100",
+        "result": "18%"
+      }
+    ]
+  },
+  "target-heart-rate-calculator": {
+    "title": "Which reference does the percentage use?",
+    "notation": "HR₀ + p × HRR",
+    "inputHeading": "Method",
+    "resultHeading": "Calculated heart rate",
+    "given": [
+      {
+        "label": "Maximum heart rate",
+        "value": "180 bpm"
+      },
+      {
+        "label": "Resting heart rate",
+        "value": "60 bpm"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Maximum heart rate",
+        "calculation": "180 × 0.60",
+        "result": "108 bpm"
+      },
+      {
+        "label": "Heart rate reserve",
+        "calculation": "60 + (180 − 60) × 0.60",
+        "result": "132 bpm"
+      }
+    ]
+  },
+  "tdee-calculator": {
+    "title": "Isolate the activity multiplier in an energy estimate",
+    "notation": "B × f",
+    "inputHeading": "Activity factor",
+    "resultHeading": "Estimated daily energy",
+    "given": [
+      {
+        "label": "Resting energy estimate",
+        "value": "1600 kcal/d"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1.0",
+        "calculation": "1600 × 1.0",
+        "result": "1600 kcal"
+      },
+      {
+        "input": "1.5",
+        "calculation": "1600 × 1.5",
+        "result": "2400 kcal"
+      }
+    ]
+  }
+}

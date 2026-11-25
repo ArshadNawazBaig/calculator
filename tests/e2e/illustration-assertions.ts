@@ -1,5 +1,10 @@
 import {expect, type Locator} from '@playwright/test';
 
+/** A locator screenshot can otherwise change input styles anywhere on the page. */
+export function captureIllustration(target: Locator, path?: string) {
+  return target.screenshot({caret: 'initial', animations: 'disabled', path});
+}
+
 /** Check the actual rendered asset, including native lazy loading without page scripts. */
 export async function expectLoadedIllustrations(images: Locator) {
   for (const image of await images.all()) {

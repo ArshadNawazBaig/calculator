@@ -94,7 +94,9 @@ test('favorites synchronize across tabs and blocked storage reports failure', as
 test('mobile workspace is accessible and comparison scrolls inside its container', async ({page}) => {
   await page.goto('/loan-calculator');await saveLoan(page, 'Mobile A', '1200');await saveLoan(page, 'Mobile B', '2400');
   await page.setViewportSize({width: 360, height: 800});await page.goto('/workspace');
-  for (const checkbox of await page.getByLabel('Compare', {exact: true}).all()) await checkbox.check();
+  const compare = page.getByRole('checkbox', {name: 'Compare', exact: true});
+  await expect(compare).toHaveCount(2);
+  for (const checkbox of await compare.all()) await checkbox.check();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const region = page.getByRole('region', {name: 'Scenario comparison', exact: true});
   expect(await region.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);

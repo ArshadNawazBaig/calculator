@@ -7,7 +7,7 @@ import * as lucide from 'lucide-react';
 import sharp from 'sharp';
 
 // Keep the artwork reproducible and use the same symbols as the catalog cards.
-// The pregnancy calculator has its own dedicated artwork and is intentionally skipped.
+// The pregnancy calculator keeps its purpose-drawn cover and social preview.
 const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8'));
 const config = JSON.parse(await readFile('src/data/calculator-visual-themes.json', 'utf8'));
 const descriptions = JSON.parse(await readFile('scripts/illustrations/sources/calculator-symbols.json', 'utf8'));
@@ -34,10 +34,21 @@ function icon(Component, x, y, size, color, strokeWidth) {
 try {
   await mkdir(destination, {recursive: true});
   await copyFile('node_modules/lucide-react/LICENSE', `${destination}/LICENSE.txt`);
+  await mkdir('public/illustrations/examples', {recursive: true});
+  await copyFile('node_modules/lucide-react/LICENSE', 'public/illustrations/examples/LICENSE.txt');
   const {calculatorIcons} = await server.ssrLoadModule('/src/lib/calculator-icons.ts');
   const {CalculatorArtwork, calculatorPalettes} = await server.ssrLoadModule('/scripts/illustrations/sources/calculator-artwork.tsx');
+  const {calculatorExamples, exampleImage} = await server.ssrLoadModule('/src/lib/calculator-examples.ts');
+  const {CatalogExampleArtwork} = await server.ssrLoadModule('/scripts/illustrations/sources/catalog-example.tsx');
   const manifest = {};
   for (const tool of catalog) {
+    // Volume has three purpose-drawn examples exported by generate-illustrations.
+    if (tool.slug !== 'volume-calculator') {
+      const example = calculatorExamples[tool.slug];
+      if (example?.rows.length !== 2) throw new Error(`Missing illustrated example for ${tool.slug}`);
+      const drawing = renderToStaticMarkup(createElement(CatalogExampleArtwork, {slug: tool.slug, example, icon: calculatorIcons[tool.slug]}));
+      await sharp(Buffer.from(drawing)).webp({quality: 86, effort: 5}).toFile('public' + exampleImage(tool.slug));
+    }
     if (tool.slug === 'pregnancy-calculator') continue;
     const group = config.subcategories[tool.subcategory] || config.defaults[tool.category];
     const theme = config.themes[group];
@@ -61,7 +72,7 @@ try {
     manifest[tool.slug] = {theme: group, symbol, repeatedSymbol};
   }
   await writeFile('src/data/calculator-visuals.json', JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`Generated ${Object.keys(manifest).length} calculator illustrations and social images.`);
+  console.log(`Generated ${Object.keys(manifest).length} calculator covers and social images, and ${Object.keys(calculatorExamples).length} worked illustrations.`);
 } finally {
   await server.close();
 }

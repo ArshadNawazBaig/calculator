@@ -12,6 +12,7 @@ import {languageAlternates} from '@/lib/metadata';
 import {spinWheels,wheelHref} from '@/lib/spin-wheels/catalog';
 import {getPublishedPostSitemapEntries} from '@/lib/server/blog';
 import calculatorVisuals from '@/data/calculator-visuals.json';
+import {calculatorExamples, exampleImage} from '@/lib/calculator-examples';
 export const dynamic = 'force-dynamic';
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  if(!site.indexable)return [];
@@ -20,9 +21,11 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
    const languages=languageAlternates(path);
    const slug=path.slice(1);
    const image=slug==='pregnancy-calculator'?'/illustrations/pregnancy/pregnancy-dating.webp':Object.hasOwn(calculatorVisuals,slug)?`/illustrations/calculators/${slug}.webp`:undefined;
+   const images=image?[site.url+image]:[];
+   if(Object.hasOwn(calculatorExamples,slug))images.push(site.url+exampleImage(slug));
    // These dates record actual English content edits, never the sitemap fetch/build time.
    const modifiedAt=mathSearchContent[path.slice(1)]?.modifiedAt;
-   return publishedPageLocales(path).map(locale=>({url:site.url+localizedPath(path,locale),...(image?{images:[site.url+image]}:{}),...(locale==='en'&&modifiedAt?{lastModified:modifiedAt}:{}),...(languages?{alternates:{languages}}:{})}));
+   return publishedPageLocales(path).map(locale=>({url:site.url+localizedPath(path,locale),...(images.length?{images}:{}),...(locale==='en'&&modifiedAt?{lastModified:modifiedAt}:{}),...(languages?{alternates:{languages}}:{})}));
  });
  const posts=await getPublishedPostSitemapEntries();
  return [...legacy,...(posts.length?[{url:site.url+'/blog'},...posts.map(post=>({url:site.url+'/blog/'+encodeURIComponent(post.slug),lastModified:post.updatedAt}))]:[])];

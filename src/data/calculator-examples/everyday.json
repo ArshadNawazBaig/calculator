@@ -1,0 +1,1311 @@
+{
+  "age-calculator": {
+    "title": "Check the birthday before subtracting the years",
+    "notation": "28 − 1",
+    "inputHeading": "Age on date",
+    "resultHeading": "Completed years",
+    "given": [
+      {
+        "label": "Date of birth",
+        "value": "1998-06-15"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2026-06-14",
+        "calculation": "2026 − 1998 − 1",
+        "result": "27"
+      },
+      {
+        "input": "2026-06-15",
+        "calculation": "2026 − 1998",
+        "result": "28"
+      }
+    ]
+  },
+  "date-calculator": {
+    "title": "Does the next month start from the original date?",
+    "notation": "+1M +1M",
+    "inputHeading": "Month additions",
+    "resultHeading": "Resulting date",
+    "given": [
+      {
+        "label": "Starting date",
+        "value": "2026-01-31"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1 + 1",
+        "calculation": "2026-01-31 + 1M + 1M",
+        "result": "2026-03-28"
+      },
+      {
+        "input": "2",
+        "calculation": "2026-01-31 + 2M",
+        "result": "2026-03-31"
+      }
+    ]
+  },
+  "day-counter": {
+    "title": "Count the same fortnight with two workweeks",
+    "notation": "2 × w",
+    "inputHeading": "Workdays per week",
+    "resultHeading": "Working days",
+    "given": [
+      {
+        "label": "Holidays",
+        "value": "0"
+      }
+    ],
+    "rows": [
+      {
+        "input": "4",
+        "calculation": "2 × 4",
+        "result": "8"
+      },
+      {
+        "input": "5",
+        "calculation": "2 × 5",
+        "result": "10"
+      }
+    ]
+  },
+  "day-of-the-week-calculator": {
+    "title": "How far does an anniversary move on the calendar?",
+    "notation": "d mod 7",
+    "inputHeading": "Interval",
+    "resultHeading": "Weekday shift",
+    "rows": [
+      {
+        "input": "365 d",
+        "calculation": "365 − 52 × 7",
+        "result": "1 d"
+      },
+      {
+        "input": "366 d",
+        "calculation": "366 − 52 × 7",
+        "result": "2 d"
+      }
+    ]
+  },
+  "hours-calculator": {
+    "title": "Turn a quarter hour into payroll time",
+    "notation": "min / 60",
+    "inputHeading": "Clock duration",
+    "resultHeading": "Decimal hours",
+    "rows": [
+      {
+        "input": "7:15",
+        "calculation": "7 + 15 ÷ 60",
+        "result": "7.25 h"
+      },
+      {
+        "input": "7:45",
+        "calculation": "7 + 45 ÷ 60",
+        "result": "7.75 h"
+      }
+    ]
+  },
+  "time-duration-calculator": {
+    "title": "Give an overnight interval its finish date",
+    "notation": "24 + Δh",
+    "inputHeading": "Finish time",
+    "resultHeading": "Elapsed time",
+    "given": [
+      {
+        "label": "Start time",
+        "value": "D₁ 09:00"
+      }
+    ],
+    "rows": [
+      {
+        "input": "D₁ 10:00",
+        "calculation": "10 − 9",
+        "result": "1 h"
+      },
+      {
+        "input": "D₂ 10:00",
+        "calculation": "24 + 10 − 9",
+        "result": "25 h"
+      }
+    ]
+  },
+  "time-calculator": {
+    "title": "Where does the extra hour come from?",
+    "notation": "60 min = 1 h",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "rows": [
+      {
+        "label": "Total minutes",
+        "calculation": "1 × 60 + 50 + 35",
+        "result": "145 min"
+      },
+      {
+        "label": "Hours and minutes",
+        "calculation": "145 = 2 × 60 + 25",
+        "result": "2 h 25 min"
+      }
+    ]
+  },
+  "time-card-calculator": {
+    "title": "Compare a shift before and after punch rounding",
+    "notation": "15 min",
+    "inputHeading": "Clock times",
+    "resultHeading": "Worked minutes",
+    "given": [
+      {
+        "label": "Rounding increment",
+        "value": "15 min"
+      },
+      {
+        "label": "Break",
+        "value": "0 min"
+      }
+    ],
+    "rows": [
+      {
+        "input": "09:07 → 17:08",
+        "calculation": "8 × 60 + 1",
+        "result": "481 min"
+      },
+      {
+        "input": "09:00 → 17:15",
+        "calculation": "8 × 60 + 15",
+        "result": "495 min"
+      }
+    ]
+  },
+  "time-zone-calculator": {
+    "title": "What changes when only one local offset moves?",
+    "notation": "UTC + Δ",
+    "inputHeading": "UTC offset",
+    "resultHeading": "Local time at 15:00 UTC",
+    "given": [
+      {
+        "label": "UTC time",
+        "value": "15:00"
+      }
+    ],
+    "rows": [
+      {
+        "input": "UTC−05:00",
+        "calculation": "15:00 − 05:00",
+        "result": "10:00"
+      },
+      {
+        "input": "UTC−04:00",
+        "calculation": "15:00 − 04:00",
+        "result": "11:00"
+      }
+    ]
+  },
+  "conversion-calculator": {
+    "title": "Why does the unit factor change for a floor or a box?",
+    "notation": "100ⁿ",
+    "inputHeading": "Quantity",
+    "resultHeading": "Converted amount",
+    "rows": [
+      {
+        "label": "Area",
+        "calculation": "2 × 100^2",
+        "result": "20000 cm²"
+      },
+      {
+        "label": "Volume",
+        "calculation": "2 × 100^3",
+        "result": "2000000 cm³"
+      }
+    ]
+  },
+  "density-calculator": {
+    "title": "Check what an underfilled measuring cylinder does",
+    "notation": "m / V",
+    "inputHeading": "Measured volume",
+    "resultHeading": "Calculated density",
+    "given": [
+      {
+        "label": "Mass",
+        "value": "100 g"
+      }
+    ],
+    "rows": [
+      {
+        "input": "50 mL",
+        "calculation": "100 ÷ 50",
+        "result": "2 g/mL"
+      },
+      {
+        "input": "45 mL",
+        "calculation": "100 ÷ 45",
+        "result": "2.22 g/mL"
+      }
+    ]
+  },
+  "mass-calculator": {
+    "title": "Change both the volume and the assumed density",
+    "notation": "ρ × V",
+    "inputHeading": "Density × volume",
+    "resultHeading": "Mass",
+    "rows": [
+      {
+        "input": "2 kg/L × 5 L",
+        "calculation": "2 × 5",
+        "result": "10 kg"
+      },
+      {
+        "input": "2.2 kg/L × 5.5 L",
+        "calculation": "2.2 × 5.5",
+        "result": "12.1 kg"
+      }
+    ]
+  },
+  "weight-calculator": {
+    "title": "Why does a force reading need a gravity setting?",
+    "notation": "m × g",
+    "inputHeading": "Gravity",
+    "resultHeading": "Weight force for 10 kg",
+    "rows": [
+      {
+        "input": "9.81 m/s²",
+        "calculation": "10 × 9.81",
+        "result": "98.1 N"
+      },
+      {
+        "input": "1.62 m/s²",
+        "calculation": "10 × 1.62",
+        "result": "16.2 N"
+      }
+    ]
+  },
+  "speed-calculator": {
+    "title": "Average the journey once both legs are counted",
+    "notation": "Σd / Σt",
+    "inputHeading": "Quantity",
+    "resultHeading": "Result",
+    "given": [
+      {
+        "label": "Distance per leg",
+        "value": "60 km"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Travel time",
+        "calculation": "60 ÷ 60 + 60 ÷ 30",
+        "result": "3 h"
+      },
+      {
+        "label": "Average speed",
+        "calculation": "(60 + 60) ÷ 3",
+        "result": "40 km/h"
+      }
+    ]
+  },
+  "molarity-calculator": {
+    "title": "What happens to the same solute in a larger final volume?",
+    "notation": "n / V",
+    "inputHeading": "Final volume",
+    "resultHeading": "Molarity",
+    "given": [
+      {
+        "label": "Amount of solute",
+        "value": "0.1 mol"
+      }
+    ],
+    "rows": [
+      {
+        "input": "0.5 L",
+        "calculation": "0.1 ÷ 0.5",
+        "result": "0.2 mol/L"
+      },
+      {
+        "input": "2 L",
+        "calculation": "0.1 ÷ 2",
+        "result": "0.05 mol/L"
+      }
+    ]
+  },
+  "molecular-weight-calculator": {
+    "title": "Read a formula one capital letter at a time",
+    "notation": "Co ≠ CO",
+    "inputHeading": "Formula",
+    "resultHeading": "Molar mass",
+    "rows": [
+      {
+        "input": "Co",
+        "calculation": "1 × 58.933",
+        "result": "58.93 g/mol"
+      },
+      {
+        "input": "CO",
+        "calculation": "12.011 + 15.999",
+        "result": "28.01 g/mol"
+      }
+    ]
+  },
+  "gdp-calculator": {
+    "title": "Follow one imported purchase through both entries",
+    "notation": "C − M",
+    "inputHeading": "Quantity",
+    "resultHeading": "GDP contribution",
+    "given": [
+      {
+        "label": "Imported purchase",
+        "value": "100"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Consumption",
+        "calculation": "100 × 1",
+        "result": "+100"
+      },
+      {
+        "label": "Net change",
+        "calculation": "100 − 100",
+        "result": "0"
+      }
+    ]
+  },
+  "gpa-calculator": {
+    "title": "Which course changes the transcript average more?",
+    "notation": "ΔG × c",
+    "inputHeading": "Course credits",
+    "resultHeading": "Quality points added",
+    "given": [
+      {
+        "label": "Grade points",
+        "value": "3 → 4"
+      }
+    ],
+    "rows": [
+      {
+        "input": "2",
+        "calculation": "2 × (4 − 3)",
+        "result": "2"
+      },
+      {
+        "input": "4",
+        "calculation": "4 × (4 − 3)",
+        "result": "4"
+      }
+    ]
+  },
+  "grade-calculator": {
+    "title": "Put the same improvement into two grade categories",
+    "notation": "w × Δs",
+    "inputHeading": "Category weight",
+    "resultHeading": "Overall points gained",
+    "rows": [
+      {
+        "input": "15%",
+        "calculation": "0.15 × (85 − 75)",
+        "result": "1.5"
+      },
+      {
+        "input": "40%",
+        "calculation": "0.40 × (85 − 75)",
+        "result": "4"
+      }
+    ]
+  },
+  "tip-calculator": {
+    "title": "How do three people settle a bill to the cent?",
+    "notation": "Σsᵢ",
+    "inputHeading": "Quantity",
+    "resultHeading": "Amount",
+    "given": [
+      {
+        "label": "Bill total",
+        "value": "$70"
+      },
+      {
+        "label": "People",
+        "value": "3"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Three rounded shares",
+        "calculation": "3 × 23.33",
+        "result": "$69.99"
+      },
+      {
+        "label": "Final share",
+        "calculation": "70 − 2 × 23.33",
+        "result": "$23.34"
+      }
+    ]
+  },
+  "fuel-cost-calculator": {
+    "title": "What does better gas mileage save on one trip?",
+    "notation": "P × d / mpg",
+    "inputHeading": "Fuel economy",
+    "resultHeading": "Trip cost",
+    "given": [
+      {
+        "label": "Distance",
+        "value": "300 mi"
+      },
+      {
+        "label": "Price per US gallon",
+        "value": "$4"
+      }
+    ],
+    "rows": [
+      {
+        "input": "20 mpg",
+        "calculation": "300 ÷ 20 × 4",
+        "result": "$60"
+      },
+      {
+        "input": "25 mpg",
+        "calculation": "300 ÷ 25 × 4",
+        "result": "$48"
+      }
+    ]
+  },
+  "gas-mileage-calculator": {
+    "title": "Combine the fuel receipts before finding miles per gallon",
+    "notation": "Σd / ΣV",
+    "inputHeading": "Quantity",
+    "resultHeading": "Fuel economy",
+    "rows": [
+      {
+        "label": "First tank",
+        "calculation": "240 ÷ 8",
+        "result": "30 mpg"
+      },
+      {
+        "label": "Both tanks",
+        "calculation": "(240 + 160) ÷ (8 + 8)",
+        "result": "25 mpg"
+      }
+    ]
+  },
+  "horsepower-calculator": {
+    "title": "Can two operating speeds produce the same shaft power?",
+    "notation": "τ × rpm",
+    "inputHeading": "Torque and speed",
+    "resultHeading": "Mechanical horsepower",
+    "rows": [
+      {
+        "input": "100 lb·ft / 3000 rpm",
+        "calculation": "100 × 3000 ÷ 5252",
+        "result": "57.12 hp"
+      },
+      {
+        "input": "200 lb·ft / 1500 rpm",
+        "calculation": "200 × 1500 ÷ 5252",
+        "result": "57.12 hp"
+      }
+    ]
+  },
+  "engine-horsepower-calculator": {
+    "title": "How does a trap-speed error grow in the estimate?",
+    "notation": "v³",
+    "inputHeading": "Speed ratio",
+    "resultHeading": "Estimated power ratio",
+    "given": [
+      {
+        "label": "Race weight ratio",
+        "value": "1"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1.05",
+        "calculation": "1.05^3",
+        "result": "1.158×"
+      },
+      {
+        "input": "1.10",
+        "calculation": "1.10^3",
+        "result": "1.331×"
+      }
+    ]
+  },
+  "tire-size-calculator": {
+    "title": "What changes when a tire gets wider at the same aspect ratio?",
+    "notation": "w × a",
+    "inputHeading": "Tire size",
+    "resultHeading": "Sidewall height",
+    "rows": [
+      {
+        "input": "205/55 R16",
+        "calculation": "205 × 0.55",
+        "result": "112.75 mm"
+      },
+      {
+        "input": "225/55 R16",
+        "calculation": "225 × 0.55",
+        "result": "123.75 mm"
+      }
+    ]
+  },
+  "square-footage-calculator": {
+    "title": "Can the same length of edging enclose a smaller floor?",
+    "notation": "L × W",
+    "inputHeading": "Dimensions",
+    "resultHeading": "Floor area",
+    "rows": [
+      {
+        "input": "8 ft × 8 ft",
+        "calculation": "8 × 8",
+        "result": "64 ft²"
+      },
+      {
+        "input": "4 ft × 12 ft",
+        "calculation": "4 × 12",
+        "result": "48 ft²"
+      }
+    ]
+  },
+  "concrete-calculator": {
+    "title": "Check slab thickness before adding an allowance",
+    "notation": "L × W × h",
+    "inputHeading": "Slab thickness",
+    "resultHeading": "Net concrete volume",
+    "given": [
+      {
+        "label": "Footprint",
+        "value": "18 ft × 12 ft"
+      }
+    ],
+    "rows": [
+      {
+        "input": "4 in",
+        "calculation": "18 × 12 × (4 ÷ 12) ÷ 27",
+        "result": "2.67 yd³"
+      },
+      {
+        "input": "5 in",
+        "calculation": "18 × 12 × (5 ÷ 12) ÷ 27",
+        "result": "3.33 yd³"
+      }
+    ]
+  },
+  "mulch-calculator": {
+    "title": "Round the bag count after combining both beds",
+    "notation": "⌈a + b⌉",
+    "inputHeading": "Ordering method",
+    "resultHeading": "Bags to buy",
+    "given": [
+      {
+        "label": "Beds",
+        "value": "2"
+      },
+      {
+        "label": "Bags per bed",
+        "value": "1.2"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Separate beds",
+        "calculation": "⌈1.2⌉ + ⌈1.2⌉",
+        "result": "4"
+      },
+      {
+        "label": "Combined order",
+        "calculation": "⌈1.2 + 1.2⌉",
+        "result": "3"
+      }
+    ]
+  },
+  "gravel-calculator": {
+    "title": "What changes if the supplier sells gravel by mass?",
+    "notation": "ρ × V",
+    "inputHeading": "Bulk density",
+    "resultHeading": "Mass for 3 m³",
+    "rows": [
+      {
+        "input": "1500 kg/m³",
+        "calculation": "3 × 1500",
+        "result": "4500 kg"
+      },
+      {
+        "input": "1700 kg/m³",
+        "calculation": "3 × 1700",
+        "result": "5100 kg"
+      }
+    ]
+  },
+  "roofing-calculator": {
+    "title": "Convert a roof pitch into actual covering area",
+    "notation": "√(1 + p²)",
+    "inputHeading": "Rise / run",
+    "resultHeading": "Area over a 100 m² footprint",
+    "given": [
+      {
+        "label": "Footprint",
+        "value": "100 m²"
+      }
+    ],
+    "rows": [
+      {
+        "input": "0 / 12",
+        "calculation": "100 × √(1 + 0^2)",
+        "result": "100 m²"
+      },
+      {
+        "input": "6 / 12",
+        "calculation": "100 × √(1 + (6 ÷ 12)^2)",
+        "result": "111.80 m²"
+      }
+    ]
+  },
+  "tile-calculator": {
+    "title": "Turn the same tile through a right angle",
+    "notation": "⌈L/a⌉ × ⌈W/b⌉",
+    "inputHeading": "Tile orientation",
+    "resultHeading": "Whole tiles before offcut reuse",
+    "given": [
+      {
+        "label": "Floor dimensions",
+        "value": "110 cm × 150 cm"
+      }
+    ],
+    "rows": [
+      {
+        "input": "60 cm × 30 cm",
+        "calculation": "⌈110 ÷ 60⌉ × ⌈150 ÷ 30⌉",
+        "result": "10"
+      },
+      {
+        "input": "30 cm × 60 cm",
+        "calculation": "⌈110 ÷ 30⌉ × ⌈150 ÷ 60⌉",
+        "result": "12"
+      }
+    ],
+    "note": "Both layouts cover 1.65 m². The second layout uses two more whole tiles when each edge cut starts with a fresh tile."
+  },
+  "stair-calculator": {
+    "title": "How does adding a riser change the flight?",
+    "notation": "H / n",
+    "inputHeading": "Riser count",
+    "resultHeading": "Rise per step",
+    "given": [
+      {
+        "label": "Total rise",
+        "value": "270 cm"
+      }
+    ],
+    "rows": [
+      {
+        "input": "15",
+        "calculation": "270 ÷ 15",
+        "result": "18 cm"
+      },
+      {
+        "input": "18",
+        "calculation": "270 ÷ 18",
+        "result": "15 cm"
+      }
+    ]
+  },
+  "btu-calculator": {
+    "title": "Isolate the wall term in a heat-loss estimate",
+    "notation": "U × A × ΔT",
+    "inputHeading": "U-value in W/(m²·K)",
+    "resultHeading": "Wall heat loss",
+    "given": [
+      {
+        "label": "Wall area",
+        "value": "20 m²"
+      },
+      {
+        "label": "Temperature difference",
+        "value": "15 K"
+      }
+    ],
+    "rows": [
+      {
+        "input": "0.6",
+        "calculation": "0.6 × 20 × 15",
+        "result": "180 W"
+      },
+      {
+        "input": "0.3",
+        "calculation": "0.3 × 20 × 15",
+        "result": "90 W"
+      }
+    ]
+  },
+  "electricity-calculator": {
+    "title": "Count a heater's duty cycle only once",
+    "notation": "kW × h",
+    "inputHeading": "Power and load factor",
+    "resultHeading": "Energy in 10 hours",
+    "rows": [
+      {
+        "input": "1000 W × 40%",
+        "calculation": "1 × 0.40 × 10",
+        "result": "4 kWh"
+      },
+      {
+        "input": "400 W × 100%",
+        "calculation": "0.4 × 1 × 10",
+        "result": "4 kWh"
+      }
+    ]
+  },
+  "ohms-law-calculator": {
+    "title": "What changes when the voltage across a fixed resistor doubles?",
+    "notation": "V² / R",
+    "inputHeading": "Voltage",
+    "resultHeading": "Power at 12 Ω",
+    "given": [
+      {
+        "label": "Resistance",
+        "value": "12 Ω"
+      }
+    ],
+    "rows": [
+      {
+        "input": "6 V",
+        "calculation": "6^2 ÷ 12",
+        "result": "3 W"
+      },
+      {
+        "input": "12 V",
+        "calculation": "12^2 ÷ 12",
+        "result": "12 W"
+      }
+    ]
+  },
+  "resistor-calculator": {
+    "title": "Why does wire diameter enter the calculation twice?",
+    "notation": "R ∝ 1/d²",
+    "inputHeading": "Diameter ratio",
+    "resultHeading": "Resistance ratio",
+    "rows": [
+      {
+        "input": "1×",
+        "calculation": "1 ÷ 1^2",
+        "result": "1×"
+      },
+      {
+        "input": "2×",
+        "calculation": "1 ÷ 2^2",
+        "result": "0.25×"
+      }
+    ]
+  },
+  "voltage-drop-calculator": {
+    "title": "Read one voltage loss against two supply voltages",
+    "notation": "ΔV / V",
+    "inputHeading": "Supply voltage",
+    "resultHeading": "Drop for a 3 V loss",
+    "given": [
+      {
+        "label": "Voltage drop",
+        "value": "3 V"
+      }
+    ],
+    "rows": [
+      {
+        "input": "24 V",
+        "calculation": "3 ÷ 24 × 100",
+        "result": "12.5%"
+      },
+      {
+        "input": "120 V",
+        "calculation": "3 ÷ 120 × 100",
+        "result": "2.5%"
+      }
+    ]
+  },
+  "wind-chill-calculator": {
+    "title": "Can the wind feel below freezing in above-freezing air?",
+    "notation": "T ≠ WCT",
+    "inputHeading": "Wind speed",
+    "resultHeading": "Wind chill at 35 °F",
+    "given": [
+      {
+        "label": "Air temperature",
+        "value": "35 °F"
+      }
+    ],
+    "rows": [
+      {
+        "input": "10 mph",
+        "calculation": "35 °F, 10 mph → WCT",
+        "result": "27 °F"
+      },
+      {
+        "input": "20 mph",
+        "calculation": "35 °F, 20 mph → WCT",
+        "result": "24 °F"
+      }
+    ]
+  },
+  "heat-index-calculator": {
+    "title": "Read the apparent-temperature difference at fixed humidity",
+    "notation": "HI(T, RH)",
+    "inputHeading": "Air temperature",
+    "resultHeading": "Heat index at 60% RH",
+    "given": [
+      {
+        "label": "Relative humidity",
+        "value": "60%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "85 °F",
+        "calculation": "85 °F, RH 60% → HI",
+        "result": "89 °F"
+      },
+      {
+        "input": "90 °F",
+        "calculation": "90 °F, RH 60% → HI",
+        "result": "100 °F"
+      }
+    ]
+  },
+  "dew-point-calculator": {
+    "title": "Compare the window surface with the room's dew point",
+    "notation": "Tₛ − Tᵈ",
+    "inputHeading": "Surface temperature",
+    "resultHeading": "Difference from a 12 °C dew point",
+    "given": [
+      {
+        "label": "Dew point",
+        "value": "12 °C"
+      }
+    ],
+    "rows": [
+      {
+        "input": "15 °C",
+        "calculation": "15 − 12",
+        "result": "+3 °C"
+      },
+      {
+        "input": "10 °C",
+        "calculation": "10 − 12",
+        "result": "−2 °C"
+      }
+    ]
+  },
+  "bandwidth-calculator": {
+    "title": "Can a smaller page absorb a rise in visits?",
+    "notation": "n × S",
+    "inputHeading": "Daily page views",
+    "resultHeading": "Daily data transfer",
+    "given": [
+      {
+        "label": "Page size",
+        "value": "2 MB → 1.5 MB"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1000",
+        "calculation": "1000 × 2",
+        "result": "2000 MB"
+      },
+      {
+        "input": "1200",
+        "calculation": "1200 × 1.5",
+        "result": "1800 MB"
+      }
+    ]
+  },
+  "ip-subnet-calculator": {
+    "title": "How many ordinary host addresses survive a subnet split?",
+    "notation": "2ʰ − 2",
+    "inputHeading": "IPv4 prefix",
+    "resultHeading": "Usable host addresses in total",
+    "rows": [
+      {
+        "input": "/24",
+        "calculation": "2^8 − 2",
+        "result": "254"
+      },
+      {
+        "input": "2 × /25",
+        "calculation": "2 × (2^7 − 2)",
+        "result": "252"
+      }
+    ]
+  },
+  "base64-encode-decode": {
+    "title": "Why can one extra byte add four Base64 characters?",
+    "notation": "4⌈n/3⌉",
+    "inputHeading": "Input bytes",
+    "resultHeading": "Padded output length",
+    "rows": [
+      {
+        "input": "3",
+        "calculation": "4 × ⌈3 ÷ 3⌉",
+        "result": "4"
+      },
+      {
+        "input": "4",
+        "calculation": "4 × ⌈4 ÷ 3⌉",
+        "result": "8"
+      }
+    ]
+  },
+  "url-encode-decode": {
+    "title": "Follow a space through two encoding passes",
+    "notation": "% → %25",
+    "inputHeading": "Encoding pass",
+    "resultHeading": "Output",
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "U+0020 → %20",
+        "result": "%20"
+      },
+      {
+        "input": "2",
+        "calculation": "%20 → %25 + 20",
+        "result": "%2520"
+      }
+    ]
+  },
+  "password-generator": {
+    "title": "What does excluding repeated characters change?",
+    "notation": "n × (n − 1)",
+    "inputHeading": "Two-character counting example",
+    "resultHeading": "Possible strings",
+    "given": [
+      {
+        "label": "Alphabet",
+        "value": "A, B, C"
+      },
+      {
+        "label": "Length",
+        "value": "2"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Repetition allowed",
+        "calculation": "3 × 3",
+        "result": "9"
+      },
+      {
+        "label": "No repeats",
+        "calculation": "3 × 2",
+        "result": "6"
+      }
+    ]
+  },
+  "dice-roller": {
+    "title": "Why is seven more frequent than twelve on two dice?",
+    "notation": "6 × 6",
+    "inputHeading": "Sum",
+    "resultHeading": "Probability",
+    "given": [
+      {
+        "label": "Dice",
+        "value": "2 × d6"
+      }
+    ],
+    "rows": [
+      {
+        "input": "7",
+        "calculation": "6 ÷ 36 × 100",
+        "result": "16.67%"
+      },
+      {
+        "input": "12",
+        "calculation": "1 ÷ 36 × 100",
+        "result": "2.78%"
+      }
+    ]
+  },
+  "roman-numeral-converter": {
+    "title": "Label the order before engraving a Roman date",
+    "notation": "D / M",
+    "inputHeading": "Date order",
+    "resultHeading": "8 May 2026",
+    "rows": [
+      {
+        "input": "DD/MM/YYYY",
+        "calculation": "08/05/2026 → VIII/V/MMXXVI",
+        "result": "VIII/V/MMXXVI"
+      },
+      {
+        "input": "MM/DD/YYYY",
+        "calculation": "05/08/2026 → V/VIII/MMXXVI",
+        "result": "V/VIII/MMXXVI"
+      }
+    ]
+  },
+  "sleep-calculator": {
+    "title": "Work back from the alarm including time to fall asleep",
+    "notation": "t − Δt",
+    "inputHeading": "Time to fall asleep",
+    "resultHeading": "Bedtime for 8 hours asleep",
+    "given": [
+      {
+        "label": "Wake-up time",
+        "value": "07:00"
+      },
+      {
+        "label": "Sleep duration",
+        "value": "8 h"
+      }
+    ],
+    "rows": [
+      {
+        "input": "15 min",
+        "calculation": "07:00 − 08:00 − 00:15",
+        "result": "22:45"
+      },
+      {
+        "input": "30 min",
+        "calculation": "07:00 − 08:00 − 00:30",
+        "result": "22:30"
+      }
+    ]
+  },
+  "height-calculator": {
+    "title": "Read the decimal part of a foot as inches",
+    "notation": "12 × f",
+    "inputHeading": "Height in feet",
+    "resultHeading": "Inches after whole feet",
+    "rows": [
+      {
+        "input": "5.25 ft",
+        "calculation": "0.25 × 12",
+        "result": "3 in"
+      },
+      {
+        "input": "5.75 ft",
+        "calculation": "0.75 × 12",
+        "result": "9 in"
+      }
+    ]
+  },
+  "bra-size-calculator": {
+    "title": "Measure the difference before reading a sizing chart",
+    "notation": "B − U",
+    "inputHeading": "Bust and underbust",
+    "resultHeading": "Circumference difference",
+    "rows": [
+      {
+        "input": "36 in / 32 in",
+        "calculation": "36 − 32",
+        "result": "4 in"
+      },
+      {
+        "input": "38 in / 34 in",
+        "calculation": "38 − 34",
+        "result": "4 in"
+      }
+    ]
+  },
+  "shoe-size-conversion": {
+    "title": "Measure the longer foot before consulting a chart",
+    "notation": "cm × 10",
+    "inputHeading": "Foot",
+    "resultHeading": "Measured length",
+    "rows": [
+      {
+        "label": "Left",
+        "calculation": "24.3 × 10",
+        "result": "243 mm"
+      },
+      {
+        "label": "Right",
+        "calculation": "24.7 × 10",
+        "result": "247 mm"
+      }
+    ]
+  },
+  "golf-handicap-calculator": {
+    "title": "Which part comes from rating minus par?",
+    "notation": "R − par",
+    "inputHeading": "Course rating",
+    "resultHeading": "Rating adjustment at par 72",
+    "given": [
+      {
+        "label": "Par",
+        "value": "72"
+      }
+    ],
+    "rows": [
+      {
+        "input": "70",
+        "calculation": "70 − 72",
+        "result": "−2"
+      },
+      {
+        "input": "74",
+        "calculation": "74 − 72",
+        "result": "+2"
+      }
+    ]
+  },
+  "love-calculator": {
+    "title": "Why must some pairs share a score?",
+    "notation": "0 … 100",
+    "inputHeading": "Quantity",
+    "resultHeading": "Count",
+    "rows": [
+      {
+        "label": "Whole-number scores",
+        "calculation": "100 − 0 + 1",
+        "result": "101"
+      },
+      {
+        "label": "Pairs in this example",
+        "calculation": "101 + 1",
+        "result": "102"
+      }
+    ]
+  },
+  "mileage-calculator": {
+    "title": "Check the two directions before doubling a route",
+    "notation": "d₁ + d₂",
+    "inputHeading": "Quantity",
+    "resultHeading": "Distance",
+    "rows": [
+      {
+        "label": "Round trip",
+        "calculation": "18 + 22",
+        "result": "40 km"
+      },
+      {
+        "label": "Twice the outbound route",
+        "calculation": "2 × 18",
+        "result": "36 km"
+      }
+    ]
+  },
+  "expense-splitter": {
+    "title": "Split a shared bill using weights instead of equal shares",
+    "notation": "w / Σw",
+    "inputHeading": "Share weight",
+    "resultHeading": "Share of a $90 bill",
+    "given": [
+      {
+        "label": "Bill total",
+        "value": "$90"
+      }
+    ],
+    "rows": [
+      {
+        "input": "1",
+        "calculation": "90 × 1 ÷ (1 + 2)",
+        "result": "$30"
+      },
+      {
+        "input": "2",
+        "calculation": "90 × 2 ÷ (1 + 2)",
+        "result": "$60"
+      }
+    ]
+  },
+  "solar-savings-calculator": {
+    "title": "Which rate applies to the same solar kilowatt-hours?",
+    "notation": "E × r",
+    "inputHeading": "Use of generation",
+    "resultHeading": "Value of 500 kWh",
+    "given": [
+      {
+        "label": "Generation",
+        "value": "500 kWh"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Self-consumed",
+        "calculation": "500 × 0.24",
+        "result": "$120"
+      },
+      {
+        "label": "Exported",
+        "calculation": "500 × 0.08",
+        "result": "$40"
+      }
+    ]
+  },
+  "ev-vs-petrol-calculator": {
+    "title": "Move a block of charging from public to home power",
+    "notation": "E × r",
+    "inputHeading": "Charging location",
+    "resultHeading": "Cost for 300 kWh",
+    "given": [
+      {
+        "label": "Energy purchased",
+        "value": "300 kWh"
+      }
+    ],
+    "rows": [
+      {
+        "label": "Public",
+        "calculation": "300 × 0.40",
+        "result": "$120"
+      },
+      {
+        "label": "Home",
+        "calculation": "300 × 0.15",
+        "result": "$45"
+      }
+    ]
+  },
+  "final-exam-grade-calculator": {
+    "title": "How much does a one-point target change the final?",
+    "notation": "ΔG / w",
+    "inputHeading": "Target course grade",
+    "resultHeading": "Required exam score",
+    "given": [
+      {
+        "label": "Current grade",
+        "value": "82%"
+      },
+      {
+        "label": "Final exam weight",
+        "value": "20%"
+      }
+    ],
+    "rows": [
+      {
+        "input": "80%",
+        "calculation": "(80 − 0.8 × 82) ÷ 0.2",
+        "result": "72%"
+      },
+      {
+        "input": "81%",
+        "calculation": "(81 − 0.8 × 82) ÷ 0.2",
+        "result": "77%"
+      }
+    ]
+  },
+  "gpa-goal-calculator": {
+    "title": "How close do perfect new grades bring a cumulative average?",
+    "notation": "Σqp / Σc",
+    "inputHeading": "New credits at 4.0",
+    "resultHeading": "Cumulative GPA",
+    "given": [
+      {
+        "label": "Current GPA",
+        "value": "3.0"
+      },
+      {
+        "label": "Completed credits",
+        "value": "24"
+      }
+    ],
+    "rows": [
+      {
+        "input": "12",
+        "calculation": "(24 × 3 + 12 × 4) ÷ 36",
+        "result": "3.33"
+      },
+      {
+        "input": "24",
+        "calculation": "(24 × 3 + 24 × 4) ÷ 48",
+        "result": "3.50"
+      }
+    ]
+  }
+}

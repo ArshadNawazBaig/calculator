@@ -129,6 +129,13 @@ export async function translationSource() {
     const {mathSearchContent} = await server.ssrLoadModule('/src/data/math-search-content.ts');
     collect(mathSearchContent, keys);
     for (const entry of Object.values(mathSearchContent)) for (const row of entry?.rows || []) formulas.add(row.formula);
+    // The illustrated tables render on the server. Expressions and literal inputs retain their notation.
+    const {calculatorExamples} = await server.ssrLoadModule('/src/lib/calculator-examples.ts');
+    for (const example of Object.values(calculatorExamples)) {
+      for (const label of [example.title, example.inputHeading, example.resultHeading, example.note]) add(keys, label);
+      for (const given of example.given || []) add(keys, given.label);
+      for (const row of example.rows) add(keys, row.label);
+    }
     const content = JSON.parse(await readFile('src/data/calculator-content.json', 'utf8'));
     collect(JSON.parse(await readFile('src/data/directory-content.json', 'utf8')), keys);
     for (const entry of [...Object.values(info), ...Object.values(translatedGuides), ...Object.values(content)]) collect(entry, keys);
