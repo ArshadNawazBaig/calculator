@@ -22,3 +22,12 @@ axis ranges. Keep the bundled files and their licenses in version control.
 
 Arabic and Devanagari retain `preload: false`, so English pages only preload the
 shared Manrope font.
+
+The preloaded `manrope-latin.woff2` contains the common Latin characters, punctuation
+and mathematical symbols from Manrope. The original file supplies the extended
+characters on demand. Both files use the existing Manrope license and weight axis.
+To reproduce the subset with FontTools and Brotli, run the following from this directory.
+
+```sh
+pyftsubset manrope-variable.woff2 --unicodes='U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+1E9E,U+2000-22FF,U+25CA,U+FB01-FB02' --layout-features='*' --name-IDs='*' --name-legacy --name-languages='*' --flavor=woff2 --output-file=manrope-latin.woff2
+```

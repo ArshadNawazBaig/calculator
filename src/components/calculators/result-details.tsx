@@ -13,6 +13,6 @@ export const ResultDetails=memo(function ResultDetails({result,algorithm,currenc
   return <div className="result-detail-sections">
     {dirty&&<p className="stale-note">{t('Inputs changed. Select Calculate to update the result.')}</p>}
     <ResultCharts series={presentation.series} breakdown={presentation.breakdown} currency={currency}/>
-    {result.table&&<ResultTable table={result.table} currency={currency} currencyLabels={currencyLabels} moneyColumns={presentation.moneyColumns}/>}
+    {result.table&&<ResultTable table={result.table} currency={currency} currencyLabels={currencyLabels} moneyColumns={presentation.moneyColumns} previewRows={algorithm === 'mortgage' ? 12 : undefined}/>}
   </div>;
 });

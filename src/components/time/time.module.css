@@ -54,6 +54,13 @@
 .search input { min-height: 50px; width: 100%; border: 1px solid var(--color-line-strong); background: var(--color-input); color: var(--color-ink); border-radius: 8px; padding: 12px 16px; font-size: 14px; }
 .search input { padding-inline-start: 44px; }
 .region { width: 220px; }
+.regionDirectory { margin-top: 18px; border-block-start: 1px solid var(--color-line); }
+.regionDirectory details { border-block-end: 1px solid var(--color-line); }
+.regionDirectory summary { padding: 14px 4px; cursor: pointer; font-weight: 650; }
+.regionDirectory ul { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(180px,100%),1fr)); gap: 4px 16px; padding: 0 4px 16px; list-style: none; }
+.regionDirectory a { display: block; padding-block: 6px; color: var(--color-brand-text); }
+.regionDirectory a:hover { text-decoration: underline; }
+.regionDirectory small { display: block; color: var(--color-muted); }
 .zoneGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 18px; }
 .zoneCard { display: flex; align-items: center; justify-content: space-between; gap: 15px; border: 1px solid var(--color-line); border-radius: 9px; padding: 19px 21px; background: var(--color-card); }
 .zoneCard:hover { border-color: var(--color-line-strong); background: var(--color-soft); }

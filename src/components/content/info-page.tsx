@@ -17,7 +17,7 @@ export function InfoPage({page,guide=false,highlight,slug,tools=[],messages={},l
         {guide&&slug&&<GuideIllustration slug={slug} locale={locale} messages={messages}/>}
         {!guide&&slug&&<InformationInsight slug={slug} locale={locale}/>}
         {guide&&<nav aria-label={t('In this guide')} className={styles.panel}><strong>{t('In this guide')}</strong><ul>{page.sections.map((section,index)=><li key={section.title}><a href={`#guide-section-${index+1}`}>{t(section.title)}</a></li>)}</ul></nav>}
-        {page.sections.map((s,i)=><section key={i} id={guide?`guide-section-${i+1}`:undefined}>
+        {page.sections.map((s,i)=><section key={i} id={guide?`guide-section-${i+1}`:s.id}>
           <h2>{t(s.title)}</h2>{s.paragraphs.map((p,j)=><p key={j}>{t(p)}</p>)}
           {s.table&&<div className={styles.scroll} role="region" aria-label={t(s.table.caption)} tabIndex={0}>
             <table className={styles.table}>

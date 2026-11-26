@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
+import {readFileSync} from 'node:fs';
 import {CalculationModePicker} from '@/components/calculators/calculation-mode-picker';
 import {calculationAlgorithmIcons, calculationModeIconName} from '@/components/calculators/calculation-mode-icon';
 import {TranslationMessages} from '@/components/i18n/provider';
@@ -12,8 +13,10 @@ const categoryFor = (slug: string) => catalog.find(tool => tool.slug === slug)!.
 describe('visible calculator mode choices', () => {
   it('explicitly maps every currently displayed calculation algorithm to a semantic icon', () => {
     const algorithms = new Set(visualDefinitions.flatMap(definition => definition.modes.map(mode => mode.algorithm)));
+    const sprite = readFileSync(new URL('../src/assets/mode-icons.svg', import.meta.url), 'utf8');
+    const spriteSymbols = new Set([...sprite.matchAll(/<symbol id="([^"]+)"/g)].map(match => match[1]));
     expect(algorithms.size).toBeGreaterThan(0);
-    for (const algorithm of algorithms) expect(calculationAlgorithmIcons[algorithm], algorithm).toBeTruthy();
+    for (const algorithm of algorithms) expect(spriteSymbols.has(calculationAlgorithmIcons[algorithm]), algorithm).toBe(true);
     const retirement = visualDefinitions.find(definition => definition.slug === 'retirement-calculator')!;
     const symbols = retirement.modes.map(mode => calculationModeIconName({slug: retirement.slug, mode, category: 'finance'}));
     expect(new Set(symbols).size).toBe(retirement.modes.length);

@@ -105,7 +105,7 @@ export function PostEditor({initialPost}: {initialPost?: BlogPost}) {
             <div hidden={view !== 'source'}>
               <TextField multiline label="Markdown source" id="post-markdown-source" name="content" controlClassName={styles.editor} value={values.content} onChange={e => change('content', e.target.value)} maxLength={100000} rows={18} disabled={disabled || view !== 'source'} errors={errors.content} spellCheck={false} hint="For advanced editing. Changes here also update the visual editor and preview."/>
             </div>
-            <div hidden={view !== 'preview'} className={styles.preview} aria-label="Article preview">{values.content ? <BlogMarkdown content={values.content}/> : <p className={styles.muted}>Your article preview will appear here.</p>}</div>
+            <div hidden={view !== 'preview'} className={styles.preview} aria-label="Article preview">{values.content ? <BlogMarkdown content={values.content} articleTitle={values.title}/> : <p className={styles.muted}>Your article preview will appear here.</p>}</div>
             <p id="article-body-help" className={styles.muted}>Use the formatting toolbar to structure your article. Add examples, source links and limitations where they help readers.</p>
             <div id="article-body-errors">{view !== 'source' && errors.content?.map(error => <p key={error} className={styles.fieldError}>{error}</p>)}</div>
           </section>

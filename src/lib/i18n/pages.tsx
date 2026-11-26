@@ -31,6 +31,7 @@ import {ToolDirectory} from '@/components/content/tool-directory';
 import {FilterableToolDirectory} from '@/components/content/filterable-tool-directory';
 import {CalculatorNavigation} from '@/components/calculators/calculator-navigation';
 import {CalculatorForm} from '@/components/calculators/calculator';
+import {compactDefaultExample} from '@/lib/calculators/loan-schedule';
 import {CalculatorCard} from '@/components/calculators/calculator-card';
 import {JsonLd} from '@/components/content/json-ld';
 import {LocalizedHome} from '@/components/i18n/localized-home';
@@ -165,7 +166,7 @@ export function localizedPage(locale: Locale) {
         <TranslationMessages messages={cardMessages(messages,relatedTools(tool))}><div className="container tool-page page-content">
           {def&&isStudentCalculator(tool.slug)&&<StudentTools compact locale={locale} messages={messages}/>}
           {def&&<CalculatorNavigation messages={messages}/>}
-          {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={initial} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
+          {def ? <TranslationMessages messages={calculatorMessages(messages,tool.slug,tool.category)}><CalculatorForm key={`${locale}-${tool.slug}`} definition={def} title={t(`tool.${tool.slug}`)} category={tool.category} initial={compactDefaultExample(def.modes[0], initial)} currency={currency} privateInput={sensitiveTools.has(tool.slug)}/></TranslationMessages> : blocked[tool.slug] ? <div className="availability-panel"><h2>{t('Not available yet')}</h2><p>{t(blocked[tool.slug])}</p></div> : <ToolDirectory tools={relatedTools(tool)} grouped={false}/>}
           {!def&&tool.slug==='real-estate-calculator'&&<>
             <CalculatorVisual slug={tool.slug} title={t(route.title)} locale={locale}/>
             <CalculatorExample slug={tool.slug} locale={locale} messages={messages}/>

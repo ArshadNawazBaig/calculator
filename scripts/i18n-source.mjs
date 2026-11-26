@@ -246,7 +246,7 @@ export async function translationSource() {
       }
       visit(source);
     }
-    for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
+    for (const key of ['Time & clocks','Hours','Minutes','Seconds','Africa','America','Antarctica','Arctic','Asia','Atlantic','Australia','Europe','Indian','Pacific','UTC','World Clock','All Time Zones','Online Timer','Online Stopwatch','Current time in {place}','See the current time and date in {place}, with its UTC offset, upcoming clock changes, and world clock comparison.']) {add(keys,key); add(timeRuntime,key);}
     for (const file of ['src/components/time/meeting-planner.tsx', 'src/lib/time/meeting.ts', 'src/lib/time/wall-time.ts']) {
       for (const key of (await sourceModule(resolve(root, file))).keys) {add(keys,key); add(timeRuntime,key);}
     }

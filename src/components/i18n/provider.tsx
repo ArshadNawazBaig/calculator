@@ -1,6 +1,6 @@
 'use client';
 import {createContext, useContext, useMemo, type ReactNode} from 'react';
-import {I18nProvider} from 'react-aria-components';
+import {I18nProvider} from 'react-aria/I18nProvider';
 import {languages, localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 import {PreferencesProvider} from './preferences-provider';
 const Context = createContext<{locale: Locale; messages: Dictionary}>({locale: 'en', messages: {}});

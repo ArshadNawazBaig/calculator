@@ -2,6 +2,10 @@ import {beforeEach,afterEach,describe,expect,it,vi} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {BlogMarkdown,blogContentUrl} from '@/components/blog/blog-markdown';
 import {BlogArticle} from '@/components/blog/blog-article';
+import {RelatedPosts} from '@/components/blog/related-posts';
+import {publishedLoanExample} from '@/components/blog/public-data';
+import {InfoPage} from '@/components/content/info-page';
+import {information} from '@/data/information';
 import {blogArticleData,blogPostMetadata} from '@/components/blog/blog-meta';
 import {BlogIndex,blogIndexPath} from '@/components/blog/blog-index';
 import {site} from '@/lib/site';
@@ -22,6 +26,21 @@ beforeEach(()=>{site.indexable=true;repository.list.mockResolvedValue({posts:[],
 afterEach(()=>{site.indexable=originalIndexing;vi.clearAllMocks();});
 
 describe('safe shared Markdown rendering',()=>{
+  it.each(['#', '##'])('omits a repeated opening %s title from the article while preserving its section headings', prefix => {
+    const title = 'I Got 95% on a Test. Why Did My Overall Grade Go Down?';
+    const content = `${prefix} ${title}\n\nWhy the test average changes.\n\n## Before and after\n\n### ${title}`;
+    const html = renderToStaticMarkup(<BlogArticle post={{...post, title, content}}/>);
+    expect(html).not.toContain(`<h2>${title}</h2>`);
+    expect(html).toContain('<p>Why the test average changes.</p>');
+    expect(html).toContain('<h2>Before and after</h2>');
+    expect(html).toContain(`<h3>${title}</h3>`);
+  });
+
+  it('preserves an opening heading that contains an authored link', () => {
+    const html = renderToStaticMarkup(<BlogMarkdown content="## [Title](/grade-calculator)" articleTitle="Title"/>);
+    expect(html).toContain('<h2><a href="/grade-calculator">Title</a></h2>');
+  });
+
   it('renders useful Markdown while keeping one article H1 and escaping code',()=>{
     const html=renderToStaticMarkup(<BlogMarkdown content={'# Topic\n\n**Clear** examples and [a calculator](/percent-calculator).\n\n| Rate | Amount |\n| --- | --- |\n| 10% | 20 |\n\n```html\n<script>alert(1)</script>\n```'}/>);
     expect(html).toContain('<h2>Topic</h2>');expect(html).not.toContain('<h1');
@@ -68,23 +87,46 @@ describe('published article presentation and metadata',()=>{
   it.each(['Finflo administrator', 'Erush'])('shows the Erush profile for %s across the blog and article metadata', authorName => {
     const article = {...post, authorName};
     const avatar = '/avatars/finflo-blog-writer.png';
+    const profile = new URL('/about#erush', site.url);
+    const about = renderToStaticMarkup(<InfoPage page={information.about} slug="about"/>);
+    expect(about).toMatch(/<section id="erush">[\s\S]*?Erush is Finflo’s CFO/);
     for (const html of [
       renderToStaticMarkup(<BlogArticle post={article}/>),
       renderToStaticMarkup(<BlogIndex posts={[article]} total={1} page={1}/>),
     ]) {
-      expect(html).toContain('>Erush</strong>');
+      expect(html).toMatch(/<a(?=[^>]*href="\/about#erush")(?=[^>]*rel="author")[^>]*>Erush<\/a>/);
       expect(html).toContain('CFO at Finflo');
       expect(html).toContain(`src="/_next/image?url=${encodeURIComponent(avatar)}&amp;`);
       expect(html).not.toContain('Finflo administrator');
     }
     const metadata = blogPostMetadata(article);
-    expect(metadata.authors).toEqual([{name:'Erush'}]);
-    expect(metadata.openGraph).toMatchObject({authors:['Erush']});
+    expect(metadata.authors).toEqual([{name:'Erush',url:profile.href}]);
+    expect(metadata.openGraph).toMatchObject({authors:[profile.href]});
     const data = blogArticleData(article);
     expect(data.author).toMatchObject({
-      '@type':'Person', name:'Erush', jobTitle:'CFO',
+      '@type':'Person', name:'Erush', jobTitle:'CFO', url:profile.href,
       image:new URL(avatar,site.url).href, worksFor:{'@id':data.publisher['@id']},
     });
+  });
+  it('requests display-sized related images from Unsplash and preserves other authored URLs', () => {
+    const related = {...post, coverImageUrl:'https://images.unsplash.com/photo-example?w=3150&ixid=credit'};
+    const html = renderToStaticMarkup(<RelatedPosts category="Math" posts={[related]}/>);
+    expect(html).toContain('w=112&amp;ixid=credit&amp;h=72&amp;fit=crop 112w');
+    expect(html).toContain('w=224&amp;ixid=credit&amp;h=144&amp;fit=crop 224w');
+    expect(html).toContain('sizes="auto, 112px"');
+    expect(html).not.toContain('3150');
+    for (const src of ['https://images.example.com/photo?w=3150','https://images.unsplash.com/photo?s=signature&amp;w=3150']) {
+      const fallback = renderToStaticMarkup(<RelatedPosts category="Math" posts={[{...related,coverImageUrl:src.replace('&amp;', '&')}]}/>);
+      expect(fallback).toContain(`src="${src}"`);
+      expect(fallback).not.toContain('224w');
+    }
+  });
+  it('only offers the loan example when the article is public and available', async () => {
+    repository.find.mockResolvedValueOnce(post).mockResolvedValueOnce(null).mockRejectedValueOnce(new BlogUnavailableError());
+    expect(await publishedLoanExample()).toEqual({href:'/blog/'+post.slug,title:post.title});
+    expect(repository.find).toHaveBeenCalledWith('loan-calculator-extra-payments');
+    expect(await publishedLoanExample()).toBeNull();
+    expect(await publishedLoanExample()).toBeNull();
   });
   it('escapes schema script boundaries even when author-supplied text contains markup',()=>{
     const html=renderToStaticMarkup(<BlogArticle post={{...post,title:'</script><script>alert(1)</script>'}}/>);

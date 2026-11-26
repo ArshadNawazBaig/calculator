@@ -1,4 +1,5 @@
 import copy from '@/data/locales/explanations.json';
+import type {ReactNode} from 'react';
 import explanationStyles from './explanation.module.css';
 import {defaults, type Field, type Mode, type Result} from '@/lib/calculators/types';
 import {isFieldActive} from '@/lib/calculators/field-visibility';
@@ -27,8 +28,8 @@ function ExampleRows({field, t}: {field: Field; t: (text: string) => string}) {
 }
 
 /** Fixed example with the same input values and engine result in every language. */
-export function WorkedExample({mode, result, currency, messages = {}, locale = 'en'}: {
-  mode: Mode; result: Result; currency: string; messages?: Dictionary; locale?: Locale;
+export function WorkedExample({mode, result, currency, messages = {}, locale = 'en', children}: {
+  mode: Mode; result: Result; currency: string; messages?: Dictionary; locale?: Locale; children?: ReactNode;
 }) {
   const values = defaults(mode), t = translator(messages);
   return <section id="example">
@@ -59,5 +60,6 @@ export function WorkedExample({mode, result, currency, messages = {}, locale = '
     {result.explanation && <p>{t(result.explanation)}</p>}
     {!!result.notes?.length && <ul className={styles.notes}>{result.notes.map(note => <li key={note}>{t(note)}</li>)}</ul>}
     <p>{t('These are illustrative inputs. Change the values to explore a different scenario.')}</p>
+    {children}
   </section>;
 }

@@ -1,13 +1,13 @@
 "use client";
 import {useI18n} from "@/components/i18n/provider";
-import {Dropdown} from '@/components/ui/dropdown';
 import dynamic from 'next/dynamic';
+const Dropdown=dynamic(()=>import('@/components/ui/dropdown').then(module=>module.Dropdown));
 const DatePicker=dynamic(()=>import('@/components/ui/date-picker').then(module=>module.DatePicker));
 import {currencyLabel} from '@/lib/i18n/preferences';
 const RecordRows=dynamic(()=>import('./record-rows').then(module=>module.RecordRows));
 import type {Field} from '@/lib/calculators/types';
 
-export function CalculatorField({field,value,onChange,prefix,disabled=false,currency}:{currency?:string;field:Field;value:string;onChange:(value:string)=>void;prefix:string;disabled?:boolean}){
+export function CalculatorField({field,value,onChange,prefix,disabled=false,currency,nativeDate=false}:{currency?:string;field:Field;value:string;onChange:(value:string)=>void;prefix:string;disabled?:boolean;nativeDate?:boolean}){
  const {t,locale}=useI18n();
  const text=(label:string)=>currency?currencyLabel(label,currency,t):t(label);
 
@@ -20,9 +20,11 @@ export function CalculatorField({field,value,onChange,prefix,disabled=false,curr
     return <fieldset className="calculator-field field-wide checkbox-options" disabled={disabled}><legend>{text(field.label)}</legend>{field.options?.map(option=><label key={option.value}><input type="checkbox" checked={selected.includes(option.value)} onChange={event=>onChange((event.target.checked?[...selected,option.value]:selected.filter(v=>v!==option.value)).join(','))}/>{text(option.label)}</label>)}{field.hint&&<p>{text(field.hint)}</p>}</fieldset>;
   }
   const controlProps={id,name:field.key,value,onValueChange:onChange,required:!field.optional,disabled,'aria-labelledby':`${id}-label`,'aria-describedby':describedBy};
+  // Closed groups retain a real, labelled date input and native form validation.
+  const showDatePicker = field.type === 'date' && !nativeDate;
   return <div className={`calculator-field ${field.type==='textarea'?'field-wide':''}`}>
-    {field.type!=='date'&&<label id={`${id}-label`} htmlFor={id} lang={locale!=='en'&&t(field.label)===field.label?'en':undefined}>{text(field.label)}{field.unit&&<span>{text(field.unit)}</span>}</label>}
-    {field.type==='select'?<Dropdown {...controlProps} options={(field.options??[]).map(option=>({...option,label:field.translateOptions===false?option.label:text(option.label)}))}/>:field.type==='date'?<DatePicker {...controlProps} aria-labelledby={undefined} label={text(field.label)}/>:field.type==='textarea'?<textarea {...common} rows={4} spellCheck={false}/>:<input {...common} type={field.type} min={field.min} max={field.max} step={field.step||'any'} autoComplete="off"/>}
+    {!showDatePicker&&<label id={`${id}-label`} htmlFor={id} lang={locale!=='en'&&t(field.label)===field.label?'en':undefined}>{text(field.label)}{field.unit&&<span>{text(field.unit)}</span>}</label>}
+    {field.type==='select'?<Dropdown {...controlProps} options={(field.options??[]).map(option=>({...option,label:field.translateOptions===false?option.label:text(option.label)}))}/>:showDatePicker?<DatePicker {...controlProps} aria-labelledby={undefined} label={text(field.label)}/>:field.type==='textarea'?<textarea {...common} rows={4} spellCheck={false}/>:<input {...common} type={field.type} min={field.min} max={field.max} step={field.step||'any'} autoComplete="off"/>}
     {field.hint&&<p id={`${id}-hint`} lang={locale!=='en'&&field.hint&&t(field.hint)===field.hint?'en':undefined} dir="auto">{text(field.hint)}</p>}
   </div>;
 }

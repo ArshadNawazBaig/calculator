@@ -2,6 +2,7 @@ import {describe,expect,it} from 'vitest';
 import {definitionMap,catalog} from '@/lib/calculators/registry';
 import {calculate} from '@/lib/calculators/engine';
 import {defaults,type Values} from '@/lib/calculators/types';
+import content from '@/data/calculator-content.json';
 
 async function metrics(slug:string,id:string,inputs:Values) {
   const mode=definitionMap.get(slug)!.modes.find(mode=>mode.id===id)!;
@@ -9,6 +10,50 @@ async function metrics(slug:string,id:string,inputs:Values) {
   return Object.fromEntries(result.metrics.map(metric=>[metric.label,metric.value]));
 }
 describe('published editorial examples and regional assumptions',()=>{
+  it('matches every figure in the mortgage breakdown to its amount or payment period', async () => {
+    const price = 300000, down = 20, annualTax = 2400, annualInsurance = 1200;
+    const result = await metrics('mortgage-calculator', 'repayment', {
+      price: String(price), down: String(down), rate: '6', years: '30',
+      tax: String(annualTax), insurance: String(annualInsurance), pmi: '0', hoa: '0', other: '0',
+    });
+    const rows = content['mortgage-calculator'].sections[1].table!.rows;
+    const amounts = Object.fromEntries(rows.map(([label, , amount]) => [label, Number(amount.replaceAll(',', ''))]));
+    expect(rows[0][1]).toBe('300,000 × 0.20');
+    expect(amounts['Down payment']).toBe(price * down / 100);
+    expect(amounts['Loan principal']).toBe(result['Loan amount']);
+    expect(amounts['Principal and interest']).toBeCloseTo(Number(result['Regular monthly payment']), 2);
+    expect(amounts['Property tax']).toBe(annualTax / 12);
+    expect(amounts['Insurance']).toBe(annualInsurance / 12);
+    expect(amounts['Initial monthly total']).toBeCloseTo(Number(result['Initial monthly ownership cost']), 2);
+  });
+
+  it('reconciles the opening 401(k) balance, both deposits and earnings to the displayed ending balance', async () => {
+    const result = await metrics('401k-calculator', 'growth', {
+      balance: '10000', contribution: '2000', employer: '1000', rate: '5', years: '5', tax: '20',
+    });
+    const rows = content['401k-calculator'].sections[1].table!.rows;
+    const amounts = Object.fromEntries(rows.map(([label, amount]) => [label, Number(amount.replaceAll(',', ''))]));
+    const employee = amounts['Employee deposits over five years'], employer = amounts['Employer deposits over five years'];
+    expect(employee).toBe(5 * 2000);
+    expect(employer).toBe(5 * 1000);
+    expect(amounts['Five years of combined contributions']).toBe(employee + employer);
+    const deposits = amounts['Starting balance'] + employee + employer;
+    expect(deposits).toBe(result['Total contributions']);
+    expect(amounts['Projected investment earnings over five years']).toBeCloseTo(Number(result['Projected account balance']) - deposits, 2);
+    expect(amounts['Projected account balance']).toBeCloseTo(Number(result['Projected account balance']), 2);
+    expect(amounts['Illustrative value after 20% tax']).toBeCloseTo(Number(result['Illustrative after-tax balance']), 2);
+  });
+
+  it('reproduces every printed BMI using its own weight and height', async () => {
+    const rows = content['bmi-calculator'].sections[1].table!.rows;
+    for (const [weight, height, printed] of rows) {
+      const kg = parseFloat(weight), cm = parseFloat(height);
+      const result = await metrics('bmi-calculator', 'adult', {weight: String(kg), height: String(cm), units: 'metric', age: '30'});
+      expect(printed).toBe((kg / (cm / 100) ** 2).toFixed(2));
+      expect(printed).toBe(Number(result['Body mass index']).toFixed(2));
+    }
+  });
+
   it.each([
     ['25','0','0',90], ['20','10','0',86], ['20','10','8',92.88], ['25','0','8',97.20],
   ])('checks the discount guide offer at %s%% with coupon %s and tax %s', async(rate,fixed,tax,price)=>{

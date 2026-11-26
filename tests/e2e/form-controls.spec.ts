@@ -1,6 +1,24 @@
 import {test,expect,type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('a mortgage date group opened before hydration keeps its value and enables the calendar', async ({page}) => {
+  let release!: () => void;
+  const scripts = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/_next/static/**/*.js', async route => { await scripts; await route.continue(); });
+  const navigation = page.goto('/mortgage-calculator', {waitUntil: 'domcontentloaded'});
+  const group = page.locator('.advanced-fields details').filter({has: page.locator('input[name="start"]')});
+  try {
+    await group.locator('summary').click();
+    await expect(group.locator('input[type="date"]')).toHaveValue('2026-11-01');
+  } finally { release(); }
+  await navigation;
+  const open = page.locator('.advanced-fields details[open]');
+  await open.getByRole('button', {name: 'Open calendar'}).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await page.keyboard.press('Escape');
+  expect(await open.evaluate(element => new FormData(element.closest('form')!).getAll('start'))).toEqual(['2026-11-01']);
+});
+
 async function accessible(page:Page){
   const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
   expect(result.violations).toEqual([]);

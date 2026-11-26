@@ -1,7 +1,8 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {readFile} from 'node:fs/promises';
-import {translator,isPublishedLocale} from '../../src/lib/i18n/config';
+import {translator,isPublishedLocale,localizedPath,publishedLocales} from '../../src/lib/i18n/config';
+import {zones,zoneHref} from '../../src/lib/time/catalog';
 
 test.beforeEach(async ({page}) => {
   // Third-party ads are outside these tool checks and can inject unrelated errors.
@@ -137,6 +138,24 @@ test('clock dropdown searches zones, updates dates, saves the choice and keeps c
   await expect(picker).toContainText('Asia/Karachi');
   await expect(page.locator('[data-live-clock]')).toContainText('05:30:');
 });
+
+for (const locale of publishedLocales) {
+  test(`${locale} time-zone directory links every clock without JavaScript`, async ({browser}) => {
+    const context = await browser.newContext({javaScriptEnabled: false});
+    try {
+      const page = await context.newPage();
+      await page.goto(localizedPath('/time/time-zones', locale));
+      const groups = page.locator('section[aria-labelledby="zone-directory-title"] details');
+      const links = groups.locator('a');
+      const paths = await links.evaluateAll(elements => elements.map(link => link.getAttribute('href')).sort());
+      expect(paths).toEqual(zones.map(zone => localizedPath(zoneHref(zone), locale)).sort());
+      for (const group of [groups.first(), groups.last()]) {
+        await group.locator('summary').click();
+        await expect(group.locator('a').first()).toBeVisible();
+      }
+    } finally { await context.close(); }
+  });
+}
 
 test('timezone directory searches countries and aliases and filters regions', async ({page}) => {
   await page.goto('/time/time-zones');

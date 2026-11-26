@@ -57,7 +57,7 @@
   --color-action: #d5f915;
   --color-action-hover: #c2e510;
   --color-on-action: #161a08;
-  --font-sans: var(--font-site), "Segoe UI", Arial, sans-serif;
+  --font-sans: var(--font-site), var(--font-site-extended), "Segoe UI", Arial, sans-serif;
 }
 
 :root { color-scheme: light dark; --radius: 10px; --shadow-soft: 0 8px 28px light-dark(#17191c14,#00000026); }

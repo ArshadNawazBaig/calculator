@@ -1,4 +1,5 @@
-import translatedPages from '@/data/locales/translated-pages.json';
+import {isTranslatedPage} from './translated-paths';
+export {isTranslatedLanding, isTranslatedPage} from './translated-paths';
 export const locales = ['en', 'es', 'fr', 'de', 'pt', 'ar', 'hi', 'tl'] as const;
 export type Locale = (typeof locales)[number];
 // Keep publication explicit so a locale can be withdrawn without removing its
@@ -78,13 +79,6 @@ export function translator(messages: Dictionary) {
     }
     return values ? text.replace(/\{(\w+)\}/g, (match, name: string) => String(values[name] ?? match)) : text;
   };
-}
-export function isTranslatedLanding(path: string): boolean {
-  return path === '/' || path === '/calculators' || path === '/calculators/students' || /^\/calculators\/(finance|health|math|everyday)(?:\/[^/?#]+)?$/.test(path);
-}
-const translatedPageSet = new Set<string>(translatedPages);
-export function isTranslatedPage(path: string): boolean {
-  return isTranslatedLanding(path) || translatedPageSet.has(path);
 }
 export function publishedPageLocales(path: string): readonly Locale[] {
   return isTranslatedPage(path) ? publishedLocales : ['en'];

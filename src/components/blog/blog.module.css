@@ -8,6 +8,7 @@
 .authorProfile > div { min-width:0; }
 .authorAvatar { display:block; width:60px; height:60px; flex:none; border-radius:50%; }
 .authorName { display:block; color:var(--color-ink); font-size:16px; line-height:1.35; font-weight:650; }
+.authorName a { color:var(--color-brand-text); text-decoration:underline; text-underline-offset:3px; }
 .authorRole { display:block; color:var(--color-text-secondary); line-height:1.5; }
 .bylineDates { display:inline-flex; flex-wrap:wrap; column-gap:12px; max-width:100%; }
 .count { margin-bottom:24px; }

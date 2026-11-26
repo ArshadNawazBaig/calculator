@@ -15,6 +15,7 @@ import type {CategoryId} from '@/lib/site';
 import {displayField,updateInputs} from '@/lib/calculators/input-display';
 import {isFieldActive} from '@/lib/calculators/field-visibility';
 import {calculate} from '@/lib/calculators/engine';
+import {readCalculatorExample, type CalculatorExample} from '@/lib/calculators/loan-schedule';
 import {useCalculatorTool} from './use-calculator-tool';
 import dynamic from 'next/dynamic';
 function FileToolsLoading(){const {t}=useI18n();return <p>{t('Loading local file tools…')}</p>;}
@@ -28,11 +29,11 @@ const DicePreview=dynamic(()=>import('./dice-controls').then(module=>module.Dice
 const GeometryModePicker=dynamic(()=>import('./geometry-controls').then(m=>m.GeometryModePicker));
 const GeometryMeasurementGuide=dynamic(()=>import('./geometry-controls').then(m=>m.GeometryMeasurementGuide));
 const GeographicPicker=dynamic(()=>import('./geographic-picker').then(m=>m.GeographicPicker),{loading:CoordinatesLoading});
-import {ExpressionControls} from './expression-controls';
+const ExpressionControls=dynamic(()=>import('./expression-controls').then(module=>module.ExpressionControls));
 import {FieldGroup} from './field-group';
 import {CalculatorResult} from './result';
 import {ResultDetails} from './result-details';
-import {ScenarioComparison} from './scenario-comparison';
+const ScenarioComparison=dynamic(()=>import('./scenario-comparison').then(module=>module.ScenarioComparison));
 import {ResultExports} from './result-exports';
 import {usePreferences} from '@/components/i18n/preferences-provider';
 import {calculatorCurrencyPolicy,resolveCalculatorCurrency} from '@/lib/calculators/currency-policy';
@@ -42,14 +43,14 @@ import {CalculatorActions} from '@/components/workspace/calculator-actions';
 import {RestoreCalculation} from '@/components/workspace/restore-calculation';
 import {restoreInputs,summarizeInput,type SavedCalculation} from '@/lib/workspace/model';
 import {currencyText,isCurrency} from '@/lib/i18n/preferences';
-export function CalculatorForm({definition,title,category,initial,currency:baseCurrency='USD',privateInput=false}:{definition:Definition;title:string;category:CategoryId;initial:Result|null;currency?:string;privateInput?:boolean}){
+export function CalculatorForm({definition,title,category,initial,currency:baseCurrency='USD',privateInput=false}:{definition:Definition;title:string;category:CategoryId;initial:CalculatorExample|null;currency?:string;privateInput?:boolean}){
  const {t,href,messages}=useI18n();
  const preferences=usePreferences();
  const hydrated=useHydrated();
  const diceTool=definition.slug==='dice-roller';
  const compactIntro=diceTool||definition.modes.length>1&&!geometryTools.has(definition.slug)&&!materialTools.has(definition.slug);
 
- const [modeId,setModeId]=useState(definition.modes[0].id),[values,setValues]=useState<Values>(defaults(definition.modes[0])),[output,setOutput]=useState<Result|null>(initial),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[example,setExample]=useState(true),[dirty,setDirty]=useState(false);
+ const [modeId,setModeId]=useState(definition.modes[0].id),[values,setValues]=useState<Values>(defaults(definition.modes[0])),[output,setOutput]=useState<Result|null>(()=>readCalculatorExample(initial)),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[example,setExample]=useState(true),[dirty,setDirty]=useState(false);
  const [resetVersion,setResetVersion]=useState(0);
  const [savedExpressionAnswer,setSavedExpressionAnswer]=useState<number|null>(null);
  const [answer,setAnswer]=useState<number|null>(null),[memory,setMemory]=useState<number|null>(null);const answerRef=useRef<number|null>(null),revision=useRef(0);useEffect(()=>()=>{revision.current++;},[]);
@@ -103,5 +104,5 @@ export function CalculatorForm({definition,title,category,initial,currency:baseC
  const originalForm = mode.id === definition.modes[0].id && resetVersion === 0;
  return <div className="calculator-workspace"><RestoreCalculation slug={definition.slug} onRestore={restoreSaved} onMissing={missingSaved}/><section aria-label={t("Interactive calculator")} className="calculator-panel"><div aria-hidden="true">{definition.modes.map(item=><span key={item.id} id={`mode-${item.id}`} style={{display:'block',scrollMarginTop:80}}/>)}</div><div className="calculator-settings" data-has-mode={definition.modes.length>1} data-mode-cards={!geometryTools.has(definition.slug)&&definition.modes.length>1||undefined}><CalculatorCurrency slug={definition.slug} mode={mode} disabled={!hydrated||busy}/>{geometryTools.has(definition.slug)&&definition.modes.length>1?<GeometryModePicker messages={messages} slug={definition.slug} modes={definition.modes} selected={modeId} disabled={!hydrated||busy} onChange={changeMode}/>:definition.modes.length>1&&<CalculationModePicker slug={definition.slug} category={category} modes={definition.modes} selected={modeId} disabled={!hydrated||busy} onChange={changeMode}/>}</div>
  {originalForm ? calculatorContent : <Suspense key={mode.id} fallback={<p className="field-help" role="status">{t("Loading calculator inputs…")}</p>}>{calculatorContent}</Suspense>}
- <CalculatorActions slug={definition.slug} title={title} snapshot={snapshot} disabled={!hydrated||busy} privateInput={privateInput}/>{notice&&<p role="status" className="toolbar-notice">{t(notice)}</p>}{definition.slug==='base64-encode-decode'&&<Base64Files/>}</section>{output&&!dirty&&mode.algorithm==='toolkit-invoice'&&<InvoiceDocument key={JSON.stringify([values,currency,example])} values={values} currency={currency} example={example} disabled={!hydrated||busy}/>}{definition.slug==='net-worth-tracker'&&<NetWorthHistory currency={currency}/ >}{output&&<ResultDetails key={modeId} result={output} algorithm={mode.algorithm} currency={currency} currencyLabels={Boolean(displayCurrency)} dirty={dirty}/>}{!privateInput&&!['dice-roller','random-number-generator'].includes(definition.slug)&&<ScenarioComparison key={`${modeId}-${currency}`} current={snapshot} currency={currency}/>}</div>;
+ <CalculatorActions slug={definition.slug} title={title} snapshot={snapshot} disabled={!hydrated||busy} privateInput={privateInput}/>{notice&&<p role="status" className="toolbar-notice">{t(notice)}</p>}{definition.slug==='base64-encode-decode'&&<Base64Files/>}</section>{output&&!dirty&&mode.algorithm==='toolkit-invoice'&&<InvoiceDocument key={JSON.stringify([values,currency,example])} values={values} currency={currency} example={example} disabled={!hydrated||busy}/>}{definition.slug==='net-worth-tracker'&&<NetWorthHistory currency={currency}/ >}{output&&<ResultDetails key={modeId} result={output} algorithm={mode.algorithm} currency={currency} currencyLabels={Boolean(displayCurrency)} dirty={dirty}/>}{!example&&!privateInput&&!['dice-roller','random-number-generator'].includes(definition.slug)&&<ScenarioComparison key={`${modeId}-${currency}`} current={snapshot} currency={currency}/>}</div>;
 }

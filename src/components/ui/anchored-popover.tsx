@@ -1,6 +1,6 @@
 "use client";
 import {useContext, useEffect, useEffectEvent, useRef, useState} from "react";
-import {OverlayTriggerStateContext, Popover, PopoverContext, useSlottedContext, type PopoverProps} from "react-aria-components";
+import {Dialog, OverlayTriggerStateContext, Popover, PopoverContext, useSlottedContext, type PopoverProps} from "react-aria-components";
 import {useInteractOutside} from "react-aria/useInteractOutside";
 
 /** Anchored menus keep the page scrollable, with outside dismissal for nested menus. */
@@ -10,13 +10,14 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
   const ref = useRef<HTMLElement>(null);
   const openingListener = useRef<((event: KeyboardEvent) => void) | null>(null);
   const [ready, setReady] = useState(false);
-  const isOpen = state?.isOpen;
+  const isOpen = props.isOpen ?? state?.isOpen;
+  const setOpen = props.onOpenChange ?? state?.setOpen;
   // Escape should also cancel a menu before its opening frames have finished.
   const cancelOpening = useEffectEvent((event: KeyboardEvent) => {
     if (event.key === "Escape" && !props.isKeyboardDismissDisabled) {
       event.preventDefault();
       event.stopPropagation();
-      state?.close();
+      setOpen?.(false);
     }
   });
   useEffect(() => {
@@ -56,7 +57,7 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
   }
   useInteractOutside({
     ref,
-    isDisabled: !state?.isOpen,
+    isDisabled: !isOpen,
     onInteractOutsideStart: event => {
       if (shouldDismiss(event)) {
         // Dismiss first, without activating a control underneath the menu.
@@ -68,9 +69,17 @@ export function AnchoredPopover(props: Omit<PopoverProps, "isNonModal">) {
       if (shouldDismiss(event)) {
         event.preventDefault();
         event.stopPropagation();
-        state?.close();
+        setOpen?.(false);
       }
     },
   });
-  return <Popover {...props} ref={ref} isOpen={Boolean(state?.isOpen && ready)} onOpenChange={state?.setOpen} isNonModal data-anchored-popover/>;
+  return <Popover {...props} ref={ref} isOpen={Boolean(isOpen && ready)} onOpenChange={setOpen} isNonModal data-anchored-popover/>;
+}
+
+export function AnchoredDialog({dialogId, label, dialogClassName, children, ...popover}: Omit<PopoverProps, 'children'> & {
+  dialogId: string; label: string; dialogClassName: string; children: React.ReactNode;
+}) {
+  return <AnchoredPopover {...popover}>
+    <Dialog id={dialogId} aria-label={label} className={dialogClassName}>{children}</Dialog>
+  </AnchoredPopover>;
 }

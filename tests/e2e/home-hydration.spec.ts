@@ -1,5 +1,29 @@
 import {test, expect} from '@playwright/test';
 import {languages} from '../../src/lib/i18n/config';
+import {homeFeaturedTools} from '../../src/lib/home-featured';
+
+test('the homepage serves every calculator link and mounts favorites as groups come into view', async ({browser, page}) => {
+  const context = await browser.newContext({javaScriptEnabled:false});
+  try {
+    const staticPage = await context.newPage();
+    await staticPage.goto('/');
+    const directory = staticPage.locator('#featured-calculators [data-calculator-card]');
+    const paths = await directory.locator('a').evaluateAll(links => links.map(link => link.getAttribute('href')).sort());
+    expect(paths).toEqual(Object.values(homeFeaturedTools).flat().map(tool => tool.href || `/${tool.slug}`).sort());
+    await expect(directory.locator('button')).toHaveCount(0);
+  } finally { await context.close(); }
+
+  await page.goto('/');
+  const lastTool = page.locator('[data-featured-group="everyday"] [data-calculator-card]').last();
+  await expect(lastTool.locator('button')).toHaveCount(0);
+  await lastTool.scrollIntoViewIfNeeded();
+  const favorite = lastTool.getByRole('button');
+  await favorite.click();
+  await expect(favorite).toHaveAttribute('aria-pressed','true');
+  await page.reload();
+  await lastTool.scrollIntoViewIfNeeded();
+  await expect(favorite).toHaveAttribute('aria-pressed','true');
+});
 
 // Run against next dev to include React's attribute mismatch diagnostics.
 for (const locale of ['en', 'ar', 'hi'] as const) {

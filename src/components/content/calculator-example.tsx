@@ -1,23 +1,8 @@
 import Image from 'next/image';
 import {calculatorExamples, exampleImage} from '@/lib/calculator-examples';
-import {languages, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
+import {translator, type Dictionary, type Locale} from '@/lib/i18n/config';
+import {formatExampleResult} from '@/lib/i18n/example-number';
 import styles from './calculator-example.module.css';
-
-// Localize measured results while keeping dates, code, ratios and equations exact.
-function displayResult(result: string, locale: Locale) {
-  const parts = result.match(/^([+−-]?)(CA\$|\$|£|€)?(\d+)(\.\d+)?( ?[%°×\p{L}²³/·]*)$/u);
-  if (!parts) return result;
-  const [, sign, symbol, integer, fraction = '', unit] = parts;
-  const currency = {'$': 'USD', 'CA$': 'CAD', '£': 'GBP', '€': 'EUR'}[symbol];
-  const digits = Math.max(fraction.length - 1, 0);
-  const number = new Intl.NumberFormat(locale === 'ar' ? 'ar-u-nu-arab' : languages[locale].tag, {
-    minimumFractionDigits: digits, maximumFractionDigits: digits,
-    signDisplay: sign === '+' ? 'always' : 'auto',
-    ...(currency ? {style: 'currency', currency} as const : {}),
-  });
-  const signed = (sign === '−' || sign === '-' ? '-' : '') + integer;
-  return number.format(fraction ? Number(signed + fraction) : BigInt(signed)) + unit;
-}
 
 export function CalculatorExample({slug, nested = false, locale = 'en', messages = {}}: {
   slug: string; nested?: boolean; locale?: Locale; messages?: Dictionary;
@@ -28,7 +13,7 @@ export function CalculatorExample({slug, nested = false, locale = 'en', messages
   const Heading = nested ? 'h3' : 'h2';
   const rows = example.rows.map((row, index) => ({
     key: index === 0 ? 'A' : 'B', input: row.label ? t(row.label) : row.input,
-    literal: !row.label, work: row.calculation, result: displayResult(row.result, locale),
+    literal: !row.label, work: row.calculation, result: formatExampleResult(row.result, locale),
   }));
   const resultHeading = t(example.resultHeading);
   const alt = resultHeading + '. ' + rows.map(row => `${row.key} (${row.input}) → ${row.result}`).join('. ') + '.';

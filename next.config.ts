@@ -5,7 +5,12 @@ const config: NextConfig = {
   reactStrictMode: true,
   // There are separate root layouts for English and each translated site.
   // Unknown routes (including dynamicParams=false misses) need a global 404.
-  experimental: { globalNotFound: true, agentUpgrade: "security" },
+  experimental: {
+    globalNotFound: true,
+    agentUpgrade: "security",
+    cssChunking: {type: "graph", requestCost: 12000},
+    turbopackChunking: {minChunkSize: 30000, maxChunkCountPerGroup: 8},
+  },
   async redirects() {
     return [
       {

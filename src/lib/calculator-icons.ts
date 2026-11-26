@@ -1,4 +1,4 @@
-import {NotebookPen, Goal, BriefcaseConveyorBelt, FileText, BadgeCent, ChartNoAxesCombined, ChartCandlestick, LifeBuoy, Repeat, UsersRound, ChartNoAxesGantt, Store, Sun, BatteryCharging} from 'lucide-react';
+import {NotebookPen, Goal, BriefcaseConveyorBelt, FileText, BadgeCent, ChartNoAxesCombined, ChartCandlestick, LifeBuoy, Repeat, UsersRound, ChartNoAxesGantt, Store, Sun, BatteryCharging, CircleHelp, Disc3, Globe2, ListChecks, Palette, PartyPopper} from 'lucide-react';
 import {
   Accessibility, Activity, Anvil, Apple, Armchair, ArrowLeftRight,
   Atom, Award, Baby, BadgeAlert, BadgeCheck, BadgeDollarSign,
@@ -256,4 +256,20 @@ export const calculatorIcons:Readonly<Record<string,LucideIcon>>={
   'weight-calculator':Weight,
   'wind-chill-calculator':Snowflake,
   'z-score-calculator':SquareSigma,
+};
+
+export const toolIcons: Readonly<Record<string, LucideIcon>> = {
+  ...calculatorIcons,
+  'spin-the-wheel': Disc3,
+  'wheel-of-names': UsersRound,
+  'yes-or-no-wheel': CircleHelp,
+  'number-picker-wheel': Hash,
+  'what-to-eat-wheel': Utensils,
+  'random-color-wheel': Palette,
+  'truth-or-dare-wheel': PartyPopper,
+  'activity-wheel': ListChecks,
+  'world-clock': Clock3,
+  'time-zone-directory': Globe2,
+  'online-timer': Timer,
+  'online-stopwatch': TimerReset,
 };

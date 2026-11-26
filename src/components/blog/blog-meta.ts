@@ -27,11 +27,12 @@ export function blogPostMetadata(post:BlogPost):Metadata {
   const metadata=pageMetadata(title,description,blogPostPath(post.slug));
   const image=blogCoverUrl(post);
   const author = blogAuthor(post.authorName);
+  const authorUrl = author.profilePath && new URL(author.profilePath, site.url).href;
   return {
     ...metadata,
-    authors: [{name: author.name}],
+    authors: [{name: author.name, ...(authorUrl && {url: authorUrl})}],
     openGraph: {
-      ...metadata.openGraph, type: 'article', authors: [author.name],
+      ...metadata.openGraph, type: 'article', authors: [authorUrl || author.name],
       publishedTime: post.publishedAt || undefined, modifiedTime: post.updatedAt,
       ...(image && {images: [{url: image, alt: post.coverImageAlt}]}),
     },
@@ -45,6 +46,7 @@ export function blogArticleData(post:BlogPost) {
   const publisher = organizationData();
   const author = {
     '@type': 'Person', name: profile.name,
+    ...(profile.profilePath && {url: new URL(profile.profilePath, site.url).href}),
     ...(profile.avatar && {image: new URL(profile.avatar, site.url).href}),
     ...(profile.jobTitle && {jobTitle: profile.jobTitle, worksFor: {'@id': publisher['@id']}}),
   };

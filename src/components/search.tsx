@@ -4,9 +4,8 @@ import {Search as SearchIcon,X} from "lucide-react";
 import {useCallback,useEffect,useId,useMemo,useRef,useState,type KeyboardEvent,type ReactNode} from "react";
 import {Button} from "@/components/ui/button";
 import {SearchSuggestions} from "@/components/search-suggestions";
-import {searchCalculators} from "@/lib/calculator-search";
 import {categoryHref,type ToolCategoryId} from "@/lib/site";
-import {toolHref} from "@/lib/tool-listings";
+import {toolHref} from "@/lib/catalog-paths";
 import styles from "./search.module.css";
 
 type SearchProps={compact?:boolean;initialQuery?:string;iconOnly?:boolean;keyboardShortcut?:boolean;category?:ToolCategoryId;placeholder?:string;autoFocus?:boolean;onNavigate?:()=>void;suggestionLayout?:'popover'|'inline';emptyContent?:ReactNode};
@@ -16,6 +15,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   const [query,setQuery]=useState(initialQuery);
   const [open,setOpen]=useState(false);
   const [activeIndex,setActiveIndex]=useState(-1);
+  const [searchIndex, setSearchIndex] = useState<typeof import('@/lib/calculator-search') | null>(null);
   const inputRef=useRef<HTMLInputElement>(null);
   // Preserve native input entered before hydration; state drives suggestions only.
   const captureInput=useCallback((input:HTMLInputElement|null)=>{inputRef.current=input;if(input)setQuery(input.value);},[]);
@@ -23,12 +23,22 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
   const id=useId();
   const inputId=`calculator-search-${id}`;
   const listId=`calculator-suggestions-${id}`;
-  const matches=useMemo(()=>searchCalculators(query,category,messages),[query,category,messages]);
-  const suggestions=useMemo(()=>matches.slice(0,5),[matches]);
   const inline=suggestionLayout==='inline';
   const hasQuery=query.trim().length>0;
-  const isOpen=(inline||open)&&hasQuery;
-  const activeItem=isOpen?suggestions[activeIndex]:undefined;
+  const needsIndex = open || hasQuery || inline;
+  useEffect(() => {
+    if (!needsIndex || searchIndex) return;
+    let active = true;
+    import('@/lib/calculator-search').then(module => {
+      if (active) setSearchIndex(module);
+    }).catch(() => { /* The search form can still navigate to the full results page. */ });
+    return () => { active = false; };
+  }, [needsIndex, searchIndex]);
+  const matches=useMemo(()=>searchIndex?.searchCalculators(query,category,messages) ?? [],[query,category,messages,searchIndex]);
+  const suggestions=useMemo(()=>matches.slice(0,5),[matches]);
+  const isOpen=(inline||open)&&hasQuery&&searchIndex!==null;
+  const selectedIndex = Math.min(activeIndex, suggestions.length - 1);
+  const activeItem=isOpen?suggestions[selectedIndex]:undefined;
 
   useEffect(()=>{
     if(!keyboardShortcut)return;
@@ -70,6 +80,9 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
     }
     if(event.key==="Tab"){closeMenu();return;}
     if(event.altKey||event.ctrlKey||event.metaKey)return;
+    if (!searchIndex && hasQuery && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+      event.preventDefault();setOpen(true);setActiveIndex(event.key === 'ArrowDown' ? 0 : 4);return;
+    }
     if((event.key==="ArrowDown"||event.key==="ArrowUp")&&suggestions.length){
       event.preventDefault();setOpen(true);
       setActiveIndex(current=>event.key==="ArrowDown"?(!isOpen?0:Math.min(current+1,suggestions.length-1)):(!isOpen||current<0?suggestions.length-1:Math.max(current-1,0)));
@@ -85,7 +98,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
     <div className={`search ${compact?"search-compact":""} ${iconOnly?"search-icon-submit":""}`}>
     <SearchIcon aria-hidden="true" size={20}/><label className="sr-only" htmlFor={inputId}>{t("Search calculators")}</label>
     <input ref={captureInput} id={inputId} name="q" type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox"
-      aria-expanded={isOpen} aria-controls={isOpen?listId:undefined} aria-activedescendant={activeItem?`${listId}-${activeIndex}`:undefined}
+      aria-expanded={isOpen} aria-controls={isOpen?listId:undefined} aria-activedescendant={activeItem?`${listId}-${selectedIndex}`:undefined}
       aria-describedby={`${inputId}-help`} defaultValue={initialQuery} onChange={event=>{setQuery(event.target.value);setOpen(true);setActiveIndex(-1);}}
       onFocus={()=>setOpen(true)} onKeyDown={handleKeys} placeholder={t(placeholder)} autoComplete="off" spellCheck={false} autoFocus={autoFocus}
       aria-keyshortcuts={keyboardShortcut?"/":undefined}/>
@@ -94,7 +107,7 @@ export function Search({compact=false,initialQuery="",iconOnly=false,keyboardSho
     </div>
     <span id={`${inputId}-help`} className="sr-only">{t("Type to find calculators. Use the up and down arrow keys to choose a suggestion, Enter to open it, and Escape to close the suggestions.")}</span>
     <span className="sr-only" role="status" aria-atomic="true">{isOpen?(matches.length?t("Results: {count}",{count:matches.length}):t("No matching calculators")):""}</span>
-    {isOpen&&<SearchSuggestions inline={inline} id={listId} matches={suggestions} total={matches.length} activeIndex={activeIndex} category={category}
+    {isOpen&&<SearchSuggestions inline={inline} id={listId} matches={suggestions} total={matches.length} activeIndex={selectedIndex} category={category}
       onActive={setActiveIndex} onSelect={openCalculator} onBrowse={()=>{closeMenu();onNavigate?.();window.location.assign(href(category?searchHref(true):"/calculators"));}}/>}
     {!hasQuery&&emptyContent}
   </form>;

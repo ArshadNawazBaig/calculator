@@ -1,6 +1,30 @@
 import {isPublishedLocale} from '../../src/lib/i18n/config';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {readFile} from 'node:fs/promises';
+
+test('mortgage previews a year of payments and retains the complete schedule for print and CSV', async ({page}) => {
+  await page.goto('/mortgage-calculator');
+  const table = page.locator('#calculation-table');
+  const rows = table.locator('tbody tr');
+  await expect(rows).toHaveCount(12);
+  const expand = table.getByRole('button',{name:'Show all 360 payments'});
+  await expect(expand).toBeEnabled();
+  await expand.focus();
+  await page.keyboard.press('Enter');
+  await expect(rows).toHaveCount(360);
+  await expect(rows.last().locator('td').last()).toHaveText('0.00');
+  await table.getByRole('button',{name:'Show first 12 payments'}).click();
+  await expect(rows).toHaveCount(12);
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+  await expect(rows).toHaveCount(360);
+  await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+  await expect(rows).toHaveCount(12);
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button',{name:'CSV',exact:true}).click();
+  const csv = await readFile((await (await pending).path())!, 'utf8');
+  expect(csv.trimEnd().split('\r\n')).toHaveLength(362);
+});
 
 test('loan charts use recalculated data and the entire table stays expanded',async({page})=>{
   await page.goto('/loan-calculator');

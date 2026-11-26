@@ -31,7 +31,7 @@ export function BlogArticle({post,relatedPosts=[]}: {post:BlogPost;relatedPosts?
             </>}
           </BlogByline>
           {image && <Image {...blogImageProps(image)} alt={post.coverImageAlt} className={styles.cover}/>}
-          <BlogMarkdown content={post.content}/>
+          <BlogMarkdown content={post.content} articleTitle={post.title}/>
           <footer className={styles.articleFooter}><p>Read our <Link href="/editorial-policy">editorial policy</Link> and <Link href="/disclaimer">limitations on professional advice</Link>. If you find an error, <Link href="/contact">send a correction</Link>.</p><p><Link href="/blog">Browse articles</Link> · <Link href="/guides">Explore calculation guides</Link> · <Link href="/calculators">Find a calculator</Link></p></footer>
         </article>
         <ArticleCalculatorSidebar heading={calculators.heading}>

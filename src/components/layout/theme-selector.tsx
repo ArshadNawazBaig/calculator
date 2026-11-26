@@ -1,10 +1,8 @@
 'use client';
 import {useId, useSyncExternalStore} from 'react';
-import {Button, Dialog, DialogTrigger} from 'react-aria-components';
 import {Check, Monitor, Moon, Sun} from 'lucide-react';
-import {AnchoredPopover} from '@/components/ui/anchored-popover';
+import {HeaderPopover} from './header-popover';
 import {useI18n} from '@/components/i18n/provider';
-import {useHydrated} from '@/lib/use-hydrated';
 import {applyTheme, parseTheme, themeChangeEvent, themeStorageKey, type ThemePreference} from '@/lib/theme';
 import styles from './theme-selector.module.css';
 import header from './header.module.css';
@@ -43,17 +41,12 @@ function selectTheme(theme: ThemePreference) {
 
 export function ThemeSelector() {
   const {t} = useI18n();
-  const hydrated = useHydrated();
   const groupId = useId();
   const preference = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const ActiveIcon = preference === 'system' ? Monitor : preference === 'light' ? Sun : Moon;
   const themeLabel = t(preference === 'system' ? 'System' : preference === 'light' ? 'Light' : 'Dark');
-  return <DialogTrigger>
-    <Button className={`${header.utilityTrigger} ${header.iconTrigger}`} isDisabled={!hydrated} aria-label={t('Appearance')} aria-description={themeLabel}>
-      <ActiveIcon size={18} aria-hidden="true"/>
-    </Button>
-    <AnchoredPopover placement="bottom end" offset={10} className={styles.popover} data-theme-surface="dark">
-      <Dialog aria-label={t('Appearance')} className={styles.dialog}>
+  return <HeaderPopover label={t('Appearance')} description={themeLabel} trigger={<ActiveIcon size={18} aria-hidden="true"/>}
+    triggerClassName={`${header.utilityTrigger} ${header.iconTrigger}`} dialogLabel={t('Appearance')} dialogClassName={styles.dialog} popoverClassName={styles.popover}>
         <h2>{t('Appearance')}</h2>
         <div role="radiogroup" aria-label={t('Color theme')} className={styles.options}>
           {([
@@ -68,7 +61,5 @@ export function ThemeSelector() {
           </label>)}
         </div>
         <p>{t('System follows your device settings.')}</p>
-      </Dialog>
-    </AnchoredPopover>
-  </DialogTrigger>;
+  </HeaderPopover>;
 }

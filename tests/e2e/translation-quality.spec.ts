@@ -1,5 +1,37 @@
 import {test, expect} from '@playwright/test';
 
+test('Spanish calculator descriptions, controls and worked examples retain the English modes', async ({page}) => {
+  await page.goto('/es/mortgage-calculator');
+  const downPayment = 'pago inicial del 20 %';
+  await expect(page.getByRole('heading',{name:new RegExp(downPayment)})).toBeVisible();
+  await expect(page.getByRole('link',{name:new RegExp(downPayment)})).toBeVisible();
+  const mortgage = page.locator('#understanding-2 table');
+  await expect(mortgage.getByRole('row', {name: /Pago inicial/})).toContainText('300.000 × 0,20');
+  await expect(mortgage.getByRole('row', {name: /Pago inicial/})).toContainText('60.000');
+  await expect(mortgage.getByRole('row', {name: /Capital del préstamo/})).toContainText('240.000');
+  await expect(mortgage.getByRole('cell', {name: '1.738,92', exact: true})).toBeVisible();
+
+  await page.goto('/es/bmi-calculator');
+  const description = await page.locator('meta[name="description"]').getAttribute('content');
+  expect(description).toMatch(/IMC en adultos.*percentil de IMC por edad y sexo.*de 2 a menos de 20 años/);
+  await expect(page.locator('[data-page-hero] p').first()).toHaveText(description!);
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description!);
+  await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content',description!);
+  const bmi = page.locator('#understanding-2 table');
+  await expect(bmi.getByRole('columnheader', {name: 'IMC (kg/m²)'})).toBeVisible();
+  await expect(bmi.getByRole('row', {name: /175 cm/})).toContainText('22,86');
+  await expect(bmi.getByRole('row', {name: /180 cm/})).toContainText('21,60');
+
+  await page.goto('/es/401k-calculator');
+  const example = page.locator('[data-calculator-example="401k-calculator"]');
+  await expect(example.getByRole('columnheader',{name:'Aportación del empleado'})).toBeVisible();
+  await expect(example.getByRole('columnheader',{name:'Aportación complementaria del empleador'})).toBeVisible();
+  const retirement = page.locator('#understanding-2 table');
+  await expect(retirement.getByRole('row', {name: /Aportaciones del empleador/})).toContainText('5.000,00');
+  await expect(retirement.getByRole('row', {name: /Rendimiento estimado de la inversión/})).toContainText('4.339,71');
+  await expect(retirement.getByRole('row', {name: /Saldo estimado de la cuenta/})).toContainText('29.339,71');
+});
+
 for (const example of [
   {locale: 'fr', first: 'Premier terme', second: 'Deuxième terme', factor: 'Facteur d’échelle', shrink: 'réduire', mode: 'Mettre un rapport à l’échelle'},
   {locale: 'pt', first: 'Primeiro termo', second: 'Segundo termo', factor: 'Fator de escala', shrink: 'reduzir', mode: 'Escalonar uma razão'},

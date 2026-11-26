@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import {useEffect, useRef, useState} from 'react';
 import {useI18n} from '@/components/i18n/provider';
 import Link from "@/components/i18n/link";
 import {ChevronRight} from "lucide-react";
@@ -18,6 +19,22 @@ export function SpotlightPanel({spotlight}:{spotlight:Spotlight}) {
   </article>;
 }
 
-export function FeaturedToolCard({tool}:{tool:FeaturedTool}) {
-  return <CalculatorCard tool={tool} appearance="directory" headingLevel={4}/>;
+export function FeaturedToolGrid({tools}: {tools: FeaturedTool[]}) {
+  const grid = useRef<HTMLDivElement>(null);
+  const [favoritesReady, setFavoritesReady] = useState(false);
+  useEffect(() => {
+    if (!grid.current || favoritesReady) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      const frame = requestAnimationFrame(() => setFavoritesReady(true));
+      return () => cancelAnimationFrame(frame);
+    }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) setFavoritesReady(true);
+    }, {rootMargin: '160px'});
+    observer.observe(grid.current);
+    return () => observer.disconnect();
+  }, [favoritesReady]);
+  return <div className={styles.featuredGrid} ref={grid} onFocusCapture={() => setFavoritesReady(true)}>
+    {tools.map(tool => <CalculatorCard key={tool.slug} tool={tool} appearance="directory" headingLevel={4} favoritesReady={favoritesReady}/>)}
+  </div>;
 }

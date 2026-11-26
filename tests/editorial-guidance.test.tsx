@@ -10,8 +10,35 @@ import {getContentDictionary} from '@/lib/i18n/content';
 import {locales, localizedPath, publishedPageLocales} from '@/lib/i18n/config';
 import {guides, guideCalculators} from '@/data/guides';
 import {RelatedGuides} from '@/components/content/related-guides';
+import {formatExampleResult} from '@/lib/i18n/example-number';
 
 describe('server-rendered editorial guidance', () => {
+  it('localizes grouped amounts and decimal precision without changing input syntax', () => {
+    expect(formatExampleResult('1,438.92', 'es')).toBe('1.438,92');
+    expect(formatExampleResult('21.60', 'ar')).toBe('٢١٫٦٠');
+    expect(formatExampleResult('90,071,992,547,409,931.25', 'en')).toBe('90,071,992,547,409,931.25');
+    expect(formatExampleResult('2026-11-26', 'de')).toBe('2026-11-26');
+    expect(formatExampleResult('1, 2, 3', 'fr')).toBe('1, 2, 3');
+  });
+
+  it('prints the same localized result in each explanation and its worked table', async () => {
+    const examples = [
+      ['mortgage-calculator', '1,738.92'],
+      ['401k-calculator', '29,339.71'],
+      ['bmi-calculator', '22.86'],
+    ] as const;
+    for (const locale of locales) {
+      const messages = await getContentDictionary(locale);
+      for (const [slug, amount] of examples) {
+        const paragraph = content[slug].sections[1].paragraphs[0];
+        const printed = formatExampleResult(amount, locale);
+        expect(messages[paragraph] ?? paragraph, `${locale}/${slug}`).toContain(printed);
+        const html = renderToStaticMarkup(<CalculatorGuidance slug={slug} locale={locale} messages={messages}/>);
+        expect(html).toContain(`<bdi dir="ltr">${printed}</bdi>`);
+      }
+    }
+  });
+
   it('renders distinct interpretation guidance for every available calculator', () => {
     const headings = new Set<string>(), paragraphs = new Set<string>();
     for (const definition of definitions) {

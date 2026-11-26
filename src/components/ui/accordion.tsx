@@ -1,4 +1,4 @@
-import type {ComponentPropsWithoutRef,ReactNode} from 'react';
+import type {ComponentProps,ComponentPropsWithoutRef,ReactNode} from 'react';
 import {Plus} from 'lucide-react';
 import styles from './accordion.module.css';
 
@@ -6,7 +6,7 @@ export function Accordion({children,className='',...props}:ComponentPropsWithout
   return <div {...props} className={`${styles.group} ${className}`}>{children}</div>;
 }
 
-type AccordionItemProps=Omit<ComponentPropsWithoutRef<'details'>,'title'> & {title:ReactNode};
+type AccordionItemProps=Omit<ComponentProps<'details'>,'title'> & {title:ReactNode};
 
 export function AccordionItem({title,children,className='',...props}:AccordionItemProps){
   return <details {...props} className={`${styles.item} ${className}`}>

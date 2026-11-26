@@ -14,4 +14,4 @@ export const wheelListings: ToolListing[] = spinWheels.map(wheel => ({
 }));
 export const timeListings: ToolListing[] = timeTools.map(tool => ({...tool, category: 'time', subcategory: 'Time & clocks', type: 'interactive_tool', favorite: false}));
 export const toolListings: ToolListing[] = [...catalog as ToolListing[], ...wheelListings, ...timeListings];
-export const toolHref = (tool: Pick<ToolListing, 'slug' | 'href'>) => tool.href || `/${tool.slug}`;
+export {toolHref} from './catalog-paths';

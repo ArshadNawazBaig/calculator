@@ -96,7 +96,7 @@
 .directoryLink { display: flex; align-items: center; gap: 9px; min-height: 56px; padding: 9px 0; border-radius: 6px; }
 .hasFavorite .directoryLink { padding-inline-end: 44px; }
 .directoryLink:focus-visible { outline: 3px solid var(--color-focus); outline-offset: -3px; }
-.directoryIcon { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 8px; background: var(--color-brand-tile); color: var(--color-brand-tile-ink); }
+.directoryIcon { display: block; flex: 0 0 32px; box-sizing: border-box; width: 32px; height: 32px; padding: 7.5px; border-radius: 8px; background: var(--color-brand-tile); color: var(--color-brand-tile-ink); }
 .directoryCopy { min-width: 0; flex: 1; }
 .directoryTitle { margin: 0; color: var(--color-ink); font-size: 14px; font-weight: 650; line-height: 1.35; letter-spacing: -.15px; overflow-wrap: anywhere; }
 .directoryDescription { overflow: hidden; margin: 3px 0 0; color: var(--color-muted); font-size: 12px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }

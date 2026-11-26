@@ -26,7 +26,7 @@ export default async function PreviewPostPage({params}: {params: Promise<{id: st
       <div className={styles.previewByline}><BlogByline authorName={post.authorName}/></div>
       {cover && <Image {...blogImageProps(cover)} alt={post.coverImageAlt} className={styles.previewCover}
         sizes="(max-width: 900px) calc(100vw - 80px), 790px"/>}
-      <BlogMarkdown content={post.content}/>
+      <BlogMarkdown content={post.content} articleTitle={post.title}/>
     </article>
   </>;
 }

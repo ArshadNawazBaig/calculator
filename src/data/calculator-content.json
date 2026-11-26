@@ -6167,8 +6167,14 @@
       {
         "title": "Build the payment from the loan and the ownership costs",
         "paragraphs": [
-          "Start with the purchase price and down-payment percentage. Their difference is the starting loan, not the cash needed at closing. Enter the annual interest rate and repayment years, then add property tax, insurance, association dues and other costs in the units shown. The principal-and-interest payment repays the debt; those ownership expenses generally do not.",
+          "Multiply the purchase price by the down-payment percentage to find the cash down payment. Subtract that amount from the price to find the starting loan principal. Use the principal, annual interest rate and loan term to calculate monthly principal and interest. Add property taxes, insurance, association dues and other recurring expenses to estimate the monthly cost. The lender lists closing costs separately.",
           "Use the dated-extra-payment method when additional principal begins in a particular month. The ownership-cost worksheet gives each expense its own growth assumption, which is useful when insurance and property taxes do not rise together."
+        ],
+        "links": [
+          {
+            "label": "CFPB guide to the Loan Estimate",
+            "href": "https://www.consumerfinance.gov/owning-a-home/loan-estimate/"
+          }
         ]
       },
       {
@@ -6186,7 +6192,7 @@
           "rows": [
             [
               "Down payment",
-              "300,000 × 20%",
+              "300,000 × 0.20",
               "60,000"
             ],
             [
@@ -6196,7 +6202,7 @@
             ],
             [
               "Principal and interest",
-              "360 monthly payments at 6%",
+              "360 monthly payments at 6% annual interest",
               "1,438.92"
             ],
             [
@@ -6214,6 +6220,10 @@
               "1,438.92 + 200 + 100",
               "1,738.92"
             ]
+          ],
+          "numberColumns": [
+            1,
+            2
           ]
         }
       },
@@ -10484,7 +10494,7 @@
           "caption": "Separate savings from an assumed withdrawal tax",
           "headers": [
             "Measure",
-            "Amount"
+            "Amount (USD)"
           ],
           "rows": [
             [
@@ -10492,8 +10502,20 @@
               "10,000.00"
             ],
             [
+              "Employee deposits over five years",
+              "10,000.00"
+            ],
+            [
+              "Employer deposits over five years",
+              "5,000.00"
+            ],
+            [
               "Five years of combined contributions",
               "15,000.00"
+            ],
+            [
+              "Projected investment earnings over five years",
+              "4,339.71"
             ],
             [
               "Projected account balance",
@@ -10503,6 +10525,9 @@
               "Illustrative value after 20% tax",
               "23,471.77"
             ]
+          ],
+          "numberColumns": [
+            1
           ]
         }
       },
@@ -10510,6 +10535,12 @@
         "title": "Read a tiered employer match marginally",
         "paragraphs": [
           "For a hypothetical match of 100% on the first 3% of salary and 50% on the next 3%, an employee deferring 6% receives a 4.5% employer contribution, not 9%. The salary-match worksheet applies each tier to its slice. The manual-scenario option does not automatically turn an entered contribution into a legally permitted amount."
+        ],
+        "links": [
+          {
+            "label": "IRS guide to employer matching contributions",
+            "href": "https://www.irs.gov/retirement-plans/matching-contributions-help-you-save-more-for-retirement"
+          }
         ]
       },
       {
@@ -13893,7 +13924,7 @@
           "headers": [
             "Weight",
             "Height",
-            "BMI"
+            "BMI (kg/m²)"
           ],
           "rows": [
             [
@@ -13911,6 +13942,9 @@
               "180 cm",
               "21.60"
             ]
+          ],
+          "numberColumns": [
+            2
           ]
         }
       },
@@ -13931,6 +13965,10 @@
           {
             "label": "CDC child and teen BMI categories",
             "href": "https://www.cdc.gov/bmi/child-teen-calculator/bmi-categories.html"
+          },
+          {
+            "label": "CDC data for the extended BMI-for-age growth charts",
+            "href": "https://www.cdc.gov/growthcharts/extended-bmi-data-files.htm"
           }
         ]
       },

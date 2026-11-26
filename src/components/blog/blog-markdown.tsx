@@ -17,9 +17,15 @@ export function blogContentUrl(value: string, image = false): string | undefined
   } catch {return undefined;}
 }
 
-export function BlogMarkdown({content}: {content:string}) {
+export function BlogMarkdown({content, articleTitle}: {content:string; articleTitle?:string}) {
   return <div className={styles.markdown} data-blog-markdown>
-    <Markdown remarkPlugins={[remarkGfm,remarkArticleBreaks]} skipHtml urlTransform={(url,key)=>blogContentUrl(url,key==='src')} components={{
+    <Markdown remarkPlugins={[remarkGfm,remarkArticleBreaks]} skipHtml urlTransform={(url,key)=>blogContentUrl(url,key==='src')}
+      allowElement={(element, index, parent) => {
+        if (!articleTitle || parent?.type !== 'root' || index !== 0 || !['h1', 'h2'].includes(element.tagName)) return true;
+        const [text] = element.children;
+        // A pasted title can duplicate the page heading. Keep headings that also contain a link or other markup.
+        return element.children.length !== 1 || text.type !== 'text' || text.value.trim() !== articleTitle.trim();
+      }} components={{
       h1:({children})=><h2>{children}</h2>,
       a:({href,children,title})=>href?<a href={href} title={title} rel={/^https?:/i.test(href)?'noopener noreferrer':undefined}>{children}</a>:<span>{children}</span>,
       img:({src,alt,title})=>{
