@@ -80,6 +80,9 @@ test('area diagrams, formula links and land guidance are available without JavaS
     expect(snippetWidth).toBeLessThanOrEqual(640);
     const introduction = await page.locator('[data-page-hero] p').first().innerText();
     expect(introduction.split(/\s+/).slice(0, 100).join(' ')).toMatch(/\barea calculator\b/i);
+    const paragraphs = await page.locator('main p:visible').allInnerTexts();
+    const keywordUses = paragraphs.join('\n').match(/\barea calculator\b/gi) ?? [];
+    expect(keywordUses.length).toBeGreaterThan(6);
     await expect(page.getByRole('heading', {level: 2, name: /\barea calculator\b/i})).toBeVisible();
     await expect(page.locator('a[rel~="author"]')).toHaveText('Finflo');
     await expect(page.locator('head meta[name="author"]')).toHaveAttribute('content', 'Finflo');

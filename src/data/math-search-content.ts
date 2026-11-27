@@ -34,12 +34,12 @@ export type MathSearchContentEntry = {
 export const mathSearchContent: Record<string, MathSearchContentEntry | undefined> = {
   'area-calculator': {
     publishedAt: '2026-11-15',
-    modifiedAt: '2026-11-27',
+    modifiedAt: '2026-11-28',
     quickLinks: [{href: '#irregular-area', label: 'Irregular shapes'}, {href: '#land-area', label: 'Acres and hectares'}],
     answerHeading: 'How to use the area calculator',
     answer: 'Area measures the space inside a flat shape. A rectangle uses length × width, a triangle uses base × perpendicular height ÷ 2, and a circle uses π × radius². Choose your shape, enter each dimension with its unit, select an area unit, then press Calculate. Results can use square feet, square meters, acres, or hectares.',
     tableHeading: 'Area formulas and examples by shape',
-    tableIntroduction: 'Choose the shape that matches the measurements you know. There are eight shapes and a second triangle method for three known sides. In these formulas, h is perpendicular height, r is radius, and θ is the sector angle in degrees. For an ellipse, a and b are half the full axis lengths.',
+    tableIntroduction: 'The area calculator covers eight shapes. For triangles, you can use the base and perpendicular height or all three side lengths. In these formulas, h is perpendicular height, r is radius, and θ is the sector angle in degrees. For an ellipse, a and b are half the full axis lengths.',
     tableCaption: 'Area examples use meters and return square meters (m²). Answers involving π are rounded to two decimal places.',
     firstColumn: 'Shape or mode',
     rows: [
@@ -67,7 +67,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'irregular-area',
         heading: 'Area of an irregular shape or L-shaped room',
         paragraphs: [
-          'Draw the outline and split it into rectangles, triangles, or circular pieces without overlap. Calculate each piece using the same area unit, then add the results. For a cutout, subtract its area instead.',
+          'Draw the outline and split it into rectangles, triangles, or circular pieces without overlap. Enter each piece in the area calculator using the same area unit, then add the results. For a cutout, subtract its area instead.',
           'For example, an L-shaped floor fits inside a 6 m × 4 m rectangle and has a 2 m × 1 m corner missing. The outer rectangle is 24 m² and the missing corner is 2 m², so the floor covers 24 − 2 = 22 m². Calculate the two rectangles separately; do not multiply the two longest sides and ignore the cutout.',
           'For an arched window, split the glass where the straight sides meet the curve. If the lower rectangle is 2 m wide and 1.5 m high, it covers 3 m². A semicircle spanning that width has a radius of 1 m. Enter that radius and an angle of 180° in Sector mode, then add its area to the rectangle for about 4.57 m² of glass.',
           'This calculator uses dimensions you enter, rather than tracing a boundary on a map. For a four-sided plot without right angles or parallel bases, four side lengths alone are insufficient: you also need information such as a diagonal and triangle side lengths, an angle, or coordinates.',
@@ -86,7 +86,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'path-area',
         heading: 'How much area does a border or path cover?',
         paragraphs: [
-          'A path around a pond has two edges. Sketch the outside edge first, then shade the strip you want to cover. Run the calculator once for everything inside the outside edge and once for the pond. Subtract the pond from the larger area. Keep both answers in the same square unit so the difference gives the amount of paving.',
+          'A path around a pond has two edges. Sketch the outside edge first, then shade the strip you want to cover. Run the area calculator once for the whole footprint inside the outer edge and once for the pond. Subtract the pond from the larger area. Keep both answers in the same square unit so the difference gives the amount of paving.',
           'For a round pond with a radius of 3 m and a path 1 m wide, the outside radius is 4 m. In Circle mode the outer disk covers 16π m² and the pond covers 9π m². The path covers 7π m², about 21.99 m². Measure both radii from the center. Using the path width as the radius would give the area of a small disk.',
           'For a rectangular bed, the border adds width on both sides and length at both ends. An 8 m by 5 m bed with a half-meter border outside it has an outer rectangle of 9 m by 6 m. The paved area is 54 − 40 = 14 m². If the same border sits inside the original outline, the planted rectangle is 7 m by 4 m, so the paving covers 40 − 28 = 12 m². Mark which edge your tape followed before entering the dimensions.',
         ],
@@ -104,7 +104,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'area-unit-conversion',
         heading: 'Square feet, square meters, and mixed units',
         paragraphs: [
-          'Each dimension has its own unit selector. A rectangle 3 ft long and 24 in wide covers 6 ft² when Area unit is Square feet: 24 in equals 2 ft, then 3 × 2 = 6. For a measurement such as 5 ft 6 in, enter 5.5 Feet or 66 Inches, not 5.6 Feet.',
+          'The area calculator lets you choose a unit for each length. A rectangle 3 ft long and 24 in wide covers 6 ft² when Area unit is Square feet: 24 in equals 2 ft, then 3 × 2 = 6. For a measurement such as 5 ft 6 in, enter 5.5 Feet or 66 Inches, not 5.6 Feet.',
           'Square the length conversion factor when converting area: 1 ft² = 144 in² = 0.09290304 m², and 1 m² = 10,000 cm². To convert square feet to square meters, multiply by 0.09290304; to convert square meters to square feet, divide by 0.09290304.',
         ],
         link: {sentence: "To include depth and calculate the space inside a solid, use the {calculatorLink}.", href: "/volume-calculator", label: "volume calculator"},
@@ -113,7 +113,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         id: 'land-area',
         heading: 'Land area in acres and hectares',
         paragraphs: [
-          'For a rectangular plot, enter the length and width, then choose Acres or Hectares as the area unit. A 150 ft × 200 ft plot has an area of 30,000 ft². Dividing by 43,560 gives approximately 0.688705 acres. A 120 m × 80 m field covers 9,600 m², or 0.96 hectares.',
+          'For a rectangular plot, enter its length and width in the area calculator and select Acres or Hectares as the result unit. A 150 ft × 200 ft plot has an area of 30,000 ft². Dividing by 43,560 gives approximately 0.688705 acres. A 120 m × 80 m field covers 9,600 m², or 0.96 hectares.',
           'One acre equals 43,560 ft² or 4,046.8564224 m² using the international foot; one hectare equals 10,000 m². Acres and hectares are already area units, so they are not squared again.',
           'Use horizontal dimensions for a plan-view land area. Distances measured along a slope describe a different surface. Irregular boundaries need additional measurements or a survey; an idealized rectangle cannot establish a property boundary.',
         ],
@@ -144,7 +144,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         heading: 'How can I find a missing length from a known area?',
         paragraphs: [
           'Suppose you have 24 m² of ground cover and space for a bed 3 m wide. Divide the available area by the width to find a length of 8 m. To check the layout, enter the length and width in Rectangle mode. For a triangular bed with a 3 m base and the same area, multiply the area by two before dividing by the base. Its perpendicular height would be 16 m.',
-          'A square has equal sides, so take the square root of its area to get a side length. A square rug covering 36 ft² measures 6 ft along each side. For a round rug of the same area, first divide by π, then take the square root to get its radius in feet. Double the radius to get the full width you would measure across the rug. Enter the radius in Circle mode to check your answer.',
+          'A square has equal sides, so take the square root of its area to get a side length. A square rug covering 36 ft² measures 6 ft along each side. For a round rug of the same area, first divide by π, then take the square root to get its radius in feet. Double the radius to get the full width you would measure across the rug. To check your answer, select Circle in the area calculator and enter the radius.',
           'When working backward, match the units before dividing. If the area is in square meters and the known side is in centimeters, convert that side to meters first. The missing side then comes out in meters. If all you know about a rectangle is its area, there are many possible layouts. Sketch the space and measure one edge to narrow it down, or specify that the shape is a square.',
         ],
       },
