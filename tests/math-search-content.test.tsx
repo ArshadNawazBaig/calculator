@@ -94,16 +94,23 @@ describe('published formula examples agree with the working calculator', () => {
     const sections = mathSearchContent['area-calculator']!.sections;
     const area = async (mode: string, values: Values) => Number((await run('area-calculator', mode, values)).metrics[0].value);
     const rectangle = (length: number, width: number) => area('rectangle', {a: String(length), b: String(width)});
+    const trapezoid = (a: number, b: number, height: number) => area('trapezoid', {a: String(a), b: String(b), h: String(height)});
     const outerCircle = await area('circle', {r: '4'});
     const pond = await area('circle', {r: '3'});
     const window = await rectangle(2, 1.5) + await area('sector', {r: '1', angle: '180'});
     const firstPlot = await area('triangle-sss', {a: '3', b: '4', c: '5'});
     const secondPlot = await area('triangle-sss', {a: '5', b: '12', c: '13'});
+    const walls = await rectangle(2 * (5 + 4), 2.5);
+    const openings = await rectangle(0.9, 2) + await rectangle(1.5, 1.2);
+    const gardenBed = await trapezoid(1, 3, 2) + await trapezoid(3, 2, 2) + await area('triangle', {a: '2', b: '2'});
     const expectedAreas = [
       ['path-area', outerCircle - pond],
       ['path-area', await rectangle(9, 6) - await rectangle(8, 5)],
       ['path-area', await rectangle(8, 5) - await rectangle(7, 4)],
       ['irregular-area', window],
+      ['wall-area', walls - openings],
+      ['wall-area', await trapezoid(2, 3, 6)],
+      ['curved-bed-area', gardenBed],
       ['diagonal-area', firstPlot + secondPlot],
       ['polygon-area', 6 * await area('triangle-sss', {a: '4', b: '4', c: '4'})],
       ['polygon-area', await area('triangle', {a: '8', b: '5'})],

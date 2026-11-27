@@ -75,6 +75,15 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         link: {sentence: "For flooring measurements and material estimates, see the {calculatorLink}.", href: "/square-footage-calculator", label: "square footage calculator"},
       },
       {
+        id: 'wall-area',
+        heading: 'How much wall area is left after doors and windows?',
+        paragraphs: [
+          'Measure each wall from one inside corner to the next and from the floor to the ceiling. If the room has an alcove, follow the tape around the recess and include each short wall. When all the walls have the same height, add their widths and enter the total as the length in Rectangle mode. Use the common height as the other dimension. This gives the combined wall area before you subtract any openings.',
+          'Take a room 5 m long and 4 m wide with walls 2.5 m high. Walking around the room gives 18 m of wall, so the four faces cover 45 m². A door measuring 0.9 m by 2 m takes up 1.8 m². A window measuring 1.5 m by 1.2 m takes up another 1.8 m². Subtract both openings to get 41.4 m² of wall. Measure to the outside edges of any trim you want to exclude. To leave out the baseboard as well, subtract its height times the length it actually runs.',
+          'For a wall with a straight sloping top, measure the height at both ends. In the area calculator, choose Trapezoid and enter those heights as the parallel bases. The horizontal width of the wall is the distance between them. A wall 6 m wide with end heights of 2 m and 3 m covers 15 m². For a peaked gable, split the face into a rectangle below the eaves and a triangle above them. Measure the triangle vertically from the eaves to the peak.',
+        ],
+      },
+      {
         id: 'polygon-area',
         heading: 'How do I find the area of a regular polygon, kite or rhombus?',
         paragraphs: [
@@ -89,6 +98,15 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           'A path around a pond has two edges. Sketch the outside edge first, then shade the strip you want to cover. Run the area calculator once for the whole footprint inside the outer edge and once for the pond. Subtract the pond from the larger area. Keep both answers in the same square unit so the difference gives the amount of paving.',
           'For a round pond with a radius of 3 m and a path 1 m wide, the outside radius is 4 m. In Circle mode the outer disk covers 16π m² and the pond covers 9π m². The path covers 7π m², about 21.99 m². Measure both radii from the center. Using the path width as the radius would give the area of a small disk.',
           'For a rectangular bed, the border adds width on both sides and length at both ends. An 8 m by 5 m bed with a half-meter border outside it has an outer rectangle of 9 m by 6 m. The paved area is 54 − 40 = 14 m². If the same border sits inside the original outline, the planted rectangle is 7 m by 4 m, so the paving covers 40 − 28 = 12 m². Mark which edge your tape followed before entering the dimensions.',
+        ],
+      },
+      {
+        id: 'curved-bed-area',
+        heading: 'How can I estimate the area of a curved garden bed?',
+        paragraphs: [
+          'For a bed with a straight back edge and a curved front, lay a tape along the straight edge. Mark several positions along the tape, including both ends of the bed. At each mark, measure the width of the bed at a right angle to the tape. Write down the widths in order. On a sketch, join the ends of neighboring width measurements with straight lines to see the strips you will measure.',
+          'For example, mark a 6 m edge every 2 m. Suppose the widths at those four marks are 1 m, 3 m, 2 m and zero, where the bed ends in a point. In the area calculator, choose Trapezoid for the first strip. Enter 1 m and 3 m as the parallel bases and 2 m as the height. This strip covers about 4 m². The next strip covers 5 m². The pointed end forms a triangle with a base of 2 m and a height of 2 m, adding 2 m². Together the strips give an estimate of 11 m².',
+          'Look at the sketch where the boundary curves most sharply. If the edge bows outward between two marks, the straight line cuts off some of the bed. Where the edge curves inward, the strip includes ground outside the bed. Take another width measurement at the bend and replace that strip with two narrower ones. If the marks are unevenly spaced, enter the actual distance between each pair as the height for that strip.',
         ],
       },
       {

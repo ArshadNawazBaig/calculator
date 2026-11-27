@@ -65,7 +65,7 @@ test('shape links restore their mode and reject impossible geometry', async ({pa
   await expect(page.getByRole('button', {name: 'Sector', exact: true})).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('area calculator keyword density is at least 0.58% in the initial HTML', async ({request, page}) => {
+test('area calculator has at least 3,250 content words and 0.58% keyword density in the initial HTML', async ({request, page}) => {
   const response = await request.get('/area-calculator');
   await expect(response).toBeOK();
   const {exactUses, contentWords} = await page.evaluate(html => {
@@ -85,6 +85,7 @@ test('area calculator keyword density is at least 0.58% in the initial HTML', as
       contentWords: text.match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu)?.length ?? 0,
     };
   }, await response.text());
+  expect(contentWords).toBeGreaterThanOrEqual(3250);
   // The audit counts both words of “area calculator” toward the percentage.
   const densityPercent = (exactUses * 2 / contentWords) * 100;
   expect(densityPercent).toBeGreaterThanOrEqual(0.58);
