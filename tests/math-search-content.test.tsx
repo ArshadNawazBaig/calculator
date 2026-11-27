@@ -3,12 +3,13 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {MathSearchAnswer, MathSearchContent} from '@/components/content/math-search-content';
 import {mathSearchContent} from '@/data/math-search-content';
 import {calculate} from '@/lib/calculators/engine';
-import {definitionMap} from '@/lib/calculators/registry';
+import {definitionMap, toolMap} from '@/lib/calculators/registry';
 import {defaults, type Values} from '@/lib/calculators/types';
 
 async function run(slug: string, id: string, values: Values) {
   const mode = definitionMap.get(slug)!.modes.find(item => item.id === id)!;
-  return calculate('math', mode, {...defaults(mode), ...values});
+  const {category} = toolMap.get(slug)!;
+  return calculate(category, mode, {...defaults(mode), ...values});
 }
 
 const areaExamples: Record<string, Values> = {
@@ -146,6 +147,59 @@ describe('published formula examples agree with the working calculator', () => {
     expect(caps.metrics.find(metric => metric.label === 'Cap 1: height')!.value).toBe(2);
     expect(caps.metrics.find(metric => metric.label === 'Cap 2: height')!.value).toBe(8);
   });
+
+  it('checks the storage box, capsule and drilled platform examples', async () => {
+    const sections = mathSearchContent['volume-calculator']!.sections;
+    const volume = async (mode: string, values: Values) => {
+      const units = Object.fromEntries(Object.keys(values).map(key => [key + 'Unit', 'cm']));
+      const {metrics: [result]} = await run('volume-calculator', mode, {...values, ...units, outputUnit: 'cm'});
+      expect(result.unit).toBe('cm³');
+      return Number(result.value);
+    };
+    const box = (a: string, b: string, h: string) => volume('cuboid', {a, b, h});
+    const platform = await box('30', '20', '4') + await box('20', '10', '3');
+    const hole = await volume('cylinder', {r: '1', h: '7'});
+    for (const [id, value] of [
+      ['inside-box-volume', await box('48', '28', '22')],
+      ['inside-box-volume', await box('48', '28', '20')],
+      ['capsule-overall-length', await volume('capsule', {r: '2', h: '6'})],
+      ['joined-solids-volume', platform - hole],
+    ] as const) {
+      const copy = sections.find(section => section.id === id)!.paragraphs.join(' ');
+      expect(copy).toContain(value.toLocaleString('en-US', {maximumFractionDigits: 2}) + ' cm³');
+    }
+  });
+
+  it('checks the image sizing and seed mixture examples in the ratio guide', async () => {
+    const sections = mathSearchContent['ratio-calculator']!.sections;
+    const image = await run('ratio-calculator', 'all-proportions', {solve: 'D', A: '16', B: '9', C: '1280'});
+    expect(sections.find(section => section.id === 'screen-ratio')!.paragraphs[0]).toContain(`The height is ${image.metrics[0].value} pixels`);
+    const seedMass = await run('ratio-calculator', 'all-proportions', {solve: 'C', A: '2', B: '5', D: '350'});
+    const copy = sections.find(section => section.id === 'adjusting-a-mixture')!.paragraphs[1];
+    expect(copy).toContain(`weigh ${seedMass.metrics[0].value} g`);
+    expect(copy).toContain(`add only ${Number(seedMass.metrics[0].value) - 100} g`);
+  });
+
+  it('reproduces all five pregnancy dating records and the alternate cycle, transfer and leap-year examples', async () => {
+    const slug = 'pregnancy-calculator';
+    const guide = mathSearchContent[slug]!;
+    for (const row of guide.rows) {
+      const mode = row.modeId!;
+      const fields = defaults(definitionMap.get(slug)!.modes.find(item => item.id === mode)!);
+      expect(row.example).toContain(fields.due || fields.date);
+      const result = await run(slug, mode, fields);
+      const label = mode === 'due-date' ? 'Gestational age on selected date' : 'Estimated due date';
+      expect(result.metrics.find(metric => metric.label === label)?.value).toBe(row.result);
+    }
+    const cycle = await run(slug, 'lmp', {cycle: '32'});
+    expect(cycle.metrics.map(item => item.value)).toEqual(expect.arrayContaining(['2027-04-11', '13 weeks, 5 days']));
+    const transfer = await run(slug, 'ivf', {date: '2026-07-18', embryo: '3'});
+    expect(transfer.metrics[0].value).toBe('2027-04-07');
+    for (const [asof, age] of [['2028-02-28', '39 weeks, 5 days'], ['2028-02-29', '39 weeks, 6 days']]) {
+      const result = await run(slug, 'due-date', {due: '2028-03-01', asof});
+      expect(result.metrics.find(item => item.label === 'Gestational age on selected date')?.value).toBe(age);
+    }
+  });
 });
 
 describe('search guidance is readable in the initial server HTML', () => {
@@ -171,10 +225,11 @@ describe('search guidance is readable in the initial server HTML', () => {
     for (const section of content.sections) {
       if (section.link) {
         const {href} = section.link;
-        if (href.startsWith('#mode-')) {
-          expect(definitionMap.get(slug)!.modes.some(mode => href === `#mode-${mode.id}`)).toBe(true);
-        } else {
-          expect(definitionMap.has(href.slice(1))).toBe(true);
+        const target = new URL(href, `https://finflo.org/${slug}`);
+        const tool = definitionMap.get(target.pathname.slice(1));
+        expect(tool).toBeDefined();
+        if (target.hash) {
+          expect(tool!.modes.some(mode => target.hash === `#mode-${mode.id}`)).toBe(true);
         }
         expect(html).toContain(`href="${href}"`);
       }

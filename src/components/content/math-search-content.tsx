@@ -9,6 +9,8 @@ import {
 } from '@/lib/i18n/config';
 import { mathSearchContent } from '@/data/math-search-content';
 import { site } from '@/lib/site';
+import { guideData } from '@/lib/structured-data';
+import { JsonLd } from './json-ld';
 import { SolidShapeDiagram } from '@/components/calculators/solid-shape-diagram';
 import { AreaShapeDiagram } from '@/components/calculators/area-shape-diagram';
 import { ContentIllustration } from '@/components/illustrations/content-illustration';
@@ -21,28 +23,61 @@ function guideDate(date: string, locale: Locale = 'en') {
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
-export function MathGuideByline({
+export function CalculatorGuideByline({
   publishedAt,
   modifiedAt,
+  locale = 'en',
+  messages = {},
 }: {
   publishedAt: string;
   modifiedAt: string;
+  locale?: Locale;
+  messages?: Dictionary;
 }) {
+  const t = translator(messages);
   return (
     <p className={styles.byline}>
       <span>
-        By{' '}
-        <Link href="/about" rel="author">
+        {t('By')}{' '}
+        <Link href={localizedPath('/about', locale)} rel="author">
           {site.name}
         </Link>
       </span>
       <span>
-        Published <time dateTime={publishedAt}>{guideDate(publishedAt)}</time>
+        {t('Published')}{' '}
+        <time dateTime={publishedAt}>{guideDate(publishedAt, locale)}</time>
       </span>
       <span>
-        Updated <time dateTime={modifiedAt}>{guideDate(modifiedAt)}</time>
+        {t('Updated')}{' '}
+        <time dateTime={modifiedAt}>{guideDate(modifiedAt, locale)}</time>
       </span>
     </p>
+  );
+}
+
+export function CalculatorGuideArticleData({
+  slug,
+  title,
+  description,
+  locale = 'en',
+}: {
+  slug: string;
+  title: string;
+  description: string;
+  locale?: Locale;
+}) {
+  const guide = mathSearchContent[slug];
+  if (!guide?.publishedAt) return null;
+  const article = guideData(title, description, '/' + slug, locale);
+  return (
+    <JsonLd
+      data={{
+        ...article,
+        datePublished: guide.publishedAt,
+        dateModified: guide.modifiedAt,
+        about: { '@id': article.url + '#calculator' },
+      }}
+    />
   );
 }
 
@@ -223,7 +258,7 @@ export function MathSearchContent({
           )}
         </section>
       ))}
-      {illustrated && !(locale === 'en' && content.publishedAt) && (
+      {illustrated && !content.publishedAt && (
         <p className="editorial-note">
           {t('Content and calculation examples updated')}{' '}
           <time dateTime={content.modifiedAt}>

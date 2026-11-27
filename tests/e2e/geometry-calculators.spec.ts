@@ -1,5 +1,6 @@
 import {test, expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {mathSearchContent} from '../../src/data/math-search-content';
 import {expectLoadedIllustrations} from './illustration-assertions';
 
 for (const [slug, unit, result] of [
@@ -111,7 +112,7 @@ test('solid references and all measurement guides are readable without JavaScrip
         await expectLoadedIllustrations(illustrations);
         await expect(page.locator('#method-cap-inverse')).toHaveCount(1);
         await expect(page.locator('#common-questions details')).toHaveCount(6);
-        const updated = slug === 'volume-calculator' ? '2026-11-25' : '2026-11-15';
+        const updated = mathSearchContent[slug]!.modifiedAt;
         await expect(page.locator(`time[datetime="${updated}"]`)).toBeVisible();
         if (slug === 'volume-calculator') {
           await expect(page.locator('[data-calculator-visual] figcaption')).toContainText('Rectangular prism');

@@ -50,6 +50,6 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
     </section>}
     <CalculatorQuestions slug={definition.slug} messages={messages} locale={locale}/>
     <ToolkitArticleData definition={definition} messages={messages} locale={locale}/>
-    <p className="editorial-note">{t('Prepared by Finflo.')} <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link> · <Link href="/disclaimer">{t('Disclaimer')}</Link></p>
+    <p className="editorial-note">{!reference?.publishedAt && t('Prepared by Finflo.')} <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link> · <Link href="/disclaimer">{t('Disclaimer')}</Link></p>
   </article>;
 }

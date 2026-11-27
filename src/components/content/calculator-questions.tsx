@@ -1,4 +1,5 @@
 import content from '@/data/calculator-content.json';
+import {mathSearchContent} from '@/data/math-search-content';
 import {Accordion, AccordionItem} from '@/components/ui/accordion';
 import {localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 import {site} from '@/lib/site';
@@ -16,7 +17,7 @@ export function CalculatorQuestions({slug, messages = {}, locale = 'en'}: {slug:
   return <section id="common-questions">
     <h2>{t('Common questions')}</h2>
     <Accordion>{questions.map(({question, answer}) => <AccordionItem key={question} title={question}><p>{answer}</p></AccordionItem>)}</Accordion>
-    {slug === 'area-calculator' && <JsonLd data={{
+    {mathSearchContent[slug]?.publishedAt && <JsonLd data={{
       '@context': 'https://schema.org', '@type': 'FAQPage', '@id': url + '#common-questions', url, inLanguage: locale,
       mainEntity: questions.map(({question, answer}) => ({
         '@type': 'Question', name: question, acceptedAnswer: {'@type': 'Answer', text: answer},

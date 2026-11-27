@@ -1,10 +1,11 @@
 import { mathSearchContent } from '@/data/math-search-content';
 import {
-  MathGuideByline,
+  CalculatorGuideByline,
+  CalculatorGuideArticleData,
   MathSearchAnswer,
   MathSearchContent,
 } from '@/components/content/math-search-content';
-import { guideData, organizationData } from '@/lib/structured-data';
+import { organizationData } from '@/lib/structured-data';
 import type { Metadata } from 'next';
 import { CalculatorExample } from '@/components/content/calculator-example';
 import { CalculatorInsight } from '@/components/content/calculator-insight';
@@ -82,7 +83,7 @@ export async function generateMetadata({
     definitionMap.get(slug)?.description ||
     blocked[slug] ||
     calculatorCardData(tool).description;
-  const metadata = pageMetadata(
+  return pageMetadata(
     getCalculatorSeoTitle(slug) || tool.title,
     description,
     `/${slug}`,
@@ -90,20 +91,6 @@ export async function generateMetadata({
     'en',
     tool.title,
   );
-  const guide = mathSearchContent[slug];
-  if (!guide?.publishedAt) return metadata;
-  const authorUrl = site.url + '/about';
-  return {
-    ...metadata,
-    authors: [{ name: site.name, url: authorUrl }],
-    openGraph: {
-      ...metadata.openGraph,
-      type: 'article',
-      authors: [authorUrl],
-      publishedTime: guide.publishedAt,
-      modifiedTime: guide.modifiedAt,
-    },
-  };
 }
 export default async function Page({
   params,
@@ -204,7 +191,7 @@ export default async function Page({
         ]}
       >
         {guide?.publishedAt && (
-          <MathGuideByline
+          <CalculatorGuideByline
             publishedAt={guide.publishedAt}
             modifiedAt={guide.modifiedAt}
           />
@@ -339,20 +326,11 @@ export default async function Page({
             <MethodologyNote />
           </aside>
         </div>
-        {guide?.publishedAt && (
-          <JsonLd
-            data={{
-              ...guideData(
-                getCalculatorSeoTitle(slug) || tool.title,
-                def.description,
-                `/${slug}`,
-              ),
-              datePublished: guide.publishedAt,
-              dateModified: guide.modifiedAt,
-              about: { '@id': `${site.url}/${slug}#calculator` },
-            }}
-          />
-        )}
+        <CalculatorGuideArticleData
+          slug={slug}
+          title={getCalculatorSeoTitle(slug) || tool.title}
+          description={def.description}
+        />
         <JsonLd
           data={{
             '@context': 'https://schema.org',

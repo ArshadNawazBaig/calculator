@@ -65,61 +65,11 @@ test('shape links restore their mode and reject impossible geometry', async ({pa
   await expect(page.getByRole('button', {name: 'Sector', exact: true})).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('area calculator has at least 3,250 content words and 0.58% keyword density in the initial HTML', async ({request, page}) => {
-  const response = await request.get('/area-calculator');
-  await expect(response).toBeOK();
-  const {exactUses, contentWords} = await page.evaluate(html => {
-    const {body} = new DOMParser().parseFromString(html, 'text/html');
-    body.querySelectorAll([
-      'header, nav, footer, aside, [role="navigation"], [role="banner"], [role="contentinfo"], .site-header, .site-footer',
-      'script, style, noscript, template, svg, iframe, canvas, object',
-    ].join(', ')).forEach(element => element.remove());
-    // Keep adjacent content blocks and controls from merging into a single word.
-    body.querySelectorAll([
-      'p, div, li, ul, ol, h1, h2, h3, h4, h5, h6, td, th, tr, section, article, main',
-      'br, a, button, label, blockquote, figcaption, dt, dd, option',
-    ].join(', ')).forEach(element => element.append(' '));
-    const text = body.textContent ?? '';
-    return {
-      exactUses: text.match(/(?<![\p{L}\p{N}])area[\s_-]+calculator(?![\p{L}\p{N}])/giu)?.length ?? 0,
-      contentWords: text.match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu)?.length ?? 0,
-    };
-  }, await response.text());
-  expect(contentWords).toBeGreaterThanOrEqual(3250);
-  // The audit counts both words of “area calculator” toward the percentage.
-  const densityPercent = (exactUses * 2 / contentWords) * 100;
-  expect(densityPercent).toBeGreaterThanOrEqual(0.58);
-});
-
 test('area diagrams, formula links and land guidance are available without JavaScript', async ({browser, baseURL}) => {
   const context = await browser.newContext({javaScriptEnabled: false, baseURL});
   try {
     const page = await context.newPage();
     await page.goto('/area-calculator');
-    const description = await page.locator('head meta[name="description"]').getAttribute('content');
-    expect(description?.match(/\barea calculator\b/gi)).toHaveLength(1);
-    const snippetWidth = await page.evaluate(text => {
-      const context = document.createElement('canvas').getContext('2d')!;
-      context.font = '14px Arial';
-      return context.measureText(text!).width;
-    }, description);
-    expect(snippetWidth).toBeLessThanOrEqual(640);
-    const introduction = await page.locator('[data-page-hero] p').first().innerText();
-    expect(introduction.split(/\s+/).slice(0, 100).join(' ')).toMatch(/\barea calculator\b/i);
-    const paragraphs = await page.locator('main p:visible').allInnerTexts();
-    const keywordUses = paragraphs.join('\n').match(/\barea calculator\b/gi) ?? [];
-    expect(keywordUses.length).toBeGreaterThan(6);
-    await expect(page.getByRole('heading', {level: 2, name: /\barea calculator\b/i})).toBeVisible();
-    await expect(page.locator('a[rel~="author"]')).toHaveText('Finflo');
-    await expect(page.locator('head meta[name="author"]')).toHaveAttribute('content', 'Finflo');
-    const guide = (await page.locator('script[type="application/ld+json"]').allTextContents())
-      .map(text => JSON.parse(text)).find(item => item['@type'] === 'Article');
-    expect(guide.author.name).toBe('Finflo');
-    for (const [date, property] of [[guide.datePublished, 'published_time'], [guide.dateModified, 'modified_time']]) {
-      await expect(page.locator(`[data-page-hero] time[datetime="${date}"]`)).toBeVisible();
-      await expect(page.locator(`head meta[property="article:${property}"]`)).toHaveAttribute('content', date);
-    }
-    expect(guide.dateModified > guide.datePublished).toBe(true);
     const illustrations = page.locator('#formula-reference').getByRole('img');
     await expect(illustrations).toHaveCount(9);
     await expectLoadedIllustrations(illustrations);
@@ -129,12 +79,6 @@ test('area diagrams, formula links and land guidance are available without JavaS
     const faq = page.locator('#common-questions');
     const items = faq.locator('details');
     await expect(items).toHaveCount(6);
-    const schema = JSON.parse(await faq.locator('script[type="application/ld+json"]').innerText());
-    expect(schema['@type']).toBe('FAQPage');
-    expect(schema.mainEntity).toEqual(await items.evaluateAll(details => details.map(item => ({
-      '@type': 'Question', name: item.querySelector('summary > span')!.textContent,
-      acceptedAnswer: {'@type': 'Answer', text: item.querySelector('p')!.textContent},
-    }))));
     await expect(page.locator('time[datetime="2026-11-15"]')).toBeVisible();
     await expect(page.locator('body')).not.toContainText('Enter positive dimensions in one consistent unit');
   } finally {

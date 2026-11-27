@@ -1,0 +1,87 @@
+[
+  {
+    "id": "sharing-a-length",
+    "heading": "Using the ratio calculator to split a known total",
+    "paragraphs": [
+      "Suppose a display board has 84 cm of usable width. Two panels must share that width in the ratio 2:5, with the smaller panel on the left. Sketch seven equal spaces across the board. Two belong to the left panel and five belong to the right. Each space measures 12 cm because the full width covers all seven spaces. The panels therefore measure 24 cm and 60 cm. Check that they add back to the usable width before marking the cut.",
+      "To reproduce the split, choose Scale a ratio. Enter 2 and 5 as the two terms and use 12 as the enlargement factor. The scale factor is the width represented by one part. If the instructions instead say that the smaller panel alone measures 84 cm, that length represents two parts. One part now measures 42 cm and the larger panel measures 210 cm. The same ratio leads to different answers because the known length labels a different piece of the drawing.",
+      "Before sharing a real length, account for any fixed gap between the panels. Subtract the gap from the available width first. Then apply the ratio to the space the two panels can actually occupy."
+    ]
+  },
+  {
+    "id": "screen-ratio",
+    "heading": "Finding an image height from its aspect ratio",
+    "paragraphs": [
+      "An image that is 1,920 pixels wide and 1,080 pixels high has an aspect ratio of 16:9. Keep width first and height second when entering both pairs in the ratio calculator. To find the height at a new width of 1,280 pixels, choose Solve any proportion term. Write 16:9 = 1280:D and solve for D. The height is 720 pixels. You can check the result by simplifying the new pair and comparing its terms with the original.",
+      "A frame may have a different shape from the picture you want to put in it. A frame that measures 1,200 by 900 pixels simplifies to 4:3. To show all of a 16:9 picture at that width, the image height would be 675 pixels, leaving 225 pixels of vertical space in the frame. Centering it divides that space between the top and bottom. Filling the frame edge to edge would require cropping part of the picture or changing its proportions. Write down whether the job calls for fitting the whole picture or covering the whole frame.",
+      "For a portrait layout, keep the labels attached to the measurements when turning the drawing. Interchanging the two terms changes the orientation and gives the reciprocal relationship."
+    ],
+    "link": {
+      "sentence": "Try the missing image dimension in the {calculatorLink}.",
+      "href": "/ratio-calculator#mode-all-proportions",
+      "label": "ratio calculator"
+    }
+  },
+  {
+    "id": "rate-comparisons",
+    "heading": "Comparing rates measured over different amounts of time",
+    "paragraphs": [
+      "Two printers can produce different page counts and still work at exactly the same rate. Suppose the first prints 84 pages in 7 minutes and the second prints 108 pages in 9 minutes. Divide each count by its own time. Both rates are 12 pages per minute. In the ratio calculator, simplifying each pair of pages and minutes gives 12:1. Write the units beside the result so the meaning of the one is clear.",
+      "If a third printer produces 90 pages in 6 minutes, its rate is 15 pages per minute. To compare it with the first printer, use their rates in the same order. The comparison is 15:12, which reduces to 5:4. During an equal period of steady operation the third printer produces five pages for every four pages from the first. Comparing 90 directly with 84 would mix up speed with the different lengths of the two trials.",
+      "A trial measured in seconds needs to be converted before you compare it with a trial measured in minutes. Choose one unit of time for all the trials. Include setup time in each measurement if you want to compare the complete jobs, or time just the printing for all of them."
+    ]
+  },
+  {
+    "id": "map-ratio",
+    "heading": "Reading a scale on a map or plan",
+    "paragraphs": [
+      "A printed scale of 1:25,000 means that one unit on the map represents 25,000 of that same unit on the ground. A path drawn as a straight line 4 cm long therefore represents 100,000 cm. Converting that length gives 1,000 m, or 1 km. In the ratio calculator, the scale and the measurements must use the same order on both sides of the proportion. Putting ground distance first on only one side reverses the relationship.",
+      "To work backward, first express the real distance in the unit you will use on the map. For a ground distance of 500 m, write 50,000 cm. Dividing by the scale factor gives 2 cm on paper. Draw that length next to the scale bar as a quick check. If a printed map has been enlarged or a screenshot resized, its ruler measurements change. A scale bar printed or displayed with the map lets you measure the new relationship on that copy.",
+      "For a winding path, a ruler between the endpoints gives their straight-line separation. Following the bends in short sections and adding those sections measures a different distance. Decide which distance the question asks for before applying the scale."
+    ]
+  },
+  {
+    "id": "adjusting-a-mixture",
+    "heading": "Changing one ingredient in an existing mixture",
+    "paragraphs": [
+      "Scaling an entire recipe keeps the proportions fixed. Changing just one ingredient creates a new ratio. Suppose a seed mix contains 100 g of pumpkin seeds and 350 g of sunflower seeds. In the ratio calculator the pair 100:350 simplifies to 2:7. The total mass can be useful for packing the mix, but the two terms of this ratio refer to the separate ingredients.",
+      "Now suppose the sunflower seeds must stay at 350 g and the target ratio of pumpkin to sunflower seeds is 2:5. The five parts of sunflower seeds represent 350 g, so each part is 70 g. Two parts of pumpkin seeds would weigh 140 g. Because the bowl already contains 100 g of pumpkin seeds, add only 40 g. Check the finished mix by simplifying 140:350. This also explains why adding an equal scoop of each ingredient would give a different mixture.",
+      "Use the same type of measurement for both ingredients and keep it consistent between the starting and target amounts. A ratio by mass can be checked on a scale. Two scoops of equal volume may have different masses when the ingredients have different densities."
+    ]
+  },
+  {
+    "id": "joining-ratios",
+    "heading": "Joining two ratios through a shared quantity",
+    "paragraphs": [
+      "A pattern calls for red and blue beads in a ratio of 2:3. A second instruction gives the ratio of blue to green beads as 4:5. Blue appears in both instructions, so the two blue counts have to refer to the same number of beads before the statements can be combined. Simply copying the first red term and the last green term into one list would skip that step.",
+      "The smallest common multiple of the two blue counts is 12. Use the ratio calculator to scale 2:3 by four, giving 8 red and 12 blue. Scale 4:5 by three, giving 12 blue and 15 green. One complete pattern therefore uses 8 red, 12 blue and 15 green beads. Count the shared blue group once. There are 35 beads in the pattern. To make a strand of 70 beads with the same proportions, double each count to get 16 red, 24 blue and 30 green.",
+      "Check the combined list against each original instruction separately. The red and blue counts should reduce to the first ratio, and the blue and green counts should reduce to the second. This check also catches a swapped color label."
+    ]
+  },
+  {
+    "id": "pooling-groups",
+    "heading": "Combining groups that have different sizes",
+    "paragraphs": [
+      "One bag contains four red counters and one blue counter. A second bag contains two red and eight blue. If the bags are emptied onto one table, add the red counts together and then the blue counts. The totals are six red and nine blue. Enter 6:9 in the ratio calculator to get 2:3 for the combined collection. There are fifteen counters, so the red share of the whole is six fifteenths.",
+      "The red percentages in the separate bags are 80% and 20%. An ordinary average of those percentages would give 50%. The pooled collection is actually 40% red because the second bag contains twice as many counters as the first. If you have only the two simplified ratios, you also need the original group sizes or equivalent weights to reconstruct the combined ratio. Otherwise each bag could contain a different number of complete sets.",
+      "When recording results from different batches, keep both original counts next to the reduced ratio. The smaller terms make comparisons easy, while the unreduced counts let you combine the batches later."
+    ]
+  },
+  {
+    "id": "whole-number-ratios",
+    "heading": "When a split must use whole items",
+    "paragraphs": [
+      "A seating plan reserves seven places for one group for every four places for another. A complete set uses eleven seats. With 55 seats, five complete sets fit and the two groups receive 35 and 20 seats. Use the ratio calculator to simplify the allocated counts as a final check. Any exact allocation of whole seats in this reduced ratio must consist of a whole number of complete sets.",
+      "With 58 seats, the same five sets still fit and three seats remain. Assigning the remaining seats changes the exact ratio. For example, allocating 37 and 21 uses every seat, but those counts do not reduce to 7:4. Leaving the extra seats unassigned would preserve the ratio among the assigned seats. The appropriate choice depends on whether using every seat or keeping the exact proportions is the requirement.",
+      "Keep the calculated shares before rounding so that everyone can see how a proposed allocation was reached. Check the final counts by adding them. Rounding each group separately can make the total differ from the number of items available, especially when several groups share a small total."
+    ]
+  },
+  {
+    "id": "close-ratios",
+    "heading": "Checking two nearly equal proportions",
+    "paragraphs": [
+      "Rounding can make distinct ratios look the same on a small display. Suppose one sample contains 27 marked pieces out of 64 and another contains 42 marked pieces out of 100. Both look like about 42% when rounded to a whole percent. To compare the original proportions, use the number marked as the first term and the sample size as the second term in both pairs.",
+      "With the ratio calculator you can keep the counts exact until the final comparison. Multiply 27 by 100 to get 2,700 and multiply 42 by 64 to get 2,688. The first product is slightly larger, so the first sample has the larger marked share. The first percentage is 42.1875%, which explains how rounding hid the difference. If the question asks for the ratio of marked pieces to unmarked pieces, subtract the marked count from each total before entering the second term. That last change answers a different question about the same samples."
+    ]
+  }
+]

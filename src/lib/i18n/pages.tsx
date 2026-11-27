@@ -37,6 +37,8 @@ import {JsonLd} from '@/components/content/json-ld';
 import {LocalizedHome} from '@/components/i18n/localized-home';
 import {WorkspacePage} from '@/components/workspace/workspace';
 import {CalculatorArticle} from '@/components/i18n/calculator-article';
+import {CalculatorGuideArticleData, CalculatorGuideByline} from '@/components/content/math-search-content';
+import {mathSearchContent} from '@/data/math-search-content';
 import {CalculatorExample} from '@/components/content/calculator-example';
 import {CalculatorVisual} from '@/components/content/calculator-visual';
 import {TranslationMessages} from '@/components/i18n/provider';
@@ -159,10 +161,13 @@ export function localizedPage(locale: Locale) {
     if (path === '/search') return <><PageHero eyebrow="FINFLO" title={t(route.title)} description={t(route.description)}/><div className="container directory-page page-content"><TranslationMessages messages={cardMessages(messages,toolListings)}><Suspense fallback={null}><SearchResults/></Suspense></TranslationMessages></div></>;
     if ('tool' in route && route.tool) {
       const tool = route.tool, sourceDefinition = definitionMap.get(tool.slug), def = sourceDefinition && localizeToolDefaults(sourceDefinition,messages), category = categories.find(c => c.id === tool.category)!;
+      const guide = mathSearchContent[tool.slug];
       const currency = tool.slug === 'mortgage-calculator-uk' ? 'GBP' : tool.slug === 'canadian-mortgage-calculator' ? 'CAD' : 'USD';
       const initial = def && !noInitialExampleTools.has(tool.slug) ? await calculate(tool.category, def.modes[0], defaults(def.modes[0])) : null;
       return <>
-        <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}/>
+        <PageHero eyebrow={`${t(category.name)} · ${t('Free online tool')}`} title={t(route.title)} description={t(route.description)} breadcrumbs={[{label:t(category.name),href:`/calculators/${tool.category}`},{label:t(route.title)}]}>
+          {guide?.publishedAt && <CalculatorGuideByline publishedAt={guide.publishedAt} modifiedAt={guide.modifiedAt} locale={locale} messages={messages}/>}
+        </PageHero>
         <TranslationMessages messages={cardMessages(messages,relatedTools(tool))}><div className="container tool-page page-content">
           {def&&isStudentCalculator(tool.slug)&&<StudentTools compact locale={locale} messages={messages}/>}
           {def&&<CalculatorNavigation messages={messages}/>}
@@ -173,7 +178,8 @@ export function localizedPage(locale: Locale) {
           </>}
           {tool.slug === 'real-estate-calculator' && <DirectoryGuidance path="/calculators/finance/mortgage-and-real-estate" messages={messages} locale={locale}/>}
           <div className="tool-reading">{def&&<CalculatorArticle definition={def} initial={initial} currency={currency} messages={messages} locale={locale} title={t(route.title)}/>}<aside className="related-tools"><h2>{t('Related calculators')}</h2><div className="related-card-grid">{relatedTools(tool).map(item => <CalculatorCard key={item.slug} tool={calculatorCardData(item)} size="compact"/>)}</div>{def&&<MethodologyNote messages={messages}/>}</aside></div>
-          {def&&<JsonLd data={{'@context':'https://schema.org','@type':'WebApplication',name:t(route.title),url:site.url+localizedPath(path,locale),description:t(route.description),inLanguage:locale,applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}}/>}
+          {def&&<CalculatorGuideArticleData slug={tool.slug} title={t(getCalculatorSeoTitle(tool.slug) || route.title)} description={t(route.description)} locale={locale}/>}
+          {def&&<JsonLd data={{'@context':'https://schema.org','@type':'WebApplication',...(guide?.publishedAt ? {'@id':site.url+localizedPath(path,locale)+'#calculator'} : {}),name:t(route.title),url:site.url+localizedPath(path,locale),description:t(route.description),inLanguage:locale,applicationCategory:'UtilitiesApplication',operatingSystem:'Any',isAccessibleForFree:true,offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}}/>}
           {def&&<JsonLd data={breadcrumbData([{name:t('Home'),path:'/'},{name:t(category.name),path:`/calculators/${tool.category}`},{name:t(route.title),path}],locale)}/>}
         </div></TranslationMessages>
       </>;

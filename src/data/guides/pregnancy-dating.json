@@ -1,0 +1,150 @@
+{
+  "publishedAt": "2026-11-15",
+  "modifiedAt": "2026-11-28",
+  "quickLinks": [
+    {
+      "href": "#reading-scan-dates",
+      "label": "Reading a scan report"
+    },
+    {
+      "href": "#weeks-and-days",
+      "label": "Weeks and days"
+    }
+  ],
+  "answerHeading": "Which date should I enter in the pregnancy calculator?",
+  "answer": "Choose the method that matches the record in front of you. A last period needs its first day, an embryo transfer needs the transfer date and embryo age, and a scan needs its date and reported gestational age. If your maternity team has already assigned a due date, you can enter that date directly. The separate calculation date tells the tool when you want to know the age of the pregnancy.",
+  "tableHeading": "How five dating methods describe the same example",
+  "tableIntroduction": "These records describe one hypothetical pregnancy. Each row uses a different piece of information to locate the same estimated due date on the calendar. Pick the row that matches your record. You can select its name to open that method in the pregnancy calculator and follow the example with the fields in front of you.",
+  "tableCaption": "Example dates use year, month and day in that order. The first four rows calculate a due date. The last row uses that due date to find the gestational age on another day.",
+  "firstColumn": "Dating method",
+  "rows": [
+    {
+      "id": "lmp",
+      "modeId": "lmp",
+      "label": "Last menstrual period",
+      "formula": "280 + (28 − 28) = 280",
+      "example": "2026-07-01 · 28-day cycle",
+      "result": "2027-04-07"
+    },
+    {
+      "id": "conception",
+      "modeId": "conception",
+      "label": "Estimated conception date",
+      "formula": "266",
+      "example": "2026-07-15",
+      "result": "2027-04-07"
+    },
+    {
+      "id": "ivf",
+      "modeId": "ivf",
+      "label": "IVF embryo transfer",
+      "formula": "266 − 5 = 261",
+      "example": "2026-07-20 · day-5 embryo",
+      "result": "2027-04-07"
+    },
+    {
+      "id": "ultrasound",
+      "modeId": "ultrasound",
+      "label": "Ultrasound dating",
+      "formula": "280 − (8 × 7 + 6) = 218",
+      "example": "2026-09-01 · 8 weeks, 6 days",
+      "result": "2027-04-07"
+    },
+    {
+      "id": "due-date",
+      "modeId": "due-date",
+      "label": "Known due date",
+      "formula": "280 − 180 = 100",
+      "example": "2027-04-07 · age on 2026-10-09",
+      "result": "14 weeks, 2 days"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dating-record",
+      "heading": "Choosing a starting record",
+      "paragraphs": [
+        "Start by looking at the labels on the document or calendar entry you have. A period tracker might show both a day you recorded bleeding and a day the app predicted ovulation. An ultrasound report might show a scan date, an age on that date and an estimated due date. A fertility clinic might give you a transfer date and the age of the embryo at transfer. These pieces of information describe different points on the timeline.",
+        "The pregnancy calculator has separate methods so that you can use one complete record at a time. For a report that already gives your assigned due date, choose the known due date method. For a report that gives only an age in weeks and days, keep that age together with the date when it was recorded. Copy the month and year along with the day. A date of birth for a previous pregnancy, a future appointment and the date a report was downloaded can all appear on the same paperwork.",
+        "Write a short label beside the result when saving it. For example, a note that says the age was calculated from the clinic’s due date for the day of a particular visit is easier to interpret later than a number of weeks on its own."
+      ]
+    },
+    {
+      "id": "period-and-cycle",
+      "heading": "Using the beginning of a period and a typical cycle",
+      "paragraphs": [
+        "In the last period method, enter the first day of the last menstrual period. The number of days that bleeding lasted is a separate measurement. Cycle length runs from the first day of one period to the first day of the next. If those dates fall in different months, count the intervening calendar days. Counting the last day of bleeding as the starting date shifts the whole estimate.",
+        "The pregnancy calculator uses a reference cycle of 28 days. With a period beginning July 1, 2026, the example due date is April 7, 2027. Entering a usual cycle length of 32 days moves the estimate four days later to April 11, 2027. On October 9, 2026, the first estimate gives 14 weeks and 2 days, while the second gives 13 weeks and 5 days. The age goes down when the estimated due date moves later because the selected calendar day stays the same.",
+        "That adjustment represents a calendar assumption. A long or short cycle does not establish the day ovulation happened in that particular cycle. If your periods are irregular or you cannot identify the start of the last one, tell your midwife or clinician which detail is uncertain. They can explain which dating information to use for your care."
+      ]
+    },
+    {
+      "id": "conception-reference",
+      "heading": "What a conception date can tell you",
+      "paragraphs": [
+        "Time since conception and gestational age use different starting points. In everyday conversation, someone may count from the date they think they conceived. Pregnancy records usually express age on the gestational scale. In the conventional model the gestational count is already about two weeks along at conception. This lets different records use a common way of naming weeks.",
+        "If the estimated conception date is July 15, 2026, the pregnancy calculator adds 266 days and gives April 7, 2027 as the estimated due date. On September 9, 2026, eight weeks have elapsed since that conception date. The gestational age displayed for the same day is ten weeks. The two answers measure different intervals on the same calendar. To compare the result with a scan or visit note, check which kind of age the note reports.",
+        "It is easy to substitute a date of intercourse or a positive pregnancy test when a form asks for conception. Neither identifies the exact date of conception. A date obtained by counting back from a due date is also an estimate. It cannot identify a particular encounter or determine parentage. If the only firm date you have is the due date in your record, the known due date method accepts it directly."
+      ]
+    },
+    {
+      "id": "embryo-transfer-calendar",
+      "heading": "Reading an embryo transfer record",
+      "paragraphs": [
+        "For an IVF pregnancy, look for the date the embryo was transferred and its age in days on that date. The clinic may describe it as a day-three or day-five embryo. The transfer date is a different event from an egg retrieval, a pregnancy test or the date a frozen embryo was originally stored. Your clinic’s transfer record supplies the pair of values that belong together.",
+        "In the pregnancy calculator, a day-five embryo transferred on July 20, 2026 gives an estimated due date of April 7, 2027. The interval from transfer to that date is 261 days. A day-three embryo transferred on July 18, 2026 gives the same due date, with an interval of 263 days. In these examples the transfer happens two days later for the older embryo, which is why both calculations reach the same endpoint.",
+        "On the day of a day-five transfer, the conventional gestational age is two weeks and five days. That does not mean that five days have passed since the transfer. It describes the embryo’s age plus the conventional two weeks on the gestational scale. If a portal asks for an age in weeks, keep the unit visible when copying the clinic’s information. Enter the embryo age in days in the field marked for it."
+      ]
+    },
+    {
+      "id": "reading-scan-dates",
+      "heading": "How to read weeks and days from a scan report",
+      "paragraphs": [
+        "Find the date the scan was performed and the gestational age associated with that examination. A report may also list an age calculated from the last period or dates from an earlier examination. If several ages appear, ask the maternity team which one they used for dating. The tool takes an age that has already been reported. Measuring an image or interpreting fetal measurements requires clinical assessment.",
+        "Suppose a scan on September 1, 2026 reports 8 weeks and 6 days. Enter the scan day and those two age fields in the pregnancy calculator. At the time of the scan, the age adds up to 62 days. There are 218 days from that point to the conventional 280-day endpoint, giving April 7, 2027. If you open the report one week later, the scan date and age fields still describe September 1. Use September 8 as the date for which you want the updated age. The answer is then 9 weeks and 6 days.",
+        "An early ultrasound can help establish the estimated due date. Once the clinical team has assigned and documented it, later appointments may use it as the reference for comparing measurements. A difference in a number printed on a later scan is a question for that team. Replacing the established due date after each scan can make older notes difficult to compare."
+      ]
+    },
+    {
+      "id": "weeks-and-days",
+      "heading": "Reading completed weeks and the extra days",
+      "paragraphs": [
+        "A result written as 14 weeks and 2 days counts fourteen whole groups of seven days, followed by two more days. To convert it to a day count, multiply the completed weeks by seven and add the remaining days. That gives 100 days. The extra days field can run from zero through six. Another day after six completes the next whole week.",
+        "On a calendar, mark the day a record says 8 weeks and 6 days. The next day is 9 weeks and zero days. Exactly a week after the original entry the age is 9 weeks and 6 days. In the pregnancy calculator, move the calculation date forward by one day or by one week to see that change while keeping the original dating record fixed.",
+        "Some records write weeks and days with a plus sign. A value of 14+2 means fourteen weeks plus two days. Enter 14 in the weeks field and 2 in the days field when that is the age on a scan. Reading the same notation as fourteen point two decimal weeks would describe a different amount of time. For a form that asks for completed weeks alone, the completed-week portion of this example is fourteen."
+      ]
+    },
+    {
+      "id": "due-date-reference",
+      "heading": "Working backward from an assigned due date",
+      "paragraphs": [
+        "If your pregnancy record lists an estimated due date, you can use it to look up the age on past or future calendar dates. Select the known due date method and enter the assigned date in the due date field. Put the day you are interested in into the field for calculating gestational age. The two dates serve different purposes even if they happen to coincide.",
+        "Take April 7, 2027 as the assigned due date. On March 31, 2027, exactly seven days remain to that reference point. The expected gestational age on the calendar is 39 weeks and zero days. On April 7 the count reaches 40 weeks and zero days. The pregnancy calculator can also display dates counted backward from that endpoint. Those dates explain the arithmetic and may differ from your recollection of a period or an encounter.",
+        "Suppose you want to understand a note from a visit several weeks ago. Enter the actual visit day as the calculation date. A result for today cannot be compared directly with the age recorded then. Write the visit day and its calculated age together. This same approach lets you see how far apart two appointments are on the gestational calendar without changing the due date used by your care team."
+      ],
+      "link": {
+        "sentence": "Enter the due date from your record in the {calculatorLink}.",
+        "href": "/pregnancy-calculator#mode-due-date",
+        "label": "pregnancy calculator"
+      }
+    },
+    {
+      "id": "counting-calendar-days",
+      "heading": "Counting across a month or a leap day",
+      "paragraphs": [
+        "The calculation uses elapsed calendar days. The time from a date to itself is zero days, and the time to the following date is one day. On paper it is easy to add an extra day by counting both the starting square and the ending square. When adding weeks, move forward by the same weekday on the calendar and then count any remaining days.",
+        "For an example that crosses a leap day, enter March 1, 2028 as a known due date. February 28 is two days before it because February 29 falls between the dates. The pregnancy calculator gives 39 weeks and 5 days for February 28, then 39 weeks and 6 days for February 29. The next day is the estimated due date. Calendar months have different lengths, so replacing a fixed number of weeks with a count of whole months can shift the result.",
+        "Dates copied from another country may put the day and month in the opposite order. Check the month name before entering a date with two small numbers. The year matters for calculations that cross December and for a February example such as this one. Keeping the original written date next to an exported result makes that check easier later."
+      ]
+    },
+    {
+      "id": "comparing-dating-records",
+      "heading": "When two records give different estimates",
+      "paragraphs": [
+        "Compare the inputs before comparing the answers. Write down the method, its reference date, any accompanying age or cycle length, and the date on which the gestational age was requested. Two reports can have the same due date and different ages simply because they were written on different days. Two calculations for the same day can have different ages because their starting records differ.",
+        "An easy check is to enter the assigned due date in the pregnancy calculator and look up the age on the day of the earlier report. If the difference disappears, the two ages were being compared on different calendar days. If it remains, take both records to the clinician or midwife who manages the pregnancy. They can tell you which reference is documented for care. An average of two due dates has no special clinical meaning.",
+        "A due date gives you a reference for describing gestational time. It does not predict the exact birthday. When sharing a result, label it as an estimate and include the source and calculation date. That gives the next reader enough information to reproduce the arithmetic and understand what the number describes."
+      ]
+    }
+  ]
+}

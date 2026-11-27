@@ -1,3 +1,7 @@
+import pregnancyDating from './guides/pregnancy-dating.json';
+import ratioExamples from './guides/ratio-examples.json';
+import volumeExamples from './guides/volume-examples.json';
+
 type SearchFormulaRow = {
   id: string;
   modeId?: string;
@@ -32,6 +36,7 @@ export type MathSearchContentEntry = {
 
 /** English editorial copy for the existing pages; examples are checked against the calculator engine. */
 export const mathSearchContent: Record<string, MathSearchContentEntry | undefined> = {
+  'pregnancy-calculator': pregnancyDating,
   'area-calculator': {
     publishedAt: '2026-11-15',
     modifiedAt: '2026-11-28',
@@ -169,7 +174,8 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
     ],
   },
   'ratio-calculator': {
-    "modifiedAt": "2026-11-15",
+    publishedAt: '2026-10-23',
+    modifiedAt: '2026-11-28',
     "answerHeading": "How do I simplify or solve a ratio?",
     "answer": "To simplify a ratio, divide its whole-number terms by their greatest common factor: 18:24 becomes 3:4 after dividing by 6. Enter decimals or fractions directly; the calculator clears denominators first and shows the exact steps. To find a missing value in A:B = C:D, use AD = BC. You can also scale both terms together.",
     "tableHeading": "Ratio formulas and worked examples",
@@ -240,7 +246,8 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         "heading": "How do I simplify a ratio with decimals or fractions?",
         "paragraphs": [
           "Enter each decimal or fraction directly in Simplify ratio. For 1.5:2.25, the exact fractions are 3/2:9/4. Multiplying both terms by 4 gives 6:9; dividing by their greatest common factor, 3, gives 2:3.",
-          "For 1/2:3/4, multiplying both terms by the common denominator 4 gives 2:3 immediately. The calculator keeps decimal digits and integer fractions exact instead of rounding them before simplification. Fraction inputs use integer numerators and nonzero integer denominators; mixed numbers should first be written as improper fractions."
+          "For 1/2:3/4, multiplying both terms by the common denominator 4 gives 2:3 immediately. The calculator keeps decimal digits and integer fractions exact instead of rounding them before simplification. Fraction inputs use integer numerators and nonzero integer denominators; mixed numbers should first be written as improper fractions.",
+          "When comparing measurements in the ratio calculator, enter the precision you recorded. Converting a rounded reading to a fraction preserves that reading. It cannot recover digits that were never measured."
         ],
         "link": {sentence: "Use the {calculatorLink} to convert mixed numbers or perform fraction arithmetic.", href: "/fraction-calculator", label: "fraction calculator"}
       },
@@ -249,7 +256,8 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         "heading": "Does a 3:4 ratio mean 75%?",
         "paragraphs": [
           "It depends on the comparison. In a 3:4 ratio, the first quantity is 3 ÷ 4 = 75% of the second quantity. But the first quantity is 3 ÷ (3 + 4) ≈ 42.86% of the combined total, and the second is about 57.14%.",
-          "A part-to-part ratio compares the two quantities with each other. A part-to-whole fraction compares one quantity with their sum. Label the quantities before converting a ratio to a percentage."
+          "A part-to-part ratio compares the two quantities with each other. A part-to-whole fraction compares one quantity with their sum. Label the quantities before converting a ratio to a percentage.",
+          "In the ratio calculator, enter the two counts named in the question. In a class survey, comparing votes for two competing choices uses different inputs from comparing votes for one choice with all ballots cast."
         ],
         "link": {sentence: "For a known part and whole, use the {calculatorLink} to calculate the share of the total.", href: "/percent-calculator", label: "percentage calculator"}
       },
@@ -261,12 +269,14 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
           "Use matching units when comparing the same kind of measurement. For example, 1 m:50 cm becomes 100 cm:50 cm = 2:1. A ratio of 0:0 has no defined relationship and cannot be simplified."
         ],
         "link": {sentence: "To find the divisor for a whole-number ratio by itself, use the {calculatorLink}.", href: "/gcf-calculator", label: "greatest common factor calculator"}
-      }
+      },
+      ...ratioExamples,
     ]
   },
 
   'volume-calculator': {
-    modifiedAt: '2026-11-25',
+    publishedAt: '2026-10-23',
+    modifiedAt: '2026-11-28',
     quickLinks: [
       {href: '#volume-capacity', label: 'Tank capacity'},
       {href: '#tapered-planter', label: 'Tapered planter'},
@@ -308,6 +318,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         paragraphs: [
           'A rectangular tank measures 100 cm long, 50 cm wide, and 40 cm high on the inside. It holds 200 L to the brim. If the water sits 5 cm below the rim, enter 35 cm for Height. The water occupies 100 × 50 × 35 = 175,000 cm³, or 175 L.',
           'Each extra centimeter of water in this tank adds 5 L because the footprint stays the same. Water depth also works as the height of an upright cylinder. In a cylinder lying on its side, the width of the water surface changes as it fills. A partial fill in that position needs a circular segment calculation.',
+          'If there is an insert below the waterline, subtract its submerged volume from the space below that line. Use the volume calculator with the shape of the insert and keep both answers in the same unit.',
         ],
         figure: {
           id: 'solid-tank-waterline',
@@ -319,6 +330,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         heading: 'How much soil will fill a tapered planter?',
         paragraphs: [
           'A round pot with straight, sloping sides measures 20 cm across the inside base and 32 cm across the inside rim. It is 24 cm deep. You want to leave 4 cm at the top for watering. How much potting mix will reach the mark?',
+          'When using the volume calculator for a planter with a drainage layer, measure the radius at the top of that layer. It is the lower radius of the soil region. Measure the soil depth from there to the fill line.',
         ],
         figure: {
           id: 'solid-tapered-planter',
@@ -371,6 +383,7 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         ],
         link: {sentence: "For slabs and round columns with an extra-material allowance, use the {calculatorLink}.", href: "/concrete-calculator", label: "concrete calculator"},
       },
+      ...volumeExamples,
     ],
   },
   'surface-area-calculator': {

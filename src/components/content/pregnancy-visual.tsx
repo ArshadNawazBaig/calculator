@@ -24,7 +24,7 @@ export function PregnancyVisual({locale = 'en'}: {locale?: Locale}) {
       </div>
       <div className={styles.end}>{text.due}</div>
       <p className={styles.note}>{text.note}</p>
-      <a className={styles.source} href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date">{text.source}</a>
+      <a className={styles.source} href="https://www.acog.org/clinical/guidance/committee-opinion/2017/05/methods-for-estimating-the-due-date">{text.source}</a>
     </figure>
   </section>;
 }
