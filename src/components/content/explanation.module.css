@@ -1,7 +1,7 @@
 /* Editorial sections follow their host article's heading and spacing rules. */
 .panel { margin-block: 32px; min-width: 0; }
 .byline { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; color: var(--color-muted); font-size: 13px; }
-.byline a { color: var(--color-article-link); text-decoration: underline; text-underline-offset: 3px; }
+.byline a { color: var(--color-brand-text); text-decoration: underline; text-underline-offset: 3px; }
 :where(.panel) h2 { margin-block: 0 16px; color: var(--color-ink); font-size: 23px; line-height: 1.45; font-weight: 650; letter-spacing: -.5px; }
 :where(.panel) h3 { margin-block: 24px 12px; font-size: 17px; line-height: 1.5; font-weight: 650; }
 :where(.panel)>p { margin-block: 14px; color: var(--color-muted); font-size: 15px; line-height: 1.9; }
