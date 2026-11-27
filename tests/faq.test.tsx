@@ -9,7 +9,7 @@ import {generateMetadata} from '@/app/(en)/faq/page';
 import {languageAlternates} from '@/lib/metadata';
 import {site} from '@/lib/site';
 import translatedPages from '@/data/locales/translated-pages.json';
-import sitemap from '@/app/sitemap';
+import sitemap from '@/app/sitemaps/sitemap';
 
 describe('FAQ publishing', () => {
   it.each(locales)('%s has complete distinct answers and working internal destinations', async locale => {

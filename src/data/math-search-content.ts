@@ -17,6 +17,7 @@ type SearchContentSection = {
 };
 
 export type MathSearchContentEntry = {
+  publishedAt?: string;
   modifiedAt: string;
   quickLinks?: {href: string; label: string}[];
   answerHeading: string;
@@ -32,9 +33,10 @@ export type MathSearchContentEntry = {
 /** English editorial copy for the existing pages; examples are checked against the calculator engine. */
 export const mathSearchContent: Record<string, MathSearchContentEntry | undefined> = {
   'area-calculator': {
-    modifiedAt: '2026-11-15',
+    publishedAt: '2026-11-15',
+    modifiedAt: '2026-11-27',
     quickLinks: [{href: '#irregular-area', label: 'Irregular shapes'}, {href: '#land-area', label: 'Acres and hectares'}],
-    answerHeading: 'How do I calculate area?',
+    answerHeading: 'How to use the area calculator',
     answer: 'Area measures the space inside a flat shape. A rectangle uses length × width, a triangle uses base × perpendicular height ÷ 2, and a circle uses π × radius². Choose your shape, enter each dimension with its unit, select an area unit, then press Calculate. Results can use square feet, square meters, acres, or hectares.',
     tableHeading: 'Area formulas and examples by shape',
     tableIntroduction: 'Choose the shape that matches the measurements you know. There are eight shapes and a second triangle method for three known sides. In these formulas, h is perpendicular height, r is radius, and θ is the sector angle in degrees. For an ellipse, a and b are half the full axis lengths.',
@@ -67,9 +69,36 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         paragraphs: [
           'Draw the outline and split it into rectangles, triangles, or circular pieces without overlap. Calculate each piece using the same area unit, then add the results. For a cutout, subtract its area instead.',
           'For example, an L-shaped floor fits inside a 6 m × 4 m rectangle and has a 2 m × 1 m corner missing. The outer rectangle is 24 m² and the missing corner is 2 m², so the floor covers 24 − 2 = 22 m². Calculate the two rectangles separately; do not multiply the two longest sides and ignore the cutout.',
+          'For an arched window, split the glass where the straight sides meet the curve. If the lower rectangle is 2 m wide and 1.5 m high, it covers 3 m². A semicircle spanning that width has a radius of 1 m. Enter that radius and an angle of 180° in Sector mode, then add its area to the rectangle for about 4.57 m² of glass.',
           'This calculator uses dimensions you enter, rather than tracing a boundary on a map. For a four-sided plot without right angles or parallel bases, four side lengths alone are insufficient: you also need information such as a diagonal and triangle side lengths, an angle, or coordinates.',
         ],
         link: {sentence: "For flooring measurements and material estimates, see the {calculatorLink}.", href: "/square-footage-calculator", label: "square footage calculator"},
+      },
+      {
+        id: 'polygon-area',
+        heading: 'How do I find the area of a regular polygon, kite or rhombus?',
+        paragraphs: [
+          'Draw lines from the center of a regular polygon to its corners. The triangles have the same height, called the apothem, and their bases add up to the perimeter. The area is half the perimeter times the apothem. A regular hexagon with 4 m sides splits into 6 equilateral triangles. Enter 4 m for each side in Triangle from three sides, which uses Heron’s formula. Multiply the result by 6 to get about 41.57 m² for the hexagon.',
+          'For a kite or rhombus, measure both full diagonals from corner to corner. They cross at right angles, so the area is half their product. Diagonals of 8 m and 5 m give 20 m². For a trapezoid, use the two parallel sides and the perpendicular distance between them.',
+        ],
+      },
+      {
+        id: 'path-area',
+        heading: 'How much area does a border or path cover?',
+        paragraphs: [
+          'A path around a pond has two edges. Sketch the outside edge first, then shade the strip you want to cover. Run the calculator once for everything inside the outside edge and once for the pond. Subtract the pond from the larger area. Keep both answers in the same square unit so the difference gives the amount of paving.',
+          'For a round pond with a radius of 3 m and a path 1 m wide, the outside radius is 4 m. In Circle mode the outer disk covers 16π m² and the pond covers 9π m². The path covers 7π m², about 21.99 m². Measure both radii from the center. Using the path width as the radius would give the area of a small disk.',
+          'For a rectangular bed, the border adds width on both sides and length at both ends. An 8 m by 5 m bed with a half-meter border outside it has an outer rectangle of 9 m by 6 m. The paved area is 54 − 40 = 14 m². If the same border sits inside the original outline, the planted rectangle is 7 m by 4 m, so the paving covers 40 − 28 = 12 m². Mark which edge your tape followed before entering the dimensions.',
+        ],
+      },
+      {
+        id: 'scale-drawing-area',
+        heading: 'How do I find the floor area from a scale drawing?',
+        paragraphs: [
+          'Start with the scale printed on the plan. At a scale of 1:50, each centimeter on paper represents 50 cm in the room. A rectangle that measures 6 cm by 4 cm on the plan represents a floor 3 m long and 2 m wide. Choose Rectangle, enter those full-size dimensions in meters, and the result is 6 m².',
+          'You can also start from an area marked on the plan. The paper rectangle covers 24 cm². Each side of a square on the drawing grows by a factor of 50 in the room, so each square grows by 50 × 50. The floor covers 60,000 cm². Divide by 10,000 to check the same answer in square meters. Multiplying the paper area by the length factor just once misses the change along the other side.',
+          'If you resized a printout or zoomed a screenshot, use the scale bar on that copy. Measure the bar and the room in the same units. A wall that looks twice as long as a bar marked 2 m represents 4 m. A written dimension also provides a check. For flooring, trace the inside faces of the walls so the thickness of the walls stays outside the measured space.',
+        ],
       },
       {
         id: 'area-unit-conversion',
@@ -91,14 +120,33 @@ export const mathSearchContent: Record<string, MathSearchContentEntry | undefine
         link: {sentence: "For converting an area you already know, use the {calculatorLink}.", href: "/conversion-calculator", label: "unit conversion calculator"},
       },
       {
+        id: 'diagonal-area',
+        heading: 'Measuring a four-sided plot with a diagonal',
+        paragraphs: [
+          'A diagonal lets you measure a plot whose corners are hard to reach with a square. Sketch the boundary, mark the corners in order, and draw a straight line between two opposite corners. Choose a diagonal that lies inside the plot. It divides the sketch into two triangles. Record the two edge lengths on each side of that line and measure the line itself.',
+          'Suppose the first pair of boundary edges measures 3 m and 4 m, the next pair measures 12 m and 13 m, and the shared diagonal measures 5 m. Choose Triangle from three sides. Enter 3, 4 and 5 with meters selected. The first piece covers 6 m². For the other piece enter 5, 12 and 13 to get 30 m². Add the two areas for a total of 36 m².',
+          'Keep a mark on the sketch beside each piece as you add it. Both calculations use the diagonal, but the two pieces meet only along that line. If you change which pair of edges goes with the diagonal, you are measuring a different layout. For a boundary with more corners you can use the same approach, as long as your triangles fill the outline without overlapping.',
+        ],
+      },
+      {
         id: 'area-checks',
         heading: 'Check the result before using it',
         paragraphs: [
           'A circle with radius 3 m has area 9π ≈ 28.27 m². Entering its 6 m diameter as the radius would give four times the correct area. Similarly, an ellipse needs semi-axes, not its full width and height.',
           'Area and perimeter answer different questions. A 6 m × 4 m rectangle covers 24 m² but needs 20 m of edging around its boundary. Flooring uses area; fencing uses perimeter. Covering the outside of a three-dimensional object requires surface area.',
           'Keep unrounded values while combining pieces, then round the final total to suit your measurements. Extra decimal places do not make a tape measurement more accurate. A flooring or paint allowance is a separate decision from the geometric area.',
+          'You can see how much a rough measurement matters by trying its two limits. Suppose a room is 4 m wide and one end of the long wall is hidden by a cabinet. If the wall could be anywhere from 5 m to 5.1 m long, the floor could cover 20 m² to 20.4 m². The extra strip is the full room width times the uncertain length. A second measurement of that wall tells you more than another decimal place in the result.',
         ],
         link: {sentence: "For the outside of a box, cylinder, sphere, or other solid, use the {calculatorLink}.", href: "/surface-area-calculator", label: "surface area calculator"},
+      },
+      {
+        id: 'missing-dimension',
+        heading: 'How can I find a missing length from a known area?',
+        paragraphs: [
+          'Suppose you have 24 m² of ground cover and space for a bed 3 m wide. Divide the available area by the width to find a length of 8 m. To check the layout, enter the length and width in Rectangle mode. For a triangular bed with a 3 m base and the same area, multiply the area by two before dividing by the base. Its perpendicular height would be 16 m.',
+          'A square has equal sides, so take the square root of its area to get a side length. A square rug covering 36 ft² measures 6 ft along each side. For a round rug of the same area, first divide by π, then take the square root to get its radius in feet. Double the radius to get the full width you would measure across the rug. Enter the radius in Circle mode to check your answer.',
+          'When working backward, match the units before dividing. If the area is in square meters and the known side is in centimeters, convert that side to meters first. The missing side then comes out in meters. If all you know about a rectangle is its area, there are many possible layouts. Sketch the space and measure one edge to narrow it down, or specify that the shape is a square.',
+        ],
       },
     ],
   },

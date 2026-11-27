@@ -16,7 +16,7 @@ export function Header(){
   const {t}=useI18n();
   return <header className={`site-header ${styles.header}`} data-theme-surface="dark">
     <div className={`container ${styles.inner}`}>
-      <Logo/>
+      <Logo loading="eager"/>
       <nav aria-label={t('Main navigation')} className={styles.desktopNav}>
         {navigationLinks.map(({label,href,icon: NavIcon})=><Link key={href} href={href} className={href==='/workspace'?styles.workspaceLink:undefined} aria-current={isNavigationActive(pathname,href)?"page":undefined}>{href==='/workspace'&&<NavIcon size={16} aria-hidden="true"/>}{t(label)}</Link>)}
       </nav>

@@ -18,7 +18,7 @@ function postActionFailure(error: unknown, fallback: string): PostActionFailure 
 }
 
 function revalidatePostPages(slug: string | null, id?: string) {
-  for (const path of ['/blog', '/sitemap.xml', '/sitemap', '/admin', '/admin/posts']) revalidatePath(path);
+  for (const path of ['/blog', '/sitemap.xml', '/sitemap-en.xml', '/sitemap', '/admin', '/admin/posts']) revalidatePath(path);
   if (slug) revalidatePath(`/blog/${slug}`);
   if (id) {
     revalidatePath(`/admin/posts/${id}`);

@@ -134,11 +134,16 @@ const random=defs.find(d=>d.slug==='random-number-generator')!.modes[0];random.a
 
 const volumeUnits:[string,string][]=lengthUnits.map(([value,label])=>[value,`Cubic ${label.toLowerCase()}`]);
 const surfaceAreaUnits=areaUnits.filter(([value])=>lengthUnits.some(([lengthValue])=>lengthValue===value));
+// Shared selector options are serialized once across the shape modes.
+const dimensionUnit = s('lengthUnit', 'Length unit', lengthUnits, 'm');
 for(const slug of ['area-calculator','volume-calculator','surface-area-calculator']){
+ const outputUnit = slug === 'area-calculator' ? s('outputUnit', 'Area unit', areaUnits, 'm')
+   : slug === 'volume-calculator' ? s('outputUnit', 'Volume unit', volumeUnits, 'm')
+   : s('outputUnit', 'Surface area unit', surfaceAreaUnits, 'm');
  for(const m of defs.find(d=>d.slug===slug)!.modes){
   const dimensions=m.fields.filter(f=>f.type==='number'&&!['angle','A','B'].includes(f.key));
-  m.fields=m.fields.flatMap(f=>dimensions.includes(f)?[f,s(`${f.key}Unit`,`${f.label} unit`,lengthUnits,'m')]:[f]);
-  m.fields.push(slug==='area-calculator'?s('outputUnit','Area unit',areaUnits,'m'):slug==='volume-calculator'?s('outputUnit','Volume unit',volumeUnits,'m'):s('outputUnit','Surface area unit',surfaceAreaUnits,'m'));
+  m.fields=m.fields.flatMap(f=>dimensions.includes(f)?[f,{...dimensionUnit,key:`${f.key}Unit`,label:`${f.label} unit`}]:[f]);
+  m.fields.push(outputUnit);
   m.explanation+=slug==='area-calculator'?' Enter positive dimensions and choose a unit for each measurement. Lengths are converted before calculating area; choose square units, acres, or hectares for the result.':` Enter positive dimensions and choose a unit for each measurement. Lengths are converted before calculating; the ${slug==='volume-calculator'?'volume':'surface area'} result uses the selected ${slug==='volume-calculator'?'cubic':'square'} unit.`;
  }
 }

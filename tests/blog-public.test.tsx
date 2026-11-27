@@ -18,7 +18,7 @@ vi.mock('next/navigation',()=>({notFound:()=>{throw Error('NEXT_NOT_FOUND');}}))
 import BlogPage,{generateMetadata as indexMetadata} from '@/app/(en)/blog/page';
 import PostPage,{generateMetadata as postMetadata} from '@/app/(en)/blog/[slug]/page';
 import {BlogUnavailableError} from '@/lib/server/blog';
-import sitemap,{dynamic} from '@/app/sitemap';
+import sitemap,{dynamic} from '@/app/sitemaps/sitemap';
 
 const originalIndexing=site.indexable;
 const post:BlogPost={id:'post-1',slug:'understanding-a-result',title:'Understanding a result',excerpt:'Check the units and assumptions before deciding what comes next.',content:'# A useful example\n\nUse the [percentage calculator](/percent-calculator).',category:'Math',coverImageUrl:'/og.png',coverImageAlt:'Finflo calculator example',seoTitle:'Understanding calculation results',seoDescription:'A practical example of checking units, rounding and assumptions.',status:'published',authorId:'author-1',authorName:'Actual author',publishedAt:'2026-11-01T09:00:00.000Z',createdAt:'2026-10-31T08:00:00.000Z',updatedAt:'2026-11-09T10:30:00.000Z',version:2};

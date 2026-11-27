@@ -58,7 +58,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await page.getByRole('button', {name: 'Write', exact: true}).click();
       await expect(page.getByText('All changes saved', {exact: true})).toBeVisible();
       expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(404);
-      expect(await (await publicRequest.get('/sitemap.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
+      expect(await (await publicRequest.get('/sitemap-en.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
 
       const competingEditor = await context.newPage();
       await competingEditor.goto(`${baseURL}${editorPath}`);
@@ -100,7 +100,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       expect(await publicPage.evaluate(() => '__blogXss' in globalThis)).toBe(false);
       const firstPublication = await publicPage.locator('article time').first().getAttribute('datetime');
       expect(firstPublication).toBeTruthy();
-      const publishedSitemap = await (await publicRequest.get('/sitemap.xml')).text();
+      const publishedSitemap = await (await publicRequest.get('/sitemap-en.xml')).text();
       expect(publishedSitemap.includes(`/blog/${slug}</loc>`)).toBe(process.env.TEST_INDEXABLE === 'true');
       expect(await (await publicRequest.get('/sitemap')).text()).toContain(`href="/blog/${slug}"`);
       expect(await (await publicRequest.get('/blog')).text()).toContain(editedTitle);
@@ -113,7 +113,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await page.getByRole('button', {name: 'Unpublish', exact: true}).click();
       await expect(page.getByRole('status')).toContainText('It is no longer public.');
       expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(404);
-      expect(await (await publicRequest.get('/sitemap.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
+      expect(await (await publicRequest.get('/sitemap-en.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
       expect(await (await publicRequest.get('/blog')).text()).not.toContain(editedTitle);
       await expect(page.locator('input[name="slug"]')).toHaveAttribute('readonly', '');
 
@@ -146,7 +146,7 @@ test.describe.serial('disposable blog publishing workflow', () => {
       await expect(articleRow).toHaveCount(0);
       expect((await publicRequest.get(`/blog/${slug}`)).status()).toBe(404);
       expect(await (await publicRequest.get('/blog')).text()).not.toContain(editedTitle);
-      expect(await (await publicRequest.get('/sitemap.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
+      expect(await (await publicRequest.get('/sitemap-en.xml')).text()).not.toContain(`/blog/${slug}</loc>`);
       expect(await (await publicRequest.get('/sitemap')).text()).not.toContain(`href="/blog/${slug}"`);
       expect((await page.request.get(`${baseURL}${editorPath}/preview`)).status()).toBe(404);
       await page.getByRole('button', {name: 'Sign out', exact: true}).click();

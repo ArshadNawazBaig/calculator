@@ -7,7 +7,7 @@
 .trigger:hover { color: var(--color-brand-text-strong); }
 .trigger:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 3px; }
 .title { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.icon { flex-shrink: 0; color: var(--color-brand-text); transition: transform .16s ease; }
+.icon { display: grid; place-items: center; flex: 0 0 20px; height: 20px; color: var(--color-brand-text); font: 22px/1 Arial, sans-serif; transition: transform .16s ease; }
 .item[open]>.trigger>.icon { transform: rotate(45deg); }
 .content { min-width: 0; padding-bottom: 24px; color: var(--color-muted); font-size: 14px; line-height: 1.85; }
 .item>.content>p { font-size: inherit; line-height: inherit; }

@@ -60,6 +60,8 @@ Pass `caret: 'initial'` to Playwright page and locator screenshots: the default 
 
 `publishedLocales` in `src/lib/i18n/config.ts` enables all eight supported languages. English uses unprefixed URLs; other languages use `/es`, `/fr`, `/de`, `/pt`, `/ar`, `/hi` and `/tl`. Language switching preserves the current page, query, fragment and browser preferences. The menu also supports translated search, workspace and status pages, which remain outside the sitemap. `npm run i18n:check` requires every enabled dictionary to contain the current source messages and preserve placeholders, numbers and formulas. Update translations whenever English content changes, then regenerate the message manifests with `npm run i18n:check -- --all-locales --write-manifests`.
 
+On an indexable build, `/sitemap.xml` lists one sitemap per published language. The English sitemap at `/sitemap-en.xml` also includes published blog posts.
+
 - [Coverage manifest](docs/audit/coverage-manifest.json) and [captured competitor controls](docs/audit/catalog.json)
 - [Architecture and design](docs/architecture.md)
 - [Languages and translation coverage](docs/internationalization.md)

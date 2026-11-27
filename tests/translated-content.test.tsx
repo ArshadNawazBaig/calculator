@@ -8,7 +8,7 @@ import {blocked, definitionMap, isIndexableTool} from '@/lib/calculators/registr
 import {calculate} from '@/lib/calculators/engine';
 import {defaults} from '@/lib/calculators/types';
 import {site} from '@/lib/site';
-import sitemap from '@/app/sitemap';
+import sitemap from '@/app/sitemaps/sitemap';
 import {languageAlternates, pageMetadata} from '@/lib/metadata';
 import translatedPages from '@/data/locales/translated-pages.json';
 import vehiclePolicy from '@/data/vehicle-tax-2026.json';

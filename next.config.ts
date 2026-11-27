@@ -11,6 +11,17 @@ const config: NextConfig = {
     cssChunking: {type: "graph", requestCost: 12000},
     turbopackChunking: {minChunkSize: 30000, maxChunkCountPerGroup: 8},
   },
+  async rewrites() {
+    // Publish each language sitemap at the root so it can list every page in that language.
+    return [{source: '/sitemap-:language([a-z]{2}).xml', destination: '/sitemaps/sitemap/:language.xml'}];
+  },
+  async headers() {
+    return [{
+      source: '/:path*',
+      has: [{type: 'host', value: 'finflo\\.org'}],
+      headers: [{key: 'Strict-Transport-Security', value: 'max-age=2592000'}],
+    }];
+  },
   async redirects() {
     return [
       {

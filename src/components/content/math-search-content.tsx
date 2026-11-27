@@ -2,10 +2,23 @@ import Link from '@/components/document-link';
 import {Fragment} from 'react';
 import {languages, localizedPath, translator, type Dictionary, type Locale} from '@/lib/i18n/config';
 import {mathSearchContent} from '@/data/math-search-content';
+import {site} from '@/lib/site';
 import {SolidShapeDiagram} from '@/components/calculators/solid-shape-diagram';
 import {AreaShapeDiagram} from '@/components/calculators/area-shape-diagram';
 import {ContentIllustration} from '@/components/illustrations/content-illustration';
 import styles from './explanation.module.css';
+
+function guideDate(date: string, locale: Locale = 'en') {
+  return new Intl.DateTimeFormat(languages[locale].tag, {dateStyle: 'long', timeZone: 'UTC'}).format(new Date(`${date}T00:00:00Z`));
+}
+
+export function MathGuideByline({publishedAt, modifiedAt}: {publishedAt: string; modifiedAt: string}) {
+  return <p className={styles.byline}>
+    <span>By <Link href="/about" rel="author">{site.name}</Link></span>
+    <span>Published <time dateTime={publishedAt}>{guideDate(publishedAt)}</time></span>
+    <span>Updated <time dateTime={modifiedAt}>{guideDate(modifiedAt)}</time></span>
+  </p>;
+}
 
 /** Keep this component on the server so the direct answer is in the initial HTML. */
 export function MathSearchAnswer({slug, messages = {}}: {slug: string; messages?: Dictionary}) {
@@ -47,7 +60,7 @@ export function MathSearchContent({slug, messages = {}, locale = 'en'}: {slug: s
     </section>
     {content.sections.map(section => <section key={section.id} id={section.id} className={styles.panel} aria-labelledby={`${section.id}-heading`}>
       <h2 id={`${section.id}-heading`}>{t(section.heading)}</h2>
-      {section.paragraphs.map((paragraph, index) => <Fragment key={paragraph}>
+      {section.paragraphs.map((paragraph, index) => <Fragment key={index}>
         <p>{t(paragraph)}</p>
         {index === 0 && section.figure && <figure className={styles.exampleFigure}>
           <ContentIllustration id={section.figure.id} messages={messages} sizes="auto, (max-width: 720px) calc(100vw - 36px), 680px"/>
@@ -59,6 +72,6 @@ export function MathSearchContent({slug, messages = {}, locale = 'en'}: {slug: s
       </ol>}
       {section.link && <p>{t(section.link.sentence).split('{calculatorLink}').map((part, index) => <Fragment key={index}>{index > 0 && <Link href={localizedPath(section.link!.href, locale)}>{t(section.link!.label)}</Link>}{part}</Fragment>)}</p>}
     </section>)}
-    {illustrated && <p className="editorial-note">{t('Content and calculation examples updated')} <time dateTime={content.modifiedAt}>{new Intl.DateTimeFormat(languages[locale].tag, {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'}).format(new Date(`${content.modifiedAt}T00:00:00Z`))}</time>.</p>}
+    {illustrated && !(locale === 'en' && content.publishedAt) && <p className="editorial-note">{t('Content and calculation examples updated')} <time dateTime={content.modifiedAt}>{guideDate(content.modifiedAt, locale)}</time>.</p>}
   </div>;
 }

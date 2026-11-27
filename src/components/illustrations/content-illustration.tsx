@@ -5,7 +5,7 @@ import {translator, type Dictionary} from '@/lib/i18n/config';
 type Illustration = {src: string; width: number; height: number; alt: string};
 const assets = illustrations as Record<string, Illustration>;
 
-export function ContentIllustration({id, alt, compact = false, messages = {}, className, sizes = 'auto, 240px'}: {
+export function ContentIllustration({id, alt, compact = false, messages = {}, className, sizes}: {
   id: string; alt?: string; compact?: boolean; messages?: Dictionary; className?: string; sizes?: string;
 }) {
   const asset = assets[id];

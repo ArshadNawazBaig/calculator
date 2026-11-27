@@ -1,7 +1,7 @@
 vi.mock('@/lib/server/blog',()=>({getPublishedPostSitemapEntries:async()=>[]}));
 import {afterEach, describe, expect, it, vi} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
-import sitemap from '@/app/sitemap';
+import sitemap from '@/app/sitemaps/sitemap';
 import {StudentTools} from '@/components/content/student-tools';
 import {calculate} from '@/lib/calculators/engine';
 import {definitionMap, relatedTools, toolMap} from '@/lib/calculators/registry';

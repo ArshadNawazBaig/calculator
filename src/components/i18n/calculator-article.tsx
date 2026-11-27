@@ -10,8 +10,7 @@ import {MethodNavigation} from '@/components/content/method-navigation';
 import Link from './link';
 import {CalculatorGuidance} from '@/components/content/calculator-guidance';
 import {RelatedGuides} from '@/components/content/related-guides';
-import {Accordion, AccordionItem} from '@/components/ui/accordion';
-import content from '@/data/calculator-content.json';
+import {CalculatorQuestions} from '@/components/content/calculator-questions';
 import catalog from '@/data/catalog.json';
 import {type Definition, type Result} from '@/lib/calculators/types';
 import {WorkedExample} from '@/components/content/worked-example';
@@ -25,7 +24,6 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
   const reference = mathSearchContent[definition.slug];
   const illustratedReference = Boolean(reference) && ['area-calculator','volume-calculator','surface-area-calculator'].includes(definition.slug);
   const referenceModes = new Set(illustratedReference ? reference!.rows.map(row => row.id) : []);
-  const entry=(content as Record<string,{faqs:{question:string;answer:string}[]}>)[definition.slug];
   return <article className="document-body">
     <MathSearchAnswer slug={definition.slug} messages={messages}/>
     <ToolkitSummary slug={definition.slug} messages={messages}/>
@@ -50,7 +48,7 @@ export function CalculatorArticle({definition, initial, currency, messages, loca
       <ul>{definition.sources.map(source=><li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{t(source.title)}<span className="sr-only"> {t('(opens in a new tab)')}</span></a></li>)}</ul>
       <p>{t('References explain the underlying methods; they do not imply endorsement or individual professional review of Finflo.')}</p>
     </section>}
-    {!!entry?.faqs.length&&<section id="common-questions"><h2>{t('Common questions')}</h2><Accordion>{entry.faqs.map(faq=><AccordionItem key={faq.question} title={t(faq.question)}><p>{t(faq.answer)}</p></AccordionItem>)}</Accordion></section>}
+    <CalculatorQuestions slug={definition.slug} messages={messages} locale={locale}/>
     <ToolkitArticleData definition={definition} messages={messages} locale={locale}/>
     <p className="editorial-note">{t('Prepared by Finflo.')} <Link href="/methodology">{t('Our methodology')}</Link> · <Link href="/editorial-policy">{t('Editorial policy')}</Link> · <Link href="/disclaimer">{t('Disclaimer')}</Link></p>
   </article>;

@@ -21,21 +21,19 @@ describe('server-rendered editorial guidance', () => {
     expect(formatExampleResult('1, 2, 3', 'fr')).toBe('1, 2, 3');
   });
 
-  it('prints the same localized result in each explanation and its worked table', async () => {
+  it.each(locales)('prints matching results in the %s explanation and worked table', async locale => {
     const examples = [
       ['mortgage-calculator', '1,738.92'],
       ['401k-calculator', '29,339.71'],
       ['bmi-calculator', '22.86'],
     ] as const;
-    for (const locale of locales) {
-      const messages = await getContentDictionary(locale);
-      for (const [slug, amount] of examples) {
-        const paragraph = content[slug].sections[1].paragraphs[0];
-        const printed = formatExampleResult(amount, locale);
-        expect(messages[paragraph] ?? paragraph, `${locale}/${slug}`).toContain(printed);
-        const html = renderToStaticMarkup(<CalculatorGuidance slug={slug} locale={locale} messages={messages}/>);
-        expect(html).toContain(`<bdi dir="ltr">${printed}</bdi>`);
-      }
+    const messages = await getContentDictionary(locale);
+    for (const [slug, amount] of examples) {
+      const paragraph = content[slug].sections[1].paragraphs[0];
+      const printed = formatExampleResult(amount, locale);
+      expect(messages[paragraph] ?? paragraph, `${locale}/${slug}`).toContain(printed);
+      const html = renderToStaticMarkup(<CalculatorGuidance slug={slug} locale={locale} messages={messages}/>);
+      expect(html).toContain(`<bdi dir="ltr">${printed}</bdi>`);
     }
   });
 

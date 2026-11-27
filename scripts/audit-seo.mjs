@@ -35,16 +35,30 @@ const fetchPage = (path, freshConnection = false) => new Promise((resolve,reject
 });
 try {
   const parser = await browser.newPage();
-  const sitemapResponse = await fetchPage('/sitemap.xml');
-  if(sitemapResponse.status!==200) throw Error(`Sitemap HTTP ${sitemapResponse.status}`);
-  const entries = await parser.evaluate(xml=>{
-    const doc = new DOMParser().parseFromString(xml,'application/xml');
-    if(doc.querySelector('parsererror')) throw Error('Invalid sitemap XML');
-    return [...doc.getElementsByTagName('url')].map(node=>({
-      url:node.getElementsByTagName('loc')[0]?.textContent,
-      alternates:Object.fromEntries([...node.getElementsByTagNameNS('http://www.w3.org/1999/xhtml','link')].map(link=>[link.getAttribute('hreflang'),link.getAttribute('href')])),
-    }));
-  },await sitemapResponse.text());
+  async function readSitemap(path) {
+    const response = await fetchPage(path);
+    if (response.status !== 200) throw Error(`Sitemap ${path} returned HTTP ${response.status}`);
+    return parser.evaluate(xml => {
+      const doc = new DOMParser().parseFromString(xml, 'application/xml');
+      if (!['urlset', 'sitemapindex'].includes(doc.documentElement.localName)) throw Error('Invalid sitemap XML');
+      return {
+        children: [...doc.querySelectorAll('sitemap > loc')].map(node => node.textContent),
+        entries: [...doc.getElementsByTagName('url')].map(node => ({
+          url: node.getElementsByTagName('loc')[0]?.textContent,
+          alternates: Object.fromEntries([...node.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')].map(link => [link.getAttribute('hreflang'), link.getAttribute('href')])),
+        })),
+      };
+    }, await response.text());
+  }
+  const root = await readSitemap('/sitemap.xml');
+  const entries = root.entries;
+  for (const child of root.children) {
+    const url = new URL(child);
+    if (url.origin !== canonical.origin) throw Error(`Unexpected sitemap origin: ${url.origin}`);
+    const sitemap = await readSitemap(url.pathname + url.search);
+    if (sitemap.children.length) throw Error(`Nested sitemap index: ${child}`);
+    entries.push(...sitemap.entries);
+  }
   if(!entries.length) throw Error('Empty sitemap. Build with NEXT_PUBLIC_INDEXABLE=true before auditing production SEO.');
   const urls = new Set(entries.map(entry=>entry.url));
   if(urls.size!==entries.length) errors.push('Duplicate sitemap URLs');

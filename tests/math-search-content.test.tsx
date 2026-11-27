@@ -90,6 +90,31 @@ describe('published formula examples agree with the working calculator', () => {
     expect(joined.metrics[0].value).toBe(10);
   });
 
+  it('checks the composite areas and scale drawing against the published guide', async () => {
+    const sections = mathSearchContent['area-calculator']!.sections;
+    const area = async (mode: string, values: Values) => Number((await run('area-calculator', mode, values)).metrics[0].value);
+    const rectangle = (length: number, width: number) => area('rectangle', {a: String(length), b: String(width)});
+    const outerCircle = await area('circle', {r: '4'});
+    const pond = await area('circle', {r: '3'});
+    const window = await rectangle(2, 1.5) + await area('sector', {r: '1', angle: '180'});
+    const firstPlot = await area('triangle-sss', {a: '3', b: '4', c: '5'});
+    const secondPlot = await area('triangle-sss', {a: '5', b: '12', c: '13'});
+    const expectedAreas = [
+      ['path-area', outerCircle - pond],
+      ['path-area', await rectangle(9, 6) - await rectangle(8, 5)],
+      ['path-area', await rectangle(8, 5) - await rectangle(7, 4)],
+      ['irregular-area', window],
+      ['diagonal-area', firstPlot + secondPlot],
+      ['polygon-area', 6 * await area('triangle-sss', {a: '4', b: '4', c: '4'})],
+      ['polygon-area', await area('triangle', {a: '8', b: '5'})],
+      ['scale-drawing-area', await rectangle(6 * 50 / 100, 4 * 50 / 100)],
+    ] as const;
+    for (const [id, squareMeters] of expectedAreas) {
+      const text = sections.find(section => section.id === id)!.paragraphs.join(' ');
+      expect(text).toContain(`${squareMeters.toLocaleString('en-US', {maximumFractionDigits: 2})} m²`);
+    }
+  });
+
   it('matches the planter, waterline, and pipe examples to the calculator output', async () => {
     const sections = mathSearchContent['volume-calculator']!.sections;
     const planter = sections.find(section => section.id === 'tapered-planter')!;

@@ -13,7 +13,7 @@ import {getDictionary} from '@/lib/i18n/dictionaries';
 import {locales, localizedPath, publishedPageLocales} from '@/lib/i18n/config';
 import {pageMetadata, socialImage} from '@/lib/metadata';
 import {site} from '@/lib/site';
-import sitemap from '@/app/sitemap';
+import sitemap from '@/app/sitemaps/sitemap';
 
 vi.mock('@/lib/server/blog', () => ({getPublishedPostSitemapEntries: async () => []}));
 

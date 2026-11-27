@@ -59,9 +59,16 @@ test('public navigation and sitemap only advertise published language versions',
   await expect(page.locator('link[rel="alternate"][hreflang]')).toHaveCount(publishedLocales.length+1);
   const response=await request.get('/sitemap.xml');
   expect(response.status()).toBe(200);
-  const sitemap=await response.text();
-  expect(sitemap).toContain('https://finflo.org/guides/comparing-discounts-and-percentage-changes');
-  for(const locale of publishedLocales)expect(sitemap).toContain(`https://finflo.org${localizedPath('/mortgage-calculator',locale)}`);
+  const index = await response.text();
+  const listed = await page.evaluate(xml => [...new DOMParser().parseFromString(xml, 'application/xml').querySelectorAll('sitemap > loc')].map(node => node.textContent), index);
+  expect(listed).toEqual(publishedLocales.map(locale => `https://finflo.org/sitemap-${locale}.xml`));
+  for (const [i, url] of listed.entries()) {
+    const child = await request.get(new URL(url!).pathname);
+    expect(child.status()).toBe(200);
+    const xml = await child.text();
+    expect(xml).toContain(`<loc>https://finflo.org${localizedPath('/mortgage-calculator', publishedLocales[i])}</loc>`);
+    if (publishedLocales[i] === 'en') expect(xml).toContain('<loc>https://finflo.org/guides/comparing-discounts-and-percentage-changes</loc>');
+  }
 });
 
 test('privacy claims match the advertising behavior on published pages',async({page})=>{

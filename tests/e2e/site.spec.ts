@@ -51,11 +51,12 @@ test('new logo and sharing assets load across page templates',async({page,reques
   for(const [path,asset] of [['/','/og.png'],['/mortgage-calculator','/illustrations/calculators/mortgage-calculator-social.jpg'],['/bmi-calculator','/illustrations/calculators/bmi-calculator-social.jpg']]){
     await page.goto(path);
     const logo = page.locator('header .logo img:visible');
-    await expect(logo).toHaveAttribute('loading', 'lazy');
+    await expect(logo).toHaveAttribute('loading', 'eager');
+    await expect(page.locator('footer .logo img')).toHaveAttribute('loading', 'lazy');
     await expect.poll(() => logo.evaluate(img => img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0)).toBe(true);
     const source = new URL(await logo.evaluate(img => (img as HTMLImageElement).currentSrc));
     expect(source.pathname).toBe('/_next/image');
-    expect(source.searchParams.get('url')).toMatch(/^\/finflo-logo-(light|dark)\.webp$/);
+    expect(source.searchParams.get('url')).toBe('/finflo-logo-dark.webp');
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://finflo.org'+asset);
     expect((await request.get(asset)).ok()).toBe(true);
