@@ -65,6 +65,31 @@ test('shape links restore their mode and reject impossible geometry', async ({pa
   await expect(page.getByRole('button', {name: 'Sector', exact: true})).toHaveAttribute('aria-pressed', 'true');
 });
 
+test('area calculator keyword density is at least 0.58% in the initial HTML', async ({request, page}) => {
+  const response = await request.get('/area-calculator');
+  await expect(response).toBeOK();
+  const {exactUses, contentWords} = await page.evaluate(html => {
+    const {body} = new DOMParser().parseFromString(html, 'text/html');
+    body.querySelectorAll([
+      'header, nav, footer, aside, [role="navigation"], [role="banner"], [role="contentinfo"], .site-header, .site-footer',
+      'script, style, noscript, template, svg, iframe, canvas, object',
+    ].join(', ')).forEach(element => element.remove());
+    // Keep adjacent content blocks and controls from merging into a single word.
+    body.querySelectorAll([
+      'p, div, li, ul, ol, h1, h2, h3, h4, h5, h6, td, th, tr, section, article, main',
+      'br, a, button, label, blockquote, figcaption, dt, dd, option',
+    ].join(', ')).forEach(element => element.append(' '));
+    const text = body.textContent ?? '';
+    return {
+      exactUses: text.match(/(?<![\p{L}\p{N}])area[\s_-]+calculator(?![\p{L}\p{N}])/giu)?.length ?? 0,
+      contentWords: text.match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu)?.length ?? 0,
+    };
+  }, await response.text());
+  // The audit counts both words of “area calculator” toward the percentage.
+  const densityPercent = (exactUses * 2 / contentWords) * 100;
+  expect(densityPercent).toBeGreaterThanOrEqual(0.58);
+});
+
 test('area diagrams, formula links and land guidance are available without JavaScript', async ({browser, baseURL}) => {
   const context = await browser.newContext({javaScriptEnabled: false, baseURL});
   try {
