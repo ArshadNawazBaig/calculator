@@ -1,3 +1,4 @@
+import molecularWeight from './guides/molecular-weight.json';
 import pregnancyDating from './guides/pregnancy-dating.json';
 import ratioExamples from './guides/ratio-examples.json';
 import volumeExamples from './guides/volume-examples.json';
@@ -36,6 +37,7 @@ export type MathSearchContentEntry = {
 
 /** English editorial copy for the existing pages; examples are checked against the calculator engine. */
 export const mathSearchContent: Record<string, MathSearchContentEntry | undefined> = {
+  'molecular-weight-calculator': molecularWeight,
   'pregnancy-calculator': pregnancyDating,
   'area-calculator': {
     publishedAt: '2026-11-15',

@@ -1,0 +1,177 @@
+{
+  "publishedAt": "2026-11-15",
+  "modifiedAt": "2026-11-28",
+  "quickLinks": [
+    {
+      "href": "#hydrate-formula",
+      "label": "Hydrate example"
+    },
+    {
+      "href": "#mass-and-moles",
+      "label": "Grams and moles"
+    }
+  ],
+  "answerHeading": "How does the molecular weight calculator read a formula?",
+  "answer": "Enter the symbols and atom counts for one chemical formula, then select Calculate. The molecular weight calculator multiplies each atom count by the stored atomic weight for that element and adds the contributions. For water, enter H2O. The result table shows two hydrogen atoms and one oxygen atom. The total gives the mass in grams of one mole of water. Use plain digits for subscripts when copying a formula from a label.",
+  "tableHeading": "What molar mass should I get for a familiar compound?",
+  "tableIntroduction": "Choose Custom formula to try any entry in the example inputs column. The arithmetic column shows how the atom counts turn into a total. A ready-made group, such as water in a hydrate, can also be added as a single term if you already know its molar mass. The results below use the same stored atomic weights as the calculator and are rounded to two decimal places.",
+  "tableCaption": "Molar masses for one mole of each formula as written. You can type the example inputs directly into the formula field.",
+  "firstColumn": "Compound",
+  "rows": [
+    {
+      "id": "water",
+      "label": "Water",
+      "formula": "2 × 1.008 + 15.999",
+      "example": "H2O",
+      "result": "18.02 g/mol"
+    },
+    {
+      "id": "sodium-chloride",
+      "label": "Sodium chloride",
+      "formula": "22.9897693 + 35.45",
+      "example": "NaCl",
+      "result": "58.44 g/mol"
+    },
+    {
+      "id": "calcium-carbonate",
+      "label": "Calcium carbonate",
+      "formula": "40.08 + 12.011 + 3 × 15.999",
+      "example": "CaCO3",
+      "result": "100.09 g/mol"
+    },
+    {
+      "id": "ethanol",
+      "label": "Ethanol",
+      "formula": "2 × 12.011 + 6 × 1.008 + 15.999",
+      "example": "C2H5OH",
+      "result": "46.07 g/mol"
+    },
+    {
+      "id": "glucose",
+      "label": "Glucose",
+      "formula": "6 × 12.011 + 12 × 1.008 + 6 × 15.999",
+      "example": "C6H12O6",
+      "result": "180.16 g/mol"
+    },
+    {
+      "id": "calcium-phosphate",
+      "label": "Calcium phosphate",
+      "formula": "3 × 40.08 + 2 × 30.973762 + 8 × 15.999",
+      "example": "Ca3(PO4)2",
+      "result": "310.18 g/mol"
+    },
+    {
+      "id": "epsom-salt",
+      "label": "Magnesium sulfate heptahydrate",
+      "formula": "120.371 + 7 × 18.015",
+      "example": "MgSO4·7H2O",
+      "result": "246.48 g/mol"
+    }
+  ],
+  "sections": [
+    {
+      "id": "read-the-formula",
+      "heading": "What does one mole refer to?",
+      "paragraphs": [
+        "Start with the formula on the label or in the question. Circle the thing you want to count. For water that is a molecule. For a crystal of sodium chloride it is a formula unit, the smallest whole-number ratio of sodium to chloride ions. A mole can count either kind of entity. Naming the entity makes a difference when you describe the answer. One mole of water molecules contains two moles of hydrogen atoms as well as one mole of oxygen atoms.",
+        "Try a second example with oxygen. Enter O in the molecular weight calculator and the atom count is one. Enter O2 and the oxygen row now shows two atoms. The two totals are 15.999 and 31.998 g/mol before rounding. A question about a mole of oxygen gas normally refers to the paired atoms in O2. A question asking how many moles of oxygen atoms are present in a compound uses the atom count instead.",
+        "You can check which meaning a worksheet intends by writing the formula next to the word mole. For a bottle labeled sodium chloride, write moles of NaCl. For the oxygen present in water, write moles of O atoms. That small change tells you whether to read the whole formula or just one row of the breakdown."
+      ]
+    },
+    {
+      "id": "condensed-formula",
+      "heading": "How do repeated symbols affect the atom count?",
+      "paragraphs": [
+        "A condensed formula sometimes keeps atoms in separate groups so that you can see where they sit in a molecule. Ethanol is often written C2H5OH. Read it from left to right. The first H has a five after it. The last H has no number, so it contributes one more hydrogen. The O between them contributes one oxygen. Keeping a tally by element gives two carbons, six hydrogens and one oxygen.",
+        "Enter C2H5OH in the molecular weight calculator and check the hydrogen row. All six hydrogen atoms should appear together. Then enter C2H6O. Both entries give 46.069 g/mol before rounding because the two lists of atoms match. You can use this check when a reference lists a formula in a different order. Compare the counts for each element before trying to explain a difference in mass.",
+        "The order can still carry a clue about the substance. Ethanol and dimethyl ether have the same molecular formula, although their atoms have different connections. This calculation uses only the total for each element. To identify which substance a label describes, keep the name or structure with the formula. A matching molar mass by itself cannot distinguish substances that share the same atom counts."
+      ]
+    },
+    {
+      "id": "group-counts",
+      "heading": "Follow the multiplier outside a group",
+      "paragraphs": [
+        "For calcium phosphate, start with Ca3(PO4)2. The calcium is outside the parentheses, so its count stays at three. Inside the group there is one phosphorus and four oxygens. The number after the closing parenthesis applies to both of them. On paper, draw a line from that number to each symbol in the group. Your tally should show three calcium atoms, two phosphorus atoms and eight oxygen atoms.",
+        "Before you add any masses, enter that formula in the molecular weight calculator and compare each row with your tally. The eight oxygens contribute 127.992 g/mol using the stored value. If your hand calculation contains only four oxygens, look at the reach of the multiplier. If you have six calcium atoms, the multiplier has traveled too far in the other direction. Those checks tell you where to look even when the final total is unfamiliar.",
+        "For a formula with several levels of brackets, start with the innermost group. Write its counts on a new line, apply its multiplier, then carry those counts into the next level. Keep a separate line for atoms outside the brackets. The sequence gives you a way to explain your result to someone who used an expanded formula. Both versions should have the same final inventory."
+      ]
+    },
+    {
+      "id": "hydrate-formula",
+      "heading": "Which mass belongs to a hydrated salt?",
+      "paragraphs": [
+        "Magnesium sulfate can be listed on a label with or without water of crystallization. For the anhydrous salt, enter MgSO4. Its mass is 120.371 g/mol with this table. For the heptahydrate, enter MgSO4·7H2O. The dot separates the salt from the water that belongs to the crystal formula. The seven applies to the complete water group. Read that part as seven lots of two hydrogens and one oxygen.",
+        "The molecular weight calculator combines oxygen from both parts into a single row. Four oxygen atoms come from sulfate and seven more from water. The finished formula contains eleven oxygens and fourteen hydrogens for each magnesium and sulfur. A hand check is to add seven water masses to the mass of the anhydrous salt. The water adds 126.105 g/mol, bringing the total to 246.476 g/mol. The difference between the two salt entries is exactly the water contribution under the same mass convention.",
+        "A label that says only magnesium sulfate leaves an important question open if the exercise depends on which solid was weighed. Look for a hydrate name or a formula beside the mass. Keep that wording with your calculation. Water already counted in the crystal formula belongs in the solid's molar mass. Water later used as a solvent is a separate quantity."
+      ],
+      "link": {
+        "sentence": "Check the salt and its hydrate in the {calculatorLink}.",
+        "href": "/molecular-weight-calculator#mode-formula",
+        "label": "molecular weight calculator"
+      }
+    },
+    {
+      "id": "empirical-formula",
+      "heading": "From an empirical formula to a molecular formula",
+      "paragraphs": [
+        "An empirical formula gives the smallest whole-number ratio of elements in a compound. A molecular formula gives the number of atoms in a molecule. For glucose, reducing all the subscripts gives CH2O. That ratio is useful if you are reporting the relative amounts of carbon, hydrogen and oxygen. It leaves open how many copies of the ratio make up the actual molecule.",
+        "Use the molecular weight calculator to find the mass of one empirical unit of CH2O. It is 30.026 g/mol using the stored weights. Suppose the exercise also gives a molar mass of about 180.16 g/mol for the compound. Divide the given mass by the value for the empirical unit. The quotient is about six. Multiplying every subscript by six gives C6H12O6. The unchanged ratio and the match to the measured mass are two separate checks on the answer.",
+        "In a textbook example the quotient often lands very close to a whole number. With experimental data, look at how precisely both numbers were reported. A quotient far from a plausible whole number is a reason to revisit the proposed formula, the units and the underlying measurements. Even a good fit establishes only the atom counts. Glucose and fructose, for example, share that molecular formula."
+      ]
+    },
+    {
+      "id": "percent-by-mass",
+      "heading": "How can I find the mass percentage of an element?",
+      "paragraphs": [
+        "The element table lets you answer two different questions about water. Hydrogen supplies two of the three atoms in each molecule, so two thirds of the atoms are hydrogen. For a share by mass, read the contribution column instead. Hydrogen atoms are much lighter than oxygen atoms. Counting the symbols and weighing their contributions can therefore give very different percentages for the same sample.",
+        "For H2O, hydrogen contributes 2.016 g/mol to the total of 18.015 g/mol. Divide the contribution by the total and multiply by one hundred. Hydrogen accounts for about 11.19% of the mass. Oxygen supplies the remaining 88.81%. If you repeat this in the molecular weight calculator, keep extra digits from the underlying sum for your division. Rounding the hydrogen contribution and the total first can move the last reported digit.",
+        "You can also apply that fraction to a sample of known mass. Think of the fraction as the grams of hydrogen contained in each gram of pure water. Multiplying by the sample mass gives the mass attributable to its hydrogen atoms. This is an accounting of the elements in the compound. The hydrogen is present in water molecules, so label the result as the mass of hydrogen in the sample."
+      ]
+    },
+    {
+      "id": "mass-and-moles",
+      "heading": "Convert a weighed sample into moles",
+      "paragraphs": [
+        "Write the sample mass and the molar mass on separate lines. The first describes the material you have on the balance. The second tells you the mass associated with one mole of the named formula. To find the amount in moles, divide the sample mass in grams by the molar mass in grams per mole. The grams cancel. To go the other way, multiply the number of moles by the molar mass. Then moles cancel and grams remain.",
+        "Consider a pure glucose sample. Using the atomic weights from the molecular weight calculator, the sum before display rounding is 180.156 g/mol. A sample weighing 45.039 g therefore contains 0.25 mol of glucose. Check the direction of the division before entering the numbers. The sample weighs less than a full mole, so the answer should be less than one mole. Multiplying the result by the molar mass should return the starting mass.",
+        "If the balance reading is in milligrams, convert it to grams before using a molar mass in grams per mole. Keep the original reading next to the conversion. A factor of a thousand in the final result is a useful clue to an omitted unit change. A factor equal to a formula subscript suggests a different issue, such as reporting moles of atoms when the question asked for moles of the whole compound."
+      ]
+    },
+    {
+      "id": "purity-and-mixtures",
+      "heading": "Which mass should I use for a mixture?",
+      "paragraphs": [
+        "A mixture label can name a substance and give its share of the total mass. Suppose a 50 g sample of a sugar solution is 10% sucrose by mass. The portion to use for a sucrose mole calculation is 5 g. The rest of the sample contributes to the balance reading too. Write the mass of the whole solution on one line and the mass of sucrose on another before looking up any molar mass.",
+        "Enter sucrose as C12H22O11 in the molecular weight calculator. With the stored values, a mole has a mass of 342.297 g. Dividing the mass of sucrose by that molar mass gives about 0.0146 mol. Using the whole solution mass would make the answer ten times as large. The sugar formula would still be right, so inspecting only the formula might miss the source of that error.",
+        "Check the kind of percentage stated on the label. A percentage by mass gives grams of solute per hundred grams of solution. A concentration stated per volume needs the volume of the solution in the matching unit. If the next question asks for moles per liter, you need the final solution volume as well as the moles. A list of ingredients without their amounts cannot supply the missing quantity."
+      ]
+    },
+    {
+      "id": "rounding-weights",
+      "heading": "Why do two tables give slightly different totals?",
+      "paragraphs": [
+        "Some classroom tables print whole numbers for everyday arithmetic. Others show several digits for each element. For carbon dioxide, using twelve for carbon and sixteen for oxygen gives a total of forty-four. Using the stored entries instead gives 44.009 g/mol. Both calculations count the same carbon and oxygen atoms. The change in the last digits comes from the choice of atomic weights.",
+        "When a value differs from the one on your worksheet, copy both sets of weights alongside the element counts. Multiply each pair on its own line. A small difference repeated over many copies of one element can be easier to spot there than in the grand total. Check the counts first, then the weights, then the rounding. If the exercise supplied its own periodic table, use those entries when reproducing the expected answer.",
+        "Carry the working digits through the sum and round once at the end. Keep the precision of a measured sample separate from the number of decimals in the table. A result printed with two decimal places can still come from a sum with more digits. When passing a value on to another person, write down the chemical formula, the unit, and which table or calculator supplied the value. That is enough to trace most small disagreements."
+      ]
+    },
+    {
+      "id": "average-or-isotope",
+      "heading": "Average mass or isotope-specific mass?",
+      "paragraphs": [
+        "An element symbol identifies an element, while its atoms can occur with different isotope masses. The atomic weights used for many ordinary samples reflect typical mixtures of those isotopes. Think of an average as a way to add up the contributions of a very large collection of atoms. Any one molecule contains particular isotopes. The average by itself does not specify which ones occur in that molecule.",
+        "A question about a mass spectrum often calls for the mass of a particular isotope combination or for a mass-to-charge ratio. Check the quantity on the axis or in the instructions before comparing a peak with the molar mass here. A charge state changes the meaning of a mass-to-charge value. Removing a charge sign and reading the answer as though it described the same ion would lose that information.",
+        "The molecular weight calculator uses the values in Finflo’s stored PubChem table. The element table rounds the weights for display. Use the stored digits to reproduce a sum by hand, as in the worked examples above. For some elements without a standard atomic weight, the table gives a representative isotope mass. If a problem specifies isotope labels, use a method and mass table that accept those labels. For a routine calculation on an ordinary sample, record the table you used so another person can reproduce the total."
+      ]
+    },
+    {
+      "id": "check-formula-entry",
+      "heading": "Check a formula copied from a label",
+      "paragraphs": [
+        "A formula printed on a label may have small raised or lowered characters. In the input box, write a subscript as an ordinary digit immediately after the atom or group it belongs to. Keep capital and lowercase letters in their original positions. If you copy from a scan, compare the result with the label one symbol at a time. A lowercase letter that resembles a numeral can change what the parser reads.",
+        "The dot in a hydrate separates formula parts. A period also serves as a separator here, so write whole-number atom counts. A leading number multiplies the entire part that follows it. For example, putting a two in front of the whole water formula counts two water units. The calculated mass doubles. To find the molar mass of water itself, enter one water formula and keep any amount from a reaction or sample in your separate working.",
+        "After selecting Calculate, read the atom counts before copying the total. If your formula came from a compound preset, check that the preset names the form you intended. If you edited a subscript, check the displayed formula and run the calculation again. Saving the input alongside its result makes it possible to tell a transcription error from a genuine difference in molar mass later on."
+      ]
+    }
+  ]
+}

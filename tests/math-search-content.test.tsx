@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
+import {evaluate} from 'mathjs';
 import {MathSearchAnswer, MathSearchContent} from '@/components/content/math-search-content';
 import {mathSearchContent} from '@/data/math-search-content';
 import {calculate} from '@/lib/calculators/engine';
@@ -29,6 +30,32 @@ const volumeExamples: Record<string, Values> = {
 };
 
 describe('published formula examples agree with the working calculator', () => {
+  const molecularGuide = mathSearchContent['molecular-weight-calculator']!;
+  for (const row of molecularGuide.rows) {
+    it(`checks the formula, arithmetic and displayed molar mass for ${row.label}`, async () => {
+      const {metrics: [mass]} = await run('molecular-weight-calculator', 'formula', {formula: row.example});
+      expect(evaluate(row.formula.replaceAll('×', '*'))).toBeCloseTo(Number(mass.value), 8);
+      const displayed = Number(mass.value).toLocaleString('en-US', {maximumFractionDigits: 2});
+      expect(`${displayed} ${mass.unit}`).toBe(row.result);
+    });
+  }
+
+  it('checks the hydrate, mass percentage and mole conversions against the guide', async () => {
+    const formula = (input: string) => run('molecular-weight-calculator', 'formula', {formula: input});
+    const water = await formula('H2O');
+    const hydrate = await formula('MgSO4·7H2O');
+    const dry = await formula('MgSO4');
+    const glucose = await formula('C6H12O6');
+    const sucrose = await formula('C12H22O11');
+    const text = (id: string) => molecularGuide.sections.find(section => section.id === id)!.paragraphs.join(' ');
+    expect(hydrate.table?.rows.map(row => [row[0], row[1]])).toEqual([['Mg', 1], ['S', 1], ['O', 11], ['H', 14]]);
+    expect(text('hydrate-formula')).toContain(`${(Number(hydrate.metrics[0].value) - Number(dry.metrics[0].value)).toFixed(3)} g/mol`);
+    const hydrogen = Number(water.table!.rows.find(row => row[0] === 'H')![3]);
+    expect(text('percent-by-mass')).toContain(`${(100 * hydrogen / Number(water.metrics[0].value)).toFixed(2)}%`);
+    expect(text('mass-and-moles')).toContain(`${Number(glucose.metrics[0].value) * 0.25} g`);
+    expect(text('purity-and-mixtures')).toContain(`${(5 / Number(sucrose.metrics[0].value)).toFixed(4)} mol`);
+  });
+
   for (const [slug, examples, metricLabel] of [
     ['area-calculator', areaExamples, 'Area'],
     ['volume-calculator', volumeExamples, 'Volume'],

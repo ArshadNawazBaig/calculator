@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test';
+import {definitionMap} from '../../src/lib/calculators/registry';
 
 const mathPages = [
   {slug: 'area-calculator', title: 'Area Calculator: Rectangle, Circle, Triangle & More', rows: 9, answer: 'How to use the area calculator'},
@@ -9,6 +10,7 @@ const mathPages = [
 const priorityPages = [
   ...mathPages,
   {slug: 'pregnancy-calculator', title: 'Pregnancy Calculator: Due Date & Gestational Age', rows: 5, answer: 'Which date should I enter in the pregnancy calculator?'},
+  {slug: 'molecular-weight-calculator', title: 'Molecular Weight Calculator: Formula & Molar Mass', rows: 7, answer: 'How does the molecular weight calculator read a formula?'},
 ];
 
 for (const item of priorityPages) {
@@ -29,7 +31,7 @@ for (const item of priorityPages) {
       const app = schemas.find(value => value['@type'] === 'WebApplication');
       expect(app.inLanguage).toBe('en');
       expect(app.creator.name).toBe('Finflo');
-      expect(app.featureList.length).toBeGreaterThan(1);
+      expect(app.featureList).toEqual(definitionMap.get(item.slug)!.modes.map(mode => mode.title));
       expect(app).not.toHaveProperty('aggregateRating');
       const phrase = new RegExp(`\\b${keyword}\\b`, 'gi');
       const description = await page.locator('head meta[name="description"]').getAttribute('content');
@@ -94,8 +96,8 @@ for (const item of priorityPages) {
       };
     }, {html: await response.text(), keyword});
     expect(contentWords).toBeGreaterThanOrEqual(3250);
-    // The audit counts both words of each calculator name toward the percentage.
-    const densityPercent = (exactUses * 2 / contentWords) * 100;
+    // The audit counts each word in the matched phrase toward the percentage.
+    const densityPercent = (exactUses * keyword.split(' ').length / contentWords) * 100;
     expect(densityPercent).toBeGreaterThanOrEqual(0.58);
   });
 }
